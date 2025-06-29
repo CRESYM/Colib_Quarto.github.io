@@ -1,3 +1,7 @@
+---
+toc: false
+---
+
 ::: {.main-header}
 ::: {.logo-section}
 ![Colib Logo](https://via.placeholder.com/120x80/667eea/ffffff?text=COLIB){.site-logo}
