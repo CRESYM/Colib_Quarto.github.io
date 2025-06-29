@@ -224,3 +224,11 @@
     padding: 0 15px;
   }
 }
+
+/* Navbar Logo Styles */
+.navbar-logo {
+  height: 35px;
+  max-height: 35px;
+  width: auto;
+  margin-right: 30px;
+}
