@@ -4,7 +4,7 @@ project:
 website:
   title: Colib
   navbar:
-    right:
+    left:
       - href: index.qmd
         text: Home
       - about.qmd
@@ -23,6 +23,7 @@ website:
       Content licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
     background: light
     border: true
+  back-to-top-navigation: true
 
 format:
   html:

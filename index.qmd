@@ -1,15 +1,18 @@
----
-title: "Colib"
----
+::: {.main-header}
+::: {.logo-section}
+![Colib Logo](https://via.placeholder.com/120x80/667eea/ffffff?text=COLIB){.site-logo}
+:::
 
 # Explore and Evaluate Dynamic Power System Models and Test Cases using Colib
 
 ## An open-source collaborative dynamic simulation library for academia and industry
 
-::: {.button-group}
-[Models](models.qmd){.btn-custom} [Test systems](test_cases.qmd){.btn-custom}
+::: {.main-buttons}
+[Models](models.qmd){.btn-main} [Test systems](test_cases.qmd){.btn-main}
+:::
 :::
 
+::: {.content-section}
 ## About Colib
 
 The power system and energy systems at large experience a **paradigm shift with many novel, various active components connected**. Appraising the behaviour and reactions of such new items is critical for network operators to simulate and anticipate system operation.
@@ -20,10 +23,15 @@ Both face the need for a **collaborative shared dynamic simulation library that 
 
 Hence this Colib workspace contains **power systems components, networks, and small and large test cases for steady-state and dynamic stability studies**.
 
+::: {.feature-image}
+![Power System Components](https://via.placeholder.com/800x400/f8f9fa/6c757d?text=Power+System+Components+%26+Test+Cases){.img-fluid}
+:::
+
 For each component model and test case, you will find a detailed description and links to open-source implementations. Many other open libraries of dynamic components and test cases exist. We reference some of them here.
 
-::: {.button-group}
-[Contribute](contact.qmd){.btn-custom} [Overview](about.qmd){.btn-custom}
+::: {.action-buttons}
+[Contribute](contact.qmd){.btn-action} [Overview](about.qmd){.btn-action}
+:::
 :::
 
 
