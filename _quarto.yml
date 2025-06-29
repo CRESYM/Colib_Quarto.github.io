@@ -12,6 +12,17 @@ website:
       - test_cases.qmd
       - templates.qmd
       - contact.qmd
+  page-footer:
+    left: |
+      **Sponsors**  
+      Information about sponsors and supporters of the Colib project.
+    center: |
+      [About](about.qmd) • [Contact](contact.qmd) • [Models](models.qmd) • [Test Cases](test_cases.qmd) • [Templates](templates.qmd) • [Privacy Policy](#) • [Terms of Reference](#)
+    right: |
+      Copyright © 2023-2025 Authors of Collaborative Open-Source Dynamic Simulation Library.  
+      Content licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
+    background: light
+    border: true
 
 format:
   html:

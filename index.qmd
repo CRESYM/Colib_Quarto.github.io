@@ -26,8 +26,4 @@ For each component model and test case, you will find a detailed description and
 [Contribute](contact.qmd){.btn-custom} [Overview](about.qmd){.btn-custom}
 :::
 
-## Sponsors
 
----
-
-*Copyright © 2023-2025 Authors of Collaborative Open-Source Dynamic Simulation Library. Unless otherwise indicated, content is licensed under CC-BY-4.0.*
