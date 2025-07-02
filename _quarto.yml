@@ -3,10 +3,11 @@ project:
 
 website:
   navbar:
+    search: false
     logo: assets/img/Logo_colib.svg
     left:
       - href: index.qmd
-        text: Home
+        text: Overview
       - about.qmd
       - models.qmd
       - test_cases.qmd
@@ -26,7 +27,8 @@ format:
   html:
     theme:
       - cosmo
-    css: styles.css
+    css:
+      - styles.css
     toc: true
     grid:
-      body-width: 1000px
+      body-width: 1200px
