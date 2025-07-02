@@ -70,7 +70,7 @@
 }
 
 .btn-main:hover {
-  opacity: 0.8;
+  opacity: 0.7;
   box-shadow: 0 4px 12px #e1e1e1;
 }
 
@@ -176,15 +176,19 @@
 }
 
 .parter-logo-img {
-  height: 40px;
+  height: 30px;
   justify-self: center;
 }
 
 .parter-logo-img-lg {
-  height: 60px;
+  height: 50px;
   justify-self: center;
 }
 
 .nav-link:hover, .nav-link.active {
   color: #39729E !important;
+}
+
+.sidebar-item {
+  margin: 1rem 0;
 }

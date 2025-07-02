@@ -8,11 +8,22 @@ website:
     left:
       - href: index.qmd
         text: Overview
-      - about.qmd
-      - models.qmd
-      - test_cases.qmd
-      - templates.qmd
-      - contact.qmd
+      - href: about/index.qmd
+        text: About
+      - href: models/index.qmd
+        text: Models
+    tools:
+      - icon: github
+        href: https://github.com/CRESYM/Colib_Quarto.github.io
+  sidebar:
+    - title: About
+      style: floating
+      collapse-level: 2
+      contents: about
+    - title: Models
+      style: floating
+      collapse-level: 3
+      contents: models
   page-footer:
     left: |
       Copyright © 2023-2025 Authors of Collaborative Open-Source Dynamic Simulation Library.  
