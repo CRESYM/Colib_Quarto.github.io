@@ -12,6 +12,8 @@ website:
         text: About
       - href: models/index.qmd
         text: Models
+      - href: test_cases.qmd
+        text: Page with code
     tools:
       - icon: github
         href: https://github.com/CRESYM/Colib_Quarto.github.io
@@ -43,3 +45,7 @@ format:
     toc: true
     grid:
       body-width: 1200px
+
+execute:
+  freeze: auto
+
