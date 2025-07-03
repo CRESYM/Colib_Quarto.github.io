@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-05-05">
 
-<title>Templates</title>
+<title>Exponential Load Model</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +24,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ecea829b4ce76a2e31963bf193c29667.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-ecea829b4ce76a2e31963bf193c29667.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,19 +69,48 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./assets/img/Logo_colib.svg" alt="" class="navbar-logo">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../assets/img/Logo_colib.svg" alt="" class="navbar-logo">
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -89,15 +119,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about/index.html"> 
+    <a class="nav-link" href="../../../about/index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./models/index.html"> 
+    <a class="nav-link active" href="../../../models/index.html" aria-current="page"> 
 <span class="menu-text">Models</span></a>
   </li>  
 </ul>
@@ -107,27 +137,135 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../models/2-Loads/index.html">Loads</a></li><li class="breadcrumb-item"><a href="../../../models/2-Loads/ExpLoad/index.html">Exponential Load Model</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../models/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Models</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../models/2-Loads/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Loads</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../models/2-Loads/ExpLoad/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Exponential Load Model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../models/2-Loads/FDLoad/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Frequency Dependent Load Model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../models/2-Loads/ZIPLoad/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ZIP Load Model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../models/2-Loads/Motor/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Motors</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../models/2-Loads/Motor/SimpleMotor/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Single-cage induction motor model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../models/2-Loads/Motor/WECC_Motor/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Induction motor model with rotor flux dynamics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
+  <li><a href="#model-use-assumptions-validity-domain-and-limitations" id="toc-model-use-assumptions-validity-domain-and-limitations" class="nav-link" data-scroll-target="#model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</a></li>
+  <li><a href="#model-description" id="toc-model-description" class="nav-link" data-scroll-target="#model-description">Model description</a>
+  <ul class="collapse">
+  <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters">Parameters</a></li>
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
+  <li><a href="#system-of-equations" id="toc-system-of-equations" class="nav-link" data-scroll-target="#system-of-equations">System of equations</a></li>
+  </ul></li>
+  <li><a href="#operational-principles" id="toc-operational-principles" class="nav-link" data-scroll-target="#operational-principles">Operational principles</a></li>
+  <li><a href="#open-source-implementations" id="toc-open-source-implementations" class="nav-link" data-scroll-target="#open-source-implementations">Open source implementations</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../models/2-Loads/index.html">Loads</a></li><li class="breadcrumb-item"><a href="../../../models/2-Loads/ExpLoad/index.html">Exponential Load Model</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Templates</h1>
+<h1 class="title">Exponential Load Model</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Carlos Alegre (eRoots) </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 5, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -137,8 +275,156 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="context" class="level2">
+<h2 class="anchored" data-anchor-id="context">Context</h2>
+<p>Loads are the consumer side of an electrical power system, draining energy from a given bus. Since a load can be a bundle of elements such as shunt elements, regulators, transformers, and many other devices, it is tough to describe accurately how it behaves as a group, and there are many models that try to provide an accurate representation. It is necessary to be able to simulate the behavior of the system under different conditions. The model proposed in this page describes the <em>Exponential Load model</em> <a href="#1">[1]</a><a href="#2">[2]</a>, which is useful for steady-state for forecasting studies mainly.</p>
+</section>
+<section id="model-use-assumptions-validity-domain-and-limitations" class="level2">
+<h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
+<p>The exponential load model can be used for steady-state studies. The assumptions made for this model are:</p>
+<ul>
+<li>The load is modeled as a composite load with exponential relationship between the load and the bus voltage.</li>
+<li>The exponent value of the function is nearly equal to the slope of the function around the nominal voltage.</li>
+<li>Although this exponent varies non-linearly as a function of voltage, it can be assumed to have only time dependence for time-series static analysis.</li>
+<li>This time dependency can be omitted, just assuming a constant value for the exponent. A common combination of exponents is <span class="math inline">\(a=1\)</span> for active power and <span class="math inline">\(b=2\)</span> for reactive power.</li>
+<li>The frequency is constant, and the load is balanced.</li>
+</ul>
+</section>
+<section id="model-description" class="level2">
+<h2 class="anchored" data-anchor-id="model-description">Model description</h2>
+<section id="parameters" class="level3">
+<h3 class="anchored" data-anchor-id="parameters">Parameters</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(V_0\)</span></td>
+<td>Load Nominal voltage</td>
+<td><span class="math inline">\(V\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(P_0\)</span></td>
+<td>Load Nominal active power</td>
+<td><span class="math inline">\(W\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(Q_0\)</span></td>
+<td>Load Nominal reactive power</td>
+<td><span class="math inline">\(VAR\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="variables" class="level3">
+<h3 class="anchored" data-anchor-id="variables">Variables</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(V\)</span></td>
+<td>Phase-to-ground Bus Voltage</td>
+<td><span class="math inline">\(V\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(P\)</span></td>
+<td>Load Active power</td>
+<td><span class="math inline">\(W\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(Q\)</span></td>
+<td>Load Reactive power</td>
+<td><span class="math inline">\(VAR\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(a(t)\)</span></td>
+<td>Exponent for the load active power</td>
+<td>Unitless</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(b(t)\)</span></td>
+<td>Exponent for the load reactive power</td>
+<td>Unitless</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="system-of-equations" class="level3">
+<h3 class="anchored" data-anchor-id="system-of-equations">System of equations</h3>
+<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
+<p><span class="math display">\[P(V,t) = P_0 (\frac{V}{V_0})^{a(t)} \]</span> <span class="math display">\[Q(V,t) = Q_0 (\frac{V}{V_0})^{b(t)} \]</span></p>
+</div>
+</section>
+</section>
+<section id="operational-principles" class="level2">
+<h2 class="anchored" data-anchor-id="operational-principles">Operational principles</h2>
+<p>The model considers the load as an exponential function of voltage for both active and reactive power.</p>
+<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
+<p><span class="math display">\[P(V, t) = P_0 (\frac{V}{V_0})^{a(t)} \]</span> <span class="math display">\[Q(V, t) = Q_0 (\frac{V}{V_0})^{b(t)} \]</span></p>
+</div>
+<p>Where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are the exponents of the active and reactive power, respectively. These exponents take values that are similar to the slope of the function around the nominal voltage. If they take values of 0, 1 or 2, the load is considered constant power, constant current, or constant impedance, respectively <a href="#2">[2]</a> <a href="#3">[3]</a>. The exponents can be time-dependent functions for time-series analysis.</p>
+</section>
+<section id="open-source-implementations" class="level2">
+<h2 class="anchored" data-anchor-id="open-source-implementations">Open source implementations</h2>
+<p>This model has been successfully implemented in :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Software</th>
+<th>URL</th>
+<th>Language</th>
+<th>Open-Source License</th>
+<th>Last consulted date</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dynawo</td>
+<td><a href="https://github.com/dynawo/dynawo/blob/master/dynawo/sources/Models/Modelica/Dynawo/Electrical/Loads/LoadAlphaBeta.mo">Link</a></td>
+<td>modelica</td>
+<td><a href="https://www.mozilla.org/en-US/MPL/2.0/">MPL v2.0</a></td>
+<td>29/05/2024</td>
+<td>No comment</td>
+</tr>
+<tr class="even">
+<td>OpenIPSL</td>
+<td><a href="https://github.com/OpenIPSL/OpenIPSL/blob/master/OpenIPSL/Electrical/Loads/PSAT/VoltageDependent.mo">Link</a></td>
+<td>modelica</td>
+<td><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-clause</a></td>
+<td>29/05/2024</td>
+<td>No comment</td>
+</tr>
+<tr class="odd">
+<td>PowerSimulationsDynamics</td>
+<td><a href="https://github.com/NREL-Sienna/PowerSimulationsDynamics.jl/blob/main/src/models/load_models.jl">Link</a></td>
+<td>julia</td>
+<td><a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-clause</a></td>
+<td>29/05/2024</td>
+<td>No comment</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p><a id="1">[1]</a> IEEE Task Force, “Load Representation for Dynamic Performance Analysis” 1993 IEEE Transactions on Power Systems, Vol. 8, No.&nbsp;2.</p>
+<p><a id="2">[2]</a> Kundur, Prabha. “Power System Stability and Control” New York, USA, 1994, McGraw-Hill.</p>
+<p><a id="3">[3]</a> Kothari, D. P.; Nagrath, I. J. “Modern Power System Analysis”, 4th ed., New Delhi, India, 2011, Tata McGraw-Hill.</p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -551,7 +837,7 @@ Content licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p><a href="./about.html">About</a> • <a href="./contact.html">Contact</a> • <a href="./models.html">Models</a> • <a href="./test_cases.html">Test Cases</a> • <a href="./templates.html">Templates</a> • <a href="#">Privacy Policy</a> • <a href="#">Terms of Reference</a></p>
+<p><a href="about.qmd">About</a> • <a href="contact.qmd">Contact</a> • <a href="models.qmd">Models</a> • <a href="test_cases.qmd">Test Cases</a> • <a href="templates.qmd">Templates</a> • <a href="#">Privacy Policy</a> • <a href="#">Terms of Reference</a></p>
 </div>
   </div>
 </footer>
