@@ -7,176 +7,78 @@
     "text": "About this site\n\n\n\n Back to top"
   },
   {
-    "objectID": "models/2-Loads/ZIPLoad/index.html",
-    "href": "models/2-Loads/ZIPLoad/index.html",
-    "title": "ZIP Load Model",
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact",
     "section": "",
-    "text": "Loads are the consumer side of an electrical power system, draining energy from a given bus. Since a load can be a bundle of elements such as shunt elements, regulators, transformers, and many other devices, it is tough to describe accurately how it behaves as a group, and there are many models that try to provide an accurate representation. It is necessary to be able to simulate the behavior of the system under different conditions. The model proposed in this page describes the ZIP load model, also referred to as polynomial load model [1] [2] [3], which is useful for steady-state for forecasting studies mainly.",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "ZIP Load Model"
-    ]
+    "text": "Back to top"
   },
   {
-    "objectID": "models/2-Loads/ZIPLoad/index.html#context",
-    "href": "models/2-Loads/ZIPLoad/index.html#context",
-    "title": "ZIP Load Model",
+    "objectID": "about/index.html",
+    "href": "about/index.html",
+    "title": "Overview about COLib",
     "section": "",
-    "text": "Loads are the consumer side of an electrical power system, draining energy from a given bus. Since a load can be a bundle of elements such as shunt elements, regulators, transformers, and many other devices, it is tough to describe accurately how it behaves as a group, and there are many models that try to provide an accurate representation. It is necessary to be able to simulate the behavior of the system under different conditions. The model proposed in this page describes the ZIP load model, also referred to as polynomial load model [1] [2] [3], which is useful for steady-state for forecasting studies mainly.",
+    "text": "The power system and energy systems at large experience a paradigm shift with many novel , active components connected. Appraising the behavior and reactions of such new items is critical for network operators to simulate and anticipate system operation, and for this, available, reliable up to date and possibly specifically targeted component models are required.\nAt present, on one hand, operators manage to gather and build pragmatically a model database of the components directly connected to their network. They remain however blind or use rough proxies to cope with: - Components indirectly connected (e.g. to neighboring, coupled networks, such as electricity or gas grids ; and/or quite likely in a soon future: across sectors) - Future connected ones (components at design stage, latest technology, and proprietary manufacturer models).\nOn the other hand, research also suffers from the lack of all the necessary component models and is slowed down by the effort required to circumvent it.\nThey both face the need for a collaborative shared dynamic simulation library that would benefit to all by its high quality, transparency of model equations, and concrete applications (real test cases).",
     "crumbs": [
-      "Models",
-      "Loads",
-      "ZIP Load Model"
+      "About",
+      "Overview about COLib"
     ]
   },
   {
-    "objectID": "models/2-Loads/ZIPLoad/index.html#model-use-assumptions-validity-domain-and-limitations",
-    "href": "models/2-Loads/ZIPLoad/index.html#model-use-assumptions-validity-domain-and-limitations",
-    "title": "ZIP Load Model",
-    "section": "Model use, assumptions, validity domain and limitations",
-    "text": "Model use, assumptions, validity domain and limitations\nThe ZIP load model can be used for steady-state studies. The assumptions made for this model are:\n\nThe load is formed by a combination of constant impedance loads, constant current loads and constant power loads.\nThe total load can be represented as a function of the bus voltage by adding the three types of loads in a weighted polynomial.\nThe frequency is constant, and the load is balanced.",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "ZIP Load Model"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/ZIPLoad/index.html#model-description",
-    "href": "models/2-Loads/ZIPLoad/index.html#model-description",
-    "title": "ZIP Load Model",
-    "section": "Model description",
-    "text": "Model description\n\nParameters\n\n\n\n\n\n\n\n\nParameter\nDescription\nUnit\n\n\n\n\n\\[V_0\\]\nLoad Nominal voltage\n\\[V\\]\n\n\n\\[P_0\\]\nLoad Nominal active power\n\\[W\\]\n\n\n\\[Q_0\\]\nLoad Nominal reactive power\n\\[VAR\\]\n\n\n\\[a_1\\]\nCoefficient for active power quadratic term (Constant impedance load)\nUnitless\n\n\n\\[a_2\\]\nCoefficient for active power linear term (Constant current load)\nUnitless\n\n\n\\[a_3\\]\nCoefficient for active power constant term (Constant power load)\nUnitless\n\n\n\\[a_4\\]\nCoefficient for reactive power quadratic term (Constant impedance load)\nUnitless\n\n\n\\[a_5\\]\nCoefficient for reactive power linear term (Constant current load)\nUnitless\n\n\n\\[a_6\\]\nCoefficient for reactive power constant term (Constant power load)\nUnitless\n\n\n\n\n\nVariables\n\n\n\nVariable\nDescription\nUnit\n\n\n\n\n\\[V\\]\nPhase-to-ground Bus Voltage\n\\[V\\]\n\n\n\\[P\\]\nLoad Active power\n\\[W\\]\n\n\n\\[Q\\]\nLoad Reactive power\n\\[VAR\\]\n\n\n\n\n\nSystem of equations\n\n\\[P = P_0 [a_1 (\\frac{V}{V_0})^{2} + a_2 \\frac{V}{V_0} + a_3]\\] \\[Q = Q_0 [a_4 (\\frac{V}{V_0})^{2} + a_5 \\frac{V}{V_0} + a_6]\\]",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "ZIP Load Model"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/ZIPLoad/index.html#operational-principles",
-    "href": "models/2-Loads/ZIPLoad/index.html#operational-principles",
-    "title": "ZIP Load Model",
-    "section": "Operational principles",
-    "text": "Operational principles\nThis model arises from the consideration of three different type of loads joined together in a weighted model. The three types of loads are constant impedance, constant current, and constant power, which is giving the name (ZIP) to the model. The following representations of power loads are used for each type [2]:\n\nConstant impedance load: \\[S_{Z}^* = V^2/Z\\]\nConstant current load: \\[S_{I} = V I^*\\]\nConstant power load: \\[S_{P} = P + jQ\\]\n\nThe total terms of power can be described as a function of the voltage \\[V\\] of the bus where the load is connected by the following weighted polynomial [1][3]:\n\n\\[P = P_0 [a_1 (\\frac{V}{V_0})^{2} + a_2 \\frac{V}{V_0} + a_3] \\] \\[Q = Q_0 [a_4 (\\frac{V}{V_0})^{2} + a_5 \\frac{V}{V_0} + a_6] \\] \\[a_1 + a_2 + a_3 = 1\\] \\[a_4 + a_5 + a_6 = 1\\]\n\nWhere the coefficients \\[a_i\\] are the weights of the ZIP model, and \\[V_0\\], \\[P_0\\] and \\[Q_0\\] are the nominal voltage, power and reactive power of the load, respectively.",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "ZIP Load Model"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/ZIPLoad/index.html#open-source-implementations",
-    "href": "models/2-Loads/ZIPLoad/index.html#open-source-implementations",
-    "title": "ZIP Load Model",
-    "section": "Open source implementations",
-    "text": "Open source implementations\nThis model has been successfully implemented in :\n\n\n\nSoftware\nURL\nLanguage\nOpen-Source License\nLast consulted date\nComments\n\n\n\n\nDynawo\nLink\nmodelica\nMPL v2.0\n29/05/2024\nNo comment\n\n\nAndes\nLink\nPython\nGPLv3\n29/05/2024\nNo comment\n\n\nOpenIPSL\nLink\nmodelica\nBSD-3-clause\n29/05/2024\nNo comment",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "ZIP Load Model"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/ZIPLoad/index.html#table-of-references",
-    "href": "models/2-Loads/ZIPLoad/index.html#table-of-references",
-    "title": "ZIP Load Model",
-    "section": "Table of references",
-    "text": "Table of references\n[1] IEEE Task Force, “Load Representation for Dynamic Performance Analysis” 1993 IEEE Transactions on Power Systems, Vol. 8, No. 2.\n[2] Kothari, D. P.; Nagrath, I. J. “Modern Power System Analysis”, 4th ed., New Delhi, India, 2011, Tata McGraw-Hill.\n[3] Kundur, Prabha. “Power System Stability and Control” New York, USA, 1994, McGraw-Hill.",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "ZIP Load Model"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/index.html",
-    "href": "models/2-Loads/index.html",
-    "title": "Loads",
+    "objectID": "about/index.html#why-this-library",
+    "href": "about/index.html#why-this-library",
+    "title": "Overview about COLib",
     "section": "",
-    "text": "{% include folderNav.html %}\n\n\n\n Back to top",
+    "text": "The power system and energy systems at large experience a paradigm shift with many novel , active components connected. Appraising the behavior and reactions of such new items is critical for network operators to simulate and anticipate system operation, and for this, available, reliable up to date and possibly specifically targeted component models are required.\nAt present, on one hand, operators manage to gather and build pragmatically a model database of the components directly connected to their network. They remain however blind or use rough proxies to cope with: - Components indirectly connected (e.g. to neighboring, coupled networks, such as electricity or gas grids ; and/or quite likely in a soon future: across sectors) - Future connected ones (components at design stage, latest technology, and proprietary manufacturer models).\nOn the other hand, research also suffers from the lack of all the necessary component models and is slowed down by the effort required to circumvent it.\nThey both face the need for a collaborative shared dynamic simulation library that would benefit to all by its high quality, transparency of model equations, and concrete applications (real test cases).",
     "crumbs": [
-      "Models",
-      "Loads"
+      "About",
+      "Overview about COLib"
     ]
   },
   {
-    "objectID": "models/2-Loads/Motor/WECC_Motor/index.html",
-    "href": "models/2-Loads/Motor/WECC_Motor/index.html",
-    "title": "Induction motor model with rotor flux dynamics",
+    "objectID": "about/index.html#what-does-this-library-contain",
+    "href": "about/index.html#what-does-this-library-contain",
+    "title": "Overview about COLib",
+    "section": "What does this library contain?",
+    "text": "What does this library contain?\nIt contains detailed dynamic models of electrical components and power systems test cases, containing data information and relying on those components.\nEach model or test case is formally described in a dedicated post (like a wikipedia webpage), with links to known existing implementations. Some of the models and test cases directly come from CRESYM projects outputs, others are originated from external royalty-free projects.",
+    "crumbs": [
+      "About",
+      "Overview about COLib"
+    ]
+  },
+  {
+    "objectID": "about/index.html#creative-commons-attribution-4.0-international-public-license",
+    "href": "about/index.html#creative-commons-attribution-4.0-international-public-license",
+    "title": "Overview about COLib",
+    "section": "Creative Commons Attribution 4.0 International Public License",
+    "text": "Creative Commons Attribution 4.0 International Public License\nWhether you are operators, researchers, managerial staff, engineers, developers, or just a power system fan inside or outside CRESYM, you can: - copy, distribute and communicate the material by any means and in any format - remix, transform and create from the material\nunder the following conditions : - you must credit the work, include a link to the license, and indicate if any modifications have been made to the work. You must provide this information by all reasonable means, but do not suggest that the offeror endorses you or the way you have used their work. - You are not authorized to make commercial use of this work, all or part of the material composing it.",
+    "crumbs": [
+      "About",
+      "Overview about COLib"
+    ]
+  },
+  {
+    "objectID": "about/notationAndConventions.html",
+    "href": "about/notationAndConventions.html",
+    "title": "Electrical, Electronics and Control notations and conventions",
     "section": "",
-    "text": "Motors are a particular kind of load that can account for a large share of the total load especially in industrialised countries. Adequate representation of motors is important, especially in short-term voltage stability studies as motors can cause fault-induced delayed voltage recovery [1].",
+    "text": "This page provides a list of the most common notations in the electrical, electronics and control notations.\n\nFrequencies should be named f\nCurrents should be named i (for complex variable), I (for absolute value) or id/iq for dq-axis values\nVoltages (phase-to-phase) should be named u (for complex variable), U (for absolute value) or ud/uq for dq-axis values\nVoltages (phase-to-ground) should be named v (for complex variable),V (for absolute value) or vd/vq for dq-axis values\nApparent power should be named s (for complex variable) or S (for absolute value)\nActive power should be named P, reactive power should be named Q\nImpedance should be named Z, resistance should be named R, reactance should be named X, admittance should be named Y, conductance should be named G, susceptance should be named B\nAngles should be named according to their name in textbooks (ex: theta)\nTime should be named t (T is used for the temperature).\n*,° are used for setpoint values\ns is used for the transfer functions\n\n\n\n\n Back to top",
     "crumbs": [
-      "Models",
-      "Loads",
-      "Motors",
-      "Induction motor model with rotor flux dynamics"
+      "About",
+      "Overview about COLib",
+      "Electrical, Electronics and Control notations and conventions"
     ]
   },
   {
-    "objectID": "models/2-Loads/Motor/WECC_Motor/index.html#context",
-    "href": "models/2-Loads/Motor/WECC_Motor/index.html#context",
-    "title": "Induction motor model with rotor flux dynamics",
+    "objectID": "about/codeConduct.html",
+    "href": "about/codeConduct.html",
+    "title": "Code of conduct",
     "section": "",
-    "text": "Motors are a particular kind of load that can account for a large share of the total load especially in industrialised countries. Adequate representation of motors is important, especially in short-term voltage stability studies as motors can cause fault-induced delayed voltage recovery [1].",
+    "text": "This project applies the Mozilla Community Participation Guidelines.\nAs a user or developer of this code, you are expected to follow those guidelines.\nPlease report unacceptable behavior to the project’s teams at helpdesk@cresym.eu.\n\n\n\n Back to top",
     "crumbs": [
-      "Models",
-      "Loads",
-      "Motors",
-      "Induction motor model with rotor flux dynamics"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/Motor/WECC_Motor/index.html#model-use-assumptions-validity-domain-and-limitations",
-    "href": "models/2-Loads/Motor/WECC_Motor/index.html#model-use-assumptions-validity-domain-and-limitations",
-    "title": "Induction motor model with rotor flux dynamics",
-    "section": "Model use, assumptions, validity domain and limitations",
-    "text": "Model use, assumptions, validity domain and limitations\nThe motor model can be used for short-term voltage stability studies. The assumptions made for this model are:\n\nThe rotor resistance is constant (no skin-effect or double-cage motors).\nThe motor is balanced.\nThe magnetic circuit is considered to be linear, neglecting saturation effects.\nThe mechanical torque varies as a constant power of the rotor speed (e.g. constant torque or quadratic torque).\n\nThe model takes into account transient and subtransient phenomena and is therefore suitable for systems with a very large motor share (&gt;50% of the total load) or to compute the short-circuit contribution from motors.",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "Motors",
-      "Induction motor model with rotor flux dynamics"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/Motor/WECC_Motor/index.html#model-description",
-    "href": "models/2-Loads/Motor/WECC_Motor/index.html#model-description",
-    "title": "Induction motor model with rotor flux dynamics",
-    "section": "Model description",
-    "text": "Model description\n\nParameters\n\n\n\n\n\n\n\n\n\nParameter\nDescription\nUnit\nTypical value\n\n\n\n\n\\[\\omega_s\\]\nSynchronous speed\n\\[rad/s\\]\n\\[314rad/s\\]\n\n\n\\[R_s\\]\nStator resistance\n\\[\\Omega\\]\n\\[0.02pu\\]\n\n\n\\[L_s\\]\nSynchronous reactance\n\\[\\Omega\\]\n\\[1.8pu\\]\n\n\n\\[L_p\\]\nTransient reactance\n\\[\\Omega\\]\n\\[0.12pu\\]\n\n\n\\[L_{pp}\\]\nSubtransient reactance\n\\[\\Omega\\]\n\\[0.104pu\\]\n\n\n\\[t_{p0}\\]\nTransient open circuit time constant\n\\[s\\]\n\\[0.08s\\]\n\n\n\\[t_{pp0}\\]\nSubtransient open circuit time constant\n\\[s\\]\n\\[0.0021s\\]\n\n\n\\[J\\]\nMoment of inertia\n\\[kgm^2\\]\n0.1 to 5s\n\n\n\\[\\eta\\]\nExponent of the torque speed dependency\nUnitless\n0 to 3\n\n\n\\[C_{l, 0}\\]\nInitial load torque\n\\[Nm\\]\nN/A\n\n\n\\[\\omega_0\\]\nInitial rotor speed\n\\[rad/s\\]\nN/A\n\n\n\n\n\nVariables\n\n\n\n\n\n\n\n\nVariable\nDescription\nUnit\n\n\n\n\n\\[V\\]\nStator voltage\n\\[V\\]\n\n\n\\[E_d'\\]\nVoltage behind transient reactance d component\n\\[V\\]\n\n\n\\[E_q'\\]\nVoltage behind transient reactance q component\n\\[V\\]\n\n\n\\[E_d''\\]\nVoltage behind subtransient reactance d component\n\\[V\\]\n\n\n\\[E_q''\\]\nVoltage behind subtransient reactance q component\n\\[V\\]\n\n\n\\[I_d\\]\nCurrent of direct axis\n\\[A\\]\n\n\n\\[I_q\\]\nCurrent of quadrature axis\n\\[A\\]\n\n\n\\[C_e\\]\nElectrical torque\n\\[Nm\\]\n\n\n\\[C_l\\]\nLoad torque\n\\[Nm\\]\n\n\nSLIP\nRotor slip\nUnitless\n\n\n\\[\\omega\\]\nRotor speed\n\\[rad/s\\]\n\n\n\n\n\nEquations\nThe electrical equations are described by the figure below [1].\n\n\n\nElectrical equations of the induction motor\n\n\nAnd is interfaced to the grid with\n\n\\[V = (E_d'' + j E_q'') + (R_s + j L_{pp}) (I_d + j I_q)\\]\n\nAnd the mechanical equations are\n\n\\[2 J  \\frac{d\\omega}{dt} = C_e - C_l\\] \\[SLIP = \\frac{\\omega_s - \\omega}{\\omega_s}\\] \\[C_e = E_d'' I_d + E_q'' I_q\\] \\[C_l = C_{l, 0} \\left(\\frac{\\omega}{\\omega_0}\\right)^\\eta\\]",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "Motors",
-      "Induction motor model with rotor flux dynamics"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/Motor/WECC_Motor/index.html#open-source-implementations",
-    "href": "models/2-Loads/Motor/WECC_Motor/index.html#open-source-implementations",
-    "title": "Induction motor model with rotor flux dynamics",
-    "section": "Open source implementations",
-    "text": "Open source implementations\nThis model has been successfully implemented in :\n\n\n\nSoftware\nURL\nLanguage\nOpen-Source License\nLast consulted date\nComments\n\n\n\n\nDynawo\nLink\nmodelica\nMPL v2.0\n12/08/2024\nno comment",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "Motors",
-      "Induction motor model with rotor flux dynamics"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/Motor/WECC_Motor/index.html#table-of-references",
-    "href": "models/2-Loads/Motor/WECC_Motor/index.html#table-of-references",
-    "title": "Induction motor model with rotor flux dynamics",
-    "section": "Table of references",
-    "text": "Table of references\n[1] PowerWorld. “Load Characteristic MOTORW”, https://www.powerworld.com/WebHelp/Content/TransientModels_HTML/Load%20Characteristic%20MOTORW.htm",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "Motors",
-      "Induction motor model with rotor flux dynamics"
+      "About",
+      "Overview about COLib",
+      "Code of conduct"
     ]
   },
   {
@@ -264,15 +166,437 @@
     ]
   },
   {
-    "objectID": "about/codeConduct.html",
-    "href": "about/codeConduct.html",
-    "title": "Code of conduct",
+    "objectID": "models/2-Loads/Motor/WECC_Motor/index.html",
+    "href": "models/2-Loads/Motor/WECC_Motor/index.html",
+    "title": "Induction motor model with rotor flux dynamics",
     "section": "",
-    "text": "This project applies the Mozilla Community Participation Guidelines.\nAs a user or developer of this code, you are expected to follow those guidelines.\nPlease report unacceptable behavior to the project’s teams at helpdesk@cresym.eu.\n\n\n\n Back to top",
+    "text": "Motors are a particular kind of load that can account for a large share of the total load especially in industrialised countries. Adequate representation of motors is important, especially in short-term voltage stability studies as motors can cause fault-induced delayed voltage recovery [1].",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "Motors",
+      "Induction motor model with rotor flux dynamics"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/Motor/WECC_Motor/index.html#context",
+    "href": "models/2-Loads/Motor/WECC_Motor/index.html#context",
+    "title": "Induction motor model with rotor flux dynamics",
+    "section": "",
+    "text": "Motors are a particular kind of load that can account for a large share of the total load especially in industrialised countries. Adequate representation of motors is important, especially in short-term voltage stability studies as motors can cause fault-induced delayed voltage recovery [1].",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "Motors",
+      "Induction motor model with rotor flux dynamics"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/Motor/WECC_Motor/index.html#model-use-assumptions-validity-domain-and-limitations",
+    "href": "models/2-Loads/Motor/WECC_Motor/index.html#model-use-assumptions-validity-domain-and-limitations",
+    "title": "Induction motor model with rotor flux dynamics",
+    "section": "Model use, assumptions, validity domain and limitations",
+    "text": "Model use, assumptions, validity domain and limitations\nThe motor model can be used for short-term voltage stability studies. The assumptions made for this model are:\n\nThe rotor resistance is constant (no skin-effect or double-cage motors).\nThe motor is balanced.\nThe magnetic circuit is considered to be linear, neglecting saturation effects.\nThe mechanical torque varies as a constant power of the rotor speed (e.g. constant torque or quadratic torque).\n\nThe model takes into account transient and subtransient phenomena and is therefore suitable for systems with a very large motor share (&gt;50% of the total load) or to compute the short-circuit contribution from motors.",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "Motors",
+      "Induction motor model with rotor flux dynamics"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/Motor/WECC_Motor/index.html#model-description",
+    "href": "models/2-Loads/Motor/WECC_Motor/index.html#model-description",
+    "title": "Induction motor model with rotor flux dynamics",
+    "section": "Model description",
+    "text": "Model description\n\nParameters\n\n\n\n\n\n\n\n\n\nParameter\nDescription\nUnit\nTypical value\n\n\n\n\n\\[\\omega_s\\]\nSynchronous speed\n\\[rad/s\\]\n\\[314rad/s\\]\n\n\n\\[R_s\\]\nStator resistance\n\\[\\Omega\\]\n\\[0.02pu\\]\n\n\n\\[L_s\\]\nSynchronous reactance\n\\[\\Omega\\]\n\\[1.8pu\\]\n\n\n\\[L_p\\]\nTransient reactance\n\\[\\Omega\\]\n\\[0.12pu\\]\n\n\n\\[L_{pp}\\]\nSubtransient reactance\n\\[\\Omega\\]\n\\[0.104pu\\]\n\n\n\\[t_{p0}\\]\nTransient open circuit time constant\n\\[s\\]\n\\[0.08s\\]\n\n\n\\[t_{pp0}\\]\nSubtransient open circuit time constant\n\\[s\\]\n\\[0.0021s\\]\n\n\n\\[J\\]\nMoment of inertia\n\\[kgm^2\\]\n0.1 to 5s\n\n\n\\[\\eta\\]\nExponent of the torque speed dependency\nUnitless\n0 to 3\n\n\n\\[C_{l, 0}\\]\nInitial load torque\n\\[Nm\\]\nN/A\n\n\n\\[\\omega_0\\]\nInitial rotor speed\n\\[rad/s\\]\nN/A\n\n\n\n\n\nVariables\n\n\n\n\n\n\n\n\nVariable\nDescription\nUnit\n\n\n\n\n\\[V\\]\nStator voltage\n\\[V\\]\n\n\n\\[E_d'\\]\nVoltage behind transient reactance d component\n\\[V\\]\n\n\n\\[E_q'\\]\nVoltage behind transient reactance q component\n\\[V\\]\n\n\n\\[E_d''\\]\nVoltage behind subtransient reactance d component\n\\[V\\]\n\n\n\\[E_q''\\]\nVoltage behind subtransient reactance q component\n\\[V\\]\n\n\n\\[I_d\\]\nCurrent of direct axis\n\\[A\\]\n\n\n\\[I_q\\]\nCurrent of quadrature axis\n\\[A\\]\n\n\n\\[C_e\\]\nElectrical torque\n\\[Nm\\]\n\n\n\\[C_l\\]\nLoad torque\n\\[Nm\\]\n\n\nSLIP\nRotor slip\nUnitless\n\n\n\\[\\omega\\]\nRotor speed\n\\[rad/s\\]\n\n\n\n\n\nEquations\nThe electrical equations are described by the figure below [1].\n\n\n\nElectrical equations of the induction motor\n\n\nAnd is interfaced to the grid with\n\n\\[V = (E_d'' + j E_q'') + (R_s + j L_{pp}) (I_d + j I_q)\\]\n\nAnd the mechanical equations are\n\n\\[2 J  \\frac{d\\omega}{dt} = C_e - C_l\\] \\[SLIP = \\frac{\\omega_s - \\omega}{\\omega_s}\\] \\[C_e = E_d'' I_d + E_q'' I_q\\] \\[C_l = C_{l, 0} \\left(\\frac{\\omega}{\\omega_0}\\right)^\\eta\\]",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "Motors",
+      "Induction motor model with rotor flux dynamics"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/Motor/WECC_Motor/index.html#open-source-implementations",
+    "href": "models/2-Loads/Motor/WECC_Motor/index.html#open-source-implementations",
+    "title": "Induction motor model with rotor flux dynamics",
+    "section": "Open source implementations",
+    "text": "Open source implementations\nThis model has been successfully implemented in :\n\n\n\nSoftware\nURL\nLanguage\nOpen-Source License\nLast consulted date\nComments\n\n\n\n\nDynawo\nLink\nmodelica\nMPL v2.0\n12/08/2024\nno comment",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "Motors",
+      "Induction motor model with rotor flux dynamics"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/Motor/WECC_Motor/index.html#table-of-references",
+    "href": "models/2-Loads/Motor/WECC_Motor/index.html#table-of-references",
+    "title": "Induction motor model with rotor flux dynamics",
+    "section": "Table of references",
+    "text": "Table of references\n[1] PowerWorld. “Load Characteristic MOTORW”, https://www.powerworld.com/WebHelp/Content/TransientModels_HTML/Load%20Characteristic%20MOTORW.htm",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "Motors",
+      "Induction motor model with rotor flux dynamics"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/ZIPLoad/index.html",
+    "href": "models/2-Loads/ZIPLoad/index.html",
+    "title": "ZIP Load Model",
+    "section": "",
+    "text": "Loads are the consumer side of an electrical power system, draining energy from a given bus. Since a load can be a bundle of elements such as shunt elements, regulators, transformers, and many other devices, it is tough to describe accurately how it behaves as a group, and there are many models that try to provide an accurate representation. It is necessary to be able to simulate the behavior of the system under different conditions. The model proposed in this page describes the ZIP load model, also referred to as polynomial load model [1] [2] [3], which is useful for steady-state for forecasting studies mainly.",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "ZIP Load Model"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/ZIPLoad/index.html#context",
+    "href": "models/2-Loads/ZIPLoad/index.html#context",
+    "title": "ZIP Load Model",
+    "section": "",
+    "text": "Loads are the consumer side of an electrical power system, draining energy from a given bus. Since a load can be a bundle of elements such as shunt elements, regulators, transformers, and many other devices, it is tough to describe accurately how it behaves as a group, and there are many models that try to provide an accurate representation. It is necessary to be able to simulate the behavior of the system under different conditions. The model proposed in this page describes the ZIP load model, also referred to as polynomial load model [1] [2] [3], which is useful for steady-state for forecasting studies mainly.",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "ZIP Load Model"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/ZIPLoad/index.html#model-use-assumptions-validity-domain-and-limitations",
+    "href": "models/2-Loads/ZIPLoad/index.html#model-use-assumptions-validity-domain-and-limitations",
+    "title": "ZIP Load Model",
+    "section": "Model use, assumptions, validity domain and limitations",
+    "text": "Model use, assumptions, validity domain and limitations\nThe ZIP load model can be used for steady-state studies. The assumptions made for this model are:\n\nThe load is formed by a combination of constant impedance loads, constant current loads and constant power loads.\nThe total load can be represented as a function of the bus voltage by adding the three types of loads in a weighted polynomial.\nThe frequency is constant, and the load is balanced.",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "ZIP Load Model"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/ZIPLoad/index.html#model-description",
+    "href": "models/2-Loads/ZIPLoad/index.html#model-description",
+    "title": "ZIP Load Model",
+    "section": "Model description",
+    "text": "Model description\n\nParameters\n\n\n\n\n\n\n\n\nParameter\nDescription\nUnit\n\n\n\n\n\\[V_0\\]\nLoad Nominal voltage\n\\[V\\]\n\n\n\\[P_0\\]\nLoad Nominal active power\n\\[W\\]\n\n\n\\[Q_0\\]\nLoad Nominal reactive power\n\\[VAR\\]\n\n\n\\[a_1\\]\nCoefficient for active power quadratic term (Constant impedance load)\nUnitless\n\n\n\\[a_2\\]\nCoefficient for active power linear term (Constant current load)\nUnitless\n\n\n\\[a_3\\]\nCoefficient for active power constant term (Constant power load)\nUnitless\n\n\n\\[a_4\\]\nCoefficient for reactive power quadratic term (Constant impedance load)\nUnitless\n\n\n\\[a_5\\]\nCoefficient for reactive power linear term (Constant current load)\nUnitless\n\n\n\\[a_6\\]\nCoefficient for reactive power constant term (Constant power load)\nUnitless\n\n\n\n\n\nVariables\n\n\n\nVariable\nDescription\nUnit\n\n\n\n\n\\[V\\]\nPhase-to-ground Bus Voltage\n\\[V\\]\n\n\n\\[P\\]\nLoad Active power\n\\[W\\]\n\n\n\\[Q\\]\nLoad Reactive power\n\\[VAR\\]\n\n\n\n\n\nSystem of equations\n\n\\[P = P_0 [a_1 (\\frac{V}{V_0})^{2} + a_2 \\frac{V}{V_0} + a_3]\\] \\[Q = Q_0 [a_4 (\\frac{V}{V_0})^{2} + a_5 \\frac{V}{V_0} + a_6]\\]",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "ZIP Load Model"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/ZIPLoad/index.html#operational-principles",
+    "href": "models/2-Loads/ZIPLoad/index.html#operational-principles",
+    "title": "ZIP Load Model",
+    "section": "Operational principles",
+    "text": "Operational principles\nThis model arises from the consideration of three different type of loads joined together in a weighted model. The three types of loads are constant impedance, constant current, and constant power, which is giving the name (ZIP) to the model. The following representations of power loads are used for each type [2]:\n\nConstant impedance load: \\[S_{Z}^* = V^2/Z\\]\nConstant current load: \\[S_{I} = V I^*\\]\nConstant power load: \\[S_{P} = P + jQ\\]\n\nThe total terms of power can be described as a function of the voltage \\[V\\] of the bus where the load is connected by the following weighted polynomial [1][3]:\n\n\\[P = P_0 [a_1 (\\frac{V}{V_0})^{2} + a_2 \\frac{V}{V_0} + a_3] \\] \\[Q = Q_0 [a_4 (\\frac{V}{V_0})^{2} + a_5 \\frac{V}{V_0} + a_6] \\] \\[a_1 + a_2 + a_3 = 1\\] \\[a_4 + a_5 + a_6 = 1\\]\n\nWhere the coefficients \\[a_i\\] are the weights of the ZIP model, and \\[V_0\\], \\[P_0\\] and \\[Q_0\\] are the nominal voltage, power and reactive power of the load, respectively.",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "ZIP Load Model"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/ZIPLoad/index.html#open-source-implementations",
+    "href": "models/2-Loads/ZIPLoad/index.html#open-source-implementations",
+    "title": "ZIP Load Model",
+    "section": "Open source implementations",
+    "text": "Open source implementations\nThis model has been successfully implemented in :\n\n\n\nSoftware\nURL\nLanguage\nOpen-Source License\nLast consulted date\nComments\n\n\n\n\nDynawo\nLink\nmodelica\nMPL v2.0\n29/05/2024\nNo comment\n\n\nAndes\nLink\nPython\nGPLv3\n29/05/2024\nNo comment\n\n\nOpenIPSL\nLink\nmodelica\nBSD-3-clause\n29/05/2024\nNo comment",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "ZIP Load Model"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/ZIPLoad/index.html#table-of-references",
+    "href": "models/2-Loads/ZIPLoad/index.html#table-of-references",
+    "title": "ZIP Load Model",
+    "section": "Table of references",
+    "text": "Table of references\n[1] IEEE Task Force, “Load Representation for Dynamic Performance Analysis” 1993 IEEE Transactions on Power Systems, Vol. 8, No. 2.\n[2] Kothari, D. P.; Nagrath, I. J. “Modern Power System Analysis”, 4th ed., New Delhi, India, 2011, Tata McGraw-Hill.\n[3] Kundur, Prabha. “Power System Stability and Control” New York, USA, 1994, McGraw-Hill.",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "ZIP Load Model"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/FDLoad/index.html",
+    "href": "models/2-Loads/FDLoad/index.html",
+    "title": "Frequency Dependent Load Model",
+    "section": "",
+    "text": "Loads are the consumer side of an electrical power system, draining energy from a given bus. Since a load can be a bundle of elements such as shunt elements, regulators, transformers, and many other devices, it is tough to describe accurately how it behaves as a group, and there are many models that try to provide an accurate representation. It is necessary to be able to simulate the behavior of the system under different conditions. The model proposed in this page describes the Frequency Dependent Load Model [1] [2], which is used in addition to a static load model to describe the behavior of the load under frequency changes.",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "Frequency Dependent Load Model"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/FDLoad/index.html#context",
+    "href": "models/2-Loads/FDLoad/index.html#context",
+    "title": "Frequency Dependent Load Model",
+    "section": "",
+    "text": "Loads are the consumer side of an electrical power system, draining energy from a given bus. Since a load can be a bundle of elements such as shunt elements, regulators, transformers, and many other devices, it is tough to describe accurately how it behaves as a group, and there are many models that try to provide an accurate representation. It is necessary to be able to simulate the behavior of the system under different conditions. The model proposed in this page describes the Frequency Dependent Load Model [1] [2], which is used in addition to a static load model to describe the behavior of the load under frequency changes.",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "Frequency Dependent Load Model"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/FDLoad/index.html#model-use-assumptions-validity-domain-and-limitations",
+    "href": "models/2-Loads/FDLoad/index.html#model-use-assumptions-validity-domain-and-limitations",
+    "title": "Frequency Dependent Load Model",
+    "section": "Model use, assumptions, validity domain and limitations",
+    "text": "Model use, assumptions, validity domain and limitations\nThe frequency dependent load model can be used for static analysis considering variations on frequency with respect to the nominal grid frequency. The assumptions made for this model are:\n\nThe load static value is modeled using a ZIP or exponential model.\nThe variation of the load when the frequency changes are modeled using a factor dependent on the frequency deviation\nThe load is balanced",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "Frequency Dependent Load Model"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/FDLoad/index.html#model-description",
+    "href": "models/2-Loads/FDLoad/index.html#model-description",
+    "title": "Frequency Dependent Load Model",
+    "section": "Model description",
+    "text": "Model description\n\nParameters\n\n\n\nParameter\nDescription\nUnit\n\n\n\n\n\\[k_p\\]\nActive power frequency variation coefficient\nUnitless\n\n\n\\[k_q\\]\nReactive power frequency variation coefficient\nUnitless\n\n\n\\[f_0\\]\nNominal frequency of the grid\n\\[Hz\\]\n\n\n\n\n\nVariables\n\n\n\n\n\n\n\n\nVariable\nDescription\nUnit\n\n\n\n\n\\[V\\]\nPhase-to-ground Bus Voltage\n\\[V\\]\n\n\n\\[P(V)\\]\nLoad Active power modeled as a function of \\[V\\]\n\\[W\\]\n\n\n\\[Q(V)\\]\nLoad Reactive power modeled as a function of \\[V\\]\n\\[VAR\\]\n\n\n\\[P\\]\nLoad Active power\n\\[W\\]\n\n\n\\[Q\\]\nLoad Reactive power\n\\[VAR\\]\n\n\n\\[f\\]\nFrequency\n\\[Hz\\]\n\n\n\\[\\Delta f\\]\nFrequency deviation \\[\\Delta f = f - f_0\\]\n\\[Hz\\]\n\n\n\n\n\nSystem of equations\n\n\\[P(V, f) = P(V) (1 + k_p\\frac{\\Delta f}{f_0}) \\] \\[Q(V, f) = Q(V) (1 + k_q \\frac{\\Delta f}{f_0}) \\]",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "Frequency Dependent Load Model"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/FDLoad/index.html#operational-principles",
+    "href": "models/2-Loads/FDLoad/index.html#operational-principles",
+    "title": "Frequency Dependent Load Model",
+    "section": "Operational principles",
+    "text": "Operational principles\nThe model considers the load as a general function of voltage for both active and reactive power \\[P(V)\\] and \\[Q(V)\\], typically using either the exponential or the ZIP Load Model [2].\n\n\\[P(V, f) = P(V) (1 + k_p\\frac{\\Delta f}{f_0}) \\] \\[Q(V, f) = Q(V) (1 + k_q \\frac{\\Delta f}{f_0}) \\]\n\nwhere \\[k_p\\] and \\[k_q\\] are the frequency variation coefficients for active and reactive power, respectively, and \\[\\Delta f = f - f_0\\] is the frequency deviation, with \\[f_0\\] being the nominal frequency of the grid. The deviation is scaled in per-untis with respect to the nominal frequency.",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "Frequency Dependent Load Model"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/FDLoad/index.html#open-source-implementations",
+    "href": "models/2-Loads/FDLoad/index.html#open-source-implementations",
+    "title": "Frequency Dependent Load Model",
+    "section": "Open source implementations",
+    "text": "Open source implementations\nThis model has been successfully implemented in :\n\n\n\nSoftware\nURL\nLanguage\nOpen-Source License\nLast consulted date\nComments\n\n\n\n\nOpenIPSL\nLink\nmodelica\nBSD-3-clause\n29/05/2024\nNo comment",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "Frequency Dependent Load Model"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/FDLoad/index.html#references",
+    "href": "models/2-Loads/FDLoad/index.html#references",
+    "title": "Frequency Dependent Load Model",
+    "section": "References",
+    "text": "References\n[1] IEEE Task Force, “Load Representation for Dynamic Performance Analysis” 1993 IEEE Transactions on Power Systems, Vol. 8, No. 2.\n[2] Kundur, Prabha. “Power System Stability and Control” New York, USA, 1994, McGraw-Hill.",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "Frequency Dependent Load Model"
+    ]
+  },
+  {
+    "objectID": "templates.html",
+    "href": "templates.html",
+    "title": "Templates",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
+    "objectID": "models/index.html",
+    "href": "models/index.html",
+    "title": "Models",
+    "section": "",
+    "text": "The Colib library provides a comprehensive collection of dynamic power system component models designed for steady-state and dynamic stability studies. These models represent the mathematical equations and behaviors of various power system components, enabling accurate simulation of modern electric power networks.\n\n\nOur collaborative library organizes models into several key categories:\n\n\n\nSynchronous Generators: Classical, detailed, and simplified models with various excitation and governor systems\nRenewable Energy Sources: Wind turbines (Type 1-4), solar PV systems, and energy storage systems\nHVDC Systems: Line-commutated converters (LCC) and voltage-source converters (VSC)\nDistributed Energy Resources (DER): Microgrids, battery storage, and aggregated models\n\n\n\n\n\nTransmission Lines: Frequency-dependent and pi-equivalent models\nTransformers: Two-winding and three-winding with tap-changing capabilities\nFACTS Devices: SVC, STATCOM, TCSC, and UPFC models\nProtection Systems: Relay models and automatic switching devices\n\n\n\n\n\nStatic Load Models: Constant impedance, current, and power models\nDynamic Load Models: Motor loads, composite loads, and voltage-dependent models\nSmart Grid Components: Demand response and flexible load models\n\n\n\n\n\n\n\nOur models are developed through a collaborative approach bringing together: - Academic Institutions: Providing theoretical foundations and research insights - Industry Partners: Contributing practical experience and validation data - Open-Source Community: Ensuring transparency and continuous improvement\n\n\n\nEach model in the Colib library undergoes: - Peer Review: Technical validation by domain experts - Cross-Platform Testing: Verification across multiple simulation tools - Real-World Validation: Comparison with field measurements and industrial data - Documentation Standards: Comprehensive mathematical descriptions and implementation guides\n\n\n\n\n\n\nOur models are available for various simulation platforms: - Modelica/OpenModelica: Object-oriented modeling language - Python/PyPSA: Open-source power system analysis - MATLAB/Simulink: Commercial simulation environment - PowerWorld: Commercial power system software\n\n\n\nAll models follow standardized interfaces to ensure: - Interoperability: Easy integration between different tools - Modularity: Components can be combined and exchanged - Scalability: From small test systems to large continental networks\n\n\n\n\n\n\nExplore our categorized collection of models with detailed descriptions, mathematical formulations, and implementation examples.\n\n\n\nAccess open-source implementations directly from our repositories with comprehensive documentation and examples.\n\n\n\nJoin our collaborative community by contributing new models, improvements, or validation cases to benefit the entire power systems community.\n\nThe Colib model library represents the collective effort of leading research institutions and industry partners to advance power system modeling for the energy transition.",
+    "crumbs": [
+      "Models"
+    ]
+  },
+  {
+    "objectID": "models/index.html#dynamic-power-system-models",
+    "href": "models/index.html#dynamic-power-system-models",
+    "title": "Models",
+    "section": "",
+    "text": "The Colib library provides a comprehensive collection of dynamic power system component models designed for steady-state and dynamic stability studies. These models represent the mathematical equations and behaviors of various power system components, enabling accurate simulation of modern electric power networks.\n\n\nOur collaborative library organizes models into several key categories:\n\n\n\nSynchronous Generators: Classical, detailed, and simplified models with various excitation and governor systems\nRenewable Energy Sources: Wind turbines (Type 1-4), solar PV systems, and energy storage systems\nHVDC Systems: Line-commutated converters (LCC) and voltage-source converters (VSC)\nDistributed Energy Resources (DER): Microgrids, battery storage, and aggregated models\n\n\n\n\n\nTransmission Lines: Frequency-dependent and pi-equivalent models\nTransformers: Two-winding and three-winding with tap-changing capabilities\nFACTS Devices: SVC, STATCOM, TCSC, and UPFC models\nProtection Systems: Relay models and automatic switching devices\n\n\n\n\n\nStatic Load Models: Constant impedance, current, and power models\nDynamic Load Models: Motor loads, composite loads, and voltage-dependent models\nSmart Grid Components: Demand response and flexible load models\n\n\n\n\n\n\n\nOur models are developed through a collaborative approach bringing together: - Academic Institutions: Providing theoretical foundations and research insights - Industry Partners: Contributing practical experience and validation data - Open-Source Community: Ensuring transparency and continuous improvement\n\n\n\nEach model in the Colib library undergoes: - Peer Review: Technical validation by domain experts - Cross-Platform Testing: Verification across multiple simulation tools - Real-World Validation: Comparison with field measurements and industrial data - Documentation Standards: Comprehensive mathematical descriptions and implementation guides\n\n\n\n\n\n\nOur models are available for various simulation platforms: - Modelica/OpenModelica: Object-oriented modeling language - Python/PyPSA: Open-source power system analysis - MATLAB/Simulink: Commercial simulation environment - PowerWorld: Commercial power system software\n\n\n\nAll models follow standardized interfaces to ensure: - Interoperability: Easy integration between different tools - Modularity: Components can be combined and exchanged - Scalability: From small test systems to large continental networks\n\n\n\n\n\n\nExplore our categorized collection of models with detailed descriptions, mathematical formulations, and implementation examples.\n\n\n\nAccess open-source implementations directly from our repositories with comprehensive documentation and examples.\n\n\n\nJoin our collaborative community by contributing new models, improvements, or validation cases to benefit the entire power systems community.\n\nThe Colib model library represents the collective effort of leading research institutions and industry partners to advance power system modeling for the energy transition.",
+    "crumbs": [
+      "Models"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/index.html",
+    "href": "models/2-Loads/index.html",
+    "title": "Loads",
+    "section": "",
+    "text": "{% include folderNav.html %}\n\n\n\n Back to top",
+    "crumbs": [
+      "Models",
+      "Loads"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/Motor/SimpleMotor/index.html",
+    "href": "models/2-Loads/Motor/SimpleMotor/index.html",
+    "title": "Single-cage induction motor model",
+    "section": "",
+    "text": "Motors are a particular kind of load that can account for a large share of the total load especially in industrialised countries. Adequate representation of motors is important, especially in short-term voltage stability studies as motors can cause fault-induced delayed voltage recovery. This page presents a single-cage induction motor model based on the textbook three-phase induction motor equivalent circuit [1].",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "Motors",
+      "Single-cage induction motor model"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/Motor/SimpleMotor/index.html#context",
+    "href": "models/2-Loads/Motor/SimpleMotor/index.html#context",
+    "title": "Single-cage induction motor model",
+    "section": "",
+    "text": "Motors are a particular kind of load that can account for a large share of the total load especially in industrialised countries. Adequate representation of motors is important, especially in short-term voltage stability studies as motors can cause fault-induced delayed voltage recovery. This page presents a single-cage induction motor model based on the textbook three-phase induction motor equivalent circuit [1].",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "Motors",
+      "Single-cage induction motor model"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/Motor/SimpleMotor/index.html#model-use-assumptions-validity-domain-and-limitations",
+    "href": "models/2-Loads/Motor/SimpleMotor/index.html#model-use-assumptions-validity-domain-and-limitations",
+    "title": "Single-cage induction motor model",
+    "section": "Model use, assumptions, validity domain and limitations",
+    "text": "Model use, assumptions, validity domain and limitations\nThe motor model can be used for short-term voltage stability studies. The assumptions made for this model are:\n\nThe rotor resistance is constant (no skin-effect or double-cage motors).\nThe motor is balanced.\nThe magnetic circuit is considered to be linear, neglecting saturation effects.\nThe mechanical torque varies as a constant power of the rotor speed (e.g. constant torque or quadratic torque).\n\nThe model does not take into account transient and subtransient phenomena and is therefore not suitable for systems with a very large motor share (&gt;50% of the total load) or to compute the short-circuit contribution from motors.",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "Motors",
+      "Single-cage induction motor model"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/Motor/SimpleMotor/index.html#model-description",
+    "href": "models/2-Loads/Motor/SimpleMotor/index.html#model-description",
+    "title": "Single-cage induction motor model",
+    "section": "Model description",
+    "text": "Model description\nThe model is based on the equivalent circuit represented below.\n\n\n\nEquivalent circuit of the induction motor\n\n\n\nParameters\n\n\n\n\n\n\n\n\n\nParameter\nDescription\nUnit\nTypical value\n\n\n\n\n\\[\\omega_s\\]\nSynchronous speed\n\\[rad/s\\]\n\\[314rad/s\\]\n\n\n\\[R_s\\]\nStator resistance\n\\[\\Omega\\]\n\\[0.02pu\\]\n\n\n\\[X_s\\]\nStator leakage reactance\n\\[\\Omega\\]\n\\[0.1pu\\]\n\n\n\\[R_r\\]\nRotor resistance\n\\[\\Omega\\]\n\\[0.02pu\\]\n\n\n\\[X_r\\]\nRotor leakage reactance\n\\[\\Omega\\]\n\\[0.1pu\\]\n\n\n\\[X_m\\]\nMagnetising reactance\n\\[\\Omega\\]\n\\[3pu\\]\n\n\n\\[J\\]\nMoment of inertia\n\\[kgm^2\\]\n0.1 to 5s\n\n\n\\[\\eta\\]\nExponent of the torque speed dependency\nUnitless\n0 to 3\n\n\n\\[C_{l, 0}\\]\nInitial load torque\n\\[Nm\\]\nN/A\n\n\n\\[\\omega_0\\]\nInitial rotor speed\n\\[rad/s\\]\nN/A\n\n\n\n\n\nVariables\n\n\n\nVariable\nDescription\nUnit\n\n\n\n\n\\[V\\]\nStator voltage\n\\[V\\]\n\n\n\\[I_s\\]\nStator current\n\\[A\\]\n\n\n\\[I_r\\]\nRotor current\n\\[A\\]\n\n\n\\[I_m\\]\nMagnetising current\n\\[A\\]\n\n\n\\[C_e\\]\nElectrical torque\n\\[Nm\\]\n\n\n\\[C_l\\]\nLoad torque\n\\[Nm\\]\n\n\n\\[s\\]\nRotor slip\nUnitless\n\n\n\\[\\omega\\]\nRotor speed\n\\[rad/s\\]\n\n\n\n\n\nEquations\n\n\nElectrical equations:\n\n\\[V = j X_m * I_m + (R_s + j X_s) I_s\\] \\[I_s = \\frac{V}{(R_s + j X_s) + \\frac{1}{\\frac{1}{X_m} + \\frac{s}{R-r + j X_r * s}}}\\] \\[I_s = I_m + I_r\\]\n\nMechanical equations:\n\n\\[2 J  \\frac{d\\omega}{dt} = C_e - C_l\\] \\[s = \\frac{\\omega_s - \\omega}{\\omega_s}\\] \\[C_e = R_r * \\frac{\\left|I_r\\right|^2}{\\omega_s s}\\] \\[C_l = C_{l, 0} \\left(\\frac{\\omega}{\\omega_0}\\right)^\\eta\\]",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "Motors",
+      "Single-cage induction motor model"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/Motor/SimpleMotor/index.html#open-source-implementations",
+    "href": "models/2-Loads/Motor/SimpleMotor/index.html#open-source-implementations",
+    "title": "Single-cage induction motor model",
+    "section": "Open source implementations",
+    "text": "Open source implementations\nThis model has been successfully implemented in :\n\n\n\nSoftware\nURL\nLanguage\nOpen-Source License\nLast consulted date\nComments\n\n\n\n\nDynawo\nLink\nmodelica\nMPL v2.0\n09/08/2024\nno comment",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "Motors",
+      "Single-cage induction motor model"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/Motor/SimpleMotor/index.html#table-of-references",
+    "href": "models/2-Loads/Motor/SimpleMotor/index.html#table-of-references",
+    "title": "Single-cage induction motor model",
+    "section": "Table of references",
+    "text": "Table of references\n[1] Guru, B. S.; Warrier, R. K. “Electric Machinery and Transformers”, 3th ed., New York, United States, 2001, Oxford University Press",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "Motors",
+      "Single-cage induction motor model"
+    ]
+  },
+  {
+    "objectID": "models/2-Loads/Motor/index.html",
+    "href": "models/2-Loads/Motor/index.html",
+    "title": "Motors",
+    "section": "",
+    "text": "{% include folderNav.html %}\n\n\n\n Back to top",
+    "crumbs": [
+      "Models",
+      "Loads",
+      "Motors"
+    ]
+  },
+  {
+    "objectID": "about/contribute.html",
+    "href": "about/contribute.html",
+    "title": "Contributing Guidelines for Colib Documentation",
+    "section": "",
+    "text": "Imagine a shared library of dynamic simulations – transparent, high-quality, and packed with real-world applications. We invite you to contribute an article focusing on a component or a test case. Explore the various sections to find guidance on how to make your contribution.\nSet up your Git environment and clone the project\nCreate an issue and related branch\nCreate a post\nValidation process",
     "crumbs": [
       "About",
       "Overview about COLib",
-      "Code of conduct"
+      "Contributing Guidelines for Colib Documentation"
+    ]
+  },
+  {
+    "objectID": "about/contribute.html#set-up-your-git-environment-and-clone-the-project",
+    "href": "about/contribute.html#set-up-your-git-environment-and-clone-the-project",
+    "title": "Contributing Guidelines for Colib Documentation",
+    "section": "Set up your Git environment and clone the project: ",
+    "text": "Set up your Git environment and clone the project: \nPlease follow the prerequisites to begin the project.\n\nInstall GIT on your system (e.g. Windows, macOS, Linux)\n\nWindows: Download the Git for Windows installer from the official Git Website\nmacOS: Install Git using Homebrew\nLinux: The exact installation process may vary depending on your specific Linux distribution.\n\nDebian/Ubuntu: sudo apt update && sudo apt install git\n\nVerify installation: Open a terminal window and type git --version.\n\nClone the project : git clone https://github.com/CRESYM/colib0.github.io.git\nRefer to the README file to follow the installation guide.",
+    "crumbs": [
+      "About",
+      "Overview about COLib",
+      "Contributing Guidelines for Colib Documentation"
+    ]
+  },
+  {
+    "objectID": "about/contribute.html#create-an-issue-and-related-branch",
+    "href": "about/contribute.html#create-an-issue-and-related-branch",
+    "title": "Contributing Guidelines for Colib Documentation",
+    "section": "Create an issue and related branch: ",
+    "text": "Create an issue and related branch: \n\nCreate an issue before making any changes as it helps in tracking and managing contributions.\nFor any post creation, modification, evaluation or reporting a bug, please create an issue on the github space of the Colib project. A dedicated issue template should be proposed to you depending on the type of issue.\nWhile creating an issue, one can directly upload the pre-filled model or test case template.\nCreate a new branch with a naming convention: issue_number_name_of_new_branch (e.g- 116_modify_how_to_contribute)",
+    "crumbs": [
+      "About",
+      "Overview about COLib",
+      "Contributing Guidelines for Colib Documentation"
+    ]
+  },
+  {
+    "objectID": "about/contribute.html#create-a-post",
+    "href": "about/contribute.html#create-a-post",
+    "title": "Contributing Guidelines for Colib Documentation",
+    "section": "Create a post ",
+    "text": "Create a post \n\nPlease use the following model template and test case template for your reference.\nMake sure you are posting in the right “pages” folder (pages/models/…)\nRefer to Author’s guidelines and Electrical, Electronics and Control notations and conventions before creating a post.\nYou can see the how your changes impact the website\n\nby running locally a static site generator such as Jekyll (for more information, see testing-your-github-pages-site-locally-with-jekyll )\nor refer to README file for setting up the website locally.\n\nTo emulate markdown behavior and correct your markdown page, you can download a markdown extension in your IDE (such as Markdown All in One for VSCode, or Markdown plugin for intelliJ)\nVerify your changes:\n\ngit status: Check the status of your local repository to see what files have been modified, staged, or are untracked.\nCode review : Review your changes to ensure quality and adherence to standards.\nTesting : Run any relevant tests to ensure your changes haven’t introduced any regressions or errors.\n\nPreparing for push:\n\nPush your updated branch to Colib repository.",
+    "crumbs": [
+      "About",
+      "Overview about COLib",
+      "Contributing Guidelines for Colib Documentation"
+    ]
+  },
+  {
+    "objectID": "about/contribute.html#validation-process",
+    "href": "about/contribute.html#validation-process",
+    "title": "Contributing Guidelines for Colib Documentation",
+    "section": "Validation process ",
+    "text": "Validation process \n\nCreate a pull request to the dev branch (Note: pull requests are not accepted to the main branch) and select at least one reviewer from the cresym team.\nReview of your request will be done in a timely manner to manage expectations.\nReach out to the reviewers and seek help or clarifications when needed.",
+    "crumbs": [
+      "About",
+      "Overview about COLib",
+      "Contributing Guidelines for Colib Documentation"
     ]
   },
   {
@@ -444,85 +768,40 @@
     ]
   },
   {
-    "objectID": "about/contribute.html",
-    "href": "about/contribute.html",
-    "title": "Contributing Guidelines for Colib Documentation",
+    "objectID": "about/team.html",
+    "href": "about/team.html",
+    "title": "Teams and community",
     "section": "",
-    "text": "Imagine a shared library of dynamic simulations – transparent, high-quality, and packed with real-world applications. We invite you to contribute an article focusing on a component or a test case. Explore the various sections to find guidance on how to make your contribution.\nSet up your Git environment and clone the project\nCreate an issue and related branch\nCreate a post\nValidation process",
+    "text": "The developing team is constituted of people from both European TSOs and universities. Most of them belong to CRESYM, a non-profit association.",
     "crumbs": [
       "About",
       "Overview about COLib",
-      "Contributing Guidelines for Colib Documentation"
+      "Teams and community"
     ]
   },
   {
-    "objectID": "about/contribute.html#set-up-your-git-environment-and-clone-the-project",
-    "href": "about/contribute.html#set-up-your-git-environment-and-clone-the-project",
-    "title": "Contributing Guidelines for Colib Documentation",
-    "section": "Set up your Git environment and clone the project: ",
-    "text": "Set up your Git environment and clone the project: \nPlease follow the prerequisites to begin the project.\n\nInstall GIT on your system (e.g. Windows, macOS, Linux)\n\nWindows: Download the Git for Windows installer from the official Git Website\nmacOS: Install Git using Homebrew\nLinux: The exact installation process may vary depending on your specific Linux distribution.\n\nDebian/Ubuntu: sudo apt update && sudo apt install git\n\nVerify installation: Open a terminal window and type git --version.\n\nClone the project : git clone https://github.com/CRESYM/colib0.github.io.git\nRefer to the README file to follow the installation guide.",
-    "crumbs": [
-      "About",
-      "Overview about COLib",
-      "Contributing Guidelines for Colib Documentation"
-    ]
-  },
-  {
-    "objectID": "about/contribute.html#create-an-issue-and-related-branch",
-    "href": "about/contribute.html#create-an-issue-and-related-branch",
-    "title": "Contributing Guidelines for Colib Documentation",
-    "section": "Create an issue and related branch: ",
-    "text": "Create an issue and related branch: \n\nCreate an issue before making any changes as it helps in tracking and managing contributions.\nFor any post creation, modification, evaluation or reporting a bug, please create an issue on the github space of the Colib project. A dedicated issue template should be proposed to you depending on the type of issue.\nWhile creating an issue, one can directly upload the pre-filled model or test case template.\nCreate a new branch with a naming convention: issue_number_name_of_new_branch (e.g- 116_modify_how_to_contribute)",
-    "crumbs": [
-      "About",
-      "Overview about COLib",
-      "Contributing Guidelines for Colib Documentation"
-    ]
-  },
-  {
-    "objectID": "about/contribute.html#create-a-post",
-    "href": "about/contribute.html#create-a-post",
-    "title": "Contributing Guidelines for Colib Documentation",
-    "section": "Create a post ",
-    "text": "Create a post \n\nPlease use the following model template and test case template for your reference.\nMake sure you are posting in the right “pages” folder (pages/models/…)\nRefer to Author’s guidelines and Electrical, Electronics and Control notations and conventions before creating a post.\nYou can see the how your changes impact the website\n\nby running locally a static site generator such as Jekyll (for more information, see testing-your-github-pages-site-locally-with-jekyll )\nor refer to README file for setting up the website locally.\n\nTo emulate markdown behavior and correct your markdown page, you can download a markdown extension in your IDE (such as Markdown All in One for VSCode, or Markdown plugin for intelliJ)\nVerify your changes:\n\ngit status: Check the status of your local repository to see what files have been modified, staged, or are untracked.\nCode review : Review your changes to ensure quality and adherence to standards.\nTesting : Run any relevant tests to ensure your changes haven’t introduced any regressions or errors.\n\nPreparing for push:\n\nPush your updated branch to Colib repository.",
-    "crumbs": [
-      "About",
-      "Overview about COLib",
-      "Contributing Guidelines for Colib Documentation"
-    ]
-  },
-  {
-    "objectID": "about/contribute.html#validation-process",
-    "href": "about/contribute.html#validation-process",
-    "title": "Contributing Guidelines for Colib Documentation",
-    "section": "Validation process ",
-    "text": "Validation process \n\nCreate a pull request to the dev branch (Note: pull requests are not accepted to the main branch) and select at least one reviewer from the cresym team.\nReview of your request will be done in a timely manner to manage expectations.\nReach out to the reviewers and seek help or clarifications when needed.",
-    "crumbs": [
-      "About",
-      "Overview about COLib",
-      "Contributing Guidelines for Colib Documentation"
-    ]
-  },
-  {
-    "objectID": "models.html",
-    "href": "models.html",
-    "title": "Models",
+    "objectID": "about/team.html#team-members",
+    "href": "about/team.html#team-members",
+    "title": "Teams and community",
     "section": "",
-    "text": "Back to top"
+    "text": "The developing team is constituted of people from both European TSOs and universities. Most of them belong to CRESYM, a non-profit association.",
+    "crumbs": [
+      "About",
+      "Overview about COLib",
+      "Teams and community"
+    ]
   },
   {
-    "objectID": "contact.html",
-    "href": "contact.html",
-    "title": "Contact",
-    "section": "",
-    "text": "Back to top"
-  },
-  {
-    "objectID": "test_cases.html",
-    "href": "test_cases.html",
-    "title": "Test Cases",
-    "section": "",
-    "text": "Back to top"
+    "objectID": "about/team.html#relevant-initiatives-from-the-power-system-community",
+    "href": "about/team.html#relevant-initiatives-from-the-power-system-community",
+    "title": "Teams and community",
+    "section": "Relevant initiatives from the power system community",
+    "text": "Relevant initiatives from the power system community\n\nBettergrids - data collections\nG-PST portal - opentools\nTexas A&M University - Electric Grid Datasets​\nNREL - Test Case repository for high renewable study - grid modernization\nNREL - relialibity test systems - grid modernization lab consortium\nNREL - SMART-DS synthetic models for advanced realistic testing: distribution systems and scenarios\nENTSO-E - Dynamic Model of Continental Europe​ DSM\nNASPI - IEEE oscillation Source Location Contest North initiative American Synchrophasor initiative\nESIG - Wiki of generic models\nWECC - approved dynamic models\nIEC standard - WPP models\nTilman weckesser website - power system data and test cases\nDr. Francisco M. González-Longatt website- test systems\nIEEE - dynamic test systems for transient analysis\nPandaPower - test cases\nDynawo - test cases\nOpenIPSL - models and test cases\nSimplus-grid-tool - models and test cases",
+    "crumbs": [
+      "About",
+      "Overview about COLib",
+      "Teams and community"
+    ]
   },
   {
     "objectID": "about/authorGuidelines.html",
@@ -573,295 +852,16 @@
     ]
   },
   {
-    "objectID": "about/team.html",
-    "href": "about/team.html",
-    "title": "Teams and community",
-    "section": "",
-    "text": "The developing team is constituted of people from both European TSOs and universities. Most of them belong to CRESYM, a non-profit association.",
-    "crumbs": [
-      "About",
-      "Overview about COLib",
-      "Teams and community"
-    ]
-  },
-  {
-    "objectID": "about/team.html#team-members",
-    "href": "about/team.html#team-members",
-    "title": "Teams and community",
-    "section": "",
-    "text": "The developing team is constituted of people from both European TSOs and universities. Most of them belong to CRESYM, a non-profit association.",
-    "crumbs": [
-      "About",
-      "Overview about COLib",
-      "Teams and community"
-    ]
-  },
-  {
-    "objectID": "about/team.html#relevant-initiatives-from-the-power-system-community",
-    "href": "about/team.html#relevant-initiatives-from-the-power-system-community",
-    "title": "Teams and community",
-    "section": "Relevant initiatives from the power system community",
-    "text": "Relevant initiatives from the power system community\n\nBettergrids - data collections\nG-PST portal - opentools\nTexas A&M University - Electric Grid Datasets​\nNREL - Test Case repository for high renewable study - grid modernization\nNREL - relialibity test systems - grid modernization lab consortium\nNREL - SMART-DS synthetic models for advanced realistic testing: distribution systems and scenarios\nENTSO-E - Dynamic Model of Continental Europe​ DSM\nNASPI - IEEE oscillation Source Location Contest North initiative American Synchrophasor initiative\nESIG - Wiki of generic models\nWECC - approved dynamic models\nIEC standard - WPP models\nTilman weckesser website - power system data and test cases\nDr. Francisco M. González-Longatt website- test systems\nIEEE - dynamic test systems for transient analysis\nPandaPower - test cases\nDynawo - test cases\nOpenIPSL - models and test cases\nSimplus-grid-tool - models and test cases",
-    "crumbs": [
-      "About",
-      "Overview about COLib",
-      "Teams and community"
-    ]
-  },
-  {
-    "objectID": "about/index.html",
-    "href": "about/index.html",
-    "title": "Overview about COLib",
-    "section": "",
-    "text": "The power system and energy systems at large experience a paradigm shift with many novel , active components connected. Appraising the behavior and reactions of such new items is critical for network operators to simulate and anticipate system operation, and for this, available, reliable up to date and possibly specifically targeted component models are required.\nAt present, on one hand, operators manage to gather and build pragmatically a model database of the components directly connected to their network. They remain however blind or use rough proxies to cope with: - Components indirectly connected (e.g. to neighboring, coupled networks, such as electricity or gas grids ; and/or quite likely in a soon future: across sectors) - Future connected ones (components at design stage, latest technology, and proprietary manufacturer models).\nOn the other hand, research also suffers from the lack of all the necessary component models and is slowed down by the effort required to circumvent it.\nThey both face the need for a collaborative shared dynamic simulation library that would benefit to all by its high quality, transparency of model equations, and concrete applications (real test cases).",
-    "crumbs": [
-      "About",
-      "Overview about COLib"
-    ]
-  },
-  {
-    "objectID": "about/index.html#why-this-library",
-    "href": "about/index.html#why-this-library",
-    "title": "Overview about COLib",
-    "section": "",
-    "text": "The power system and energy systems at large experience a paradigm shift with many novel , active components connected. Appraising the behavior and reactions of such new items is critical for network operators to simulate and anticipate system operation, and for this, available, reliable up to date and possibly specifically targeted component models are required.\nAt present, on one hand, operators manage to gather and build pragmatically a model database of the components directly connected to their network. They remain however blind or use rough proxies to cope with: - Components indirectly connected (e.g. to neighboring, coupled networks, such as electricity or gas grids ; and/or quite likely in a soon future: across sectors) - Future connected ones (components at design stage, latest technology, and proprietary manufacturer models).\nOn the other hand, research also suffers from the lack of all the necessary component models and is slowed down by the effort required to circumvent it.\nThey both face the need for a collaborative shared dynamic simulation library that would benefit to all by its high quality, transparency of model equations, and concrete applications (real test cases).",
-    "crumbs": [
-      "About",
-      "Overview about COLib"
-    ]
-  },
-  {
-    "objectID": "about/index.html#what-does-this-library-contain",
-    "href": "about/index.html#what-does-this-library-contain",
-    "title": "Overview about COLib",
-    "section": "What does this library contain?",
-    "text": "What does this library contain?\nIt contains detailed dynamic models of electrical components and power systems test cases, containing data information and relying on those components.\nEach model or test case is formally described in a dedicated post (like a wikipedia webpage), with links to known existing implementations. Some of the models and test cases directly come from CRESYM projects outputs, others are originated from external royalty-free projects.",
-    "crumbs": [
-      "About",
-      "Overview about COLib"
-    ]
-  },
-  {
-    "objectID": "about/index.html#creative-commons-attribution-4.0-international-public-license",
-    "href": "about/index.html#creative-commons-attribution-4.0-international-public-license",
-    "title": "Overview about COLib",
-    "section": "Creative Commons Attribution 4.0 International Public License",
-    "text": "Creative Commons Attribution 4.0 International Public License\nWhether you are operators, researchers, managerial staff, engineers, developers, or just a power system fan inside or outside CRESYM, you can: - copy, distribute and communicate the material by any means and in any format - remix, transform and create from the material\nunder the following conditions : - you must credit the work, include a link to the license, and indicate if any modifications have been made to the work. You must provide this information by all reasonable means, but do not suggest that the offeror endorses you or the way you have used their work. - You are not authorized to make commercial use of this work, all or part of the material composing it.",
-    "crumbs": [
-      "About",
-      "Overview about COLib"
-    ]
-  },
-  {
-    "objectID": "about/notationAndConventions.html",
-    "href": "about/notationAndConventions.html",
-    "title": "Electrical, Electronics and Control notations and conventions",
-    "section": "",
-    "text": "This page provides a list of the most common notations in the electrical, electronics and control notations.\n\nFrequencies should be named f\nCurrents should be named i (for complex variable), I (for absolute value) or id/iq for dq-axis values\nVoltages (phase-to-phase) should be named u (for complex variable), U (for absolute value) or ud/uq for dq-axis values\nVoltages (phase-to-ground) should be named v (for complex variable),V (for absolute value) or vd/vq for dq-axis values\nApparent power should be named s (for complex variable) or S (for absolute value)\nActive power should be named P, reactive power should be named Q\nImpedance should be named Z, resistance should be named R, reactance should be named X, admittance should be named Y, conductance should be named G, susceptance should be named B\nAngles should be named according to their name in textbooks (ex: theta)\nTime should be named t (T is used for the temperature).\n*,° are used for setpoint values\ns is used for the transfer functions\n\n\n\n\n Back to top",
-    "crumbs": [
-      "About",
-      "Overview about COLib",
-      "Electrical, Electronics and Control notations and conventions"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/Motor/SimpleMotor/index.html",
-    "href": "models/2-Loads/Motor/SimpleMotor/index.html",
-    "title": "Single-cage induction motor model",
-    "section": "",
-    "text": "Motors are a particular kind of load that can account for a large share of the total load especially in industrialised countries. Adequate representation of motors is important, especially in short-term voltage stability studies as motors can cause fault-induced delayed voltage recovery. This page presents a single-cage induction motor model based on the textbook three-phase induction motor equivalent circuit [1].",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "Motors",
-      "Single-cage induction motor model"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/Motor/SimpleMotor/index.html#context",
-    "href": "models/2-Loads/Motor/SimpleMotor/index.html#context",
-    "title": "Single-cage induction motor model",
-    "section": "",
-    "text": "Motors are a particular kind of load that can account for a large share of the total load especially in industrialised countries. Adequate representation of motors is important, especially in short-term voltage stability studies as motors can cause fault-induced delayed voltage recovery. This page presents a single-cage induction motor model based on the textbook three-phase induction motor equivalent circuit [1].",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "Motors",
-      "Single-cage induction motor model"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/Motor/SimpleMotor/index.html#model-use-assumptions-validity-domain-and-limitations",
-    "href": "models/2-Loads/Motor/SimpleMotor/index.html#model-use-assumptions-validity-domain-and-limitations",
-    "title": "Single-cage induction motor model",
-    "section": "Model use, assumptions, validity domain and limitations",
-    "text": "Model use, assumptions, validity domain and limitations\nThe motor model can be used for short-term voltage stability studies. The assumptions made for this model are:\n\nThe rotor resistance is constant (no skin-effect or double-cage motors).\nThe motor is balanced.\nThe magnetic circuit is considered to be linear, neglecting saturation effects.\nThe mechanical torque varies as a constant power of the rotor speed (e.g. constant torque or quadratic torque).\n\nThe model does not take into account transient and subtransient phenomena and is therefore not suitable for systems with a very large motor share (&gt;50% of the total load) or to compute the short-circuit contribution from motors.",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "Motors",
-      "Single-cage induction motor model"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/Motor/SimpleMotor/index.html#model-description",
-    "href": "models/2-Loads/Motor/SimpleMotor/index.html#model-description",
-    "title": "Single-cage induction motor model",
-    "section": "Model description",
-    "text": "Model description\nThe model is based on the equivalent circuit represented below.\n\n\n\nEquivalent circuit of the induction motor\n\n\n\nParameters\n\n\n\n\n\n\n\n\n\nParameter\nDescription\nUnit\nTypical value\n\n\n\n\n\\[\\omega_s\\]\nSynchronous speed\n\\[rad/s\\]\n\\[314rad/s\\]\n\n\n\\[R_s\\]\nStator resistance\n\\[\\Omega\\]\n\\[0.02pu\\]\n\n\n\\[X_s\\]\nStator leakage reactance\n\\[\\Omega\\]\n\\[0.1pu\\]\n\n\n\\[R_r\\]\nRotor resistance\n\\[\\Omega\\]\n\\[0.02pu\\]\n\n\n\\[X_r\\]\nRotor leakage reactance\n\\[\\Omega\\]\n\\[0.1pu\\]\n\n\n\\[X_m\\]\nMagnetising reactance\n\\[\\Omega\\]\n\\[3pu\\]\n\n\n\\[J\\]\nMoment of inertia\n\\[kgm^2\\]\n0.1 to 5s\n\n\n\\[\\eta\\]\nExponent of the torque speed dependency\nUnitless\n0 to 3\n\n\n\\[C_{l, 0}\\]\nInitial load torque\n\\[Nm\\]\nN/A\n\n\n\\[\\omega_0\\]\nInitial rotor speed\n\\[rad/s\\]\nN/A\n\n\n\n\n\nVariables\n\n\n\nVariable\nDescription\nUnit\n\n\n\n\n\\[V\\]\nStator voltage\n\\[V\\]\n\n\n\\[I_s\\]\nStator current\n\\[A\\]\n\n\n\\[I_r\\]\nRotor current\n\\[A\\]\n\n\n\\[I_m\\]\nMagnetising current\n\\[A\\]\n\n\n\\[C_e\\]\nElectrical torque\n\\[Nm\\]\n\n\n\\[C_l\\]\nLoad torque\n\\[Nm\\]\n\n\n\\[s\\]\nRotor slip\nUnitless\n\n\n\\[\\omega\\]\nRotor speed\n\\[rad/s\\]\n\n\n\n\n\nEquations\n\n\nElectrical equations:\n\n\\[V = j X_m * I_m + (R_s + j X_s) I_s\\] \\[I_s = \\frac{V}{(R_s + j X_s) + \\frac{1}{\\frac{1}{X_m} + \\frac{s}{R-r + j X_r * s}}}\\] \\[I_s = I_m + I_r\\]\n\nMechanical equations:\n\n\\[2 J  \\frac{d\\omega}{dt} = C_e - C_l\\] \\[s = \\frac{\\omega_s - \\omega}{\\omega_s}\\] \\[C_e = R_r * \\frac{\\left|I_r\\right|^2}{\\omega_s s}\\] \\[C_l = C_{l, 0} \\left(\\frac{\\omega}{\\omega_0}\\right)^\\eta\\]",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "Motors",
-      "Single-cage induction motor model"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/Motor/SimpleMotor/index.html#open-source-implementations",
-    "href": "models/2-Loads/Motor/SimpleMotor/index.html#open-source-implementations",
-    "title": "Single-cage induction motor model",
-    "section": "Open source implementations",
-    "text": "Open source implementations\nThis model has been successfully implemented in :\n\n\n\nSoftware\nURL\nLanguage\nOpen-Source License\nLast consulted date\nComments\n\n\n\n\nDynawo\nLink\nmodelica\nMPL v2.0\n09/08/2024\nno comment",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "Motors",
-      "Single-cage induction motor model"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/Motor/SimpleMotor/index.html#table-of-references",
-    "href": "models/2-Loads/Motor/SimpleMotor/index.html#table-of-references",
-    "title": "Single-cage induction motor model",
-    "section": "Table of references",
-    "text": "Table of references\n[1] Guru, B. S.; Warrier, R. K. “Electric Machinery and Transformers”, 3th ed., New York, United States, 2001, Oxford University Press",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "Motors",
-      "Single-cage induction motor model"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/Motor/index.html",
-    "href": "models/2-Loads/Motor/index.html",
-    "title": "Motors",
-    "section": "",
-    "text": "{% include folderNav.html %}\n\n\n\n Back to top",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "Motors"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/FDLoad/index.html",
-    "href": "models/2-Loads/FDLoad/index.html",
-    "title": "Frequency Dependent Load Model",
-    "section": "",
-    "text": "Loads are the consumer side of an electrical power system, draining energy from a given bus. Since a load can be a bundle of elements such as shunt elements, regulators, transformers, and many other devices, it is tough to describe accurately how it behaves as a group, and there are many models that try to provide an accurate representation. It is necessary to be able to simulate the behavior of the system under different conditions. The model proposed in this page describes the Frequency Dependent Load Model [1] [2], which is used in addition to a static load model to describe the behavior of the load under frequency changes.",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "Frequency Dependent Load Model"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/FDLoad/index.html#context",
-    "href": "models/2-Loads/FDLoad/index.html#context",
-    "title": "Frequency Dependent Load Model",
-    "section": "",
-    "text": "Loads are the consumer side of an electrical power system, draining energy from a given bus. Since a load can be a bundle of elements such as shunt elements, regulators, transformers, and many other devices, it is tough to describe accurately how it behaves as a group, and there are many models that try to provide an accurate representation. It is necessary to be able to simulate the behavior of the system under different conditions. The model proposed in this page describes the Frequency Dependent Load Model [1] [2], which is used in addition to a static load model to describe the behavior of the load under frequency changes.",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "Frequency Dependent Load Model"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/FDLoad/index.html#model-use-assumptions-validity-domain-and-limitations",
-    "href": "models/2-Loads/FDLoad/index.html#model-use-assumptions-validity-domain-and-limitations",
-    "title": "Frequency Dependent Load Model",
-    "section": "Model use, assumptions, validity domain and limitations",
-    "text": "Model use, assumptions, validity domain and limitations\nThe frequency dependent load model can be used for static analysis considering variations on frequency with respect to the nominal grid frequency. The assumptions made for this model are:\n\nThe load static value is modeled using a ZIP or exponential model.\nThe variation of the load when the frequency changes are modeled using a factor dependent on the frequency deviation\nThe load is balanced",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "Frequency Dependent Load Model"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/FDLoad/index.html#model-description",
-    "href": "models/2-Loads/FDLoad/index.html#model-description",
-    "title": "Frequency Dependent Load Model",
-    "section": "Model description",
-    "text": "Model description\n\nParameters\n\n\n\nParameter\nDescription\nUnit\n\n\n\n\n\\[k_p\\]\nActive power frequency variation coefficient\nUnitless\n\n\n\\[k_q\\]\nReactive power frequency variation coefficient\nUnitless\n\n\n\\[f_0\\]\nNominal frequency of the grid\n\\[Hz\\]\n\n\n\n\n\nVariables\n\n\n\n\n\n\n\n\nVariable\nDescription\nUnit\n\n\n\n\n\\[V\\]\nPhase-to-ground Bus Voltage\n\\[V\\]\n\n\n\\[P(V)\\]\nLoad Active power modeled as a function of \\[V\\]\n\\[W\\]\n\n\n\\[Q(V)\\]\nLoad Reactive power modeled as a function of \\[V\\]\n\\[VAR\\]\n\n\n\\[P\\]\nLoad Active power\n\\[W\\]\n\n\n\\[Q\\]\nLoad Reactive power\n\\[VAR\\]\n\n\n\\[f\\]\nFrequency\n\\[Hz\\]\n\n\n\\[\\Delta f\\]\nFrequency deviation \\[\\Delta f = f - f_0\\]\n\\[Hz\\]\n\n\n\n\n\nSystem of equations\n\n\\[P(V, f) = P(V) (1 + k_p\\frac{\\Delta f}{f_0}) \\] \\[Q(V, f) = Q(V) (1 + k_q \\frac{\\Delta f}{f_0}) \\]",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "Frequency Dependent Load Model"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/FDLoad/index.html#operational-principles",
-    "href": "models/2-Loads/FDLoad/index.html#operational-principles",
-    "title": "Frequency Dependent Load Model",
-    "section": "Operational principles",
-    "text": "Operational principles\nThe model considers the load as a general function of voltage for both active and reactive power \\[P(V)\\] and \\[Q(V)\\], typically using either the exponential or the ZIP Load Model [2].\n\n\\[P(V, f) = P(V) (1 + k_p\\frac{\\Delta f}{f_0}) \\] \\[Q(V, f) = Q(V) (1 + k_q \\frac{\\Delta f}{f_0}) \\]\n\nwhere \\[k_p\\] and \\[k_q\\] are the frequency variation coefficients for active and reactive power, respectively, and \\[\\Delta f = f - f_0\\] is the frequency deviation, with \\[f_0\\] being the nominal frequency of the grid. The deviation is scaled in per-untis with respect to the nominal frequency.",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "Frequency Dependent Load Model"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/FDLoad/index.html#open-source-implementations",
-    "href": "models/2-Loads/FDLoad/index.html#open-source-implementations",
-    "title": "Frequency Dependent Load Model",
-    "section": "Open source implementations",
-    "text": "Open source implementations\nThis model has been successfully implemented in :\n\n\n\nSoftware\nURL\nLanguage\nOpen-Source License\nLast consulted date\nComments\n\n\n\n\nOpenIPSL\nLink\nmodelica\nBSD-3-clause\n29/05/2024\nNo comment",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "Frequency Dependent Load Model"
-    ]
-  },
-  {
-    "objectID": "models/2-Loads/FDLoad/index.html#references",
-    "href": "models/2-Loads/FDLoad/index.html#references",
-    "title": "Frequency Dependent Load Model",
-    "section": "References",
-    "text": "References\n[1] IEEE Task Force, “Load Representation for Dynamic Performance Analysis” 1993 IEEE Transactions on Power Systems, Vol. 8, No. 2.\n[2] Kundur, Prabha. “Power System Stability and Control” New York, USA, 1994, McGraw-Hill.",
-    "crumbs": [
-      "Models",
-      "Loads",
-      "Frequency Dependent Load Model"
-    ]
-  },
-  {
-    "objectID": "models/index.html",
-    "href": "models/index.html",
+    "objectID": "models.html",
+    "href": "models.html",
     "title": "Models",
     "section": "",
-    "text": "The Colib library provides a comprehensive collection of dynamic power system component models designed for steady-state and dynamic stability studies. These models represent the mathematical equations and behaviors of various power system components, enabling accurate simulation of modern electric power networks.\n\n\nOur collaborative library organizes models into several key categories:\n\n\n\nSynchronous Generators: Classical, detailed, and simplified models with various excitation and governor systems\nRenewable Energy Sources: Wind turbines (Type 1-4), solar PV systems, and energy storage systems\nHVDC Systems: Line-commutated converters (LCC) and voltage-source converters (VSC)\nDistributed Energy Resources (DER): Microgrids, battery storage, and aggregated models\n\n\n\n\n\nTransmission Lines: Frequency-dependent and pi-equivalent models\nTransformers: Two-winding and three-winding with tap-changing capabilities\nFACTS Devices: SVC, STATCOM, TCSC, and UPFC models\nProtection Systems: Relay models and automatic switching devices\n\n\n\n\n\nStatic Load Models: Constant impedance, current, and power models\nDynamic Load Models: Motor loads, composite loads, and voltage-dependent models\nSmart Grid Components: Demand response and flexible load models\n\n\n\n\n\n\n\nOur models are developed through a collaborative approach bringing together: - Academic Institutions: Providing theoretical foundations and research insights - Industry Partners: Contributing practical experience and validation data - Open-Source Community: Ensuring transparency and continuous improvement\n\n\n\nEach model in the Colib library undergoes: - Peer Review: Technical validation by domain experts - Cross-Platform Testing: Verification across multiple simulation tools - Real-World Validation: Comparison with field measurements and industrial data - Documentation Standards: Comprehensive mathematical descriptions and implementation guides\n\n\n\n\n\n\nOur models are available for various simulation platforms: - Modelica/OpenModelica: Object-oriented modeling language - Python/PyPSA: Open-source power system analysis - MATLAB/Simulink: Commercial simulation environment - PowerWorld: Commercial power system software\n\n\n\nAll models follow standardized interfaces to ensure: - Interoperability: Easy integration between different tools - Modularity: Components can be combined and exchanged - Scalability: From small test systems to large continental networks\n\n\n\n\n\n\nExplore our categorized collection of models with detailed descriptions, mathematical formulations, and implementation examples.\n\n\n\nAccess open-source implementations directly from our repositories with comprehensive documentation and examples.\n\n\n\nJoin our collaborative community by contributing new models, improvements, or validation cases to benefit the entire power systems community.\n\nThe Colib model library represents the collective effort of leading research institutions and industry partners to advance power system modeling for the energy transition.",
-    "crumbs": [
-      "Models"
-    ]
+    "text": "Back to top"
   },
   {
-    "objectID": "models/index.html#dynamic-power-system-models",
-    "href": "models/index.html#dynamic-power-system-models",
-    "title": "Models",
-    "section": "",
-    "text": "The Colib library provides a comprehensive collection of dynamic power system component models designed for steady-state and dynamic stability studies. These models represent the mathematical equations and behaviors of various power system components, enabling accurate simulation of modern electric power networks.\n\n\nOur collaborative library organizes models into several key categories:\n\n\n\nSynchronous Generators: Classical, detailed, and simplified models with various excitation and governor systems\nRenewable Energy Sources: Wind turbines (Type 1-4), solar PV systems, and energy storage systems\nHVDC Systems: Line-commutated converters (LCC) and voltage-source converters (VSC)\nDistributed Energy Resources (DER): Microgrids, battery storage, and aggregated models\n\n\n\n\n\nTransmission Lines: Frequency-dependent and pi-equivalent models\nTransformers: Two-winding and three-winding with tap-changing capabilities\nFACTS Devices: SVC, STATCOM, TCSC, and UPFC models\nProtection Systems: Relay models and automatic switching devices\n\n\n\n\n\nStatic Load Models: Constant impedance, current, and power models\nDynamic Load Models: Motor loads, composite loads, and voltage-dependent models\nSmart Grid Components: Demand response and flexible load models\n\n\n\n\n\n\n\nOur models are developed through a collaborative approach bringing together: - Academic Institutions: Providing theoretical foundations and research insights - Industry Partners: Contributing practical experience and validation data - Open-Source Community: Ensuring transparency and continuous improvement\n\n\n\nEach model in the Colib library undergoes: - Peer Review: Technical validation by domain experts - Cross-Platform Testing: Verification across multiple simulation tools - Real-World Validation: Comparison with field measurements and industrial data - Documentation Standards: Comprehensive mathematical descriptions and implementation guides\n\n\n\n\n\n\nOur models are available for various simulation platforms: - Modelica/OpenModelica: Object-oriented modeling language - Python/PyPSA: Open-source power system analysis - MATLAB/Simulink: Commercial simulation environment - PowerWorld: Commercial power system software\n\n\n\nAll models follow standardized interfaces to ensure: - Interoperability: Easy integration between different tools - Modularity: Components can be combined and exchanged - Scalability: From small test systems to large continental networks\n\n\n\n\n\n\nExplore our categorized collection of models with detailed descriptions, mathematical formulations, and implementation examples.\n\n\n\nAccess open-source implementations directly from our repositories with comprehensive documentation and examples.\n\n\n\nJoin our collaborative community by contributing new models, improvements, or validation cases to benefit the entire power systems community.\n\nThe Colib model library represents the collective effort of leading research institutions and industry partners to advance power system modeling for the energy transition.",
-    "crumbs": [
-      "Models"
-    ]
-  },
-  {
-    "objectID": "templates.html",
-    "href": "templates.html",
-    "title": "Templates",
+    "objectID": "test_cases.html",
+    "href": "test_cases.html",
+    "title": "Test Cases",
     "section": "",
     "text": "Back to top"
   }
