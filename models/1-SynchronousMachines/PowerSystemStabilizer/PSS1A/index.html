@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -179,8 +199,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../../models/1-SynchronousMachines/Governor/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Governors (GOV)</span></a>
+            <a href="../../../../models/1-SynchronousMachines/Generator/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Generator</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -188,56 +208,26 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../models/1-SynchronousMachines/Governor/IEEEG2/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">IEEEG2 / GovSteam 2</span></a>
+  <a href="../../../../models/1-SynchronousMachines/Generator/SM1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Synchronous Machine Model (SM1)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../models/1-SynchronousMachines/Governor/GovCT2/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GovCT2 / GGOV2</span></a>
+  <a href="../../../../models/1-SynchronousMachines/Generator/GENQEC/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GENQEC Synchronous Machine with Saturation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../models/1-SynchronousMachines/Governor/TGOV1/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TGOV1</span></a>
+  <a href="../../../../models/1-SynchronousMachines/Generator/GENTPJ/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GENTPF/GENTPJ Synchronous Machine with Saturation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../models/1-SynchronousMachines/Governor/GovSteamEU/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GovSteamEU</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../../models/1-SynchronousMachines/Governor/HYGOV/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">HYGOV</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../../models/1-SynchronousMachines/Governor/GAST/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GAST</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../../models/1-SynchronousMachines/Governor/GovHydro4/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GovHydro4</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../../models/1-SynchronousMachines/Governor/TGOV3/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TGOV3</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../../models/1-SynchronousMachines/Governor/IEEEG1/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">IEEEG1 / GovSteam 1</span></a>
+  <a href="../../../../models/1-SynchronousMachines/Generator/GENSAL/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GENROU/GENSAL Salient-pole/round-rotor synchronous machine without saturation</span></a>
   </div>
 </li>
       </ul>
@@ -351,48 +341,13 @@ window.Quarto = {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../../models/1-SynchronousMachines/PowerSystemStabilizer/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Power System Stabilizers (PSS)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS6C/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PSS6C</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS3C/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PSS3C</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS2C/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PSS2C</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS1A/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">PSS1A</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
             <a href="../../../../models/1-SynchronousMachines/OverUnderExcitationLimiter/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Over/under Excitation Limiters</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/1-SynchronousMachines/OverUnderExcitationLimiter/SCL2C/index.html" class="sidebar-item-text sidebar-link">
@@ -445,35 +400,100 @@ window.Quarto = {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../../../models/1-SynchronousMachines/Generator/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Generator</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <a href="../../../../models/1-SynchronousMachines/Governor/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Governors (GOV)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../models/1-SynchronousMachines/Generator/SM1/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Synchronous Machine Model (SM1)</span></a>
+  <a href="../../../../models/1-SynchronousMachines/Governor/IEEEG2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">IEEEG2 / GovSteam 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../models/1-SynchronousMachines/Generator/GENQEC/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GENQEC Synchronous Machine with Saturation</span></a>
+  <a href="../../../../models/1-SynchronousMachines/Governor/GovCT2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GovCT2 / GGOV2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../models/1-SynchronousMachines/Generator/GENTPJ/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GENTPF/GENTPJ Synchronous Machine with Saturation</span></a>
+  <a href="../../../../models/1-SynchronousMachines/Governor/TGOV1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TGOV1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../models/1-SynchronousMachines/Generator/GENSAL/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GENROU/GENSAL Salient-pole/round-rotor synchronous machine without saturation</span></a>
+  <a href="../../../../models/1-SynchronousMachines/Governor/GovSteamEU/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GovSteamEU</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/HYGOV/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HYGOV</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/GAST/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GAST</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/GovHydro4/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GovHydro4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/TGOV3/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TGOV3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/IEEEG1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">IEEEG1 / GovSteam 1</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../models/1-SynchronousMachines/PowerSystemStabilizer/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Power System Stabilizers (PSS)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS6C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSS6C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS3C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSS3C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS2C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSS2C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS1A/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">PSS1A</span></a>
   </div>
 </li>
       </ul>
@@ -596,7 +616,7 @@ window.Quarto = {
 <p>This article is incomplete, some sections must be written.</p>
 <section id="context" class="level2">
 <h2 class="anchored" data-anchor-id="context">Context</h2>
-<p>This power system stabilizer model appears in the IEEE Std 421.5-2016 {% cite IEEEExciterModels2016 %}. It has been reproduced identically in the IEC 61970-302:2024 version {% cite IECCIMForDynamics2024 %}. This model was introduced in the previous standard version (2005).</p>
+<p>This power system stabilizer model appears in the IEEE Std 421.5-2016 <span class="citation" data-cites="IEEEExciterModels2016">(<a href="#ref-IEEEExciterModels2016" role="doc-biblioref">Electrical and Engineers 2016</a>)</span>. It has been reproduced identically in the IEC 61970-302:2024 version <span class="citation" data-cites="IECCIMForDynamics2024">(<a href="#ref-IECCIMForDynamics2024" role="doc-biblioref">Commission 2024</a>)</span>. This model was introduced in the previous standard version (2005).</p>
 </section>
 <section id="model-use-assumptions-validity-domain-and-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
@@ -739,7 +759,14 @@ window.Quarto = {
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
-<p>{% bibliography –cited –file references %}</p>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-IECCIMForDynamics2024" class="csl-entry" role="listitem">
+Commission, International Electrotechnical. 2024. <span>“Energy Management System Application Program Interface (EMS-API) Part 302: Common Information Model (CIM) Dynamics.”</span> <em>IEC 61970-302</em>. <a href="https://webstore.iec.ch/preview/info_iec61970-302%7Bed2.0%7Db.pdf">https://webstore.iec.ch/preview/info_iec61970-302%7Bed2.0%7Db.pdf</a>.
+</div>
+<div id="ref-IEEEExciterModels2016" class="csl-entry" role="listitem">
+Electrical, The Institute of, and Electronics Engineers. 2016. <span>“IEEE Recommended Practice for Excitation System Models for Power System Stability Studies.”</span> <em>IEEE Std 421.5-2016</em>. <a href="https://home.engineering.iastate.edu/~jdm/ee554/IEEEstd421.5-2016RecPracExSysModsPwrSysStabStudies.pdf">https://home.engineering.iastate.edu/~jdm/ee554/IEEEstd421.5-2016RecPracExSysModsPwrSysStabStudies.pdf</a>.
+</div>
+</div>
 
 
 </section>
