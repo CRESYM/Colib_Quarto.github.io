@@ -601,11 +601,11 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
 <p>The model presents the general expressions in <em>abc</em> reference frame of the differential equations that model a general synchronous machine with the following assumptions:</p>
 <ul>
-<li>There are three stator windings (<span class="math display">\[a, b, c\]</span>) distributed 120º apart one from each other, each of them with equal parameters (i.e.&nbsp;same resistance, inductance…).</li>
+<li>There are three stator windings (<span class="math inline">\(a, b, c\)</span>) distributed 120º apart one from each other, each of them with equal parameters (i.e.&nbsp;same resistance, inductance…).</li>
 <li>The three phases are balanced, meaning the power is shared equally.</li>
-<li>The rotor has one winding with a field (<span class="math display">\[e_f\]</span>) applied and three damper windings, with no power source, one of them with the axis parallel to the field winding (<span class="math display">\[1d\]</span>) and the other two with a perpendicular axis (<span class="math display">\[1q, 2q\]</span>).</li>
+<li>The rotor has one winding with a field (<span class="math inline">\(e_f\)</span>) applied and three damper windings, with no power source, one of them with the axis parallel to the field winding (<span class="math inline">\(1d\)</span>) and the other two with a perpendicular axis (<span class="math inline">\(1q, 2q\)</span>).</li>
 <li>The magnetic field produced by the rotor winding oscillates sinusoidally.</li>
-<li>The machine may have 2 or more poles, noted as <span class="math display">\[p_f\]</span>.</li>
+<li>The machine may have 2 or more poles, noted as <span class="math inline">\(p_f\)</span>.</li>
 </ul>
 <p>The general model can be solved by detailed models that make further assumptions about the rotor structure and the expressions of some of its parameters as functions of some variables, in particular the interaction between rotor and stator due to magnetic saturation. Each particular model is listed, and its additional assumptions are explained before transforming the set of equations. A per-unit system is also proposed.</p>
 <p>The resulting models will provide the complete set of dynamic equations of the synchronous machine to perform transient analysis. These equations can be further transformed to perform steady-state analysis.</p>
@@ -613,11 +613,15 @@ window.Quarto = {
 <section id="physical-description" class="level2">
 <h2 class="anchored" data-anchor-id="physical-description">Physical description</h2>
 <p>The following schematic shows the components that participate in the synchronous machine operation:</p>
-<p align="center">
-<img src="{{'SM1_model_scheme.svg'}}" alt="Operation of a Synchronous Machine schematic" style="float: center; width: 600px;">
-</p>
-<div style="text-align:center">
-<p>Figure 1: Synchronous machine model schematic</p>
+<div id="fig-sm1-model-scheme" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sm1-model-scheme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./SM1_model_scheme.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sm1-model-scheme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Synchronous machine model schematic
+</figcaption>
+</figure>
 </div>
 <section id="physical-parts-of-a-synchronous-machine" class="level3">
 <h3 class="anchored" data-anchor-id="physical-parts-of-a-synchronous-machine">Physical parts of a Synchronous Machine</h3>
@@ -634,12 +638,16 @@ window.Quarto = {
 </section>
 <section id="stator" class="level4">
 <h4 class="anchored" data-anchor-id="stator">Stator</h4>
-<p>It is the static part of the machine, as its name indicates. This structure gives physical support to the whole machine, while it typically contains the armature winding. It is a three-phase winding distributed in a circular cavity 120º apart one from each other. The uniform rotation of the magnetic field created by the rotor winding will generate currents at each winding 120º apart in the phasorial space. The instantaneous value for each phase is noted as <span class="math display">\[i_a\]</span>, <span class="math display">\[i_b\]</span>, and <span class="math display">\[i_c\]</span>. The following Figure <a href="#2">[2]</a> shows the structure of the synchronous machine, including the windings.</p>
-<p align="center">
-<img src="{{'SM_rot_stat.svg'}}" alt="Stator-rotor of a Synchronous Machine schematic" style="float: center; width: 400px;">
-</p>
-<div style="text-align:center">
-<p>Figure 2: Synchronous machine static part diagram</p>
+<p>It is the static part of the machine, as its name indicates. This structure gives physical support to the whole machine, while it typically contains the armature winding. It is a three-phase winding distributed in a circular cavity 120º apart one from each other. The uniform rotation of the magnetic field created by the rotor winding will generate currents at each winding 120º apart in the phasorial space. The instantaneous value for each phase is noted as <span class="math inline">\(i_a\)</span>, <span class="math inline">\(i_b\)</span>, and <span class="math inline">\(i_c\)</span>. The following Figure <a href="#2">[2]</a> shows the structure of the synchronous machine, including the windings.</p>
+<div id="fig-sm-rot-stat" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sm-rot-stat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./SM_rot_stat.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sm-rot-stat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Stator-rotor of a Synchronous Machine schematic
+</figcaption>
+</figure>
 </div>
 </section>
 <section id="governor" class="level4">
@@ -666,59 +674,59 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math display">\[\theta_{shaft}\]</span></td>
+<td><span class="math inline">\(\theta_{shaft}\)</span></td>
 <td>Rotor angle</td>
-<td><span class="math display">\[rad\]</span></td>
+<td><span class="math inline">\(rad\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[\omega\]</span></td>
+<td><span class="math inline">\(\omega\)</span></td>
 <td>Electrical rotational speed</td>
-<td><span class="math display">\[rad/s\]</span></td>
+<td><span class="math inline">\(rad/s\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[T_m\]</span></td>
+<td><span class="math inline">\(T_m\)</span></td>
 <td>Mechanical torque</td>
-<td><span class="math display">\[Nm\]</span></td>
+<td><span class="math inline">\(Nm\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[T_e\]</span></td>
+<td><span class="math inline">\(T_e\)</span></td>
 <td>Electrical torque</td>
-<td><span class="math display">\[Nm\]</span></td>
+<td><span class="math inline">\(Nm\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[T_{fw}\]</span></td>
+<td><span class="math inline">\(T_{fw}\)</span></td>
 <td>Windage and friction torque</td>
-<td><span class="math display">\[Nm\]</span></td>
+<td><span class="math inline">\(Nm\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[v_a\]</span>, <span class="math display">\[v_b\]</span>, <span class="math display">\[v_c\]</span></td>
+<td><span class="math inline">\(v_a\)</span>, <span class="math inline">\(v_b\)</span>, <span class="math inline">\(v_c\)</span></td>
 <td>Stator phase voltages</td>
-<td><span class="math display">\[V\]</span></td>
+<td><span class="math inline">\(V\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[i_a\]</span>, <span class="math display">\[i_b\]</span>, <span class="math display">\[i_c\]</span></td>
+<td><span class="math inline">\(i_a\)</span>, <span class="math inline">\(i_b\)</span>, <span class="math inline">\(i_c\)</span></td>
 <td>Stator phase currents</td>
-<td><span class="math display">\[A\]</span></td>
+<td><span class="math inline">\(A\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[\psi_a\]</span>, <span class="math display">\[\psi_b\]</span>, <span class="math display">\[\psi_c\]</span></td>
+<td><span class="math inline">\(\psi_a\)</span>, <span class="math inline">\(\psi_b\)</span>, <span class="math inline">\(\psi_c\)</span></td>
 <td>Stator phase flux linkages</td>
-<td><span class="math display">\[Wb\]</span></td>
+<td><span class="math inline">\(Wb\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[\psi_f\]</span>, <span class="math display">\[\psi_{1d}\]</span>, <span class="math display">\[\psi_{1q}\]</span>, <span class="math display">\[\psi_{2q}\]</span></td>
+<td><span class="math inline">\(\psi_f\)</span>, <span class="math inline">\(\psi_{1d}\)</span>, <span class="math inline">\(\psi_{1q}\)</span>, <span class="math inline">\(\psi_{2q}\)</span></td>
 <td>Rotor flux linkages</td>
-<td><span class="math display">\[Wb\]</span></td>
+<td><span class="math inline">\(Wb\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[v_f\]</span></td>
+<td><span class="math inline">\(v_f\)</span></td>
 <td>Field voltage</td>
-<td><span class="math display">\[V\]</span></td>
+<td><span class="math inline">\(V\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[\mathcal{L}_{ww'}\]</span></td>
+<td><span class="math inline">\(\mathcal{L}_{ww'}\)</span></td>
 <td>Total inductance between two windings (can be itself)</td>
-<td><span class="math display">\[H\]</span></td>
+<td><span class="math inline">\(H\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -740,44 +748,44 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math display">\[J\]</span></td>
+<td><span class="math inline">\(J\)</span></td>
 <td>Moment of inertia</td>
-<td><span class="math display">\[kgm^2\]</span></td>
+<td><span class="math inline">\(kgm^2\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[p_f\]</span></td>
+<td><span class="math inline">\(p_f\)</span></td>
 <td>Number of pole pairs</td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[R_a\]</span>, <span class="math display">\[R_b\]</span>, <span class="math display">\[R_c\]</span></td>
+<td><span class="math inline">\(R_a\)</span>, <span class="math inline">\(R_b\)</span>, <span class="math inline">\(R_c\)</span></td>
 <td>Stator phase resistances</td>
-<td><span class="math display">\[\Omega\]</span></td>
+<td><span class="math inline">\(\Omega\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[R_f\]</span>, <span class="math display">\[R_{1d}\]</span>, <span class="math display">\[R_{1q}\]</span>, <span class="math display">\[R_{2q}\]</span></td>
+<td><span class="math inline">\(R_f\)</span>, <span class="math inline">\(R_{1d}\)</span>, <span class="math inline">\(R_{1q}\)</span>, <span class="math inline">\(R_{2q}\)</span></td>
 <td>Rotor windings resistances</td>
-<td><span class="math display">\[\Omega\]</span></td>
+<td><span class="math inline">\(\Omega\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[L_{ww0}\]</span></td>
+<td><span class="math inline">\(L_{ww0}\)</span></td>
 <td>Self-inductance of a winding</td>
-<td><span class="math display">\[H\]</span></td>
+<td><span class="math inline">\(H\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[L_{wl}\]</span></td>
+<td><span class="math inline">\(L_{wl}\)</span></td>
 <td>Leakage inductance of a winding</td>
-<td><span class="math display">\[H\]</span></td>
+<td><span class="math inline">\(H\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[L_{wg2}\]</span></td>
+<td><span class="math inline">\(L_{wg2}\)</span></td>
 <td>Mutual inductance between windings</td>
-<td><span class="math display">\[H\]</span></td>
+<td><span class="math inline">\(H\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[L_{af}\]</span></td>
+<td><span class="math inline">\(L_{af}\)</span></td>
 <td>Mutual inductance between stator and rotor</td>
-<td><span class="math display">\[H\]</span></td>
+<td><span class="math inline">\(H\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -820,7 +828,7 @@ Rotor fluxes:
 <div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
 <p><span class="math display">\[J\frac{2}{p_f}  \frac{d\omega}{dt} = T_m - T_e - T_{fw}\]</span></p>
 </div>
-<p>where <span class="math display">\[\omega\]</span> is the rotational speed in <span class="math display">\[rad/s\]</span>, <span class="math display">\[J\]</span> is the inertia of the rotating body in <span class="math display">\[kgm^2\]</span>, <span class="math display">\[T_m\]</span> is the mechanical torque, <span class="math display">\[T_e\]</span> is the electrical torque and <span class="math display">\[T_{fw}\]</span> is the friction and windage torque, all in <span class="math display">\[Nm\]</span>.</p>
+<p>where <span class="math inline">\(\omega\)</span> is the rotational speed in <span class="math inline">\(rad/s\)</span>, <span class="math inline">\(J\)</span> is the inertia of the rotating body in <span class="math inline">\(kgm^2\)</span>, <span class="math inline">\(T_m\)</span> is the mechanical torque, <span class="math inline">\(T_e\)</span> is the electrical torque and <span class="math inline">\(T_{fw}\)</span> is the friction and windage torque, all in <span class="math inline">\(Nm\)</span>.</p>
 </section>
 <section id="electric-equations-of-the-synchronous-machine-in-abc-reference-frame" class="level4">
 <h4 class="anchored" data-anchor-id="electric-equations-of-the-synchronous-machine-in-abc-reference-frame">Electric equations of the synchronous machine in <em>abc</em> reference frame</h4>
@@ -828,16 +836,16 @@ Rotor fluxes:
 <div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
 <p><span class="math display">\[e_{emf} = \frac{d\psi}{dt}\]</span></p>
 </div>
-<p>The rotational speed of the rotor of a synchronous machine is proportional to the grid frequency times the number of poles (i.e.&nbsp;number of different three-phase windings). The induced field in each phase <span class="math display">\[e_{ir}\]</span> will lead the terminal voltage <span class="math display">\[v_i\]</span> by a load angle denoted as <span class="math display">\[\delta\]</span>.</p>
+<p>The rotational speed of the rotor of a synchronous machine is proportional to the grid frequency times the number of poles (i.e.&nbsp;number of different three-phase windings). The induced field in each phase <span class="math inline">\(e_{ir}\)</span> will lead the terminal voltage <span class="math inline">\(v_i\)</span> by a load angle denoted as <span class="math inline">\(\delta\)</span>.</p>
 <div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
 <p><span class="math display">\[n = \frac{120f}{p_f} \quad (2)\]</span></p>
 </div>
-<p>where <span class="math display">\[n\]</span> is the rotational speed in <span class="math display">\[rev/min\]</span>, <span class="math display">\[f\]</span> is the stator currents frequency in <span class="math display">\[Hz\]</span>, and <span class="math display">\[p_f\]</span> is the number of field poles.</p>
+<p>where <span class="math inline">\(n\)</span> is the rotational speed in <span class="math inline">\(rev/min\)</span>, <span class="math inline">\(f\)</span> is the stator currents frequency in <span class="math inline">\(Hz\)</span>, and <span class="math inline">\(p_f\)</span> is the number of field poles.</p>
 <p>The coupling between the rotor and the stator windings can be modelled using the terminal voltage equations:</p>
 <div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
 <p><span class="math display">\[v_a = R_a i_a + \frac{d\psi_a}{dt}\]</span> <span class="math display">\[v_b = R_b i_b + \frac{d\psi_b}{dt}\]</span> <span class="math display">\[v_c = R_c i_c + \frac{d\psi_c}{dt}\]</span> <span class="math display">\[v_f = R_f i_f + \frac{d\psi_f}{dt}\]</span> <span class="math display">\[v_{1d} = R_{1d} i_{1d} + \frac{d\psi_{1d}}{dt} \]</span> <span class="math display">\[v_{1q} = R_{1q} i_{1q} + \frac{d\psi_{1q}}{dt} \]</span> <span class="math display">\[v_{2q} = R_{2q} i_{2q} + \frac{d\psi_{2q}}{dt} \]</span></p>
 </div>
-<p>where <span class="math display">\[\psi_i\]</span> is the magnetic flux passing through the <span class="math display">\[i\]</span> winding in <span class="math display">\[Wb\]</span>, <span class="math display">\[R_i\]</span> is the resistance of the associated circuit in <span class="math display">\[\Omega\]</span>, <span class="math display">\[v_i\]</span> is the terminal voltage in <span class="math display">\[V\]</span> and <span class="math display">\[i_i\]</span> is the current in <span class="math display">\[A\]</span>.</p>
+<p>where <span class="math inline">\(\psi_i\)</span> is the magnetic flux passing through the <span class="math inline">\(i\)</span> winding in <span class="math inline">\(Wb\)</span>, <span class="math inline">\(R_i\)</span> is the resistance of the associated circuit in <span class="math inline">\(\Omega\)</span>, <span class="math inline">\(v_i\)</span> is the terminal voltage in <span class="math inline">\(V\)</span> and <span class="math inline">\(i_i\)</span> is the current in <span class="math inline">\(A\)</span>.</p>
 <p>The total fluxes are calculated taking into account all the present windings in the synchronous machine, which are the three stator windings and the rotor winding. The fluxes for all the windings are calculated as follows:</p>
 <div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
 <div style="font-weight: bold;">
@@ -849,26 +857,40 @@ Rotor fluxes:
 </div>
 <p><span class="math display">\[\psi_f = \mathcal{L}_{fa} i_a + \mathcal{L}_{fb} i_b +\mathcal{L}_{fc} i_c + \mathcal{L}_{ff} i_f + \mathcal{L}_{f1d} i_{1d}\]</span> <span class="math display">\[\psi_{1d} = \mathcal{L}_{1da} i_a + \mathcal{L}_{1db} i_b +\mathcal{L}_{1dc} i_c + \mathcal{L}_{1df} i_f + \mathcal{L}_{1dqd} i_{1d}\]</span> <span class="math display">\[\psi_{1q} = \mathcal{L}_{1qa} i_a + \mathcal{L}_{1qb} i_b +\mathcal{L}_{1qc} i_c + \mathcal{L}_{1q1q} i_{1q} + \mathcal{L}_{1q2q} i_{2q}\]</span> <span class="math display">\[\psi_{2q} = \mathcal{L}_{2qa} i_a + \mathcal{L}_{2qb} i_b +\mathcal{L}_{2qc} i_c + \mathcal{L}_{2q1q} i_{1q} + \mathcal{L}_{2q2q} i_{2q}\]</span></p>
 </div>
-<p>with <span class="math display">\[\mathcal{L}_{pp}\]</span> being the self inductance of the winding and <span class="math display">\[\mathcal{L}_{pp'}\]</span> the mutual inductance between winding <span class="math display">\[p\]</span> and winding <span class="math display">\[p'\]</span>, both in <span class="math display">\[H\]</span>. As it can be seen, the <em>q</em> axis damper windings and the <em>d</em> axis damper and rotor windings do not interact since they are perpendicular.</p>
-<p>The inductance values expressed using the notation <span class="math display">\[\mathcal{L}\]</span> express a general dependency with respect to the rotor position <span class="math display">\[\theta_{shaft} = \omega t + \theta_0\]</span> <a href="#4">[4]</a>. It is modelled as a sinusoidal dependency with respect to the electrical angle <span class="math display">\[\theta_{me}\]</span>. This angle can be calculated as a function of the rotor position angle expression seen before as <span class="math display">\[\theta_{me} = \frac{p_f}{2}\theta_{shaft} = \omega_{me} t + \theta_{e0}\]</span>.</p>
-<p>The general expression for mutual inductance would be <span class="math display">\[\mathcal{L}_{pp} = L_{pp} = L_{pp0} + L_{pl} + L_{g2}\cos(2\theta_{me})\]</span> where the first term corresponds to the portion of the inductance due to the air gap, and the second term corresponds to the leakage flux. The mutual inductances, considering a perfect 120º separation between windings, and having <span class="math display">\[\cos(120º) = -1/2\]</span> take the values <span class="math display">\[\mathcal{L}_{pp'} = -\frac{1}{2} L_{pp0} + L_{g2}\cos(2\theta_{me})\]</span>.</p>
-<p>Considering that all the windings are assumed to have the same characteristics, the inductances for the different phases will only differ in the angular term of the rotor position, which will have additional phase terms of <span class="math display">\[(0º, 120º, -120º)\]</span> for phases <span class="math display">\[(a, b, c)\]</span> respectively.</p>
-<p>The stator-rotor inductance also depends on the electrical angle <span class="math display">\[\theta_{me}\]</span> between the rotor winding axis and the stator winding axis. The value of this inductance for phase <span class="math display">\[a\]</span> can be calculated with the expression <span class="math display">\[\mathcal{L}_{af} = \mathcal{L}_{fa} = L_{af}\cos(\theta_{me})\]</span>, while the same expression can be applied for phase <span class="math display">\[b\]</span> and <span class="math display">\[c\]</span> but replacing <span class="math display">\[\theta_{me}\]</span> with <span class="math display">\[\theta_{me} - 120º\]</span> and <span class="math display">\[\theta_{me} + 120º\]</span> respectively.</p>
+<p>with <span class="math inline">\(\mathcal{L}_{pp}\)</span> being the self inductance of the winding and <span class="math inline">\(\mathcal{L}_{pp'}\)</span> the mutual inductance between winding <span class="math inline">\(p\)</span> and winding <span class="math inline">\(p'\)</span>, both in <span class="math inline">\(H\)</span>. As it can be seen, the <em>q</em> axis damper windings and the <em>d</em> axis damper and rotor windings do not interact since they are perpendicular.</p>
+<p>The inductance values expressed using the notation <span class="math inline">\(\mathcal{L}\)</span> express a general dependency with respect to the rotor position <span class="math inline">\(\theta_{shaft} = \omega t + \theta_0\)</span> <a href="#4">[4]</a>. It is modelled as a sinusoidal dependency with respect to the electrical angle <span class="math inline">\(\theta_{me}\)</span>. This angle can be calculated as a function of the rotor position angle expression seen before as <span class="math inline">\(\theta_{me} = \frac{p_f}{2}\theta_{shaft} = \omega_{me} t + \theta_{e0}\)</span>.</p>
+<p>The general expression for mutual inductance would be <span class="math display">\[\mathcal{L}_{pp} = L_{pp} = L_{pp0} + L_{pl} + L_{g2}\cos(2\theta_{me})\]</span> where the first term corresponds to the portion of the inductance due to the air gap, and the second term corresponds to the leakage flux. The mutual inductances, considering a perfect 120º separation between windings, and having <span class="math inline">\(\cos(120º) = -1/2\)</span> take the values <span class="math inline">\(\mathcal{L}_{pp'} = -\frac{1}{2} L_{pp0} + L_{g2}\cos(2\theta_{me})\)</span>.</p>
+<p>Considering that all the windings are assumed to have the same characteristics, the inductances for the different phases will only differ in the angular term of the rotor position, which will have additional phase terms of <span class="math inline">\((0º, 120º, -120º)\)</span> for phases <span class="math inline">\((a, b, c)\)</span> respectively.</p>
+<p>The stator-rotor inductance also depends on the electrical angle <span class="math inline">\(\theta_{me}\)</span> between the rotor winding axis and the stator winding axis. The value of this inductance for phase <span class="math inline">\(a\)</span> can be calculated with the expression <span class="math display">\[\mathcal{L}_{af} = \mathcal{L}_{fa} = L_{af}\cos(\theta_{me})\]</span>, while the same expression can be applied for phase <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> but replacing <span class="math inline">\(\theta_{me}\)</span> with <span class="math inline">\(\theta_{me} - 120º\)</span> and <span class="math inline">\(\theta_{me} + 120º\)</span> respectively.</p>
 </section>
 </section>
 <section id="operational-limits" class="level3">
 <h3 class="anchored" data-anchor-id="operational-limits">Operational limits</h3>
-<p>Depending on the difference in phase between the rotor and grid rotation, the power transferred will be composed of active (<span class="math display">\[P\]</span>) and reactive (<span class="math display">\[Q\]</span>) power.</p>
+<p>Depending on the difference in phase between the rotor and grid rotation, the power transferred will be composed of active (<span class="math inline">\(P\)</span>) and reactive (<span class="math inline">\(Q\)</span>) power.</p>
 <p>These generated powers are limited by the heat limits of the components of the generator. The limits considered are the Armature and field current limit, due to Joule effect heating of both windings, and end region heating limit, which occurs due to currents in the structure of the stator when the field is underexcited.</p>
 <p>The following charts show the capability and compound curves for different power factors<a href="#1">[1]</a>.</p>
-<p float="center">
-<img src="{{'SM_CapCurve.svg'}}" alt="Capability curve of a Synchronous Generator" width="350px"> <img src="{{'SM_CompCurves.svg'}}" alt="Compound curves of a Synchronous Generator" width="400px">
-</p>
-<div style="text-align:center">
-<p>Figures 5 and 6: Capability and compound curves of a synchronous machine</p>
+<div id="fig-sm-cap-curve" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sm-cap-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./SM_CapCurve.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sm-cap-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Capability curve of a Synchronous Generator
+</figcaption>
+</figure>
+</div>
+<div id="fig-sm-comp-curves" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sm-comp-curves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="./SM_CompCurves.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sm-comp-curves-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Compound curves of a Synchronous Generator
+</figcaption>
+</figure>
 </div>
 <p><br></p>
-<p>The left chart shows the <span class="math display">\[P\]</span> and <span class="math display">\[Q\]</span> maximum values for different limit curves, which depend on the refrigerator used, while the right chart shows the dependency on exciter current and apparent power for different values of the power factor.</p>
+<p>The left chart shows the <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> maximum values for different limit curves, which depend on the refrigerator used, while the right chart shows the dependency on exciter current and apparent power for different values of the power factor.</p>
 </section>
 </section>
 <section id="derived-models" class="level2">
@@ -881,7 +903,11 @@ Rotor fluxes:
 <li><p><strong>GENTPF/GENTPJ</strong>: It models the saturation in a different way, including the saturation in the network interface equations, something that the GENSAL/GENROU models do not consider, and it reflects better the saturation effects in the whole machine.</p></li>
 </ul>
 <p>Details can be found here:</p>
-<p>{% include subfolderNav.html %}</p>
+<ul>
+<li><a href="../GENSAL/">GENROU/GENSAL</a></li>
+<li><a href="../GENTPJ/">GENTPF/GENTPJ</a></li>
+<li><a href="../GENQEC/">GENQEC</a></li>
+</ul>
 </section>
 <section id="open-source-implementations" class="level2">
 <h2 class="anchored" data-anchor-id="open-source-implementations">Open source implementations</h2>
