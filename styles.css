@@ -181,7 +181,7 @@
 }
 
 .parter-logo-img-lg {
-  height: 50px;
+  height: 60px;
   justify-self: center;
 }
 
@@ -190,5 +190,10 @@
 }
 
 .sidebar-item {
-  margin: 1rem 0;
+  margin: 0.5rem 0;
+}
+
+.sidebar-section {
+  padding-left: 1rem;
+  padding-bottom: .2rem;
 }

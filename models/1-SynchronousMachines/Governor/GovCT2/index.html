@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2025-11-04">
+
+<title>GovCT2 / GGOV2</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-684cd2e4dca32dbb331d0f802940736f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../assets/img/Logo_colib.svg" alt="" class="navbar-logo">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../index.html"> 
+<span class="menu-text">Overview</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../about/index.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../../../../models/index.html" aria-current="page"> 
+<span class="menu-text">Models</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../test_cases.html"> 
+<span class="menu-text">Page with code</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/CRESYM/Colib_Quarto.github.io" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/1-SynchronousMachines/index.html">Synchronous machines</a></li><li class="breadcrumb-item"><a href="../../../../models/1-SynchronousMachines/Governor/index.html">Governors (GOV)</a></li><li class="breadcrumb-item"><a href="../../../../models/1-SynchronousMachines/Governor/GovCT2/index.html">GovCT2 / GGOV2</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../models/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Models</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../models/1-SynchronousMachines/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Synchronous machines</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../models/1-SynchronousMachines/Governor/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Governors (GOV)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/IEEEG2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">IEEEG2 / GovSteam 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/GovCT2/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">GovCT2 / GGOV2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/TGOV1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TGOV1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/GovSteamEU/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GovSteamEU</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/HYGOV/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HYGOV</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/GAST/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GAST</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/GovHydro4/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GovHydro4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/TGOV3/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TGOV3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/IEEEG1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">IEEEG1 / GovSteam 1</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Voltage Regulators (AVR) / Exciters (EX)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AcRotatingExciter/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AcRotatingExciter (submodel)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/SCRX/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SCRX</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST6C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ST6C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST7C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ST7C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST4C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ST4C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC1C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AC1C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST5C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ST5C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC7C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AC7C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/DC1C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DC1C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/IEEX2A/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">IEEX2A</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC6C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AC6C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/IEEEX2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">IEEEX2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST9C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ST9C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST1C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ST1C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/BBSEX1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BBSEX1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC8C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AC8C</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../models/1-SynchronousMachines/PowerSystemStabilizer/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Power System Stabilizers (PSS)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS6C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSS6C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS3C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSS3C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS2C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSS2C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS1A/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSS1A</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../models/1-SynchronousMachines/OverUnderExcitationLimiter/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Over/under Excitation Limiters</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/OverUnderExcitationLimiter/SCL2C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SCL2C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL4C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OEL4C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL5C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OEL5C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/OverUnderExcitationLimiter/SCL1C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SCL1C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/OverUnderExcitationLimiter/UEL1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UEL1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL3C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OEL3C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/OverUnderExcitationLimiter/UEL2C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UEL2C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL2C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OEL2C</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../models/1-SynchronousMachines/Generator/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Generator</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Generator/SM1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Synchronous Machine Model (SM1)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Generator/GENQEC/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GENQEC Synchronous Machine with Saturation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Generator/GENTPJ/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GENTPF/GENTPJ Synchronous Machine with Saturation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Generator/GENSAL/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GENROU/GENSAL Salient-pole/round-rotor synchronous machine without saturation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../models/2-Loads/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Loads</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/2-Loads/FDLoad/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Frequency Dependent Load Model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/2-Loads/ZIPLoad/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ZIP Load Model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/2-Loads/ExpLoad/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exponential Load Model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../models/2-Loads/Motor/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Motors</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/2-Loads/Motor/SimpleMotor/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Single-cage induction motor model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/2-Loads/Motor/WECC_Motor/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Induction motor model with rotor flux dynamics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
+  <li><a href="#model-use-assumptions-validity-domain-and-limitations" id="toc-model-use-assumptions-validity-domain-and-limitations" class="nav-link" data-scroll-target="#model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</a></li>
+  <li><a href="#model-description" id="toc-model-description" class="nav-link" data-scroll-target="#model-description">Model description</a>
+  <ul class="collapse">
+  <li><a href="#model-schema" id="toc-model-schema" class="nav-link" data-scroll-target="#model-schema">Model schema</a></li>
+  <li><a href="#major-control-paths" id="toc-major-control-paths" class="nav-link" data-scroll-target="#major-control-paths">Major control paths</a></li>
+  <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters">Parameters</a></li>
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
+  <li><a href="#outputs" id="toc-outputs" class="nav-link" data-scroll-target="#outputs">Outputs</a></li>
+  <li><a href="#equations-algorithm" id="toc-equations-algorithm" class="nav-link" data-scroll-target="#equations-algorithm">Equations &amp; algorithm &nbsp;</a></li>
+  <li><a href="#initial-equations-boundary-conditions" id="toc-initial-equations-boundary-conditions" class="nav-link" data-scroll-target="#initial-equations-boundary-conditions">Initial equations / boundary conditions</a></li>
+  </ul></li>
+  <li><a href="#open-source-implementations" id="toc-open-source-implementations" class="nav-link" data-scroll-target="#open-source-implementations">Open source implementations</a></li>
+  <li><a href="#table-of-references" id="toc-table-of-references" class="nav-link" data-scroll-target="#table-of-references">Table of references</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/1-SynchronousMachines/index.html">Synchronous machines</a></li><li class="breadcrumb-item"><a href="../../../../models/1-SynchronousMachines/Governor/index.html">Governors (GOV)</a></li><li class="breadcrumb-item"><a href="../../../../models/1-SynchronousMachines/Governor/GovCT2/index.html">GovCT2 / GGOV2</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">GovCT2 / GGOV2</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Martin Franke (Fraunhofer IEE) </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 4, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="context" class="level2">
+<h2 class="anchored" data-anchor-id="context">Context</h2>
+<p>In a power plant, a governor regulates the mechanical power (<span class="math display">\[P_m\]</span>) or torque (<span class="math display">\[T_m\]</span>) delivered from the turbine to the electrical generator. This governor model includes the turbine dynamics, i.e.&nbsp;it takes a reference power and generator speed and outputs the mechanical torque.</p>
+<p>This GovCT2 is a modification of the GovCT1 in order to represent the frequency-dependent fuel flow limit of a specific gas turbine manufacturer. Both are based on <em>Rowen’s model</em> from 1983 [1].</p>
+<p>When comparing to older standards: GovCT2 is identical to GGOV2 and GovCT1 is identical to GGOV1.</p>
+<p>GovCT2 is part of the CIM/CGMES standard, see [2] and [3]. CIM is developed by ENTSO-E and aims at ensuring the reliability of grid models and market information exchanges. ENTSO-E developed CGMES as a superset of the IEC CIM standards (belonging to IEC CIM16) in 2013 to fulfill the requirements of transmission system operators and their data exchanges.</p>
+<p>The following information has been gathered from [2], [4] and [3].</p>
+</section>
+<section id="model-use-assumptions-validity-domain-and-limitations" class="level2">
+<h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
+<p>General model for any prime mover with a PID governor.</p>
+<p>For example used for:</p>
+<p>Can be used to represent a variety of prime movers controlled by PID governors, such as:</p>
+<ul>
+<li>Single shaft combined cycle turbines and Gas turbines</li>
+<li>Diesel engines (with modern digital or electronic governors)</li>
+<li>Steam turbines with
+<ul>
+<li>steam supplied from a large boiler drum</li>
+<li>or steam supplied from a large header with approximately constant pressure (over the time period of the simulation)</li>
+</ul></li>
+<li>Simple hydro turbines in dam configurations with
+<ul>
+<li>short water column length</li>
+<li>and minimal water inertia effects</li>
+</ul></li>
+</ul>
+<p>The model is a positive-sequence RMS model, hence it assumes symmetrical operating conditions and neglects high-frequency dynamics. This type of model is often used in large-scale stability studies, for which it reflects the relevant phenomena. It is not a detailed physical model of the unit. Also for some stability phenomena (e.g.&nbsp;resonance stability) this model is not sufficient and EMT models or other approaches may be necessary.</p>
+</section>
+<section id="model-description" class="level2">
+<h2 class="anchored" data-anchor-id="model-description">Model description</h2>
+<section id="model-schema" class="level3">
+<h3 class="anchored" data-anchor-id="model-schema">Model schema</h3>
+<p><img src="drawings/GovCT2.drawio.svg" class="img-fluid"></p>
+<div id="fig-modelSchema" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-modelSchema-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p>Figure&nbsp;1: Model schema, based on [3]</p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-modelSchema-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="major-control-paths" class="level3">
+<h3 class="anchored" data-anchor-id="major-control-paths">Major control paths</h3>
+<p>The following section is based on [1] (p.&nbsp;517f).</p>
+<p>The model has three major control paths (speed/load, acceleration, temperature) associated with the dynamic response during disturbances. Outputs of these control functions are all inputs into a minimum value selector determining the least fuel request. This is then given to the actuator.</p>
+<section id="speedload-fsrn" class="level4">
+<h4 class="anchored" data-anchor-id="speedload-fsrn">Speed/load (fsrn)</h4>
+<p>This can be considered the main control path. It corresponds directly to the governor. The inputs are load demand <span class="math display">\[P_\mathrm{ref}\]</span>, rotor speed <span class="math display">\[\omega\]</span> and automatic generation control power <span class="math display">\[P_\mathrm{MWSet}\]</span>.</p>
+<p>The resulting signal is then passed through a deadband, limits and a PID-controller. To represent a specific governor, some elements can be deactivated by setting parameters to zero (examples in [1]).</p>
+<section id="supervisory-load-controller" class="level5">
+<h5 class="anchored" data-anchor-id="supervisory-load-controller">Supervisory load controller</h5>
+<p>In [3] the <span class="math display">\[P_\mathrm{MWSet}\]</span> path is described as an optional additional outer loop associated with a power plant control (supervisory load controller). This is active when <span class="math display">\[K_\mathrm{I\,MW}\]</span> is not equal to zero. It is a slow acting reset control and it adjusts the speed/load reference of the turbine governor to maintain the electrical power of the unit at the value which it has been initialized with. That value is stored in <span class="math display">\[P_\mathrm{MW\,set}\]</span> when the model is initialized, and can be changed during simulation. The load controller is expected to have a slow reaction compared to the speed governor. [3]</p>
+<p>A value <span class="math display">\[K_\mathrm{I\,MW}\]</span> = to 0.01 corresponds to a time constant of 100 s; 0.001 corresponds to 1000 s (relatively slow acting) [3].</p>
+</section>
+<section id="acceleration-fsra" class="level5">
+<h5 class="anchored" data-anchor-id="acceleration-fsra">Acceleration (fsra)</h5>
+<blockquote class="blockquote">
+<p>[…] for studies of large power systems, [the acceleration control loop] can be ignored. It is important for islanding studies and smaller power systems with large frequency variations. If the generating unit begins to accelerate at a rate over [<span class="math display">\[a_\mathrm{set}\]</span>] (pu/s^2) then this control loop acts to limit fuel flow. [1]</p>
+</blockquote>
+<p>It can be disabled by setting <span class="math display">\[a_\mathrm{set}\]</span> to a large value, such as 1. [3]</p>
+</section>
+<section id="temperature-fsrt-load-limit" class="level5">
+<h5 class="anchored" data-anchor-id="temperature-fsrt-load-limit">Temperature (fsrt) / load limit</h5>
+<p>The load limiter module allows to set a maximum output limit <span class="math display">\[P_\mathrm{ldref}\]</span>. This can also model an exhaust temperature limit, in which case <span class="math display">\[P_\mathrm{ldref}\]</span> is not to be interpreted as a power value. The time constant <span class="math display">\[T_\mathrm{f\,load}\]</span> should match the measurement time constant for temperature (or power or which ever signal is being modelled). Additionally, the gains of the limiter, <span class="math display">\[K_\mathrm{P\,load}\]</span> and <span class="math display">\[K_\mathrm{I\,load}\]</span>, should be set to achieve fast and stable control when the limit <span class="math display">\[P_\mathrm{ldref}\]</span> is reached. To deactivate the load limit, set the parameter <span class="math display">\[P_\mathrm{ldref}\]</span> to a high value [3].</p>
+<p>The lead-lag block with <span class="math display">\[T_\mathrm{sa}\]</span> and <span class="math display">\[T_\mathrm{sb}\]</span> can be used to model the exhaust gas temperature measurement system in gas turbines. A “radiation shield” component of larger gas turbines can be modeled by setting <span class="math display">\[T_\mathrm{sa}=4\,\mathrm{s}\]</span> and <span class="math display">\[T_\mathrm{sb}=5\,\mathrm{s}\]</span>, for example [3].</p>
+<blockquote class="blockquote">
+<p>The temperature limit [tlim] in pu corresponds to the fuel flow required for 1 pu turbine power. [1]</p>
+</blockquote>
+</section>
+</section>
+<section id="turbineengine-model" class="level4">
+<h4 class="anchored" data-anchor-id="turbineengine-model">Turbine/engine model</h4>
+<p>The output from the low value select block is given to the first order lag element representing the fuel or gate system (Valve). [1]</p>
+<p><span class="math display">\[V_\mathrm{max}\]</span> and <span class="math display">\[V_\mathrm{min}\]</span> represent the maximum and minimum fuel valve opening. <span class="math display">\[W_\mathrm{fspd}\]</span> is the fuel flow multiplyer.</p>
+<p><span class="math display">\[W_\mathrm{fnl}\]</span> is the fuel required to run the compensator [1].</p>
+<p>The range of fuel valve travel and of fuel flow is unity, so the limits lie between 0 pu and 1 pu. <span class="math display">\[V_\mathrm{max}\]</span> can be reduced below 1, for example to model a load limit defined by the operator or supervisory controller [3]. Additionally there is a dynamic frequency dependent limit reduction, see <a href="#sec-freqDepLimit" class="quarto-xref">Section&nbsp;3.2.3</a>.</p>
+<p>For a gas turbine, in the presence of a minimum firing limit, <span class="math display">\[V_\mathrm{min}\]</span> normally is set greater than zero and less than <span class="math display">\[W_\mathrm{fnl}\]</span> [3].</p>
+<p>The value of the fuel flow at maximum power shall be <span class="math display">\[\leq 1\]</span>, depending on the value of <span class="math display">\[K_\mathrm{turb}\]</span> [3]. It translates the fuel consumption (or water flow) to mechanical power output [1].</p>
+<p>The time delay <span class="math display">\[e^{-sT_\mathrm{eng}}\]</span> is used in representing diesel engines where there is a small but measurable transport delay between a change in fuel flow setting and the development of torque. <span class="math display">\[T_\mathrm{eng}\]</span> should be zero in all but special cases where this transport delay is of particular concern [3].</p>
+<p>The switch <span class="math display">\[W_\mathrm{fspd}\]</span> is responsible for recognizing whether fuel flow, for a given fuel valve stroke, is be proportional to engine speed [3]. If True, fuel flow is proportional to speed. This is applicable for some gas turbines and diesel engines with positive displacement fuel injectors. If false, the fuel control system keeps fuel flow independent of engine speed.</p>
+<section id="speed-sensitivity-damping" class="level5">
+<h5 class="anchored" data-anchor-id="speed-sensitivity-damping">Speed sensitivity / Damping</h5>
+<p>If <span class="math display">\[D_\mathrm{m}=0\]</span>, the speed sensitivity paths are not active. [3]</p>
+<p>If <span class="math display">\[D_\mathrm{m}&gt;0\]</span>, it models friction losses (variation of the engine power with the shaft speed; slightly increasing losses with increasing speed are characteristic for reciprocating engines and some aeroderivative turbines [3]).</p>
+<p>If <span class="math display">\[D_\mathrm{m}=&lt;0\]</span>, it can model an influence of rotation speed on exhaust temperature using an exponential characteristic determined by <span class="math display">\[D_\mathrm{m}\]</span>. The maximum permissible fuel flow falls with falling speed (typical for single-shaft industrial turbines due to exhaust temperature limits) [3]. The authors suspect that this could represent fan cooling.</p>
+</section>
+</section>
+<section id="frequency-dependent-valve-limit" class="level4">
+<h4 class="anchored" data-anchor-id="frequency-dependent-valve-limit">Frequency dependent (valve) limit</h4>
+<p>The frequency-dependent limit block outputs the upper limit for valve position / the fuel flow signal fsr. It is shown in <a href="#fig-frequencyDependentLimit" class="quarto-xref">Figure&nbsp;2</a>.</p>
+<p>In normal operation, the limit is <span class="math display">\[V_\mathrm{max\,\omega} = V_\mathrm{max}\]</span> and the there is no frequency dependent reduction.</p>
+<p>When the frequency <span class="math display">\[f\]</span> in Hz drops below <span class="math display">\[f_\mathrm{lim\,1}\]</span>, the value for <span class="math display">\[P_\mathrm{lim}\]</span>, the power limit, is calculated by linear interpolation between the values <span class="math display">\[f_\mathrm{lim\,1}, f_\mathrm{lim\,2}, \dots\]</span> and <span class="math display">\[P_\mathrm{lim\,1}, P_\mathrm{lim\,2}, \dots\]</span> of a lookup table. The table consists of 10 data points which monotonically decrease in both power and frequency, point 1 being the hightest. The lowest data point does act as a lower limit, i.e.&nbsp;is not extrapolated to lower values.</p>
+<p><span class="math display">\[V_\mathrm{max\,\omega}\]</span> then ramps with the rate <span class="math display">\[P_\mathrm{rate}\]</span> from the initial and maximum value to the new value <span class="math display">\[V_\mathrm{max\,omega} = (P_\mathrm{lim} / K_\mathrm{turb} + W_\mathrm{fnl})\]</span>.</p>
+<p><span class="math display">\[P_\mathrm{lim}\]</span> will then change with frequency. If f rises above <span class="math display">\[P_\mathrm{lim\,1}\]</span> again, <span class="math display">\[V_\mathrm{max\,\omega}\]</span> ramps back to <span class="math display">\[V_\mathrm{max}\]</span> [3].</p>
+<p><img src="drawings/GovCT2.frequencylimit.drawio.svg" class="img-fluid"></p>
+<div id="fig-frequencyDependentLimit" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-frequencyDependentLimit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p>Figure&nbsp;2: Frequency dependent valve limit as described in [3]</p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-frequencyDependentLimit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="parameters" class="level3">
+<h3 class="anchored" data-anchor-id="parameters">Parameters</h3>
+<p>Per-unit power parameters are based on <span class="math display">\[P_\mathrm{base}\]</span>, which is normally the capability of the turbine in MW. Per-unit frequency or acceleration parameters are based on the nominal frequency of the grid (e.g.&nbsp;50 Hz in Europe).</p>
+<div id="tbl-parameters" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1
+</figcaption>
+<div aria-describedby="tbl-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p>Table&nbsp;1: Parameters</p>
+</div>
+</figure>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 7%">
+<col style="width: 61%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">name</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: left;">unit e</th>
+<th style="text-align: left;">IEC name</th>
+<th style="text-align: left;">description</th>
+<th style="text-align: left;">typical value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[a_\mathrm{set}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu/s</td>
+<td style="text-align: left;">Aset</td>
+<td style="text-align: left;">Acceleration limiter setpoint</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[\Delta\omega_\mathrm{db}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">db</td>
+<td style="text-align: left;">Frequency error deadband. Recommended to be =0 in most applications [3]</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[\Delta\omega_\mathrm{max}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">Maxerr</td>
+<td style="text-align: left;">Maximum value for frequency error</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[\Delta\omega_\mathrm{min}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">Minerr</td>
+<td style="text-align: left;">Minimum value for frequency error</td>
+<td style="text-align: left;">-1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[\Delta t\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">s</td>
+<td style="text-align: left;"><span class="math display">\[\Delta t\]</span></td>
+<td style="text-align: left;">Correction factor to adapt the unit of <span class="math display">\[K_\mathrm{a}\]</span> from pu/s to pu</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[D_\mathrm{m}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">dm</td>
+<td style="text-align: left;">Speed sensitivity coefficient, see <a href="#sec-speedSensitivity" class="quarto-xref">Section&nbsp;3.2.2.1</a></td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[f_\mathrm{lim\,1}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">Hz</td>
+<td style="text-align: left;">flim1</td>
+<td style="text-align: left;">Frequency threshold 1</td>
+<td style="text-align: left;">59</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[f_\mathrm{lim\,10}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">Hz</td>
+<td style="text-align: left;">flim10</td>
+<td style="text-align: left;">Frequency threshold 10</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[f_\mathrm{lim\,2}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">Hz</td>
+<td style="text-align: left;">flim2</td>
+<td style="text-align: left;">Frequency threshold 2</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[f_\mathrm{lim\,3}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">Hz</td>
+<td style="text-align: left;">flim3</td>
+<td style="text-align: left;">Frequency threshold 3</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[f_\mathrm{lim\,4}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">Hz</td>
+<td style="text-align: left;">flim4</td>
+<td style="text-align: left;">Frequency threshold 4</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[f_\mathrm{lim\,5}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">Hz</td>
+<td style="text-align: left;">flim5</td>
+<td style="text-align: left;">Frequency threshold 5</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[f_\mathrm{lim\,6}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">Hz</td>
+<td style="text-align: left;">flim6</td>
+<td style="text-align: left;">Frequency threshold 6</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[f_\mathrm{lim\,7}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">Hz</td>
+<td style="text-align: left;">flim7</td>
+<td style="text-align: left;">Frequency threshold 7</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[f_\mathrm{lim\,8}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">Hz</td>
+<td style="text-align: left;">flim8</td>
+<td style="text-align: left;">Frequency threshold 8</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[f_\mathrm{lim\,9}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">Hz</td>
+<td style="text-align: left;">flim9</td>
+<td style="text-align: left;">Frequency threshold 9</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[K_\mathrm{a}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">Ka</td>
+<td style="text-align: left;">Acceleration limiter gain</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[K_\mathrm{D\,gov}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">Kdgov</td>
+<td style="text-align: left;">Governor derivative gain</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[K_\mathrm{I\,gov}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">Kigov</td>
+<td style="text-align: left;">Governor integral gain</td>
+<td style="text-align: left;">0.45</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[K_\mathrm{I\,load}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">Kiload</td>
+<td style="text-align: left;">Load limiter integral gain</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[K_\mathrm{I\,MW}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">Kimw</td>
+<td style="text-align: left;">Supervisory load controller integral gain</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[K_\mathrm{P\,gov}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">Kpgov</td>
+<td style="text-align: left;">Governor proportional gain</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[K_\mathrm{P\,load}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">Kpload</td>
+<td style="text-align: left;">Load limiter proportional</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[K_\mathrm{turb}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">Kturb</td>
+<td style="text-align: left;">Turbine gain (translates from fuel flow to power)</td>
+<td style="text-align: left;">1.9168</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[P_\mathrm{base}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">MW</td>
+<td style="text-align: left;">Mwbase</td>
+<td style="text-align: left;">Base for power values (&gt; 0)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[P_\mathrm{ldref}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">Ldref</td>
+<td style="text-align: left;">Load limiter reference value</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[P_\mathrm{lim\,1}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">plim1</td>
+<td style="text-align: left;">Power limit 1</td>
+<td style="text-align: left;">0.8325</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[P_\mathrm{lim\,10}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">plim10</td>
+<td style="text-align: left;">Power limit 10</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[P_\mathrm{lim\,2}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">plim2</td>
+<td style="text-align: left;">Power limit 2</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[P_\mathrm{lim\,3}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">plim3</td>
+<td style="text-align: left;">Power limit 3</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[P_\mathrm{lim\,4}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">plim4</td>
+<td style="text-align: left;">Power limit 4</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[P_\mathrm{lim\,5}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">plim5</td>
+<td style="text-align: left;">Power limit 5</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[P_\mathrm{lim\,6}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">plim6</td>
+<td style="text-align: left;">Power limit 6</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[P_\mathrm{lim\,7}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">plim7</td>
+<td style="text-align: left;">Power limit 7</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[P_\mathrm{lim\,8}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">plim8</td>
+<td style="text-align: left;">Power limit 8</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[P_\mathrm{lim\,9}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">plim9</td>
+<td style="text-align: left;">Power Limit 9</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[P_\mathrm{rate}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">prate</td>
+<td style="text-align: left;">Ramp rate for frequency-dependent power limit</td>
+<td style="text-align: left;">0.017</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[R\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">Droop (frequency/power)</td>
+<td style="text-align: left;">0.05</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[R_\mathrm{close}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu/s</td>
+<td style="text-align: left;">Rclose</td>
+<td style="text-align: left;">Minimum rate for valve closing</td>
+<td style="text-align: left;">-99</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[R_\mathrm{down}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">Rdown</td>
+<td style="text-align: left;">temperature/load limit path output decrease rate limit</td>
+<td style="text-align: left;">-99</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[R_\mathrm{open}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu/s</td>
+<td style="text-align: left;">Ropen</td>
+<td style="text-align: left;">Maximum rate for valve closing</td>
+<td style="text-align: left;">99</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[R_\mathrm{select}\]</span></td>
+<td style="text-align: left;">int</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Rselect</td>
+<td style="text-align: left;">governor controller feedback mode switch</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[R_\mathrm{up}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">Rup</td>
+<td style="text-align: left;">temperature/load limit path output increase rate limit</td>
+<td style="text-align: left;">99</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[T_\mathrm{a}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">s</td>
+<td style="text-align: left;">Ta</td>
+<td style="text-align: left;">Acceleration limiter time constant</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[T_\mathrm{act}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">s</td>
+<td style="text-align: left;">Tact</td>
+<td style="text-align: left;">actuator (valve) reaction time constant</td>
+<td style="text-align: left;">0.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[T_\mathrm{b}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">s</td>
+<td style="text-align: left;">Tb</td>
+<td style="text-align: left;">Turbine lag time constant</td>
+<td style="text-align: left;">0.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[T_\mathrm{c}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">s</td>
+<td style="text-align: left;">Tc</td>
+<td style="text-align: left;">Turbine lead time constant</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[T_\mathrm{dgov}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">s</td>
+<td style="text-align: left;">Tdgov</td>
+<td style="text-align: left;">Governor controller derivative time constant</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[T_\mathrm{D\,ratelim}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">s</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Ramp rate limter derivative time constant in s</td>
+<td style="text-align: left;">0.001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[T_\mathrm{eng}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">s</td>
+<td style="text-align: left;">Teng</td>
+<td style="text-align: left;">Transport time delay for diesel engine</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[T_\mathrm{f\,load}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">s</td>
+<td style="text-align: left;">Tfload</td>
+<td style="text-align: left;">Load limiter time constant</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[T_\mathrm{last\,value}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">s</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Time constant of very fast first order block to prevent algebraic loop</td>
+<td style="text-align: left;">1e-9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[T_\mathrm{p\,elec}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">s</td>
+<td style="text-align: left;">Tpelec</td>
+<td style="text-align: left;">Electrical power measurement time constant</td>
+<td style="text-align: left;">2.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[T_\mathrm{sa}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">s</td>
+<td style="text-align: left;">Tsa</td>
+<td style="text-align: left;">lead time constant of temperature detection</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[T_\mathrm{sb}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">s</td>
+<td style="text-align: left;">Tsb</td>
+<td style="text-align: left;">lag time constant of temperature detection</td>
+<td style="text-align: left;">50</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[V_\mathrm{max}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">Vmax</td>
+<td style="text-align: left;">Maximum valve position limit</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[V_\mathrm{min}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">Vmin</td>
+<td style="text-align: left;">Minimum valve position limit</td>
+<td style="text-align: left;">0.175</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math display">\[W_\mathrm{fnl}\]</span></td>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;">pu</td>
+<td style="text-align: left;">Wfnl</td>
+<td style="text-align: left;">fuel flow with no load</td>
+<td style="text-align: left;">0.187</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math display">\[W_\mathrm{fspd}\]</span></td>
+<td style="text-align: left;">bool</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Wfspd</td>
+<td style="text-align: left;">Switch for fuel source characteristic</td>
+<td style="text-align: left;">false</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="variables" class="level3">
+<h3 class="anchored" data-anchor-id="variables">Variables</h3>
+<section id="inputs" class="level4">
+<h4 class="anchored" data-anchor-id="inputs">Inputs</h4>
+<div id="tbl-inputs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-inputs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2
+</figcaption>
+<div aria-describedby="tbl-inputs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p>Table&nbsp;2: Inputs</p>
+</div>
+</figure>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 9%">
+<col style="width: 63%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>name</th>
+<th>type</th>
+<th>unit</th>
+<th>IEC name</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math display">\[\omega\]</span></td>
+<td>float</td>
+<td>pu</td>
+<td><span class="math display">\[\omega\]</span></td>
+<td>rotor speed</td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[P_\mathrm{ref}\]</span></td>
+<td>float</td>
+<td>pu</td>
+<td>Pref</td>
+<td>load setpoint</td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[P_\mathrm{MWSet}\]</span></td>
+<td>float</td>
+<td>pu</td>
+<td>Pmwset</td>
+<td>Supervisory power controller setpoint (automatic generation control)</td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[P_\mathrm{e}\]</span></td>
+<td>float</td>
+<td>pu</td>
+<td>Pe</td>
+<td>measured electric power generation</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="outputs" class="level3">
+<h3 class="anchored" data-anchor-id="outputs">Outputs</h3>
+<div id="tbl-outputs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-outputs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3
+</figcaption>
+<div aria-describedby="tbl-outputs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p>Table&nbsp;3: Outputs</p>
+</div>
+</figure>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>name</th>
+<th>type</th>
+<th>unit</th>
+<th>IEC name</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math display">\[P_\mathrm{m}\]</span></td>
+<td>float</td>
+<td>pu</td>
+<td>Pm</td>
+<td>mechanical power</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="equations-algorithm" class="level3">
+<h3 class="anchored" data-anchor-id="equations-algorithm">Equations &amp; algorithm &nbsp;</h3>
+<p>–</p>
+</section>
+<section id="initial-equations-boundary-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="initial-equations-boundary-conditions">Initial equations / boundary conditions</h3>
+<p>The initial values for the system’s states are calculated from the initial mechanical power <span class="math display">\[P_\mathrm{m\,0}\]</span> and rotation speed <span class="math display">\[\omega_\mathrm{0}\]</span>.</p>
+<section id="helper-variables" class="level4">
+<h4 class="anchored" data-anchor-id="helper-variables">Helper variables</h4>
+<p>The following “helper variables” are defined to avoid repetition in the definitions of initial states below. They are the initial values of signals at certain points in <a href="#fig-modelSchema" class="quarto-xref">Figure&nbsp;1</a>.</p>
+<p><span id="eq-initPmnoloss"><span class="math display">\[
+P_\mathrm{m\,noloss\,0} =
+\begin{cases}
+    P_\mathrm{m\,0} + \omega_\mathrm{0} \cdot D_\mathrm{m},&amp; \text{if } D_\mathrm{m}&gt; 0\\
+    P_\mathrm{m\,0},              &amp; \text{otherwise}
+\end{cases}
+\qquad(1)\]</span></span></p>
+<p><span id="eq-initCfe"><span class="math display">\[
+C_\mathrm{fe\,0} =
+\begin{cases}
+    W_\mathrm{fnl} + P_\mathrm{m\,noloss\,0} / K_\mathrm{turb},&amp; \text{if } K_\mathrm{turb}&gt;0\\
+    W_\mathrm{fnl},              &amp; \text{otherwise}
+\end{cases}
+\qquad(2)\]</span></span></p>
+<p><span id="eq-initValve"><span class="math display">\[
+V_\mathrm{0} =
+\begin{cases}
+    C_\mathrm{fe\,0} / \omega_\mathrm{0},&amp; \text{if } W_\mathrm{fspd}\\
+    C_\mathrm{fe\,0},              &amp; \text{otherwise}
+\end{cases}
+\qquad(3)\]</span></span></p>
+<p><span id="eq-initTex"><span class="math display">\[
+\vartheta_\mathrm{ex\,0} =
+\begin{cases}
+    C_\mathrm{fe\,0} \cdot \omega_\mathrm{0}^{D_\mathrm{m}},&amp; \text{if } D_\mathrm{m}&lt;0\\
+    1,              &amp; \text{otherwise}
+\end{cases}
+\qquad(4)\]</span></span></p>
+<p><span id="eq-initFsrt"><span class="math display">\[
+F_\mathrm{srt\,0} = (P_\mathrm{ldref}/K_\mathrm{turb} + W_\mathrm{fnl} - \vartheta_\mathrm{ex\,0}) \cdot K_\mathrm{P\,load} + x_\mathrm{I\,load}
+\qquad(5)\]</span></span></p>
+</section>
+<section id="initial-states" class="level4">
+<h4 class="anchored" data-anchor-id="initial-states">Initial states</h4>
+<p><span id="eq-initXiload"><span class="math display">\[
+x_\mathrm{I\,load\,0} = 1
+\qquad(6)\]</span></span></p>
+<p><span id="eq-initXTurbine"><span class="math display">\[
+x_\mathrm{turb\,0} = P_\mathrm{m\,noloss\,0}
+\qquad(7)\]</span></span></p>
+<p><span id="eq-initXValve"><span class="math display">\[
+x_\mathrm{valve\,0} = V_\mathrm{0}
+\qquad(8)\]</span></span></p>
+<p><span id="eq-initXFdl"><span class="math display">\[
+x_\mathrm{fdl\,ratelimit\,0} = K_\mathrm{turb}(V_\mathrm{max}-W_\mathrm{fnl})
+\qquad(9)\]</span></span></p>
+<p><span id="eq-initXIGov"><span class="math display">\[
+x_\mathrm{I\,gov\,0} = V_\mathrm{0}
+\qquad(10)\]</span></span></p>
+<p><span id="eq-initXMeasPe"><span class="math display">\[
+x_\mathrm{meas\,Pe\,0} = P_\mathrm{m\,0}
+\qquad(11)\]</span></span></p>
+<p><span id="eq-initFsrt"><span class="math display">\[
+x_\mathrm{fsrt\,ratelim\,0} = F_\mathrm{srt\,0}
+\qquad(12)\]</span></span></p>
+<p><span id="eq-Texm"><span class="math display">\[
+x_\mathrm{meas\,\vartheta\,ex\,0} = \vartheta_\mathrm{ex\,0}
+\qquad(13)\]</span></span></p>
+<p><span id="eq-initTex"><span class="math display">\[
+x_\mathrm{\vartheta\,ex\,0} = \vartheta_\mathrm{ex\,0}
+\qquad(14)\]</span></span></p>
+<p><span id="eq-initXIMw"><span class="math display">\[
+x_\mathrm{I\,MW} = 0
+\qquad(15)\]</span></span></p>
+<p><span id="eq-initLastValue"><span class="math display">\[
+x_\mathrm{last\,value\,0} = V_\mathrm{0}
+\qquad(16)\]</span></span></p>
+<p><span id="eq-initFsra"><span class="math display">\[
+x_\mathrm{fsra\,0} = 0
+\qquad(17)\]</span></span></p>
+</section>
+<section id="initial-power-reference" class="level4">
+<h4 class="anchored" data-anchor-id="initial-power-reference">Initial power reference</h4>
+<p><span id="eq-initPref"><span class="math display">\[
+P_\mathrm{ref\,0} =
+\begin{cases}
+    0,                         &amp; \text{if } R_\mathrm{select}=0\\
+    R \cdot P_\mathrm{m\,0},   &amp; \text{if } R_\mathrm{select}=1\\
+    R \cdot V_\mathrm{0},      &amp; \text{otherwise}
+\end{cases}
+\qquad(18)\]</span></span></p>
+</section>
+</section>
+</section>
+<section id="open-source-implementations" class="level2">
+<h2 class="anchored" data-anchor-id="open-source-implementations">Open source implementations</h2>
+<p>This model has been successfully implemented in :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Software</th>
+<th>URL</th>
+<th>Language</th>
+<th>Open-Source License</th>
+<th>Last consulted date</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Open Modelica / Dynawo</td>
+<td><a href="https://github.com/dynawo/dynawo">Dynawo</a></td>
+<td>modelica</td>
+<td><a href="https://www.mozilla.org/en-US/MPL/2.0/">MPL v2.0</a></td>
+<td>15/05/2024</td>
+<td>For modeling assumptions and test results, see <a href="https://github.com/dynawo/dynawo">Dynawo</a> repository.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="table-of-references" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-references">Table of references</h2>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-machowski2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">J. Machowski, Z. Lubosny, J. W. Bialek, and J. R. Bumby, <em>Power System Dynamics: Stability and Control, 3rd Edition</em>. Wiley, 2020. Accessed: Nov.&nbsp;22, 2022. [Online]. Available: <a href="https://www.wiley.com/en-us/Power+System+Dynamics%3A+Stability+and+Control%2C+3rd+Edition-p-9781119526360" class="uri">https://www.wiley.com/en-us/Power+System+Dynamics%3A+Stability+and+Control%2C+3rd+Edition-p-9781119526360</a></div>
+</div>
+<div id="ref-alliander2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">alliander, “Alliander-opensource.” [Online]. Available: <a href="https://alliander-opensource.github.io/cgmes-profiles/Dynamics/GovCT2/" class="uri">https://alliander-opensource.github.io/cgmes-profiles/Dynamics/GovCT2/</a></div>
+</div>
+<div id="ref-iec61970-3022023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">IEC61970-302, “DIN EN IEC 61970-302 – Schnittstelle für Anwendungsprogramme für Energiemanagementsysteme (EMS­API) Teil&nbsp;302: Allgemeines Informationsmodell&nbsp;(CIM) Dynamik.” Jun.&nbsp;2023.</div>
+</div>
+<div id="ref-neplan2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">Neplan, “TURBINE-GOVERNOR MODELS – Standard Dynamic Turbine-Governor Systems in NEPLAN Power System Analysis Tool.” 2015. Available: <a href="https://www.neplan.ch">www.neplan.ch</a></div>
+</div>
+</div>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/CRESYM\.github\.io\/Colib_Quarto\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright © 2023-2025 Authors of Collaborative Open-Source Dynamic Simulation Library.<br>
+Content licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p><a href="about.qmd">About</a> • <a href="contact.qmd">Contact</a> • <a href="models.qmd">Models</a> • <a href="test_cases.qmd">Test Cases</a> • <a href="templates.qmd">Templates</a> • <a href="#">Privacy Policy</a> • <a href="#">Terms of Reference</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

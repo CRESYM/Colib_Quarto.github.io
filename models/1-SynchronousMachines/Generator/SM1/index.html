@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-10-04">
+
+<title>Synchronous Machine Model (SM1)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<script src="../../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap-684cd2e4dca32dbb331d0f802940736f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../../assets/img/Logo_colib.svg" alt="" class="navbar-logo">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../index.html"> 
+<span class="menu-text">Overview</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../about/index.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../../../../models/index.html" aria-current="page"> 
+<span class="menu-text">Models</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../test_cases.html"> 
+<span class="menu-text">Page with code</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/CRESYM/Colib_Quarto.github.io" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/1-SynchronousMachines/index.html">Synchronous machines</a></li><li class="breadcrumb-item"><a href="../../../../models/1-SynchronousMachines/Generator/index.html">Generator</a></li><li class="breadcrumb-item"><a href="../../../../models/1-SynchronousMachines/Generator/SM1/index.html">Synchronous Machine Model (SM1)</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../models/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Models</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../models/1-SynchronousMachines/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Synchronous machines</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../models/1-SynchronousMachines/Governor/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Governors (GOV)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/IEEEG2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">IEEEG2 / GovSteam 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/GovCT2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GovCT2 / GGOV2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/TGOV1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TGOV1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/GovSteamEU/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GovSteamEU</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/HYGOV/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HYGOV</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/GAST/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GAST</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/GovHydro4/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GovHydro4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/TGOV3/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TGOV3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Governor/IEEEG1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">IEEEG1 / GovSteam 1</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Voltage Regulators (AVR) / Exciters (EX)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AcRotatingExciter/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AcRotatingExciter (submodel)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/SCRX/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SCRX</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST6C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ST6C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST7C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ST7C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST4C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ST4C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC1C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AC1C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST5C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ST5C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC7C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AC7C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/DC1C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DC1C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/IEEX2A/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">IEEX2A</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC6C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AC6C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/IEEEX2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">IEEEX2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST9C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ST9C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST1C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ST1C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/BBSEX1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BBSEX1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC8C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AC8C</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../models/1-SynchronousMachines/PowerSystemStabilizer/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Power System Stabilizers (PSS)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS6C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSS6C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS3C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSS3C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS2C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSS2C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS1A/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSS1A</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../models/1-SynchronousMachines/OverUnderExcitationLimiter/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Over/under Excitation Limiters</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/OverUnderExcitationLimiter/SCL2C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SCL2C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL4C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OEL4C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL5C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OEL5C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/OverUnderExcitationLimiter/SCL1C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SCL1C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/OverUnderExcitationLimiter/UEL1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UEL1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL3C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OEL3C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/OverUnderExcitationLimiter/UEL2C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UEL2C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL2C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OEL2C</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../models/1-SynchronousMachines/Generator/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Generator</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Generator/SM1/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Synchronous Machine Model (SM1)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Generator/GENQEC/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GENQEC Synchronous Machine with Saturation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Generator/GENTPJ/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GENTPF/GENTPJ Synchronous Machine with Saturation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/1-SynchronousMachines/Generator/GENSAL/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GENROU/GENSAL Salient-pole/round-rotor synchronous machine without saturation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../models/2-Loads/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Loads</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/2-Loads/FDLoad/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Frequency Dependent Load Model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/2-Loads/ZIPLoad/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ZIP Load Model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/2-Loads/ExpLoad/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exponential Load Model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../../models/2-Loads/Motor/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Motors</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/2-Loads/Motor/SimpleMotor/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Single-cage induction motor model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../models/2-Loads/Motor/WECC_Motor/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Induction motor model with rotor flux dynamics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
+  <li><a href="#model-use-assumptions-validity-domain-and-limitations" id="toc-model-use-assumptions-validity-domain-and-limitations" class="nav-link" data-scroll-target="#model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</a></li>
+  <li><a href="#physical-description" id="toc-physical-description" class="nav-link" data-scroll-target="#physical-description">Physical description</a>
+  <ul class="collapse">
+  <li><a href="#physical-parts-of-a-synchronous-machine" id="toc-physical-parts-of-a-synchronous-machine" class="nav-link" data-scroll-target="#physical-parts-of-a-synchronous-machine">Physical parts of a Synchronous Machine</a></li>
+  <li><a href="#synchronous-machine-equations" id="toc-synchronous-machine-equations" class="nav-link" data-scroll-target="#synchronous-machine-equations">Synchronous machine equations</a></li>
+  <li><a href="#operational-principles" id="toc-operational-principles" class="nav-link" data-scroll-target="#operational-principles">Operational principles</a></li>
+  <li><a href="#operational-limits" id="toc-operational-limits" class="nav-link" data-scroll-target="#operational-limits">Operational limits</a></li>
+  </ul></li>
+  <li><a href="#derived-models" id="toc-derived-models" class="nav-link" data-scroll-target="#derived-models">Derived models</a></li>
+  <li><a href="#open-source-implementations" id="toc-open-source-implementations" class="nav-link" data-scroll-target="#open-source-implementations">Open source implementations</a></li>
+  <li><a href="#table-of-references" id="toc-table-of-references" class="nav-link" data-scroll-target="#table-of-references">Table of references</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/1-SynchronousMachines/index.html">Synchronous machines</a></li><li class="breadcrumb-item"><a href="../../../../models/1-SynchronousMachines/Generator/index.html">Generator</a></li><li class="breadcrumb-item"><a href="../../../../models/1-SynchronousMachines/Generator/SM1/index.html">Synchronous Machine Model (SM1)</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Synchronous Machine Model (SM1)</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Carlos Alegre (eRoots) </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 4, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="context" class="level2">
+<h2 class="anchored" data-anchor-id="context">Context</h2>
+<p>The synchronous machine is one of the most studied component of a power system, being its main source of electrical energy. It is the most common type of generators, and it is present in most power plants (thermal, hydro, and some wind) as an interface between the mechanical energy and electrical energy. The mathematical model presented in this article develops the dynamic equations of synchronous machines.<a href="#1">[1]</a> It only covers the physical part of the machine not the regulations nor protections schemes. Variants of the classical model are listed in a dedicated section <a href="#derived-models">Derived models</a> below.</p>
+</section>
+<section id="model-use-assumptions-validity-domain-and-limitations" class="level2">
+<h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
+<p>The model presents the general expressions in <em>abc</em> reference frame of the differential equations that model a general synchronous machine with the following assumptions:</p>
+<ul>
+<li>There are three stator windings (<span class="math display">\[a, b, c\]</span>) distributed 120º apart one from each other, each of them with equal parameters (i.e.&nbsp;same resistance, inductance…).</li>
+<li>The three phases are balanced, meaning the power is shared equally.</li>
+<li>The rotor has one winding with a field (<span class="math display">\[e_f\]</span>) applied and three damper windings, with no power source, one of them with the axis parallel to the field winding (<span class="math display">\[1d\]</span>) and the other two with a perpendicular axis (<span class="math display">\[1q, 2q\]</span>).</li>
+<li>The magnetic field produced by the rotor winding oscillates sinusoidally.</li>
+<li>The machine may have 2 or more poles, noted as <span class="math display">\[p_f\]</span>.</li>
+</ul>
+<p>The general model can be solved by detailed models that make further assumptions about the rotor structure and the expressions of some of its parameters as functions of some variables, in particular the interaction between rotor and stator due to magnetic saturation. Each particular model is listed, and its additional assumptions are explained before transforming the set of equations. A per-unit system is also proposed.</p>
+<p>The resulting models will provide the complete set of dynamic equations of the synchronous machine to perform transient analysis. These equations can be further transformed to perform steady-state analysis.</p>
+</section>
+<section id="physical-description" class="level2">
+<h2 class="anchored" data-anchor-id="physical-description">Physical description</h2>
+<p>The following schematic shows the components that participate in the synchronous machine operation:</p>
+<p align="center">
+<img src="{{'SM1_model_scheme.svg'}}" alt="Operation of a Synchronous Machine schematic" style="float: center; width: 600px;">
+</p>
+<div style="text-align:center">
+<p>Figure 1: Synchronous machine model schematic</p>
+</div>
+<section id="physical-parts-of-a-synchronous-machine" class="level3">
+<h3 class="anchored" data-anchor-id="physical-parts-of-a-synchronous-machine">Physical parts of a Synchronous Machine</h3>
+<p>A synchronous machine is formed by the following parts:</p>
+<section id="rotor" class="level4">
+<h4 class="anchored" data-anchor-id="rotor">Rotor</h4>
+<p>The rotor is the moving part of the generator. It is at the end of the rotation axis of the turbine, which is the component that transfers the energy of a moving fluid (normally steam) into mechanical energy. As the name indicates, the mechanical energy corresponds to the rotational kinetic energy of the body composed by the blades and axis of the turbine.</p>
+<p>It can be round rotor, commonly used in high rotation speed application, or salient pole, used in lower speed applications (i.e.&nbsp;hydro generation) where multiple pair of poles are needed to work at the grid frequency.<a href="#2">[2]</a> Both of them will have at least one winding revolving around an axis perpendicular to the rotating axis. The direction of the field produced by the DC excitation will rotate at the same rate as the rotor, pointing in the perpendicular direction of the rotating axis.</p>
+</section>
+<section id="exciter" class="level4">
+<h4 class="anchored" data-anchor-id="exciter">Exciter</h4>
+<p>The exciter is the source of power that generates the current flowing through the rotor winding. It applies a DC voltage that generates a current in the rotor winding, creating an electromagnet. It is important for voltage control as increasing the current supplied to the rotor winding increases the induced voltage in the stator winding, providing the ability to apply control loops that ensure the terminal voltage keeps at a setpoint.</p>
+<p>This electromagnet can be replaced by a permanent magnet, in which case there would be no need to have a DC excitation to create a rotating field. These types of generators (PMSG), which can be found in newer models of wind turbines, have better efficiency as there are no losses associated with the excitation circuit, and lowers the maintenance needed since all the excitation parts are substituted by a single element. As a downside, there is no possibility to control the field by changing the level of excitation. The field magnitude will remain constant value, with a value dependent on the geometry and material of the magnet.</p>
+</section>
+<section id="stator" class="level4">
+<h4 class="anchored" data-anchor-id="stator">Stator</h4>
+<p>It is the static part of the machine, as its name indicates. This structure gives physical support to the whole machine, while it typically contains the armature winding. It is a three-phase winding distributed in a circular cavity 120º apart one from each other. The uniform rotation of the magnetic field created by the rotor winding will generate currents at each winding 120º apart in the phasorial space. The instantaneous value for each phase is noted as <span class="math display">\[i_a\]</span>, <span class="math display">\[i_b\]</span>, and <span class="math display">\[i_c\]</span>. The following Figure <a href="#2">[2]</a> shows the structure of the synchronous machine, including the windings.</p>
+<p align="center">
+<img src="{{'SM_rot_stat.svg'}}" alt="Stator-rotor of a Synchronous Machine schematic" style="float: center; width: 400px;">
+</p>
+<div style="text-align:center">
+<p>Figure 2: Synchronous machine static part diagram</p>
+</div>
+</section>
+<section id="governor" class="level4">
+<h4 class="anchored" data-anchor-id="governor">Governor</h4>
+<p>The governor is the controller of the speed of the motor. Its primary function is to maintain the speed of the rotor, and hence the frequency of the electrical output of the generator. It is necessary for adapting to load changes, since a sudden increase or decrease of the load would decelerate or accelerate the generator if no actions are taken. Since it is connected to the prime mover of the generator (generally a turbine), the control will adjust the amount of energy entering the turbine, increasing or decreasing the rate of energy as if it needs to accelerate or decelerate the rotation.</p>
+</section>
+</section>
+<section id="synchronous-machine-equations" class="level3">
+<h3 class="anchored" data-anchor-id="synchronous-machine-equations">Synchronous machine equations</h3>
+<section id="variables" class="level4">
+<h4 class="anchored" data-anchor-id="variables">Variables</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 56%">
+<col style="width: 24%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>details</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math display">\[\theta_{shaft}\]</span></td>
+<td>Rotor angle</td>
+<td><span class="math display">\[rad\]</span></td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[\omega\]</span></td>
+<td>Electrical rotational speed</td>
+<td><span class="math display">\[rad/s\]</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[T_m\]</span></td>
+<td>Mechanical torque</td>
+<td><span class="math display">\[Nm\]</span></td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[T_e\]</span></td>
+<td>Electrical torque</td>
+<td><span class="math display">\[Nm\]</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[T_{fw}\]</span></td>
+<td>Windage and friction torque</td>
+<td><span class="math display">\[Nm\]</span></td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[v_a\]</span>, <span class="math display">\[v_b\]</span>, <span class="math display">\[v_c\]</span></td>
+<td>Stator phase voltages</td>
+<td><span class="math display">\[V\]</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[i_a\]</span>, <span class="math display">\[i_b\]</span>, <span class="math display">\[i_c\]</span></td>
+<td>Stator phase currents</td>
+<td><span class="math display">\[A\]</span></td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[\psi_a\]</span>, <span class="math display">\[\psi_b\]</span>, <span class="math display">\[\psi_c\]</span></td>
+<td>Stator phase flux linkages</td>
+<td><span class="math display">\[Wb\]</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[\psi_f\]</span>, <span class="math display">\[\psi_{1d}\]</span>, <span class="math display">\[\psi_{1q}\]</span>, <span class="math display">\[\psi_{2q}\]</span></td>
+<td>Rotor flux linkages</td>
+<td><span class="math display">\[Wb\]</span></td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[v_f\]</span></td>
+<td>Field voltage</td>
+<td><span class="math display">\[V\]</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[\mathcal{L}_{ww'}\]</span></td>
+<td>Total inductance between two windings (can be itself)</td>
+<td><span class="math display">\[H\]</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters" class="level4">
+<h4 class="anchored" data-anchor-id="parameters">Parameters</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Description</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math display">\[J\]</span></td>
+<td>Moment of inertia</td>
+<td><span class="math display">\[kgm^2\]</span></td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[p_f\]</span></td>
+<td>Number of pole pairs</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[R_a\]</span>, <span class="math display">\[R_b\]</span>, <span class="math display">\[R_c\]</span></td>
+<td>Stator phase resistances</td>
+<td><span class="math display">\[\Omega\]</span></td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[R_f\]</span>, <span class="math display">\[R_{1d}\]</span>, <span class="math display">\[R_{1q}\]</span>, <span class="math display">\[R_{2q}\]</span></td>
+<td>Rotor windings resistances</td>
+<td><span class="math display">\[\Omega\]</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[L_{ww0}\]</span></td>
+<td>Self-inductance of a winding</td>
+<td><span class="math display">\[H\]</span></td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[L_{wl}\]</span></td>
+<td>Leakage inductance of a winding</td>
+<td><span class="math display">\[H\]</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[L_{wg2}\]</span></td>
+<td>Mutual inductance between windings</td>
+<td><span class="math display">\[H\]</span></td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[L_{af}\]</span></td>
+<td>Mutual inductance between stator and rotor</td>
+<td><span class="math display">\[H\]</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="system-of-equations" class="level4">
+<h4 class="anchored" data-anchor-id="system-of-equations">System of equations</h4>
+<p>The following system of equations describe a general synchronous machine with the considered assumptions. Some of its parameters are generally non-constant, meaning it is not directly solved without making some additional assumptions. The particular models are derivations of this system of equations.</p>
+<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
+<div style="font-weight: bold;">
+Mechanical dynamic equations:
+</div>
+<p><span class="math display">\[J\frac{2}{p_f}  \frac{d\omega_m}{dt} = T_m - T_e - T_{fw}\]</span> <span class="math display">\[\frac{d\theta_{shaft}}{dt} = \frac{2}{p_f} \omega\]</span></p>
+<div style="font-weight: bold;">
+Stator dynamic equations:
+</div>
+<p><span class="math display">\[v_a = R_a i_a + \frac{d\psi_a}{dt}\]</span> <span class="math display">\[v_b = R_b i_b + \frac{d\psi_b}{dt}\]</span> <span class="math display">\[v_c = R_c i_c + \frac{d\psi_c}{dt}\]</span></p>
+<div style="font-weight: bold;">
+Rotor dynamic equations:
+</div>
+<p><span class="math display">\[v_f = R_f i_f + \frac{d\psi_f}{dt} \]</span> <span class="math display">\[0 = R_{1d} i_{1d} + \frac{d\psi_{1d}}{dt} \]</span> <span class="math display">\[0 = R_{1q} i_{1q} + \frac{d\psi_{1q}}{dt} \]</span> <span class="math display">\[0 = R_{2q} i_{2q} + \frac{d\psi_{2q}}{dt} \]</span></p>
+</div>
+<p>With the general flux expressions as follows:</p>
+<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
+<div style="font-weight: bold;">
+Stator fluxes:
+</div>
+<p><span class="math display">\[\psi_a = \mathcal{L}_{aa} i_a + \mathcal{L}_{ab} i_b +\mathcal{L}_{ac} i_c + \mathcal{L}_{af} i_f + \mathcal{L}_{a1d} i_{1d} + \mathcal{L}_{a1q} i_{1q} + \mathcal{L}_{a2q} i_{2q}\]</span> <span class="math display">\[\psi_b = \mathcal{L}_{ba} i_a + \mathcal{L}_{bb} i_b +\mathcal{L}_{bc} i_c + \mathcal{L}_{bf} i_f + \mathcal{L}_{b1d} i_{1d} + \mathcal{L}_{b1q} i_{1q} + \mathcal{L}_{b2q} i_{2q}\]</span> <span class="math display">\[\psi_c = \mathcal{L}_{ca} i_a + \mathcal{L}_{cb} i_b +\mathcal{L}_{cc} i_c + \mathcal{L}_{cf} i_f + \mathcal{L}_{c1d} i_{1d} + \mathcal{L}_{c1q} i_{1q} + \mathcal{L}_{c2q} i_{2q}\]</span></p>
+<div style="font-weight: bold;">
+Rotor fluxes:
+</div>
+<p><span class="math display">\[\psi_f = \mathcal{L}_{fa} i_a + \mathcal{L}_{fb} i_b +\mathcal{L}_{fc} i_c + \mathcal{L}_{ff} i_f + \mathcal{L}_{f1d} i_{1d}\]</span> <span class="math display">\[\psi_{1d} = \mathcal{L}_{1da} i_a + \mathcal{L}_{1db} i_b +\mathcal{L}_{1dc} i_c + \mathcal{L}_{1df} i_f + \mathcal{L}_{1dqd} i_{1d}\]</span> <span class="math display">\[\psi_{1q} = \mathcal{L}_{1qa} i_a + \mathcal{L}_{1qb} i_b +\mathcal{L}_{1qc} i_c + \mathcal{L}_{1q1q} i_{1q} + \mathcal{L}_{1q2q} i_{2q}\]</span> <span class="math display">\[\psi_{2q} = \mathcal{L}_{2qa} i_a + \mathcal{L}_{2qb} i_b +\mathcal{L}_{2qc} i_c + \mathcal{L}_{2q1q} i_{1q} + \mathcal{L}_{2q2q} i_{2q}\]</span></p>
+</div>
+</section>
+</section>
+<section id="operational-principles" class="level3">
+<h3 class="anchored" data-anchor-id="operational-principles">Operational principles</h3>
+<section id="swing-equation-of-the-synchronous-machine" class="level4">
+<h4 class="anchored" data-anchor-id="swing-equation-of-the-synchronous-machine">Swing equation of the synchronous machine</h4>
+<p>The dynamic equation that governs the system relates the mechanical torque applied by the turbine and the electrical torque applied by the grid<a href="#3">[3]</a>:</p>
+<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
+<p><span class="math display">\[J\frac{2}{p_f}  \frac{d\omega}{dt} = T_m - T_e - T_{fw}\]</span></p>
+</div>
+<p>where <span class="math display">\[\omega\]</span> is the rotational speed in <span class="math display">\[rad/s\]</span>, <span class="math display">\[J\]</span> is the inertia of the rotating body in <span class="math display">\[kgm^2\]</span>, <span class="math display">\[T_m\]</span> is the mechanical torque, <span class="math display">\[T_e\]</span> is the electrical torque and <span class="math display">\[T_{fw}\]</span> is the friction and windage torque, all in <span class="math display">\[Nm\]</span>.</p>
+</section>
+<section id="electric-equations-of-the-synchronous-machine-in-abc-reference-frame" class="level4">
+<h4 class="anchored" data-anchor-id="electric-equations-of-the-synchronous-machine-in-abc-reference-frame">Electric equations of the synchronous machine in <em>abc</em> reference frame</h4>
+<p>Regarding the electrical part of the model, the rotor winding is magnetized by the exciter current, creating a magnetic field that will rotate with the rotor’s angular velocity. As it spins, the stator windings will be subjected to a variable magnetic flux caused by the rotation of the produced magnetic field which, according to Faraday’s Law, will induce an electromotive force in the windings.</p>
+<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
+<p><span class="math display">\[e_{emf} = \frac{d\psi}{dt}\]</span></p>
+</div>
+<p>The rotational speed of the rotor of a synchronous machine is proportional to the grid frequency times the number of poles (i.e.&nbsp;number of different three-phase windings). The induced field in each phase <span class="math display">\[e_{ir}\]</span> will lead the terminal voltage <span class="math display">\[v_i\]</span> by a load angle denoted as <span class="math display">\[\delta\]</span>.</p>
+<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
+<p><span class="math display">\[n = \frac{120f}{p_f} \quad (2)\]</span></p>
+</div>
+<p>where <span class="math display">\[n\]</span> is the rotational speed in <span class="math display">\[rev/min\]</span>, <span class="math display">\[f\]</span> is the stator currents frequency in <span class="math display">\[Hz\]</span>, and <span class="math display">\[p_f\]</span> is the number of field poles.</p>
+<p>The coupling between the rotor and the stator windings can be modelled using the terminal voltage equations:</p>
+<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
+<p><span class="math display">\[v_a = R_a i_a + \frac{d\psi_a}{dt}\]</span> <span class="math display">\[v_b = R_b i_b + \frac{d\psi_b}{dt}\]</span> <span class="math display">\[v_c = R_c i_c + \frac{d\psi_c}{dt}\]</span> <span class="math display">\[v_f = R_f i_f + \frac{d\psi_f}{dt}\]</span> <span class="math display">\[v_{1d} = R_{1d} i_{1d} + \frac{d\psi_{1d}}{dt} \]</span> <span class="math display">\[v_{1q} = R_{1q} i_{1q} + \frac{d\psi_{1q}}{dt} \]</span> <span class="math display">\[v_{2q} = R_{2q} i_{2q} + \frac{d\psi_{2q}}{dt} \]</span></p>
+</div>
+<p>where <span class="math display">\[\psi_i\]</span> is the magnetic flux passing through the <span class="math display">\[i\]</span> winding in <span class="math display">\[Wb\]</span>, <span class="math display">\[R_i\]</span> is the resistance of the associated circuit in <span class="math display">\[\Omega\]</span>, <span class="math display">\[v_i\]</span> is the terminal voltage in <span class="math display">\[V\]</span> and <span class="math display">\[i_i\]</span> is the current in <span class="math display">\[A\]</span>.</p>
+<p>The total fluxes are calculated taking into account all the present windings in the synchronous machine, which are the three stator windings and the rotor winding. The fluxes for all the windings are calculated as follows:</p>
+<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
+<div style="font-weight: bold;">
+Stator fluxes:
+</div>
+<p><span class="math display">\[\psi_a = \mathcal{L}_{aa} i_a + \mathcal{L}_{ab} i_b +\mathcal{L}_{ac} i_c + \mathcal{L}_{af} i_f + \mathcal{L}_{a1d} i_{1d} + \mathcal{L}_{a1q} i_{1q} + \mathcal{L}_{a2q} i_{2q}\]</span> <span class="math display">\[\psi_b = \mathcal{L}_{ba} i_a + \mathcal{L}_{bb} i_b +\mathcal{L}_{bc} i_c + \mathcal{L}_{bf} i_f + \mathcal{L}_{b1d} i_{1d} + \mathcal{L}_{b1q} i_{1q} + \mathcal{L}_{b2q} i_{2q}\]</span> <span class="math display">\[\psi_c = \mathcal{L}_{ca} i_a + \mathcal{L}_{cb} i_b +\mathcal{L}_{cc} i_c + \mathcal{L}_{cf} i_f + \mathcal{L}_{c1d} i_{1d} + \mathcal{L}_{c1q} i_{1q} + \mathcal{L}_{c2q} i_{2q}\]</span></p>
+<div style="font-weight: bold;">
+Rotor fluxes:
+</div>
+<p><span class="math display">\[\psi_f = \mathcal{L}_{fa} i_a + \mathcal{L}_{fb} i_b +\mathcal{L}_{fc} i_c + \mathcal{L}_{ff} i_f + \mathcal{L}_{f1d} i_{1d}\]</span> <span class="math display">\[\psi_{1d} = \mathcal{L}_{1da} i_a + \mathcal{L}_{1db} i_b +\mathcal{L}_{1dc} i_c + \mathcal{L}_{1df} i_f + \mathcal{L}_{1dqd} i_{1d}\]</span> <span class="math display">\[\psi_{1q} = \mathcal{L}_{1qa} i_a + \mathcal{L}_{1qb} i_b +\mathcal{L}_{1qc} i_c + \mathcal{L}_{1q1q} i_{1q} + \mathcal{L}_{1q2q} i_{2q}\]</span> <span class="math display">\[\psi_{2q} = \mathcal{L}_{2qa} i_a + \mathcal{L}_{2qb} i_b +\mathcal{L}_{2qc} i_c + \mathcal{L}_{2q1q} i_{1q} + \mathcal{L}_{2q2q} i_{2q}\]</span></p>
+</div>
+<p>with <span class="math display">\[\mathcal{L}_{pp}\]</span> being the self inductance of the winding and <span class="math display">\[\mathcal{L}_{pp'}\]</span> the mutual inductance between winding <span class="math display">\[p\]</span> and winding <span class="math display">\[p'\]</span>, both in <span class="math display">\[H\]</span>. As it can be seen, the <em>q</em> axis damper windings and the <em>d</em> axis damper and rotor windings do not interact since they are perpendicular.</p>
+<p>The inductance values expressed using the notation <span class="math display">\[\mathcal{L}\]</span> express a general dependency with respect to the rotor position <span class="math display">\[\theta_{shaft} = \omega t + \theta_0\]</span> <a href="#4">[4]</a>. It is modelled as a sinusoidal dependency with respect to the electrical angle <span class="math display">\[\theta_{me}\]</span>. This angle can be calculated as a function of the rotor position angle expression seen before as <span class="math display">\[\theta_{me} = \frac{p_f}{2}\theta_{shaft} = \omega_{me} t + \theta_{e0}\]</span>.</p>
+<p>The general expression for mutual inductance would be <span class="math display">\[\mathcal{L}_{pp} = L_{pp} = L_{pp0} + L_{pl} + L_{g2}\cos(2\theta_{me})\]</span> where the first term corresponds to the portion of the inductance due to the air gap, and the second term corresponds to the leakage flux. The mutual inductances, considering a perfect 120º separation between windings, and having <span class="math display">\[\cos(120º) = -1/2\]</span> take the values <span class="math display">\[\mathcal{L}_{pp'} = -\frac{1}{2} L_{pp0} + L_{g2}\cos(2\theta_{me})\]</span>.</p>
+<p>Considering that all the windings are assumed to have the same characteristics, the inductances for the different phases will only differ in the angular term of the rotor position, which will have additional phase terms of <span class="math display">\[(0º, 120º, -120º)\]</span> for phases <span class="math display">\[(a, b, c)\]</span> respectively.</p>
+<p>The stator-rotor inductance also depends on the electrical angle <span class="math display">\[\theta_{me}\]</span> between the rotor winding axis and the stator winding axis. The value of this inductance for phase <span class="math display">\[a\]</span> can be calculated with the expression <span class="math display">\[\mathcal{L}_{af} = \mathcal{L}_{fa} = L_{af}\cos(\theta_{me})\]</span>, while the same expression can be applied for phase <span class="math display">\[b\]</span> and <span class="math display">\[c\]</span> but replacing <span class="math display">\[\theta_{me}\]</span> with <span class="math display">\[\theta_{me} - 120º\]</span> and <span class="math display">\[\theta_{me} + 120º\]</span> respectively.</p>
+</section>
+</section>
+<section id="operational-limits" class="level3">
+<h3 class="anchored" data-anchor-id="operational-limits">Operational limits</h3>
+<p>Depending on the difference in phase between the rotor and grid rotation, the power transferred will be composed of active (<span class="math display">\[P\]</span>) and reactive (<span class="math display">\[Q\]</span>) power.</p>
+<p>These generated powers are limited by the heat limits of the components of the generator. The limits considered are the Armature and field current limit, due to Joule effect heating of both windings, and end region heating limit, which occurs due to currents in the structure of the stator when the field is underexcited.</p>
+<p>The following charts show the capability and compound curves for different power factors<a href="#1">[1]</a>.</p>
+<p float="center">
+<img src="{{'SM_CapCurve.svg'}}" alt="Capability curve of a Synchronous Generator" width="350px"> <img src="{{'SM_CompCurves.svg'}}" alt="Compound curves of a Synchronous Generator" width="400px">
+</p>
+<div style="text-align:center">
+<p>Figures 5 and 6: Capability and compound curves of a synchronous machine</p>
+</div>
+<p><br></p>
+<p>The left chart shows the <span class="math display">\[P\]</span> and <span class="math display">\[Q\]</span> maximum values for different limit curves, which depend on the refrigerator used, while the right chart shows the dependency on exciter current and apparent power for different values of the power factor.</p>
+</section>
+</section>
+<section id="derived-models" class="level2">
+<h2 class="anchored" data-anchor-id="derived-models">Derived models</h2>
+<p>The model can be solved by performing some additional assumptions and transformations. Here some submodels that have arised from different works are listed, with its particularities:</p>
+<ul>
+<li><p><strong>GENSAL/GENROU without saturation</strong>: This model is described in Sauer and Pai formulation <a href="#6">[6]</a>, and is valid for both round-rotor and salient-poles synchronous machine.</p></li>
+<li><p><strong>GENROU with saturation</strong>: This model is an extension of the previous one, considering the saturation of the magnetic circuit.</p></li>
+<li><p><strong>GENSAL with saturation</strong>: Same as the previous model, but in this case it is treated slightly different due to the saturation occuring only in the salient-poles axis only, while the previous model considers saturation along both <em>d</em> and <em>q</em> axis.</p></li>
+<li><p><strong>GENTPF/GENTPJ</strong>: It models the saturation in a different way, including the saturation in the network interface equations, something that the GENSAL/GENROU models do not consider, and it reflects better the saturation effects in the whole machine.</p></li>
+</ul>
+<p>Details can be found here:</p>
+<p>{% include subfolderNav.html %}</p>
+</section>
+<section id="open-source-implementations" class="level2">
+<h2 class="anchored" data-anchor-id="open-source-implementations">Open source implementations</h2>
+<p>This model has been successfully implemented in:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Software</th>
+<th>URL</th>
+<th>Language</th>
+<th>Open-Source License</th>
+<th>Last consulted date</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dynawo</td>
+<td><a href="https://github.com/dynawo/dynawo/blob/master/dynawo/sources/Models/Modelica/Dynawo/Electrical/Machines/OmegaRef/GeneratorSynchronous.mo">Link</a></td>
+<td>modelica</td>
+<td><a href="https://www.mozilla.org/en-US/MPL/2.0/">MPL v2.0</a></td>
+<td>23/04/2024</td>
+<td>no comment</td>
+</tr>
+<tr class="even">
+<td>OpenIPSL</td>
+<td><a href="https://github.com/OpenIPSL/OpenIPSL/blob/master/OpenIPSL/Electrical/Machines/PSSE/BaseClasses/baseMachine.mo">Link</a></td>
+<td>modelica</td>
+<td><a href="https://opensource.org/license/BSD-3-Clause">3-clause-BSD</a></td>
+<td>24/05/2024</td>
+<td>no comment</td>
+</tr>
+<tr class="odd">
+<td>Pandapower</td>
+<td><a href="https://github.com/e2nIEE/pandapower/blob/develop/pandapower/converter/cim/cim2pp/converter_classes/generators/synchronousMachinesCim16.py">Link</a></td>
+<td>python</td>
+<td><a href="https://opensource.org/license/BSD-3-Clause">3-clause_BSD</a></td>
+<td>24/05/2024</td>
+<td>no comment</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="table-of-references" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-references">Table of references</h2>
+<p><a id="1">[1]</a> Kundur, Prabha. “Power System Stability and Control” New York, USA, 1994, McGraw-Hill.</p>
+<p><a id="2">[2]</a> Kothari, D. P.; Nagrath, I. J. “Modern Power System Analysis”, 4th ed., New Delhi, India, 2011, Tata McGraw-Hill.</p>
+<p><a id="3">[3]</a> PowerWorld Corporation. “ECE 310 Synchronous Machine Modeling”.</p>
+<p><a id="4">[4]</a> Fitzgerald, A. E.; Kingsley, C.; Umans, S. D. “Electric Machinery”, New York, USA, 6th ed., 2002, McGraw-Hill.</p>
+<p><a id="5">[5]</a> Krause, P.; Wasynczuk, O.; Sudhoff, S.; Pekarek, S. “Analysis of Electric Machinery and Drive Systems”, 3rd ed., New Jersey, USA, 2013, Wiley.</p>
+<p><a id="6">[6]</a> Sauer, P.W.; Pai, M. A. “Power System Dynamics and Stability”, Urbana, IL, USA, 2006.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/CRESYM\.github\.io\/Colib_Quarto\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright © 2023-2025 Authors of Collaborative Open-Source Dynamic Simulation Library.<br>
+Content licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p><a href="about.qmd">About</a> • <a href="contact.qmd">Contact</a> • <a href="models.qmd">Models</a> • <a href="test_cases.qmd">Test Cases</a> • <a href="templates.qmd">Templates</a> • <a href="#">Privacy Policy</a> • <a href="#">Terms of Reference</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
