@@ -1,5 +1,6 @@
 ---
 title: COLib.net - Terms of reference
+number-sections: true
 ---
 
 ## Article 1 – Purpose  

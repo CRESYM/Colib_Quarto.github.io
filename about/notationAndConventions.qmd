@@ -1,6 +1,7 @@
 ---
 title: Electrical, Electronics and Control notations and conventions
 tags: [Notations] 
+number-sections: true
 ---
 
 This page provides a list of the most common notations in the electrical, electronics and control notations.

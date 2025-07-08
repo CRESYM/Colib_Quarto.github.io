@@ -1,5 +1,6 @@
 ---
 title: Overview about COLib
+number-sections: true
 ---
 
 ## Why this library?

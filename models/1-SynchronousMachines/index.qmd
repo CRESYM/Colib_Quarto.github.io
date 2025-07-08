@@ -1,0 +1,6 @@
+---
+layout: base
+title: Synchronous machines
+tags: []
+order: 1
+---

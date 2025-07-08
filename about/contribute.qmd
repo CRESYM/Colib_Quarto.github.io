@@ -1,5 +1,6 @@
 ---
 title: Contributing Guidelines for Colib Documentation
+number-sections: true
 ---
 
 Imagine a shared library of dynamic simulations – transparent, high-quality, and packed with real-world applications. We invite you to contribute an article focusing on a component or a test case. Explore the various sections to find guidance on how to make your contribution.  

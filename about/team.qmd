@@ -1,5 +1,6 @@
 ---
 title: Teams and community
+number-sections: true
 ---
 
 ## Team members

@@ -1,0 +1,6 @@
+---
+layout: base
+title: Generator
+tags: [generator]
+order: 1
+---

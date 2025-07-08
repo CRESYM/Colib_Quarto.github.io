@@ -3,7 +3,7 @@ project:
 
 website:
   navbar:
-    search: false
+    search: true
     logo: assets/img/Logo_colib.svg
     left:
       - href: index.qmd
@@ -24,7 +24,7 @@ website:
       contents: about
     - title: Models
       style: floating
-      collapse-level: 3
+      collapse-level: 2
       contents: models
   page-footer:
     left: |
