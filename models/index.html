@@ -509,20 +509,8 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#dynamic-power-system-models" id="toc-dynamic-power-system-models" class="nav-link active" data-scroll-target="#dynamic-power-system-models">Dynamic Power System Models</a>
-  <ul class="collapse">
-  <li><a href="#model-categories" id="toc-model-categories" class="nav-link" data-scroll-target="#model-categories">Model Categories</a></li>
-  <li><a href="#model-development-approach" id="toc-model-development-approach" class="nav-link" data-scroll-target="#model-development-approach">Model Development Approach</a></li>
-  <li><a href="#model-implementations" id="toc-model-implementations" class="nav-link" data-scroll-target="#model-implementations">Model Implementations</a></li>
-  <li><a href="#getting-started-with-models" id="toc-getting-started-with-models" class="nav-link" data-scroll-target="#getting-started-with-models">Getting Started with Models</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -546,81 +534,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="dynamic-power-system-models" class="level2">
-<h2 class="anchored" data-anchor-id="dynamic-power-system-models">Dynamic Power System Models</h2>
-<p>The Colib library provides a comprehensive collection of <strong>dynamic power system component models</strong> designed for steady-state and dynamic stability studies. These models represent the mathematical equations and behaviors of various power system components, enabling accurate simulation of modern electric power networks.</p>
-<section id="model-categories" class="level3">
-<h3 class="anchored" data-anchor-id="model-categories">Model Categories</h3>
-<p>Our collaborative library organizes models into several key categories:</p>
-<section id="generation-models" class="level4">
-<h4 class="anchored" data-anchor-id="generation-models"><strong>Generation Models</strong></h4>
-<ul>
-<li><strong>Synchronous Generators</strong>: Classical, detailed, and simplified models with various excitation and governor systems</li>
-<li><strong>Renewable Energy Sources</strong>: Wind turbines (Type 1-4), solar PV systems, and energy storage systems</li>
-<li><strong>HVDC Systems</strong>: Line-commutated converters (LCC) and voltage-source converters (VSC)</li>
-<li><strong>Distributed Energy Resources (DER)</strong>: Microgrids, battery storage, and aggregated models</li>
-</ul>
-</section>
-<section id="network-models" class="level4">
-<h4 class="anchored" data-anchor-id="network-models"><strong>Network Models</strong></h4>
-<ul>
-<li><strong>Transmission Lines</strong>: Frequency-dependent and pi-equivalent models</li>
-<li><strong>Transformers</strong>: Two-winding and three-winding with tap-changing capabilities</li>
-<li><strong>FACTS Devices</strong>: SVC, STATCOM, TCSC, and UPFC models</li>
-<li><strong>Protection Systems</strong>: Relay models and automatic switching devices</li>
-</ul>
-</section>
-<section id="load-models" class="level4">
-<h4 class="anchored" data-anchor-id="load-models"><strong>Load Models</strong></h4>
-<ul>
-<li><strong>Static Load Models</strong>: Constant impedance, current, and power models</li>
-<li><strong>Dynamic Load Models</strong>: Motor loads, composite loads, and voltage-dependent models</li>
-<li><strong>Smart Grid Components</strong>: Demand response and flexible load models</li>
-</ul>
-</section>
-</section>
-<section id="model-development-approach" class="level3">
-<h3 class="anchored" data-anchor-id="model-development-approach">Model Development Approach</h3>
-<section id="collaborative-framework" class="level4">
-<h4 class="anchored" data-anchor-id="collaborative-framework"><strong>Collaborative Framework</strong></h4>
-<p>Our models are developed through a <strong>collaborative approach</strong> bringing together: - <strong>Academic Institutions</strong>: Providing theoretical foundations and research insights - <strong>Industry Partners</strong>: Contributing practical experience and validation data - <strong>Open-Source Community</strong>: Ensuring transparency and continuous improvement</p>
-</section>
-<section id="quality-assurance" class="level4">
-<h4 class="anchored" data-anchor-id="quality-assurance"><strong>Quality Assurance</strong></h4>
-<p>Each model in the Colib library undergoes: - <strong>Peer Review</strong>: Technical validation by domain experts - <strong>Cross-Platform Testing</strong>: Verification across multiple simulation tools - <strong>Real-World Validation</strong>: Comparison with field measurements and industrial data - <strong>Documentation Standards</strong>: Comprehensive mathematical descriptions and implementation guides</p>
-</section>
-</section>
-<section id="model-implementations" class="level3">
-<h3 class="anchored" data-anchor-id="model-implementations">Model Implementations</h3>
-<section id="multi-platform-support" class="level4">
-<h4 class="anchored" data-anchor-id="multi-platform-support"><strong>Multi-Platform Support</strong></h4>
-<p>Our models are available for various simulation platforms: - <strong>Modelica/OpenModelica</strong>: Object-oriented modeling language - <strong>Python/PyPSA</strong>: Open-source power system analysis - <strong>MATLAB/Simulink</strong>: Commercial simulation environment - <strong>PowerWorld</strong>: Commercial power system software</p>
-</section>
-<section id="standardized-interfaces" class="level4">
-<h4 class="anchored" data-anchor-id="standardized-interfaces"><strong>Standardized Interfaces</strong></h4>
-<p>All models follow standardized interfaces to ensure: - <strong>Interoperability</strong>: Easy integration between different tools - <strong>Modularity</strong>: Components can be combined and exchanged - <strong>Scalability</strong>: From small test systems to large continental networks</p>
-</section>
-</section>
-<section id="getting-started-with-models" class="level3">
-<h3 class="anchored" data-anchor-id="getting-started-with-models">Getting Started with Models</h3>
-<section id="browse-model-library" class="level4">
-<h4 class="anchored" data-anchor-id="browse-model-library"><strong>Browse Model Library</strong></h4>
-<p>Explore our categorized collection of models with detailed descriptions, mathematical formulations, and implementation examples.</p>
-</section>
-<section id="download-and-use" class="level4">
-<h4 class="anchored" data-anchor-id="download-and-use"><strong>Download and Use</strong></h4>
-<p>Access open-source implementations directly from our repositories with comprehensive documentation and examples.</p>
-</section>
-<section id="contribute" class="level4">
-<h4 class="anchored" data-anchor-id="contribute"><strong>Contribute</strong></h4>
-<p>Join our collaborative community by contributing new models, improvements, or validation cases to benefit the entire power systems community.</p>
-<hr>
-<p><em>The Colib model library represents the collective effort of leading research institutions and industry partners to advance power system modeling for the energy transition.</em></p>
+<p>v</p>
 
 
-</section>
-</section>
-</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1026,15 +942,41 @@ ul.task-list li input[type="checkbox"] {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Copyright © 2023-2025 Authors of Collaborative Open-Source Dynamic Simulation Library.<br>
-Content licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>.</p>
+<p>Copyright © 2023-2025 Authors of Collaborative Open-Source Dynamic Simulation Library. Content licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>.</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p><a href="about.qmd">About</a> • <a href="contact.qmd">Contact</a> • <a href="models.qmd">Models</a> • <a href="test_cases.qmd">Test Cases</a> • <a href="templates.qmd">Templates</a> • <a href="#">Privacy Policy</a> • <a href="#">Terms of Reference</a></p>
-</div>
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../about/index.html">
+<p>About</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../contact.html">
+<p>Contact</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://cresym.eu/privacy-policy/">
+<p>Privacy Policy</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../about/terms.html">
+<p>Terms of Reference</p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/CRESYM/Colib_Quarto.github.io">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
   </div>
 </footer>
 
