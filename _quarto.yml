@@ -28,10 +28,18 @@ website:
       contents: models
   page-footer:
     left: |
-      Copyright © 2023-2025 Authors of Collaborative Open-Source Dynamic Simulation Library.  
-      Content licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
-    right: |
-      [About](about.qmd) • [Contact](contact.qmd) • [Models](models.qmd) • [Test Cases](test_cases.qmd) • [Templates](templates.qmd) • [Privacy Policy](#) • [Terms of Reference](#)
+      Copyright © 2023-2025 Authors of Collaborative Open-Source Dynamic Simulation Library. Content licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
+    right:
+      - text: About
+        href: about/index.qmd
+      - text: Contact
+        href: ./contact.qmd
+      - text: Privacy Policy
+        href: https://cresym.eu/privacy-policy/
+      - text: Terms of Reference
+        href: about/terms.qmd
+      - icon: github
+        href: https://github.com/CRESYM/Colib_Quarto.github.io
     background: light
     border: true
   back-to-top-navigation: true

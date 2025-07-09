@@ -12,7 +12,7 @@ format:
 Explore and Evaluate Dynamic Power System Models and Test Cases using Colib
 :::
 ::: {.hero-image .fade-in-left}
-![HVDC Model Diagram](assets/img/HVDC_model_modelica.png){.hero-diagram}
+![](assets/img/HVDC_model_modelica.png){.hero-diagram}
 :::
 :::
 ::: {.hero-subcontent .fade-in-up}
@@ -28,7 +28,7 @@ An open-source collaborative dynamic simulation library for academia and industr
 
 ::: {.section-content .fade-in-up}
 ::: {.section-title}
-About Colib
+ABOUT COLIB
 :::
 
 ::: {.flex-row}
@@ -52,7 +52,7 @@ For each component model and test case, you will find a detailed description and
 
 ::: {.partner-section}
 ::: {.section-title}
-Our Partners
+OUR PARTNERS
 :::
 
 ::: {.partner-logos}
