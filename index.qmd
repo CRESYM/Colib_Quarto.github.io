@@ -20,24 +20,24 @@ Explore and Evaluate Dynamic Power System Models and Test Cases using Colib
 An open-source collaborative dynamic simulation library for academia and industry
 :::
 ::: {.button-group}
-[Models](models.qmd){.btn-main} [Test systems](test_cases.qmd){.btn-main}
+[Models](models/index.qmd){.btn-main} [Test systems](test_cases.qmd){.btn-main}
 :::
 :::
 :::
 :::
 
-::: {.section-content .fade-in-up}
-::: {.section-title}
+::: {.section-content}
+::: {.section-title .scroll-fade}
 ABOUT COLIB
 :::
 
-::: {.flex-row}
-::: {.col-md-6}
+::: {.flex-row .scroll-fade}
+::: {.col-md-6 .scroll-fade}
 The power system and energy systems at large experience a **paradigm shift with many novel, various active components connected**. Appraising the behaviour and reactions of such new items is critical for network operators to simulate and anticipate system operation.
 
 Power industries and academic institutions constantly develop their own models, cases and tools, but they **lack of resources to cover the full scope of components, interesting test cases and maintain those over time.**
 :::
-::: {.col-md-6}
+::: {.col-md-6 .scroll-fade}
 Both face the need for a **collaborative shared dynamic simulation library that would benefit to all** by its high quality, its up-to-dateness, transparency of model equations, and concrete applications (real test cases).
 
 Hence this Colib workspace contains **power systems components, networks, and small and large test cases for steady-state and dynamic stability studies**.
@@ -50,58 +50,80 @@ For each component model and test case, you will find a detailed description and
 [Contribute](models.qmd){.btn-main} [Overview](test_cases.qmd){.btn-main}
 :::
 
-::: {.partner-section}
+::: {.partner-section .scroll-fade}
 ::: {.section-title}
 OUR PARTNERS
 :::
 
 ::: {.partner-logos}
-::: {.parter-logo}
+::: {.parter-logo .scroll-fade}
 ![](assets/img/colib_logos/Danmarks_Tekniske_Universitet_(logo).svg){.parter-logo-img-lg}
 :::
 
-::: {.parter-logo}
+::: {.parter-logo .scroll-fade}
 ![](assets/img/colib_logos/ELES_logo.svg){.parter-logo-img}
 :::
 
-::: {.parter-logo}
+::: {.parter-logo .scroll-fade}
 ![](assets/img/colib_logos/Fraunhofer-Gesellschaft_2009_logo.svg){.parter-logo-img}
 :::
 
-::: {.parter-logo}
+::: {.parter-logo .scroll-fade}
 ![](assets/img/colib_logos/RTE_logo.svg){.parter-logo-img-lg}
 :::
 
-::: {.parter-logo}
+::: {.parter-logo .scroll-fade}
 ![](assets/img/colib_logos/Logo_GRT_Gaz.svg){.parter-logo-img}
 :::
 
-::: {.parter-logo}
+::: {.parter-logo .scroll-fade}
 ![](assets/img/colib_logos/RWTH_Logo_3.svg){.parter-logo-img}
 :::
 
-::: {.parter-logo}
+::: {.parter-logo .scroll-fade}
 ![](assets/img/colib_logos/Logo_TotalEnergies.svg){.parter-logo-img-lg}
 :::
 
-::: {.parter-logo}
+::: {.parter-logo .scroll-fade}
 ![](assets/img/colib_logos/Swissgrid-logo.svg){.parter-logo-img}
 :::
 
-::: {.parter-logo}
+::: {.parter-logo .scroll-fade}
 ![](assets/img/colib_logos/Tennet_TSO_logo.svg){.parter-logo-img}
 :::
 
-::: {.parter-logo}
+::: {.parter-logo .scroll-fade}
 ![](assets/img/colib_logos/TUDELFT.svg){.parter-logo-img-lg}
 :::
 
-::: {.parter-logo}
+::: {.parter-logo .scroll-fade}
 ![](assets/img/colib_logos/ul-logo_new.svg){.parter-logo-img}
 :::
 
-::: {.parter-logo}
+::: {.parter-logo .scroll-fade}
 ![](assets/img/colib_logos/universidad-pontificia-de-comillas.svg){.parter-logo-img}
 :::
 :::
 :::
+
+<script>
+// Intersection Observer for scroll-based fade effects
+document.addEventListener('DOMContentLoaded', function() {
+  const fadeElements = document.querySelectorAll('.scroll-fade');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+  
+  fadeElements.forEach(element => {
+    observer.observe(element);
+  });
+});
+</script>

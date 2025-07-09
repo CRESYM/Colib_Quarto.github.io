@@ -94,19 +94,19 @@
 .fade-in-left {
   opacity: 0;
   animation: fadeInFromLeft 0.8s ease-in-out forwards;
-  animation-delay: 0.2s;
+  animation-delay: 0.3s;
 }
 
 .fade-in-right {
   opacity: 0;
   animation: fadeInFromRight 0.8s ease-in-out forwards;
-  animation-delay: 0.2s;
+  animation-delay: 0.3s;
 }
 
 .fade-in-up {
   opacity: 0;
   animation: fadeInFromUp 0.8s ease-in-out forwards;
-  animation-delay: 0.2s;
+  animation-delay: 0.3s;
 }
 
 @keyframes fadeInFromLeft {
@@ -140,6 +140,18 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Scroll-based fade effects */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 1.5s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section-content {

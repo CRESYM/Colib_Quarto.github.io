@@ -1,4 +1,5 @@
 ---
 title: Models
 ---
-v
+
+This section contains the documentation for the various dynamic models implemented in the Collaborative Open-Source Dynamic Simulation Library.
