@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Exponential Load Model 
-tags: ["#143", "load", "Exponential", "steady-state", "polynomial"] 
+categories: ["#143", "load", "Exponential", "steady-state", "polynomial"] 
 date: 29/05/2024 
 last-updated: 29/05/2024
 id: #143

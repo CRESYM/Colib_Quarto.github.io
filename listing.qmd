@@ -1,0 +1,13 @@
+---
+title: "Listing Example"
+listing:
+  contents: 
+    - models
+  exclude:
+    layout: chapter
+  type: default
+  categories: numbered
+  fields: [date, title, authors, categories]
+  filter-ui: true
+  sort-ui: true
+---

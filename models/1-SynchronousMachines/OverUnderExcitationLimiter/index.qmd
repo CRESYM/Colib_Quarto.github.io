@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: chapter
 title: Over/under Excitation Limiters
 tags: [Over excitation limiters, OEL, under excitation limiters, UEL]
 order: 3
