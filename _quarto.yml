@@ -12,8 +12,8 @@ website:
         text: About
       - href: models/index.qmd
         text: Models
-      - href: listing.qmd
-        text: Listing
+      - href: search.qmd
+        text: Search
       - href: test_cases.qmd
         text: Page with code
     tools:
