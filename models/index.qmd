@@ -1,6 +1,16 @@
 ---
 layout: chapter
-title: Models
+title: "Models"
+listing:
+  contents: 
+    - ./
+  exclude:
+    layout: chapter
+  type: default
+  categories: numbered
+  fields: [date, title, authors, categories]
+  filter-ui: true
+  sort-ui: true
 ---
 
 This section contains the documentation for the various dynamic models implemented in the Collaborative Open-Source Dynamic Simulation Library.
