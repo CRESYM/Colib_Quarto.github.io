@@ -12,8 +12,10 @@ website:
         text: About
       - href: models/index.qmd
         text: Models
-      - href: test_cases.qmd
-        text: Page with code
+      - href: testCases/index.qmd
+        text: Test Cases
+      - href: contact/index.qmd
+        text: Contact
     tools:
       - icon: github
         href: https://github.com/CRESYM/Colib_Quarto.github.io
@@ -26,6 +28,10 @@ website:
       style: floating
       collapse-level: 2
       contents: models
+    - title: Test Cases
+      style: floating
+      collapse-level: 2
+      contents: testCases
   page-footer:
     left: |
       Copyright © 2023-2025 Authors of Collaborative Open-Source Dynamic Simulation Library. Content licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
