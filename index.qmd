@@ -58,107 +58,106 @@ OUR PARTNERS
 ::: {.partner-logos}
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/AIR_LIQUIDE.png){.parter-logo-img}
+[![](assets/img/colib_logos/AIR_LIQUIDE.png){.parter-logo-img}](https://www.airliquide.com/){target="_blank"}
+:::
+::: {.parter-logo .scroll-fade}
+[![](assets/img/colib_logos/Alliander.png){.parter-logo-img-lg}](https://www.alliander.com/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/Alliander.png){.parter-logo-img-lg}
+[![](assets/img/colib_logos/Cyprus_University_of_Technology.png){.parter-logo-img-lg}](https://www.cut.ac.cy/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/Cyprus_University_of_Technology.png){.parter-logo-img-lg}
+[![](assets/img/colib_logos/Danmarks_Tekniske_Universitet_(logo).svg){.parter-logo-img-lg}](https://www.dtu.dk/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/Danmarks_Tekniske_Universitet_(logo).svg){.parter-logo-img-lg}
+[![](assets/img/colib_logos/EDF.svg.png){.parter-logo-img-lg}](https://www.edf.fr/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/EDF.svg.png){.parter-logo-img-lg}
+[![](assets/img/colib_logos/Eindhoven_University.svg.png){.parter-logo-img-lg}](https://www.tue.nl/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/Eindhoven_University.svg.png){.parter-logo-img-lg}
+[![](assets/img/colib_logos/ELES_logo.svg){.parter-logo-img}](https://www.eles.si/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/ELES_logo.svg){.parter-logo-img}
+[![](assets/img/colib_logos/EPRI.webp){.parter-logo-img-lg}](https://www.epri.com/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/EPRI.webp){.parter-logo-img-lg}
+[![](assets/img/colib_logos/ETH_Zurich.svg.png){.parter-logo-img}](https://ethz.ch/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/ETH_Zurich.svg.png){.parter-logo-img}
+[![](assets/img/colib_logos/Fraunhofer-Gesellschaft_2009_logo.svg){.parter-logo-img}](https://www.fraunhofer.de/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/Fraunhofer-Gesellschaft_2009_logo.svg){.parter-logo-img}
+[![](assets/img/colib_logos/HEDNO-PANTONE.webp){.parter-logo-img-lg}](https://www.deddie.gr/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/HEDNO-PANTONE.webp){.parter-logo-img-lg}
+[![](assets/img/colib_logos/Hydro-Quebec.svg){.parter-logo-img-lg}](https://www.hydroquebec.com/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/Hydro-Quebec.svg){.parter-logo-img-lg}
+[![](assets/img/colib_logos/INESCTEC.webp){.parter-logo-img-lg}](https://www.inesctec.pt/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/INESCTEC.webp){.parter-logo-img-lg}
+[![](assets/img/colib_logos/NaTran.svg.png){.parter-logo-img-lg}](https://www.natran.eu/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/NaTran.svg.png){.parter-logo-img-lg}
+[![](assets/img/colib_logos/NTUA.webp){.parter-logo-img-lg}](https://www.ntua.gr/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/NTUA.webp){.parter-logo-img-lg}
+[![](assets/img/colib_logos/RTE.svg){.parter-logo-img-lg}](https://www.rte-france.com/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/RTE.svg){.parter-logo-img-lg}
+[![](assets/img/colib_logos/RWTH.svg){.parter-logo-img}](https://www.rwth-aachen.de/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/RWTH.svg){.parter-logo-img}
+[![](assets/img/colib_logos/Swissgrid.svg){.parter-logo-img}](https://www.swissgrid.ch/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/Swissgrid.svg){.parter-logo-img}
+[![](assets/img/colib_logos/Tennet.svg){.parter-logo-img}](https://www.tennet.eu/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/Tennet.svg){.parter-logo-img}
+[![](assets/img/colib_logos/TotalEnergies.svg){.parter-logo-img-lg}](https://totalenergies.com/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/TotalEnergies.svg){.parter-logo-img-lg}
+[![](assets/img/colib_logos/TUDELFT.svg){.parter-logo-img-lg}](https://www.tudelft.nl/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/TUDELFT.svg){.parter-logo-img-lg}
+[![](assets/img/colib_logos/Universitat_Duisburg-Essen.svg.png){.parter-logo-img-lg}](https://www.uni-due.de/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/Universitat_Duisburg-Essen.svg.png){.parter-logo-img-lg}
+[![](assets/img/colib_logos/ul.svg){.parter-logo-img-lg}](https://www.uni-lj.si/en/university/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/ul.svg){.parter-logo-img-lg}
+[![](assets/img/colib_logos/Universite_Grenoble_Alpes.svg.png){.parter-logo-img-lg}](https://www.univ-grenoble-alpes.fr/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/Universite_Grenoble_Alpes.svg.png){.parter-logo-img-lg}
+[![](assets/img/colib_logos/UPC.svg.png){.parter-logo-img-lg}](https://www.upc.edu/){target="_blank"}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/UPC.svg.png){.parter-logo-img-lg}
-:::
-
-::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/universidad-pontificia-de-comillas.svg){.parter-logo-img-lg}
+[![](assets/img/colib_logos/universidad-pontificia-de-comillas.svg){.parter-logo-img-lg}](https://www.comillas.edu/){target="_blank"}
 :::
 
 
