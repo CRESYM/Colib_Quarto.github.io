@@ -14,6 +14,8 @@ website:
         text: Models
       - href: testCases/index.qmd
         text: Test Cases
+      - href: templates/index.qmd
+        text: Templates
       - href: contact/index.qmd
         text: Contact
     tools:
@@ -32,6 +34,10 @@ website:
       style: floating
       collapse-level: 2
       contents: testCases
+    - title: Templates
+      style: floating
+      collapse-level: 2
+      contents: templates
   page-footer:
     left: |
       Copyright © 2023-2025 Authors of Collaborative Open-Source Dynamic Simulation Library. Content licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
