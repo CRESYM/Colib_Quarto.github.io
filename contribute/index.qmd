@@ -1,4 +1,4 @@
 ---
 layout: chapter
-title: Templates
+title: Contribute
 ---
