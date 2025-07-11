@@ -1,283 +1,291 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://CRESYM.github.io/Colib_Quarto.github.io/templates/index.html</loc>
+    <lastmod>2025-07-11T10:28:22.810Z</lastmod>
+  </url>
+  <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/contact/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.217Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.706Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.217Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.706Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/about/authorGuidelines.html</loc>
-    <lastmod>2025-07-11T10:22:21.214Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.703Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/about/team.html</loc>
-    <lastmod>2025-07-11T10:22:21.214Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.703Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/about/terms.html</loc>
-    <lastmod>2025-07-11T10:22:21.215Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.703Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/about/contribute.html</loc>
-    <lastmod>2025-07-11T10:22:21.214Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.703Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/2-Loads/Motor/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.322Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.810Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/2-Loads/Motor/SimpleMotor/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.320Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.808Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/2-Loads/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.322Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.810Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/Generator/GENSAL/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.244Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.732Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/Generator/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.287Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.775Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/Generator/SM1/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.287Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.775Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/OverUnderExcitationLimiter/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.315Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.803Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL3C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.305Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.794Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/OverUnderExcitationLimiter/SCL1C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.309Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.797Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL4C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.306Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.794Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.320Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.808Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/PowerSystemStabilizer/PSS2C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.318Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.806Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/PowerSystemStabilizer/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.320Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.808Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC8C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.229Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.718Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST1C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.235Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.724Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/ExciterAndVoltageRegulator/IEEEX2/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.232Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.721Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/ExciterAndVoltageRegulator/IEEX2A/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.233Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.721Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC7C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.228Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.717Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST5C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.238Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.727Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST4C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.237Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.725Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST6C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.239Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.728Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/ExciterAndVoltageRegulator/AcRotatingExciter/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.230Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.719Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/Governor/TGOV3/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.297Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.786Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/Governor/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.297Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.786Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/Governor/HYGOV/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.295Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.784Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/Governor/TGOV1/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.297Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.785Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/Governor/IEEEG2/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.296Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.785Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/templates.html</loc>
-    <lastmod>2025-07-11T10:22:21.322Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.810Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/testCases/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.324Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.813Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/testCases/GridFollowing_GridForming_DClink/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.324Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.813Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/testCases/kundur_two_area_system/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.325Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.814Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.322Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.810Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/Governor/GovCT2/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.291Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.780Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/Governor/GovSteamEU/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.294Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.783Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/Governor/GAST/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.288Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.777Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/Governor/GovHydro4/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.294Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.783Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/Governor/IEEEG1/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.296Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.784Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/ExciterAndVoltageRegulator/SCRX/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.234Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.722Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST7C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.241Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.729Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC1C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.220Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.709Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/ExciterAndVoltageRegulator/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.241Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.730Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/ExciterAndVoltageRegulator/DC1C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.232Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.720Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC6C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.227Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.716Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST9C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.241Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.730Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/ExciterAndVoltageRegulator/BBSEX1/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.231Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.720Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/PowerSystemStabilizer/PSS6C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.320Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.808Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/PowerSystemStabilizer/PSS3C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.319Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.807Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/PowerSystemStabilizer/PSS1A/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.316Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.804Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/OverUnderExcitationLimiter/SCL2C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.311Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.799Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL5C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.307Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.795Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/OverUnderExcitationLimiter/UEL1/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.312Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.800Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/OverUnderExcitationLimiter/UEL2C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.315Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.803Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL2C/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.302Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.791Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/Generator/GENQEC/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.244Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.732Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/1-SynchronousMachines/Generator/GENTPJ/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.244Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.733Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/2-Loads/FDLoad/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.320Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.808Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/2-Loads/ZIPLoad/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.322Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.810Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/2-Loads/Motor/WECC_Motor/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.322Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.810Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/models/2-Loads/ExpLoad/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.320Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.808Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/about/codeConduct.html</loc>
-    <lastmod>2025-07-11T10:22:21.214Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.703Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/about/notationAndConventions.html</loc>
-    <lastmod>2025-07-11T10:22:21.214Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.703Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/about/index.html</loc>
-    <lastmod>2025-07-11T10:22:21.214Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.703Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/contact.html</loc>
-    <lastmod>2025-07-11T10:22:21.217Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.705Z</lastmod>
   </url>
   <url>
     <loc>https://CRESYM.github.io/Colib_Quarto.github.io/test_cases.html</loc>
-    <lastmod>2025-07-11T10:22:21.325Z</lastmod>
+    <lastmod>2025-07-11T10:28:22.814Z</lastmod>
+  </url>
+  <url>
+    <loc>https://CRESYM.github.io/Colib_Quarto.github.io/templates/modelTemplate/index.html</loc>
+    <lastmod>2025-07-11T10:28:22.810Z</lastmod>
   </url>
 </urlset>

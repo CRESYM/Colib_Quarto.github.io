@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-02-01">
 
-<title>Code of conduct</title>
+<title>Model description template</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +21,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-684cd2e4dca32dbb331d0f802940736f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-684cd2e4dca32dbb331d0f802940736f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light">
@@ -79,8 +115,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../assets/img/Logo_colib.svg" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../assets/img/Logo_colib.svg" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -90,27 +126,27 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../about/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../about/index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../models/index.html"> 
+    <a class="nav-link" href="../../models/index.html"> 
 <span class="menu-text">Models</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../testCases/index.html"> 
+    <a class="nav-link" href="../../testCases/index.html"> 
 <span class="menu-text">Test Cases</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../templates/index.html"> 
+    <a class="nav-link active" href="../../templates/index.html" aria-current="page"> 
 <span class="menu-text">Templates</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../contact/index.html"> 
+    <a class="nav-link" href="../../contact/index.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
 </ul>
@@ -125,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../about/index.html">Overview about COLib</a></li><li class="breadcrumb-item"><a href="../about/codeConduct.html">Code of conduct</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../templates/index.html">Templates</a></li><li class="breadcrumb-item"><a href="../../templates/modelTemplate/index.html">Model description template</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -139,8 +175,8 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../about/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview about COLib</span></a>
+            <a href="../../templates/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Templates</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -148,38 +184,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../about/authorGuidelines.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Author’s guidelines</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../about/codeConduct.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Code of conduct</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../about/contribute.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Contributing Guidelines for Colib Documentation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../about/notationAndConventions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Electrical, Electronics and Control notations and conventions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../about/team.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Teams and community</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../about/terms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">COLib.net - Terms of reference</span></a>
+  <a href="../../templates/modelTemplate/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Model description template</span></a>
   </div>
 </li>
       </ul>
@@ -189,15 +195,29 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#markdown-metadata-block" id="toc-markdown-metadata-block" class="nav-link active" data-scroll-target="#markdown-metadata-block">Markdown metadata block</a>
+  <ul class="collapse">
+  <li><a href="#context-mandatory" id="toc-context-mandatory" class="nav-link" data-scroll-target="#context-mandatory">Context (mandatory)</a></li>
+  <li><a href="#model-use-assumptions-validity-domain-and-limitations-mandatory" id="toc-model-use-assumptions-validity-domain-and-limitations-mandatory" class="nav-link" data-scroll-target="#model-use-assumptions-validity-domain-and-limitations-mandatory">Model use, assumptions, validity domain and limitations (mandatory)</a></li>
+  <li><a href="#model-description-mandatory" id="toc-model-description-mandatory" class="nav-link" data-scroll-target="#model-description-mandatory">Model description (mandatory)</a></li>
+  <li><a href="#modelica-implementation-optional" id="toc-modelica-implementation-optional" class="nav-link" data-scroll-target="#modelica-implementation-optional">Modelica implementation (optional)</a></li>
+  <li><a href="#open-source-implementations-if-any" id="toc-open-source-implementations-if-any" class="nav-link" data-scroll-target="#open-source-implementations-if-any">Open source implementations (if any)</a></li>
+  <li><a href="#table-of-references-license" id="toc-table-of-references-license" class="nav-link" data-scroll-target="#table-of-references-license">Table of references &amp; license</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../about/index.html">Overview about COLib</a></li><li class="breadcrumb-item"><a href="../about/codeConduct.html">Code of conduct</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../templates/index.html">Templates</a></li><li class="breadcrumb-item"><a href="../../templates/modelTemplate/index.html">Model description template</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Code of conduct</h1>
+<h1 class="title">Model description template</h1>
 </div>
 
 
@@ -205,6 +225,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 1, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -214,11 +240,116 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This project applies the <a href="https://www.mozilla.org/en-US/about/governance/policies/participation/">Mozilla Community Participation Guidelines.</a></p>
-<p>As a user or developer of this code, you are expected to follow those guidelines.</p>
-<p>Please report unacceptable behavior to the project’s teams at helpdesk@cresym.eu.</p>
+<section id="markdown-metadata-block" class="level1">
+<h1>Markdown metadata block</h1>
+<p><code>layout:  page</code> Shall not be modified</p>
+<p><code>title: Model name</code> try to be as specific as possible</p>
+<p><code>tags: [_tag1, tag2, tag3_]</code> Please pick none, one or several tags for the following categories:</p>
+<ul>
+<li><strong>Opensource :</strong> tag to be added if there is at least one open source implementation of this model</li>
+<li><strong>CIM model:</strong> CIMStatic or CIMDynamic tags can be selected if your model is part of the CIM standard</li>
+<li><strong>Modeling details:</strong> tags giving the modeling details for this model: EMT, Dynamic phasor, shifted frequency, phasor, RMS</li>
+<li><strong>Model readiness level</strong>: indicates the level of maturity of the model:
+<ul>
+<li>Model exists on paper</li>
+<li>Model has been implemented in a tool</li>
+<li>Model has been implemented and validated in tool with a reference or field measures.</li>
+<li>Model is being used on regular basis in one or several industrial tools</li>
+</ul></li>
+<li><strong>Number of phases:</strong> Single phase, three phases</li>
+<li><strong>Standard:</strong> select the relevant tag name standard (WECC, CIGRE, IEEE, IEC, etc.) if your model is included in a standard.</li>
+<li><strong>Code section:</strong> if this template contains a Modelica or Openmodelica code section in line with the model description and equations, use the tag CodeImplementation</li>
+<li><strong>Component type:</strong> gives the electrical category of the device: Protection, line, bus, machines, synchronous generator, transformer, controllers, capacitors, sources, excitation system, automatic voltage regulator, PSS, PLL, Governor, load, sensors, wind generation, solar generation, load, HVDC, synchronous condensers, DLR, etc.</li>
+<li><strong>Implementation tools:</strong> software name (EMTP, PSCAD, PSS/E, NEPLAN, dynawo, DPSIM, Power Factory, Matlab, STEPSS, RTDS, Opal RT, powerworld, GE PSLF) to be used as tag if your model is implemented in specific software</li>
+</ul>
+<p><code>date: XX/XX/20XX</code> date of page creation</p>
+<p><code>last-updated: XX/XX/20XX</code> date of last page modification</p>
+<p><code>author</code> name the author of this model</p>
+<p><code>reviewers</code> name the reviewers of this model</p>
+<!--# Model description template (ID: 64)-->
+<p><em>Do not provide the title here (to avoid duplicate display) as it should be included in the Metadata block. We recommend including the issue ID generated by Colib GitHub along with the title.</em></p>
+<p>Each model post must be a consistent whole that cannot be subdivided into sub-models without loss of understanding (for example, due to a consistent notation system, intertwined equations, etc.)</p>
+<section id="context-mandatory" class="level2">
+<h2 class="anchored" data-anchor-id="context-mandatory">Context (mandatory)</h2>
+<p><em>A short paragraph reminding the history of the model, in which context it was developed for, what are the physics and the modelling approximations behind it.</em></p>
+<p>References citations can be made pointing to the references section (at the end of the document). Two ways to <strong>include a citation</strong>:</p>
+<ul>
+<li><strong>by using footnote links</strong>: put <code>[^1]</code> inside the main text and a markdown list at the end of the document.</li>
+<li><strong>by using a bibtex file</strong>: add your bibtexfile in the _bibliography folder. Add a citation inside your text with: {% raw %} <code>obgwsbhbxydnwazhne</code> {% endraw %} add bibliography at the end of the document.</li>
+</ul>
+</section>
+<section id="model-use-assumptions-validity-domain-and-limitations-mandatory" class="level2">
+<h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations-mandatory">Model use, assumptions, validity domain and limitations (mandatory)</h2>
+<p><em>Each model is an approximation of the reality, and considers some assumptions.</em></p>
+<p>This section gives details on:</p>
+<ul>
+<li>the <strong>validity domain of the model</strong> (frequency range, type of dynamics, type of stability phenomena) that the model covers,</li>
+<li>the <strong>model assumptions</strong> (e.g., neglecting the DC side of the converter, simplistic PLL representation)</li>
+<li>the <strong>limitations of the model</strong> (what people shouldn’t use the model for)</li>
+</ul>
+</section>
+<section id="model-description-mandatory" class="level2">
+<h2 class="anchored" data-anchor-id="model-description-mandatory">Model description (mandatory)</h2>
+<p><em>This section gives the full description of the different model’s component.</em></p>
+<p>For each component, is given: a brief explanation about the functioning of the component (how it works, what it is made of, which implementation choices are made) and the component equations or control diagram. The author can also point to another component page if the component is already explained in another page. In such case, he clearly needs to make coherence is achieved with the rest of the model in terms of notation, convention, and connection aspects.</p>
+<ul>
+<li><p><strong>For the equation system / algorithm :</strong> the author can use Latex language, which is fully compatible with markdown. For example: <code>$$ x_{j}^{i} $$</code>. He can also use numbered equations. The variables and parameters should be clearly specified, as well as their type (complex, real, etc.), unit (MW, MVA, etc), and meaning (phase to neutral voltage for the output terminal A). The notation should follow scientific standards.</p></li>
+<li><p><strong>Images can be added</strong> for clarity with: <code>&lt;img src="{{'pages/templates/gaussian.png' | relative_url}}" alt="Normalized Gaussian curves"</code> <strong>The image must be of good quality and more preferably in .svg format</strong>.</p></li>
+<li><p><strong>Electric/Electronic/Control/Phasor diagrams:</strong> they can be used instead of equations system to describe the component. We invite the author to use the <a href="https://www.drawio.com/">draw.io</a> plugin for github allowing you to make your own diagram easily. The diagram is fully editable with github commit using a graphical interface, and allowing multiple format outputs (for more details, see: <a href="https://app.diagrams.net/">draw.io github</a>). if the diagram includes common control block, you can use the already available drawio library in pages/models/controlBlocks/ . For each block a corresponding page is provided describing the block itself, it diagram representation and the corresponding equations/algorithm.</p></li>
+<li><p><strong>Initial equations/boundary conditions:</strong> when initial equations or boundary conditions are necessary to fully described the system, a subsection dedicated to those aspects can be added in this section.</p></li>
+</ul>
+</section>
+<section id="modelica-implementation-optional" class="level2">
+<h2 class="anchored" data-anchor-id="modelica-implementation-optional">Modelica implementation (optional)</h2>
+<p><em>This section is a code section that provides the source code for model described above.</em></p>
+<p>The implementation <strong>should correspond strictly the equations/diagram/algorithm described before</strong> and should have been validated in a tool. The date of the code should be specified at the beginning of the section, the code should be clean, readable and organized. The code can be presented in a <strong>markdown code block</strong> like this:</p>
+<pre class="text"><code>function test() {
+  console.log("notice the blank line before this function?");
+}</code></pre>
+</section>
+<section id="open-source-implementations-if-any" class="level2">
+<h2 class="anchored" data-anchor-id="open-source-implementations-if-any">Open source implementations (if any)</h2>
+<p><em>This section give a list of the different open source implementations of this model.It provides the reader with links and languages/software used for each implementations.</em></p>
+<p>The markdown table can be used to display such list, for example:</p>
+<p>This model has been successfully implemented in :</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Software</th>
+<th>URL</th>
+<th>Language</th>
+<th>Open-Source License</th>
+<th>Last consulted date</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Software name</td>
+<td><a href="https://github.com/toto">Link</a></td>
+<td>modelica</td>
+<td><a href="https://www.mozilla.org/en-US/MPL/2.0/">MPL v2.0</a></td>
+<td>XX/0X/20XX</td>
+<td>Comments can contain implementations details such as validation means, implementations key choices, etc.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="table-of-references-license" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-references-license">Table of references &amp; license</h2>
+<p><em>This section lists all the references. It must comply with current citation standards.</em></p>
+<p><strong>A bibtex file can directly be used</strong>.</p>
+<p>For example: You can insert references manually by using this markdown list links:</p>
+<pre><code>&lt;a id="1"&gt;[1]&lt;/a&gt; Author's name, "Title" Date Journal, doi: 10.1109/&gt;XXXXx46648.2021.9495096 at the end of the document.
+&lt;a id="2"&gt;[2]&lt;/a&gt; Author's name 2, "Title2" Date Journal, doi: 10.1109/&gt;XXXXXXXXX.2021.9495096 at the end of the document.</code></pre>
+<p>or by inserting directly the bibtex file biblioagraphy with the following command:</p>
+<p>{% raw %}</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>{% bibliography --file references  %}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>{% endraw %} which gives: {% bibliography –file references %} <code>--cited</code> command list only the ones that are cited in the page. More details about the citations details can be found at: <a href="https://github.com/inukshuk/jekyll-scholar#citations">jekyllScholarCitations</a></p>
 
 
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -632,12 +763,12 @@ ul.task-list li input[type="checkbox"] {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../about/index.html">
+    <a class="nav-link" href="../../about/index.html">
 <p>About</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../contact.html">
+    <a class="nav-link" href="../../contact.html">
 <p>Contact</p>
 </a>
   </li>  
@@ -647,7 +778,7 @@ ul.task-list li input[type="checkbox"] {
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../about/terms.html">
+    <a class="nav-link" href="../../about/terms.html">
 <p>Terms of Reference</p>
 </a>
   </li>  
