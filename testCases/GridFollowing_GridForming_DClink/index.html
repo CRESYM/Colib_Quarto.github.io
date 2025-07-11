@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2025-12-10">
 
-<title>Teams and community</title>
+<title>Grid Following - Grid Forming DC link</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +24,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-684cd2e4dca32dbb331d0f802940736f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-684cd2e4dca32dbb331d0f802940736f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,8 +69,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light">
@@ -79,8 +109,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../assets/img/Logo_colib.svg" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../assets/img/Logo_colib.svg" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -90,23 +120,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../about/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../about/index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../models/index.html"> 
+    <a class="nav-link" href="../../models/index.html"> 
 <span class="menu-text">Models</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../testCases/index.html"> 
+    <a class="nav-link active" href="../../testCases/index.html" aria-current="page"> 
 <span class="menu-text">Test Cases</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../contact/index.html"> 
+    <a class="nav-link" href="../../contact/index.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
 </ul>
@@ -121,7 +151,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../about/index.html">Overview about COLib</a></li><li class="breadcrumb-item"><a href="../about/team.html">Teams and community</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../testCases/index.html">Test Cases</a></li><li class="breadcrumb-item"><a href="../../testCases/GridFollowing_GridForming_DClink/index.html">Grid Following - Grid Forming DC link</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -135,8 +165,8 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../about/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview about COLib</span></a>
+            <a href="../../testCases/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Test Cases</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -144,38 +174,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../about/authorGuidelines.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Author’s guidelines</span></a>
+  <a href="../../testCases/GridFollowing_GridForming_DClink/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Grid Following - Grid Forming DC link</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../about/codeConduct.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Code of conduct</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../about/contribute.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Contributing Guidelines for Colib Documentation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../about/notationAndConventions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Electrical, Electronics and Control notations and conventions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../about/team.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Teams and community</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../about/terms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">COLib.net - Terms of reference</span></a>
+  <a href="../../testCases/kundur_two_area_system/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kundur two-area system</span></a>
   </div>
 </li>
       </ul>
@@ -190,24 +196,54 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#team-members" id="toc-team-members" class="nav-link active" data-scroll-target="#team-members"><span class="header-section-number">1</span> Team members</a></li>
-  <li><a href="#relevant-initiatives-from-the-power-system-community" id="toc-relevant-initiatives-from-the-power-system-community" class="nav-link" data-scroll-target="#relevant-initiatives-from-the-power-system-community"><span class="header-section-number">2</span> Relevant initiatives from the power system community</a></li>
+  <li><a href="#use-case-purpose-and-context" id="toc-use-case-purpose-and-context" class="nav-link active" data-scroll-target="#use-case-purpose-and-context">Use case purpose​ and context</a></li>
+  <li><a href="#table-of-references" id="toc-table-of-references" class="nav-link" data-scroll-target="#table-of-references">Table of references</a></li>
+  <li><a href="#network-description" id="toc-network-description" class="nav-link" data-scroll-target="#network-description">Network ​description</a></li>
+  <li><a href="#static-and-dynamic-models-description" id="toc-static-and-dynamic-models-description" class="nav-link" data-scroll-target="#static-and-dynamic-models-description">Static and Dynamic models​ description</a></li>
+  <li><a href="#input-data" id="toc-input-data" class="nav-link" data-scroll-target="#input-data">Input Data</a></li>
+  <li><a href="#scenarios" id="toc-scenarios" class="nav-link" data-scroll-target="#scenarios">Scenarios</a>
+  <ul class="collapse">
+  <li><a href="#scenario-no.-1-setpoint-tracking-operation" id="toc-scenario-no.-1-setpoint-tracking-operation" class="nav-link" data-scroll-target="#scenario-no.-1-setpoint-tracking-operation">Scenario No.&nbsp;1 / Setpoint tracking operation</a></li>
+  </ul></li>
+  <li><a href="#outputs" id="toc-outputs" class="nav-link" data-scroll-target="#outputs">Outputs</a></li>
+  <li><a href="#open-source-implementations" id="toc-open-source-implementations" class="nav-link" data-scroll-target="#open-source-implementations">Open source implementations</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../about/index.html">Overview about COLib</a></li><li class="breadcrumb-item"><a href="../about/team.html">Teams and community</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../testCases/index.html">Test Cases</a></li><li class="breadcrumb-item"><a href="../../testCases/GridFollowing_GridForming_DClink/index.html">Grid Following - Grid Forming DC link</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Teams and community</h1>
-</div>
+<h1 class="title">Grid Following - Grid Forming DC link</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">DC</div>
+    <div class="quarto-category">Grid Following</div>
+    <div class="quarto-category">Grid Forming</div>
+    <div class="quarto-category">OpenSource</div>
+    <div class="quarto-category">Matlab</div>
+    <div class="quarto-category">VSC</div>
+    <div class="quarto-category">small</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Carlos Alegre (eRoots) </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 10, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -217,32 +253,320 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="team-members" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="team-members"><span class="header-section-number">1</span> Team members</h2>
-<p>The developing team is constituted of people from both European TSOs and universities. Most of them belong to <a href="https://cresym.eu/">CRESYM</a>, a non-profit association.</p>
+<section id="use-case-purpose-and-context" class="level2">
+<h2 class="anchored" data-anchor-id="use-case-purpose-and-context">Use case purpose​ and context</h2>
+<p>The following test case is used to study the behavior of a DC link using EMT simulations of the converters. There is a Voltage Source Converter at each side of the line, one operating in Grid Forming mode and the other operating in Grid Following mode.</p>
+<p>The scenario presented simulates a DC interconnection between a grid and an isolated load. The Grid Following converter is at the grid side, and it controls the DC voltage level as well as the reactive power exchange of the link. The Grid Forming converter is at the load side, and it generates an AC voltage, controlling its amplitude and frequency. This combined control mode can be obtained following the rules described in the <a href="../../pages/models/4- HVDC/VSC/Point-to-Point-HVDC/UPC-EMT-HVDC/index.md">HVDC model page</a>. The Grid Forming’s control is the only type I control (mode 1), while the Grid Following’s is a type II (mode 4).</p>
+<p>The studied scenario represents the dynamics during setpoint tracking operation.</p>
 </section>
-<section id="relevant-initiatives-from-the-power-system-community" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="relevant-initiatives-from-the-power-system-community"><span class="header-section-number">2</span> Relevant initiatives from the power system community</h2>
+<section id="table-of-references" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-references">Table of references</h2>
+<p>The references can be consulted in each model’s page: - <a href="../../pages/models/4- HVDC/VSC/GridFormingConverter/UPC-EMTGridFormingVSC/">Grid Forming VSC model</a> - <a href="../../pages/models/4- HVDC/VSC/GridFollowingConverter/EMTGridFollowingVSC/">Grid Following VSC model</a> - <a href="../../pages/models/4- HVDC/VSC/Point-to-Point-HVDC/UPC-EMT-HVDC/index.md">HVDC model page</a></p>
+</section>
+<section id="network-description" class="level2">
+<h2 class="anchored" data-anchor-id="network-description">Network ​description</h2>
+<p>The network is formed by two VSC in Grid Following - Grid Forming configuration, a symetric monopolar DC link, a three-phase voltage source representing the grid and a load.</p>
+<div style="background-color:rgba(0, 0, 0, 0); text-align:center; vertical-align: middle; padding:4px 0;">
+<p><img src="{{ 'HVDC_scheme.svg'}}" alt="HVDC scheme" style="float: center; margin-right: 10px; width: 900px;"></p>
+</div>
+<div data-align="center">
+<p>Figure 1: Circuit of the DC model test case studied.</p>
+</div>
+<p><br></p>
+</section>
+<section id="static-and-dynamic-models-description" class="level2">
+<h2 class="anchored" data-anchor-id="static-and-dynamic-models-description">Static and Dynamic models​ description</h2>
 <ul>
-<li><a href="https://db.bettergrids.org/community-list">Bettergrids - data collections</a></li>
-<li><a href="https://opentools.globalpst.org/">G-PST portal - opentools</a></li>
-<li><a href="https://electricgrids.engr.tamu.edu/">Texas A&amp;M University - Electric Grid Datasets​</a></li>
-<li><a href="https://www.nrel.gov/grid/test-case-repository.html">NREL - Test Case repository for high renewable study - grid modernization</a></li>
-<li><a href="https://www.nrel.gov/grid/reliability-test-system.html">NREL - relialibity test systems - grid modernization lab consortium</a></li>
-<li><a href="https://www.nrel.gov/grid/smart-ds.html">NREL - SMART-DS synthetic models for advanced realistic testing: distribution systems and scenarios</a></li>
-<li><a href="https://eepublicdownloads.entsoe.eu/clean-documents/SOC%20documents/Regional_Groups_Continental_Europe/462459.pdf">ENTSO-E - Dynamic Model of Continental Europe​ DSM</a></li>
-<li><a href="https://www.naspi.org/node/890">NASPI - IEEE oscillation Source Location Contest North initiative American Synchrophasor initiative</a></li>
-<li><a href="https://www.esig.energy/wiki-main-page/">ESIG - Wiki of generic models</a></li>
-<li><a href="https://transmission.bpa.gov/business/operations/GridModeling/Approved%20Dynamic%20Models%20January%202024.pdf">WECC - approved dynamic models</a></li>
-<li><a href="https://webstore.iec.ch/en/publication/32564">IEC standard - WPP models</a></li>
-<li><a href="https://tweckesser.wordpress.com/power-system-data-and-test-cases/">Tilman weckesser website - power system data and test cases</a></li>
-<li><a href="https://www.fglongatt.org/Test_Systems/Test_Systems.html">Dr.&nbsp;Francisco M. González-Longatt website- test systems</a></li>
-<li><a href="https://ieeexplore.ieee.org/document/7151773">IEEE - dynamic test systems for transient analysis</a></li>
-<li><a href="https://pandapower.readthedocs.io/en/v2.2.2/networks/power_system_test_cases.html">PandaPower - test cases</a></li>
-<li><a href="https://github.com/dynawo/dynawo/tree/master/examples">Dynawo - test cases</a></li>
-<li><a href="https://github.com/OpenIPSL/OpenIPSL">OpenIPSL - models and test cases</a></li>
-<li><a href="https://github.com/Future-Power-Networks/Simplus-Grid-Tool">Simplus-grid-tool - models and test cases</a></li>
+<li>The grid is represented by ideal Voltage Sources.</li>
+<li>The load is a constant impedance <a href="../../pages/models/2-Loads/ZIPLoad/">ZIP load</a>.</li>
+<li>The Grid Following converter controls includes a DC Voltage regulation, similar to the controls described in the <a href="../../pages/models/3-CompensationAndFACTS/STATCOM/">STATCOM model</a>.</li>
+<li>The Grid Forming converter controls include a frequency and voltage regulation using the droop control approach described in the <a href="../../pages/models/4- HVDC/VSC/GridFormingConverter/UPC-EMTGridFormingVSC/">Grid Forming VSC model</a>.</li>
 </ul>
+<p>To avoid too much information on the same page, some links to the elements model’s pages can be provided.</p>
+</section>
+<section id="input-data" class="level2">
+<h2 class="anchored" data-anchor-id="input-data">Input Data</h2>
+<p>This section includes all the needed input data the test case needs to be run. It covers:</p>
+<ul>
+<li><strong>Static data for the lines</strong></li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 40%">
+<col style="width: 18%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Line/Cable</th>
+<th>Nominal Voltage (kV)</th>
+<th>R (<span class="math display">\[\Omega\]</span>)</th>
+<th>L (<span class="math display">\[H\]</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Converter - grid filter (grid connection)</td>
+<td><span class="math display">\[2.45\]</span> kV</td>
+<td><span class="math display">\[0.0326\]</span></td>
+<td><span class="math display">\[0.001038\]</span></td>
+</tr>
+<tr class="even">
+<td>Converter - capacitor (GFM)</td>
+<td><span class="math display">\[2.45\]</span> kV</td>
+<td><span class="math display">\[0.0048913\]</span></td>
+<td><span class="math display">\[0.00031139\]</span></td>
+</tr>
+<tr class="odd">
+<td>DC line</td>
+<td><span class="math display">\[1.5\]</span></td>
+<td><span class="math display">\[0.001\]</span></td>
+<td><span class="math display">\[0.000163\]</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Static data for the capacitors</strong></li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Capacitor</th>
+<th>C (F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DC line</td>
+<td><span class="math display">\[0.15\]</span></td>
+</tr>
+<tr class="even">
+<td>GFM</td>
+<td><span class="math display">\[1.63 \cdot 10^{-4}\]</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Static data for the loads</strong></li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Loads</th>
+<th>P (<span class="math display">\[MW\]</span>)</th>
+<th>Q(<span class="math display">\[MVar\]</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Load 1</td>
+<td><span class="math display">\[ 1 \]</span></td>
+<td><span class="math display">\[ 0.0001 \]</span></td>
+</tr>
+<tr class="even">
+<td>Load 2</td>
+<td><span class="math display">\[ 0.5 \]</span></td>
+<td><span class="math display">\[ 0.0001 \]</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Dynamic data for the Grid Following VSC.</strong></li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Value</th>
+<th>Units</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math display">\[V_{peak}\]</span></td>
+<td><span class="math display">\[2.45\]</span></td>
+<td>kV</td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[\omega_n^{PLL}\]</span></td>
+<td><span class="math display">\[2\pi 1000\]</span></td>
+<td>rad/s</td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[\zeta^{PLL}\]</span></td>
+<td><span class="math display">\[0.707\]</span></td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[K^{PLL}_p\]</span></td>
+<td><span class="math display">\[3.55\]</span></td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[K^{PLL}_i\]</span></td>
+<td><span class="math display">\[1.58 \cdot 10^4\]</span></td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[\tau^{PLL}\]</span></td>
+<td><span class="math display">\[0.225\]</span></td>
+<td>ms</td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[\tau^c\]</span></td>
+<td><span class="math display">\[1\]</span></td>
+<td>ms</td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[K^{icl}_p\]</span></td>
+<td><span class="math display">\[1,038\]</span></td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[K^{icl}_i\]</span></td>
+<td><span class="math display">\[32.609\]</span></td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[\tau_p\]</span></td>
+<td><span class="math display">\[15\]</span></td>
+<td>ms</td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[K^{ipl}_p\]</span></td>
+<td><span class="math display">\[1.778 \cdot 10^{-5}\]</span></td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[K^{ipl}_i\]</span></td>
+<td><span class="math display">\[1.778 \cdot 10^{-2}\]</span></td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[V_{DC}\]</span></td>
+<td><span class="math display">\[1.5\]</span></td>
+<td>kV</td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[K^{DC}_p\]</span></td>
+<td><span class="math display">\[ 5 \]</span></td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[K^{DC}_i\]</span></td>
+<td><span class="math display">\[ 50 \]</span></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Dynamic data for the Grid Forming VSC.</strong></li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Value</th>
+<th>Units</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math display">\[V_{peak}\]</span></td>
+<td><span class="math display">\[2.45\]</span></td>
+<td>kV</td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[K^{icl}_p\]</span></td>
+<td><span class="math display">\[0.13494\]</span></td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[K^{icl}_i\]</span></td>
+<td><span class="math display">\[100\]</span></td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[K^{vcl}_p\]</span></td>
+<td><span class="math display">\[5\]</span></td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td><span class="math display">\[K^{vcl}_i\]</span></td>
+<td><span class="math display">\[500\]</span></td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td><span class="math display">\[K^{Droop}_p\]</span></td>
+<td><span class="math display">\[2\pi 50\]</span></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="scenarios" class="level2">
+<h2 class="anchored" data-anchor-id="scenarios">Scenarios</h2>
+<section id="scenario-no.-1-setpoint-tracking-operation" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-no.-1-setpoint-tracking-operation">Scenario No.&nbsp;1 / Setpoint tracking operation</h3>
+<p>The scenario studied starts with a constant load, and after 1 second, there is second load connection. This scenario serves to study setpoint tracking operation during changes of loads.</p>
+<ul>
+<li><p><strong>Event:</strong> Setpoing for <span class="math display">\[Q_{ac}\]</span> is changed at 0.5 seconds. At 1s, connection of a new load in the Grid Forming side.</p></li>
+<li><p><strong>Operating point No.&nbsp;1 (0 to 0.5 s):</strong> <span class="math display">\[Q^*_{ac}\]</span> = 0 MVAr, <span class="math display">\[P_{load}\]</span> = 1 MW.</p></li>
+<li><p><strong>Operating point No.&nbsp;2 (0.5 to 1 s):</strong> <span class="math display">\[Q^*_{ac}\]</span> = 0.46 MVAr, <span class="math display">\[P_{load}\]</span> = 1 MW.</p></li>
+<li><p><strong>Operating point No.&nbsp;3 (1 to 2 s):</strong> <span class="math display">\[Q^*_{ac}\]</span> = 0.46 MVAr, <span class="math display">\[P_{load}\]</span> = 1.5 MW.</p></li>
+<li><p><strong>Control modes:</strong> Setpoint tracking, Grid Forming (<span class="math display">\[V_{ac}\]</span>, <span class="math display">\[\theta_{ac}\]</span>), Grid Following (<span class="math display">\[V_{DC}\]</span>, <span class="math display">\[Q_{ac}\]</span>).</p></li>
+<li><p><strong>Network variant:</strong> The breaker connecting the new load is closed at 1 second.</p></li>
+</ul>
+</section>
+</section>
+<section id="outputs" class="level2">
+<h2 class="anchored" data-anchor-id="outputs">Outputs</h2>
+<p>To verify the correct setpoint tracking operation, we proceed to check the different controlled magnitudes of the simulation. Firstly, the plots for the DC voltage are shown at both ends of the DC link:</p>
+<div style="background-color:rgba(0, 0, 0, 0); text-align:center; vertical-align: middle; padding:4px 0;">
+<p><img src="{{ '/pages/testCases/GridFollowing_GridForming_DClink/VDC_GFOL.svg' | relative_url }}" alt="VDC_GFOL" style="float: center; margin-right: 10px; width: 900px;"></p>
+</div>
+<div data-align="center">
+<p>Figure 2: DC voltage at the Grid Following side.</p>
+</div>
+<p><br></p>
+<div style="background-color:rgba(0, 0, 0, 0); text-align:center; vertical-align: middle; padding:4px 0;">
+<p><img src="{{ '/pages/testCases/GridFollowing_GridForming_DClink/VDC_GFM.svg' | relative_url }}" alt="VDC_GMR" style="float: center; margin-right: 10px; width: 900px;"></p>
+</div>
+<div data-align="center">
+<p>Figure 3: DC voltage at the Grid Forming side.</p>
+</div>
+<p><br></p>
+<p>As shown in both figures, the DC voltage is correctly tracked by the DC voltage controls at the Grid Following side, reaching the desired value of 1.5 kV after a transient period. The Grid Forming side follows the same progression, although uncontrolled and falling slightly below the rated voltage due to the voltage drop of the link, as expected.</p>
+<p>The reactive power exchanged with the grid in the Grid Following side is also shown in the following figure:</p>
+<div style="background-color:rgba(0, 0, 0, 0); text-align:center; vertical-align: middle; padding:4px 0;">
+<p><img src="{{ '/pages/testCases/GridFollowing_GridForming_DClink/Qg_GFOL.svg' | relative_url }}" alt="Qg_GFOL" style="float: center; margin-right: 10px; width: 900px;"></p>
+</div>
+<div data-align="center">
+<p>Figure 4: Reactive power exchanged with the grid at the Grid Following side.</p>
+</div>
+<p><br></p>
+<p>Initially, no reactive power is exchanged, but after the setpoint change at 0.5 seconds, the reactive power is increased to 0.46 MVAr, as expected.</p>
+<p>Lastly, the active power exchanged at both converters can be seen in the following figures:</p>
+<div style="background-color:rgba(0, 0, 0, 0); text-align:center; vertical-align: middle; padding:4px 0;">
+<p><img src="{{ '/pages/testCases/GridFollowing_GridForming_DClink/P_GFOL.svg' | relative_url }}" alt="P_GFOL" style="float: center; margin-right: 10px; width: 900px;"></p>
+</div>
+<div data-align="center">
+<p>Figure 5: Active power exchanged with the grid at the Grid Following side.</p>
+</div>
+<p><br></p>
+<div style="background-color:rgba(0, 0, 0, 0); text-align:center; vertical-align: middle; padding:4px 0;">
+<p><img src="{{ '/pages/testCases/GridFollowing_GridForming_DClink/P_GFM.svg' | relative_url }}" alt="P_GFM" style="float: center; margin-right: 10px; width: 900px;"></p>
+</div>
+<div data-align="center">
+<p>Figure 6: Active power exchanged with the load at the Grid Forming side.</p>
+</div>
+<p><br></p>
+<p>We can see that the active power exchanged in both sides is slightly lower than the expected (1 MW or 1.5 MW). This is due to the characteristics of the load, which is a constant impedance load. The value of this impedance is calculated using the nominal values for voltage and power, and since there is a voltage drop from the converter to the load, the exchanged power is lower than the nominal value.</p>
+</section>
+<section id="open-source-implementations" class="level2">
+<h2 class="anchored" data-anchor-id="open-source-implementations">Open source implementations</h2>
+<p>No open-source implementations were found.</p>
 
 
 </section>
@@ -659,12 +983,12 @@ ul.task-list li input[type="checkbox"] {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../about/index.html">
+    <a class="nav-link" href="../../about/index.html">
 <p>About</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../contact.html">
+    <a class="nav-link" href="../../contact.html">
 <p>Contact</p>
 </a>
   </li>  
@@ -674,7 +998,7 @@ ul.task-list li input[type="checkbox"] {
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../about/terms.html">
+    <a class="nav-link" href="../../about/terms.html">
 <p>Terms of Reference</p>
 </a>
   </li>  

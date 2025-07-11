@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Teams and community</title>
+<title>Test Cases</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -67,7 +69,65 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-authors','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -94,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../about/index.html" aria-current="page"> 
+    <a class="nav-link" href="../about/index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
@@ -102,7 +162,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Models</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../testCases/index.html"> 
+    <a class="nav-link active" href="../testCases/index.html" aria-current="page"> 
 <span class="menu-text">Test Cases</span></a>
   </li>  
   <li class="nav-item">
@@ -121,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../about/index.html">Overview about COLib</a></li><li class="breadcrumb-item"><a href="../about/team.html">Teams and community</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../testCases/index.html">Test Cases</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -135,8 +195,8 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../about/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Overview about COLib</span></a>
+            <a href="../testCases/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Test Cases</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -144,38 +204,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../about/authorGuidelines.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Author’s guidelines</span></a>
+  <a href="../testCases/GridFollowing_GridForming_DClink/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Grid Following - Grid Forming DC link</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../about/codeConduct.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Code of conduct</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../about/contribute.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Contributing Guidelines for Colib Documentation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../about/notationAndConventions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Electrical, Electronics and Control notations and conventions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../about/team.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Teams and community</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../about/terms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">COLib.net - Terms of reference</span></a>
+  <a href="../testCases/kundur_two_area_system/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kundur two-area system</span></a>
   </div>
 </li>
       </ul>
@@ -186,21 +222,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#team-members" id="toc-team-members" class="nav-link active" data-scroll-target="#team-members"><span class="header-section-number">1</span> Team members</a></li>
-  <li><a href="#relevant-initiatives-from-the-power-system-community" id="toc-relevant-initiatives-from-the-power-system-community" class="nav-link" data-scroll-target="#relevant-initiatives-from-the-power-system-community"><span class="header-section-number">2</span> Relevant initiatives from the power system community</a></li>
-  </ul>
-</nav>
-    </div>
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="JTIzNjA=">#60 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="REM=">DC <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZHluYXdv">dynawo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnJlcXVlbmN5">frequency <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R3JpZCUyMEZvbGxvd2luZw==">Grid Following <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R3JpZCUyMEZvcm1pbmc=">Grid Forming <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWF0bGFi">Matlab <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TW9kZWxpY2E=">Modelica <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T3Blbk1vZGVsaWNh">OpenModelica <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T3BlblNvdXJjZQ==">OpenSource <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T3BlbnNvdXJjZQ==">Opensource <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cm1z">rms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c21hbGw=">small <span class="quarto-category-count">(2)</span></div><div class="category" data-category="VENSTDM=">TCRL3 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VlND">VSC <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../about/index.html">Overview about COLib</a></li><li class="breadcrumb-item"><a href="../about/team.html">Teams and community</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Teams and community</h1>
+<h1 class="title">Test Cases</h1>
 </div>
 
 
@@ -217,37 +246,110 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="team-members" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="team-members"><span class="header-section-number">1</span> Team members</h2>
-<p>The developing team is constituted of people from both European TSOs and universities. Most of them belong to <a href="https://cresym.eu/">CRESYM</a>, a non-profit association.</p>
-</section>
-<section id="relevant-initiatives-from-the-power-system-community" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="relevant-initiatives-from-the-power-system-community"><span class="header-section-number">2</span> Relevant initiatives from the power system community</h2>
-<ul>
-<li><a href="https://db.bettergrids.org/community-list">Bettergrids - data collections</a></li>
-<li><a href="https://opentools.globalpst.org/">G-PST portal - opentools</a></li>
-<li><a href="https://electricgrids.engr.tamu.edu/">Texas A&amp;M University - Electric Grid Datasets​</a></li>
-<li><a href="https://www.nrel.gov/grid/test-case-repository.html">NREL - Test Case repository for high renewable study - grid modernization</a></li>
-<li><a href="https://www.nrel.gov/grid/reliability-test-system.html">NREL - relialibity test systems - grid modernization lab consortium</a></li>
-<li><a href="https://www.nrel.gov/grid/smart-ds.html">NREL - SMART-DS synthetic models for advanced realistic testing: distribution systems and scenarios</a></li>
-<li><a href="https://eepublicdownloads.entsoe.eu/clean-documents/SOC%20documents/Regional_Groups_Continental_Europe/462459.pdf">ENTSO-E - Dynamic Model of Continental Europe​ DSM</a></li>
-<li><a href="https://www.naspi.org/node/890">NASPI - IEEE oscillation Source Location Contest North initiative American Synchrophasor initiative</a></li>
-<li><a href="https://www.esig.energy/wiki-main-page/">ESIG - Wiki of generic models</a></li>
-<li><a href="https://transmission.bpa.gov/business/operations/GridModeling/Approved%20Dynamic%20Models%20January%202024.pdf">WECC - approved dynamic models</a></li>
-<li><a href="https://webstore.iec.ch/en/publication/32564">IEC standard - WPP models</a></li>
-<li><a href="https://tweckesser.wordpress.com/power-system-data-and-test-cases/">Tilman weckesser website - power system data and test cases</a></li>
-<li><a href="https://www.fglongatt.org/Test_Systems/Test_Systems.html">Dr.&nbsp;Francisco M. González-Longatt website- test systems</a></li>
-<li><a href="https://ieeexplore.ieee.org/document/7151773">IEEE - dynamic test systems for transient analysis</a></li>
-<li><a href="https://pandapower.readthedocs.io/en/v2.2.2/networks/power_system_test_cases.html">PandaPower - test cases</a></li>
-<li><a href="https://github.com/dynawo/dynawo/tree/master/examples">Dynawo - test cases</a></li>
-<li><a href="https://github.com/OpenIPSL/OpenIPSL">OpenIPSL - models and test cases</a></li>
-<li><a href="https://github.com/Future-Power-Networks/Simplus-Grid-Tool">Simplus-grid-tool - models and test cases</a></li>
-</ul>
+<p>This section contains test cases that demonstrate the functionality and behavior of the models in the Collaborative Open-Source Dynamic Simulation Library. Each test case provides detailed documentation including network descriptions, model configurations, input data, and simulation results.</p>
 
 
-</section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-title" data-direction="asc">
+        Title
+      </option>
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+    </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="REMlMkNHcmlkJTIwRm9sbG93aW5nJTJDR3JpZCUyMEZvcm1pbmclMkNPcGVuU291cmNlJTJDTWF0bGFiJTJDVlNDJTJDc21hbGw=" data-listing-date-sort="1765324800000" data-listing-file-modified-sort="1752229341324" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1406">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../testCases/GridFollowing_GridForming_DClink/index.html" class="no-external">Grid Following - Grid Forming DC link</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('REM='); return false;">DC</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R3JpZCUyMEZvbGxvd2luZw=='); return false;">Grid Following</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R3JpZCUyMEZvcm1pbmc='); return false;">Grid Forming</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlblNvdXJjZQ=='); return false;">OpenSource</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWF0bGFi'); return false;">Matlab</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VlND'); return false;">VSC</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c21hbGw='); return false;">small</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../testCases/GridFollowing_GridForming_DClink/index.html" class="no-external">
+<div class="listing-date">
+Dec 10, 2025
+</div>
+<div class="metadata-value listing-authors">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="T3BlbnNvdXJjZSUyQ3NtYWxsJTJDVENSTDMlMkMlMjM2MCUyQ3JtcyUyQ2R5bmF3byUyQ2ZyZXF1ZW5jeSUyQ09wZW5Nb2RlbGljYSUyQ01vZGVsaWNh" data-listing-date-sort="1738972800000" data-listing-file-modified-sort="1752229341325" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="30" data-listing-word-count-sort="5934">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../testCases/kundur_two_area_system/index.html" class="no-external">Kundur two-area system</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c21hbGw='); return false;">small</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VENSTDM='); return false;">TCRL3</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzNjA='); return false;">#60</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cm1z'); return false;">rms</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZHluYXdv'); return false;">dynawo</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZnJlcXVlbmN5'); return false;">frequency</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3Blbk1vZGVsaWNh'); return false;">OpenModelica</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TW9kZWxpY2E='); return false;">Modelica</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../testCases/kundur_two_area_system/index.html" class="no-external">
+<div class="listing-date">
+Feb 8, 2025
+</div>
+<div class="metadata-value listing-authors">
+Martin Franke (Fraunhofer IEE)
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
