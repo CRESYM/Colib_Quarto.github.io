@@ -58,7 +58,7 @@ OUR PARTNERS
 ::: {.partner-logos}
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/AIR_LIQUIDE.svg.png){.parter-logo-img-lg}
+![](assets/img/colib_logos/AIR_LIQUIDE.png){.parter-logo-img}
 :::
 
 ::: {.parter-logo .scroll-fade}
@@ -82,7 +82,7 @@ OUR PARTNERS
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/ELES_logo.svg){.parter-logo-img-lg}
+![](assets/img/colib_logos/ELES_logo.svg){.parter-logo-img}
 :::
 
 ::: {.parter-logo .scroll-fade}
@@ -90,11 +90,11 @@ OUR PARTNERS
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/ETH_Zurich.svg.png){.parter-logo-img-lg}
+![](assets/img/colib_logos/ETH_Zurich.svg.png){.parter-logo-img}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/Fraunhofer-Gesellschaft_2009_logo.svg){.parter-logo-img-lg}
+![](assets/img/colib_logos/Fraunhofer-Gesellschaft_2009_logo.svg){.parter-logo-img}
 :::
 
 ::: {.parter-logo .scroll-fade}
@@ -122,15 +122,15 @@ OUR PARTNERS
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/RWTH.svg){.parter-logo-img-lg}
+![](assets/img/colib_logos/RWTH.svg){.parter-logo-img}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/Swissgrid.svg){.parter-logo-img-lg}
+![](assets/img/colib_logos/Swissgrid.svg){.parter-logo-img}
 :::
 
 ::: {.parter-logo .scroll-fade}
-![](assets/img/colib_logos/Tennet.svg){.parter-logo-img-lg}
+![](assets/img/colib_logos/Tennet.svg){.parter-logo-img}
 :::
 
 ::: {.parter-logo .scroll-fade}
@@ -160,9 +160,6 @@ OUR PARTNERS
 ::: {.parter-logo .scroll-fade}
 ![](assets/img/colib_logos/universidad-pontificia-de-comillas.svg){.parter-logo-img-lg}
 :::
-
-
-
 
 
 :::
