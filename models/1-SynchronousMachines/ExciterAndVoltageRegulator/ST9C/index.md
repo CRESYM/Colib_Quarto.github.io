@@ -5,7 +5,7 @@ tags: ["Voltage regulator", "ST9C", "generic", "Opensource", "CIM model", "RMS",
 date: 05/04/2024
 last-updated: 24/05/2024
 id: #106
-authors: Erwan Guichard (DPS for RTE)
+author: Erwan Guichard (DPS for RTE)
 reviewers: Mathilde Bongrain (CRESYM)
 ---
 # Exc IEEE ST9C model

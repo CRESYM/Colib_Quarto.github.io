@@ -5,7 +5,7 @@ tags: ["#196","Synchronous machine", "Rotor", "Stator", "PowerWorld", "Opensourc
 date: 05/08/2024 
 last-updated: 08/08/2024
 id: #196
-authors: Carlos Alegre (eRoots)
+author: Carlos Alegre (eRoots)
 reviewers: Eduardo Prieto Araujo (UPC), Josep Fanals Batllori (eRoots)
 ---
 

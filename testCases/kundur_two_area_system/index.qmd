@@ -3,8 +3,8 @@ layout: page
 title: Kundur two-area system
 categories: [Opensource, small, TCRL3, '#60', rms, dynawo, frequency, OpenModelica, Modelica] 
 date: 14/08/2024  
-last-updated: 14/08/2024 
-authors: Martin Franke (Fraunhofer IEE)
+last-updated: 14/08/2024
+author: Martin Franke (Fraunhofer IEE)
 reviewers: Joy El Feghali (RTE)
 id: #60
 ---

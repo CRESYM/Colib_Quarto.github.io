@@ -5,7 +5,7 @@ tags: ["#145", "load", "Frequency", "polynomial", "ZIP", "exponential"]
 date: 29/05/2024 
 last-updated: 29/05/2024
 id: #145
-authors: Carlos Alegre (eRoots)
+author: Carlos Alegre (eRoots)
 reviewers: Eduardo Prieto Araujo (UPC), Josep Fanals Batllori (eRoots)
 ---
 

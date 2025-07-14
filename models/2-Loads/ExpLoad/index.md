@@ -5,8 +5,9 @@ categories: ["#143", "load", "Exponential", "steady-state", "polynomial"]
 date: 29/05/2024 
 last-updated: 29/05/2024
 id: #143
-authors: Carlos Alegre (eRoots)
+author: Carlos Alegre (eRoots)
 reviewer: Eduardo Prieto Araujo (UPC), Josep Fanals Batllori (eRoots)
+number-sections: true
 ---
 
 ## Context

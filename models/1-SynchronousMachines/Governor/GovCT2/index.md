@@ -4,7 +4,7 @@ title: GovCT2 / GGOV2
 tags: ["regulations", "governor", "controller", "synchronous machine", "Opensource", "IEC", "CIMDynamic", "RMS", "modelica", "dynawo", "RMS", "#53"]
 date: 23/04/2024
 last-updated: 20/06/2024
-authors: Martin Franke (Fraunhofer IEE)
+author: Martin Franke (Fraunhofer IEE)
 reviewers: Mathilde Bongrain (CRESYM)
 id: #53
 ---

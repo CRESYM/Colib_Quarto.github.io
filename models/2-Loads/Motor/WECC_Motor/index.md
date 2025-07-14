@@ -4,7 +4,7 @@ title: Induction motor model with rotor flux dynamics
 tags: ["#200", "Induction motor", "RMS", "Dynawo", "Opensource"]
 date: 12/08/2024
 last-updated: 12/08/2024
-authors: Frédéric Sabot (ULB)
+author: Frédéric Sabot (ULB)
 reviewers: Lampros Papangelis (CRESYM)
 ---
 

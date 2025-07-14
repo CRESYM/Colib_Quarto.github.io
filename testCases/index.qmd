@@ -8,7 +8,7 @@ listing:
     layout: chapter
   type: default
   categories: numbered
-  fields: [date, title, authors, categories]
+  fields: [date, title, author, categories]
   filter-ui: true
   sort-ui: true
 ---

@@ -4,7 +4,7 @@ title: GovHydro4
 tags: ["regulations", "governor", "controller", "synchronous machine", "Opensource", "IEC", "CIMDynamic", "RMS", "modelica", "dynawo", "RMS", "#54"]
 date: 17/09/2024
 last-updated: 17/09/2024
-authors: "Nils Wiese, Martin Franke, Saikrishna Vallabhaneni (Fraunhofer IEE)"
+author: "Nils Wiese, Martin Franke, Saikrishna Vallabhaneni (Fraunhofer IEE)"
 reviewers: Lampros Papangelis (CRESYM)
 id: #54
 ---

@@ -8,9 +8,9 @@ listing:
     layout: chapter
   type: default
   categories: numbered
-  fields: [date, title, authors, categories]
-  filter-ui: true
-  sort-ui: true
+  fields: [date, title, author, categories]
+  filter-ui: [title, date, author, categories]
+  sort-ui: [date, title, author, categories]
 ---
 
 This section contains the documentation for the various dynamic models implemented in the Collaborative Open-Source Dynamic Simulation Library.

@@ -5,7 +5,7 @@ tags: ["Voltage regulator", "OEL4C", "generic", "Opensource", "CIM model", "RMS"
 date: 08/10/2024
 last-updated: 09/10/2024
 id: #236
-authors: Erwan Guichard (DPS for RTE)
+author: Erwan Guichard (DPS for RTE)
 reviewers: Lampros Papangelis (CRESYM)
 ---
 # IEEE OEL4C model

@@ -4,7 +4,7 @@ title: Grid Following - Grid Forming DC link
 categories: [DC, Grid Following, Grid Forming, OpenSource, Matlab, VSC, small] 
 date: 24/10/2024  
 last-updated: 24/10/2024 
-authors: Carlos Alegre (eRoots)
+author: Carlos Alegre (eRoots)
 reviewers: Josep Fanals (eRoots)
 ---
  
