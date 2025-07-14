@@ -1,12 +1,5 @@
 [
   {
-    "listing": "/testCases/index.html",
-    "items": [
-      "/testCases/GridFollowing_GridForming_DClink/index.html",
-      "/testCases/kundur_two_area_system/index.html"
-    ]
-  },
-  {
     "listing": "/models/index.html",
     "items": [
       "/models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC1C/index.html",
@@ -55,6 +48,13 @@
       "/models/1-SynchronousMachines/OverUnderExcitationLimiter/UEL1/index.html",
       "/models/1-SynchronousMachines/OverUnderExcitationLimiter/UEL2C/index.html",
       "/models/2-Loads/ZIPLoad/index.html"
+    ]
+  },
+  {
+    "listing": "/testCases/index.html",
+    "items": [
+      "/testCases/GridFollowing_GridForming_DClink/index.html",
+      "/testCases/kundur_two_area_system/index.html"
     ]
   }
 ]
