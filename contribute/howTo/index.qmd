@@ -1,0 +1,310 @@
+---
+title: "How to contribute to the Colib project"
+author: ""
+bibliography: ../../_bibliography/references.bib
+jupyter: python3
+freeze: true
+---
+
+# Introduction
+
+This guide demonstrates how to create rich, interactive content using Quarto. Quarto is a powerful publishing system that allows you to combine narrative text, executable code, equations, figures, tables, and citations into beautiful documents.
+
+Each section below includes:
+
+  - **Code samples**
+  - **Rendered results** showing what the output looks like
+
+Let's explore the main features you'll need for academic and technical writing.
+
+# Text Formatting and Markdown Basics
+
+## Basic Text Formatting
+
+Here are the fundamental text formatting options:
+
+```markdown
+*italic text*,
+**bold text**,
+***bold italic text***
+~~strikethrough text~~
+`inline code`
+superscript^2^, subscript~2~
+```
+
+**Rendered result:**
+
+- *italic text*,
+- **bold text**,
+- ***bold italic text***
+- ~~strikethrough text~~
+- `inline code`
+- superscript^2^, subscript~2~
+
+## Headings and Structure
+
+```markdown
+# Main Heading (Level 1)
+## Section Heading (Level 2) 
+### Subsection Heading (Level 3)
+#### Sub-subsection Heading (Level 4)
+```
+**Rendered result:**
+
+# Main Heading (Level 1)
+## Section Heading (Level 2) 
+### Subsection Heading (Level 3)
+#### Sub-subsection Heading (Level 4)
+
+## Lists
+
+### Unordered Lists
+```markdown
+* First item
+  + Sub-item 1
+  + Sub-item 2
+    - Sub-sub-item
+* Second item
+```
+
+**Rendered result:**
+
+* First item
+  + Sub-item 1
+  + Sub-item 2
+    - Sub-sub-item
+* Second item
+
+### Ordered Lists
+```markdown
+1. First numbered item
+2. Second numbered item
+   i. Sub-item with roman numerals
+   ii. Another sub-item
+```
+
+**Rendered result:**
+
+1. First numbered item
+2. Second numbered item
+   i. Sub-item with roman numerals
+   ii. Another sub-item
+
+# Mathematical Equations {#sec-equations}
+
+## Inline Math
+
+You can include mathematical expressions inline using single dollar signs: $E = mc^2$ and $\alpha + \beta = \gamma$.
+
+## Display Equations
+
+For larger equations, use double dollar signs:
+
+$$
+\frac{\partial^2 u}{\partial t^2} = c^2 \nabla^2 u
+$$ {#eq-wave}
+
+$$
+P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}
+$$ {#eq-poisson}
+
+## Multi-line Equations
+
+```markdown
+$$
+\begin{align}
+f(x) &= ax^2 + bx + c \\
+f'(x) &= 2ax + b \\
+f''(x) &= 2a
+\end{align}
+$$ {#eq-derivatives}
+```
+
+**Rendered result:**
+$$
+\begin{align}
+f(x) &= ax^2 + bx + c \\
+f'(x) &= 2ax + b \\
+f''(x) &= 2a
+\end{align}
+$$ {#eq-derivatives}
+
+# Figures and Images {#sec-figures}
+
+## Static Images
+
+You can include static images using markdown syntax:
+
+```markdown
+![Quarto Logo](../../assets/img/Logo_colib.svg){#fig-logo fig-alt="The Colib project logo" width="200px"}
+```
+
+**Rendered result:**
+
+![Quarto Logo](../../assets/img/Logo_colib.svg){#fig-logo fig-alt="The Colib project logo" width="200px"}
+
+# Cross-References {#sec-crossref}
+
+## How Cross-References Work
+
+Quarto automatically generates numbered cross-references for:
+
+- **Equations**: Use `eq-` prefix (e.g., `#eq-wave`)
+- **Sections**: Use `sec-` prefix (e.g., `#sec-figures`)
+- **Figures**: Use `fig-` prefix (e.g., `#fig-logo`)
+- **Tables**: Use `tbl-` prefix (e.g., `#tbl-features`)
+
+## Examples of Cross-References
+
+- Reference an equation: "Using the wave equation (@eq-wave)..."
+- Reference a section: "Details are provided in @sec-figures..."
+- Reference a figure: "See @fig-logo for the Colib project logo..."
+- Reference a table: "The results in @tbl-features indicate..."
+
+# Citations and References {#sec-citations}
+
+## Citation Syntax
+
+Quarto uses BibTeX for managing references. Citations are created using `@` followed by the citation key:
+
+- Author-date citation: `@marrero2019` produces: Studies by @DUMMY:2 show...
+- Parenthetical citation: `[@marrero2019]` produces: Previous research [@DUMMY:2] indicates...
+
+## Adding References
+
+References should be stored in a `.bib` file and specified in the YAML header:
+
+```yaml
+bibliography: references.bib
+```
+
+## Example Bibliography Entry
+
+```bibtex
+@article{example2024,
+  title={An Example Article},
+  author={Smith, John and Doe, Jane},
+  journal={Journal of Examples},
+  volume={42},
+  number={1},
+  pages={1--10},
+  year={2024},
+  publisher={Example Press}
+}
+```
+
+# Advanced Features {#sec-advanced}
+
+## Callout Blocks
+
+Quarto provides several types of callout blocks:
+
+:::{.callout-note}
+This is a note callout. Use it for additional information.
+:::
+
+:::{.callout-tip}
+This is a tip callout. Perfect for helpful suggestions.
+:::
+
+:::{.callout-warning}
+This is a warning callout. Use for important caveats.
+:::
+
+:::{.callout-important}
+This is an important callout. Use for critical information.
+:::
+
+## Code Blocks computation
+
+Code blocks that use braces around the language name (e.g. ` ```{python}`) are executable, and will be run by Quarto during render. Here is a simple example:
+
+```markdown
+---
+title: "matplotlib demo"
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+For a demonstration of a line plot on a polar axis, see @fig-polar.
+
+```{python}
+#| label: fig-polar
+#| fig-cap: "A line plot on a polar axis"
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(
+  subplot_kw = {'projection': 'polar'} 
+)
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+
+# Tables {#sec-tables}
+
+## Markdown Tables
+
+You can create tables using markdown syntax:
+
+```markdown
+| Feature | Supported | Notes |
+|---------|-----------|-------|
+| Code execution | ✓ | Python, R, Julia |
+| Math equations | ✓ | LaTeX syntax |
+| Cross-references | ✓ | Figures, tables, sections |
+| Citations | ✓ | BibTeX format |
+```
+
+**Rendered result:**
+
+| Feature | Supported | Notes |
+|---------|-----------|-------|
+| Code execution | ✓ | Python, R, Julia |
+| Math equations | ✓ | LaTeX syntax |
+| Cross-references | ✓ | Figures, tables, sections |
+| Citations | ✓ | BibTeX format |
+
+: Quarto features overview {#tbl-features}
+
+## Tables from Code
+
+**Code sample:**
+```python
+#| label: tbl-data
+#| tbl-cap: "Sample data analysis results"
+
+import pandas as pd
+
+# Create sample data
+data = {
+    'Method': ['Linear', 'Quadratic', 'Exponential', 'Logarithmic'],
+    'R²': [0.65, 0.89, 0.94, 0.72],
+    'RMSE': [2.3, 1.1, 0.8, 1.9],
+    'Status': ['Fair', 'Good', 'Excellent', 'Good']
+}
+
+df = pd.DataFrame(data)
+print(df.to_string(index=False))
+```
+
+**Example output:**
+```
+      Method   R²  RMSE    Status
+      Linear 0.65   2.3      Fair
+   Quadratic 0.89   1.1      Good
+ Exponential 0.94   0.8 Excellent
+ Logarithmic 0.72   1.9      Good
+```
+
+# References
+
+::: {#refs}
+
