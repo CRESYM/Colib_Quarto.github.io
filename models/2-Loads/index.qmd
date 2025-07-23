@@ -1,7 +1,7 @@
 ---
 layout: chapter
-title: Voltage Regulators (AVR) / Exciters (EX)
-tags: [avr, voltage regulator, exciter]
+title: Loads
+tags: []
 order: 2
 listing:
   contents: 

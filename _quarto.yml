@@ -10,12 +10,34 @@ website:
     left:
       - href: index.qmd
         text: Overview
-      - href: about/index.qmd
-        text: About
-      - href: models/index.qmd
-        text: Models
-      - href: testCases/index.qmd
-        text: Test Cases
+      - text: About
+        menu:
+          - text: About Colib
+            href: ./about/index.qmd
+          - text: Author Guidelines
+            href: ./about/authorGuidelines.qmd
+          - text: Code of Conduct
+            href: ./about/codeConduct.qmd
+          - text: Contributing Guidelines
+            href: ./about/contribute.qmd
+          - text: Notations and conventions
+            href: ./about/notationAndConventions.qmd
+          - text: Teams and community
+            href: ./about/team.qmd
+          - text: Terms of Reference
+            href: ./about/terms.qmd
+      - text: Models
+        menu:
+          - text: Synchronous Machines
+            href: ./models/1-SynchronousMachines/index.qmd
+          - text: Loads
+            href: ./models/2-Loads/index.qmd
+      - text: Test Cases
+        menu:
+          - text: Grid Following - Grid Forming DC link 
+            href: ./testCases/GridFollowing_GridForming_DClink/index.qmd
+          - text: Kundur two-area system
+            href: ./testCases/kundur_two_area_system/index.qmd
       - href: contribute/index.qmd
         text: Contribute
       - href: contact/index.qmd
