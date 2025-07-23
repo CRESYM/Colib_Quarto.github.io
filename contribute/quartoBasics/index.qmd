@@ -1,9 +1,10 @@
 ---
-title: "How to contribute to the Colib project"
+title: "Quarto Basics"
 author: ""
 bibliography: ../../_bibliography/references.bib
 jupyter: python3
 freeze: true
+order: 3
 ---
 
 # Introduction

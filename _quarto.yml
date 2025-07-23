@@ -6,6 +6,7 @@ project:
 website:
   navbar:
     search: true
+    pinned: true
     logo: assets/img/Logo_colib.svg
     left:
       - href: index.qmd
@@ -38,8 +39,14 @@ website:
             href: ./testCases/GridFollowing_GridForming_DClink/index.qmd
           - text: Kundur two-area system
             href: ./testCases/kundur_two_area_system/index.qmd
-      - href: contribute/index.qmd
-        text: Contribute
+      - text: Contribute
+        menu:
+          - text: Model template
+            href: ./contribute/modelTemplate/index.qmd
+          - text: Test case template
+            href: ./contribute/testCaseTemplate/index.qmd
+          - text: Quarto Basics
+            href: ./contribute/quartoBasics/index.qmd
       - href: contact/index.qmd
         text: Contact
     tools:
@@ -61,7 +68,13 @@ website:
     - title: Contribute
       style: floating
       collapse-level: 2
-      contents: contribute
+      contents:
+        - text: Model template
+          href: ./contribute/modelTemplate/index.qmd
+        - text: Test case template
+          href: ./contribute/testSystemTemplate/index.qmd
+        - text: Quarto Basics
+          href: ./contribute/quartoBasics/index.qmd
   page-footer:
     left: |
       Copyright © 2023-2025 Authors of Collaborative Open-Source Dynamic Simulation Library. Content licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
