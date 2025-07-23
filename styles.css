@@ -248,7 +248,7 @@
   font-size: 1rem;
 }
 
-.list-unstyled {
+.sidebar-menu-container .list-unstyled {
   list-style: circle;
 }
 
