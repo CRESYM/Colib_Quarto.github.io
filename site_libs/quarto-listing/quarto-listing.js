@@ -79,9 +79,7 @@ window.document.addEventListener("DOMContentLoaded", function (_event) {
       atob(categoryEl.getAttribute("data-category"))
     );
     categoryEl.onclick = (e) => {
-      // Allow holding Ctrl/Cmd key for multiple selection
-      // Clear other selections if not using Ctrl/Cmd
-      if (!e.ctrlKey && !e.metaKey) {
+      if (e.target.innerText.split(' ')[0] === 'All') {
         selectedCategories.clear();
       }
 
@@ -276,6 +274,13 @@ function updateCategoryUI() {
     if (categoryEl) {
       categoryEl.classList.add("active");
     }
+  }
+
+  // Deselect All if a category is selected, except for the default category
+  if (selectedCategories.size === 1) {
+    categoryEls[0].classList.add("active");
+  } else {
+    categoryEls[0].classList.remove("active");
   }
 }
 
