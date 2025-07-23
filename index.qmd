@@ -47,7 +47,7 @@ Hence this Colib workspace contains **power systems components, networks, and sm
 For each component model and test case, you will find a detailed description and links to open-source implementations. Many other open libraries of dynamic components and test cases exist. We reference some of them here.
 
 ::: {.button-group}
-[Contribute](models.qmd){.btn-main} [Overview](test_cases.qmd){.btn-main}
+[Contribute](models/){.btn-main} [Overview](test_cases.qmd){.btn-main}
 :::
 
 ::: {.partner-section .scroll-fade}
