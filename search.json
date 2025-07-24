@@ -74,7 +74,7 @@
     "href": "contribute/testSystemTemplate/index.html",
     "title": "Dummy Test System description - ID123",
     "section": "",
-    "text": "This test system page can be used as template for your own test system. If you want to download this page in qmd format, click here: test system template",
+    "text": "This test system page can be used as template for your own test system. If you want to download this page in qmd format, click here:\nDownload test system template",
     "crumbs": [
       "Test case template"
     ]
