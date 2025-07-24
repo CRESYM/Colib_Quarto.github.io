@@ -1,7 +1,7 @@
 ---
 layout: page
 title: GENQEC Synchronous Machine with Saturation
-tags: ["#197","Synchronous machine", "Rotor", "Stator", "PowerWorld", "Opensource", "GENROU", "GENSAL", "GENTPF", "GENTPJ", "GENQEC", "Saturation", ]
+categories: ["#197","Synchronous machine", "Rotor", "Stator", "PowerWorld", "Opensource", "GENROU", "GENSAL", "GENTPF", "GENTPJ", "GENQEC", "Saturation", ]
 date: 08/08/2024 
 last-updated: 08/08/2024
 id: #197

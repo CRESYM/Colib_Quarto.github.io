@@ -1,7 +1,6 @@
 ---
 layout: chapter
 title: Generator
-tags: [generator]
 order: 1
 listing:
   contents: 

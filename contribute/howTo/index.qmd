@@ -1,7 +1,7 @@
 ---
 layout: page 
 title: How to Contribute to COLIB
-tags: [contribution, quarto, qmd, template, guide]
+categories: [contribution, quarto, qmd, template, guide]
 author: "COLIB Team"
 order: 1
 ---

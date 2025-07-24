@@ -1,7 +1,6 @@
 ---
 layout: chapter
 title: Synchronous machines
-tags: []
 order: 1
 listing:
   contents: 

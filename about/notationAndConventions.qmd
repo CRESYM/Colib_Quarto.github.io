@@ -1,6 +1,6 @@
 ---
 title: Electrical, Electronics and Control notations and conventions
-tags: [Notations] 
+categories: [Notations] 
 number-sections: true
 ---
 

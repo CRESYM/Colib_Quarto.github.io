@@ -1,7 +1,6 @@
 ---
 layout: chapter
 title: Loads
-tags: []
 order: 2
 listing:
   contents: 

@@ -1,7 +1,6 @@
 ---
 layout: chapter
 title: Governors (GOV)
-tags: [Governor]
 order: 4
 listing:
   contents: 

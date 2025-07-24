@@ -1,7 +1,7 @@
 ---
 layout: page
 title: GENTPF/GENTPJ Synchronous Machine with Saturation
-tags: ["#196","Synchronous machine", "Rotor", "Stator", "PowerWorld", "Opensource", "GENROU", "GENSAL", "GENTPF", "GENTPJ", "Saturation", ]
+categories: ["#196","Synchronous machine", "Rotor", "Stator", "PowerWorld", "Opensource", "GENROU", "GENSAL", "GENTPF", "GENTPJ", "Saturation", ]
 date: 05/08/2024 
 last-updated: 08/08/2024
 id: #196

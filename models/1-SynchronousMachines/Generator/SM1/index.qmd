@@ -2,7 +2,7 @@
 ---
 layout: page
 title: Synchronous Machine Model (SM1)
-tags: ["#110","Synchronous machine", "RMS", "EMT", "Phasor", "Rotor", "Stator", "Dynawo", "Opensource", "GENROU", "GENSAL"]
+categories: ["#110","Synchronous machine", "RMS", "EMT", "Phasor", "Rotor", "Stator", "Dynawo", "Opensource", "GENROU", "GENSAL"]
 date: 10/04/2024 
 last-updated: 24/05/2024
 id: #110

@@ -1,7 +1,6 @@
 ---
 layout: chapter
 title: Power System Stabilizers (PSS)
-tags: [pss, power system stabilizer]
 order: 5
 listing:
   contents: 
