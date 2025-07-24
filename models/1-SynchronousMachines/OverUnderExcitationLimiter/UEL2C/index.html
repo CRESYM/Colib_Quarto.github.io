@@ -26,7 +26,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
@@ -160,10 +159,25 @@ ul.task-list li input[type="checkbox"] {
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../../../../contribute/index.html"> 
-<span class="menu-text">Contribute</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-contribute" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Contribute</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-contribute">    
+        <li>
+    <a class="dropdown-item" href="../../../../contribute/modelTemplate/index.html">
+ <span class="dropdown-text">Model template</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../../.././contribute/testCaseTemplate/index.qmd">
+ <span class="dropdown-text">Test case template</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../contribute/quartoBasics/index.html">
+ <span class="dropdown-text">Quarto Basics</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../../../contact/index.html"> 
 <span class="menu-text">Contact</span></a>

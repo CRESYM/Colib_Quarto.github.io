@@ -8,7 +8,7 @@
 
 <meta name="author" content="">
 
-<title>How to contribute to the Colib project</title>
+<title>Quarto Basics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -80,7 +80,6 @@ div.csl-indent {
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
@@ -243,10 +242,25 @@ window.Quarto = {
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="../../contribute/index.html" aria-current="page"> 
-<span class="menu-text">Contribute</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-contribute" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Contribute</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-contribute">    
+        <li>
+    <a class="dropdown-item" href="../../contribute/modelTemplate/index.html">
+ <span class="dropdown-text">Model template</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../.././contribute/testCaseTemplate/index.qmd">
+ <span class="dropdown-text">Test case template</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../contribute/quartoBasics/index.html">
+ <span class="dropdown-text">Quarto Basics</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../../contact/index.html"> 
 <span class="menu-text">Contact</span></a>
@@ -263,7 +277,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contribute/index.html">Contribute</a></li><li class="breadcrumb-item"><a href="../../contribute/howTo/index.html">How to contribute to the Colib project</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contribute/quartoBasics/index.html">Quarto Basics</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -275,29 +289,24 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../contribute/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Contribute</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../contribute/howTo/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">How to contribute to the Colib project</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../contribute/modelTemplate/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Model description template</span></a>
+ <span class="menu-text">Model template</span></a>
   </div>
 </li>
-      </ul>
-  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contribute/testSystemTemplate/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Test case template</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contribute/quartoBasics/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Quarto Basics</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -364,9 +373,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contribute/index.html">Contribute</a></li><li class="breadcrumb-item"><a href="../../contribute/howTo/index.html">How to contribute to the Colib project</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">How to contribute to the Colib project</h1>
+<h1 class="title">Quarto Basics</h1>
 </div>
 
 
@@ -760,12 +769,12 @@ Table&nbsp;1: Quarto features overview
 <section id="references" class="level1">
 <h1>References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-
-
 <div id="ref-DUMMY:2" class="csl-entry" role="listitem">
 Taylor, Alan. 2010. <span>“The Book with a Nice Title.”</span> <a href="https://doi.org/10.1016/j.epsr.2020.112811">https://doi.org/10.1016/j.epsr.2020.112811</a>.
 </div>
 </div>
+
+
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
