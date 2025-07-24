@@ -1,0 +1,155 @@
+---
+layout: page 
+title: How to Contribute to COLIB
+tags: [contribution, quarto, qmd, template, guide]
+date: 01/12/2024
+last-updated: 01/12/2024
+author: "COLIB Team"
+bibliography: ../../_bibliography/references.bib
+order: 1
+---
+
+Welcome to the COLIB contribution guide! This page will help you understand how to contribute models and test cases to the COLIB library using our standardized templates and tools.
+
+## What is QMD format?
+
+COLIB uses **Quarto Markdown (QMD)** format for all documentation pages. QMD is an extension of standard Markdown that allows you to:
+
+- Write scientific documentation with LaTeX math equations
+- Include executable code blocks
+- Create interactive plots and figures
+- Generate citations and references automatically
+- Produce high-quality HTML, PDF, and other output formats
+
+:::{.callout-note}
+**QMD Benefits for Scientific Documentation:**
+
+- Native support for mathematical equations using LaTeX syntax
+- Automatic cross-referencing of figures, tables, and equations
+- Bibliography management with BibTeX
+- Code execution and result embedding
+- Professional formatting and styling
+:::
+
+## Choosing Your Template
+
+COLIB provides two main contribution templates depending on what you want to add:
+
+### Model Template
+Use the **Model Template** when you want to contribute:
+- Mathematical models of power system components
+- Control system descriptions
+- Algorithm implementations
+- Component behavior models
+
+**Download the model template:**
+<a href="../download/modelTemplate.zip" download="modelTemplate.zip">Download Model Template</a>
+
+**Model template includes:**
+- Standardized sections for model description
+- Mathematical equation formatting examples
+- Parameter and variable tables
+- Source code sections
+- Reference management
+
+### Test Case Template
+Use the **Test Case Template** when you want to contribute:
+- Validation scenarios
+- Benchmark test systems
+- Simulation examples
+- Performance comparisons
+
+**Download the test case template:**
+<a href="../download/testCaseTemplate.zip" download="testCaseTemplate.zip">Download Test Case Template</a>
+
+**Test case template includes:**
+- System description sections
+- Simulation setup guidelines
+- Results presentation formats
+- Data file organization
+
+## Installing and Using Quarto
+
+### Installation
+
+#### 1. Install Quarto
+Visit the [official Quarto website](https://quarto.org/docs/get-started/) and download the installer for your operating system:
+
+- **Windows**: Download the `.msi` installer
+- **macOS**: Download the `.pkg` installer  
+- **Linux**: Use the appropriate package manager or download the `.deb`/`.rpm` package
+
+#### 2. Verify Installation
+Open a terminal/command prompt and run:
+```bash
+quarto --version
+```
+
+#### 3. Install a Text Editor (Recommended)
+While you can edit QMD files with any text editor, we recommend:
+- **VS Code** with the Quarto extension
+- **RStudio** (built-in Quarto support)
+- **Jupyter Lab** with Quarto extension
+
+### Basic Quarto Workflow
+
+#### 1. Create Your Contribution
+1. Download the appropriate template (model or test case)
+2. Extract the template files
+3. Open the `index.qmd` file in your preferred editor
+
+#### 2. Edit Your Content
+- Replace template content with your own
+- Use Markdown syntax for text formatting
+- Add mathematical equations using LaTeX syntax: `$equation$` or `$$equation$$`
+- Include figures and references as shown in the template
+
+#### 3. Preview Your Work
+To see how your page will look, run in your terminal:
+```bash
+quarto preview index.qmd
+```
+This opens a live preview in your browser that updates as you edit.
+
+#### 4. Render Final Output
+To generate the final HTML file:
+```bash
+quarto render index.qmd
+```
+
+### Key QMD Syntax for COLIB
+See [Quarto Basics](../quartoBasics/index.qmd)
+
+## Submission Process
+
+1. **Prepare your contribution** using the appropriate template
+2. **Test your QMD file** by rendering it locally
+3. **Submit via GitHub** by creating a pull request to the COLIB repository
+4. **Review process** - our team will review your contribution
+5. **Publication** - approved contributions are merged and published
+
+## Getting Help
+
+- **Documentation**: Check the template examples and existing models
+- **GitHub Issues**: Report problems or ask questions on our repository
+- **Community**: Join our discussions for support and collaboration
+
+:::{.callout-tip}
+**Pro Tips for Contributors:**
+- Start with the template and modify incrementally
+- Preview frequently to catch formatting issues early
+- Use descriptive file names and organize your assets
+- Follow the existing naming conventions in COLIB
+- Include comprehensive references and citations
+:::
+
+## Next Steps
+
+Ready to contribute? 
+
+1. Choose your template (model or test case)
+2. Install Quarto if you haven't already
+3. Start writing your contribution
+4. Submit when ready!
+
+Thank you for contributing to COLIB and advancing open-source power system modeling!
