@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="COLIB Team">
+<meta name="dcterms.date" content="2024-01-12">
 
-<title>Test Cases</title>
+<title>How to Contribute to COLIB</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +22,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-22946cb634ef6c30ead943afa07a37b9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-22946cb634ef6c30ead943afa07a37b9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,78 +103,20 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../assets/img/Logo_colib.svg" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../assets/img/Logo_colib.svg" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -149,7 +126,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -158,31 +135,31 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-about">    
         <li>
-    <a class="dropdown-item" href="../about/index.html">
+    <a class="dropdown-item" href="../../about/index.html">
  <span class="dropdown-text">About Colib</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../about/authorGuidelines.html">
+    <a class="dropdown-item" href="../../about/authorGuidelines.html">
  <span class="dropdown-text">Author Guidelines</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../about/codeConduct.html">
+    <a class="dropdown-item" href="../../about/codeConduct.html">
  <span class="dropdown-text">Code of Conduct</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../about/contribute.html">
+    <a class="dropdown-item" href="../../about/contribute.html">
  <span class="dropdown-text">Contributing Guidelines</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../about/notationAndConventions.html">
+    <a class="dropdown-item" href="../../about/notationAndConventions.html">
  <span class="dropdown-text">Notations and conventions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../about/team.html">
+    <a class="dropdown-item" href="../../about/team.html">
  <span class="dropdown-text">Teams and community</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../about/terms.html">
+    <a class="dropdown-item" href="../../about/terms.html">
  <span class="dropdown-text">Terms of Reference</span></a>
   </li>  
     </ul>
@@ -193,11 +170,11 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-models">    
         <li>
-    <a class="dropdown-item" href="../models/1-SynchronousMachines/index.html">
+    <a class="dropdown-item" href="../../models/1-SynchronousMachines/index.html">
  <span class="dropdown-text">Synchronous Machines</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../models/2-Loads/index.html">
+    <a class="dropdown-item" href="../../models/2-Loads/index.html">
  <span class="dropdown-text">Loads</span></a>
   </li>  
     </ul>
@@ -208,11 +185,11 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-test-cases">    
         <li>
-    <a class="dropdown-item" href="../testCases/GridFollowing_GridForming_DClink/index.html">
+    <a class="dropdown-item" href="../../testCases/GridFollowing_GridForming_DClink/index.html">
  <span class="dropdown-text">Grid Following - Grid Forming DC link</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../testCases/kundur_two_area_system/index.html">
+    <a class="dropdown-item" href="../../testCases/kundur_two_area_system/index.html">
  <span class="dropdown-text">Kundur two-area system</span></a>
   </li>  
     </ul>
@@ -223,21 +200,21 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-contribute">    
         <li>
-    <a class="dropdown-item" href="../contribute/modelTemplate/index.html">
+    <a class="dropdown-item" href="../../contribute/modelTemplate/index.html">
  <span class="dropdown-text">Model template</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href=".././contribute/testCaseTemplate/index.qmd">
+    <a class="dropdown-item" href="../.././contribute/testCaseTemplate/index.qmd">
  <span class="dropdown-text">Test case template</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../contribute/quartoBasics/index.html">
+    <a class="dropdown-item" href="../../contribute/quartoBasics/index.html">
  <span class="dropdown-text">Quarto Basics</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../contact/index.html"> 
+    <a class="nav-link" href="../../contact/index.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
 </ul>
@@ -247,67 +224,59 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../testCases/index.html">Test Cases</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../testCases/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Test Cases</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../testCases/kundur_two_area_system/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Kundur two-area system</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../testCases/GridFollowing_GridForming_DClink/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Grid Following - Grid Forming DC link</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="JTIzNjA=">#60 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="REM=">DC <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZHluYXdv">dynawo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnJlcXVlbmN5">frequency <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R3JpZCUyMEZvbGxvd2luZw==">Grid Following <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R3JpZCUyMEZvcm1pbmc=">Grid Forming <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWF0bGFi">Matlab <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TW9kZWxpY2E=">Modelica <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T3Blbk1vZGVsaWNh">OpenModelica <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T3BlblNvdXJjZQ==">OpenSource <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T3BlbnNvdXJjZQ==">Opensource <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cm1z">rms <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c21hbGw=">small <span class="quarto-category-count">(2)</span></div><div class="category" data-category="VENSTDM=">TCRL3 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VlND">VSC <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-qmd-format" id="toc-what-is-qmd-format" class="nav-link active" data-scroll-target="#what-is-qmd-format">What is QMD format?</a></li>
+  <li><a href="#choosing-your-template" id="toc-choosing-your-template" class="nav-link" data-scroll-target="#choosing-your-template">Choosing Your Template</a>
+  <ul class="collapse">
+  <li><a href="#model-template" id="toc-model-template" class="nav-link" data-scroll-target="#model-template">Model Template</a></li>
+  <li><a href="#test-case-template" id="toc-test-case-template" class="nav-link" data-scroll-target="#test-case-template">Test Case Template</a></li>
+  </ul></li>
+  <li><a href="#installing-and-using-quarto" id="toc-installing-and-using-quarto" class="nav-link" data-scroll-target="#installing-and-using-quarto">Installing and Using Quarto</a>
+  <ul class="collapse">
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#basic-quarto-workflow" id="toc-basic-quarto-workflow" class="nav-link" data-scroll-target="#basic-quarto-workflow">Basic Quarto Workflow</a></li>
+  <li><a href="#key-qmd-syntax-for-colib" id="toc-key-qmd-syntax-for-colib" class="nav-link" data-scroll-target="#key-qmd-syntax-for-colib">Key QMD Syntax for COLIB</a></li>
+  </ul></li>
+  <li><a href="#submission-process" id="toc-submission-process" class="nav-link" data-scroll-target="#submission-process">Submission Process</a></li>
+  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help">Getting Help</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Test Cases</h1>
+<h1 class="title">How to Contribute to COLIB</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>COLIB Team </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 12, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -317,113 +286,160 @@ window.Quarto = {
 </header>
 
 
-<p>This section contains test cases that demonstrate the functionality and behavior of the models in the Collaborative Open-Source Dynamic Simulation Library. Each test case provides detailed documentation including network descriptions, model configurations, input data, and simulation results.</p>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-      <option value="" disabled="" selected="" hidden="">Order By</option>
-      <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title" data-direction="asc">
-        Title
-      </option>
-      <option value="listing-date-sort" data-direction="asc">
-        Date - Oldest
-      </option>
-      <option value="listing-date-sort" data-direction="desc">
-        Date - Newest
-      </option>
-      <option value="listing-author" data-direction="asc">
-        Author
-      </option>
-    </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
+<p>Welcome to the COLIB contribution guide! This page will help you understand how to contribute models and test cases to the COLIB library using our standardized templates and tools.</p>
+<section id="what-is-qmd-format" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-qmd-format">What is QMD format?</h2>
+<p>COLIB uses <strong>Quarto Markdown (QMD)</strong> format for all documentation pages. QMD is an extension of standard Markdown that allows you to:</p>
+<ul>
+<li>Write scientific documentation with LaTeX math equations</li>
+<li>Include executable code blocks</li>
+<li>Create interactive plots and figures</li>
+<li>Generate citations and references automatically</li>
+<li>Produce high-quality HTML, PDF, and other output formats</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="REMlMkNHcmlkJTIwRm9sbG93aW5nJTJDR3JpZCUyMEZvcm1pbmclMkNPcGVuU291cmNlJTJDTWF0bGFiJTJDVlNDJTJDc21hbGw=" data-listing-date-sort="1765324800000" data-listing-file-modified-sort="1753374567123" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1406">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../testCases/GridFollowing_GridForming_DClink/index.html" class="no-external">Grid Following - Grid Forming DC link</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('REM='); return false;">DC</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('R3JpZCUyMEZvbGxvd2luZw=='); return false;">Grid Following</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('R3JpZCUyMEZvcm1pbmc='); return false;">Grid Forming</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3BlblNvdXJjZQ=='); return false;">OpenSource</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWF0bGFi'); return false;">Matlab</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('VlND'); return false;">VSC</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('c21hbGw='); return false;">small</div>
-
+<div class="callout-title-container flex-fill">
+Note
 </div>
 </div>
-<div class="metadata">
-<a href="../testCases/GridFollowing_GridForming_DClink/index.html" class="no-external">
-<div class="listing-date">
-Dec 10, 2025
+<div class="callout-body-container callout-body">
+<p><strong>QMD Benefits for Scientific Documentation:</strong></p>
+<ul>
+<li>Native support for mathematical equations using LaTeX syntax</li>
+<li>Automatic cross-referencing of figures, tables, and equations</li>
+<li>Bibliography management with BibTeX</li>
+<li>Code execution and result embedding</li>
+<li>Professional formatting and styling</li>
+</ul>
 </div>
-<div class="listing-author">
-Carlos Alegre (eRoots)
 </div>
-</a>
+</section>
+<section id="choosing-your-template" class="level2">
+<h2 class="anchored" data-anchor-id="choosing-your-template">Choosing Your Template</h2>
+<p>COLIB provides two main contribution templates depending on what you want to add:</p>
+<section id="model-template" class="level3">
+<h3 class="anchored" data-anchor-id="model-template">Model Template</h3>
+<p>Use the <strong>Model Template</strong> when you want to contribute: - Mathematical models of power system components - Control system descriptions - Algorithm implementations - Component behavior models</p>
+<p><strong>Download the model template:</strong> <a href="../download/modelTemplate.zip" download="modelTemplate.zip">Download Model Template</a></p>
+<p><strong>Model template includes:</strong> - Standardized sections for model description - Mathematical equation formatting examples - Parameter and variable tables - Source code sections - Reference management</p>
+</section>
+<section id="test-case-template" class="level3">
+<h3 class="anchored" data-anchor-id="test-case-template">Test Case Template</h3>
+<p>Use the <strong>Test Case Template</strong> when you want to contribute: - Validation scenarios - Benchmark test systems - Simulation examples - Performance comparisons</p>
+<p><strong>Download the test case template:</strong> <a href="../download/testCaseTemplate.zip" download="testCaseTemplate.zip">Download Test Case Template</a></p>
+<p><strong>Test case template includes:</strong> - System description sections - Simulation setup guidelines - Results presentation formats - Data file organization</p>
+</section>
+</section>
+<section id="installing-and-using-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="installing-and-using-quarto">Installing and Using Quarto</h2>
+<section id="installation" class="level3">
+<h3 class="anchored" data-anchor-id="installation">Installation</h3>
+<section id="install-quarto" class="level4">
+<h4 class="anchored" data-anchor-id="install-quarto">1. Install Quarto</h4>
+<p>Visit the <a href="https://quarto.org/docs/get-started/">official Quarto website</a> and download the installer for your operating system:</p>
+<ul>
+<li><strong>Windows</strong>: Download the <code>.msi</code> installer</li>
+<li><strong>macOS</strong>: Download the <code>.pkg</code> installer<br>
+</li>
+<li><strong>Linux</strong>: Use the appropriate package manager or download the <code>.deb</code>/<code>.rpm</code> package</li>
+</ul>
+</section>
+<section id="verify-installation" class="level4">
+<h4 class="anchored" data-anchor-id="verify-installation">2. Verify Installation</h4>
+<p>Open a terminal/command prompt and run:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="install-a-text-editor-recommended" class="level4">
+<h4 class="anchored" data-anchor-id="install-a-text-editor-recommended">3. Install a Text Editor (Recommended)</h4>
+<p>While you can edit QMD files with any text editor, we recommend: - <strong>VS Code</strong> with the Quarto extension - <strong>RStudio</strong> (built-in Quarto support) - <strong>Jupyter Lab</strong> with Quarto extension</p>
+</section>
+</section>
+<section id="basic-quarto-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="basic-quarto-workflow">Basic Quarto Workflow</h3>
+<section id="create-your-contribution" class="level4">
+<h4 class="anchored" data-anchor-id="create-your-contribution">1. Create Your Contribution</h4>
+<ol type="1">
+<li>Download the appropriate template (model or test case)</li>
+<li>Extract the template files</li>
+<li>Open the <code>index.qmd</code> file in your preferred editor</li>
+</ol>
+</section>
+<section id="edit-your-content" class="level4">
+<h4 class="anchored" data-anchor-id="edit-your-content">2. Edit Your Content</h4>
+<ul>
+<li>Replace template content with your own</li>
+<li>Use Markdown syntax for text formatting</li>
+<li>Add mathematical equations using LaTeX syntax: <code>$equation$</code> or <code>$$equation$$</code></li>
+<li>Include figures and references as shown in the template</li>
+</ul>
+</section>
+<section id="preview-your-work" class="level4">
+<h4 class="anchored" data-anchor-id="preview-your-work">3. Preview Your Work</h4>
+<p>To see how your page will look, run in your terminal:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview index.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This opens a live preview in your browser that updates as you edit.</p>
+</section>
+<section id="render-final-output" class="level4">
+<h4 class="anchored" data-anchor-id="render-final-output">4. Render Final Output</h4>
+<p>To generate the final HTML file:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render index.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="key-qmd-syntax-for-colib" class="level3">
+<h3 class="anchored" data-anchor-id="key-qmd-syntax-for-colib">Key QMD Syntax for COLIB</h3>
+<p>See <a href="../../contribute/quartoBasics/index.html">Quarto Basics</a></p>
+</section>
+</section>
+<section id="submission-process" class="level2">
+<h2 class="anchored" data-anchor-id="submission-process">Submission Process</h2>
+<ol type="1">
+<li><strong>Prepare your contribution</strong> using the appropriate template</li>
+<li><strong>Test your QMD file</strong> by rendering it locally</li>
+<li><strong>Submit via GitHub</strong> by creating a pull request to the COLIB repository</li>
+<li><strong>Review process</strong> - our team will review your contribution</li>
+<li><strong>Publication</strong> - approved contributions are merged and published</li>
+</ol>
+</section>
+<section id="getting-help" class="level2">
+<h2 class="anchored" data-anchor-id="getting-help">Getting Help</h2>
+<ul>
+<li><strong>Documentation</strong>: Check the template examples and existing models</li>
+<li><strong>GitHub Issues</strong>: Report problems or ask questions on our repository</li>
+<li><strong>Community</strong>: Join our discussions for support and collaboration</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="T3BlbnNvdXJjZSUyQ3NtYWxsJTJDVENSTDMlMkMlMjM2MCUyQ3JtcyUyQ2R5bmF3byUyQ2ZyZXF1ZW5jeSUyQ09wZW5Nb2RlbGljYSUyQ01vZGVsaWNh" data-listing-date-sort="1738972800000" data-listing-file-modified-sort="1753374567125" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="30" data-listing-word-count-sort="5934">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../testCases/kundur_two_area_system/index.html" class="no-external">Kundur two-area system</a>
-</h3>
-<div class="listing-categories">
+<div class="callout-body-container callout-body">
+<p><strong>Pro Tips for Contributors:</strong> - Start with the template and modify incrementally - Preview frequently to catch formatting issues early - Use descriptive file names and organize your assets - Follow the existing naming conventions in COLIB - Include comprehensive references and citations</p>
+</div>
+</div>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<p>Ready to contribute?</p>
+<ol type="1">
+<li>Choose your template (model or test case)</li>
+<li>Install Quarto if you haven’t already</li>
+<li>Start writing your contribution</li>
+<li>Submit when ready!</li>
+</ol>
+<p>Thank you for contributing to COLIB and advancing open-source power system modeling!</p>
 
-<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('c21hbGw='); return false;">small</div>
+</section>
 
-<div class="listing-category" onclick="window.quartoListingCategory('VENSTDM='); return false;">TCRL3</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('JTIzNjA='); return false;">#60</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cm1z'); return false;">rms</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZHluYXdv'); return false;">dynawo</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZnJlcXVlbmN5'); return false;">frequency</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('T3Blbk1vZGVsaWNh'); return false;">OpenModelica</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TW9kZWxpY2E='); return false;">Modelica</div>
-
-</div>
-</div>
-<div class="metadata">
-<a href="../testCases/kundur_two_area_system/index.html" class="no-external">
-<div class="listing-date">
-Feb 8, 2025
-</div>
-<div class="listing-author">
-Martin Franke (Fraunhofer IEE)
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -835,12 +851,12 @@ Martin Franke (Fraunhofer IEE)
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../about/index.html">
+    <a class="nav-link" href="../../about/index.html">
 <p>About</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../contact.html">
+    <a class="nav-link" href="../../contact.html">
 <p>Contact</p>
 </a>
   </li>  
@@ -850,7 +866,7 @@ Martin Franke (Fraunhofer IEE)
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../about/terms.html">
+    <a class="nav-link" href="../../about/terms.html">
 <p>Terms of Reference</p>
 </a>
   </li>  
