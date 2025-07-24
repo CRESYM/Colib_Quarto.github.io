@@ -12,7 +12,7 @@ order: 1 # defines the order of the page in the menu
 
 **This model page can be used as template for your own model. If you want to download this page in qmd format, click here:**
 
-<a href="../download/modelTemplate.qmd.txt" download="modelTemplate.qmd">Download model template</a>
+<a href="download/modelTemplate.qmd" download>Download model template</a>
 
 
 :::{.callout-important}
