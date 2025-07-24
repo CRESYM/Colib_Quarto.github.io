@@ -252,6 +252,7 @@ function showPage(listingId, page) {
 
 function updateCategory() {
   updateCategoryUI();
+  updateSelectedCategoriesDisplay(); // Add call to update selected categories display
   filterListingCategory();
 }
 
@@ -314,4 +315,72 @@ function filterListingCategory() {
       }
     }
   }
+}
+
+function updateSelectedCategoriesDisplay() {
+  // Find or create the selected categories display container
+  let selectedCategoriesContainer = window.document.querySelector('.selected-categories-display');
+
+  if (!selectedCategoriesContainer) {
+    // Create the container if it doesn't exist
+    selectedCategoriesContainer = window.document.createElement('div');
+    selectedCategoriesContainer.className = 'selected-categories-display';
+    selectedCategoriesContainer.innerHTML = `
+      <h6 class="selected-categories-title">Selected Categories:</h6>
+      <div class="selected-categories-list"></div>
+    `;
+
+    // Insert after the listing actions group but before the listing
+    const listingContainer = window.document.querySelector('.quarto-listing-container-default');
+    const listingActionsGroup = listingContainer?.querySelector('.listing-actions-group');
+    const listingDiv = listingContainer?.querySelector('.list');
+
+    if (listingContainer && listingActionsGroup && listingDiv) {
+      listingContainer.insertBefore(selectedCategoriesContainer, listingDiv);
+    }
+  }
+
+  const selectedCategoriesList = selectedCategoriesContainer.querySelector('.selected-categories-list');
+  const selectedCategoriesTitle = selectedCategoriesContainer.querySelector('.selected-categories-title');
+
+  // Clear existing content
+  selectedCategoriesList.innerHTML = '';
+
+  // Hide the entire container if no categories selected or only default category
+  if (selectedCategories.size === 0 ||
+    (selectedCategories.size === 1 && selectedCategories.has(kDefaultCategory))) {
+    selectedCategoriesContainer.style.display = 'none';
+    return;
+  }
+
+  // Show the container
+  selectedCategoriesContainer.style.display = 'block';
+
+  // Create category elements for each selected category (excluding default)
+  const effectiveCategories = new Set(selectedCategories);
+  if (effectiveCategories.has(kDefaultCategory) && effectiveCategories.size > 1) {
+    effectiveCategories.delete(kDefaultCategory);
+  }
+
+  effectiveCategories.forEach(category => {
+    if (category !== kDefaultCategory) {
+      const categoryElement = window.document.createElement('div');
+      categoryElement.className = 'category selected-category';
+      categoryElement.innerHTML = category;
+
+      // Add click handler to remove the category
+      categoryElement.onclick = (e) => {
+        e.preventDefault();
+        selectedCategories.delete(category);
+        if (selectedCategories.size === 0) {
+          selectedCategories.add(kDefaultCategory);
+        }
+        updateCategory();
+        setCategoryHash();
+        return false;
+      };
+
+      selectedCategoriesList.appendChild(categoryElement);
+    }
+  });
 }

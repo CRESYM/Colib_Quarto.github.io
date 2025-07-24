@@ -29,24 +29,30 @@ website:
             href: ./about/terms.qmd
       - text: Models
         menu:
+          - text: All models
+            href: ./models/index.qmd
           - text: Synchronous Machines
             href: ./models/1-SynchronousMachines/index.qmd
           - text: Loads
             href: ./models/2-Loads/index.qmd
       - text: Test Cases
         menu:
+          - text: All test cases
+            href: ./testCases/index.qmd
           - text: Grid Following - Grid Forming DC link 
             href: ./testCases/GridFollowing_GridForming_DClink/index.qmd
           - text: Kundur two-area system
             href: ./testCases/kundur_two_area_system/index.qmd
       - text: Contribute
         menu:
+          - text: How to contribute
+            href: ./contribute/howTo/index.qmd
+          - text: Quarto Basics
+            href: ./contribute/quartoBasics/index.qmd
           - text: Model template
             href: ./contribute/modelTemplate/index.qmd
           - text: Test case template
             href: ./contribute/testCaseTemplate/index.qmd
-          - text: Quarto Basics
-            href: ./contribute/quartoBasics/index.qmd
       - href: contact/index.qmd
         text: Contact
     tools:
@@ -69,12 +75,14 @@ website:
       style: floating
       collapse-level: 2
       contents:
+        - text: How to contribute
+          href: ./contribute/howTo/index.qmd
+        - text: Quarto Basics
+          href: ./contribute/quartoBasics/index.qmd
         - text: Model template
           href: ./contribute/modelTemplate/index.qmd
         - text: Test case template
           href: ./contribute/testSystemTemplate/index.qmd
-        - text: Quarto Basics
-          href: ./contribute/quartoBasics/index.qmd
   page-footer:
     left: |
       Copyright © 2023-2025 Authors of Collaborative Open-Source Dynamic Simulation Library. Content licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).

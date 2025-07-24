@@ -2,10 +2,7 @@
 layout: page 
 title: How to Contribute to COLIB
 tags: [contribution, quarto, qmd, template, guide]
-date: 01/12/2024
-last-updated: 01/12/2024
 author: "COLIB Team"
-bibliography: ../../_bibliography/references.bib
 order: 1
 ---
 
@@ -87,6 +84,7 @@ quarto --version
 
 #### 3. Install a Text Editor (Recommended)
 While you can edit QMD files with any text editor, we recommend:
+
 - **VS Code** with the Quarto extension
 - **RStudio** (built-in Quarto support)
 - **Jupyter Lab** with Quarto extension
