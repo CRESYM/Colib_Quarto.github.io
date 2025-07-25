@@ -19,8 +19,6 @@ website:
             href: ./about/authorGuidelines.qmd
           - text: Code of Conduct
             href: ./about/codeConduct.qmd
-          - text: Contributing Guidelines
-            href: ./about/contribute.qmd
           - text: Notations and conventions
             href: ./about/notationAndConventions.qmd
           - text: Teams and community
