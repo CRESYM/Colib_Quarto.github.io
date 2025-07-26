@@ -50,7 +50,7 @@ website:
           - text: Model template
             href: ./contribute/modelTemplate/index.qmd
           - text: Test case template
-            href: ./contribute/testCaseTemplate/index.qmd
+            href: ./contribute/testSystemTemplate/index.qmd
       - href: contact/index.qmd
         text: Contact
     tools:
