@@ -162,7 +162,8 @@ OUR PARTNERS
 [![](assets/img/colib_logos/universidad-pontificia-de-comillas.svg){.parter-logo-img-lg}](https://www.comillas.edu/){target="_blank"}
 :::
 
-
+:::
+:::
 :::
 
 <script>

@@ -76,7 +76,7 @@ The line, cable, transformer and VSC parameters are given in Table 1, 2 and 3, r
 
 ## Dynamic models​
 
-A single dynamic model is used for all four [converters](/pages/models/4-%20HVDC/VSC/GridFollowingConverter/L2EP-RMSGridFollowingVSC/) (though with a control variant for WP1 with respect to the other VSCs).
+A single dynamic model is used for all four [converters](../../../models/4-HVDC/VSC/GridFollowingConverter/L2EP-RMS-GFL-VSC/index.qmd) (though with a control variant for WP1 with respect to the other VSCs).
 
 ## Operating points
 

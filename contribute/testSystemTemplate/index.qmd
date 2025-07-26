@@ -173,3 +173,4 @@ This model has been successfully implemented in :
 _This section lists all the references. It must comply with current citation standards. Quarto uses BibTeX for managing reference._
 
 ::: {#refs}
+:::
