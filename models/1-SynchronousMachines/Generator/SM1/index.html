@@ -723,18 +723,13 @@ Figure&nbsp;1: Synchronous machine model schematic
 <section id="physical-parts-of-a-synchronous-machine" class="level3">
 <h3 class="anchored" data-anchor-id="physical-parts-of-a-synchronous-machine">Physical parts of a Synchronous Machine</h3>
 <p>A synchronous machine is formed by the following parts:</p>
-<section id="rotor" class="level4">
-<h4 class="anchored" data-anchor-id="rotor">Rotor</h4>
+<p><strong>Rotor</strong></p>
 <p>The rotor is the moving part of the generator. It is at the end of the rotation axis of the turbine, which is the component that transfers the energy of a moving fluid (normally steam) into mechanical energy. As the name indicates, the mechanical energy corresponds to the rotational kinetic energy of the body composed by the blades and axis of the turbine.</p>
 <p>It can be round rotor, commonly used in high rotation speed application, or salient pole, used in lower speed applications (i.e.&nbsp;hydro generation) where multiple pair of poles are needed to work at the grid frequency.<a href="#2">[2]</a> Both of them will have at least one winding revolving around an axis perpendicular to the rotating axis. The direction of the field produced by the DC excitation will rotate at the same rate as the rotor, pointing in the perpendicular direction of the rotating axis.</p>
-</section>
-<section id="exciter" class="level4">
-<h4 class="anchored" data-anchor-id="exciter">Exciter</h4>
+<p><strong>Exciter</strong></p>
 <p>The exciter is the source of power that generates the current flowing through the rotor winding. It applies a DC voltage that generates a current in the rotor winding, creating an electromagnet. It is important for voltage control as increasing the current supplied to the rotor winding increases the induced voltage in the stator winding, providing the ability to apply control loops that ensure the terminal voltage keeps at a setpoint.</p>
 <p>This electromagnet can be replaced by a permanent magnet, in which case there would be no need to have a DC excitation to create a rotating field. These types of generators (PMSG), which can be found in newer models of wind turbines, have better efficiency as there are no losses associated with the excitation circuit, and lowers the maintenance needed since all the excitation parts are substituted by a single element. As a downside, there is no possibility to control the field by changing the level of excitation. The field magnitude will remain constant value, with a value dependent on the geometry and material of the magnet.</p>
-</section>
-<section id="stator" class="level4">
-<h4 class="anchored" data-anchor-id="stator">Stator</h4>
+<p><strong>Stator</strong></p>
 <p>It is the static part of the machine, as its name indicates. This structure gives physical support to the whole machine, while it typically contains the armature winding. It is a three-phase winding distributed in a circular cavity 120º apart one from each other. The uniform rotation of the magnetic field created by the rotor winding will generate currents at each winding 120º apart in the phasorial space. The instantaneous value for each phase is noted as <span class="math inline">\(i_a\)</span>, <span class="math inline">\(i_b\)</span>, and <span class="math inline">\(i_c\)</span>. The following Figure <a href="#2">[2]</a> shows the structure of the synchronous machine, including the windings.</p>
 <div id="fig-sm-rot-stat" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -746,16 +741,12 @@ Figure&nbsp;2: Stator-rotor of a Synchronous Machine schematic
 </figcaption>
 </figure>
 </div>
-</section>
-<section id="governor" class="level4">
-<h4 class="anchored" data-anchor-id="governor">Governor</h4>
+<p><strong>Governor</strong></p>
 <p>The governor is the controller of the speed of the motor. Its primary function is to maintain the speed of the rotor, and hence the frequency of the electrical output of the generator. It is necessary for adapting to load changes, since a sudden increase or decrease of the load would decelerate or accelerate the generator if no actions are taken. Since it is connected to the prime mover of the generator (generally a turbine), the control will adjust the amount of energy entering the turbine, increasing or decreasing the rate of energy as if it needs to accelerate or decelerate the rotation.</p>
-</section>
 </section>
 <section id="synchronous-machine-equations" class="level3">
 <h3 class="anchored" data-anchor-id="synchronous-machine-equations">Synchronous machine equations</h3>
-<section id="variables" class="level4">
-<h4 class="anchored" data-anchor-id="variables">Variables</h4>
+<p><strong>Variables</strong></p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 56%">
@@ -827,9 +818,7 @@ Figure&nbsp;2: Stator-rotor of a Synchronous Machine schematic
 </tr>
 </tbody>
 </table>
-</section>
-<section id="parameters" class="level4">
-<h4 class="anchored" data-anchor-id="parameters">Parameters</h4>
+<p><strong>Parameters</strong></p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -886,80 +875,111 @@ Figure&nbsp;2: Stator-rotor of a Synchronous Machine schematic
 </tr>
 </tbody>
 </table>
-</section>
-<section id="system-of-equations" class="level4">
-<h4 class="anchored" data-anchor-id="system-of-equations">System of equations</h4>
+<p><strong>System of equations</strong></p>
 <p>The following system of equations describe a general synchronous machine with the considered assumptions. Some of its parameters are generally non-constant, meaning it is not directly solved without making some additional assumptions. The particular models are derivations of this system of equations.</p>
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-<div style="font-weight: bold;">
-Mechanical dynamic equations:
-</div>
-<p><span class="math display">\[J\frac{2}{p_f}  \frac{d\omega_m}{dt} = T_m - T_e - T_{fw}\]</span> <span class="math display">\[\frac{d\theta_{shaft}}{dt} = \frac{2}{p_f} \omega\]</span></p>
-<div style="font-weight: bold;">
-Stator dynamic equations:
-</div>
-<p><span class="math display">\[v_a = R_a i_a + \frac{d\psi_a}{dt}\]</span> <span class="math display">\[v_b = R_b i_b + \frac{d\psi_b}{dt}\]</span> <span class="math display">\[v_c = R_c i_c + \frac{d\psi_c}{dt}\]</span></p>
-<div style="font-weight: bold;">
-Rotor dynamic equations:
-</div>
-<p><span class="math display">\[v_f = R_f i_f + \frac{d\psi_f}{dt} \]</span> <span class="math display">\[0 = R_{1d} i_{1d} + \frac{d\psi_{1d}}{dt} \]</span> <span class="math display">\[0 = R_{1q} i_{1q} + \frac{d\psi_{1q}}{dt} \]</span> <span class="math display">\[0 = R_{2q} i_{2q} + \frac{d\psi_{2q}}{dt} \]</span></p>
-</div>
+<p><strong>Mechanical dynamic equations:</strong></p>
+<p><span class="math display">\[
+\begin{align}
+J\frac{2}{p_f}  \frac{d\omega_m}{dt} = T_m - T_e - T_{fw}\\
+\frac{d\theta_{shaft}}{dt} = \frac{2}{p_f} \omega_m\\
+\end{align}
+\]</span></p>
+<p><strong>Stator dynamic equations:</strong></p>
+<p><span class="math display">\[
+\begin{align}
+v_a = R_a i_a + \frac{d\psi_a}{dt}\\
+v_b = R_b i_b + \frac{d\psi_b}{dt}\\
+v_c = R_c i_c + \frac{d\psi_c}{dt}\\
+\end{align}
+\]</span></p>
+<p><strong>Rotor dynamic equations:</strong></p>
+<p><span class="math display">\[
+\begin{align}
+v_f = R_f i_f + \frac{d\psi_f}{dt} \\
+0 = R_{1d} i_{1d} + \frac{d\psi_{1d}}{dt} \\
+0 = R_{1q} i_{1q} + \frac{d\psi_{1q}}{dt} \\
+0 = R_{2q} i_{2q} + \frac{d\psi_{2q}}{dt} \\
+\end{align}
+\]</span></p>
 <p>With the general flux expressions as follows:</p>
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-<div style="font-weight: bold;">
-Stator fluxes:
-</div>
-<p><span class="math display">\[\psi_a = \mathcal{L}_{aa} i_a + \mathcal{L}_{ab} i_b +\mathcal{L}_{ac} i_c + \mathcal{L}_{af} i_f + \mathcal{L}_{a1d} i_{1d} + \mathcal{L}_{a1q} i_{1q} + \mathcal{L}_{a2q} i_{2q}\]</span> <span class="math display">\[\psi_b = \mathcal{L}_{ba} i_a + \mathcal{L}_{bb} i_b +\mathcal{L}_{bc} i_c + \mathcal{L}_{bf} i_f + \mathcal{L}_{b1d} i_{1d} + \mathcal{L}_{b1q} i_{1q} + \mathcal{L}_{b2q} i_{2q}\]</span> <span class="math display">\[\psi_c = \mathcal{L}_{ca} i_a + \mathcal{L}_{cb} i_b +\mathcal{L}_{cc} i_c + \mathcal{L}_{cf} i_f + \mathcal{L}_{c1d} i_{1d} + \mathcal{L}_{c1q} i_{1q} + \mathcal{L}_{c2q} i_{2q}\]</span></p>
-<div style="font-weight: bold;">
-Rotor fluxes:
-</div>
-<p><span class="math display">\[\psi_f = \mathcal{L}_{fa} i_a + \mathcal{L}_{fb} i_b +\mathcal{L}_{fc} i_c + \mathcal{L}_{ff} i_f + \mathcal{L}_{f1d} i_{1d}\]</span> <span class="math display">\[\psi_{1d} = \mathcal{L}_{1da} i_a + \mathcal{L}_{1db} i_b +\mathcal{L}_{1dc} i_c + \mathcal{L}_{1df} i_f + \mathcal{L}_{1dqd} i_{1d}\]</span> <span class="math display">\[\psi_{1q} = \mathcal{L}_{1qa} i_a + \mathcal{L}_{1qb} i_b +\mathcal{L}_{1qc} i_c + \mathcal{L}_{1q1q} i_{1q} + \mathcal{L}_{1q2q} i_{2q}\]</span> <span class="math display">\[\psi_{2q} = \mathcal{L}_{2qa} i_a + \mathcal{L}_{2qb} i_b +\mathcal{L}_{2qc} i_c + \mathcal{L}_{2q1q} i_{1q} + \mathcal{L}_{2q2q} i_{2q}\]</span></p>
-</div>
-</section>
+<p><strong>Stator fluxes:</strong></p>
+<p><span class="math display">\[
+\begin{align}
+\psi_a = \mathcal{L}_{aa} i_a + \mathcal{L}_{ab} i_b +\mathcal{L}_{ac} i_c + \mathcal{L}_{af} i_f + \mathcal{L}_{a1d} i_{1d} + \mathcal{L}_{a1q} i_{1q} + \mathcal{L}_{a2q} i_{2q}\\
+\psi_b = \mathcal{L}_{ba} i_a + \mathcal{L}_{bb} i_b +\mathcal{L}_{bc} i_c + \mathcal{L}_{bf} i_f + \mathcal{L}_{b1d} i_{1d} + \mathcal{L}_{b1q} i_{1q} + \mathcal{L}_{b2q} i_{2q}\\
+\psi_c = \mathcal{L}_{ca} i_a + \mathcal{L}_{cb} i_b +\mathcal{L}_{cc} i_c + \mathcal{L}_{cf} i_f + \mathcal{L}_{c1d} i_{1d} + \mathcal{L}_{c1q} i_{1q} + \mathcal{L}_{c2q} i_{2q}\\
+\end{align}
+\]</span></p>
+<p><strong>Rotor fluxes:</strong></p>
+<p><span class="math display">\[
+\begin{align}
+\psi_f = \mathcal{L}_{fa} i_a + \mathcal{L}_{fb} i_b +\mathcal{L}_{fc} i_c + \mathcal{L}_{ff} i_f + \mathcal{L}_{f1d} i_{1d}\\
+\psi_{1d} = \mathcal{L}_{1da} i_a + \mathcal{L}_{1db} i_b +\mathcal{L}_{1dc} i_c + \mathcal{L}_{1df} i_f + \mathcal{L}_{1dqd} i_{1d}\\
+\psi_{1q} = \mathcal{L}_{1qa} i_a + \mathcal{L}_{1qb} i_b +\mathcal{L}_{1qc} i_c + \mathcal{L}_{1q1q} i_{1q} + \mathcal{L}_{1q2q} i_{2q}\\
+\psi_{2q} = \mathcal{L}_{2qa} i_a + \mathcal{L}_{2qb} i_b +\mathcal{L}_{2qc} i_c + \mathcal{L}_{2q1q} i_{1q} + \mathcal{L}_{2q2q} i_{2q}\\
+\end{align}
+\]</span></p>
 </section>
 <section id="operational-principles" class="level3">
 <h3 class="anchored" data-anchor-id="operational-principles">Operational principles</h3>
-<section id="swing-equation-of-the-synchronous-machine" class="level4">
-<h4 class="anchored" data-anchor-id="swing-equation-of-the-synchronous-machine">Swing equation of the synchronous machine</h4>
+<p><strong>Swing equation of the synchronous machine</strong></p>
 <p>The dynamic equation that governs the system relates the mechanical torque applied by the turbine and the electrical torque applied by the grid<a href="#3">[3]</a>:</p>
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><span class="math display">\[J\frac{2}{p_f}  \frac{d\omega}{dt} = T_m - T_e - T_{fw}\]</span></p>
-</div>
+<p><span class="math display">\[
+\begin{align}
+J\frac{2}{p_f}  \frac{d\omega}{dt} = T_m - T_e - T_{fw}\\
+\end{align}
+\]</span></p>
 <p>where <span class="math inline">\(\omega\)</span> is the rotational speed in <span class="math inline">\(rad/s\)</span>, <span class="math inline">\(J\)</span> is the inertia of the rotating body in <span class="math inline">\(kgm^2\)</span>, <span class="math inline">\(T_m\)</span> is the mechanical torque, <span class="math inline">\(T_e\)</span> is the electrical torque and <span class="math inline">\(T_{fw}\)</span> is the friction and windage torque, all in <span class="math inline">\(Nm\)</span>.</p>
-</section>
-<section id="electric-equations-of-the-synchronous-machine-in-abc-reference-frame" class="level4">
-<h4 class="anchored" data-anchor-id="electric-equations-of-the-synchronous-machine-in-abc-reference-frame">Electric equations of the synchronous machine in <em>abc</em> reference frame</h4>
+<p><strong>Electric equations of the synchronous machine in <em>abc</em> reference frame</strong></p>
 <p>Regarding the electrical part of the model, the rotor winding is magnetized by the exciter current, creating a magnetic field that will rotate with the rotor’s angular velocity. As it spins, the stator windings will be subjected to a variable magnetic flux caused by the rotation of the produced magnetic field which, according to Faraday’s Law, will induce an electromotive force in the windings.</p>
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><span class="math display">\[e_{emf} = \frac{d\psi}{dt}\]</span></p>
-</div>
+<p><span class="math display">\[
+\begin{align}
+e_{emf} = \frac{d\psi}{dt}\\
+\end{align}
+\]</span></p>
 <p>The rotational speed of the rotor of a synchronous machine is proportional to the grid frequency times the number of poles (i.e.&nbsp;number of different three-phase windings). The induced field in each phase <span class="math inline">\(e_{ir}\)</span> will lead the terminal voltage <span class="math inline">\(v_i\)</span> by a load angle denoted as <span class="math inline">\(\delta\)</span>.</p>
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><span class="math display">\[n = \frac{120f}{p_f} \quad (2)\]</span></p>
-</div>
+<p><span class="math display">\[
+\begin{align}
+n = \frac{120f}{p_f} \quad (2)\\
+\end{align}
+\]</span></p>
 <p>where <span class="math inline">\(n\)</span> is the rotational speed in <span class="math inline">\(rev/min\)</span>, <span class="math inline">\(f\)</span> is the stator currents frequency in <span class="math inline">\(Hz\)</span>, and <span class="math inline">\(p_f\)</span> is the number of field poles.</p>
 <p>The coupling between the rotor and the stator windings can be modelled using the terminal voltage equations:</p>
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><span class="math display">\[v_a = R_a i_a + \frac{d\psi_a}{dt}\]</span> <span class="math display">\[v_b = R_b i_b + \frac{d\psi_b}{dt}\]</span> <span class="math display">\[v_c = R_c i_c + \frac{d\psi_c}{dt}\]</span> <span class="math display">\[v_f = R_f i_f + \frac{d\psi_f}{dt}\]</span> <span class="math display">\[v_{1d} = R_{1d} i_{1d} + \frac{d\psi_{1d}}{dt} \]</span> <span class="math display">\[v_{1q} = R_{1q} i_{1q} + \frac{d\psi_{1q}}{dt} \]</span> <span class="math display">\[v_{2q} = R_{2q} i_{2q} + \frac{d\psi_{2q}}{dt} \]</span></p>
-</div>
+<p><span class="math display">\[
+\begin{align}
+v_a = R_a i_a + \frac{d\psi_a}{dt}\\
+v_b = R_b i_b + \frac{d\psi_b}{dt}\\
+v_c = R_c i_c + \frac{d\psi_c}{dt}\\
+v_f = R_f i_f + \frac{d\psi_f}{dt}\\
+v_{1d} = R_{1d} i_{1d} + \frac{d\psi_{1d}}{dt} \\
+v_{1q} = R_{1q} i_{1q} + \frac{d\psi_{1q}}{dt} \\
+v_{2q} = R_{2q} i_{2q} + \frac{d\psi_{2q}}{dt} \\
+\end{align}
+\]</span></p>
 <p>where <span class="math inline">\(\psi_i\)</span> is the magnetic flux passing through the <span class="math inline">\(i\)</span> winding in <span class="math inline">\(Wb\)</span>, <span class="math inline">\(R_i\)</span> is the resistance of the associated circuit in <span class="math inline">\(\Omega\)</span>, <span class="math inline">\(v_i\)</span> is the terminal voltage in <span class="math inline">\(V\)</span> and <span class="math inline">\(i_i\)</span> is the current in <span class="math inline">\(A\)</span>.</p>
 <p>The total fluxes are calculated taking into account all the present windings in the synchronous machine, which are the three stator windings and the rotor winding. The fluxes for all the windings are calculated as follows:</p>
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-<div style="font-weight: bold;">
-Stator fluxes:
-</div>
-<p><span class="math display">\[\psi_a = \mathcal{L}_{aa} i_a + \mathcal{L}_{ab} i_b +\mathcal{L}_{ac} i_c + \mathcal{L}_{af} i_f + \mathcal{L}_{a1d} i_{1d} + \mathcal{L}_{a1q} i_{1q} + \mathcal{L}_{a2q} i_{2q}\]</span> <span class="math display">\[\psi_b = \mathcal{L}_{ba} i_a + \mathcal{L}_{bb} i_b +\mathcal{L}_{bc} i_c + \mathcal{L}_{bf} i_f + \mathcal{L}_{b1d} i_{1d} + \mathcal{L}_{b1q} i_{1q} + \mathcal{L}_{b2q} i_{2q}\]</span> <span class="math display">\[\psi_c = \mathcal{L}_{ca} i_a + \mathcal{L}_{cb} i_b +\mathcal{L}_{cc} i_c + \mathcal{L}_{cf} i_f + \mathcal{L}_{c1d} i_{1d} + \mathcal{L}_{c1q} i_{1q} + \mathcal{L}_{c2q} i_{2q}\]</span></p>
-<div style="font-weight: bold;">
-Rotor fluxes:
-</div>
-<p><span class="math display">\[\psi_f = \mathcal{L}_{fa} i_a + \mathcal{L}_{fb} i_b +\mathcal{L}_{fc} i_c + \mathcal{L}_{ff} i_f + \mathcal{L}_{f1d} i_{1d}\]</span> <span class="math display">\[\psi_{1d} = \mathcal{L}_{1da} i_a + \mathcal{L}_{1db} i_b +\mathcal{L}_{1dc} i_c + \mathcal{L}_{1df} i_f + \mathcal{L}_{1dqd} i_{1d}\]</span> <span class="math display">\[\psi_{1q} = \mathcal{L}_{1qa} i_a + \mathcal{L}_{1qb} i_b +\mathcal{L}_{1qc} i_c + \mathcal{L}_{1q1q} i_{1q} + \mathcal{L}_{1q2q} i_{2q}\]</span> <span class="math display">\[\psi_{2q} = \mathcal{L}_{2qa} i_a + \mathcal{L}_{2qb} i_b +\mathcal{L}_{2qc} i_c + \mathcal{L}_{2q1q} i_{1q} + \mathcal{L}_{2q2q} i_{2q}\]</span></p>
-</div>
+<p><strong>Stator fluxes:</strong></p>
+<p><span class="math display">\[
+\begin{align}
+\psi_a = \mathcal{L}_{aa} i_a + \mathcal{L}_{ab} i_b +\mathcal{L}_{ac} i_c + \mathcal{L}_{af} i_f + \mathcal{L}_{a1d} i_{1d} + \mathcal{L}_{a1q} i_{1q} + \mathcal{L}_{a2q} i_{2q}\\
+\psi_b = \mathcal{L}_{ba} i_a + \mathcal{L}_{bb} i_b +\mathcal{L}_{bc} i_c + \mathcal{L}_{bf} i_f + \mathcal{L}_{b1d} i_{1d} + \mathcal{L}_{b1q} i_{1q} + \mathcal{L}_{b2q} i_{2q}\\
+\psi_c = \mathcal{L}_{ca} i_a + \mathcal{L}_{cb} i_b +\mathcal{L}_{cc} i_c + \mathcal{L}_{cf} i_f + \mathcal{L}_{c1d} i_{1d} + \mathcal{L}_{c1q} i_{1q} + \mathcal{L}_{c2q} i_{2q}\\
+\end{align}
+\]</span></p>
+<p><strong>Rotor fluxes:</strong></p>
+<p><span class="math display">\[
+\begin{align}
+\psi_f = \mathcal{L}_{fa} i_a + \mathcal{L}_{fb} i_b +\mathcal{L}_{fc} i_c + \mathcal{L}_{ff} i_f + \mathcal{L}_{f1d} i_{1d}\\
+\psi_{1d} = \mathcal{L}_{1da} i_a + \mathcal{L}_{1db} i_b +\mathcal{L}_{1dc} i_c + \mathcal{L}_{1df} i_f + \mathcal{L}_{1dqd} i_{1d}\\
+\psi_{1q} = \mathcal{L}_{1qa} i_a + \mathcal{L}_{1qb} i_b +\mathcal{L}_{1qc} i_c + \mathcal{L}_{1q1q} i_{1q} + \mathcal{L}_{1q2q} i_{2q}\\
+\psi_{2q} = \mathcal{L}_{2qa} i_a + \mathcal{L}_{2qb} i_b +\mathcal{L}_{2qc} i_c + \mathcal{L}_{2q1q} i_{1q} + \mathcal{L}_{2q2q} i_{2q}\\
+\end{align}
+\]</span></p>
 <p>with <span class="math inline">\(\mathcal{L}_{pp}\)</span> being the self inductance of the winding and <span class="math inline">\(\mathcal{L}_{pp'}\)</span> the mutual inductance between winding <span class="math inline">\(p\)</span> and winding <span class="math inline">\(p'\)</span>, both in <span class="math inline">\(H\)</span>. As it can be seen, the <em>q</em> axis damper windings and the <em>d</em> axis damper and rotor windings do not interact since they are perpendicular.</p>
 <p>The inductance values expressed using the notation <span class="math inline">\(\mathcal{L}\)</span> express a general dependency with respect to the rotor position <span class="math inline">\(\theta_{shaft} = \omega t + \theta_0\)</span> <a href="#4">[4]</a>. It is modelled as a sinusoidal dependency with respect to the electrical angle <span class="math inline">\(\theta_{me}\)</span>. This angle can be calculated as a function of the rotor position angle expression seen before as <span class="math inline">\(\theta_{me} = \frac{p_f}{2}\theta_{shaft} = \omega_{me} t + \theta_{e0}\)</span>.</p>
 <p>The general expression for mutual inductance would be <span class="math display">\[\mathcal{L}_{pp} = L_{pp} = L_{pp0} + L_{pl} + L_{g2}\cos(2\theta_{me})\]</span> where the first term corresponds to the portion of the inductance due to the air gap, and the second term corresponds to the leakage flux. The mutual inductances, considering a perfect 120º separation between windings, and having <span class="math inline">\(\cos(120º) = -1/2\)</span> take the values <span class="math inline">\(\mathcal{L}_{pp'} = -\frac{1}{2} L_{pp0} + L_{g2}\cos(2\theta_{me})\)</span>.</p>
 <p>Considering that all the windings are assumed to have the same characteristics, the inductances for the different phases will only differ in the angular term of the rotor position, which will have additional phase terms of <span class="math inline">\((0º, 120º, -120º)\)</span> for phases <span class="math inline">\((a, b, c)\)</span> respectively.</p>
 <p>The stator-rotor inductance also depends on the electrical angle <span class="math inline">\(\theta_{me}\)</span> between the rotor winding axis and the stator winding axis. The value of this inductance for phase <span class="math inline">\(a\)</span> can be calculated with the expression <span class="math display">\[\mathcal{L}_{af} = \mathcal{L}_{fa} = L_{af}\cos(\theta_{me})\]</span>, while the same expression can be applied for phase <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> but replacing <span class="math inline">\(\theta_{me}\)</span> with <span class="math inline">\(\theta_{me} - 120º\)</span> and <span class="math inline">\(\theta_{me} + 120º\)</span> respectively.</p>
-</section>
 </section>
 <section id="operational-limits" class="level3">
 <h3 class="anchored" data-anchor-id="operational-limits">Operational limits</h3>

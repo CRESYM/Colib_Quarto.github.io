@@ -693,21 +693,19 @@ window.Quarto = {
 <section id="model-description" class="level2">
 <h2 class="anchored" data-anchor-id="model-description">Model description</h2>
 <p>The model is based on the equivalent circuit represented below.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="MotorEquivalentCircuit.drawio.svg" class="img-fluid figure-img"></p>
-<figcaption>Equivalent circuit of the induction motor</figcaption>
+<div id="fig-motor-equivalent-circuit" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-motor-equivalent-circuit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="MotorEquivalentCircuit.drawio.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-motor-equivalent-circuit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Equivalent circuit of the induction motor
+</figcaption>
 </figure>
 </div>
 <section id="parameters" class="level3">
 <h3 class="anchored" data-anchor-id="parameters">Parameters</h3>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -718,63 +716,63 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math display">\[\omega_s\]</span></td>
+<td><span class="math inline">\(\omega_s\)</span></td>
 <td>Synchronous speed</td>
-<td><span class="math display">\[rad/s\]</span></td>
-<td><span class="math display">\[314rad/s\]</span></td>
+<td><span class="math inline">\(rad/s\)</span></td>
+<td><span class="math inline">\(314rad/s\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[R_s\]</span></td>
+<td><span class="math inline">\(R_s\)</span></td>
 <td>Stator resistance</td>
-<td><span class="math display">\[\Omega\]</span></td>
-<td><span class="math display">\[0.02pu\]</span></td>
+<td><span class="math inline">\(\Omega\)</span></td>
+<td><span class="math inline">\(0.02pu\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[X_s\]</span></td>
+<td><span class="math inline">\(X_s\)</span></td>
 <td>Stator leakage reactance</td>
-<td><span class="math display">\[\Omega\]</span></td>
-<td><span class="math display">\[0.1pu\]</span></td>
+<td><span class="math inline">\(\Omega\)</span></td>
+<td><span class="math inline">\(0.1pu\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[R_r\]</span></td>
+<td><span class="math inline">\(R_r\)</span></td>
 <td>Rotor resistance</td>
-<td><span class="math display">\[\Omega\]</span></td>
-<td><span class="math display">\[0.02pu\]</span></td>
+<td><span class="math inline">\(\Omega\)</span></td>
+<td><span class="math inline">\(0.02pu\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[X_r\]</span></td>
+<td><span class="math inline">\(X_r\)</span></td>
 <td>Rotor leakage reactance</td>
-<td><span class="math display">\[\Omega\]</span></td>
-<td><span class="math display">\[0.1pu\]</span></td>
+<td><span class="math inline">\(\Omega\)</span></td>
+<td><span class="math inline">\(0.1pu\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[X_m\]</span></td>
+<td><span class="math inline">\(X_m\)</span></td>
 <td>Magnetising reactance</td>
-<td><span class="math display">\[\Omega\]</span></td>
-<td><span class="math display">\[3pu\]</span></td>
+<td><span class="math inline">\(\Omega\)</span></td>
+<td><span class="math inline">\(3pu\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[J\]</span></td>
+<td><span class="math inline">\(J\)</span></td>
 <td>Moment of inertia</td>
-<td><span class="math display">\[kgm^2\]</span></td>
+<td><span class="math inline">\(kgm^2\)</span></td>
 <td>0.1 to 5s</td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[\eta\]</span></td>
+<td><span class="math inline">\(\eta\)</span></td>
 <td>Exponent of the torque speed dependency</td>
 <td>Unitless</td>
 <td>0 to 3</td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[C_{l, 0}\]</span></td>
+<td><span class="math inline">\(C_{l, 0}\)</span></td>
 <td>Initial load torque</td>
-<td><span class="math display">\[Nm\]</span></td>
+<td><span class="math inline">\(Nm\)</span></td>
 <td>N/A</td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[\omega_0\]</span></td>
+<td><span class="math inline">\(\omega_0\)</span></td>
 <td>Initial rotor speed</td>
-<td><span class="math display">\[rad/s\]</span></td>
+<td><span class="math inline">\(rad/s\)</span></td>
 <td>N/A</td>
 </tr>
 </tbody>
@@ -792,64 +790,72 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math display">\[V\]</span></td>
+<td><span class="math inline">\(V\)</span></td>
 <td>Stator voltage</td>
-<td><span class="math display">\[V\]</span></td>
+<td><span class="math inline">\(V\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[I_s\]</span></td>
+<td><span class="math inline">\(I_s\)</span></td>
 <td>Stator current</td>
-<td><span class="math display">\[A\]</span></td>
+<td><span class="math inline">\(A\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[I_r\]</span></td>
+<td><span class="math inline">\(I_r\)</span></td>
 <td>Rotor current</td>
-<td><span class="math display">\[A\]</span></td>
+<td><span class="math inline">\(A\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[I_m\]</span></td>
+<td><span class="math inline">\(I_m\)</span></td>
 <td>Magnetising current</td>
-<td><span class="math display">\[A\]</span></td>
+<td><span class="math inline">\(A\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[C_e\]</span></td>
+<td><span class="math inline">\(C_e\)</span></td>
 <td>Electrical torque</td>
-<td><span class="math display">\[Nm\]</span></td>
+<td><span class="math inline">\(Nm\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[C_l\]</span></td>
+<td><span class="math inline">\(C_l\)</span></td>
 <td>Load torque</td>
-<td><span class="math display">\[Nm\]</span></td>
+<td><span class="math inline">\(Nm\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[s\]</span></td>
+<td><span class="math inline">\(s\)</span></td>
 <td>Rotor slip</td>
 <td>Unitless</td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[\omega\]</span></td>
+<td><span class="math inline">\(\omega\)</span></td>
 <td>Rotor speed</td>
-<td><span class="math display">\[rad/s\]</span></td>
+<td><span class="math inline">\(rad/s\)</span></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="equations" class="level3">
 <h3 class="anchored" data-anchor-id="equations">Equations</h3>
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-<div style="font-weight: bold;">
-Electrical equations:
-</div>
-<p><span class="math display">\[V = j X_m * I_m + (R_s + j X_s) I_s\]</span> <span class="math display">\[I_s = \frac{V}{(R_s + j X_s) + \frac{1}{\frac{1}{X_m} + \frac{s}{R-r + j X_r * s}}}\]</span> <span class="math display">\[I_s = I_m + I_r\]</span></p>
-<div style="font-weight: bold;">
-Mechanical equations:
-</div>
-<p><span class="math display">\[2 J  \frac{d\omega}{dt} = C_e - C_l\]</span> <span class="math display">\[s = \frac{\omega_s - \omega}{\omega_s}\]</span> <span class="math display">\[C_e = R_r * \frac{\left|I_r\right|^2}{\omega_s s}\]</span> <span class="math display">\[C_l = C_{l, 0} \left(\frac{\omega}{\omega_0}\right)^\eta\]</span></p>
-</div>
-</section>
-</section>
+<p><strong>Electrical equations:</strong></p>
+<p><span class="math display">\[
+\begin{align}
+V = j X_m * I_m + (R_s + j X_s) I_s\\
+I_s = \frac{V}{(R_s + j X_s) + \frac{1}{\frac{1}{X_m} + \frac{s}{R-r + j X_r * s}}}\\
+I_s = I_m + I_r\\
+\end{align}
+\]</span></p>
+<p><strong>Mechanical equations:</strong></p>
+<p><span class="math display">\[
+\begin{align}
+2 J  \frac{d\omega}{dt} = C_e - C_l\\
+s = \frac{\omega_s - \omega}{\omega_s}\\
+C_e = R_r * \frac{\left|I_r\right|^2}{\omega_s s}\\
+C_l = C_{l, 0} \left(\frac{\omega}{\omega_0}\right)^\eta\\
+\end{align}
+\]</span></p>
+</section></section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main></div>
+
+
 <section id="open-source-implementations" class="level2">
-<h2 class="anchored" data-anchor-id="open-source-implementations">Open source implementations</h2>
+<h2 data-anchor-id="open-source-implementations">Open source implementations</h2>
 <p>This model has been successfully implemented in :</p>
 <table class="caption-top table">
 <thead>
@@ -875,13 +881,13 @@ Mechanical equations:
 </table>
 </section>
 <section id="table-of-references" class="level2">
-<h2 class="anchored" data-anchor-id="table-of-references">Table of references</h2>
+<h2 data-anchor-id="table-of-references">Table of references</h2>
 <p><a id="1">[1]</a> Guru, B. S.; Warrier, R. K. “Electric Machinery and Transformers”, 3th ed., New York, United States, 2001, Oxford University Press</p>
 
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+ <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1281,7 +1287,7 @@ Mechanical equations:
     }
   });
   </script>
-</div> <!-- /content -->
+ <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">

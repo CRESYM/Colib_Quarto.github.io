@@ -770,17 +770,23 @@ window.Quarto = {
 </section>
 <section id="system-of-equations" class="level3" data-number="3.3">
 <h3 data-number="3.3" class="anchored" data-anchor-id="system-of-equations"><span class="header-section-number">3.3</span> System of equations</h3>
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><span class="math display">\[P(V,t) = P_0 (\frac{V}{V_0})^{a(t)} \]</span> <span class="math display">\[Q(V,t) = Q_0 (\frac{V}{V_0})^{b(t)} \]</span></p>
-</div>
+<p><span class="math display">\[
+\begin{align}
+P(V,t) = P_0 (\frac{V}{V_0})^{a(t)} \\
+Q(V,t) = Q_0 (\frac{V}{V_0})^{b(t)} \\
+\end{align}
+\]</span></p>
 </section>
 </section>
 <section id="operational-principles" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="operational-principles"><span class="header-section-number">4</span> Operational principles</h2>
 <p>The model considers the load as an exponential function of voltage for both active and reactive power.</p>
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><span class="math display">\[P(V, t) = P_0 (\frac{V}{V_0})^{a(t)} \]</span> <span class="math display">\[Q(V, t) = Q_0 (\frac{V}{V_0})^{b(t)} \]</span></p>
-</div>
+<p><span class="math display">\[
+\begin{align}
+P(V, t) = P_0 (\frac{V}{V_0})^{a(t)} \\
+Q(V, t) = Q_0 (\frac{V}{V_0})^{b(t)} \\
+\end{align}
+\]</span></p>
 <p>Where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are the exponents of the active and reactive power, respectively. These exponents take values that are similar to the slope of the function around the nominal voltage. If they take values of 0, 1 or 2, the load is considered constant power, constant current, or constant impedance, respectively <a href="#2">[2]</a> <a href="#3">[3]</a>. The exponents can be time-dependent functions for time-series analysis.</p>
 </section>
 <section id="open-source-implementations" class="level2" data-number="5">

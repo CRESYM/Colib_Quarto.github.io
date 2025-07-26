@@ -726,6 +726,11 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="model-inputs-and-output">Model inputs and output</h2>
 <p>The input variables are :</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 45%">
+<col style="width: 19%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Variable</th>
@@ -735,23 +740,23 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td>omegaPu</td>
+<td><span class="math inline">\(\omega_{pu}\)</span></td>
 <td>measured angular frequency</td>
-<td>pu (base omegaNom)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(\omega_{Nom}\)</span>)</td>
 </tr>
 <tr class="even">
-<td>omegaRefPu</td>
+<td><span class="math inline">\(\omega_{RefPu}\)</span></td>
 <td>reference angular frequency</td>
-<td>pu (base omegaNom)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(\omega_{Nom}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td>PGenPu</td>
+<td><span class="math inline">\(P_{GenPu}\)</span></td>
 <td>active power</td>
-<td>pu (base SnRef)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(S_{nRef}\)</span>)</td>
 </tr>
 </tbody>
 </table>
-<p>The output signal is VPssPu in pu (base UNom).</p>
+<p>The output signal is <span class="math inline">\(VPssPu\)</span> in <span class="math inline">\(pu\)</span> (base <span class="math inline">\(U_{Nom}\)</span>).</p>
 </section>
 <section id="model-parameters" class="level2">
 <h2 class="anchored" data-anchor-id="model-parameters">Model parameters</h2>
@@ -775,109 +780,113 @@ window.Quarto = {
 <td>s</td>
 </tr>
 <tr class="even">
-<td>A2</td>
+<td><span class="math inline">\(A2\)</span></td>
 <td>Second numerator coefficient of first notch filter</td>
-<td><span class="math display">\[s ^ 2\]</span></td>
+<td><span class="math inline">\(s ^ 2\)</span></td>
 </tr>
 <tr class="odd">
-<td>A3</td>
+<td><span class="math inline">\(A3\)</span></td>
 <td>First denominator coefficient of first notch filter</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="even">
-<td>A4</td>
+<td><span class="math inline">\(A4\)</span></td>
 <td>Second denominator coefficient of first notch filter</td>
-<td><span class="math display">\[s ^ 2\]</span></td>
+<td><span class="math inline">\(s ^ 2\)</span></td>
 </tr>
 <tr class="odd">
-<td>A5</td>
+<td><span class="math inline">\(A5\)</span></td>
 <td>First numerator coefficient of second notch filter</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="even">
-<td>A6</td>
+<td><span class="math inline">\(A6\)</span></td>
 <td>Second numerator coefficient of second notch filter</td>
-<td><span class="math display">\[s ^ 2\]</span></td>
+<td><span class="math inline">\(s ^ 2\)</span></td>
 </tr>
 <tr class="odd">
-<td>A7</td>
+<td><span class="math inline">\(A7\)</span></td>
 <td>First denominator coefficient of second notch filter</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="even">
-<td>A8</td>
+<td><span class="math inline">\(A8\)</span></td>
 <td>Second denominator coefficient of second notch filter</td>
-<td><span class="math display">\[s ^ 2\]</span></td>
+<td><span class="math inline">\(s ^ 2\)</span></td>
 </tr>
 <tr class="odd">
-<td>KOmega</td>
+<td><span class="math inline">\(K_{\Omega}\)</span></td>
 <td>Coefficient applied to angular frequency</td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td>KOmegaRef</td>
+<td><span class="math inline">\(K_{\Omega Ref}\)</span></td>
 <td>Coefficient applied to reference angular frequency</td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td>Ks1</td>
+<td><span class="math inline">\(K_{s1}\)</span></td>
 <td>Gain of active power branch</td>
-<td>pu</td>
+<td><span class="math inline">\(pu\)</span></td>
 </tr>
 <tr class="even">
-<td>Ks2</td>
+<td><span class="math inline">\(K_{s2}\)</span></td>
 <td>Gain of angular frequency branch</td>
-<td>pu</td>
+<td><span class="math inline">\(pu\)</span></td>
 </tr>
 <tr class="odd">
-<td>t1</td>
+<td><span class="math inline">\(t1\)</span></td>
 <td>Transducer time constant (active power branch)</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="even">
-<td>t2</td>
+<td><span class="math inline">\(t2\)</span></td>
 <td>Transducer time constant (angular frequency branch)</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="odd">
-<td>tW1</td>
+<td><span class="math inline">\(tW1\)</span></td>
 <td>Washout time constant (active power branch)</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="even">
-<td>tW2</td>
+<td><span class="math inline">\(tW2\)</span></td>
 <td>Washout time constant (angular frequency branch)</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="odd">
-<td>tW3</td>
+<td><span class="math inline">\(tW3\)</span></td>
 <td>Washout time constant (main branch)</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="even">
-<td>VPssMaxPu</td>
+<td><span class="math inline">\(VPssMaxPu\)</span></td>
 <td>Maximum voltage output of power system stabilizer</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td>VPssMinPu</td>
+<td><span class="math inline">\(VPssMinPu\)</span></td>
 <td>Minimum voltage output of power system stabilizer</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="even">
-<td>SNom</td>
+<td><span class="math inline">\(S_{Nom}\)</span></td>
 <td>Nominal apparent power</td>
-<td>MVA</td>
+<td><span class="math inline">\(MVA\)</span></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="model-diagram" class="level2">
 <h2 class="anchored" data-anchor-id="model-diagram">Model diagram</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="PSS3C.drawio.svg" class="img-fluid figure-img"></p>
-<figcaption>PSS3C</figcaption>
+<div id="fig-PSS3C" class="quarto-float quarto-figure quarto-figure-center anchored" alt="PSS3C model diagram">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-PSS3C-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="PSS3C.drawio.svg" class="img-fluid figure-img" alt="PSS3C model diagram">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-PSS3C-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: PSS3C
+</figcaption>
 </figure>
 </div>
 </section>

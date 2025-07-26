@@ -639,7 +639,10 @@ window.Quarto = {
   <li><a href="#operational-principles" id="toc-operational-principles" class="nav-link" data-scroll-target="#operational-principles">Operational principles</a>
   <ul class="collapse">
   <li><a href="#modelling-saturation" id="toc-modelling-saturation" class="nav-link" data-scroll-target="#modelling-saturation">Modelling saturation</a></li>
+  <li><a href="#difference-between-gentpf-and-gentpj" id="toc-difference-between-gentpf-and-gentpj" class="nav-link" data-scroll-target="#difference-between-gentpf-and-gentpj">Difference between GENTPF and GENTPJ</a></li>
   <li><a href="#transformation-of-the-gensal-model" id="toc-transformation-of-the-gensal-model" class="nav-link" data-scroll-target="#transformation-of-the-gensal-model">Transformation of the GENSAL model</a></li>
+  <li><a href="#subtransient-reactances" id="toc-subtransient-reactances" class="nav-link" data-scroll-target="#subtransient-reactances">Subtransient reactances</a></li>
+  <li><a href="#network-interface-equations" id="toc-network-interface-equations" class="nav-link" data-scroll-target="#network-interface-equations">Network interface equations</a></li>
   </ul></li>
   <li><a href="#open-source-implementations" id="toc-open-source-implementations" class="nav-link" data-scroll-target="#open-source-implementations">Open source implementations</a></li>
   <li><a href="#table-of-references" id="toc-table-of-references" class="nav-link" data-scroll-target="#table-of-references">Table of references</a></li>
@@ -730,7 +733,7 @@ window.Quarto = {
 <tr class="odd">
 <td><span class="math inline">\(\omega_s\)</span></td>
 <td>Synchronous speed</td>
-<td>rad/s</td>
+<td><span class="math inline">\(rad/s\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(R_s\)</span></td>
@@ -785,27 +788,27 @@ window.Quarto = {
 <tr class="even">
 <td><span class="math inline">\(T'_{d0}\)</span></td>
 <td>Direct-axis transient time constant</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(T''_{d0}\)</span></td>
 <td>Direct-axis subtransient time constant</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(T'_{q0}\)</span></td>
 <td>Quadrature-axis transient time constant</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(T''_{q0}\)</span></td>
 <td>Quadrature-axis subtransient time constant</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(H\)</span></td>
 <td>Inertia constant</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -813,6 +816,11 @@ window.Quarto = {
 <section id="variables" class="level3">
 <h3 class="anchored" data-anchor-id="variables">Variables</h3>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Variable</th>
@@ -824,92 +832,92 @@ window.Quarto = {
 <tr class="odd">
 <td><span class="math inline">\(\Psi_d\)</span></td>
 <td>d-axis flux linkage</td>
-<td>Wb</td>
+<td><span class="math inline">\(Wb\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(\Psi_q\)</span></td>
 <td>q-axis flux linkage</td>
-<td>Wb</td>
+<td><span class="math inline">\(Wb\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(\Psi_0\)</span></td>
 <td>Zero-sequence flux linkage</td>
-<td>Wb</td>
+<td><span class="math inline">\(Wb\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(\Psi_{1d}\)</span></td>
 <td>Flux linkage associated with <span class="math inline">\(X''_d\)</span></td>
-<td>Wb</td>
+<td><span class="math inline">\(Wb\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(\Psi_{2q}\)</span></td>
 <td>Flux linkage associated with <span class="math inline">\(X''_q\)</span></td>
-<td>Wb</td>
+<td><span class="math inline">\(Wb\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(I_d\)</span></td>
 <td>d-axis current</td>
-<td>A</td>
+<td><span class="math inline">\(A\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(I_q\)</span></td>
 <td>q-axis current</td>
-<td>A</td>
+<td><span class="math inline">\(A\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(I_0\)</span></td>
 <td>Zero-sequence current</td>
-<td>A</td>
+<td><span class="math inline">\(A\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(V_d\)</span></td>
 <td>d-axis voltage</td>
-<td>V</td>
+<td><span class="math inline">\(V\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(V_q\)</span></td>
 <td>q-axis voltage</td>
-<td>V</td>
+<td><span class="math inline">\(V\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(V_0\)</span></td>
 <td>Zero-sequence voltage</td>
-<td>V</td>
+<td><span class="math inline">\(V\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(E_{fd}\)</span></td>
 <td>Field voltage</td>
-<td>V</td>
+<td><span class="math inline">\(V\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(E'_q\)</span></td>
 <td>Transient voltage behind transient reactance in d-axis</td>
-<td>V</td>
+<td><span class="math inline">\(V\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(E'_d\)</span></td>
 <td>Transient voltage behind transient reactance in q-axis</td>
-<td>V</td>
+<td><span class="math inline">\(V\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(\delta\)</span></td>
 <td>Rotor angle</td>
-<td>rad</td>
+<td><span class="math inline">\(rad\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(\omega\)</span></td>
 <td>Electrical rotational speed</td>
-<td>rad/s</td>
+<td><span class="math inline">\(rad/s\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(T_m\)</span></td>
 <td>Mechanical torque</td>
-<td>Nm</td>
+<td><span class="math inline">\(Nm\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(T_{fw}\)</span></td>
 <td>Windage and friction torque</td>
-<td>m</td>
+<td><span class="math inline">\(Nm\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(Sat_d\)</span></td>
@@ -921,24 +929,46 @@ window.Quarto = {
 </section>
 <section id="equations" class="level3">
 <h3 class="anchored" data-anchor-id="equations">Equations</h3>
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-<div style="font-weight: bold;">
-Electric Dynamics Equations:
-</div>
-<p><span class="math display">\[ V_d = \frac{\omega}{\omega_s} E_d'' + I_q X_{qsat}'' - I_dR_a\]</span> <span class="math display">\[ V_q = \frac{\omega}{\omega_s} E_q'' - I_d X_{dsat}'' - I_qR_a\]</span> <span class="math display">\[ \frac{1}{\omega_s} \frac{d\Psi_0}{dt} = R_s I_0 + V_0\]</span> <span class="math display">\[ E''_q = E_{q1} + E_{q2} - I_d (X_d - X''_d) \]</span> <span class="math display">\[ E''_d = E_{d1} + E_{d2} + I_q (X_q - X''_q) \]</span> <span class="math display">\[ E'_q = E_{q1} + E_{q2} - \frac{X'_d - X''_d}{X_d - X''_d} E_{q2} - I_d (X_d - X'_d) \]</span> <span class="math display">\[ E'_d = E_{d1} + E_{d2} - \frac{X'_q - X''_q}{X_q - X''_q} E_{d2} + I_q (X_q - X'_q) \]</span> <span class="math display">\[ T''_{d0} \frac{dE''_q}{dt} = -Sat_d\frac{X'_d - X''_d}{X_d - X''_d} E_{q2} \]</span> <span class="math display">\[ T''_{q0} \frac{dE''_d}{dt} = -Sat_q\frac{X'_q - X''_q}{X_q - X''_q} E_{d2} \]</span> <span class="math display">\[ T'_{d0} \frac{dE'_q}{dt} = E_{fd} - Sat_dE_{q1} \]</span> <span class="math display">\[ T'_{q0} \frac{dE'_d}{dt} = -Sat_qE_{d1} \]</span></p>
-<div style="font-weight: bold;">
-Swing equations:
-</div>
-<p><span class="math display">\[ \frac{d\delta}{dt} = \omega - \omega_s\]</span> <span class="math display">\[ \frac{2H}{\omega_s} \frac{d\omega}{dt} = T_m - (\Psi_d I_q - \Psi_q I_d) - T_{fw}\]</span></p>
-<div style="font-weight: bold;">
-Electrical Torque Equations:
-</div>
-<p><span class="math display">\[ \psi_q = \psi_q'' - I_q X''_{qsat} = -E''_d - I_q X''_{qsat} \]</span> <span class="math display">\[ \psi_d = \psi_d'' - I_d X''_{dsat} = E''_q - I_d X''_{dsat} \]</span> <span class="math display">\[ T_{elec} = \psi_d I_q - \psi_q I_d \]</span></p>
-</div>
+<p><strong>Electric Dynamics Equations:</strong></p>
+<p><span class="math display">\[
+\begin{align}
+V_d = \frac{\omega}{\omega_s} E_d'' + I_q X_{qsat}'' - I_dR_a\\
+V_q = \frac{\omega}{\omega_s} E_q'' - I_d X_{dsat}'' - I_qR_a\\
+\frac{1}{\omega_s} \frac{d\Psi_0}{dt} = R_s I_0 + V_0\\
+E''_q = E_{q1} + E_{q2} - I_d (X_d - X''_d) \\
+E''_d = E_{d1} + E_{d2} + I_q (X_q - X''_q) \\
+E'_q = E_{q1} + E_{q2} - \frac{X'_d - X''_d}{X_d - X''_d} E_{q2} - I_d (X_d - X'_d) \\
+E'_d = E_{d1} + E_{d2} - \frac{X'_q - X''_q}{X_q - X''_q} E_{d2} + I_q (X_q - X'_q) \\
+T''_{d0} \frac{dE''_q}{dt} = -Sat_d\frac{X'_d - X''_d}{X_d - X''_d} E_{q2} \\
+T''_{q0} \frac{dE''_d}{dt} = -Sat_q\frac{X'_q - X''_q}{X_q - X''_q} E_{d2} \\
+T'_{d0} \frac{dE'_q}{dt} = E_{fd} - Sat_dE_{q1} \\
+T'_{q0} \frac{dE'_d}{dt} = -Sat_qE_{d1} \\
+\end{align}
+\]</span></p>
+<p><strong>Swing equations:</strong></p>
+<p><span class="math display">\[
+\begin{align}
+\frac{d\delta}{dt} = \omega - \omega_s\\
+\frac{2H}{\omega_s} \frac{d\omega}{dt} = T_m - (\Psi_d I_q - \Psi_q I_d) - T_{fw}\\
+\end{align}
+\]</span></p>
+<p><strong>Electrical Torque Equations:</strong></p>
+<p><span class="math display">\[
+\begin{align}
+\psi_q = \psi_q'' - I_q X''_{qsat} = -E''_d - I_q X''_{qsat} \\
+\psi_d = \psi_d'' - I_d X''_{dsat} = E''_q - I_d X''_{dsat} \\
+T_{elec} = \psi_d I_q - \psi_q I_d \\
+\end{align}
+\]</span></p>
 <p>where the following rearrangement can be done:</p>
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><span class="math display">\[ E_{q1} = E''_q + \left( E'_q - E''_q \right) \frac{X_d - X''_d}{X_d - X'_d} = \frac{X_d - X''_d}{X_d - X'_d} E'_q - \frac{X_d - X''_d}{X_d - X'_d} E''_q \]</span> <span class="math display">\[ E_{d1} = E''_d + \left( E'_d - E''_d \right) \frac{X_q - X''_q}{X_q - X'_q} = \frac{X_q - X''_q}{X_q - X'_q} E'_d - \frac{X_q - X''_q}{X_q - X'_q} E''_d \]</span> <span class="math display">\[ E_{q2} = -\left( E'_q - E''_q \right) \frac{X_d - X'_d}{X_d - X''_d} + I_d (X_d - X''_d) \]</span> <span class="math display">\[ E_{d2} = -\left( E'_d - E''_d \right) \frac{X_q - X'_q}{X_q - X''_q} - I_q (X_q - X''_q) \]</span></p>
-</div>
+<p><span class="math display">\[
+\begin{align}
+E_{q1} = E''_q + \left( E'_q - E''_q \right) \frac{X_d - X''_d}{X_d - X'_d} = \frac{X_d - X''_d}{X_d - X'_d} E'_q - \frac{X_d - X''_d}{X_d - X'_d} E''_q \\
+E_{d1} = E''_d + \left( E'_d - E''_d \right) \frac{X_q - X''_q}{X_q - X'_q} = \frac{X_q - X''_q}{X_q - X'_q} E'_d - \frac{X_q - X''_q}{X_q - X'_q} E''_d \\
+E_{q2} = -\left( E'_q - E''_q \right) \frac{X_d - X'_d}{X_d - X''_d} + I_d (X_d - X''_d) \\
+E_{d2} = -\left( E'_d - E''_d \right) \frac{X_q - X'_q}{X_q - X''_q} - I_q (X_q - X''_q) \\
+\end{align}
+\]</span></p>
 </section>
 </section>
 <section id="operational-principles" class="level2">
@@ -952,46 +982,64 @@ Electrical Torque Equations:
 <li><em>Exponential:</em> <span class="math display">\[ Sat(x) = Bx^A\]</span>. Used in BPA-IPF nad some specific models of PTI PSS/E and PowerWorld Simualtor.</li>
 </ul>
 <p>In this case, the variable will be the magnetic flux and, for the GENTPJ, the currents <span class="math inline">\(I_d\)</span> and <span class="math inline">\(I_q\)</span>.</p>
-<section id="diference-between-gentpf-and-gentpj" class="level4">
-<h4 class="anchored" data-anchor-id="diference-between-gentpf-and-gentpj">Diference between GENTPF and GENTPJ</h4>
-<p>The model presented has two different approaches to include the saturation, which results in two slightly different models, the GENTPF and the GENTPJ. The only difference is an additive term that models the effect of the field current. The following equations are used to calculate the saturation over the <em>q</em> and <em>d</em> axis:</p>
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><span class="math display">\[ Sat_d = 1 + Sat(\Psi_{ag} + K_{is}\sqrt(I_d^2 + I_q^2))\]</span> <span class="math display">\[ Sat_q = 1 + \frac{X_q}{X_d}Sat(\Psi_{ag} + K_{is}\sqrt(I_d^2 + I_q^2))\]</span></p>
-</div>
-<p>where <span class="math display">\[K_{is}\]</span> is a given parameter that models the stator current effect. In the GENTPF, <span class="math display">\[K_{is} = 0\]</span>, disregarding the effect to simplify the model, while the GENTPJ, with <span class="math display">\[K_{is} \ne 0\]</span>, is the more complete model and generally the one recommended using in transient stability studies.</p>
-<p>This saturation factor will be used to multiply the flux values or to divide the reactance values.</p>
 </section>
+<section id="difference-between-gentpf-and-gentpj" class="level3">
+<h3 class="anchored" data-anchor-id="difference-between-gentpf-and-gentpj">Difference between GENTPF and GENTPJ</h3>
+<p>The model presented has two different approaches to include the saturation, which results in two slightly different models, the GENTPF and the GENTPJ. The only difference is an additive term that models the effect of the field current. The following equations are used to calculate the saturation over the <em>q</em> and <em>d</em> axis:</p>
+<p><span class="math display">\[
+\begin{align}
+Sat_d = 1 + Sat(\Psi_{ag} + K_{is}\sqrt(I_d^2 + I_q^2))\\
+Sat_q = 1 + \frac{X_q}{X_d}Sat(\Psi_{ag} + K_{is}\sqrt(I_d^2 + I_q^2))\\
+\end{align}
+\]</span></p>
+<p>where <span class="math inline">\(K_{is}\)</span> is a given parameter that models the stator current effect. In the GENTPF, <span class="math inline">\(K_{is} = 0\)</span>, disregarding the effect to simplify the model, while the GENTPJ, with <span class="math inline">\(K_{is} \ne 0\)</span>, is the more complete model and generally the one recommended using in transient stability studies.</p>
+<p>This saturation factor will be used to multiply the flux values or to divide the reactance values.</p>
 </section>
 <section id="transformation-of-the-gensal-model" class="level3">
 <h3 class="anchored" data-anchor-id="transformation-of-the-gensal-model">Transformation of the GENSAL model</h3>
 <p>Starting form the GENSAL equations, the GENTPJ model is derived with detail in the PowerWorld document <a href="#3">[3]</a>. The most important aspects are covered in this section.</p>
-<section id="subtransient-reactances" class="level4">
-<h4 class="anchored" data-anchor-id="subtransient-reactances">Subtransient reactances</h4>
+</section>
+<section id="subtransient-reactances" class="level3">
+<h3 class="anchored" data-anchor-id="subtransient-reactances">Subtransient reactances</h3>
 <p>When adding saturation in the GENSAL model, it is necessary to set <span class="math display">\[X_d'' = X_q''\]</span> to avoid transient saliency and then having a simple circuit equation could be used to model the grid connection. It was convenient to simplify the models back in the days, but it did not model properly the real behavior of the synchronous machine.</p>
 <p>For the GENTPF/GENTPJ, generally <span class="math display">\[ X_d'' \ne X_q''\]</span>, which results in some more complex equations, but it allows to consider the impact of the transient saliency. The following expressions are used to calculate the saturated values of the reactances:</p>
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><span class="math display">\[ X_{dsat}'' = \frac{X_d'' - X_l}{Sat_d} + X_l \]</span> <span class="math display">\[ X_{qsat}'' = \frac{X_q'' - X_l}{Sat_q} + X_l \]</span></p>
-</div>
+<p><span class="math display">\[
+\begin{align}
+X_{dsat}'' = \frac{X_d'' - X_l}{Sat_d} + X_l \\
+X_{qsat}'' = \frac{X_q'' - X_l}{Sat_q} + X_l \\
+\end{align}
+\]</span></p>
 </section>
-<section id="network-interface-equations" class="level4">
-<h4 class="anchored" data-anchor-id="network-interface-equations">Network interface equations</h4>
+<section id="network-interface-equations" class="level3">
+<h3 class="anchored" data-anchor-id="network-interface-equations">Network interface equations</h3>
 <p>The following circuit equations were obtained in the GENSAL model:</p>
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><span class="math display">\[ \frac{1}{\omega_s} \frac{d\Psi_d}{dt} = R_s I_d + \frac{\omega}{\omega_s} \Psi_q + V_d\]</span> <span class="math display">\[ \frac{1}{\omega_s} \frac{d\Psi_q}{dt} = R_s I_q - \frac{\omega}{\omega_s} \Psi_d + V_q\]</span></p>
-</div>
+<p><span class="math display">\[
+\begin{align}
+\frac{1}{\omega_s} \frac{d\Psi_d}{dt} = R_s I_d + \frac{\omega}{\omega_s} \Psi_q + V_d\\
+\frac{1}{\omega_s} \frac{d\Psi_q}{dt} = R_s I_q - \frac{\omega}{\omega_s} \Psi_d + V_q\\
+\end{align}
+\]</span></p>
 <p>With proper transformations using the expressions for the fluxes, they can be rewritten as:</p>
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><span class="math display">\[ V_d = - R_s I_d +  X_q''I_q + E_d''\frac{\omega}{\omega_s}\]</span> <span class="math display">\[ V_q = - R_s I_q -  X_d''I_d + E_q''\frac{\omega}{\omega_s}\]</span></p>
-</div>
-<p>with <span class="math display">\[E_d'' = E'_d \frac{X_q'' - X_l}{X_q' - X_l} + \Psi_q'' \frac{X_q' - X_q"}{X_q' - X_l} \]</span>, and <span class="math display">\[E_q'' = E'_q \frac{X_d'' - X_l}{X_d' - X_l} + \Psi_d'' \frac{X_d' - X_d"}{X_d' - X_l} \]</span>, and where the scaling <span class="math display">\[\frac{\omega}{\omega_s}\]</span> is ommited for the subtransient reactances. As discussed for the GENSAL model, <span class="math display">\[X_d'' = X_q''\]</span>, which allows to compact the grid interface equations in a single equation:</p>
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><span class="math display">\[ V_d + jV_q = \frac{\omega}{\omega_s} (E_d'' + jE_q'') - (R_s + jX_d'') (I_d + jI_q) \]</span></p>
-</div>
+<p><span class="math display">\[
+\begin{align}
+V_d = - R_s I_d +  X_q''I_q + E_d''\frac{\omega}{\omega_s}\\
+V_q = - R_s I_q -  X_d''I_d + E_q''\frac{\omega}{\omega_s}\\
+\end{align}
+\]</span></p>
+<p>with <span class="math display">\[E_d'' = E'_d \frac{X_q'' - X_l}{X_q' - X_l} + \Psi_q'' \frac{X_q' - X_q"}{X_q' - X_l}\]</span>, and <span class="math display">\[E_q'' = E'_q \frac{X_d'' - X_l}{X_d' - X_l} + \Psi_d'' \frac{X_d' - X_d"}{X_d' - X_l}\]</span>, and where the scaling <span class="math inline">\(\frac{\omega}{\omega_s}\)</span> is ommited for the subtransient reactances. As discussed for the GENSAL model, <span class="math inline">\(X_d'' = X_q''\)</span>, which allows to compact the grid interface equations in a single equation:</p>
+<p><span class="math display">\[
+\begin{align}
+V_d + jV_q = \frac{\omega}{\omega_s} (E_d'' + jE_q'') - (R_s + jX_d'') (I_d + jI_q) \\
+\end{align}
+\]</span></p>
 <p>This is not doable in the GENTPJ model, since generally the subtransient reactances are not equal. In this case, the saturated values of the subtransient reactance are used:</p>
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><span class="math display">\[ V_d = \frac{\omega}{\omega_s} E_d'' + I_q X_{qsat}'' - I_dR_a\]</span> <span class="math display">\[ V_q = \frac{\omega}{\omega_s} E_q'' - I_d X_{dsat}'' - I_qR_a\]</span></p>
-</div>
-<p>Again, the frequency factor can be added to the term <span class="math display">\[I_q X_{qsat}''\]</span> and <span class="math display">\[I_d X_{dsat}''\]</span>, but it is commonly omitted in transient stability studies.</p>
+<p><span class="math display">\[
+\begin{align}
+V_d = \frac{\omega}{\omega_s} E_d'' + I_q X_{qsat}'' - I_dR_a\\
+V_q = \frac{\omega}{\omega_s} E_q'' - I_d X_{dsat}'' - I_qR_a\\
+\end{align}
+\]</span></p>
+<p>Again, the frequency factor can be added to the term <span class="math inline">\(I_q X_{qsat}''\)</span> and <span class="math inline">\(I_d X_{dsat}''\)</span>, but it is commonly omitted in transient stability studies.</p>
 <p>The following figure shows the block diagram for this GENTPJ model <a href="#3">[3]</a>:</p>
 <div id="fig-gentpj-blocks" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1003,7 +1051,6 @@ Figure&nbsp;1: Block diagram of the GENTPJ model
 </figcaption>
 </figure>
 </div>
-</section>
 </section>
 </section>
 <section id="open-source-implementations" class="level2">

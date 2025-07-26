@@ -708,47 +708,47 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math display">\[V_0\]</span></td>
+<td><span class="math inline">\(V_0\)</span></td>
 <td>Load Nominal voltage</td>
-<td><span class="math display">\[V\]</span></td>
+<td><span class="math inline">\(V\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[P_0\]</span></td>
+<td><span class="math inline">\(P_0\)</span></td>
 <td>Load Nominal active power</td>
-<td><span class="math display">\[W\]</span></td>
+<td><span class="math inline">\(W\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[Q_0\]</span></td>
+<td><span class="math inline">\(Q_0\)</span></td>
 <td>Load Nominal reactive power</td>
-<td><span class="math display">\[VAR\]</span></td>
+<td><span class="math inline">\(VAR\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[a_1\]</span></td>
+<td><span class="math inline">\(a_1\)</span></td>
 <td>Coefficient for active power quadratic term (Constant impedance load)</td>
 <td>Unitless</td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[a_2\]</span></td>
+<td><span class="math inline">\(a_2\)</span></td>
 <td>Coefficient for active power linear term (Constant current load)</td>
 <td>Unitless</td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[a_3\]</span></td>
+<td><span class="math inline">\(a_3\)</span></td>
 <td>Coefficient for active power constant term (Constant power load)</td>
 <td>Unitless</td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[a_4\]</span></td>
+<td><span class="math inline">\(a_4\)</span></td>
 <td>Coefficient for reactive power quadratic term (Constant impedance load)</td>
 <td>Unitless</td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[a_5\]</span></td>
+<td><span class="math inline">\(a_5\)</span></td>
 <td>Coefficient for reactive power linear term (Constant current load)</td>
 <td>Unitless</td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[a_6\]</span></td>
+<td><span class="math inline">\(a_6\)</span></td>
 <td>Coefficient for reactive power constant term (Constant power load)</td>
 <td>Unitless</td>
 </tr>
@@ -767,28 +767,31 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math display">\[V\]</span></td>
+<td><span class="math inline">\(V\)</span></td>
 <td>Phase-to-ground Bus Voltage</td>
-<td><span class="math display">\[V\]</span></td>
+<td><span class="math inline">\(V\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[P\]</span></td>
+<td><span class="math inline">\(P\)</span></td>
 <td>Load Active power</td>
-<td><span class="math display">\[W\]</span></td>
+<td><span class="math inline">\(W\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[Q\]</span></td>
+<td><span class="math inline">\(Q\)</span></td>
 <td>Load Reactive power</td>
-<td><span class="math display">\[VAR\]</span></td>
+<td><span class="math inline">\(VAR\)</span></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="system-of-equations" class="level3">
 <h3 class="anchored" data-anchor-id="system-of-equations">System of equations</h3>
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><span class="math display">\[P = P_0 [a_1 (\frac{V}{V_0})^{2} + a_2 \frac{V}{V_0} + a_3]\]</span> <span class="math display">\[Q = Q_0 [a_4 (\frac{V}{V_0})^{2} + a_5 \frac{V}{V_0} + a_6]\]</span></p>
-</div>
+<p><span class="math display">\[
+\begin{align}
+P = P_0 [a_1 (\frac{V}{V_0})^{2} + a_2 \frac{V}{V_0} + a_3] \\
+Q = Q_0 [a_4 (\frac{V}{V_0})^{2} + a_5 \frac{V}{V_0} + a_6] \\
+\end{align}
+\]</span></p>
 </section>
 </section>
 <section id="operational-principles" class="level2">
@@ -800,10 +803,15 @@ window.Quarto = {
 <li>Constant power load: <span class="math display">\[S_{P} = P + jQ\]</span></li>
 </ul>
 <p>The total terms of power can be described as a function of the voltage <span class="math display">\[V\]</span> of the bus where the load is connected by the following weighted polynomial <a href="#1">[1]</a><a href="#3">[3]</a>:</p>
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><span class="math display">\[P = P_0 [a_1 (\frac{V}{V_0})^{2} + a_2 \frac{V}{V_0} + a_3] \]</span> <span class="math display">\[Q = Q_0 [a_4 (\frac{V}{V_0})^{2} + a_5 \frac{V}{V_0} + a_6] \]</span> <span class="math display">\[a_1 + a_2 + a_3 = 1\]</span> <span class="math display">\[a_4 + a_5 + a_6 = 1\]</span></p>
-</div>
-<p>Where the coefficients <span class="math display">\[a_i\]</span> are the weights of the ZIP model, and <span class="math display">\[V_0\]</span>, <span class="math display">\[P_0\]</span> and <span class="math display">\[Q_0\]</span> are the nominal voltage, power and reactive power of the load, respectively.</p>
+<p><span class="math display">\[
+\begin{align}
+P = P_0 [a_1 (\frac{V}{V_0})^{2} + a_2 \frac{V}{V_0} + a_3] \\
+Q = Q_0 [a_4 (\frac{V}{V_0})^{2} + a_5 \frac{V}{V_0} + a_6] \\
+a_1 + a_2 + a_3 = 1\\
+a_4 + a_5 + a_6 = 1\\
+\end{align}
+\]</span></p>
+<p>Where the coefficients <span class="math inline">\(a_i\)</span> are the weights of the ZIP model, and <span class="math inline">\(V_0\)</span>, <span class="math inline">\(P_0\)</span> and <span class="math inline">\(Q_0\)</span> are the nominal voltage, power and reactive power of the load, respectively.</p>
 </section>
 <section id="open-source-implementations" class="level2">
 <h2 class="anchored" data-anchor-id="open-source-implementations">Open source implementations</h2>

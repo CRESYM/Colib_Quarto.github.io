@@ -734,14 +734,14 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td>omegaPu</td>
+<td><span class="math inline">\(\omega_{pu}\)</span></td>
 <td>measured angular frequency</td>
-<td>pu (base omegaNom)</td>
+<td>pu (base <span class="math inline">\(\omega_{Nom}\)</span>)</td>
 </tr>
 <tr class="even">
-<td>PGenPu</td>
+<td><span class="math inline">\(P_{GenPu}\)</span></td>
 <td>active power</td>
-<td>pu (base SnRef)</td>
+<td>pu (base <span class="math inline">\(S_{nRef}\)</span>)</td>
 </tr>
 </tbody>
 </table>
@@ -764,69 +764,73 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td>A1</td>
+<td><span class="math inline">\(A1\)</span></td>
 <td>First coefficient of notch filter</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="even">
-<td>A2</td>
+<td><span class="math inline">\(A2\)</span></td>
 <td>Second coefficient of notch filter</td>
-<td><span class="math display">\[s ^ 2\]</span></td>
+<td><span class="math inline">\(s ^ 2\)</span></td>
 </tr>
 <tr class="odd">
-<td>Ks</td>
+<td><span class="math inline">\(Ks\)</span></td>
 <td>Gain of power system stabilizer</td>
-<td>pu</td>
+<td><span class="math inline">\(pu\)</span></td>
 </tr>
 <tr class="even">
-<td>t1</td>
+<td><span class="math inline">\(t1\)</span></td>
 <td>First lead time constant</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="odd">
-<td>t2</td>
+<td><span class="math inline">\(t2\)</span></td>
 <td>First lag time constant</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="even">
-<td>t4</td>
+<td><span class="math inline">\(t4\)</span></td>
 <td>Second lag time constant</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="odd">
-<td>t5</td>
+<td><span class="math inline">\(t5\)</span></td>
 <td>Washout time constant</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="even">
-<td>t6</td>
+<td><span class="math inline">\(t6\)</span></td>
 <td>Transducer time constant</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="odd">
-<td>VPssMaxPu</td>
+<td><span class="math inline">\(VPssMaxPu\)</span></td>
 <td>Maximum voltage output of power system stabilizer</td>
-<td>pu (base UNom)</td>
+<td>pu (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="even">
-<td>VPssMinPu</td>
+<td><span class="math inline">\(VPssMinPu\)</span></td>
 <td>Minimum voltage output of power system stabilizer</td>
-<td>pu (base UNom)</td>
+<td>pu (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td>SNom</td>
+<td><span class="math inline">\(S_{Nom}\)</span></td>
 <td>Nominal apparent power</td>
-<td>MVA (only if PGenPu is the input signal)</td>
+<td>MVA (only if <span class="math inline">\(P_{GenPu}\)</span> is the input signal)</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="model-diagram" class="level2">
 <h2 class="anchored" data-anchor-id="model-diagram">Model diagram</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="PSS1A.drawio.svg" class="img-fluid figure-img"></p>
-<figcaption>PSS1A</figcaption>
+<div id="fig-PSS1A" class="quarto-float quarto-figure quarto-figure-center anchored" alt="PSS1A model diagram">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-PSS1A-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="PSS1A.drawio.svg" class="img-fluid figure-img" alt="PSS1A model diagram">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-PSS1A-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: PSS1A
+</figcaption>
 </figure>
 </div>
 </section>

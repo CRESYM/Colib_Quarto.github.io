@@ -89,6 +89,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../../styles.css">
 </head>
@@ -696,6 +725,11 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="model-inputs-and-output">Model inputs and output</h2>
 <p>The input variables are :</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 45%">
+<col style="width: 19%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Variable</th>
@@ -705,23 +739,23 @@ div.csl-indent {
 </thead>
 <tbody>
 <tr class="odd">
-<td>omegaPu</td>
+<td><span class="math inline">\(\omega_{pu}\)</span></td>
 <td>measured angular frequency</td>
-<td>pu (base omegaNom)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(\omega_{Nom}\)</span>)</td>
 </tr>
 <tr class="even">
-<td>omegaRefPu</td>
+<td><span class="math inline">\(\omega_{RefPu}\)</span></td>
 <td>reference angular frequency</td>
-<td>pu (base omegaNom)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(\omega_{Nom}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td>PGenPu</td>
+<td><span class="math inline">\(P_{GenPu}\)</span></td>
 <td>active power</td>
-<td>pu (base SnRef)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(S_{nRef}\)</span>)</td>
 </tr>
 </tbody>
 </table>
-<p>The output signal is VPssPu in pu (base UNom).</p>
+<p>The output signal is <span class="math inline">\(VPssPu\)</span> in <span class="math inline">\(pu\)</span> (base <span class="math inline">\(U_{Nom}\)</span>).</p>
 </section>
 <section id="model-parameters" class="level2">
 <h2 class="anchored" data-anchor-id="model-parameters">Model parameters</h2>
@@ -740,169 +774,173 @@ div.csl-indent {
 </thead>
 <tbody>
 <tr class="odd">
-<td>KOmega</td>
+<td><span class="math inline">\(K_{\Omega}\)</span></td>
 <td>Coefficient applied to angular frequency</td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td>KOmegaRef</td>
+<td><span class="math inline">\(K_{\Omega Ref}\)</span></td>
 <td>Coefficient applied to reference angular frequency</td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td>K0</td>
+<td><span class="math inline">\(K_{0}\)</span></td>
 <td>Gain of first integrator input</td>
-<td>pu</td>
+<td><span class="math inline">\(pu\)</span></td>
 </tr>
 <tr class="even">
-<td>K1</td>
+<td><span class="math inline">\(K_{1}\)</span></td>
 <td>Gain of first integrator output</td>
-<td>pu</td>
+<td><span class="math inline">\(pu\)</span></td>
 </tr>
 <tr class="odd">
-<td>K2</td>
+<td><span class="math inline">\(K_{2}\)</span></td>
 <td>Gain of second integrator output</td>
-<td>pu</td>
+<td><span class="math inline">\(pu\)</span></td>
 </tr>
 <tr class="even">
-<td>K3</td>
+<td><span class="math inline">\(K_{3}\)</span></td>
 <td>Gain of third integrator output</td>
-<td>pu</td>
+<td><span class="math inline">\(pu\)</span></td>
 </tr>
 <tr class="odd">
-<td>K4</td>
+<td><span class="math inline">\(K_{4}\)</span></td>
 <td>Gain of fourth integrator output</td>
-<td>pu</td>
+<td><span class="math inline">\(pu\)</span></td>
 </tr>
 <tr class="even">
-<td>Ki3</td>
+<td><span class="math inline">\(K_{i3}\)</span></td>
 <td>Gain of third integrator</td>
-<td>pu</td>
+<td><span class="math inline">\(pu\)</span></td>
 </tr>
 <tr class="odd">
-<td>Ki4</td>
+<td><span class="math inline">\(K_{i4}\)</span></td>
 <td>Gain of fourth integrator</td>
-<td>pu</td>
+<td><span class="math inline">\(pu\)</span></td>
 </tr>
 <tr class="even">
-<td>Ks</td>
+<td><span class="math inline">\(K_{s}\)</span></td>
 <td>Gain of power system stabilizer</td>
-<td>pu</td>
+<td><span class="math inline">\(pu\)</span></td>
 </tr>
 <tr class="odd">
-<td>Ks1</td>
+<td><span class="math inline">\(K_{s1}\)</span></td>
 <td>Gain of active power branch</td>
-<td>pu</td>
+<td><span class="math inline">\(pu\)</span></td>
 </tr>
 <tr class="even">
-<td>Ks2</td>
+<td><span class="math inline">\(K_{s2}\)</span></td>
 <td>Gain of angular frequency branch</td>
-<td>pu</td>
+<td><span class="math inline">\(pu\)</span></td>
 </tr>
 <tr class="odd">
-<td>MAcc</td>
+<td><span class="math inline">\(M_{Acc}\)</span></td>
 <td>Gain of angular velocity</td>
-<td>pu</td>
+<td><span class="math inline">\(pu\)</span></td>
 </tr>
 <tr class="even">
-<td>OmegaMaxPu</td>
+<td><span class="math inline">\(\Omega_{MaxPu}\)</span></td>
 <td>Maximum angular velocity</td>
-<td>pu (base omegaNom)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(\omega_{Nom}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td>OmegaMinPu</td>
+<td><span class="math inline">\(\Omega_{MinPu}\)</span></td>
 <td>Minimum angular velocity</td>
-<td>pu (base omegaNom)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(\omega_{Nom}\)</span>)</td>
 </tr>
 <tr class="even">
-<td>PGenMaxPu</td>
+<td><span class="math inline">\(P_{GenMaxPu}\)</span></td>
 <td>Maximum active power</td>
-<td>pu (base SNom) (generator convention)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(S_{Nom}\)</span>) (generator convention)</td>
 </tr>
 <tr class="odd">
-<td>PGenMinPu</td>
+<td><span class="math inline">\(P_{GenMinPu}\)</span></td>
 <td>Minimum active power</td>
-<td>pu (base SNom) (generator convention)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(S_{Nom}\)</span>) (generator convention)</td>
 </tr>
 <tr class="even">
-<td>PPssOffPu</td>
+<td><span class="math inline">\(PPssOffPu\)</span></td>
 <td>Lower active power threshold for PSS activation</td>
-<td>pu (base SNom) (generator convention)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(S_{Nom}\)</span>) (generator convention)</td>
 </tr>
 <tr class="odd">
-<td>PPssOnPu</td>
+<td><span class="math inline">\(PPssOnPu\)</span></td>
 <td>Higher active power threshold for PSS activation</td>
-<td>pu (base SNom) (generator convention)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(S_{Nom}\)</span>) (generator convention)</td>
 </tr>
 <tr class="even">
-<td>t1</td>
+<td><span class="math inline">\(t1\)</span></td>
 <td>Transducer time constant (active power branch)</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="odd">
-<td>t2</td>
+<td><span class="math inline">\(t2\)</span></td>
 <td>Transducer time constant (angular frequency branch)</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="even">
-<td>t3</td>
+<td><span class="math inline">\(t3\)</span></td>
 <td>First order time constant (active power branch)</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="odd">
-<td>t4</td>
+<td><span class="math inline">\(t4\)</span></td>
 <td>Derivative time constant (angular frequency branch)</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="even">
-<td>tD</td>
+<td><span class="math inline">\(tD\)</span></td>
 <td>Washout time constant</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="odd">
-<td>tI1</td>
+<td><span class="math inline">\(tI1\)</span></td>
 <td>Time constant of first integrator,</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="even">
-<td>tI2</td>
+<td><span class="math inline">\(tI2\)</span></td>
 <td>Time constant of second integrator,</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="odd">
-<td>tI3</td>
+<td><span class="math inline">\(tI3\)</span></td>
 <td>Time constant of third integrator,</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="even">
-<td>tI4</td>
+<td><span class="math inline">\(tI4\)</span></td>
 <td>Time constant of fourth integrator,</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="odd">
-<td>VPssMaxPu</td>
+<td><span class="math inline">\(VPssMaxPu\)</span></td>
 <td>Maximum output voltage of power system stabilizer</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="even">
-<td>VPssMinPu</td>
+<td><span class="math inline">\(VPssMinPu\)</span></td>
 <td>Minimum output voltage of power system stabilizer</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td>SNom</td>
+<td><span class="math inline">\(S_{Nom}\)</span></td>
 <td>Nominal apparent power</td>
-<td>MVA</td>
+<td><span class="math inline">\(MVA\)</span></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="model-diagram" class="level2">
 <h2 class="anchored" data-anchor-id="model-diagram">Model diagram</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="PSS6C.drawio.svg" class="img-fluid figure-img"></p>
-<figcaption>PSS6C</figcaption>
+<div id="fig-PSS6C" class="quarto-float quarto-figure quarto-figure-center anchored" alt="PSS6C model diagram">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-PSS6C-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="PSS6C.drawio.svg" class="img-fluid figure-img" alt="PSS6C model diagram">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-PSS6C-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: PSS6C
+</figcaption>
 </figure>
 </div>
 </section>
