@@ -22,7 +22,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -675,8 +695,8 @@ window.Quarto = {
 <p>This article is incomplete, some sections must be written.</p>
 <section id="context" class="level2">
 <h2 class="anchored" data-anchor-id="context">Context</h2>
-<p>This modified IEEE DC2A direct current commutator exciter with speed input, one more leg block in feedback loop and without underexcitation limiters (UEL) inputs. DC type 2 excitation system model with added speed multiplier, added lead-lag, and voltage-dependent limits. D2CA model represents represent field-controlled dc commutator exciters with continuously acting voltage regulators having supplies obtained from the generator or auxiliary bus. It differs from the Type DC1A model only in the voltage regulator output limits, which are now proportional to terminal voltage <span class="math display">\[V_T\]</span>. It is representative of solid-state replacements for various forms of older mechanical and rotating amplifier regulating equipment connected to dc commutator exciters.</p>
-<p>This voltage regulator model appears under the name ExcDC2A in {% cite IEEEExciterModels2016 %}, the Common Information Model for Dynamics - Standard Models (2012) {% cite CIMStandardModels2012 %}, and in the IEC 61970-302:2024 version {% cite IECCIMForDynamics2024 %}.</p>
+<p>This modified IEEE DC2A direct current commutator exciter with speed input, one more leg block in feedback loop and without underexcitation limiters (UEL) inputs. DC type 2 excitation system model with added speed multiplier, added lead-lag, and voltage-dependent limits. D2CA model represents represent field-controlled dc commutator exciters with continuously acting voltage regulators having supplies obtained from the generator or auxiliary bus. It differs from the Type DC1A model only in the voltage regulator output limits, which are now proportional to terminal voltage <span class="math inline">\(V_T\)</span>. It is representative of solid-state replacements for various forms of older mechanical and rotating amplifier regulating equipment connected to dc commutator exciters.</p>
+<p>This voltage regulator model appears under the name ExcDC2A in <span class="citation" data-cites="IEEEExciterModels2016">(<a href="#ref-IEEEExciterModels2016" role="doc-biblioref">Electrical and Engineers 2016</a>)</span>, the Common Information Model for Dynamics - Standard Models (2012) <span class="citation" data-cites="CIMStandardModels2012">(<a href="#ref-CIMStandardModels2012" role="doc-biblioref">Commission 2012</a>)</span>, and in the IEC 61970-302:2024 version <span class="citation" data-cites="IECCIMForDynamics2024">(<a href="#ref-IECCIMForDynamics2024" role="doc-biblioref">Commission 2024</a>)</span>.</p>
 </section>
 <section id="model-use-assumptions-validity-domain-and-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
@@ -700,37 +720,42 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td>UsPu</td>
+<td><span class="math inline">\(U_s\)</span></td>
 <td>measured stator voltage</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="even">
-<td>UsRefPu</td>
+<td><span class="math inline">\(U_{s,Ref}\)</span></td>
 <td>reference stator voltage</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td>UOelPu (optional)</td>
+<td><span class="math inline">\(U_{Oel}\)</span> (optional)</td>
 <td>output voltage of overexcitation limiter</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="even">
-<td>UPssPu (optional)</td>
+<td><span class="math inline">\(U_{Pss}\)</span> (optional)</td>
 <td>output voltage of power system stabilizer</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td>UUelPu (optional)</td>
+<td><span class="math inline">\(U_{Uel}\)</span> (optional)</td>
 <td>output voltage of underexcitation limiter</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 </tbody>
 </table>
-<p>The output signal is EfdPu, the excitation voltage in pu (user-selected base voltage).</p>
+<p>The output signal is <span class="math inline">\(E_{fd}\)</span>, the excitation voltage in <span class="math inline">\(\text{pu}\)</span> (user-selected base voltage).</p>
 </section>
 <section id="model-parameters" class="level2">
 <h2 class="anchored" data-anchor-id="model-parameters">Model parameters</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 45%">
+<col style="width: 19%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -740,89 +765,93 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td>AEx</td>
+<td><span class="math inline">\(A_{Ex}\)</span></td>
 <td>Gain of saturation function</td>
-<td>pu</td>
+<td><span class="math inline">\(\text{pu}\)</span></td>
 </tr>
 <tr class="even">
-<td>BEx</td>
+<td><span class="math inline">\(B_{Ex}\)</span></td>
 <td>Exponential coefficient of saturation function</td>
-<td>-</td>
+<td><span class="math inline">\(-\)</span></td>
 </tr>
 <tr class="odd">
-<td>EfdMinPu</td>
+<td><span class="math inline">\(E_{fd,Min}\)</span></td>
 <td>Minimum excitation voltage</td>
-<td>pu (user-selected base voltage)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (user-selected base voltage)</td>
 </tr>
 <tr class="even">
-<td>Ka</td>
+<td><span class="math inline">\(K_a\)</span></td>
 <td>Voltage regulator gain</td>
-<td>pu</td>
+<td><span class="math inline">\(\text{pu}\)</span></td>
 </tr>
 <tr class="odd">
-<td>Ke</td>
+<td><span class="math inline">\(K_e\)</span></td>
 <td>Exciter field proportional constant</td>
-<td>pu</td>
+<td><span class="math inline">\(\text{pu}\)</span></td>
 </tr>
 <tr class="even">
-<td>Kf</td>
+<td><span class="math inline">\(K_f\)</span></td>
 <td>Exciter rate feedback gain</td>
-<td>pu</td>
+<td><span class="math inline">\(\text{pu}\)</span></td>
 </tr>
 <tr class="odd">
-<td>tA</td>
+<td><span class="math inline">\(t_A\)</span></td>
 <td>Voltage regulator time constant</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="even">
-<td>tB</td>
+<td><span class="math inline">\(t_B\)</span></td>
 <td>Voltage regulator lag time constant</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="odd">
-<td>tC</td>
+<td><span class="math inline">\(t_C\)</span></td>
 <td>Voltage regulator lead time constant</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="even">
-<td>tE</td>
+<td><span class="math inline">\(t_E\)</span></td>
 <td>Exciter field time constant</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="odd">
-<td>tF1</td>
+<td><span class="math inline">\(t_{F1}\)</span></td>
 <td>Feedback lead time constant</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="even">
-<td>tF2</td>
+<td><span class="math inline">\(t_{F2}\)</span></td>
 <td>Feedback lag time constant</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="odd">
-<td>tR</td>
+<td><span class="math inline">\(t_R\)</span></td>
 <td>Stator voltage filter time constant</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="even">
-<td>VrMaxPu</td>
+<td><span class="math inline">\(V_{r,Max}\)</span></td>
 <td>Maximum field voltage</td>
-<td>pu (user-selected base voltage)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (user-selected base voltage)</td>
 </tr>
 <tr class="odd">
-<td>VrMinPu</td>
+<td><span class="math inline">\(V_{r,Min}\)</span></td>
 <td>Minimum field voltage</td>
-<td>pu (user-selected base voltage)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (user-selected base voltage)</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="model-diagram" class="level2">
 <h2 class="anchored" data-anchor-id="model-diagram">Model diagram</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="IEEEX2.drawio.svg" class="img-fluid figure-img"></p>
-<figcaption>IEEEX2</figcaption>
+<div id="fig-ieeex2-diagram" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ieeex2-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="IEEEX2.drawio.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ieeex2-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: IEEEX2 block diagram
+</figcaption>
 </figure>
 </div>
 </section>
@@ -854,7 +883,17 @@ window.Quarto = {
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
-<p>{% bibliography –cited –file references %}</p>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-CIMStandardModels2012" class="csl-entry" role="listitem">
+Commission, International Electrotechnical. 2012. <span>“Common Information Model (CIM) Standard Models 2012.”</span> <a href="https://doi.org/10.3403/30160442">https://doi.org/10.3403/30160442</a>.
+</div>
+<div id="ref-IECCIMForDynamics2024" class="csl-entry" role="listitem">
+———. 2024. <span>“Energy Management System Application Program Interface (EMS-API) Part 302: Common Information Model (CIM) Dynamics.”</span> <em>IEC 61970-302</em>. <a href="https://webstore.iec.ch/preview/info_iec61970-302%7Bed2.0%7Db.pdf">https://webstore.iec.ch/preview/info_iec61970-302%7Bed2.0%7Db.pdf</a>.
+</div>
+<div id="ref-IEEEExciterModels2016" class="csl-entry" role="listitem">
+Electrical, The Institute of, and Electronics Engineers. 2016. <span>“IEEE Recommended Practice for Excitation System Models for Power System Stability Studies.”</span> <em>IEEE Std 421.5-2016</em>. <a href="https://home.engineering.iastate.edu/~jdm/ee554/IEEEstd421.5-2016RecPracExSysModsPwrSysStabStudies.pdf">https://home.engineering.iastate.edu/~jdm/ee554/IEEEstd421.5-2016RecPracExSysModsPwrSysStabStudies.pdf</a>.
+</div>
+</div>
 
 
 </section>

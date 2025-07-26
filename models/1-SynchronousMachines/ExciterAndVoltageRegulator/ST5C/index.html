@@ -22,7 +22,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -69,6 +88,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../../styles.css">
 </head>
@@ -652,7 +700,7 @@ ul.task-list li input[type="checkbox"] {
 <p>This article is incomplete, some sections must be written.</p>
 <section id="context" class="level2">
 <h2 class="anchored" data-anchor-id="context">Context</h2>
-<p>This voltage regulator model first appeared in the IEEE Std 421.5-2016 {% cite IEEEExciterModels2016 %}. It has been reproduced identically in the IEC 61970-302:2024 version {% cite IECCIMForDynamics2024 %}. In the previous standard version (2005), its predecessor model was called ST5B. Compared to ST5B, ST5C has additional options for connecting OEL and UEL inputs.</p>
+<p>This voltage regulator model first appeared in the IEEE Std 421.5-2016 <span class="citation" data-cites="IEEEExciterModels2016">[@IEEEExciterModels2016]</span>. It has been reproduced identically in the IEC 61970-302:2024 version <span class="citation" data-cites="IECCIMForDynamics2024">[@IECCIMForDynamics2024]</span>. In the previous standard version (2005), its predecessor model was called ST5B. Compared to ST5B, ST5C has additional options for connecting OEL and UEL inputs.</p>
 </section>
 <section id="model-use-assumptions-validity-domain-and-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
@@ -676,48 +724,48 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>IrPu</td>
+<td><span class="math inline">\(I_r\)</span></td>
 <td>rotor current</td>
-<td>pu (base SNom, user-selected base voltage)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(S_{Nom}\)</span>, user-selected base voltage)</td>
 </tr>
 <tr class="even">
-<td>UsPu</td>
+<td><span class="math inline">\(U_s\)</span></td>
 <td>measured stator voltage</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td>UsRefPu</td>
+<td><span class="math inline">\(U_{s,Ref}\)</span></td>
 <td>reference stator voltage</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="even">
-<td>UOelPu (optional)</td>
+<td><span class="math inline">\(U_{Oel}\)</span> (optional)</td>
 <td>output voltage of overexcitation limiter</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td>UPssPu (optional)</td>
+<td><span class="math inline">\(U_{Pss}\)</span> (optional)</td>
 <td>output voltage of power system stabilizer</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="even">
-<td>USclOelPu (optional)</td>
+<td><span class="math inline">\(U_{Scl,Oel}\)</span> (optional)</td>
 <td>output voltage of stator current overexcitation limiter</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td>USclUelPu (optional)</td>
+<td><span class="math inline">\(U_{Scl,Uel}\)</span> (optional)</td>
 <td>output voltage of stator current underexcitation limiter</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="even">
-<td>UUelPu (optional)</td>
+<td><span class="math inline">\(U_{Uel}\)</span> (optional)</td>
 <td>output voltage of underexcitation limiter</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 </tbody>
 </table>
-<p>The output signal is EfdPu, the excitation voltage in pu (user-selected base voltage).</p>
+<p>The output signal is <span class="math inline">\(E_{fd}\)</span>, the excitation voltage in <span class="math inline">\(\text{pu}\)</span> (user-selected base voltage).</p>
 </section>
 <section id="model-parameters" class="level2">
 <h2 class="anchored" data-anchor-id="model-parameters">Model parameters</h2>
@@ -736,119 +784,123 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>Kc</td>
-<td>Rectifier loading factor proportional to commutating reactance,</td>
-<td>pu</td>
+<td><span class="math inline">\(K_c\)</span></td>
+<td>Rectifier loading factor proportional to commutating reactance</td>
+<td><span class="math inline">\(\text{pu}\)</span></td>
 </tr>
 <tr class="even">
-<td>Kr</td>
-<td>Gain of voltage after overexcitation and underexcitation limitations,</td>
-<td>pu</td>
+<td><span class="math inline">\(K_r\)</span></td>
+<td>Gain of voltage after overexcitation and underexcitation limitations</td>
+<td><span class="math inline">\(\text{pu}\)</span></td>
 </tr>
 <tr class="odd">
-<td>PositionOel</td>
+<td><span class="math inline">\(\text{PositionOel}\)</span></td>
 <td>Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input</td>
-<td>-</td>
+<td><span class="math inline">\(-\)</span></td>
 </tr>
 <tr class="even">
-<td>PositionScl</td>
+<td><span class="math inline">\(\text{PositionScl}\)</span></td>
 <td>Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input</td>
-<td>-</td>
+<td><span class="math inline">\(-\)</span></td>
 </tr>
 <tr class="odd">
-<td>PositionUel</td>
+<td><span class="math inline">\(\text{PositionUel}\)</span></td>
 <td>Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input</td>
-<td>-</td>
+<td><span class="math inline">\(-\)</span></td>
 </tr>
 <tr class="even">
-<td>t1</td>
+<td><span class="math inline">\(t_1\)</span></td>
 <td>Inverse timing current constant</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="odd">
-<td>tB1</td>
+<td><span class="math inline">\(t_{B1}\)</span></td>
 <td>Second lag time constant</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="even">
-<td>tB2</td>
+<td><span class="math inline">\(t_{B2}\)</span></td>
 <td>First lag time constant</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="odd">
-<td>tC1</td>
+<td><span class="math inline">\(t_{C1}\)</span></td>
 <td>Second lead time constant</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="even">
-<td>tC2</td>
+<td><span class="math inline">\(t_{C2}\)</span></td>
 <td>First lead time constant</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="odd">
-<td>tOB1</td>
+<td><span class="math inline">\(t_{OB1}\)</span></td>
 <td>Second lag time constant (overexcitation limitation)</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="even">
-<td>tOB2</td>
+<td><span class="math inline">\(t_{OB2}\)</span></td>
 <td>First lag time constant (overexcitation limitation)</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="odd">
-<td>tOC1</td>
+<td><span class="math inline">\(t_{OC1}\)</span></td>
 <td>Second lead time constant (overexcitation limitation)</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="even">
-<td>tOC2</td>
+<td><span class="math inline">\(t_{OC2}\)</span></td>
 <td>First lead time constant (overexcitation limitation)</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="odd">
-<td>tR</td>
+<td><span class="math inline">\(t_R\)</span></td>
 <td>Stator voltage filter time constant</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="even">
-<td>tUB1</td>
+<td><span class="math inline">\(t_{UB1}\)</span></td>
 <td>Second lag time constant (underexcitation limitation)</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="odd">
-<td>tUB2</td>
+<td><span class="math inline">\(t_{UB2}\)</span></td>
 <td>First lag time constant (underexcitation limitation)</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="even">
-<td>tUC1</td>
+<td><span class="math inline">\(t_{UC1}\)</span></td>
 <td>Second lead time constant (underexcitation limitation)</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="odd">
-<td>tUC2</td>
+<td><span class="math inline">\(t_{UC2}\)</span></td>
 <td>First lead time constant (underexcitation limitation)</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="even">
-<td>VrMaxPu</td>
+<td><span class="math inline">\(V_{r,Max}\)</span></td>
 <td>Maximum field voltage</td>
-<td>pu (user-selected base voltage)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (user-selected base voltage)</td>
 </tr>
 <tr class="odd">
-<td>VrMinPu</td>
+<td><span class="math inline">\(V_{r,Min}\)</span></td>
 <td>Minimum field voltage</td>
-<td>pu (user-selected base voltage)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (user-selected base voltage)</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="model-diagram" class="level2">
 <h2 class="anchored" data-anchor-id="model-diagram">Model diagram</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="ST5C.drawio.svg" class="img-fluid figure-img"></p>
-<figcaption>ST5C</figcaption>
+<div id="fig-st5c-diagram" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-st5c-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="ST5C.drawio.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-st5c-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: ST5C block diagram
+</figcaption>
 </figure>
 </div>
 </section>
@@ -888,7 +940,9 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
-<p>{% bibliography –cited –file references %}</p>
+<div id="refs" role="list">
+
+</div>
 
 
 </section>

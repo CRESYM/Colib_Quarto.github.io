@@ -22,7 +22,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -679,13 +698,13 @@ window.Quarto = {
 <h1>AcRotatingExciter model</h1>
 <section id="context" class="level2">
 <h2 class="anchored" data-anchor-id="context">Context</h2>
-<p>This ac rotating exciter with non-controlled rectifiers has been presented in details in {% cite Ferguson1960 %} and {% cite Gayek1964 %}.</p>
-<p>This model is included in the type AC (alternator-supplied rectifier) voltage regulator models described in the IEEE Std 421.5-2016 {% cite IEEEExciterModels2016 %}, specifically those named AC.C (AC1C, AC6C, etc.). Compared to the first standard version (1992), the models AC.B (introduced in the second standard version of 2005) and AC.C have a variable upper limit for the limited integrator.</p>
+<p>This ac rotating exciter with non-controlled rectifiers has been presented in details in <span class="citation" data-cites="Ferguson1960">[@Ferguson1960]</span> and <span class="citation" data-cites="Gayek1964">[@Gayek1964]</span>.</p>
+<p>This model is included in the type AC (alternator-supplied rectifier) voltage regulator models described in the IEEE Std 421.5-2016 <span class="citation" data-cites="IEEEExciterModels2016">[@IEEEExciterModels2016]</span>, specifically those named AC.C (AC1C, AC6C, etc.). Compared to the first standard version (1992), the models AC.B (introduced in the second standard version of 2005) and AC.C have a variable upper limit for the limited integrator.</p>
 </section>
 <section id="model-use-assumptions-validity-domain-and-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
-<p>This model is satisfactory for large scale simulations. However, if this model is used to design phase lead networks for power system stabilizers, and the local mode is close to 3 Hz or higher, a more detailed treatment of the ac rotating exciter may be needed. Saturation is taken into account with <span class="math display">\[S_E(V_E)\]</span></p>
-<p>The demagnetizing effect of load current <span class="math display">\[I_{FD}\]</span> on the exciter alternator output voltage <span class="math display">\[V_E\]</span> is accounted for in the feedback path that includes the demagnetization constant <span class="math display">\[K_D\]</span>. This constant depends on of the exciter alternator synchronous and transient reactances.</p>
+<p>This model is satisfactory for large scale simulations. However, if this model is used to design phase lead networks for power system stabilizers, and the local mode is close to 3 Hz or higher, a more detailed treatment of the ac rotating exciter may be needed. Saturation is taken into account with <span class="math inline">\(S_E(V_E)\)</span></p>
+<p>The demagnetizing effect of load current <span class="math inline">\(I_{FD}\)</span> on the exciter alternator output voltage <span class="math inline">\(V_E\)</span> is accounted for in the feedback path that includes the demagnetization constant <span class="math inline">\(K_D\)</span>. This constant depends on of the exciter alternator synchronous and transient reactances.</p>
 </section>
 <section id="model-inputs-and-outputs" class="level2">
 <h2 class="anchored" data-anchor-id="model-inputs-and-outputs">Model inputs and outputs</h2>
@@ -705,19 +724,24 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td>EfePu</td>
+<td><span class="math inline">\(E_{fe}\)</span></td>
 <td>output voltage of voltage regulator</td>
-<td>pu (user-selected base voltage)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (user-selected base voltage)</td>
 </tr>
 <tr class="even">
-<td>IrPu</td>
+<td><span class="math inline">\(I_r\)</span></td>
 <td>rotor current</td>
-<td>pu (base SNom, user-selected base voltage)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(S_{Nom}\)</span>, user-selected base voltage)</td>
 </tr>
 </tbody>
 </table>
 <p>The output variables are :</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 45%">
+<col style="width: 19%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Variable</th>
@@ -727,14 +751,14 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td>EfdPu</td>
+<td><span class="math inline">\(E_{fd}\)</span></td>
 <td>excitation voltage</td>
-<td>pu (user-selected base voltage)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (user-selected base voltage)</td>
 </tr>
 <tr class="even">
-<td>VfePu</td>
+<td><span class="math inline">\(V_{fe}\)</span></td>
 <td>field current signal</td>
-<td>pu (user-selected base voltage)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (user-selected base voltage)</td>
 </tr>
 </tbody>
 </table>
@@ -756,59 +780,63 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td>AEx</td>
+<td><span class="math inline">\(A_{Ex}\)</span></td>
 <td>Gain of saturation function</td>
-<td>pu</td>
+<td><span class="math inline">\(\text{pu}\)</span></td>
 </tr>
 <tr class="even">
-<td>BEx</td>
+<td><span class="math inline">\(B_{Ex}\)</span></td>
 <td>Exponential coefficient of saturation function</td>
-<td>-</td>
+<td><span class="math inline">\(-\)</span></td>
 </tr>
 <tr class="odd">
-<td>Kc</td>
-<td>Rectifier loading factor proportional to commutating reactance,</td>
-<td>pu</td>
+<td><span class="math inline">\(K_c\)</span></td>
+<td>Rectifier loading factor proportional to commutating reactance</td>
+<td><span class="math inline">\(\text{pu}\)</span></td>
 </tr>
 <tr class="even">
-<td>Kd</td>
-<td>Demagnetizing factor, function of exciter alternator reactances,</td>
-<td>pu</td>
+<td><span class="math inline">\(K_d\)</span></td>
+<td>Demagnetizing factor, function of exciter alternator reactances</td>
+<td><span class="math inline">\(\text{pu}\)</span></td>
 </tr>
 <tr class="odd">
-<td>Ke</td>
+<td><span class="math inline">\(K_e\)</span></td>
 <td>Exciter field resistance constant</td>
-<td>pu</td>
+<td><span class="math inline">\(\text{pu}\)</span></td>
 </tr>
 <tr class="even">
-<td>tE</td>
+<td><span class="math inline">\(t_E\)</span></td>
 <td>Exciter field time constant</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="odd">
-<td>TolLi</td>
+<td><span class="math inline">\(\text{TolLi}\)</span></td>
 <td>Tolerance on limit crossing as a fraction of the difference between initial limits of limited integrator</td>
-<td>pu</td>
+<td><span class="math inline">\(\text{pu}\)</span></td>
 </tr>
 <tr class="even">
-<td>VeMinPu</td>
+<td><span class="math inline">\(V_{e,Min}\)</span></td>
 <td>Minimum exciter output voltage</td>
-<td>pu (user-selected base voltage)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (user-selected base voltage)</td>
 </tr>
 <tr class="odd">
-<td>VfeMaxPu</td>
+<td><span class="math inline">\(V_{fe,Max}\)</span></td>
 <td>Maximum exciter field current signal</td>
-<td>pu (user-selected base voltage)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (user-selected base voltage)</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="model-diagram" class="level2">
 <h2 class="anchored" data-anchor-id="model-diagram">Model diagram</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="AcRotatingExciter.drawio.svg" class="img-fluid figure-img"></p>
-<figcaption>AcRotatingExciter</figcaption>
+<div id="fig-acrotatingexciter-diagram" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-acrotatingexciter-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="AcRotatingExciter.drawio.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-acrotatingexciter-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: AcRotatingExciter block diagram
+</figcaption>
 </figure>
 </div>
 </section>
@@ -840,7 +868,9 @@ window.Quarto = {
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
-<p>{% bibliography –cited –file references %}</p>
+<div id="refs" role="list">
+
+</div>
 
 
 </section>

@@ -22,7 +22,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -680,12 +699,12 @@ window.Quarto = {
 <h1>Exc IEEE DC1C model</h1>
 <section id="context" class="level2">
 <h2 class="anchored" data-anchor-id="context">Context</h2>
-<p>This voltage regulator model first appeared in the IEEE Std 421.5-2016 {% cite IEEEExciterModels2016 %}. It has been reproduced identically in the IEC 61970-302:2024 version {% cite IECCIMForDynamics2024 %}. In the previous standard versions (1992, 2005), its predecessor model was called DC1A. Compared to DC1A, DC1C has additional options for connecting OEL limits and an additional limit EfdMinPu.</p>
-<p>It conludes a DC type rotating exciters’s model, which can be self-excited (buck-boost) or separately excited (as discussed in 1981 IEEE Committe Report). This type of rotating exciter’s system tend to disapear in new synchronous machines. It includes a DC excitation system model as described in {% cite IECCIMForDynamics2024 %}.</p>
+<p>This voltage regulator model first appeared in the IEEE Std 421.5-2016 <span class="citation" data-cites="IEEEExciterModels2016">[@IEEEExciterModels2016]</span>. It has been reproduced identically in the IEC 61970-302:2024 version <span class="citation" data-cites="IECCIMForDynamics2024">[@IECCIMForDynamics2024]</span>. In the previous standard versions (1992, 2005), its predecessor model was called DC1A. Compared to DC1A, DC1C has additional options for connecting OEL limits and an additional limit <span class="math inline">\(E_{fd,Min}\)</span>.</p>
+<p>It conludes a DC type rotating exciters’s model, which can be self-excited (buck-boost) or separately excited (as discussed in 1981 IEEE Committe Report). This type of rotating exciter’s system tend to disapear in new synchronous machines. It includes a DC excitation system model as described in <span class="citation" data-cites="IECCIMForDynamics2024">[@IECCIMForDynamics2024]</span>.</p>
 </section>
 <section id="model-use-assumptions-validity-domain-and-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
-<p>This particular model is used represent field controlled dc commutator exciters with continuously acting voltage regulators (especially direct-acting rheostatic, rotating amplifier, and magnetic amplifier types). As other standard DC excitation models, it includes the loading effects by using a loaded saturation curve (<span class="math display">\[S_E(E_{FD})\]</span> is the saturation block). Excitation systems incorporating rotating machines produce a field voltage output (<span class="math display">\[E_{FD}\]</span>) which is proportional to the rotating speed of the machine. Since this effect is negligible when speed deviations are small which is the case of dynamic studies of large interconnected power systems, the effect of speed deviations on the output of the dc rotating exciter models is not represented in this latest version of the standard. However, some commercial software may have implemented such speed dependency in their model.</p>
+<p>This particular model is used represent field controlled dc commutator exciters with continuously acting voltage regulators (especially direct-acting rheostatic, rotating amplifier, and magnetic amplifier types). As other standard DC excitation models, it includes the loading effects by using a loaded saturation curve (<span class="math inline">\(S_E(E_{FD})\)</span> is the saturation block). Excitation systems incorporating rotating machines produce a field voltage output (<span class="math inline">\(E_{FD}\)</span>) which is proportional to the rotating speed of the machine. Since this effect is negligible when speed deviations are small which is the case of dynamic studies of large interconnected power systems, the effect of speed deviations on the output of the dc rotating exciter models is not represented in this latest version of the standard. However, some commercial software may have implemented such speed dependency in their model.</p>
 </section>
 <section id="model-inputs-and-output" class="level2">
 <h2 class="anchored" data-anchor-id="model-inputs-and-output">Model inputs and output</h2>
@@ -705,43 +724,43 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td>UsPu</td>
+<td><span class="math inline">\(U_s\)</span></td>
 <td>measured stator voltage</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="even">
-<td>UsRefPu</td>
+<td><span class="math inline">\(U_{s,Ref}\)</span></td>
 <td>reference stator voltage</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td>UOelPu (optional)</td>
+<td><span class="math inline">\(U_{Oel}\)</span> (optional)</td>
 <td>output voltage of overexcitation limiter</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="even">
-<td>UPssPu (optional)</td>
+<td><span class="math inline">\(U_{Pss}\)</span> (optional)</td>
 <td>output voltage of power system stabilizer</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td>USclOelPu (optional)</td>
+<td><span class="math inline">\(U_{Scl,Oel}\)</span> (optional)</td>
 <td>output voltage of stator current overexcitation limiter</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="even">
-<td>USclUelPu (optional)</td>
+<td><span class="math inline">\(U_{Scl,Uel}\)</span> (optional)</td>
 <td>output voltage of stator current underexcitation limiter</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td>UUelPu (optional)</td>
+<td><span class="math inline">\(U_{Uel}\)</span> (optional)</td>
 <td>output voltage of underexcitation limiter</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 </tbody>
 </table>
-<p>The output signal is EfdPu, the excitation voltage in pu (user-selected base voltage).</p>
+<p>The output signal is <span class="math inline">\(E_{fd}\)</span>, the excitation voltage in <span class="math inline">\(\text{pu}\)</span> (user-selected base voltage).</p>
 </section>
 <section id="model-parameters" class="level2">
 <h2 class="anchored" data-anchor-id="model-parameters">Model parameters</h2>
@@ -760,99 +779,103 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td>AEx</td>
+<td><span class="math inline">\(A_{Ex}\)</span></td>
 <td>Gain of saturation function</td>
-<td>pu</td>
+<td><span class="math inline">\(\text{pu}\)</span></td>
 </tr>
 <tr class="even">
-<td>BEx</td>
+<td><span class="math inline">\(B_{Ex}\)</span></td>
 <td>Exponential coefficient of saturation function</td>
-<td>-</td>
+<td><span class="math inline">\(-\)</span></td>
 </tr>
 <tr class="odd">
-<td>EfdMinPu</td>
+<td><span class="math inline">\(E_{fd,Min}\)</span></td>
 <td>Minimum excitation voltage</td>
-<td>pu (user-selected base voltage)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (user-selected base voltage)</td>
 </tr>
 <tr class="even">
-<td>Ka</td>
+<td><span class="math inline">\(K_a\)</span></td>
 <td>Voltage regulator gain</td>
-<td>pu</td>
+<td><span class="math inline">\(\text{pu}\)</span></td>
 </tr>
 <tr class="odd">
-<td>Ke</td>
+<td><span class="math inline">\(K_e\)</span></td>
 <td>Exciter field proportional constant</td>
-<td>pu</td>
+<td><span class="math inline">\(\text{pu}\)</span></td>
 </tr>
 <tr class="even">
-<td>Kf</td>
+<td><span class="math inline">\(K_f\)</span></td>
 <td>Exciter rate feedback gain</td>
-<td>pu</td>
+<td><span class="math inline">\(\text{pu}\)</span></td>
 </tr>
 <tr class="odd">
-<td>PositionOel</td>
+<td><span class="math inline">\(\text{PositionOel}\)</span></td>
 <td>Input location : (0) none, (1) voltage error summation, (2) take-over at AVR output</td>
-<td>-</td>
+<td><span class="math inline">\(-\)</span></td>
 </tr>
 <tr class="even">
-<td>PositionScl</td>
+<td><span class="math inline">\(\text{PositionScl}\)</span></td>
 <td>Input location : (0) none, (1) voltage error summation, (2) take-over at AVR output</td>
-<td>-</td>
+<td><span class="math inline">\(-\)</span></td>
 </tr>
 <tr class="odd">
-<td>PositionUel</td>
+<td><span class="math inline">\(\text{PositionUel}\)</span></td>
 <td>Input location : (0) none, (1) voltage error summation, (2) take-over at AVR output</td>
-<td>-</td>
+<td><span class="math inline">\(-\)</span></td>
 </tr>
 <tr class="even">
-<td>tA</td>
+<td><span class="math inline">\(t_A\)</span></td>
 <td>Voltage regulator time constant</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="odd">
-<td>tB</td>
+<td><span class="math inline">\(t_B\)</span></td>
 <td>Voltage regulator lag time constant</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="even">
-<td>tC</td>
+<td><span class="math inline">\(t_C\)</span></td>
 <td>Voltage regulator lead time constant</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="odd">
-<td>tE</td>
+<td><span class="math inline">\(t_E\)</span></td>
 <td>Exciter time constant</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="even">
-<td>tF</td>
+<td><span class="math inline">\(t_F\)</span></td>
 <td>Exciter rate feedback time constant</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="odd">
-<td>tR</td>
+<td><span class="math inline">\(t_R\)</span></td>
 <td>Stator voltage filter time constant</td>
-<td>s</td>
+<td><span class="math inline">\(\text{s}\)</span></td>
 </tr>
 <tr class="even">
-<td>VrMaxPu</td>
+<td><span class="math inline">\(V_{r,Max}\)</span></td>
 <td>Maximum field voltage</td>
-<td>pu (user-selected base voltage)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (user-selected base voltage)</td>
 </tr>
 <tr class="odd">
-<td>VrMinPu</td>
+<td><span class="math inline">\(V_{r,Min}\)</span></td>
 <td>Minimum field voltage</td>
-<td>pu (user-selected base voltage)</td>
+<td><span class="math inline">\(\text{pu}\)</span> (user-selected base voltage)</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="model-diagram" class="level2">
 <h2 class="anchored" data-anchor-id="model-diagram">Model diagram</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="DC1C.drawio.svg" class="img-fluid figure-img"></p>
-<figcaption>DC1C</figcaption>
+<div id="fig-dc1c-diagram" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dc1c-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="DC1C.drawio.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dc1c-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: DC1C block diagram
+</figcaption>
 </figure>
 </div>
 </section>
@@ -860,7 +883,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="model-variant">Model variant</h2>
 <p>In the DC1A model :</p>
 <ul>
-<li>the integrator of the second loop (and its output EfdPu) is not limited</li>
+<li>the integrator of the second loop (and its output <span class="math inline">\(E_{fd}\)</span>) is not limited</li>
 <li>there are no stator current limiter and no overexcitation limiter</li>
 </ul>
 </section>
@@ -892,7 +915,9 @@ window.Quarto = {
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
-<p>{% bibliography –cited –file references %}</p>
+<div id="refs" role="list">
+
+</div>
 
 
 </section>
