@@ -45,11 +45,7 @@ The output signal is $UOelPu$, the overexcitation limiter voltage in $pu$ (base 
 
 ## Model diagram
 
-![OEL4C](OEL4C.drawio.svg){#fig-oel4c}
-
-::: {#fig-oel4c}
-OEL4C model diagram
-:::
+![OEL4C model diagram](OEL4C.drawio.svg){#fig-oel4c}
 
 ## Open source implementations
 
