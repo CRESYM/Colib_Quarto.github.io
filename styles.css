@@ -6,6 +6,10 @@
   font-family: 'Raleway', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Main Header Styles */
 .main-header {
   display: flex;
@@ -361,4 +365,12 @@
   margin-left: 0.5rem;
   font-weight: bold;
   font-size: 1rem;
+}
+
+.quarto-float-fig {
+  text-align: center;
+}
+
+mjx-mtd {
+  text-align: center !important;
 }

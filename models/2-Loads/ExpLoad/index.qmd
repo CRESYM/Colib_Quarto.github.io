@@ -48,21 +48,23 @@ The exponential load model can be used for steady-state studies. The assumptions
 
 ### System of equations
 
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-
-$$P(V,t) = P_0 (\frac{V}{V_0})^{a(t)} $$
-$$Q(V,t) = Q_0 (\frac{V}{V_0})^{b(t)} $$
-</div>
+$$
+\begin{align}
+P(V,t) = P_0 (\frac{V}{V_0})^{a(t)} \\
+Q(V,t) = Q_0 (\frac{V}{V_0})^{b(t)} \\
+\end{align}
+$$
 
 ## Operational principles
 
 The model considers the load as an exponential function of voltage for both active and reactive power.
 
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-
-$$P(V, t) = P_0 (\frac{V}{V_0})^{a(t)} $$
-$$Q(V, t) = Q_0 (\frac{V}{V_0})^{b(t)} $$
-</div>
+$$
+\begin{align}
+P(V, t) = P_0 (\frac{V}{V_0})^{a(t)} \\
+Q(V, t) = Q_0 (\frac{V}{V_0})^{b(t)} \\
+\end{align}
+$$
 
 Where $a$ and $b$ are the exponents of the active and reactive power, respectively. These exponents take values that are similar to the slope of the function around the nominal voltage. If they take values of 0, 1 or 2, the load is considered constant power, constant current, or constant impedance, respectively [[2]](#2) [[3]](#3). The exponents can be time-dependent functions for time-series analysis.
 

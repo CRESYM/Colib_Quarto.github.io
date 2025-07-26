@@ -27,42 +27,44 @@ The frequency dependent load model can be used for static analysis considering v
 
 | Parameter|Description | Unit |
 | ---| ---  | --- |
-| $$k_p$$ | Active power frequency variation coefficient | Unitless |
-| $$k_q$$ | Reactive power frequency variation coefficient | Unitless |
-| $$f_0$$ | Nominal frequency of the grid | $$Hz$$ |
+| $k_p$ | Active power frequency variation coefficient | Unitless |
+| $k_q$ | Reactive power frequency variation coefficient | Unitless |
+| $f_0$ | Nominal frequency of the grid | $Hz$ |
 
 ### Variables 
 
 | Variable | Description | Unit |
 | --- | --- | --- |
-| $$V$$ | Phase-to-ground Bus Voltage | $$V$$ |
-| $$P(V)$$ | Load Active power modeled as a function of $$V$$ | $$W$$ |
-| $$Q(V)$$ | Load Reactive power modeled as a function of $$V$$ | $$VAR$$ |
-| $$P$$ | Load Active power | $$W$$ |
-| $$Q$$ | Load Reactive power | $$VAR$$ |
-| $$f$$ | Frequency | $$Hz$$ |
-| $$\Delta f$$ | Frequency deviation $$\Delta f = f - f_0$$ | $$Hz$$ |
+| $V$ | Phase-to-ground Bus Voltage | $V$ |
+| $P(V)$ | Load Active power modeled as a function of $V$ | $W$ |
+| $Q(V)$ | Load Reactive power modeled as a function of $V$ | $VAR$ |
+| $P$ | Load Active power | $W$ |
+| $Q$ | Load Reactive power | $VAR$ |
+| $f$ | Frequency | $Hz$ |
+| $\Delta f$ | Frequency deviation $\Delta f = f - f_0$ | $Hz$ |
 
 
 ### System of equations
 
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-
-$$P(V, f) = P(V) (1 + k_p\frac{\Delta f}{f_0}) $$
-$$Q(V, f) = Q(V) (1 + k_q \frac{\Delta f}{f_0}) $$
-</div>
+$$
+\begin{align}
+P(V, f) = P(V) (1 + k_p\frac{\Delta f}{f_0}) \\
+Q(V, f) = Q(V) (1 + k_q \frac{\Delta f}{f_0}) \\
+\end{align}
+$$
 
 ## Operational principles
 
-The model considers the load as a general function of voltage for both active and reactive power $$P(V)$$ and $$Q(V)$$, typically using either the exponential or the ZIP Load Model [[2]](#2).
+The model considers the load as a general function of voltage for both active and reactive power $P(V)$ and $Q(V)$, typically using either the exponential or the ZIP Load Model [[2]](#2).
 
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
+$$
+\begin{align}
+P(V, f) = P(V) (1 + k_p\frac{\Delta f}{f_0}) \\
+Q(V, f) = Q(V) (1 + k_q \frac{\Delta f}{f_0}) \\
+\end{align}
+$$
 
-$$P(V, f) = P(V) (1 + k_p\frac{\Delta f}{f_0}) $$
-$$Q(V, f) = Q(V) (1 + k_q \frac{\Delta f}{f_0}) $$
-</div>
-
-where $$k_p$$ and $$k_q$$ are the frequency variation coefficients for active and reactive power, respectively, and $$\Delta f = f - f_0$$ is the frequency deviation, with $$f_0$$ being the nominal frequency of the grid. The deviation is scaled in per-untis with respect to the nominal frequency.
+where $k_p$ and $k_q$ are the frequency variation coefficients for active and reactive power, respectively, and $\Delta f = f - f_0$ is the frequency deviation, with $f_0$ being the nominal frequency of the grid. The deviation is scaled in per-untis with respect to the nominal frequency.
 
 ## Open source implementations
 

@@ -5,7 +5,7 @@ number-sections: true
 
 ## Team members
 The developing team is constituted of people from both European TSOs and universities.
-Most of them belong to [CRESYM](https://cresym.eu/), CRESYM, the non-profit organisation that gave birth to COLib.
+Most of them belong to [CRESYM](https://cresym.eu/), the non-profit organisation that gave birth to COLib.
 
 ## Relevant initiatives from the power system community
 

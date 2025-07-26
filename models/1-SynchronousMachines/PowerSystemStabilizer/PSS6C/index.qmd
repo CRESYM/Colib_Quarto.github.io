@@ -27,51 +27,51 @@ The input variables are :
 
 | Variable | Description | Units |
 |-----------|--------------| ------|
-|omegaPu |measured angular frequency |pu (base omegaNom)|
-|omegaRefPu |reference angular frequency |pu (base omegaNom)|
-|PGenPu |active power |pu (base SnRef)|
+| $\omega_{pu}$ |measured angular frequency | $pu$ (base $\omega_{Nom}$)|
+| $\omega_{RefPu}$ |reference angular frequency | $pu$ (base $\omega_{Nom}$)|
+| $P_{GenPu}$ |active power | $pu$ (base $S_{nRef}$)|
 
-The output signal is VPssPu in pu (base UNom).
+The output signal is $VPssPu$ in $pu$ (base $U_{Nom}$).
 
 ## Model parameters
 
 | Parameter | Description | Units |
 |-----------|--------------| ------|
-KOmega |Coefficient applied to angular frequency|-|
-KOmegaRef |Coefficient applied to reference angular frequency|-|
-K0 |Gain of first integrator input |pu|
-K1 |Gain of first integrator output |pu|
-K2 |Gain of second integrator output |pu|
-K3 |Gain of third integrator output |pu|
-K4 |Gain of fourth integrator output |pu|
-Ki3 |Gain of third integrator |pu|
-Ki4 |Gain of fourth integrator |pu|
-Ks |Gain of power system stabilizer |pu|
-Ks1 |Gain of active power branch |pu|
-Ks2 |Gain of angular frequency branch |pu|
-MAcc |Gain of angular velocity |pu|
-OmegaMaxPu |Maximum angular velocity |pu (base omegaNom)|
-OmegaMinPu |Minimum angular velocity |pu (base omegaNom)|
-PGenMaxPu |Maximum active power |pu (base SNom) (generator convention)|
-PGenMinPu |Minimum active power |pu (base SNom) (generator convention)|
-PPssOffPu |Lower active power threshold for PSS activation |pu (base SNom) (generator convention)|
-PPssOnPu |Higher active power threshold for PSS activation |pu (base SNom) (generator convention)|
-t1 |Transducer time constant (active power branch) |s|
-t2 |Transducer time constant (angular frequency branch) |s|
-t3 |First order time constant (active power branch) |s|
-t4 |Derivative time constant (angular frequency branch) |s|
-tD |Washout time constant |s|
-tI1 |Time constant of first integrator, |s|
-tI2 |Time constant of second integrator, |s|
-tI3 |Time constant of third integrator, |s|
-tI4 |Time constant of fourth integrator, |s|
-VPssMaxPu |Maximum output voltage of power system stabilizer |pu (base UNom)|
-VPssMinPu |Minimum output voltage of power system stabilizer |pu (base UNom)|
-|SNom |Nominal apparent power |MVA|
+| $K_{\Omega}$ |Coefficient applied to angular frequency|-|
+| $K_{\Omega Ref}$ |Coefficient applied to reference angular frequency|-|
+| $K_{0}$ |Gain of first integrator input |$pu$|
+| $K_{1}$ |Gain of first integrator output |$pu$|
+| $K_{2}$ |Gain of second integrator output |$pu$|
+| $K_{3}$ |Gain of third integrator output |$pu$|
+| $K_{4}$ |Gain of fourth integrator output |$pu$|
+| $K_{i3}$ |Gain of third integrator |$pu$|
+| $K_{i4}$ |Gain of fourth integrator |$pu$|
+| $K_{s}$ |Gain of power system stabilizer |$pu$|
+| $K_{s1}$ |Gain of active power branch |$pu$|
+| $K_{s2}$ |Gain of angular frequency branch |$pu$|
+| $M_{Acc}$ |Gain of angular velocity |$pu$|
+| $\Omega_{MaxPu}$ |Maximum angular velocity |$pu$ (base $\omega_{Nom}$)|
+| $\Omega_{MinPu}$ |Minimum angular velocity |$pu$ (base $\omega_{Nom}$)|
+| $P_{GenMaxPu}$ |Maximum active power |$pu$ (base $S_{Nom}$) (generator convention)|
+| $P_{GenMinPu}$ |Minimum active power |$pu$ (base $S_{Nom}$) (generator convention)|
+| $PPssOffPu$ |Lower active power threshold for PSS activation |$pu$ (base $S_{Nom}$) (generator convention)|
+| $PPssOnPu$ |Higher active power threshold for PSS activation |$pu$ (base $S_{Nom}$) (generator convention)|
+| $t1$ |Transducer time constant (active power branch) |$s$|
+| $t2$ |Transducer time constant (angular frequency branch) |$s$|
+| $t3$ |First order time constant (active power branch) |$s$|
+| $t4$ |Derivative time constant (angular frequency branch) |$s$|
+| $tD$ |Washout time constant |$s$|
+| $tI1$ |Time constant of first integrator, |$s$|
+| $tI2$ |Time constant of second integrator, |$s$|
+| $tI3$ |Time constant of third integrator, |$s$|
+| $tI4$ |Time constant of fourth integrator, |$s$|
+| $VPssMaxPu$ |Maximum output voltage of power system stabilizer |$pu$ (base $U_{Nom}$)|
+| $VPssMinPu$ |Minimum output voltage of power system stabilizer |$pu$ (base $U_{Nom}$)|
+| $S_{Nom}$ |Nominal apparent power |$MVA$|
 
 ## Model diagram
 
-![PSS6C](PSS6C.drawio.svg)
+![PSS6C](PSS6C.drawio.svg){#fig-PSS6C fig-alt="PSS6C model diagram"}
 
 ## Open source implementations
 

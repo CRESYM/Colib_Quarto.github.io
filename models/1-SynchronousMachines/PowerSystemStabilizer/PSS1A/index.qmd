@@ -28,8 +28,8 @@ The input variables are either :
 
 | Variable | Description | Units |
 |-----------|--------------| ------|
-| omegaPu | measured angular frequency | pu (base omegaNom)|
-| PGenPu |active power|pu (base SnRef)|
+| $\omega_{pu}$ | measured angular frequency | pu (base $\omega_{Nom}$)|
+| $P_{GenPu}$ |active power|pu (base $S_{nRef}$)|
 
 The output signal is VPssPu in pu (base UNom).
 
@@ -37,21 +37,21 @@ The output signal is VPssPu in pu (base UNom).
 
 | Parameter | Description | Units |
 |-----------|--------------| ------|
-A1 |First coefficient of notch filter|s|
-A2 |Second coefficient of notch filter|$$s ^ 2$$|
-Ks |Gain of power system stabilizer|pu|
-t1 |First lead time constant|s|
-t2 |First lag time constant|s|
-t4 |Second lag time constant|s|
-t5 |Washout time constant|s|
-t6 |Transducer time constant|s|
-VPssMaxPu |Maximum voltage output of power system stabilizer|pu (base UNom)|
-VPssMinPu |Minimum voltage output of power system stabilizer|pu (base UNom)|
-SNom |Nominal apparent power|MVA (only if PGenPu is the input signal)|
+| $A1$ |First coefficient of notch filter|$s$|
+| $A2$ |Second coefficient of notch filter|$s ^ 2$|
+| $Ks$ |Gain of power system stabilizer|$pu$|
+| $t1$ |First lead time constant|$s$|
+| $t2$ |First lag time constant|$s$|
+| $t4$ |Second lag time constant|$s$|
+| $t5$ |Washout time constant|$s$|
+| $t6$ |Transducer time constant|$s$|
+| $VPssMaxPu$ |Maximum voltage output of power system stabilizer|pu (base $U_{Nom}$)|
+| $VPssMinPu$ |Minimum voltage output of power system stabilizer|pu (base $U_{Nom}$)|
+| $S_{Nom}$ |Nominal apparent power|MVA (only if $P_{GenPu}$ is the input signal)|
 
 ## Model diagram
 
-![PSS1A](PSS1A.drawio.svg)
+![PSS1A](PSS1A.drawio.svg){#fig-PSS1A fig-alt="PSS1A model diagram"}
 
 ## Open source implementations
 

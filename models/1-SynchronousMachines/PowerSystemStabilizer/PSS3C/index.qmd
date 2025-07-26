@@ -28,40 +28,40 @@ The input variables are :
 
 | Variable | Description | Units |
 |-----------|--------------| ------|
-| omegaPu |measured angular frequency|pu (base omegaNom)|
-| omegaRefPu |reference angular frequency|pu (base omegaNom)|
-| PGenPu |active power|pu (base SnRef)|
+| $\omega_{pu}$ |measured angular frequency|$pu$ (base $\omega_{Nom}$)|
+| $\omega_{RefPu}$ |reference angular frequency|$pu$ (base $\omega_{Nom}$)|
+| $P_{GenPu}$ |active power|$pu$ (base $S_{nRef}$)|
 
-The output signal is VPssPu in pu (base UNom).
+The output signal is $VPssPu$ in $pu$ (base $U_{Nom}$).
 
 ## Model parameters
 
 | Parameter | Description | Units |
 |-----------|--------------| ------|
 A1 |First numerator coefficient of first notch filter|s|
-A2 |Second numerator coefficient of first notch filter|$$s ^ 2$$|
-A3 |First denominator coefficient of first notch filter|s|
-A4 |Second denominator coefficient of first notch filter|$$s ^ 2$$|
-A5 |First numerator coefficient of second notch filter|s|
-A6 |Second numerator coefficient of second notch filter|$$s ^ 2$$|
-A7 |First denominator coefficient of second notch filter|s|
-A8 |Second denominator coefficient of second notch filter|$$s ^ 2$$|
-KOmega |Coefficient applied to angular frequency|-|
-KOmegaRef |Coefficient applied to reference angular frequency|-|
-Ks1 |Gain of active power branch|pu|
-Ks2 |Gain of angular frequency branch|pu|
-t1 |Transducer time constant (active power branch)|s|
-t2 |Transducer time constant (angular frequency branch)|s|
-tW1 |Washout time constant (active power branch)|s|
-tW2 |Washout time constant (angular frequency branch)|s|
-tW3 |Washout time constant (main branch)|s|
-VPssMaxPu |Maximum voltage output of power system stabilizer|pu (base UNom)|
-VPssMinPu |Minimum voltage output of power system stabilizer|pu (base UNom)|
-SNom |Nominal apparent power|MVA|
+| $A2$ |Second numerator coefficient of first notch filter|$s ^ 2$|
+| $A3$ |First denominator coefficient of first notch filter|$s$|
+| $A4$ |Second denominator coefficient of first notch filter|$s ^ 2$|
+| $A5$ |First numerator coefficient of second notch filter|$s$|
+| $A6$ |Second numerator coefficient of second notch filter|$s ^ 2$|
+| $A7$ |First denominator coefficient of second notch filter|$s$|
+| $A8$ |Second denominator coefficient of second notch filter|$s ^ 2$|
+| $K_{\Omega}$ |Coefficient applied to angular frequency|-|
+| $K_{\Omega Ref}$ |Coefficient applied to reference angular frequency|-|
+| $K_{s1}$ |Gain of active power branch|$pu$|
+| $K_{s2}$ |Gain of angular frequency branch|$pu$|
+| $t1$ |Transducer time constant (active power branch)|$s$|
+| $t2$ |Transducer time constant (angular frequency branch)|$s$|
+| $tW1$ |Washout time constant (active power branch)|$s$|
+| $tW2$ |Washout time constant (angular frequency branch)|$s$|
+| $tW3$ |Washout time constant (main branch)|$s$|
+| $VPssMaxPu$ |Maximum voltage output of power system stabilizer|$pu$ (base $U_{Nom}$)|
+| $VPssMinPu$ |Minimum voltage output of power system stabilizer|$pu$ (base $U_{Nom}$)|
+| $S_{Nom}$ |Nominal apparent power|$MVA$|
 
 ## Model diagram
 
-![PSS3C](PSS3C.drawio.svg)
+![PSS3C](PSS3C.drawio.svg){#fig-PSS3C fig-alt="PSS3C model diagram"}
 
 ## Model variant
 

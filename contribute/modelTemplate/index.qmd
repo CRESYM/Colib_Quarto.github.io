@@ -120,7 +120,7 @@ _The code **should correspond strictly the equations/diagram/algorithm described
 **Example:**
 The code can be presented in a **modeling language code block** like this:
 
-```modelica
+```{openmodelica}
 model VoltageSource "Constant AC voltage"
   extends Interfaces.Source;
   parameter SI.Frequency f(start=1) "Frequency of the source";
