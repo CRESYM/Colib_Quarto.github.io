@@ -11,16 +11,16 @@ bibliography: ../../../../_bibliography/references.bib
 
 **List Of Acronyms**
 
-
-|----------|-------------------------------------|
-| $DFIG$     | Doubly-Fed Induction Generator      |
-| $FRT$      | Fault Ride Through                  |
-| $GSC$      | Grid Side Converter                 |
-| $PCC$      | Point of Common Coupling            |
-| $PD$       | Power Device                        |
-| $RSC$      | Rotor Side Converter                |
-| $WP$       | Wind Plant                          |
-| $WT$       | Wind Turbine                        |
+| Acronym | Description |
+|---------|------------|
+| DFIG | Doubly-Fed Induction Generator |
+| FRT | Fault Ride Through |
+| GSC | Grid Side Converter |
+| PCC | Point of Common Coupling |
+| PD | Power Device |
+| RSC | Rotor Side Converter |
+| WP | Wind Plant |
+| WT | Wind Turbine |
 
 ## Context
 
@@ -122,6 +122,8 @@ following:
 ::: {#fig-wtSystem}
 Wind turbine type 3 model, based on [@IEC_61400-27-1]
 :::
+
+The overall structure of the wind turbine type 3 model is shown in @fig-wtSystem. The generator control sub-structure is detailed in @fig-wtControlSubstructure.
 
 ![Wind turbine generator control sub-structure](drawings/WT_generator_control_substructure_type3.drawio.svg){#fig-wtControlSubstructure}
 
@@ -277,7 +279,7 @@ oscillating electrical power that has an efficient damping effect [@Lorenzo-Bona
 (for parameters see 
 @tbl-parameters).
 
-**Torque PI block**
+**Torque PI block** {#torque-pi-block}
 
 ![Wind turbine torque PI block](drawings/WT_torque_pi.drawio.svg){#fig-torquePi}
 
@@ -335,7 +337,7 @@ These fault signals have the following functions:
     proportional controller part $K_\mathrm{Pp}$, to zero
   - changes the upper ramp rate limit of $\tau_\mathrm{reset}$ to
     $\mathrm{d}\tau_\mathrm{maxUVRT}$ (usually set to zero, preventing
-    $\tau_\mathrm{reset}$ from inceasing during fault) [@Lorenzo-Bonache2019]
+    $\tau_\mathrm{reset}$ from increasing during fault) [@Lorenzo-Bonache2019]
 - $F_\mathrm{freeze\,I}$ freezes the integral controller part
   ($K_\mathrm{Ip}/K_\mathrm{Pp}$) while true.
 
@@ -450,7 +452,7 @@ ruled by the parameter `DefaultLimitMax`: `y` is equal to either
 **set/reset**
 
 The integrator's output is forced to the value of `set` while
-`reset=true`, as it is descibed in [@IEC_61400-27-1].
+`reset=true`, as it is described in [@IEC_61400-27-1].
 
 When `reset` returns to false (=falling edge), the integrator's state is
 reinitialized to set to resume integration without a jump discontinuity
