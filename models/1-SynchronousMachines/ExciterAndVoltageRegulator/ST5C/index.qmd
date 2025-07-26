@@ -7,6 +7,7 @@ last-updated: 24/05/2024
 id: #106
 author: Erwan Guichard (DPS for RTE)
 reviewers: Mathilde Bongrain (CRESYM)
+bibliography: ../../../../_bibliography/references.bib
 ---
 # Exc IEEE ST5C model
 
