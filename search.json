@@ -64,7 +64,7 @@
     "href": "contribute/modelTemplate/index.html#table-of-references-license",
     "title": "Dummy Model description - ID1643",
     "section": "Table of references & license",
-    "text": "Table of references & license\nThis section lists all the references. It must comply with current citation standards. Quarto uses BibTeX for managing reference.\n\n\n\n\nDoe, John. 2100. The Book Without Title. Dummy Publisher.",
+    "text": "Table of references & license\nThis section lists all the references. It must comply with current citation standards. Quarto uses BibTeX for managing reference.\n\n\nDoe, John. 2100. The Book Without Title. Dummy Publisher.",
     "crumbs": [
       "Model template"
     ]
@@ -164,7 +164,7 @@
     "href": "contribute/testSystemTemplate/index.html#table-of-references-license",
     "title": "Dummy Test System description - ID123",
     "section": "Table of references & license",
-    "text": "Table of references & license\nThis section lists all the references. It must comply with current citation standards. Quarto uses BibTeX for managing reference.\n\n\n\n\nPower System Stability and Control. 2007. McGraw- Hill.",
+    "text": "Table of references & license\nThis section lists all the references. It must comply with current citation standards. Quarto uses BibTeX for managing reference.\n\n\nPower System Stability and Control. 2007. McGraw- Hill.",
     "crumbs": [
       "Test case template"
     ]
