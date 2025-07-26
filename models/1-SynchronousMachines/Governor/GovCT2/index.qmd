@@ -1,0 +1,407 @@
+---
+layout: page
+title: GovCT2 / GGOV2
+tags: ["regulations", "governor", "controller", "synchronous machine", "Opensource", "IEC", "CIMDynamic", "RMS", "modelica", "dynawo", "RMS", "#53"]
+date: 23/04/2024
+last-updated: 20/06/2024
+author: Martin Franke (Fraunhofer IEE)
+reviewers: Mathilde Bongrain (CRESYM)
+id: #53
+bibliography: ../../../../_bibliography/references.bib
+---
+
+## Context
+
+In a power plant, a governor regulates the mechanical power ($P_m$) or
+torque ($T_m$) delivered from the turbine to the electrical generator.
+This governor model includes the turbine dynamics, i.e. it takes a
+reference power and generator speed and outputs the mechanical torque.
+
+This GovCT2 is a modification of the GovCT1 in order to represent the
+frequency-dependent fuel flow limit of a specific gas turbine
+manufacturer. Both are based on *Rowen's model* from 1983 [1].
+
+When comparing to older standards: GovCT2 is identical to GGOV2 and
+GovCT1 is identical to GGOV1.
+
+GovCT2 is part of the CIM/CGMES standard, see [2] and [3]. CIM is
+developed by ENTSO-E and aims at ensuring the reliability of grid models
+and market information exchanges. ENTSO-E developed CGMES as a superset
+of the IEC CIM standards (belonging to IEC CIM16) in 2013 to fulfill the
+requirements of transmission system operators and their data exchanges.
+
+The following information has been gathered from [2], [4] and [3].
+
+## Model use, assumptions, validity domain and limitations
+
+General model for any prime mover with a PID governor.
+
+For example used for:
+
+Can be used to represent a variety of prime movers controlled by PID
+governors, such as:
+
+- Single shaft combined cycle turbines and Gas turbines
+- Diesel engines (with modern digital or electronic governors)
+- Steam turbines with
+  - steam supplied from a large boiler drum
+  - or steam supplied from a large header with approximately constant
+    pressure (over the time period of the simulation)
+- Simple hydro turbines in dam configurations with
+  - short water column length
+  - and minimal water inertia effects
+
+The model is a positive-sequence RMS model, hence it assumes symmetrical
+operating conditions and neglects high-frequency dynamics. This type of
+model is often used in large-scale stability studies, for which it
+reflects the relevant phenomena. It is not a detailed physical model of
+the unit. Also for some stability phenomena (e.g. resonance stability)
+this model is not sufficient and EMT models or other approaches may be
+necessary.
+
+## Model description
+
+### Model schema
+
+![Model schema, based on [3]](drawings/GovCT2.drawio.svg){#fig-modelSchema}
+
+### Major control paths
+
+The following section is based on [1] (p. 517f).
+
+The model has three major control paths (speed/load, acceleration,
+temperature) associated with the dynamic response during disturbances.
+Outputs of these control functions are all inputs into a minimum value
+selector determining the least fuel request. This is then given to the
+actuator.
+
+#### Speed/load (fsrn)
+
+This can be considered the main control path. It corresponds directly to
+the governor. The inputs are load demand $P_{ref}$, rotor speed
+$\omega$ and automatic generation control power $P_{MWSet}$.
+
+The resulting signal is then passed through a deadband, limits and a
+PID-controller. To represent a specific governor, some elements can be
+deactivated by setting parameters to zero (examples in [1]).
+
+**Supervisory load controller**
+
+In [3] the $P_{MWSet}$ path is described as an optional
+additional outer loop associated with a power plant control (supervisory
+load controller). This is active when $K_{I,MW}$ is not equal to
+zero. It is a slow acting reset control and it adjusts the speed/load
+reference of the turbine governor to maintain the electrical power of
+the unit at the value which it has been initialized with. That value is
+stored in $P_{MW,set}$ when the model is initialized, and can be
+changed during simulation. The load controller is expected to have a
+slow reaction compared to the speed governor. [3]
+
+A value $K_{I,MW}$ = to 0.01 corresponds to a time constant of
+100 s; 0.001 corresponds to 1000 s (relatively slow acting) [3].
+
+**Acceleration (fsra)**
+
+> […] for studies of large power systems, [the acceleration control
+> loop] can be ignored. It is important for islanding studies and
+> smaller power systems with large frequency variations. If the
+> generating unit begins to accelerate at a rate over
+> [$a_{set}$] ($pu/s^2$) then this control loop acts to limit
+> fuel flow. [1]
+
+It can be disabled by setting $a_{set}$ to a large value, such
+as 1. [3]
+
+**Temperature (fsrt) / load limit**
+
+The load limiter module allows to set a maximum output limit
+$P_{ldref}$. This can also model an exhaust temperature limit, in
+which case $P_{ldref}$ is not to be interpreted as a power value.
+The time constant $T_{f,load}$ should match the measurement time
+constant for temperature (or power or which ever signal is being
+modelled). Additionally, the gains of the limiter, $K_{P,load}$
+and $K_{I,load}$, should be set to achieve fast and stable
+control when the limit $P_{ldref}$ is reached. To deactivate the
+load limit, set the parameter $P_{ldref}$ to a high value [3].
+
+The lead-lag block with $T_{sa}$ and $T_{sb}$ can be used
+to model the exhaust gas temperature measurement system in gas turbines.
+A "radiation shield" component of larger gas turbines can be modeled by
+setting $T_{sa}=4\,s$ and $T_{sb}=5\,s$,
+for example [3].
+
+> The temperature limit [tlim] in $pu$ corresponds to the fuel flow
+> required for 1 $pu$ turbine power. [1]
+
+#### Turbine/engine model
+
+The output from the low value select block is given to the first order
+lag element representing the fuel or gate system (Valve). [1]
+
+$V_{max}$ and $V_{min}$ represent the maximum and minimum
+fuel valve opening. $W_{fspd}$ is the fuel flow multiplyer.
+
+$W_{fnl}$ is the fuel required to run the compensator [1].
+
+The range of fuel valve travel and of fuel flow is unity, so the limits
+lie between 0 $pu$ and 1 $pu$. $V_{max}$ can be reduced below 1, for
+example to model a load limit defined by the operator or supervisory
+controller [3]. Additionally there is a dynamic frequency dependent
+limit reduction, see **Frequency dependent (valve) limit** section.
+
+For a gas turbine, in the presence of a minimum firing limit,
+$V_{min}$ normally is set greater than zero and less than
+$W_{fnl}$ [3].
+
+The value of the fuel flow at maximum power shall be $\leq 1$, depending
+on the value of $K_{turb}$ [3]. It translates the fuel
+consumption (or water flow) to mechanical power output [1].
+
+The time delay $e^{-sT_{eng}}$ is used in representing diesel
+engines where there is a small but measurable transport delay between a
+change in fuel flow setting and the development of torque.
+$T_{eng}$ should be zero in all but special cases where this
+transport delay is of particular concern [3].
+
+The switch $W_{fspd}$ is responsible for recognizing whether fuel
+flow, for a given fuel valve stroke, is be proportional to engine speed
+[3]. If True, fuel flow is proportional to speed. This is applicable
+for some gas turbines and diesel engines with positive displacement fuel
+injectors. If false, the fuel control system keeps fuel flow independent
+of engine speed.
+
+**Speed sensitivity / Damping**
+
+If $D_m=0$, the speed sensitivity paths are not active. [3]
+
+If $D_m>0$, it models friction losses (variation of the engine
+power with the shaft speed; slightly increasing losses with increasing
+speed are characteristic for reciprocating engines and some
+aeroderivative turbines [3]).
+
+If $D_m<0$, it can model an influence of rotation speed on
+exhaust temperature using an exponential characteristic determined by
+$D_m$. The maximum permissible fuel flow falls with falling
+speed (typical for single-shaft industrial turbines due to exhaust
+temperature limits) [3]. The authors suspect that this could represent
+fan cooling.
+
+#### Frequency dependent (valve) limit
+
+The frequency-dependent limit block outputs the upper limit for valve
+position / the fuel flow signal fsr. It is shown in
+@fig-frequencyDependentLimit.
+
+In normal operation, the limit is
+$V_{max,\omega} = V_{max}$ and the there is no frequency
+dependent reduction.
+
+When the frequency $f$ in Hz drops below $f_{lim,1}$, the value
+for $P_{lim}$, the power limit, is calculated by linear
+interpolation between the values
+$f_{lim,1}, f_{lim,2}, \dots$ and
+$P_{lim,1}, P_{lim,2}, \dots$ of a lookup table. The
+table consists of 10 data points which monotonically decrease in both
+power and frequency, point 1 being the hightest. The lowest data point
+does act as a lower limit, i.e. is not extrapolated to lower values.
+
+$V_{max,\omega}$ then ramps with the rate $P_{rate}$ from
+the initial and maximum value to the new value
+$V_{max,\omega} = (P_{lim} / K_{turb} + W_{fnl})$.
+
+$P_{lim}$ will then change with frequency. If f rises above
+$P_{lim,1}$ again, $V_{max,\omega}$ ramps back to
+$V_{max}$ [3].
+
+![Frequency dependent valve limit as described in [3]](drawings/GovCT2.frequencylimit.drawio.svg){#fig-frequencyDependentLimit}
+
+### Parameters
+
+Per-unit power parameters are based on $P_{base}$, which is
+normally the capability of the turbine in MW. Per-unit frequency or
+acceleration parameters are based on the nominal frequency of the grid
+(e.g. 50 Hz in Europe).
+
+::: {#tbl-parameters}
+
+| name                          | type  | unit | IEC name     | description                                                                                                | typical value |
+| :---------------------------- | :---- | :----- | :----------- | :--------------------------------------------------------------------------------------------------------- | :------------ |
+| $a_{set}$            | float | $pu/s$   | $Aset$         | Acceleration limiter setpoint                                                                              | $10$            |
+| $\Delta\omega_{db}$  | float | $pu$     | $db$           | Frequency error deadband. Recommended to be =0 in most applications [3]                                    | $0$             |
+| $\Delta\omega_{max}$ | float | $pu$     | $Maxerr$       | Maximum value for frequency error                                                                          | $1$             |
+| $\Delta\omega_{min}$ | float | $pu$     | $Minerr$       | Minimum value for frequency error                                                                          | $-1$            |
+| $\Delta t$                  | float | $s$      | $\Delta t$ | Correction factor to adapt the unit of $K_a$ from $pu/s$ to $pu$                                    | $1$             |
+| $D_m$              | float | $pu$     | $dm$           | Speed sensitivity coefficient | $0$             |
+| $f_{lim,1}$         | float | $Hz$     | $flim1$        | Frequency threshold 1                                                                                      | $59$            |
+| $f_{lim,10}$        | float | $Hz$     | $flim10$       | Frequency threshold 10                                                                                     | $0$             |
+| $f_{lim,2}$         | float | $Hz$     | $flim2$        | Frequency threshold 2                                                                                      | $0$             |
+| $f_{lim,3}$         | float | $Hz$     | $flim3$        | Frequency threshold 3                                                                                      | $0$             |
+| $f_{lim,4}$         | float | $Hz$     | $flim4$        | Frequency threshold 4                                                                                      | $0$             |
+| $f_{lim,5}$         | float | $Hz$     | $flim5$        | Frequency threshold 5                                                                                      | $0$             |
+| $f_{lim,6}$         | float | $Hz$     | $flim6$        | Frequency threshold 6                                                                                      | $0$             |
+| $f_{lim,7}$         | float | $Hz$     | $flim7$        | Frequency threshold 7                                                                                      | $0$             |
+| $f_{lim,8}$         | float | $Hz$     | $flim8$        | Frequency threshold 8                                                                                      | $0$             |
+| $f_{lim,9}$         | float | $Hz$     | $flim9$        | Frequency threshold 9                                                                                      | $0$             |
+| $K_a$              | float | $pu$     | $Ka$           | Acceleration limiter gain                                                                                  | $10$            |
+| $K_{D,gov}$         | float | $pu$     | $Kdgov$        | Governor derivative gain                                                                                   | $0$             |
+| $K_{I,gov}$         | float | $pu$     | $Kigov$        | Governor integral gain                                                                                     | $0.45$          |
+| $K_{I,load}$        | float | $pu$     | $Kiload$       | Load limiter integral gain                                                                                 | $1$             |
+| $K_{I,MW}$          | float | $pu$     | $Kimw$         | Supervisory load controller integral gain                                                                  | $0$             |
+| $K_{P,gov}$         | float | $pu$     | $Kpgov$        | Governor proportional gain                                                                                 | $4$             |
+| $K_{P,load}$        | float | $pu$     | $Kpload$       | Load limiter proportional                                                                                  | $1$             |
+| $K_{turb}$           | float | $pu$     | $Kturb$        | Turbine gain (translates from fuel flow to power)                                                          | $1.9168$        |
+| $P_{base}$           | float | $MW$     | $Mwbase$       | Base for power values (> 0)                                                               |               |
+| $P_{ldref}$          | float | $pu$     | $Ldref$        | Load limiter reference value                                                                               | $1$             |
+| $P_{lim,1}$         | float | $pu$     | $plim1$        | Power limit 1                                                                                              | $0.8325$        |
+| $P_{lim,10}$        | float | $pu$     | $plim10$       | Power limit 10                                                                                             | $0$             |
+| $P_{lim,2}$         | float | $pu$     | $plim2$        | Power limit 2                                                                                              | $0$             |
+| $P_{lim,3}$         | float | $pu$     | $plim3$        | Power limit 3                                                                                              | $0$             |
+| $P_{lim,4}$         | float | $pu$     | $plim4$        | Power limit 4                                                                                              | $0$             |
+| $P_{lim,5}$         | float | $pu$     | $plim5$        | Power limit 5                                                                                              | $0$             |
+| $P_{lim,6}$         | float | $pu$     | $plim6$        | Power limit 6                                                                                              | $0$             |
+| $P_{lim,7}$         | float | $pu$     | $plim7$        | Power limit 7                                                                                              | $0$             |
+| $P_{lim,8}$         | float | $pu$     | $plim8$        | Power limit 8                                                                                              | $0$             |
+| $P_{lim,9}$         | float | $pu$     | $plim9$        | Power Limit 9                                                                                              | $0$             |
+| $P_{rate}$           | float | $pu$     | $prate$        | Ramp rate for frequency-dependent power limit                                                              | $0.017$         |
+| $R$                         | float | $pu$     | $R$            | Droop (frequency/power)                                                                                    | $0.05$          |
+| $R_{close}$          | float | $pu/s$   | $Rclose$       | Minimum rate for valve closing                                                                             | $-99$           |
+| $R_{down}$           | float | $pu$     | $Rdown$        | temperature/load limit path output decrease rate limit                                                     | $-99$           |
+| $R_{open}$           | float | $pu/s$   | $Ropen$        | Maximum rate for valve closing                                                                             | $99$            |
+| $R_{select}$         | int   | $-$     | $Rselect$      | governor controller feedback mode switch                                                                   |               |
+| $R_{up}$             | float | $pu$     | $Rup$          | temperature/load limit path output increase rate limit                                                     | $99$            |
+| $T_a$              | float | $s$      | $Ta$           | Acceleration limiter time constant                                                                         | $1$             |
+| $T_{act}$            | float | $s$      | $Tact$         | actuator (valve) reaction time constant                                                                    | $0.4$           |
+| $T_b$              | float | $s$      | $Tb$           | Turbine lag time constant                                                                                  | $0.1$           |
+| $T_c$              | float | $s$      | $Tc$           | Turbine lead time constant                                                                                 | $0$             |
+| $T_{dgov}$           | float | $s$      | $Tdgov$        | Governor controller derivative time constant                                                               | $1$             |
+| $T_{D,ratelim}$     | float | $s$      | $-$           | Ramp rate limter derivative time constant in $s$                                                             | $0.001$         |
+| $T_{eng}$            | float | $s$      | $Teng$         | Transport time delay for diesel engine                                                                     | $0$             |
+| $T_{f,load}$        | float | $s$      | $Tfload$       | Load limiter time constant                                                                                 | $3$             |
+| $T_{last,value}$    | float | $s$      | $-$           | Time constant of very fast first order block to prevent algebraic loop                                     | $1e-9$          |
+| $T_{p,elec}$        | float | $s$      | $Tpelec$       | Electrical power measurement time constant                                                                 | $2.5$           |
+| $T_{sa}$             | float | $s$      | $Tsa$          | lead time constant of temperature detection                                                                | $0$             |
+| $T_{sb}$             | float | $s$      | $Tsb$          | lag time constant of temperature detection                                                                 | $50$            |
+| $V_{max}$            | float | $pu$     | $Vmax$         | Maximum valve position limit                                                                               | $1$             |
+| $V_{min}$            | float | $pu$     | $Vmin$         | Minimum valve position limit                                                                               | $0.175$         |
+| $W_{fnl}$            | float | $pu$     | $Wfnl$         | fuel flow with no load                                                                                     | $0.187$         |
+| $W_{fspd}$           | bool  | $-$     | $Wfspd$        | Switch for fuel source characteristic                                                                      | $false$         |
+
+Parameters
+
+:::
+
+### Variables
+
+#### Inputs
+
+::: {#tbl-inputs}
+
+| name                 | type  | unit | IEC name   | description                                                          |
+| -------------------- | ----- | ---- | ---------- | -------------------------------------------------------------------- |
+| $\omega$           | float | $pu$   | $\omega$ | rotor speed                                                          |
+| $P_{ref}$   | float | $pu$   | $Pref$       | load setpoint                                                        |
+| $P_{MWSet}$ | float | $pu$   | $Pmwset$     | Supervisory power controller setpoint (automatic generation control) |
+| $P_e$     | float | $pu$   | $Pe$         | measured electric power generation                                   |
+
+Inputs
+
+:::
+
+### Outputs
+
+::: {#tbl-outputs}
+
+| name             | type  | unit | IEC name | description      |
+| ---------------- | ----- | ---- | -------- | ---------------- |
+| $P_m$ | float | $pu$   | $Pm$       | mechanical power |
+
+Outputs
+
+:::
+
+### Equations & algorithm  
+
+–
+
+### Initial equations / boundary conditions
+
+The initial values for the system's states are calculated from the
+initial mechanical power $P_{m,0}$ and rotation speed
+$\omega_0$.
+
+#### Helper variables
+
+The following "helper variables" are defined to avoid repetition in the
+definitions of initial states below. They are the initial values of
+signals at certain points in @fig-modelSchema.
+
+$$P_{m,noloss,0} = 
+\begin{cases}
+    P_{m,0} + \omega_0 \cdot D_m,& \text{if } D_m> 0\\
+    P_{m,0},              & \text{otherwise}
+\end{cases}$$ {#eq-initPmnoloss}
+
+$$C_{fe,0} = 
+\begin{cases}
+    W_{fnl} + P_{m,noloss,0} / K_{turb},& \text{if } K_{turb}>0\\
+    W_{fnl},              & \text{otherwise}
+\end{cases}$$ {#eq-initCfe}
+
+$$V_0 = 
+\begin{cases}
+    C_{fe,0} / \omega_0,& \text{if } W_{fspd}\\
+    C_{fe,0},              & \text{otherwise}
+\end{cases}$$ {#eq-initValve}
+
+$$\vartheta_{ex,0} = 
+\begin{cases}
+    C_{fe,0} \cdot \omega_0^{D_m},& \text{if } D_m<0\\
+    1,              & \text{otherwise}
+\end{cases}$$ {#eq-initTex}
+
+$$F_{srt,0} = (P_{ldref}/K_{turb} + W_{fnl} - \vartheta_{ex,0}) \cdot K_{P,load} + x_{I,load}$$ {#eq-initFsrt}
+
+#### Initial states
+
+$$x_{I,load,0} = 1$$ {#eq-initXiload}
+
+$$x_{turb,0} = P_{m,noloss,0}$$ {#eq-initXTurbine}
+
+$$x_{valve,0} = V_0$$ {#eq-initXValve}
+
+$$x_{fdl,ratelimit,0} = K_{turb}(V_{max}-W_{fnl})$$ {#eq-initXFdl}
+
+$$x_{I,gov,0} = V_0$$ {#eq-initXIGov}
+
+$$x_{meas,Pe,0} = P_{m,0}$$ {#eq-initXMeasPe}
+
+$$x_{fsrt,ratelim,0} = F_{srt,0}$$ {#eq-initFsrt}
+
+$$x_{meas,\vartheta,ex,0} = \vartheta_{ex,0}$$ {#eq-Texm}
+
+$$x_{\vartheta,ex,0} = \vartheta_{ex,0}$$ {#eq-initTex}
+
+$$x_{I,MW} = 0$$ {#eq-initXIMw}
+
+$$x_{last,value,0} = V_0$$ {#eq-initLastValue}
+
+$$x_{fsra,0} = 0$$ {#eq-initFsra}
+
+#### Initial power reference
+
+$$P_{ref,0} = 
+\begin{cases}
+    0,                         & \text{if } R_{select}=0\\
+    R \cdot P_{m,0},   & \text{if } R_{select}=1\\
+    R \cdot V_0,      & \text{otherwise}
+\end{cases}$$ {#eq-initPref}
+
+## Open source implementations
+
+This model has been successfully implemented in :
+
+| Software               | URL                                        | Language | Open-Source License                                | Last consulted date | Comments                                                                                              |
+| ---------------------- | ------------------------------------------ | -------- | -------------------------------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------- |
+| Open Modelica / Dynawo | [Dynawo](https://github.com/dynawo/dynawo) | modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/) | 15/05/2024          | For modeling assumptions and test results, see [Dynawo](https://github.com/dynawo/dynawo) repository. |
+
+## References 

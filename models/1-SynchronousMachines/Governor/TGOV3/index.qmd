@@ -1,0 +1,72 @@
+---
+layout: page
+title: TGOV3
+tags: ["Governor", "TGOV3", "generic", "Opensource", "CIM model", "RMS", "phasor", "MRL4", "Single phase", "GovSteamFV3", "IEC", "dynawo", "#106"]
+date: 05/04/2024
+last-updated: 24/05/2024
+id: #106
+author: Erwan Guichard (DPS for RTE)
+reviewers: Mathilde Bongrain (CRESYM)
+bibliography: ../../../../_bibliography/references.bib
+---
+# TGOV3 model
+
+This article is incomplete, some sections must be written.
+
+## Context
+
+This governor model appears under the name GovSteamFV3 in the Common Information Model for Dynamics - Standard Models (2012) [@CIMStandardModels2012] and in the IEC 61970-302:2024 version [@IECCIMForDynamics2024].
+
+## Model use, assumptions, validity domain and limitations
+
+To be completed
+
+## Model inputs and output
+
+The input variables are :
+
+| Variable | Description | Units |
+|-----------|--------------| ------|
+|$fastValving$ |a Boolean which, if true, initiates the fast valving|-|
+|$\omega_{Pu}$ |measured angular frequency | $pu$ (base $\omega_{Nom}$)|
+|$\omega_{RefPu}$ |reference angular frequency | $pu$ (base $\omega_{Nom}$)|
+|$P_{mRefPu}$ |reference mechanical power | $pu$ (base $P_{NomTurb}$)|
+
+The output signal is $P_{mPu}$, the mechanical power in $pu$ (base $P_{NomTurb}$).
+
+## Model parameters
+
+| Parameter | Description | Units |
+|-----------|--------------| ------|
+|$K$ |Governor gain(reciprocal of droop) |$pu$|
+|$K_1$ |Fraction of HP shaft power after first boiler pass|-|
+|$K_2$ |Fraction of LP shaft power after first boiler pass|-|
+|$K_3$ |Fraction of HP shaft power after second boiler pass|-|
+|$P_{MaxPu}$ |Maximum valve opening |$pu$ (base $P_{NomTurb}$)|
+|$P_{MinPu}$ |Minimum valve opening |$pu$ (base $P_{NomTurb}$)|
+|$P_{rMaxPu}$ |Maximum pressure in reheater |$pu$ (base $P_{NomTurb}$)|
+|$t_1$ |Governor lag time constant |$s$ |
+|$t_2$ |Governor lead time constant |$s$|
+|$t_3$ |Valve positioner time constant |$s$|
+|$t_4$ |Inlet piping / steam bowl time constant |$s$|
+|$t_5$ |Time constant of second boiler pass (reheater) |$s$|
+|$t_6$ |Time constant of crossover of third boiler pass |$s$|
+|$t_A$ |Time to close intercept valve |$s$|
+|$t_B$ |Time until intercept valve starts to reopen |$s$|
+|$t_C$ |Time until intercept valve is fully open |$s$|
+|$U_o$ |Maximum valve opening velocity |$pu/s$|
+|$U_c$ |Maximum valve closing velocity |$pu/s$|
+
+## Model diagram
+
+![TGOV3 model diagram](TGOV3.drawio.svg){#fig-tgov3}
+
+## Open source implementations
+
+This model has been successfully implemented in :
+
+| Software      | URL | Language | Open-Source License | Last consulted date | Comments |
+| ------------- | --- | -------- | ------------------- | ------------------- | -------- |
+| Dynawo | [Link](https://github.com/dynawo/dynawo) | Modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/)  | 24/05/2024 |  |
+
+## References 

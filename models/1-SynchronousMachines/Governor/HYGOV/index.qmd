@@ -7,11 +7,12 @@ last-updated: 24/05/2024
 id: #106
 author: Erwan Guichard (DPS for RTE)
 reviewers: Mathilde Bongrain (CRESYM)
+bibliography: ../../../../_bibliography/references.bib
 ---
 
 ## Context
 
-This governor model is a standard hydro turbine governor model. It represents a straightforward hydroelectric plant governor, with a simple hydraulic representation of the penstock with unrestricted head race and tail race, and no surge tank. {% cite PESTR12013 %}
+This governor model is a standard hydro turbine governor model. It represents a straightforward hydroelectric plant governor, with a simple hydraulic representation of the penstock with unrestricted head race and tail race, and no surge tank. [@PESTR12013]
 It is one of the most commonly used model in the present North American system databases.
 
 ## Model use, assumptions, validity domain and limitations
@@ -26,31 +27,33 @@ The input variables are :
 
 | Variable | Description | Units |
 |-----------|--------------| ------|
-| omegaPu | measured angular frequency |pu (base omegaNom)|
-| omegaRefPu | reference angular frequency |pu (base omegaNom)|
-| PmRefPu | reference mechanical power |pu (base PNomTurb)|
+| $\omega_{Pu}$ | measured angular frequency |$pu$ (base $\omega_{Nom}$)|
+| $\omega_{RefPu}$ | reference angular frequency |$pu$ (base $\omega_{Nom}$)|
+| $P_{mRefPu}$ | reference mechanical power |$pu$ (base $P_{NomTurb}$)|
 
-The output signal is PmPu, the mechanical power in pu (base PNomTurb).
+The output signal is $P_{mPu}$, the mechanical power in $pu$ (base $P_{NomTurb}$).
 
 ## Model parameters
 
-|At |Turbine gain|pu
-|DTurb |Turbine damping coefficient |pu|
-|FlowNoLoad |No-load water flow at nominal head |pu|
-|HDam |Head available at dam |pu|
-|KDroopPerm |Permanent droop |pu|
-|KDroopTemp |Temporary droop |pu|
-|OpeningGateMax |Maximum gate opening |pu|
-|OpeningGateMin|Minimum gate opening |pu|
-|tF |Filter time constant |s|
-|tG |Gate servomotor time constant |s|
-|tR |Governor time constant |s|
-|tW |Water inertia time constant |s|
-|VelMaxPu |Gate maximum opening/closing velocity |pu/s (base PNomTurb)|
+| Parameter | Description | Units |
+|-----------|--------------| ------|
+|$A_t$ |Turbine gain|$pu$|
+|$D_{Turb}$ |Turbine damping coefficient |$pu$|
+|$Flow_{NoLoad}$ |No-load water flow at nominal head |$pu$|
+|$H_{Dam}$ |Head available at dam |$pu$|
+|$K_{DroopPerm}$ |Permanent droop |$pu$|
+|$K_{DroopTemp}$ |Temporary droop |$pu$|
+|$Opening_{GateMax}$ |Maximum gate opening |$pu$|
+|$Opening_{GateMin}$|Minimum gate opening |$pu$|
+|$t_F$ |Filter time constant |$s$|
+|$t_G$ |Gate servomotor time constant |$s$|
+|$t_R$ |Governor time constant |$s$|
+|$t_W$ |Water inertia time constant |$s$|
+|$Vel_{MaxPu}$ |Gate maximum opening/closing velocity |$pu/s$ (base $P_{NomTurb}$)|
 
 ## Model diagram
 
-![HYGOV](HYGOV.drawio.svg)
+![HYGOV model diagram](HYGOV.drawio.svg){#fig-hygov}
 
 ## Open source implementations
 
@@ -60,6 +63,4 @@ This model has been successfully implemented in :
 | ------------- | --- | -------- | ------------------- | ------------------- | -------- |
 | Dynawo | [Link](https://github.com/dynawo/dynawo) | Modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/)  | 24/05/2024 |  |
 
-## References
-
-{% bibliography --cited --file references  %}
+## References 

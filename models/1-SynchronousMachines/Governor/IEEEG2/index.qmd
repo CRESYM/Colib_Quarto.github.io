@@ -7,11 +7,12 @@ last-updated: 24/05/2024
 id: #106
 author: Erwan Guichard (DPS for RTE)
 reviewers: Mathilde Bongrain (CRESYM)
+bibliography: ../../../../_bibliography/references.bib
 ---
 
 ## Context
 
-This governor model appears under the name GovHydroIEEE0 in the Common Information Model for Dynamics - Standard Models (2012) {% cite CIMStandardModels2012 %} and in the IEC 61970-302:2024 version {% cite IECCIMForDynamics2024 %}.
+This governor model appears under the name GovHydroIEEE0 in the Common Information Model for Dynamics - Standard Models (2012) [@CIMStandardModels2012] and in the IEC 61970-302:2024 version [@IECCIMForDynamics2024].
 
 ## Model use, assumptions, validity domain and limitations
 
@@ -23,27 +24,27 @@ The input variables are :
 
 | Variable | Description | Units |
 |-----------|--------------| ------|
-|omegaPu |measured angular frequency | pu (base omegaNom)|
-|omegaRefPu |reference angular frequency |pu (base omegaNom)|
-|PmRefPu |reference mechanical power |pu (base PNomTurb)|
+|$\omega_{Pu}$ |measured angular frequency | $pu$ (base $\omega_{Nom}$)|
+|$\omega_{RefPu}$ |reference angular frequency |$pu$ (base $\omega_{Nom}$)|
+|$P_{mRefPu}$ |reference mechanical power |$pu$ (base $P_{NomTurb}$)|
 
-The output signal is PmPu, the mechanical power in pu (base PNomTurb).
+The output signal is $P_{mPu}$, the mechanical power in $pu$ (base $P_{NomTurb}$).
 
 ## Model parameters
 
 | Variable | Description | Units |
 |-----------|--------------| ------|
-|K |Governor gain (reciprocal of droop) |pu|
-|PMaxPu |Maximum mechanical power |pu (base PNomTurb)|
-|PMinPu |Minimum mechanical power |pu (base PNomTurb)|
-|t1 |Governor mechanism time constant |s|
-|t2 |Turbine power time constant |s|
-|t3 |Turbine exhaust temperature time constant |s|
-|t4 |Governor lead-lag time constant |s|
+|$K$ |Governor gain (reciprocal of droop) |$pu$|
+|$P_{MaxPu}$ |Maximum mechanical power |$pu$ (base $P_{NomTurb}$)|
+|$P_{MinPu}$ |Minimum mechanical power |$pu$ (base $P_{NomTurb}$)|
+|$t_1$ |Governor mechanism time constant |$s$|
+|$t_2$ |Turbine power time constant |$s$|
+|$t_3$ |Turbine exhaust temperature time constant |$s$|
+|$t_4$ |Governor lead-lag time constant |$s$|
 
 ## Model diagram
 
-![IEEEG2](IEEEG2.drawio.svg)
+![IEEEG2 model diagram](IEEEG2.drawio.svg){#fig-ieeeg2}
 
 ## Open source implementations
 
@@ -53,6 +54,4 @@ This model has been successfully implemented in :
 | ------------- | --- | -------- | ------------------- | ------------------- | -------- |
 | Dynawo | [Link](https://github.com/dynawo/dynawo) | Modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/)  | 24/05/2024 |  |
 
-## References
-
-{% bibliography --cited --file references  %}
+## References 

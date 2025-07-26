@@ -7,6 +7,7 @@ last-updated: 24/05/2024
 id: #106
 author: Erwan Guichard (DPS for RTE)
 reviewers: Mathilde Bongrain (CRESYM)
+bibliography: ../../../../_bibliography/references.bib
 ---
 # TGOV1 model
 
@@ -14,7 +15,7 @@ This article is incomplete, some sections must be written.
 
 ## Context
 
-This governor model appears under the name GovSteam0 in the Common Information Model for Dynamics - Standard Models (2012) {% cite CIMStandardModels2012 %} and in the IEC 61970-302:2024 version {% cite IECCIMForDynamics2024 %}.
+This governor model appears under the name GovSteam0 in the Common Information Model for Dynamics - Standard Models (2012) [@CIMStandardModels2012] and in the IEC 61970-302:2024 version [@IECCIMForDynamics2024].
 
 ## Model use, assumptions, validity domain and limitations
 
@@ -26,27 +27,27 @@ The input variables are :
 
 | Variable | Description | Units |
 |-----------|--------------| ------|
-| omegaPu |measured angular frequency |pu (base omegaNom)|
-| omegaRefPu |reference angular frequency |pu (base omegaNom)|
-| PmRefPu |reference mechanical power |pu (base PNomTurb)|
+| $\omega_{Pu}$ |measured angular frequency |$pu$ (base $\omega_{Nom}$)|
+| $\omega_{RefPu}$ |reference angular frequency |$pu$ (base $\omega_{Nom}$)|
+| $P_{mRefPu}$ |reference mechanical power |$pu$ (base $P_{NomTurb}$)|
 
-The output signal is PmPu, the mechanical power in pu (base PNomTurb).
+The output signal is $P_{mPu}$, the mechanical power in $pu$ (base $P_{NomTurb}$).
 
 ## Model parameters
 
 | Parameter | Description | Units |
 |-----------|--------------| ------|
-|Dt |Turbine damping coefficient |pu|
-|R |Permanent droop |pu|
-|t1 |Steam bowl time constant |s|
-|t2 |Reheater lead time constant |s|
-|t3 |Reheater lag time constant |s|
-|VMax |Maximum valve position |pu|
-|VMin |Minimum valve position |pu|
+|$D_t$ |Turbine damping coefficient |$pu$|
+|$R$ |Permanent droop |$pu$|
+|$t_1$ |Steam bowl time constant |$s$|
+|$t_2$ |Reheater lead time constant |$s$|
+|$t_3$ |Reheater lag time constant |$s$|
+|$V_{Max}$ |Maximum valve position |$pu$|
+|$V_{Min}$ |Minimum valve position |$pu$|
 
 ## Model diagram
 
-![TGOV1](TGOV1.drawio.svg)
+![TGOV1 model diagram](TGOV1.drawio.svg){#fig-tgov1}
 
 ## Open source implementations
 
@@ -56,6 +57,4 @@ This model has been successfully implemented in :
 | ------------- | --- | -------- | ------------------- | ------------------- | -------- |
 | Dynawo | [Link](https://github.com/dynawo/dynawo) | Modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/)  | 24/05/2024 |  |
 
-## References
-
-{% bibliography --cited --file references  %}
+## References 

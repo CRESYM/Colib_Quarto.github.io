@@ -1,0 +1,81 @@
+---
+layout: page
+title: IEEEG1 / GovSteam 1
+tags: ["Governor", "IEEEG1", "generic", "Opensource", "CIM model", "RMS", "phasor", "MRL4", "Single phase", "GovSteam1", "IEC", "dynawo", "#106"]
+date: 05/04/2024
+last-updated: 24/05/2024
+id: #106
+author: Erwan Guichard (DPS for RTE)
+reviewers: Mathilde Bongrain (CRESYM)
+bibliography: ../../../../_bibliography/references.bib
+---
+# IEEEG1 model / GovSteam 1
+
+## Context
+
+This governor was initially developed and described in [@IEEEWGPrimeMover1973]. It is oftenly combined with the LCFBA model which is a simple representation of an outer-loop MW controller.
+
+This governor model appears under the name GovSteam1 in the Common Information Model for Dynamics - Standard Models (2012) [@CIMStandardModels2012] and in the IEC 61970-302:2024 version [@IECCIMForDynamics2024].
+
+## Model use, assumptions, validity domain and limitations
+
+ It includes the rate limits on the main control valve ($U_o$ and $U_c$) as well as four steam‐stages and the ability to model cross‐compound Units.
+ There are a number of key assumptions behind this model:
+
+- steam pressure and temperature remain constant under all conditions,
+- the unit is in boiler‐follow control mode – that is, the main steam control valve (MCV) is used primarily for regulating power and the boiler follows the turbine in producing additional steam as needed, and
+- there is essentially an unlimited source of steam from the boiler to be provided once the main steam control valve opens.
+These assumptions are quite simplistic and not truly indicative of the physics of a steam turbine. However, it can be true for many steam turbines such as  boiler‐follow control.
+
+ As stated in [@PESTR12013], it has been been shown that this model in combination with LCBF1 is effective in capturing the behavior of large steam turbine generators that are operated on outer‐loop MW control. It applicable for large interconnected grid simulations when looking at relatively small frequency deviations, that is, in the range of +/‐ 0.5% change in frequency.  The LCBF1 model is needed only in cases where there is a active secondary outer‐loop MW controller in the plant.
+
+## Model inputs and output
+
+The input variables are :
+
+| Variable | Description | Units |
+|-----------|--------------| ------|
+|$\omega_{Pu}$ | measured angular frequency |$pu$ (base $\omega_{Nom}$)|
+|$\omega_{RefPu}$ |reference angular frequency |$pu$ (base $\omega_{Nom}$)|
+|$P_{mRefPu}$ |reference mechanical power |$pu$ (base $P_{NomTurb}$)|
+
+The output signal is $P_{mPu}$, the mechanical power in $pu$ (base $P_{NomTurb}$).
+
+## Model parameters
+
+| Variable | Description | Units |
+|-----------|--------------| ------|
+|$K$ |Governor gain (reciprocal of droop) |$pu$|
+|$K_1$ |Fraction of HP shaft power after first boiler pass|-|
+|$K_2$ |Fraction of LP shaft power after first boiler pass|-|
+|$K_3$ |Fraction of HP shaft power after second boiler pass|-|
+|$K_4$ |Fraction of LP shaft power after second boiler pass|-|
+|$K_5$ |Fraction of HP shaft power after third boiler pass|-|
+|$K_6$ |Fraction of LP shaft power after third boiler pass|-|
+|$K_7$ |Fraction of HP shaft power after fourth boiler pass|-|
+|$K_8$ |Fraction of LP shaft power after fourth boiler pass|-|
+|$P_{MaxPu}$ |Power output of boiler at maximum valve opening |$pu$ (base $P_{NomTurb}$)|
+|$P_{MinPu}$ |Power output of boiler at minimum valve opening |$pu$ (base $P_{NomTurb}$)|
+|$t_1$ |Governor lag time constant |$s$|
+|$t_2$ |Governor lead time constant |$s$|
+|$t_3$ |Valve positioner time constant |$s$|
+|$t_4$ |HP bowl time constant |$s$|
+|$t_5$ |Reheater time constant |$s$|
+|$t_6$ |Crossover time constant |$s$|
+|$t_7$ |Double reheat time constant |$s$|
+|$U_c$ |Maximum valve closing velocity |$pu/s$ (base $P_{NomTurb}$)|
+|$U_o$ |Maximum valve opening velocity |$pu/s$ (base $P_{NomTurb}$)|
+
+## Model diagram
+
+![IEEEG1 model diagram](IEEEG1.drawio.svg){#fig-ieeeg1}
+
+## Open source implementations
+
+This model has been successfully implemented in :
+
+| Software      | URL | Language | Open-Source License | Last consulted date | Comments |
+| ------------- | --- | -------- | ------------------- | ------------------- | -------- |
+| Dynawo | [Link](https://github.com/dynawo/dynawo) | Modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/)  | 24/05/2024 |  |
+
+## References 
