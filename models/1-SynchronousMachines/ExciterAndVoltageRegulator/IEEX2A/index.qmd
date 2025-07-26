@@ -1,0 +1,70 @@
+---
+layout: page
+title: IEEX2A
+tags: ["Voltage regulator", "IEEX2A", "generic"]
+date: 05/04/2024
+last-updated: 24/05/2024
+id: #106
+author: Erwan Guichard (DPS for RTE)
+reviewers: Mathilde Bongrain (CRESYM)
+---
+
+This article is incomplete, some sections must be written.
+
+## Context
+
+To be completed
+
+## Model use, assumptions, validity domain and limitations
+
+To be completed
+
+## Model inputs and output
+
+The input variables are :
+
+| Variable | Description | Units |
+|-----------|--------------| ------|
+|$U_s$ |measured stator voltage | $\text{pu}$ (base $U_{Nom}$)|
+|$U_{s,Ref}$ |reference stator voltage|$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Oel}$ (optional) |output voltage of overexcitation limiter|$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Pss}$ (optional) |output voltage of power system stabilizer|$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Uel}$ (optional) |output voltage of underexcitation limiter|$\text{pu}$ (base $U_{Nom}$)|
+
+The output signal is $E_{fd}$, the excitation voltage in $\text{pu}$ (user-selected base voltage).
+
+## Model parameters
+
+| Parameter | Description | Units |
+|-----------|--------------| ------|
+|$A_{Ex}$ |Gain of saturation function|$\text{pu}$|
+|$B_{Ex}$ |Exponential coefficient of saturation function|$-$|
+|$E_{fd,Min}$ |Minimum excitation voltage|$\text{pu}$ (user-selected base voltage)|
+|$K_a$ |Voltage regulator gain|$\text{pu}$|
+|$K_e$ |Exciter field proportional constant|$\text{pu}$|
+|$K_f$ |Exciter rate feedback gain|$\text{pu}$|
+|$t_A$ |Voltage regulator time constant|$\text{s}$|
+|$t_B$ |Voltage regulator lag time constant|$\text{s}$|
+|$t_C$ |Voltage regulator lead time constant|$\text{s}$|
+|$t_E$ |Exciter field time constant|$\text{s}$|
+|$t_{F1}$ |Feedback lead time constant|$\text{s}$|
+|$t_R$ |Stator voltage filter time constant|$\text{s}$|
+|$V_{r,Max}$ |Maximum field voltage|$\text{pu}$ (user-selected base voltage)|
+|$V_{r,Min}$ |Minimum field voltage|$\text{pu}$ (user-selected base voltage)|
+
+## Model diagram
+
+![IEEX2A block diagram](IEEX2A.drawio.svg){#fig-ieex2a-diagram}
+
+## Open source implementations
+
+This model has been successfully implemented in :
+
+| Software      | URL | Language | Open-Source License | Last consulted date | Comments |
+| ------------- | --- | -------- | ------------------- | ------------------- | -------- |
+| Dynawo | [Link](https://github.com/dynawo/dynawo) | Modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/)  | 24/05/2024 |  |
+
+## References
+
+::: {#refs}
+::: 

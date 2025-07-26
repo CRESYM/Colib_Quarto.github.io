@@ -1,0 +1,67 @@
+---
+layout: page
+title: SCRX
+tags: ["Voltage regulator", "SCRX", "generic", "Opensource", "CIM model", "RMS", "phasor", "MRL4", "Single phase", "ExcSCRX", "IEC", "dynawo", "#106"]
+date: 05/04/2024
+last-updated: 24/05/2024
+id: #106
+author: Erwan Guichard (DPS for RTE)
+reviewers: Mathilde Bongrain (CRESYM)
+---
+# SCRX model
+
+This article is incomplete, some sections must be written.
+
+## Context
+
+This voltage regulator model appears under the name ExcSCRX in the Common Information Model for Dynamics - Standard Models (2012) [@CIMStandardModels2012] and in the IEC 61970-302:2024 version [@IECCIMForDynamics2024].
+
+## Model use, assumptions, validity domain and limitations
+
+To be completed
+
+## Model inputs and output
+
+The input variables are :
+
+| Variable | Description | Units |
+|-----------|--------------| ------|
+|$I_r$ |rotor current |$\text{pu}$ (base $S_{Nom}$, user-selected base voltage)|
+|$U_s$ |measured stator voltage |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{s,Ref}$ |reference stator voltage |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Oel}$ (optional) |output voltage of overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Pss}$ (optional) |output voltage of power system stabilizer |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Uel}$ (optional) |output voltage of underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+
+The output signal is $E_{fd}$, the excitation voltage in $\text{pu}$ (user-selected base voltage).
+
+## Model parameters
+
+| Parameter | Description | Units |
+|-----------|--------------| ------|
+|$\text{CSwitch}$ |If true, exciter is solid-fed, if false, exciter is bus-fed|$-$|
+|$\text{IrThresholdOn}$ |If true, rotor current threshold applies|$-$|
+|$K$ |Voltage regulator gain |$\text{pu}$|
+|$\text{RcToRfd}$ |Ratio of field discharge resistance to field winding resistance|$-$|
+|$t_A$ |Transient gain reduction lead time constant |$\text{s}$|
+|$t_B$ |Transient gain reduction lag time constant |$\text{s}$|
+|$t_E$ |Voltage regulator time constant |$\text{s}$|
+|$V_{r,Max}$ |Maximum output voltage of voltage regulator |$\text{pu}$ (user-selected base voltage)|
+|$V_{r,Min}$ |Minimum output voltage of voltage regulator |$\text{pu}$ (user-selected base voltage)|
+
+## Model diagram
+
+![SCRX block diagram](SCRX.drawio.svg){#fig-scrx-diagram}
+
+## Open source implementations
+
+This model has been successfully implemented in :
+
+| Software      | URL | Language | Open-Source License | Last consulted date | Comments |
+| ------------- | --- | -------- | ------------------- | ------------------- | -------- |
+| Dynawo | [Link](https://github.com/dynawo/dynawo) | Modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/)  | 24/05/2024 |  |
+
+## References
+
+::: {#refs}
+::: 

@@ -1,0 +1,105 @@
+---
+layout: page
+title: AC6C
+tags: ["Voltage regulator", "AC6C", "generic", "Opensource", "CIM model", "RMS", "phasor", "MRL4", "Single phase", "ExcIEEEAC6C", "IEEE", "dynawo", "#106"]
+date: 05/04/2024
+last-updated: 24/05/2024
+id: #106
+author: Erwan Guichard (DPS for RTE)
+reviewers: Mathilde Bongrain (CRESYM)
+---
+# Exc IEEE AC6C model
+
+## Context
+
+This model is part of the alternator supplied rectifier excitation systems that use an ac alternator and stationary or rotating rectifiers to produce generator field requirements.
+
+This voltage regulator model first appeared in the IEEE Std 421.5-2016 [@IEEEExciterModels2016]. It has been reproduced identically in the IEC 61970-302:2024 version [@IECCIMForDynamics2024].
+In previous standard versions (1992, 2005), its predecessor model was called AC6A. Compared to AC6A, AC6C has additional options for connecting OEL and UEL inputs.
+
+## Model use, assumptions, validity domain and limitations
+
+It is used to represent field-controlled alternator-rectifier excitation systems with system-supplied electronic voltage regulators.
+It takes into account loading effects. It can't allow the supply of negative field current. It takes into account saturation.
+
+This model is satisfactory for large scale simulations. However, if this model is used to design phase lead networks for power system stabilizers, and the local mode is close to 3 Hz or higher, a more detailed treatment of the ac rotating exciter may be needed.
+
+Excitation systems incorporating rotating machines produce a field voltage output ($E_{FD}$) which is proportional to the rotating speed of the machine. Since this effect is negligible when speed deviations are small which is the case of dynamic studies of large interconnected power systems, the effect of speed deviations on the output of the dc rotating exciter models is not represented in this latest version of the standard. However, some commercial software may have implemented such speed dependency in their model.
+
+## Model inputs and output
+
+The input variables are :
+
+| Variable | Description | Units |
+|-----------|--------------| ------|
+| $I_r$ | rotor current | $\text{pu}$ (base $S_{Nom}$, user-selected base voltage)|
+| $U_s$ |measured stator voltage |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{s,Ref}$ |reference stator voltage |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Oel}$ (optional) |output voltage of overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Pss}$ (optional) |output voltage of power system stabilizer |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Scl,Oel}$ (optional) |output voltage of stator current overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Scl,Uel}$ (optional) |output voltage of stator current underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Uel}$ (optional) |output voltage of underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+
+The output signal is $E_{fd}$, the excitation voltage in $\text{pu}$ (user-selected base voltage).
+
+## Model parameters
+
+| Parameter | Description | Units |
+|-----------|--------------| ------|
+|$A_{Ex}$ |Gain of saturation function |$\text{pu}$|
+|$B_{Ex}$ |Exponential coefficient of saturation function|$-$|
+|$E_{fe,Max}$ |Maximum exciter field voltage |$\text{pu}$ (user-selected base voltage)|
+|$E_{fe,Min}$ |Minimum exciter field voltage |$\text{pu}$ (user-selected base voltage)|
+|$K_a$ |Voltage regulator ga|$\text{pu}$|
+|$K_c$ |Rectifier loading factor proportional to commutating reactance |$\text{pu}$|
+|$K_d$ |Demagnetizing factor, function of exciter alternator reactances |$\text{pu}$|
+|$K_e$ |Exciter field resistance constant |$\text{pu}$|
+|$K_h$ |Exciter field current feedback gain |$\text{pu}$|
+|$\text{PositionOel}$ |Input location :(0) none, (1) voltage error summation, (2) take-over at AVR output|$-$|
+|$\text{PositionScl}$ |Input location :(0) none, (1) voltage error summation, (2) take-over at AVR output|$-$|
+|$\text{PositionUel}$ |Input location :(0) none, (1) voltage error summation, (2) take-over at AVR output|$-$|
+|$t_A$ |First lag time constant |$\text{s}$|
+|$t_B$ |Second lag time constant |$\text{s}$|
+|$t_C$ |Second lead time constant |$\text{s}$|
+|$t_E$ |Exciter field time constant |$\text{s}$|
+|$t_H$ |Feedback lag time constant |$\text{s}$|
+|$t_J$ |Feedback lead time constant |$\text{s}$|
+|$t_K$ |First lead time constant |$\text{s}$|
+|$\text{TolLi}$ |Tolerance on limit crossing as a fraction of the difference between initial limits of limited integrator |$\text{pu}$|
+|$t_R$ |Stator voltage filter time constant |$\text{s}$|
+|$V_{fe,Lim}$ |Threshold of field current signal for feedback |$\text{pu}$ (user-selected base voltage)|
+|$V_{a,Max}$ |Maximum output voltage of voltage regulator |$\text{pu}$ (user-selected base voltage)|
+|$V_{a,Min}$ |Minimum output voltage of voltage regulator |$\text{pu}$ (user-selected base voltage)|
+|$V_{e,Min}$ |Minimum exciter output voltage |$\text{pu}$ (user-selected base voltage)|
+|$V_{fe,Max}$ |Maximum exciter field current signal |$\text{pu}$ (user-selected base voltage)|
+|$V_{h,Max}$ |Maximum feedback voltage |$\text{pu}$ (user-selected base voltage)|
+|$V_{r,Max}$ |Maximum field voltage |$\text{pu}$ (user-selected base voltage)|
+|$V_{r,Min}$ |Minimum field voltage |$\text{pu}$ (user-selected base voltage)|
+
+## Model diagram
+
+![AC6C block diagram](AC6C.drawio.svg){#fig-ac6c-diagram}
+
+Where the AC rotating exciter model is modelled [here](../AcRotatingExciter/)
+
+## Model variant
+
+In the AC6A model :
+
+- there are no stator current limiter and no overexcitation limiter
+- the underexcitation limitation voltage is added to the voltage error
+- the lower limit on exciter output voltage is zero
+
+## Open source implementations
+
+This model has been successfully implemented in :
+
+| Software      | URL | Language | Open-Source License | Last consulted date | Comments |
+| ------------- | --- | -------- | ------------------- | ------------------- | -------- |
+| Dynawo | [Link](https://github.com/dynawo/dynawo) | Modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/)  | 24/05/2024 |  |
+
+## References
+
+::: {#refs}
+::: 

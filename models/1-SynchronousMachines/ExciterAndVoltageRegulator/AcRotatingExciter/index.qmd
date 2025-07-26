@@ -1,0 +1,71 @@
+---
+layout: page
+title: AcRotatingExciter (submodel)
+tags: ["Voltage regulator submodel", "AcRotatingExciter", "generic", "Opensource", "CIM model", "RMS", "phasor", "MRL4", "Single phase", "IEEE", "dynawo", "#106"]
+date: 05/04/2024
+last-updated: 24/05/2024
+id: #106
+author: Erwan Guichard (DPS for RTE)
+reviewers: Mathilde Bongrain (CRESYM)
+---
+# AcRotatingExciter model
+
+## Context
+
+This ac rotating exciter with non-controlled rectifiers has been presented in details in [@Ferguson1960] and [@Gayek1964].
+
+This model is included in the type AC (alternator-supplied rectifier) voltage regulator models described in the IEEE Std 421.5-2016 [@IEEEExciterModels2016], specifically those named AC.C (AC1C, AC6C, etc.). Compared to the first standard version (1992), the models AC.B (introduced in the second standard version of 2005) and AC.C have a variable upper limit for the limited integrator.
+
+## Model use, assumptions, validity domain and limitations
+
+This model is satisfactory for large scale simulations. However, if this model is used to design phase lead networks for power system stabilizers, and the local mode is close to 3 Hz or higher, a more detailed treatment of the ac rotating exciter may be needed.
+Saturation is taken into account with $S_E(V_E)$
+
+The demagnetizing effect of load current $I_{FD}$ on the exciter alternator output voltage $V_E$ is accounted for in the feedback path that includes the demagnetization constant $K_D$. This constant depends on of the exciter alternator synchronous and transient reactances.
+
+## Model inputs and outputs
+
+The input variables are :
+
+| Variable | Description | Units |
+|-----------|--------------| ------|
+| $E_{fe}$ | output voltage of voltage regulator | $\text{pu}$ (user-selected base voltage)|
+| $I_r$ | rotor current | $\text{pu}$ (base $S_{Nom}$, user-selected base voltage)|
+
+The output variables are :
+
+| Variable | Description | Units |
+|-----------|--------------| ------|
+| $E_{fd}$ | excitation voltage | $\text{pu}$ (user-selected base voltage)|
+| $V_{fe}$ | field current signal | $\text{pu}$ (user-selected base voltage)|
+
+## Model parameters
+
+| Parameter | Description | Units |
+|-----------|--------------| ------|
+|$A_{Ex}$ | Gain of saturation function | $\text{pu}$|
+|$B_{Ex}$ | Exponential coefficient of saturation function|$-$|
+|$K_c$ | Rectifier loading factor proportional to commutating reactance | $\text{pu}$|
+|$K_d$ | Demagnetizing factor, function of exciter alternator reactances | $\text{pu}$|
+|$K_e$ | Exciter field resistance constant |$\text{pu}$|
+|$t_E$ | Exciter field time constant | $\text{s}$|
+|$\text{TolLi}$ | Tolerance on limit crossing as a fraction of the difference between initial limits of limited integrator | $\text{pu}$|
+|$V_{e,Min}$ | Minimum exciter output voltage | $\text{pu}$ (user-selected base voltage)|
+|$V_{fe,Max}$ | Maximum exciter field current signal | $\text{pu}$ (user-selected base voltage)|
+
+## Model diagram
+
+![AcRotatingExciter block diagram](AcRotatingExciter.drawio.svg){#fig-acrotatingexciter-diagram}
+
+## Open source implementations
+
+This model has been successfully implemented in :
+
+| Software      | URL | Language | Open-Source License | Last consulted date | Comments |
+| ------------- | --- | -------- | ------------------- | ------------------- | -------- |
+| Dynawo | [Link](https://github.com/dynawo/dynawo) | Modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/)  | 24/05/2024 |  |
+
+## References
+
+::: {#refs}
+::: 

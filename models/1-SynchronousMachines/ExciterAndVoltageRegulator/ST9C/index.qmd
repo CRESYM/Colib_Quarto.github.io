@@ -1,0 +1,86 @@
+---
+layout: page
+title: ST9C
+tags: ["Voltage regulator", "ST9C", "generic", "Opensource", "CIM model", "RMS", "phasor", "MRL4", "Single phase", "ExcIEEEST9C", "IEEE", "dynawo", "#106"]
+date: 05/04/2024
+last-updated: 24/05/2024
+id: #106
+author: Erwan Guichard (DPS for RTE)
+reviewers: Mathilde Bongrain (CRESYM)
+---
+# Exc IEEE ST9C model
+
+This article is incomplete, some sections must be written.
+
+## Context
+
+This voltage regulator model first appeared in the IEEE Std 421.5-2016 [@IEEEExciterModels2016]. It has been reproduced identically in the IEC 61970-302:2024 version [@IECCIMForDynamics2024].
+
+## Model use, assumptions, validity domain and limitations
+
+To be completed
+
+## Model inputs and output
+
+The input variables are :
+
+| Variable | Description | Units |
+|-----------|--------------| ------|
+|$I_r$ |rotor current |$\text{pu}$ (base $S_{Nom}$, user-selected base voltage)|
+|$i_t$ |complex current at the terminal |$\text{pu}$ (base $S_{Nom}$, $U_{Nom}$)|
+|$U_s$ |measured stator voltage |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{s,Ref}$ |reference stator voltage |$\text{pu}$ (base $U_{Nom}$)|
+|$u_t$ |complex voltage at the terminal |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Oel}$ (optional) |output voltage of overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Pss}$ (optional) |output voltage of power system stabilizer |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Scl,Oel}$ (optional) |output voltage of stator current overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Scl,Uel}$ (optional) |output voltage of stator current underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Uel}$ (optional) |output voltage of underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+
+The output signal is $E_{fd}$, the excitation voltage in $\text{pu}$ (user-selected base voltage).
+
+## Model parameters
+
+| Parameter | Description | Units |
+|-----------|--------------| ------|
+|$K_a$ |Voltage regulator gain |$\text{pu}$|
+|$K_{as}$ |Power converter gain proportional to supply voltage |$\text{pu}$|
+|$K_c$ |Rectifier loading factor proportional to commutating reactance |$\text{pu}$|
+|$K_i$ |Potential circuit (current) gain coefficient |$\text{pu}$|
+|$K_p$ |Potential circuit gain |$\text{pu}$|
+|$K_u$ |Gain associated with activation of takeover UEL |$\text{pu}$|
+|$\text{PositionOel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over|$-$|
+|$\text{PositionScl}$ |Input location : (0) none, (1) voltage error summation, (2) take-over|$-$|
+|$\text{PositionUel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over|$-$|
+|$\text{Sw1}$ |If true, power source derived from terminal voltage, if false, independent from terminal voltage|$-$|
+|$t_A$ |Voltage regulator time constant |$\text{s}$|
+|$t_{As}$ |Equivalent time constant of power converter firing control |$\text{s}$|
+|$t_{AUel}$ |Time constant of underexcitation limiter |$\text{s}$|
+|$t_{Bd}$ |Filter time constant of differential part of voltage regulator |$\text{s}$|
+|$t_{Cd}$ |Time constant of differential part of voltage regulator |$\text{s}$|
+|$\Theta_p$ |Potential circuit phase angle |$\text{rad}$|
+|$t_R$ |Stator voltage filter time constant |$\text{s}$|
+|$V_{a,Max}$ |Maximum output voltage of limited first order |$\text{pu}$|
+|$V_{a,Min}$ |Minimum output voltage of limited first order |$\text{pu}$|
+|$V_{b,Max}$ |Maximum available exciter field voltage |$\text{pu}$ (base $U_{Nom}$)|
+|$V_{r,Max}$ |Maximum field voltage |$\text{pu}$ (user-selected base voltage)|
+|$V_{r,Min}$ |Minimum field voltage |$\text{pu}$ (user-selected base voltage)|
+|$X_l$ |Reactance associated with potential source |$\text{pu}$ (base $S_{Nom}$, $U_{Nom}$)|
+|$Z_a$ |Dead-band for differential part influence on voltage regulator |$\text{pu}$ (base $U_{Nom}$)|
+
+## Model diagram
+
+![ST9C block diagram](ST9C.drawio.svg){#fig-st9c-diagram}
+
+## Open source implementations
+
+This model has been successfully implemented in :
+
+| Software      | URL | Language | Open-Source License | Last consulted date | Comments |
+| ------------- | --- | -------- | ------------------- | ------------------- | -------- |
+| Dynawo | [Link](https://github.com/dynawo/dynawo) | Modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/)  | 24/05/2024 |  |
+
+## References
+
+::: {#refs}
+::: 

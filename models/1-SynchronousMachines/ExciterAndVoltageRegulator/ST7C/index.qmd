@@ -1,0 +1,82 @@
+---
+layout: page
+title: ST7C
+tags: ["Voltage regulator", "ST7C", "generic", "Opensource", "CIM model", "RMS", "phasor", "MRL4", "Single phase", "ExcIEEEST7C", "IEEE", "dynawo", "#106"]
+date: 05/04/2024
+last-updated: 24/05/2024
+id: #106
+author: Erwan Guichard (DPS for RTE)
+reviewers: Mathilde Bongrain (CRESYM)
+---
+# Exc IEEE ST7C model
+
+This article is incomplete, some sections must be written.
+
+## Context
+
+This voltage regulator model first appeared in the IEEE Std 421.5-2016 [@IEEEExciterModels2016]. It has been reproduced identically in the IEC 61970-302:2024 version [@IECCIMForDynamics2024].
+In the previous standard version (2005), its predecessor model was called ST7B. Compared to ST7B, ST7C has an additional time constant $t_A$.
+
+## Model use, assumptions, validity domain and limitations
+
+To be completed
+
+## Model inputs and output
+
+The input variables are :
+
+| Variable | Description | Units |
+|-----------|--------------| ------|
+| $U_s$ |measured stator voltage | $\text{pu}$ (base $U_{Nom}$)|
+|$U_{s,Ref}$ |reference stator voltage |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Oel}$ (optional) |output voltage of overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Pss}$ (optional) |output voltage of power system stabilizer |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Scl,Oel}$ (optional) |output voltage of stator current overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Scl,Uel}$ (optional) |output voltage of stator current underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Uel}$ (optional) |output voltage of underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+
+The output signal is $E_{fd}$, the excitation voltage in $\text{pu}$ (user-selected base voltage).
+
+## Model parameters
+
+| Parameters | Description | Units |
+|-----------|--------------| ------|
+|$K_h$ |High-value gate feedback gain |$\text{pu}$|
+|$K_{ia}$ |Voltage regulator feedback gain |$\text{pu}$|
+|$K_l$ |Low-value gate feedback gain |$\text{pu}$|
+|$K_{pa}$ |Voltage regulator proportional gain |$\text{pu}$|
+|$\text{PositionOel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) take-over at AVR output|$-$|
+|$\text{PositionScl}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) take-over at AVR output|$-$|
+|$\text{PositionUel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) take-over at AVR output|$-$|
+|$t_A$ |Thyristor bridge firing control equivalent time constant |$\text{s}$|
+|$t_B$ |Voltage regulator lag time constant |$\text{s}$|
+|$t_C$ |Voltage regulator lead time constant |$\text{s}$|
+|$t_F$ |Stator voltage lag time constant |$\text{s}$|
+|$t_G$ |Stator voltage lead time constant |$\text{s}$|
+|$t_{Ia}$ |Feedback time constant |$\text{s}$|
+|$t_R$ |Stator voltage filter time constant |$\text{s}$|
+|$V_{Max}$ |Maximum reference voltage |$\text{pu}$ (user-selected base voltage)|
+|$V_{Min}$ |Minimum reference voltage |$\text{pu}$ (user-selected base voltage)|
+|$V_{r,Max}$ |Maximum field voltage |$\text{pu}$ (user-selected base voltage)|
+|$V_{r,Min}$ |Minimum field voltage |$\text{pu}$ (user-selected base voltage)|
+
+## Model diagram
+
+![ST7C block diagram](ST7C.drawio.svg){#fig-st7c-diagram}
+
+## Model variant
+
+In the ST7B model, the final first order filter is ignored.
+
+## Open source implementations
+
+This model has been successfully implemented in :
+
+| Software      | URL | Language | Open-Source License | Last consulted date | Comments |
+| ------------- | --- | -------- | ------------------- | ------------------- | -------- |
+| Dynawo | [Link](https://github.com/dynawo/dynawo) | Modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/)  | 24/05/2024 |  |
+
+## References
+
+::: {#refs}
+::: 

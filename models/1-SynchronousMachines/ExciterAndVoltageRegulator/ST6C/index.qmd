@@ -1,0 +1,99 @@
+---
+layout: page
+title: ST6C
+tags: ["Voltage regulator", "ST6C", "generic", "Opensource", "CIM model", "RMS", "phasor", "MRL4", "Single phase", "ExcIEEEST6C", "IEEE", "dynawo", "#106"]
+date: 05/04/2024
+last-updated: 24/05/2024
+id: #106
+author: Erwan Guichard (DPS for RTE)
+reviewers: Mathilde Bongrain (CRESYM)
+---
+# Exc IEEE ST6C model
+
+This article is incomplete, some sections must be written.
+
+## Context
+
+This voltage regulator model first appeared in the IEEE Std 421.5-2016 [@IEEEExciterModels2016]. It has been reproduced identically in the IEC 61970-302:2024 version [@IECCIMForDynamics2024].
+In the previous standard version (2005), its predecessor model was called ST6B. Compared to ST6B, ST6C has additional options for connecting OEL and UEL inputs and an additional block with time constant $t_A$.
+
+## Model use, assumptions, validity domain and limitations
+
+To be completed
+
+## Model inputs and output
+
+The input variables are :
+
+| Variable | Description | Units |
+|-----------|--------------| ------|
+| $I_r$ |rotor current |$\text{pu}$ (base $S_{Nom}$, user-selected base voltage)|
+|$i_t$ |complex current at the terminal |$\text{pu}$ (base $S_{Nom}$, $U_{Nom}$)|
+|$U_s$ |measured stator voltage |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{s,Ref}$ |reference stator voltage |$\text{pu}$ (base $U_{Nom}$)|
+|$u_t$ |complex voltage at the terminal |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Oel}$ (optional) |output voltage of overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Pss}$ (optional) |output voltage of power system stabilizer |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Scl,Oel}$ (optional) |output voltage of stator current overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Scl,Uel}$ (optional) |output voltage of stator current underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+|$U_{Uel}$ (optional) |output voltage of underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+
+The output signal is $E_{fd}$, the excitation voltage in $\text{pu}$ (user-selected base voltage).
+
+## Model parameters
+
+| Parameter | Description | Units |
+|-----------|--------------| ------|
+|$I_{lr}$ |Exciter output current limit reference |$\text{pu}$ (base $S_{Nom}$, user-selected base voltage)|
+|$K_c$ |Rectifier loading factor proportional to commutating reactance |$\text{pu}$|
+|$K_{cl}$ |Field current limiter conversion factor |$\text{pu}$|
+|$K_{ff}$ |Feedforward gain of inner loop field regulator |$\text{pu}$|
+|$K_g$ |Feedback gain constant of inner loop field regulator |$\text{pu}$|
+|$K_i$ |Potential circuit (current) gain coefficient |$\text{pu}$|
+|$K_{ia}$ |Integral gain of PI |$\text{pu}$|
+|$K_{lr}$ |Gain of field current limiter |$\text{pu}$|
+|$K_m$ |Gain of error of inner loop field regulator |$\text{pu}$|
+|$K_p$ |Potential circuit gain |$\text{pu}$|
+|$K_{pa}$ |Proportional gain of PI |$\text{pu}$|
+|$\text{PositionOel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) AVR input summation, (4) take-over at AVR output|$-$|
+|$\text{PositionScl}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) AVR input summation, (4) take-over at AVR output|$-$|
+|$\text{PositionUel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) AVR input summation, (4) take-over at AVR output|$-$|
+|$\text{Sw1}$ |If true, power source derived from terminal voltage, if false, independent from terminal voltage|$-$|
+|$t_A$ |Voltage regulator time constant |$\text{s}$|
+|$t_G$ |Feedback time constant of inner loop field regulator |$\text{s}$|
+|$\Theta_p$ |Potential circuit phase angle |$\text{rad}$|
+|$t_R$ |Stator voltage filter time constant |$\text{s}$|
+|$V_{a,Max}$ |Maximum output voltage of limited first order |$\text{pu}$ (user-selected base voltage)|
+|$V_{a,Min}$ |Minimum output voltage of limited first order |$\text{pu}$ (user-selected base voltage)|
+|$V_{b,Max}$ |Maximum available exciter field voltage |$\text{pu}$ (base $U_{Nom}$)|
+|$V_{m,Max}$ |Maximum output voltage of second PI |$\text{pu}$ (user-selected base voltage)|
+|$V_{m,Min}$ |Minimum output voltage of second PI |$\text{pu}$ (user-selected base voltage)|
+|$V_{r,Max}$ |Maximum output voltage of first PI |$\text{pu}$ (user-selected base voltage)|
+|$V_{r,Min}$ |Minimum output voltage of first PI |$\text{pu}$ (user-selected base voltage)|
+|$X_l$ |Reactance associated with potential source |$\text{pu}$ (base $S_{Nom}$, $U_{Nom}$)|
+
+## Model diagram
+
+![ST6C block diagram](ST6C.drawio.svg){#fig-st6c-diagram}
+
+## Model variant
+
+In the ST6B model :
+
+- the voltage from the underexcitation limiter is applied at the AVR input
+- there is no stator current limiter
+- the power source is derived from terminal voltage, with no reactance
+- there is no first order filter on the feedback signal of the inner loop field regulator
+
+## Open source implementations
+
+This model has been successfully implemented in :
+
+| Software      | URL | Language | Open-Source License | Last consulted date | Comments |
+| ------------- | --- | -------- | ------------------- | ------------------- | -------- |
+| Dynawo | [Link](https://github.com/dynawo/dynawo) | Modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/)  | 24/05/2024 |  |
+
+## References
+
+::: {#refs}
+::: 
