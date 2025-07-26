@@ -22,7 +22,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -69,6 +89,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../../styles.css">
 </head>
@@ -650,23 +699,28 @@ ul.task-list li input[type="checkbox"] {
 <h1>IEEEG1 model / GovSteam 1</h1>
 <section id="context" class="level2">
 <h2 class="anchored" data-anchor-id="context">Context</h2>
-<p>This governor was initially developed and described in {% cite IEEEWGPrimeMover1973 %}. It is oftenly combined with the LCFBA model which is a simple representation of an outer-loop MW controller.</p>
-<p>This governor model appears under the name GovSteam1 in the Common Information Model for Dynamics - Standard Models (2012) {% cite CIMStandardModels2012 %} and in the IEC 61970-302:2024 version {% cite IECCIMForDynamics2024 %}.</p>
+<p>This governor was initially developed and described in <span class="citation" data-cites="IEEEWGPrimeMover1973">(<a href="#ref-IEEEWGPrimeMover1973" role="doc-biblioref">Prime Mover 1973</a>)</span>. It is oftenly combined with the LCFBA model which is a simple representation of an outer-loop MW controller.</p>
+<p>This governor model appears under the name GovSteam1 in the Common Information Model for Dynamics - Standard Models (2012) <span class="citation" data-cites="CIMStandardModels2012">(<a href="#ref-CIMStandardModels2012" role="doc-biblioref">Commission 2012</a>)</span> and in the IEC 61970-302:2024 version <span class="citation" data-cites="IECCIMForDynamics2024">(<a href="#ref-IECCIMForDynamics2024" role="doc-biblioref">Commission 2024</a>)</span>.</p>
 </section>
 <section id="model-use-assumptions-validity-domain-and-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
-<p>It includes the rate limits on the main control valve (Uo and Uc) as well as four steam‐stages and the ability to model cross‐compound Units. There are a number of key assumptions behind this model:</p>
+<p>It includes the rate limits on the main control valve (<span class="math inline">\(U_o\)</span> and <span class="math inline">\(U_c\)</span>) as well as four steam‐stages and the ability to model cross‐compound Units. There are a number of key assumptions behind this model:</p>
 <ul>
 <li>steam pressure and temperature remain constant under all conditions,</li>
 <li>the unit is in boiler‐follow control mode – that is, the main steam control valve (MCV) is used primarily for regulating power and the boiler follows the turbine in producing additional steam as needed, and</li>
 <li>there is essentially an unlimited source of steam from the boiler to be provided once the main steam control valve opens. These assumptions are quite simplistic and not truly indicative of the physics of a steam turbine. However, it can be true for many steam turbines such as boiler‐follow control.</li>
 </ul>
-<p>As stated in {%cite PESTR12013 %}, it has been been shown that this model in combination with LCBF1 is effective in capturing the behavior of large steam turbine generators that are operated on outer‐loop MW control. It applicable for large interconnected grid simulations when looking at relatively small frequency deviations, that is, in the range of +/‐ 0.5% change in frequency. The LCBF1 model is needed only in cases where there is a active secondary outer‐loop MW controller in the plant.</p>
+<p>As stated in <span class="citation" data-cites="PESTR12013">(<a href="#ref-PESTR12013" role="doc-biblioref">Task Force on Turbine-Governor Modeling 2013</a>)</span>, it has been been shown that this model in combination with LCBF1 is effective in capturing the behavior of large steam turbine generators that are operated on outer‐loop MW control. It applicable for large interconnected grid simulations when looking at relatively small frequency deviations, that is, in the range of +/‐ 0.5% change in frequency. The LCBF1 model is needed only in cases where there is a active secondary outer‐loop MW controller in the plant.</p>
 </section>
 <section id="model-inputs-and-output" class="level2">
 <h2 class="anchored" data-anchor-id="model-inputs-and-output">Model inputs and output</h2>
 <p>The input variables are :</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 45%">
+<col style="width: 19%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Variable</th>
@@ -676,23 +730,23 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>omegaPu</td>
+<td><span class="math inline">\(\omega_{Pu}\)</span></td>
 <td>measured angular frequency</td>
-<td>pu (base omegaNom)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(\omega_{Nom}\)</span>)</td>
 </tr>
 <tr class="even">
-<td>omegaRefPu</td>
+<td><span class="math inline">\(\omega_{RefPu}\)</span></td>
 <td>reference angular frequency</td>
-<td>pu (base omegaNom)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(\omega_{Nom}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td>PmRefPu</td>
+<td><span class="math inline">\(P_{mRefPu}\)</span></td>
 <td>reference mechanical power</td>
-<td>pu (base PNomTurb)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(P_{NomTurb}\)</span>)</td>
 </tr>
 </tbody>
 </table>
-<p>The output signal is PmPu, the mechanical power in pu (base PNomTurb).</p>
+<p>The output signal is <span class="math inline">\(P_{mPu}\)</span>, the mechanical power in <span class="math inline">\(pu\)</span> (base <span class="math inline">\(P_{NomTurb}\)</span>).</p>
 </section>
 <section id="model-parameters" class="level2">
 <h2 class="anchored" data-anchor-id="model-parameters">Model parameters</h2>
@@ -711,114 +765,118 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>K</td>
+<td><span class="math inline">\(K\)</span></td>
 <td>Governor gain (reciprocal of droop)</td>
-<td>pu</td>
+<td><span class="math inline">\(pu\)</span></td>
 </tr>
 <tr class="even">
-<td>K1</td>
+<td><span class="math inline">\(K_1\)</span></td>
 <td>Fraction of HP shaft power after first boiler pass</td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td>K2</td>
+<td><span class="math inline">\(K_2\)</span></td>
 <td>Fraction of LP shaft power after first boiler pass</td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td>K3</td>
+<td><span class="math inline">\(K_3\)</span></td>
 <td>Fraction of HP shaft power after second boiler pass</td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td>K4</td>
+<td><span class="math inline">\(K_4\)</span></td>
 <td>Fraction of LP shaft power after second boiler pass</td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td>K5</td>
+<td><span class="math inline">\(K_5\)</span></td>
 <td>Fraction of HP shaft power after third boiler pass</td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td>K6</td>
+<td><span class="math inline">\(K_6\)</span></td>
 <td>Fraction of LP shaft power after third boiler pass</td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td>K7</td>
+<td><span class="math inline">\(K_7\)</span></td>
 <td>Fraction of HP shaft power after fourth boiler pass</td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td>K8</td>
+<td><span class="math inline">\(K_8\)</span></td>
 <td>Fraction of LP shaft power after fourth boiler pass</td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td>PMaxPu</td>
+<td><span class="math inline">\(P_{MaxPu}\)</span></td>
 <td>Power output of boiler at maximum valve opening</td>
-<td>pu (base PNomTurb)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(P_{NomTurb}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td>PMinPu</td>
+<td><span class="math inline">\(P_{MinPu}\)</span></td>
 <td>Power output of boiler at minimum valve opening</td>
-<td>pu (base PNomTurb)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(P_{NomTurb}\)</span>)</td>
 </tr>
 <tr class="even">
-<td>t1</td>
+<td><span class="math inline">\(t_1\)</span></td>
 <td>Governor lag time constant</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="odd">
-<td>t2</td>
+<td><span class="math inline">\(t_2\)</span></td>
 <td>Governor lead time constant</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="even">
-<td>t3</td>
+<td><span class="math inline">\(t_3\)</span></td>
 <td>Valve positioner time constant</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="odd">
-<td>t4</td>
+<td><span class="math inline">\(t_4\)</span></td>
 <td>HP bowl time constant</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="even">
-<td>t5</td>
+<td><span class="math inline">\(t_5\)</span></td>
 <td>Reheater time constant</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="odd">
-<td>t6</td>
+<td><span class="math inline">\(t_6\)</span></td>
 <td>Crossover time constant</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="even">
-<td>t7</td>
+<td><span class="math inline">\(t_7\)</span></td>
 <td>Double reheat time constant</td>
-<td>s</td>
+<td><span class="math inline">\(s\)</span></td>
 </tr>
 <tr class="odd">
-<td>Uc</td>
+<td><span class="math inline">\(U_c\)</span></td>
 <td>Maximum valve closing velocity</td>
-<td>pu/s (base PNomTurb)</td>
+<td><span class="math inline">\(pu/s\)</span> (base <span class="math inline">\(P_{NomTurb}\)</span>)</td>
 </tr>
 <tr class="even">
-<td>Uo</td>
+<td><span class="math inline">\(U_o\)</span></td>
 <td>Maximum valve opening velocity</td>
-<td>pu/s (base PNomTurb)</td>
+<td><span class="math inline">\(pu/s\)</span> (base <span class="math inline">\(P_{NomTurb}\)</span>)</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="model-diagram" class="level2">
 <h2 class="anchored" data-anchor-id="model-diagram">Model diagram</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="IEEEG1.drawio.svg" class="img-fluid figure-img"></p>
-<figcaption>IEEEG1</figcaption>
+<div id="fig-ieeeg1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ieeeg1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="IEEEG1.drawio.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ieeeg1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: IEEEG1 model diagram
+</figcaption>
 </figure>
 </div>
 </section>
@@ -849,14 +907,27 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </section>
 <section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p>{% bibliography –cited –file references %}</p>
+
+
 
 
 </section>
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-CIMStandardModels2012" class="csl-entry" role="listitem">
+Commission, International Electrotechnical. 2012. <span>“Common Information Model (CIM) Standard Models 2012.”</span> <a href="https://doi.org/10.3403/30160442">https://doi.org/10.3403/30160442</a>.
+</div>
+<div id="ref-IECCIMForDynamics2024" class="csl-entry" role="listitem">
+———. 2024. <span>“Energy Management System Application Program Interface (EMS-API) Part 302: Common Information Model (CIM) Dynamics.”</span> <em>IEC 61970-302</em>. <a href="https://webstore.iec.ch/preview/info_iec61970-302%7Bed2.0%7Db.pdf">https://webstore.iec.ch/preview/info_iec61970-302%7Bed2.0%7Db.pdf</a>.
+</div>
+<div id="ref-IEEEWGPrimeMover1973" class="csl-entry" role="listitem">
+Prime Mover, IEEE WG on. 1973. <span>“Dynamic Models for Steam and Hydro Turbines in Power System Studies.”</span> <em>IEEE Trans. On PAS, Vol PAS-92</em>. <a href="https://ieeexplore.ieee.org/document/141700/authors#authors">https://ieeexplore.ieee.org/document/141700/authors#authors</a>.
+</div>
+<div id="ref-PESTR12013" class="csl-entry" role="listitem">
+Task Force on Turbine-Governor Modeling, Power system dynamic performance committee. 2013. <span>“Dynamic Models for Turbine-Governors in Power System Studies.”</span> <em>IEEE Power &amp; Energy Society PES-TR1 Technical Report</em>. <a href="https://site.ieee.org/fw-pes/files/2013/01/PES_TR1.pdf">https://site.ieee.org/fw-pes/files/2013/01/PES_TR1.pdf</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

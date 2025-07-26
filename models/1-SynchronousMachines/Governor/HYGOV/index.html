@@ -22,7 +22,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -69,6 +89,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../../styles.css">
 </head>
@@ -645,7 +694,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="context" class="level2">
 <h2 class="anchored" data-anchor-id="context">Context</h2>
-<p>This governor model is a standard hydro turbine governor model. It represents a straightforward hydroelectric plant governor, with a simple hydraulic representation of the penstock with unrestricted head race and tail race, and no surge tank. {% cite PESTR12013 %} It is one of the most commonly used model in the present North American system databases.</p>
+<p>This governor model is a standard hydro turbine governor model. It represents a straightforward hydroelectric plant governor, with a simple hydraulic representation of the penstock with unrestricted head race and tail race, and no surge tank. <span class="citation" data-cites="PESTR12013">(<a href="#ref-PESTR12013" role="doc-biblioref">Task Force on Turbine-Governor Modeling 2013</a>)</span> It is one of the most commonly used model in the present North American system databases.</p>
 </section>
 <section id="model-use-assumptions-validity-domain-and-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
@@ -656,6 +705,11 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="model-inputs-and-output">Model inputs and output</h2>
 <p>The input variables are :</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 45%">
+<col style="width: 19%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Variable</th>
@@ -665,34 +719,118 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>omegaPu</td>
+<td><span class="math inline">\(\omega_{Pu}\)</span></td>
 <td>measured angular frequency</td>
-<td>pu (base omegaNom)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(\omega_{Nom}\)</span>)</td>
 </tr>
 <tr class="even">
-<td>omegaRefPu</td>
+<td><span class="math inline">\(\omega_{RefPu}\)</span></td>
 <td>reference angular frequency</td>
-<td>pu (base omegaNom)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(\omega_{Nom}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td>PmRefPu</td>
+<td><span class="math inline">\(P_{mRefPu}\)</span></td>
 <td>reference mechanical power</td>
-<td>pu (base PNomTurb)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(P_{NomTurb}\)</span>)</td>
 </tr>
 </tbody>
 </table>
-<p>The output signal is PmPu, the mechanical power in pu (base PNomTurb).</p>
+<p>The output signal is <span class="math inline">\(P_{mPu}\)</span>, the mechanical power in <span class="math inline">\(pu\)</span> (base <span class="math inline">\(P_{NomTurb}\)</span>).</p>
 </section>
 <section id="model-parameters" class="level2">
 <h2 class="anchored" data-anchor-id="model-parameters">Model parameters</h2>
-<p>|At |Turbine gain|pu |DTurb |Turbine damping coefficient |pu| |FlowNoLoad |No-load water flow at nominal head |pu| |HDam |Head available at dam |pu| |KDroopPerm |Permanent droop |pu| |KDroopTemp |Temporary droop |pu| |OpeningGateMax |Maximum gate opening |pu| |OpeningGateMin|Minimum gate opening |pu| |tF |Filter time constant |s| |tG |Gate servomotor time constant |s| |tR |Governor time constant |s| |tW |Water inertia time constant |s| |VelMaxPu |Gate maximum opening/closing velocity |pu/s (base PNomTurb)|</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 45%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Description</th>
+<th>Units</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(A_t\)</span></td>
+<td>Turbine gain</td>
+<td><span class="math inline">\(pu\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(D_{Turb}\)</span></td>
+<td>Turbine damping coefficient</td>
+<td><span class="math inline">\(pu\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(Flow_{NoLoad}\)</span></td>
+<td>No-load water flow at nominal head</td>
+<td><span class="math inline">\(pu\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(H_{Dam}\)</span></td>
+<td>Head available at dam</td>
+<td><span class="math inline">\(pu\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(K_{DroopPerm}\)</span></td>
+<td>Permanent droop</td>
+<td><span class="math inline">\(pu\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(K_{DroopTemp}\)</span></td>
+<td>Temporary droop</td>
+<td><span class="math inline">\(pu\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(Opening_{GateMax}\)</span></td>
+<td>Maximum gate opening</td>
+<td><span class="math inline">\(pu\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(Opening_{GateMin}\)</span></td>
+<td>Minimum gate opening</td>
+<td><span class="math inline">\(pu\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(t_F\)</span></td>
+<td>Filter time constant</td>
+<td><span class="math inline">\(s\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(t_G\)</span></td>
+<td>Gate servomotor time constant</td>
+<td><span class="math inline">\(s\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(t_R\)</span></td>
+<td>Governor time constant</td>
+<td><span class="math inline">\(s\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(t_W\)</span></td>
+<td>Water inertia time constant</td>
+<td><span class="math inline">\(s\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(Vel_{MaxPu}\)</span></td>
+<td>Gate maximum opening/closing velocity</td>
+<td><span class="math inline">\(pu/s\)</span> (base <span class="math inline">\(P_{NomTurb}\)</span>)</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="model-diagram" class="level2">
 <h2 class="anchored" data-anchor-id="model-diagram">Model diagram</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="HYGOV.drawio.svg" class="img-fluid figure-img"></p>
-<figcaption>HYGOV</figcaption>
+<div id="fig-hygov" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hygov-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="HYGOV.drawio.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hygov-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: HYGOV model diagram
+</figcaption>
 </figure>
 </div>
 </section>
@@ -723,13 +861,17 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </section>
 <section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p>{% bibliography –cited –file references %}</p>
+
+
 
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-PESTR12013" class="csl-entry" role="listitem">
+Task Force on Turbine-Governor Modeling, Power system dynamic performance committee. 2013. <span>“Dynamic Models for Turbine-Governors in Power System Studies.”</span> <em>IEEE Power &amp; Energy Society PES-TR1 Technical Report</em>. <a href="https://site.ieee.org/fw-pes/files/2013/01/PES_TR1.pdf">https://site.ieee.org/fw-pes/files/2013/01/PES_TR1.pdf</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

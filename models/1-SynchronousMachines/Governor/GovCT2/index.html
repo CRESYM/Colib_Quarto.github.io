@@ -22,27 +22,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -657,11 +637,11 @@ window.Quarto = {
   <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters">Parameters</a></li>
   <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">Variables</a></li>
   <li><a href="#outputs" id="toc-outputs" class="nav-link" data-scroll-target="#outputs">Outputs</a></li>
-  <li><a href="#equations-algorithm" id="toc-equations-algorithm" class="nav-link" data-scroll-target="#equations-algorithm">Equations &amp; algorithm &nbsp;</a></li>
+  <li><a href="#equations-algorithm" id="toc-equations-algorithm" class="nav-link" data-scroll-target="#equations-algorithm">Equations &amp; algorithm</a></li>
   <li><a href="#initial-equations-boundary-conditions" id="toc-initial-equations-boundary-conditions" class="nav-link" data-scroll-target="#initial-equations-boundary-conditions">Initial equations / boundary conditions</a></li>
   </ul></li>
   <li><a href="#open-source-implementations" id="toc-open-source-implementations" class="nav-link" data-scroll-target="#open-source-implementations">Open source implementations</a></li>
-  <li><a href="#table-of-references" id="toc-table-of-references" class="nav-link" data-scroll-target="#table-of-references">Table of references</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -701,7 +681,7 @@ window.Quarto = {
 
 <section id="context" class="level2">
 <h2 class="anchored" data-anchor-id="context">Context</h2>
-<p>In a power plant, a governor regulates the mechanical power (<span class="math display">\[P_m\]</span>) or torque (<span class="math display">\[T_m\]</span>) delivered from the turbine to the electrical generator. This governor model includes the turbine dynamics, i.e.&nbsp;it takes a reference power and generator speed and outputs the mechanical torque.</p>
+<p>In a power plant, a governor regulates the mechanical power (<span class="math inline">\(P_m\)</span>) or torque (<span class="math inline">\(T_m\)</span>) delivered from the turbine to the electrical generator. This governor model includes the turbine dynamics, i.e.&nbsp;it takes a reference power and generator speed and outputs the mechanical torque.</p>
 <p>This GovCT2 is a modification of the GovCT1 in order to represent the frequency-dependent fuel flow limit of a specific gas turbine manufacturer. Both are based on <em>Rowen’s model</em> from 1983 [1].</p>
 <p>When comparing to older standards: GovCT2 is identical to GGOV2 and GovCT1 is identical to GGOV1.</p>
 <p>GovCT2 is part of the CIM/CGMES standard, see [2] and [3]. CIM is developed by ENTSO-E and aims at ensuring the reliability of grid models and market information exchanges. ENTSO-E developed CGMES as a superset of the IEC CIM standards (belonging to IEC CIM16) in 2013 to fulfill the requirements of transmission system operators and their data exchanges.</p>
@@ -732,14 +712,13 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="model-description">Model description</h2>
 <section id="model-schema" class="level3">
 <h3 class="anchored" data-anchor-id="model-schema">Model schema</h3>
-<p><img src="drawings/GovCT2.drawio.svg" class="img-fluid"></p>
 <div id="fig-modelSchema" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-modelSchema-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Figure&nbsp;1: Model schema, based on [3]</p>
+<img src="drawings/GovCT2.drawio.svg" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-modelSchema-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-modelSchema-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Model schema, based on [3]
 </figcaption>
 </figure>
 </div>
@@ -750,61 +729,52 @@ Figure&nbsp;1
 <p>The model has three major control paths (speed/load, acceleration, temperature) associated with the dynamic response during disturbances. Outputs of these control functions are all inputs into a minimum value selector determining the least fuel request. This is then given to the actuator.</p>
 <section id="speedload-fsrn" class="level4">
 <h4 class="anchored" data-anchor-id="speedload-fsrn">Speed/load (fsrn)</h4>
-<p>This can be considered the main control path. It corresponds directly to the governor. The inputs are load demand <span class="math display">\[P_\mathrm{ref}\]</span>, rotor speed <span class="math display">\[\omega\]</span> and automatic generation control power <span class="math display">\[P_\mathrm{MWSet}\]</span>.</p>
+<p>This can be considered the main control path. It corresponds directly to the governor. The inputs are load demand <span class="math inline">\(P_{ref}\)</span>, rotor speed <span class="math inline">\(\omega\)</span> and automatic generation control power <span class="math inline">\(P_{MWSet}\)</span>.</p>
 <p>The resulting signal is then passed through a deadband, limits and a PID-controller. To represent a specific governor, some elements can be deactivated by setting parameters to zero (examples in [1]).</p>
-<section id="supervisory-load-controller" class="level5">
-<h5 class="anchored" data-anchor-id="supervisory-load-controller">Supervisory load controller</h5>
-<p>In [3] the <span class="math display">\[P_\mathrm{MWSet}\]</span> path is described as an optional additional outer loop associated with a power plant control (supervisory load controller). This is active when <span class="math display">\[K_\mathrm{I\,MW}\]</span> is not equal to zero. It is a slow acting reset control and it adjusts the speed/load reference of the turbine governor to maintain the electrical power of the unit at the value which it has been initialized with. That value is stored in <span class="math display">\[P_\mathrm{MW\,set}\]</span> when the model is initialized, and can be changed during simulation. The load controller is expected to have a slow reaction compared to the speed governor. [3]</p>
-<p>A value <span class="math display">\[K_\mathrm{I\,MW}\]</span> = to 0.01 corresponds to a time constant of 100 s; 0.001 corresponds to 1000 s (relatively slow acting) [3].</p>
-</section>
-<section id="acceleration-fsra" class="level5">
-<h5 class="anchored" data-anchor-id="acceleration-fsra">Acceleration (fsra)</h5>
+<p><strong>Supervisory load controller</strong></p>
+<p>In [3] the <span class="math inline">\(P_{MWSet}\)</span> path is described as an optional additional outer loop associated with a power plant control (supervisory load controller). This is active when <span class="math inline">\(K_{I,MW}\)</span> is not equal to zero. It is a slow acting reset control and it adjusts the speed/load reference of the turbine governor to maintain the electrical power of the unit at the value which it has been initialized with. That value is stored in <span class="math inline">\(P_{MW,set}\)</span> when the model is initialized, and can be changed during simulation. The load controller is expected to have a slow reaction compared to the speed governor. [3]</p>
+<p>A value <span class="math inline">\(K_{I,MW}\)</span> = to 0.01 corresponds to a time constant of 100 s; 0.001 corresponds to 1000 s (relatively slow acting) [3].</p>
+<p><strong>Acceleration (fsra)</strong></p>
 <blockquote class="blockquote">
-<p>[…] for studies of large power systems, [the acceleration control loop] can be ignored. It is important for islanding studies and smaller power systems with large frequency variations. If the generating unit begins to accelerate at a rate over [<span class="math display">\[a_\mathrm{set}\]</span>] (pu/s^2) then this control loop acts to limit fuel flow. [1]</p>
+<p>[…] for studies of large power systems, [the acceleration control loop] can be ignored. It is important for islanding studies and smaller power systems with large frequency variations. If the generating unit begins to accelerate at a rate over [<span class="math inline">\(a_{set}\)</span>] (<span class="math inline">\(pu/s^2\)</span>) then this control loop acts to limit fuel flow. [1]</p>
 </blockquote>
-<p>It can be disabled by setting <span class="math display">\[a_\mathrm{set}\]</span> to a large value, such as 1. [3]</p>
-</section>
-<section id="temperature-fsrt-load-limit" class="level5">
-<h5 class="anchored" data-anchor-id="temperature-fsrt-load-limit">Temperature (fsrt) / load limit</h5>
-<p>The load limiter module allows to set a maximum output limit <span class="math display">\[P_\mathrm{ldref}\]</span>. This can also model an exhaust temperature limit, in which case <span class="math display">\[P_\mathrm{ldref}\]</span> is not to be interpreted as a power value. The time constant <span class="math display">\[T_\mathrm{f\,load}\]</span> should match the measurement time constant for temperature (or power or which ever signal is being modelled). Additionally, the gains of the limiter, <span class="math display">\[K_\mathrm{P\,load}\]</span> and <span class="math display">\[K_\mathrm{I\,load}\]</span>, should be set to achieve fast and stable control when the limit <span class="math display">\[P_\mathrm{ldref}\]</span> is reached. To deactivate the load limit, set the parameter <span class="math display">\[P_\mathrm{ldref}\]</span> to a high value [3].</p>
-<p>The lead-lag block with <span class="math display">\[T_\mathrm{sa}\]</span> and <span class="math display">\[T_\mathrm{sb}\]</span> can be used to model the exhaust gas temperature measurement system in gas turbines. A “radiation shield” component of larger gas turbines can be modeled by setting <span class="math display">\[T_\mathrm{sa}=4\,\mathrm{s}\]</span> and <span class="math display">\[T_\mathrm{sb}=5\,\mathrm{s}\]</span>, for example [3].</p>
+<p>It can be disabled by setting <span class="math inline">\(a_{set}\)</span> to a large value, such as 1. [3]</p>
+<p><strong>Temperature (fsrt) / load limit</strong></p>
+<p>The load limiter module allows to set a maximum output limit <span class="math inline">\(P_{ldref}\)</span>. This can also model an exhaust temperature limit, in which case <span class="math inline">\(P_{ldref}\)</span> is not to be interpreted as a power value. The time constant <span class="math inline">\(T_{f,load}\)</span> should match the measurement time constant for temperature (or power or which ever signal is being modelled). Additionally, the gains of the limiter, <span class="math inline">\(K_{P,load}\)</span> and <span class="math inline">\(K_{I,load}\)</span>, should be set to achieve fast and stable control when the limit <span class="math inline">\(P_{ldref}\)</span> is reached. To deactivate the load limit, set the parameter <span class="math inline">\(P_{ldref}\)</span> to a high value [3].</p>
+<p>The lead-lag block with <span class="math inline">\(T_{sa}\)</span> and <span class="math inline">\(T_{sb}\)</span> can be used to model the exhaust gas temperature measurement system in gas turbines. A “radiation shield” component of larger gas turbines can be modeled by setting <span class="math inline">\(T_{sa}=4\,s\)</span> and <span class="math inline">\(T_{sb}=5\,s\)</span>, for example [3].</p>
 <blockquote class="blockquote">
-<p>The temperature limit [tlim] in pu corresponds to the fuel flow required for 1 pu turbine power. [1]</p>
+<p>The temperature limit [tlim] in <span class="math inline">\(pu\)</span> corresponds to the fuel flow required for 1 <span class="math inline">\(pu\)</span> turbine power. [1]</p>
 </blockquote>
-</section>
 </section>
 <section id="turbineengine-model" class="level4">
 <h4 class="anchored" data-anchor-id="turbineengine-model">Turbine/engine model</h4>
 <p>The output from the low value select block is given to the first order lag element representing the fuel or gate system (Valve). [1]</p>
-<p><span class="math display">\[V_\mathrm{max}\]</span> and <span class="math display">\[V_\mathrm{min}\]</span> represent the maximum and minimum fuel valve opening. <span class="math display">\[W_\mathrm{fspd}\]</span> is the fuel flow multiplyer.</p>
-<p><span class="math display">\[W_\mathrm{fnl}\]</span> is the fuel required to run the compensator [1].</p>
-<p>The range of fuel valve travel and of fuel flow is unity, so the limits lie between 0 pu and 1 pu. <span class="math display">\[V_\mathrm{max}\]</span> can be reduced below 1, for example to model a load limit defined by the operator or supervisory controller [3]. Additionally there is a dynamic frequency dependent limit reduction, see <a href="#sec-freqDepLimit" class="quarto-xref">Section&nbsp;3.2.3</a>.</p>
-<p>For a gas turbine, in the presence of a minimum firing limit, <span class="math display">\[V_\mathrm{min}\]</span> normally is set greater than zero and less than <span class="math display">\[W_\mathrm{fnl}\]</span> [3].</p>
-<p>The value of the fuel flow at maximum power shall be <span class="math display">\[\leq 1\]</span>, depending on the value of <span class="math display">\[K_\mathrm{turb}\]</span> [3]. It translates the fuel consumption (or water flow) to mechanical power output [1].</p>
-<p>The time delay <span class="math display">\[e^{-sT_\mathrm{eng}}\]</span> is used in representing diesel engines where there is a small but measurable transport delay between a change in fuel flow setting and the development of torque. <span class="math display">\[T_\mathrm{eng}\]</span> should be zero in all but special cases where this transport delay is of particular concern [3].</p>
-<p>The switch <span class="math display">\[W_\mathrm{fspd}\]</span> is responsible for recognizing whether fuel flow, for a given fuel valve stroke, is be proportional to engine speed [3]. If True, fuel flow is proportional to speed. This is applicable for some gas turbines and diesel engines with positive displacement fuel injectors. If false, the fuel control system keeps fuel flow independent of engine speed.</p>
-<section id="speed-sensitivity-damping" class="level5">
-<h5 class="anchored" data-anchor-id="speed-sensitivity-damping">Speed sensitivity / Damping</h5>
-<p>If <span class="math display">\[D_\mathrm{m}=0\]</span>, the speed sensitivity paths are not active. [3]</p>
-<p>If <span class="math display">\[D_\mathrm{m}&gt;0\]</span>, it models friction losses (variation of the engine power with the shaft speed; slightly increasing losses with increasing speed are characteristic for reciprocating engines and some aeroderivative turbines [3]).</p>
-<p>If <span class="math display">\[D_\mathrm{m}=&lt;0\]</span>, it can model an influence of rotation speed on exhaust temperature using an exponential characteristic determined by <span class="math display">\[D_\mathrm{m}\]</span>. The maximum permissible fuel flow falls with falling speed (typical for single-shaft industrial turbines due to exhaust temperature limits) [3]. The authors suspect that this could represent fan cooling.</p>
-</section>
+<p><span class="math inline">\(V_{max}\)</span> and <span class="math inline">\(V_{min}\)</span> represent the maximum and minimum fuel valve opening. <span class="math inline">\(W_{fspd}\)</span> is the fuel flow multiplyer.</p>
+<p><span class="math inline">\(W_{fnl}\)</span> is the fuel required to run the compensator [1].</p>
+<p>The range of fuel valve travel and of fuel flow is unity, so the limits lie between 0 <span class="math inline">\(pu\)</span> and 1 <span class="math inline">\(pu\)</span>. <span class="math inline">\(V_{max}\)</span> can be reduced below 1, for example to model a load limit defined by the operator or supervisory controller [3]. Additionally there is a dynamic frequency dependent limit reduction, see <strong>Frequency dependent (valve) limit</strong> section.</p>
+<p>For a gas turbine, in the presence of a minimum firing limit, <span class="math inline">\(V_{min}\)</span> normally is set greater than zero and less than <span class="math inline">\(W_{fnl}\)</span> [3].</p>
+<p>The value of the fuel flow at maximum power shall be <span class="math inline">\(\leq 1\)</span>, depending on the value of <span class="math inline">\(K_{turb}\)</span> [3]. It translates the fuel consumption (or water flow) to mechanical power output [1].</p>
+<p>The time delay <span class="math inline">\(e^{-sT_{eng}}\)</span> is used in representing diesel engines where there is a small but measurable transport delay between a change in fuel flow setting and the development of torque. <span class="math inline">\(T_{eng}\)</span> should be zero in all but special cases where this transport delay is of particular concern [3].</p>
+<p>The switch <span class="math inline">\(W_{fspd}\)</span> is responsible for recognizing whether fuel flow, for a given fuel valve stroke, is be proportional to engine speed [3]. If True, fuel flow is proportional to speed. This is applicable for some gas turbines and diesel engines with positive displacement fuel injectors. If false, the fuel control system keeps fuel flow independent of engine speed.</p>
+<p><strong>Speed sensitivity / Damping</strong></p>
+<p>If <span class="math inline">\(D_m=0\)</span>, the speed sensitivity paths are not active. [3]</p>
+<p>If <span class="math inline">\(D_m&gt;0\)</span>, it models friction losses (variation of the engine power with the shaft speed; slightly increasing losses with increasing speed are characteristic for reciprocating engines and some aeroderivative turbines [3]).</p>
+<p>If <span class="math inline">\(D_m&lt;0\)</span>, it can model an influence of rotation speed on exhaust temperature using an exponential characteristic determined by <span class="math inline">\(D_m\)</span>. The maximum permissible fuel flow falls with falling speed (typical for single-shaft industrial turbines due to exhaust temperature limits) [3]. The authors suspect that this could represent fan cooling.</p>
 </section>
 <section id="frequency-dependent-valve-limit" class="level4">
 <h4 class="anchored" data-anchor-id="frequency-dependent-valve-limit">Frequency dependent (valve) limit</h4>
 <p>The frequency-dependent limit block outputs the upper limit for valve position / the fuel flow signal fsr. It is shown in <a href="#fig-frequencyDependentLimit" class="quarto-xref">Figure&nbsp;2</a>.</p>
-<p>In normal operation, the limit is <span class="math display">\[V_\mathrm{max\,\omega} = V_\mathrm{max}\]</span> and the there is no frequency dependent reduction.</p>
-<p>When the frequency <span class="math display">\[f\]</span> in Hz drops below <span class="math display">\[f_\mathrm{lim\,1}\]</span>, the value for <span class="math display">\[P_\mathrm{lim}\]</span>, the power limit, is calculated by linear interpolation between the values <span class="math display">\[f_\mathrm{lim\,1}, f_\mathrm{lim\,2}, \dots\]</span> and <span class="math display">\[P_\mathrm{lim\,1}, P_\mathrm{lim\,2}, \dots\]</span> of a lookup table. The table consists of 10 data points which monotonically decrease in both power and frequency, point 1 being the hightest. The lowest data point does act as a lower limit, i.e.&nbsp;is not extrapolated to lower values.</p>
-<p><span class="math display">\[V_\mathrm{max\,\omega}\]</span> then ramps with the rate <span class="math display">\[P_\mathrm{rate}\]</span> from the initial and maximum value to the new value <span class="math display">\[V_\mathrm{max\,omega} = (P_\mathrm{lim} / K_\mathrm{turb} + W_\mathrm{fnl})\]</span>.</p>
-<p><span class="math display">\[P_\mathrm{lim}\]</span> will then change with frequency. If f rises above <span class="math display">\[P_\mathrm{lim\,1}\]</span> again, <span class="math display">\[V_\mathrm{max\,\omega}\]</span> ramps back to <span class="math display">\[V_\mathrm{max}\]</span> [3].</p>
-<p><img src="drawings/GovCT2.frequencylimit.drawio.svg" class="img-fluid"></p>
+<p>In normal operation, the limit is <span class="math inline">\(V_{max,\omega} = V_{max}\)</span> and the there is no frequency dependent reduction.</p>
+<p>When the frequency <span class="math inline">\(f\)</span> in Hz drops below <span class="math inline">\(f_{lim,1}\)</span>, the value for <span class="math inline">\(P_{lim}\)</span>, the power limit, is calculated by linear interpolation between the values <span class="math inline">\(f_{lim,1}, f_{lim,2}, \dots\)</span> and <span class="math inline">\(P_{lim,1}, P_{lim,2}, \dots\)</span> of a lookup table. The table consists of 10 data points which monotonically decrease in both power and frequency, point 1 being the hightest. The lowest data point does act as a lower limit, i.e.&nbsp;is not extrapolated to lower values.</p>
+<p><span class="math inline">\(V_{max,\omega}\)</span> then ramps with the rate <span class="math inline">\(P_{rate}\)</span> from the initial and maximum value to the new value <span class="math inline">\(V_{max,\omega} = (P_{lim} / K_{turb} + W_{fnl})\)</span>.</p>
+<p><span class="math inline">\(P_{lim}\)</span> will then change with frequency. If f rises above <span class="math inline">\(P_{lim,1}\)</span> again, <span class="math inline">\(V_{max,\omega}\)</span> ramps back to <span class="math inline">\(V_{max}\)</span> [3].</p>
 <div id="fig-frequencyDependentLimit" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-frequencyDependentLimit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Figure&nbsp;2: Frequency dependent valve limit as described in [3]</p>
+<img src="drawings/GovCT2.frequencylimit.drawio.svg" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-frequencyDependentLimit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-frequencyDependentLimit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Frequency dependent valve limit as described in [3]
 </figcaption>
 </figure>
 </div>
@@ -812,17 +782,13 @@ Figure&nbsp;2
 </section>
 <section id="parameters" class="level3">
 <h3 class="anchored" data-anchor-id="parameters">Parameters</h3>
-<p>Per-unit power parameters are based on <span class="math display">\[P_\mathrm{base}\]</span>, which is normally the capability of the turbine in MW. Per-unit frequency or acceleration parameters are based on the nominal frequency of the grid (e.g.&nbsp;50 Hz in Europe).</p>
+<p>Per-unit power parameters are based on <span class="math inline">\(P_{base}\)</span>, which is normally the capability of the turbine in MW. Per-unit frequency or acceleration parameters are based on the nominal frequency of the grid (e.g.&nbsp;50 Hz in Europe).</p>
 <div id="tbl-parameters" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Parameters
 </figcaption>
 <div aria-describedby="tbl-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Table&nbsp;1: Parameters</p>
-</div>
-</figure>
-</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 16%">
@@ -836,7 +802,7 @@ Table&nbsp;1
 <tr class="header">
 <th style="text-align: left;">name</th>
 <th style="text-align: left;">type</th>
-<th style="text-align: left;">unit e</th>
+<th style="text-align: left;">unit</th>
 <th style="text-align: left;">IEC name</th>
 <th style="text-align: left;">description</th>
 <th style="text-align: left;">typical value</th>
@@ -844,479 +810,482 @@ Table&nbsp;1
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[a_\mathrm{set}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(a_{set}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu/s</td>
-<td style="text-align: left;">Aset</td>
+<td style="text-align: left;"><span class="math inline">\(pu/s\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Aset\)</span></td>
 <td style="text-align: left;">Acceleration limiter setpoint</td>
-<td style="text-align: left;">10</td>
+<td style="text-align: left;"><span class="math inline">\(10\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[\Delta\omega_\mathrm{db}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\Delta\omega_{db}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">db</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(db\)</span></td>
 <td style="text-align: left;">Frequency error deadband. Recommended to be =0 in most applications [3]</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[\Delta\omega_\mathrm{max}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\Delta\omega_{max}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">Maxerr</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Maxerr\)</span></td>
 <td style="text-align: left;">Maximum value for frequency error</td>
-<td style="text-align: left;">1</td>
+<td style="text-align: left;"><span class="math inline">\(1\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[\Delta\omega_\mathrm{min}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\Delta\omega_{min}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">Minerr</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Minerr\)</span></td>
 <td style="text-align: left;">Minimum value for frequency error</td>
-<td style="text-align: left;">-1</td>
+<td style="text-align: left;"><span class="math inline">\(-1\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[\Delta t\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\Delta t\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">s</td>
-<td style="text-align: left;"><span class="math display">\[\Delta t\]</span></td>
-<td style="text-align: left;">Correction factor to adapt the unit of <span class="math display">\[K_\mathrm{a}\]</span> from pu/s to pu</td>
-<td style="text-align: left;">1</td>
+<td style="text-align: left;"><span class="math inline">\(s\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\Delta t\)</span></td>
+<td style="text-align: left;">Correction factor to adapt the unit of <span class="math inline">\(K_a\)</span> from <span class="math inline">\(pu/s\)</span> to <span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[D_\mathrm{m}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(D_m\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">dm</td>
-<td style="text-align: left;">Speed sensitivity coefficient, see <a href="#sec-speedSensitivity" class="quarto-xref">Section&nbsp;3.2.2.1</a></td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(dm\)</span></td>
+<td style="text-align: left;">Speed sensitivity coefficient</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[f_\mathrm{lim\,1}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(f_{lim,1}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">Hz</td>
-<td style="text-align: left;">flim1</td>
+<td style="text-align: left;"><span class="math inline">\(Hz\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(flim1\)</span></td>
 <td style="text-align: left;">Frequency threshold 1</td>
-<td style="text-align: left;">59</td>
+<td style="text-align: left;"><span class="math inline">\(59\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[f_\mathrm{lim\,10}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(f_{lim,10}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">Hz</td>
-<td style="text-align: left;">flim10</td>
+<td style="text-align: left;"><span class="math inline">\(Hz\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(flim10\)</span></td>
 <td style="text-align: left;">Frequency threshold 10</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[f_\mathrm{lim\,2}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(f_{lim,2}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">Hz</td>
-<td style="text-align: left;">flim2</td>
+<td style="text-align: left;"><span class="math inline">\(Hz\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(flim2\)</span></td>
 <td style="text-align: left;">Frequency threshold 2</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[f_\mathrm{lim\,3}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(f_{lim,3}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">Hz</td>
-<td style="text-align: left;">flim3</td>
+<td style="text-align: left;"><span class="math inline">\(Hz\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(flim3\)</span></td>
 <td style="text-align: left;">Frequency threshold 3</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[f_\mathrm{lim\,4}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(f_{lim,4}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">Hz</td>
-<td style="text-align: left;">flim4</td>
+<td style="text-align: left;"><span class="math inline">\(Hz\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(flim4\)</span></td>
 <td style="text-align: left;">Frequency threshold 4</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[f_\mathrm{lim\,5}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(f_{lim,5}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">Hz</td>
-<td style="text-align: left;">flim5</td>
+<td style="text-align: left;"><span class="math inline">\(Hz\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(flim5\)</span></td>
 <td style="text-align: left;">Frequency threshold 5</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[f_\mathrm{lim\,6}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(f_{lim,6}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">Hz</td>
-<td style="text-align: left;">flim6</td>
+<td style="text-align: left;"><span class="math inline">\(Hz\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(flim6\)</span></td>
 <td style="text-align: left;">Frequency threshold 6</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[f_\mathrm{lim\,7}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(f_{lim,7}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">Hz</td>
-<td style="text-align: left;">flim7</td>
+<td style="text-align: left;"><span class="math inline">\(Hz\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(flim7\)</span></td>
 <td style="text-align: left;">Frequency threshold 7</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[f_\mathrm{lim\,8}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(f_{lim,8}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">Hz</td>
-<td style="text-align: left;">flim8</td>
+<td style="text-align: left;"><span class="math inline">\(Hz\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(flim8\)</span></td>
 <td style="text-align: left;">Frequency threshold 8</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[f_\mathrm{lim\,9}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(f_{lim,9}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">Hz</td>
-<td style="text-align: left;">flim9</td>
+<td style="text-align: left;"><span class="math inline">\(Hz\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(flim9\)</span></td>
 <td style="text-align: left;">Frequency threshold 9</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{a}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(K_a\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">Ka</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Ka\)</span></td>
 <td style="text-align: left;">Acceleration limiter gain</td>
-<td style="text-align: left;">10</td>
+<td style="text-align: left;"><span class="math inline">\(10\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{D\,gov}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(K_{D,gov}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">Kdgov</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Kdgov\)</span></td>
 <td style="text-align: left;">Governor derivative gain</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{I\,gov}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(K_{I,gov}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">Kigov</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Kigov\)</span></td>
 <td style="text-align: left;">Governor integral gain</td>
-<td style="text-align: left;">0.45</td>
+<td style="text-align: left;"><span class="math inline">\(0.45\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{I\,load}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(K_{I,load}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">Kiload</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Kiload\)</span></td>
 <td style="text-align: left;">Load limiter integral gain</td>
-<td style="text-align: left;">1</td>
+<td style="text-align: left;"><span class="math inline">\(1\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{I\,MW}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(K_{I,MW}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">Kimw</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Kimw\)</span></td>
 <td style="text-align: left;">Supervisory load controller integral gain</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{P\,gov}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(K_{P,gov}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">Kpgov</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Kpgov\)</span></td>
 <td style="text-align: left;">Governor proportional gain</td>
-<td style="text-align: left;">4</td>
+<td style="text-align: left;"><span class="math inline">\(4\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{P\,load}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(K_{P,load}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">Kpload</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Kpload\)</span></td>
 <td style="text-align: left;">Load limiter proportional</td>
-<td style="text-align: left;">1</td>
+<td style="text-align: left;"><span class="math inline">\(1\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{turb}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(K_{turb}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">Kturb</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Kturb\)</span></td>
 <td style="text-align: left;">Turbine gain (translates from fuel flow to power)</td>
-<td style="text-align: left;">1.9168</td>
+<td style="text-align: left;"><span class="math inline">\(1.9168\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[P_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(P_{base}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">MW</td>
-<td style="text-align: left;">Mwbase</td>
+<td style="text-align: left;"><span class="math inline">\(MW\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Mwbase\)</span></td>
 <td style="text-align: left;">Base for power values (&gt; 0)</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[P_\mathrm{ldref}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(P_{ldref}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">Ldref</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Ldref\)</span></td>
 <td style="text-align: left;">Load limiter reference value</td>
-<td style="text-align: left;">1</td>
+<td style="text-align: left;"><span class="math inline">\(1\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[P_\mathrm{lim\,1}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(P_{lim,1}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">plim1</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(plim1\)</span></td>
 <td style="text-align: left;">Power limit 1</td>
-<td style="text-align: left;">0.8325</td>
+<td style="text-align: left;"><span class="math inline">\(0.8325\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[P_\mathrm{lim\,10}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(P_{lim,10}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">plim10</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(plim10\)</span></td>
 <td style="text-align: left;">Power limit 10</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[P_\mathrm{lim\,2}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(P_{lim,2}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">plim2</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(plim2\)</span></td>
 <td style="text-align: left;">Power limit 2</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[P_\mathrm{lim\,3}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(P_{lim,3}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">plim3</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(plim3\)</span></td>
 <td style="text-align: left;">Power limit 3</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[P_\mathrm{lim\,4}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(P_{lim,4}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">plim4</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(plim4\)</span></td>
 <td style="text-align: left;">Power limit 4</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[P_\mathrm{lim\,5}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(P_{lim,5}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">plim5</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(plim5\)</span></td>
 <td style="text-align: left;">Power limit 5</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[P_\mathrm{lim\,6}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(P_{lim,6}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">plim6</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(plim6\)</span></td>
 <td style="text-align: left;">Power limit 6</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[P_\mathrm{lim\,7}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(P_{lim,7}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">plim7</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(plim7\)</span></td>
 <td style="text-align: left;">Power limit 7</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[P_\mathrm{lim\,8}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(P_{lim,8}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">plim8</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(plim8\)</span></td>
 <td style="text-align: left;">Power limit 8</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[P_\mathrm{lim\,9}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(P_{lim,9}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">plim9</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(plim9\)</span></td>
 <td style="text-align: left;">Power Limit 9</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[P_\mathrm{rate}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(P_{rate}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">prate</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(prate\)</span></td>
 <td style="text-align: left;">Ramp rate for frequency-dependent power limit</td>
-<td style="text-align: left;">0.017</td>
+<td style="text-align: left;"><span class="math inline">\(0.017\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[R\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(R\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">R</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(R\)</span></td>
 <td style="text-align: left;">Droop (frequency/power)</td>
-<td style="text-align: left;">0.05</td>
+<td style="text-align: left;"><span class="math inline">\(0.05\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[R_\mathrm{close}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(R_{close}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu/s</td>
-<td style="text-align: left;">Rclose</td>
+<td style="text-align: left;"><span class="math inline">\(pu/s\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Rclose\)</span></td>
 <td style="text-align: left;">Minimum rate for valve closing</td>
-<td style="text-align: left;">-99</td>
+<td style="text-align: left;"><span class="math inline">\(-99\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[R_\mathrm{down}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(R_{down}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">Rdown</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Rdown\)</span></td>
 <td style="text-align: left;">temperature/load limit path output decrease rate limit</td>
-<td style="text-align: left;">-99</td>
+<td style="text-align: left;"><span class="math inline">\(-99\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[R_\mathrm{open}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(R_{open}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu/s</td>
-<td style="text-align: left;">Ropen</td>
+<td style="text-align: left;"><span class="math inline">\(pu/s\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Ropen\)</span></td>
 <td style="text-align: left;">Maximum rate for valve closing</td>
-<td style="text-align: left;">99</td>
+<td style="text-align: left;"><span class="math inline">\(99\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[R_\mathrm{select}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(R_{select}\)</span></td>
 <td style="text-align: left;">int</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">Rselect</td>
+<td style="text-align: left;"><span class="math inline">\(-\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Rselect\)</span></td>
 <td style="text-align: left;">governor controller feedback mode switch</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[R_\mathrm{up}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(R_{up}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">Rup</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Rup\)</span></td>
 <td style="text-align: left;">temperature/load limit path output increase rate limit</td>
-<td style="text-align: left;">99</td>
+<td style="text-align: left;"><span class="math inline">\(99\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{a}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_a\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">s</td>
-<td style="text-align: left;">Ta</td>
+<td style="text-align: left;"><span class="math inline">\(s\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Ta\)</span></td>
 <td style="text-align: left;">Acceleration limiter time constant</td>
-<td style="text-align: left;">1</td>
+<td style="text-align: left;"><span class="math inline">\(1\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{act}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_{act}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">s</td>
-<td style="text-align: left;">Tact</td>
+<td style="text-align: left;"><span class="math inline">\(s\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Tact\)</span></td>
 <td style="text-align: left;">actuator (valve) reaction time constant</td>
-<td style="text-align: left;">0.4</td>
+<td style="text-align: left;"><span class="math inline">\(0.4\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{b}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_b\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">s</td>
-<td style="text-align: left;">Tb</td>
+<td style="text-align: left;"><span class="math inline">\(s\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Tb\)</span></td>
 <td style="text-align: left;">Turbine lag time constant</td>
-<td style="text-align: left;">0.1</td>
+<td style="text-align: left;"><span class="math inline">\(0.1\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{c}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_c\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">s</td>
-<td style="text-align: left;">Tc</td>
+<td style="text-align: left;"><span class="math inline">\(s\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Tc\)</span></td>
 <td style="text-align: left;">Turbine lead time constant</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{dgov}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_{dgov}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">s</td>
-<td style="text-align: left;">Tdgov</td>
+<td style="text-align: left;"><span class="math inline">\(s\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Tdgov\)</span></td>
 <td style="text-align: left;">Governor controller derivative time constant</td>
-<td style="text-align: left;">1</td>
+<td style="text-align: left;"><span class="math inline">\(1\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{D\,ratelim}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_{D,ratelim}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">s</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">Ramp rate limter derivative time constant in s</td>
-<td style="text-align: left;">0.001</td>
+<td style="text-align: left;"><span class="math inline">\(s\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(-\)</span></td>
+<td style="text-align: left;">Ramp rate limter derivative time constant in <span class="math inline">\(s\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.001\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{eng}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_{eng}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">s</td>
-<td style="text-align: left;">Teng</td>
+<td style="text-align: left;"><span class="math inline">\(s\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Teng\)</span></td>
 <td style="text-align: left;">Transport time delay for diesel engine</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{f\,load}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_{f,load}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">s</td>
-<td style="text-align: left;">Tfload</td>
+<td style="text-align: left;"><span class="math inline">\(s\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Tfload\)</span></td>
 <td style="text-align: left;">Load limiter time constant</td>
-<td style="text-align: left;">3</td>
+<td style="text-align: left;"><span class="math inline">\(3\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{last\,value}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_{last,value}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">s</td>
-<td style="text-align: left;">-</td>
+<td style="text-align: left;"><span class="math inline">\(s\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(-\)</span></td>
 <td style="text-align: left;">Time constant of very fast first order block to prevent algebraic loop</td>
-<td style="text-align: left;">1e-9</td>
+<td style="text-align: left;"><span class="math inline">\(1e-9\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{p\,elec}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_{p,elec}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">s</td>
-<td style="text-align: left;">Tpelec</td>
+<td style="text-align: left;"><span class="math inline">\(s\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Tpelec\)</span></td>
 <td style="text-align: left;">Electrical power measurement time constant</td>
-<td style="text-align: left;">2.5</td>
+<td style="text-align: left;"><span class="math inline">\(2.5\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{sa}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_{sa}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">s</td>
-<td style="text-align: left;">Tsa</td>
+<td style="text-align: left;"><span class="math inline">\(s\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Tsa\)</span></td>
 <td style="text-align: left;">lead time constant of temperature detection</td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{sb}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_{sb}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">s</td>
-<td style="text-align: left;">Tsb</td>
+<td style="text-align: left;"><span class="math inline">\(s\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Tsb\)</span></td>
 <td style="text-align: left;">lag time constant of temperature detection</td>
-<td style="text-align: left;">50</td>
+<td style="text-align: left;"><span class="math inline">\(50\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[V_\mathrm{max}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(V_{max}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">Vmax</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Vmax\)</span></td>
 <td style="text-align: left;">Maximum valve position limit</td>
-<td style="text-align: left;">1</td>
+<td style="text-align: left;"><span class="math inline">\(1\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[V_\mathrm{min}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(V_{min}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">Vmin</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Vmin\)</span></td>
 <td style="text-align: left;">Minimum valve position limit</td>
-<td style="text-align: left;">0.175</td>
+<td style="text-align: left;"><span class="math inline">\(0.175\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[W_\mathrm{fnl}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(W_{fnl}\)</span></td>
 <td style="text-align: left;">float</td>
-<td style="text-align: left;">pu</td>
-<td style="text-align: left;">Wfnl</td>
+<td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Wfnl\)</span></td>
 <td style="text-align: left;">fuel flow with no load</td>
-<td style="text-align: left;">0.187</td>
+<td style="text-align: left;"><span class="math inline">\(0.187\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[W_\mathrm{fspd}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(W_{fspd}\)</span></td>
 <td style="text-align: left;">bool</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">Wfspd</td>
+<td style="text-align: left;"><span class="math inline">\(-\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(Wfspd\)</span></td>
 <td style="text-align: left;">Switch for fuel source characteristic</td>
-<td style="text-align: left;">false</td>
+<td style="text-align: left;"><span class="math inline">\(false\)</span></td>
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 </section>
 <section id="variables" class="level3">
 <h3 class="anchored" data-anchor-id="variables">Variables</h3>
@@ -1324,14 +1293,10 @@ Table&nbsp;1
 <h4 class="anchored" data-anchor-id="inputs">Inputs</h4>
 <div id="tbl-inputs" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-inputs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-inputs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Inputs
 </figcaption>
 <div aria-describedby="tbl-inputs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Table&nbsp;2: Inputs</p>
-</div>
-</figure>
-</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 18%">
@@ -1351,49 +1316,48 @@ Table&nbsp;2
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math display">\[\omega\]</span></td>
+<td><span class="math inline">\(\omega\)</span></td>
 <td>float</td>
-<td>pu</td>
-<td><span class="math display">\[\omega\]</span></td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(\omega\)</span></td>
 <td>rotor speed</td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[P_\mathrm{ref}\]</span></td>
+<td><span class="math inline">\(P_{ref}\)</span></td>
 <td>float</td>
-<td>pu</td>
-<td>Pref</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(Pref\)</span></td>
 <td>load setpoint</td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[P_\mathrm{MWSet}\]</span></td>
+<td><span class="math inline">\(P_{MWSet}\)</span></td>
 <td>float</td>
-<td>pu</td>
-<td>Pmwset</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(Pmwset\)</span></td>
 <td>Supervisory power controller setpoint (automatic generation control)</td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[P_\mathrm{e}\]</span></td>
+<td><span class="math inline">\(P_e\)</span></td>
 <td>float</td>
-<td>pu</td>
-<td>Pe</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(Pe\)</span></td>
 <td>measured electric power generation</td>
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 </section>
 </section>
 <section id="outputs" class="level3">
 <h3 class="anchored" data-anchor-id="outputs">Outputs</h3>
 <div id="tbl-outputs" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-outputs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;3
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-outputs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Outputs
 </figcaption>
 <div aria-describedby="tbl-outputs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Table&nbsp;3: Outputs</p>
-</div>
-</figure>
-</div>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1406,106 +1370,73 @@ Table&nbsp;3
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math display">\[P_\mathrm{m}\]</span></td>
+<td><span class="math inline">\(P_m\)</span></td>
 <td>float</td>
-<td>pu</td>
-<td>Pm</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(Pm\)</span></td>
 <td>mechanical power</td>
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 </section>
 <section id="equations-algorithm" class="level3">
-<h3 class="anchored" data-anchor-id="equations-algorithm">Equations &amp; algorithm &nbsp;</h3>
+<h3 class="anchored" data-anchor-id="equations-algorithm">Equations &amp; algorithm</h3>
 <p>–</p>
 </section>
 <section id="initial-equations-boundary-conditions" class="level3">
 <h3 class="anchored" data-anchor-id="initial-equations-boundary-conditions">Initial equations / boundary conditions</h3>
-<p>The initial values for the system’s states are calculated from the initial mechanical power <span class="math display">\[P_\mathrm{m\,0}\]</span> and rotation speed <span class="math display">\[\omega_\mathrm{0}\]</span>.</p>
+<p>The initial values for the system’s states are calculated from the initial mechanical power <span class="math inline">\(P_{m,0}\)</span> and rotation speed <span class="math inline">\(\omega_0\)</span>.</p>
 <section id="helper-variables" class="level4">
 <h4 class="anchored" data-anchor-id="helper-variables">Helper variables</h4>
 <p>The following “helper variables” are defined to avoid repetition in the definitions of initial states below. They are the initial values of signals at certain points in <a href="#fig-modelSchema" class="quarto-xref">Figure&nbsp;1</a>.</p>
-<p><span id="eq-initPmnoloss"><span class="math display">\[
-P_\mathrm{m\,noloss\,0} =
+<p><span id="eq-initPmnoloss"><span class="math display">\[P_{m,noloss,0} =
 \begin{cases}
-    P_\mathrm{m\,0} + \omega_\mathrm{0} \cdot D_\mathrm{m},&amp; \text{if } D_\mathrm{m}&gt; 0\\
-    P_\mathrm{m\,0},              &amp; \text{otherwise}
-\end{cases}
-\qquad(1)\]</span></span></p>
-<p><span id="eq-initCfe"><span class="math display">\[
-C_\mathrm{fe\,0} =
+    P_{m,0} + \omega_0 \cdot D_m,&amp; \text{if } D_m&gt; 0\\
+    P_{m,0},              &amp; \text{otherwise}
+\end{cases} \tag{1}\]</span></span></p>
+<p><span id="eq-initCfe"><span class="math display">\[C_{fe,0} =
 \begin{cases}
-    W_\mathrm{fnl} + P_\mathrm{m\,noloss\,0} / K_\mathrm{turb},&amp; \text{if } K_\mathrm{turb}&gt;0\\
-    W_\mathrm{fnl},              &amp; \text{otherwise}
-\end{cases}
-\qquad(2)\]</span></span></p>
-<p><span id="eq-initValve"><span class="math display">\[
-V_\mathrm{0} =
+    W_{fnl} + P_{m,noloss,0} / K_{turb},&amp; \text{if } K_{turb}&gt;0\\
+    W_{fnl},              &amp; \text{otherwise}
+\end{cases} \tag{2}\]</span></span></p>
+<p><span id="eq-initValve"><span class="math display">\[V_0 =
 \begin{cases}
-    C_\mathrm{fe\,0} / \omega_\mathrm{0},&amp; \text{if } W_\mathrm{fspd}\\
-    C_\mathrm{fe\,0},              &amp; \text{otherwise}
-\end{cases}
-\qquad(3)\]</span></span></p>
-<p><span id="eq-initTex"><span class="math display">\[
-\vartheta_\mathrm{ex\,0} =
+    C_{fe,0} / \omega_0,&amp; \text{if } W_{fspd}\\
+    C_{fe,0},              &amp; \text{otherwise}
+\end{cases} \tag{3}\]</span></span></p>
+<p><span id="eq-initTex"><span class="math display">\[\vartheta_{ex,0} =
 \begin{cases}
-    C_\mathrm{fe\,0} \cdot \omega_\mathrm{0}^{D_\mathrm{m}},&amp; \text{if } D_\mathrm{m}&lt;0\\
+    C_{fe,0} \cdot \omega_0^{D_m},&amp; \text{if } D_m&lt;0\\
     1,              &amp; \text{otherwise}
-\end{cases}
-\qquad(4)\]</span></span></p>
-<p><span id="eq-initFsrt"><span class="math display">\[
-F_\mathrm{srt\,0} = (P_\mathrm{ldref}/K_\mathrm{turb} + W_\mathrm{fnl} - \vartheta_\mathrm{ex\,0}) \cdot K_\mathrm{P\,load} + x_\mathrm{I\,load}
-\qquad(5)\]</span></span></p>
+\end{cases} \tag{4}\]</span></span></p>
+<p><span id="eq-initFsrt"><span class="math display">\[F_{srt,0} = (P_{ldref}/K_{turb} + W_{fnl} - \vartheta_{ex,0}) \cdot K_{P,load} + x_{I,load} \tag{5}\]</span></span></p>
 </section>
 <section id="initial-states" class="level4">
 <h4 class="anchored" data-anchor-id="initial-states">Initial states</h4>
-<p><span id="eq-initXiload"><span class="math display">\[
-x_\mathrm{I\,load\,0} = 1
-\qquad(6)\]</span></span></p>
-<p><span id="eq-initXTurbine"><span class="math display">\[
-x_\mathrm{turb\,0} = P_\mathrm{m\,noloss\,0}
-\qquad(7)\]</span></span></p>
-<p><span id="eq-initXValve"><span class="math display">\[
-x_\mathrm{valve\,0} = V_\mathrm{0}
-\qquad(8)\]</span></span></p>
-<p><span id="eq-initXFdl"><span class="math display">\[
-x_\mathrm{fdl\,ratelimit\,0} = K_\mathrm{turb}(V_\mathrm{max}-W_\mathrm{fnl})
-\qquad(9)\]</span></span></p>
-<p><span id="eq-initXIGov"><span class="math display">\[
-x_\mathrm{I\,gov\,0} = V_\mathrm{0}
-\qquad(10)\]</span></span></p>
-<p><span id="eq-initXMeasPe"><span class="math display">\[
-x_\mathrm{meas\,Pe\,0} = P_\mathrm{m\,0}
-\qquad(11)\]</span></span></p>
-<p><span id="eq-initFsrt"><span class="math display">\[
-x_\mathrm{fsrt\,ratelim\,0} = F_\mathrm{srt\,0}
-\qquad(12)\]</span></span></p>
-<p><span id="eq-Texm"><span class="math display">\[
-x_\mathrm{meas\,\vartheta\,ex\,0} = \vartheta_\mathrm{ex\,0}
-\qquad(13)\]</span></span></p>
-<p><span id="eq-initTex"><span class="math display">\[
-x_\mathrm{\vartheta\,ex\,0} = \vartheta_\mathrm{ex\,0}
-\qquad(14)\]</span></span></p>
-<p><span id="eq-initXIMw"><span class="math display">\[
-x_\mathrm{I\,MW} = 0
-\qquad(15)\]</span></span></p>
-<p><span id="eq-initLastValue"><span class="math display">\[
-x_\mathrm{last\,value\,0} = V_\mathrm{0}
-\qquad(16)\]</span></span></p>
-<p><span id="eq-initFsra"><span class="math display">\[
-x_\mathrm{fsra\,0} = 0
-\qquad(17)\]</span></span></p>
+<p><span id="eq-initXiload"><span class="math display">\[x_{I,load,0} = 1 \tag{6}\]</span></span></p>
+<p><span id="eq-initXTurbine"><span class="math display">\[x_{turb,0} = P_{m,noloss,0} \tag{7}\]</span></span></p>
+<p><span id="eq-initXValve"><span class="math display">\[x_{valve,0} = V_0 \tag{8}\]</span></span></p>
+<p><span id="eq-initXFdl"><span class="math display">\[x_{fdl,ratelimit,0} = K_{turb}(V_{max}-W_{fnl}) \tag{9}\]</span></span></p>
+<p><span id="eq-initXIGov"><span class="math display">\[x_{I,gov,0} = V_0 \tag{10}\]</span></span></p>
+<p><span id="eq-initXMeasPe"><span class="math display">\[x_{meas,Pe,0} = P_{m,0} \tag{11}\]</span></span></p>
+<p><span id="eq-initFsrt"><span class="math display">\[x_{fsrt,ratelim,0} = F_{srt,0} \tag{12}\]</span></span></p>
+<p><span id="eq-Texm"><span class="math display">\[x_{meas,\vartheta,ex,0} = \vartheta_{ex,0} \tag{13}\]</span></span></p>
+<p><span id="eq-initTex"><span class="math display">\[x_{\vartheta,ex,0} = \vartheta_{ex,0} \tag{14}\]</span></span></p>
+<p><span id="eq-initXIMw"><span class="math display">\[x_{I,MW} = 0 \tag{15}\]</span></span></p>
+<p><span id="eq-initLastValue"><span class="math display">\[x_{last,value,0} = V_0 \tag{16}\]</span></span></p>
+<p><span id="eq-initFsra"><span class="math display">\[x_{fsra,0} = 0 \tag{17}\]</span></span></p>
 </section>
 <section id="initial-power-reference" class="level4">
 <h4 class="anchored" data-anchor-id="initial-power-reference">Initial power reference</h4>
-<p><span id="eq-initPref"><span class="math display">\[
-P_\mathrm{ref\,0} =
+<p><span id="eq-initPref"><span class="math display">\[P_{ref,0} =
 \begin{cases}
-    0,                         &amp; \text{if } R_\mathrm{select}=0\\
-    R \cdot P_\mathrm{m\,0},   &amp; \text{if } R_\mathrm{select}=1\\
-    R \cdot V_\mathrm{0},      &amp; \text{otherwise}
-\end{cases}
-\qquad(18)\]</span></span></p>
+    0,                         &amp; \text{if } R_{select}=0\\
+    R \cdot P_{m,0},   &amp; \text{if } R_{select}=1\\
+    R \cdot V_0,      &amp; \text{otherwise}
+\end{cases} \tag{18}\]</span></span></p>
 </section>
 </section>
 </section>
@@ -1535,22 +1466,8 @@ P_\mathrm{ref\,0} =
 </tbody>
 </table>
 </section>
-<section id="table-of-references" class="level2">
-<h2 class="anchored" data-anchor-id="table-of-references">Table of references</h2>
-<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
-<div id="ref-machowski2020" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">J. Machowski, Z. Lubosny, J. W. Bialek, and J. R. Bumby, <em>Power System Dynamics: Stability and Control, 3rd Edition</em>. Wiley, 2020. Accessed: Nov.&nbsp;22, 2022. [Online]. Available: <a href="https://www.wiley.com/en-us/Power+System+Dynamics%3A+Stability+and+Control%2C+3rd+Edition-p-9781119526360" class="uri">https://www.wiley.com/en-us/Power+System+Dynamics%3A+Stability+and+Control%2C+3rd+Edition-p-9781119526360</a></div>
-</div>
-<div id="ref-alliander2024" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline">alliander, “Alliander-opensource.” [Online]. Available: <a href="https://alliander-opensource.github.io/cgmes-profiles/Dynamics/GovCT2/" class="uri">https://alliander-opensource.github.io/cgmes-profiles/Dynamics/GovCT2/</a></div>
-</div>
-<div id="ref-iec61970-3022023" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[3] </div><div class="csl-right-inline">IEC61970-302, “DIN EN IEC 61970-302 – Schnittstelle für Anwendungsprogramme für Energiemanagementsysteme (EMS­API) Teil&nbsp;302: Allgemeines Informationsmodell&nbsp;(CIM) Dynamik.” Jun.&nbsp;2023.</div>
-</div>
-<div id="ref-neplan2015" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[4] </div><div class="csl-right-inline">Neplan, “TURBINE-GOVERNOR MODELS – Standard Dynamic Turbine-Governor Systems in NEPLAN Power System Analysis Tool.” 2015. Available: <a href="https://www.neplan.ch">www.neplan.ch</a></div>
-</div>
-</div>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
 
 
 </section>
