@@ -7,7 +7,7 @@ last-updated: 09/10/2024
 id: #236
 author: Erwan Guichard (DPS for RTE)
 reviewers: Lampros Papangelis (CRESYM)
-bibliography: ../../_bibliography/references.bib
+bibliography: ../../../../_bibliography/references.bib
 ---
 # IEEE OEL2C model
 
@@ -83,28 +83,22 @@ The parameter sets correspond to an overexcitation limitation output :
 
 ## Model diagram
 
-![OEL2C](OEL2C.drawio.svg){#fig-oel2c}
-
-::: {#fig-oel2c}
-OEL2C model diagram
-:::
+![OEL2C model diagram](OEL2C.drawio.svg){#fig-oel2c}
 
 The OEL reference current is calculated with the following model :
 
-![OelReferenceCurrent](OelReferenceCurrent.drawio.svg){#fig-oel-ref-current}
-
-::: {#fig-oel-ref-current}
-OEL reference current calculation model
-:::
+![OEL reference current calculation model](OelReferenceCurrent.drawio.svg){#fig-oel-ref-current}
 
 The OEL activation logic has three inputs (from top to bottom, $IActPu$, $tErr$, $IRefPu$) and one output ($IBiasPu$) calculated as follows :
 
-    if $tErr <= 0$ or ($IActPu > IRefPu$ for a duration $>= tEn$) or $tEn == 0$
-        $IBiasPu = 0$
-    elseif $IRefPu == IInstPu$ and ($IRefPu > IActPu + IThOffPu$ for a duration $> tOff$)
-        $IBiasPu = IResetPu$
-    else
-        $IBiasPu = 0$
+```python
+if tErr <= 0 or (IActPu > IRefPu for a duration >= tEn) or tEn == 0
+    IBiasPu = 0
+elseif IRefPu == IInstPu and (IRefPu > IActPu + IThOffPu for a duration > tOff)
+    IBiasPu = IResetPu
+else
+    IBiasPu = 0
+```
 
 ## Open source implementations
 
