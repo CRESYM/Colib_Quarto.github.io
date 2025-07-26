@@ -26,6 +26,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -698,8 +699,8 @@ window.Quarto = {
 <h1>AcRotatingExciter model</h1>
 <section id="context" class="level2">
 <h2 class="anchored" data-anchor-id="context">Context</h2>
-<p>This ac rotating exciter with non-controlled rectifiers has been presented in details in <span class="citation" data-cites="Ferguson1960">[@Ferguson1960]</span> and <span class="citation" data-cites="Gayek1964">[@Gayek1964]</span>.</p>
-<p>This model is included in the type AC (alternator-supplied rectifier) voltage regulator models described in the IEEE Std 421.5-2016 <span class="citation" data-cites="IEEEExciterModels2016">[@IEEEExciterModels2016]</span>, specifically those named AC.C (AC1C, AC6C, etc.). Compared to the first standard version (1992), the models AC.B (introduced in the second standard version of 2005) and AC.C have a variable upper limit for the limited integrator.</p>
+<p>This ac rotating exciter with non-controlled rectifiers has been presented in details in <span class="citation" data-cites="Ferguson1960">(<a href="#ref-Ferguson1960" role="doc-biblioref">Ferguson and Miller 1960</a>)</span> and <span class="citation" data-cites="Gayek1964">(<a href="#ref-Gayek1964" role="doc-biblioref">Gayek 1964</a>)</span>.</p>
+<p>This model is included in the type AC (alternator-supplied rectifier) voltage regulator models described in the IEEE Std 421.5-2016 <span class="citation" data-cites="IEEEExciterModels2016">(<a href="#ref-IEEEExciterModels2016" role="doc-biblioref">Electrical and Engineers 2016</a>)</span>, specifically those named AC.C (AC1C, AC6C, etc.). Compared to the first standard version (1992), the models AC.B (introduced in the second standard version of 2005) and AC.C have a variable upper limit for the limited integrator.</p>
 </section>
 <section id="model-use-assumptions-validity-domain-and-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
@@ -868,8 +869,16 @@ Figure&nbsp;1: AcRotatingExciter block diagram
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
-<div id="refs" role="list">
-
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-IEEEExciterModels2016" class="csl-entry" role="listitem">
+Electrical, The Institute of, and Electronics Engineers. 2016. <span>“IEEE Recommended Practice for Excitation System Models for Power System Stability Studies.”</span> <em>IEEE Std 421.5-2016</em>. <a href="https://home.engineering.iastate.edu/~jdm/ee554/IEEEstd421.5-2016RecPracExSysModsPwrSysStabStudies.pdf">https://home.engineering.iastate.edu/~jdm/ee554/IEEEstd421.5-2016RecPracExSysModsPwrSysStabStudies.pdf</a>.
+</div>
+<div id="ref-Ferguson1960" class="csl-entry" role="listitem">
+Ferguson, H. Herbst, R. W., and R. W. Miller. 1960. <span>“Analytical Studies of the Brushless Excitation System.”</span> <em>AIEE Transactions on Power Apparatus and Systems (Part IIIB), Vol. 79</em>.
+</div>
+<div id="ref-Gayek1964" class="csl-entry" role="listitem">
+Gayek, H. W. 1964. <span>“Transfer Characteristics of Brushless Aircraft Generator Systems.”</span> <em>IEEE Transactions on Aerospace, Vol. 2, No. 2</em>.
+</div>
 </div>
 
 
