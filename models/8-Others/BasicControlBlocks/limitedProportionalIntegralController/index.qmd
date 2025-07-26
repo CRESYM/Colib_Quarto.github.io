@@ -1,0 +1,4 @@
+---
+title: "Limited Proportional Integral Controller"
+tags: ["control block", "limited PI controller"]
+--- 

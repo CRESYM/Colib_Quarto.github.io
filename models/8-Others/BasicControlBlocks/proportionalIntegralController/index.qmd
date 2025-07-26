@@ -1,0 +1,4 @@
+---
+title: "Proportional Integral Controller"
+tags: ["control block", "PI controller"]
+--- 

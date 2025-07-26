@@ -1,0 +1,502 @@
+---
+title: "IEC Wind Turbine Type 3 (Doubly-Fed Induction Generator)"
+tags: ["regulations", "WT", "wind", "controller", "Opensource", "IEC", "RMS", "modelica", "dynawo", "#62"]
+date: 20/12/2024
+last-updated: 20/12/2024
+authors: "Martin Franke (Fraunhofer IEE), Luka Plavec (Fraunhofer IEE)"
+reviewers: "Lampros Papangelis (CRESYM)"
+id: "#62"
+bibliography: ../../../../_bibliography/references.bib
+---
+
+**List Of Acronyms**
+
+
+|----------|-------------------------------------|
+| $DFIG$     | Doubly-Fed Induction Generator      |
+| $FRT$      | Fault Ride Through                  |
+| $GSC$      | Grid Side Converter                 |
+| $PCC$      | Point of Common Coupling            |
+| $PD$       | Power Device                        |
+| $RSC$      | Rotor Side Converter                |
+| $WP$       | Wind Plant                          |
+| $WT$       | Wind Turbine                        |
+
+## Context
+
+This document refers to the IEC 61400-27-1 models which have been
+developed with the following specifications in mind [@IEC_61400-27-1]:
+
+- Use in wind power plant models or standalone wind turbines
+
+- Specification for generic simulation models covering most WT types
+
+- Models address four categories of existing WT technologies (NERC
+  nomenclature):
+
+  - **Type 1:** Conventional asynchronous generators (squirrel cage)
+  - **Type 2:** Variable rotor resistance asynchronous generators
+  - **Type 3:** Doubly-fed induction generators (stator connected
+    directly; rotor through converter)
+  - **Type 4:** Synchronous generator, grid-connected via a full-size
+    power converter
+
+Other model considerations according to [@IEC_61400-27-1]:
+
+- Include over/under frequency and voltage protection for realistic WT
+  disconnection modeling
+- Account for turbine-generator inertia and first drive train torsional
+  mode impacts on power swings
+- Phase-locked loop dynamics are not included in the models (they are
+  modeled through a first order lag element)
+
+The IEC 61400-27-1 [@IEC_61400-27-1] defines one of the most widely used series of
+RMS models for Wind Turbine (WT) generators, another one being the WECC
+model series, developed by EPRI.
+
+The models are separated in several sub systems. The information and
+drawings are taken from [@IEC_61400-27-1] [@Honrubia-Escribano2018] [@Fortmann2013] [@Fortmann2014] [@Lorenzo-Bonache2017] [@Lorenzo-Bonache2019].
+
+## Model use, assumptions, validity domain and limitations
+
+The controller of the generic Type 3 WT model does not represent the
+actual controller of the WT, which sets the references of the
+Rotor Side Converter (RSC) and the Grid Side Converter (GSC), but
+provides the current command signals to obtain an accurate response of
+active and reactive power, observed from the grid side.
+
+The models are positive-sequence RMS models, hence they assume
+symmetrical operating conditions and neglect high-frequency dynamics.
+This type of models is often used in large-scale stability studies, for
+which it reflects the relevant phenomena. It is not a detailed physical
+model of the unit. Also for some stability phenomena (e.g. resonance
+stability) this model is not sufficient and EMT models or other
+approaches may be necessary.
+
+Specifically, [@IEC_61400-27-1] defines the following validity domain:
+
+- positive sequence dynamics
+- transmission grid simulations
+- reference value changes
+- steady state voltage deviations (0.85 pu … 1.15 pu)
+- phase jumps
+- symmetrical faults, including short-circuits of varying impedance,
+  where voltage can dip to close to zero (typical e.g. 0.18 pu)
+- frequency disturbances, variations $\pm$ 6 %
+- electromechanical modes of synchronous generator rotor oscillations
+  (0.2 Hz … 4 Hz)
+- Typical simulation time frame: 10 s … 30 s
+- Wind speed assumed to be constant during simulation time (wind speed
+  could be included as an external condition through the available
+  power)
+- Simulation step width up to 1/4 fundamental frequency cycle (5 ms at
+  50 Hz), which implies that the model Bandwidth cannot be above 15 Hz.
+- According to [@Honrubia-Escribano2018], the Type 3 WT model can operate with variable
+  speed with slip values from -0.3 to +0.4.
+
+Vice versa, [@IEC_61400-27-1] states that the models are not intended for the
+following:
+
+- The models are not designed for long-term stability assessments.
+- The models do not facilitate the exploration of sub-synchronous
+  interaction phenomena.
+- The models do not account for fluctuations due to wind speed
+  variability over time and space, excluding factors such as turbulence,
+  tower shadow, wind shear, and wakes.
+- The models do not encompass phenomena like harmonics, flicker, or
+  other EMC emissions outlined in the IEC 61000 series.
+- Linearization for eigenvalue analysis is complex and may not be
+  suitable for these simplified models.
+- The IEC standard does not cover the details of short-circuit
+  calculations.
+- The models are not suitable for analyzing extremely weak systems,
+  including scenarios where wind turbines operate in isolation from
+  other synchronous generation or in cases with very low short-circuit
+  ratios.
+- The models do not incorporate negative and zero sequence components.
+
+## Wind turbine type 3
+
+![Wind turbine type 3 model](drawings/WT_system.drawio.svg){#fig-wtSystem}
+
+::: {#fig-wtSystem}
+Wind turbine type 3 model, based on [@IEC_61400-27-1]
+:::
+
+![Wind turbine generator control sub-structure](drawings/WT_generator_control_substructure_type3.drawio.svg){#fig-wtControlSubstructure}
+
+::: {#fig-wtControlSubstructure}
+Wind turbine generator control sub-structure for Type 3A and 3B WT, based on [@IEC_61400-27-1]
+:::
+
+### P control module
+
+For detailed assessment of the parameters' impact on model behaviour,
+see [@Lorenzo-Bonache2017].
+
+![Wind turbine P control module](drawings/WT_P_control_type3.drawio.svg){#fig-wtPControl}
+
+::: {#fig-wtPControl}
+Wind turbine P control module (Type 3), based on [@IEC_61400-27-1]
+:::
+
+@fig-wtPControl shows the
+wind turbine active power control scheme.
+
+The control's general behaviour is dominated by $\omega(p)$, a
+lookup-table that provides the angular velocity at which the turbine
+should rotate when it is injecting a certain active power [@Lorenzo-Bonache2019]. A
+possible look-up table for this system is shown in
+@fig-lookup-table-omega-pref,
+which is representing example values from *DIgSILENT PowerFactory*
+[@DIgSILENT2024].
+
+The power-speed-characteristic in
+@fig-lookup-table-omega-pref
+has four main operating zones according to [@Lorenzo-Bonache2017]:
+
+- **Zone 1:** The minimum rotational speed has been reached and hence
+  cannot decrease further due to physical (component) limits, mainly
+  maximum slip of the converter.
+- **Zone 2:** Between minimum rotational speed to rated rotational
+  speed; maximum power tracking mode.
+- **Zone 3:** Fixed at rated speed and below the rated active power. In
+  some cases, instead of a fixed rated rotational speed, there is a
+  linear rotational speed variation to achieve the rated rotational
+  speed at the rated active power.
+- **Zone 4:** Rated rotational speed and rated active power.
+
+> **Note**
+>
+> Dotted lines in
+> @fig-lookup-table-omega-pref
+> imply that, for simulations, the active power reference presents a
+> certain slope, offering more stable simulations. Under real control
+> conditions, this look-up table has two vertical lines, as shown by the
+> solid lines. [@Lorenzo-Bonache2017]
+
+<details class="code-fold">
+<summary>Code</summary>
+
+``` python
+from matplotlib import pyplot as plt
+import seaborn as sns
+colors = sns.color_palette('Set2')
+sns.set_palette(colors)
+
+plt.plot(
+    [0.755,  0.76,   0.86,   0.94,   1,      1.01], 
+    [0,      0.3,    0.31,   0.4,    0.5,    1], 
+    '--', c=colors[0])
+plt.plot(
+    [0.76,  0.76,   0.86,   0.94,   1,      1], 
+    [0,     0.3,    0.31,   0.4,    0.5,    1], 
+    '-x', c=colors[0])
+plt.grid()
+_ = plt.ylabel(r'$$p_\mathrm{WT}$$ in pu')
+_ = plt.xlabel(r'$$\omega_\mathrm{ref}$$ in pu')
+plt.xlim(0.7,1.1)
+_ = plt.text(1.03, .99, 'Zone 4', ha='left', va='top')
+_ = plt.text(.99, .8, 'Zone 3', ha='right', va='top')
+_ = plt.text(.9, .45, 'Zone 2', ha='right', va='top')
+_ = plt.text(.745, .1, 'Zone 1', ha='right', va='top')
+```
+
+</details>
+
+![Lookup table for reference rotation speed](drawings/fig-lookup-table-omega-pref-output-1.png){#fig-lookup-table-omega-pref}
+
+::: {#fig-lookup-table-omega-pref}
+Lookup table for reference rotation speed as a function of WT active power; according to [@Lorenzo-Bonache2017] and with data from [@DIgSILENT2024] (see @tbl-wtLookupTable)
+:::
+
+The power-speed-characteristic's speed reference output is then filtered
+($T_\mathrm{\omega ref}$) to avoid sudden changes.
+
+> **Note**
+>
+> The time constant $T_\mathrm{\omega ref}$ can be set to a very high
+> value to enforce a fixed reference rotational speed during the
+> simulation, which can be a desired operational mode. [@Lorenzo-Bonache2017]
+
+The filtered speed reference $\omega_\mathrm{ref}$ is subtracted from
+the measured angular velocity $\omega_\text{gen}$ (generator speed) or
+$\omega_\mathrm{WTR}$ (turbine speed), depending on the mode
+$M_\mathrm{\omega Tqpi}$ to get the speed error $\omega_\mathrm{err}$.
+The measured speed can be filtered by the first order lag element with
+time constant $T_\mathrm{\omega filtp3}$.
+
+Since $\omega_\mathrm{gen}$ comes from the mechanical module which only
+models the drive train resonant frequency, this first order lag is
+intended as a filter for only this oscillation. Since it is a low pass,
+it won't be able to efficiently filter that resonance from the signal.
+Alternatively, by setting $M_\mathrm{\omega Tqpi}=\mathrm{true}$, the
+rotor speed $\omega_\mathrm{WTR}$ can be used instead of the generator
+speed, which acts as a simpler way to determine a filtered value of
+$\omega_\mathrm{gen}$ [@Lorenzo-Bonache2017].
+
+The speed error $\omega_\mathrm{err}$ is then given to the *Torque PI
+controller* (@fig-torquePi),
+which outputs the electromagnetic torque reference $\tau_\mathrm{out}$
+[@Lorenzo-Bonache2019].
+
+Another input to the torque PI subsystem (see [Torque PI block](#torque-pi-block)) is the
+maximum electromagnetic torque $\tau_\mathrm{emax}$. It is determined by
+calculating a torque value from [@Lorenzo-Bonache2017]:
+
+- The reference power value $p_\mathrm{WTref}$, during voltage dips
+  optionally scaled down by the terminal voltage $u_\mathrm{WTC}$ (if
+  $M_\mathrm{pUscale}=\mathrm{true}$)
+- And a rotational speed, either the turbine rotor speed
+  $\omega_\mathrm{WTR}$ (if $M_\mathrm{\omega Tmax}=\mathrm{false}$) or
+  the speed reference value $\omega_\mathrm{ref}$ (if
+  $M_\mathrm{\omega Tmax}=\mathrm{true}$).
+
+After the torque PI controller, the electromagnetic torque reference
+$\tau_\mathrm{out}$ is multiplied by the generator's rotational speed
+$\omega_\mathrm{gen}$ to obtain a power reference [@Lorenzo-Bonache2019].
+
+To obtain the active current command $i_\mathrm{pcmd}$, $p_\mathrm{ord}$
+is divided by the measured voltage $u_\mathrm{WTCfilt}$.
+
+To the active power order $p_\mathrm{ord}$ an additional component from
+the Drive Train Damping (DTD) system is added. Physically, the DTD
+provides an electrical torque that accounts for natural damping by
+considering speed differences between both low and high speed shafts
+(either side of the gearbox) [@Lorenzo-Bonache2017]. It is modeled through a second-order
+transfer function as shown towards the bottom right of
+@fig-wtPControl:
+
+$$
+K_{\text{DTD}} \cdot \frac{2 \zeta \omega_{\text{DTD}} s}{s^2 + 2 \zeta \omega_{\text{DTD}} s + \omega_{\text{DTD}}^2}
+$$
+
+As mentioned above, in this model the DTD is represented by an active
+power component, not a torque. The transfer function outputs an
+oscillating electrical power that has an efficient damping effect [@Lorenzo-Bonache2017]
+(for parameters see 
+@tbl-parameters).
+
+**Torque PI block**
+
+![Wind turbine torque PI block](drawings/WT_torque_pi.drawio.svg){#fig-torquePi}
+
+::: {#fig-torquePi}
+Wind turbine torque PI block (Type 3), based on [@IEC_61400-27-1]
+:::
+
+In @fig-torquePi the Torque
+PI Block can be seen. It acts as a PI-controller and is a subsystem of
+the active power control in
+@fig-wtPControl [@Lorenzo-Bonache2019].
+
+For the calculation of the speed error input $\omega_\mathrm{err}$ and
+the maximum electromagnetic torque input $\tau_\mathrm{emax}$, see the P control module section above.
+
+**Proportional and integral parts of the controller**
+
+The proportional controller part is realized by $K_\mathrm{Pp}$.
+
+The integral part of the controller output is the minimum of the
+following two signals [@Lorenzo-Bonache2019]:
+
+- The output of the integral controller $K_\mathrm{Ip}/K_\mathrm{Pp}$
+- A torque value increasing as a ramp with rising rate
+  $\mathrm{d}\tau_\mathrm{max}$, which can be used to control the
+  mechanical stress or to meet grid code requirements. This is set to
+  $\tau_\mathrm{reset}$ when a low voltage fault occurs and ramps
+  upwards after the fault.
+
+**Behavior during low voltage faults**
+
+The *Delay Flag* block takes a boolean value $F_\mathrm{i}$ as input. If
+$F_\mathrm{i}$ steps to 1, the integer output $F_\mathrm{o}$ is 1 and a
+*timer* starts to run. As soon as $F_\mathrm{i}$ steps back to 0,
+$F_\mathrm{o}$ steps to 2 if the *timer* has not reached
+$T_\mathrm{DVS}$. Once the timer reaches $T_\mathrm{DVS}$,
+$F_\mathrm{o}$ steps back to 0. [@IEC_61400-27-1]
+
+The delay flag block is used to implement the following fault signals:
+
+- $F_\mathrm{reset}$ is true during a volage dip
+  ($u_\mathrm{WTC} < u_\mathrm{pdip}$) as well as during and
+  $T_\mathrm{DVS}$ after a deep voltage dip
+  ($u_\mathrm{WTC} < u_\mathrm{DVS}$).
+- $F_\mathrm{freeze\,I}$ is true during a voltage dip
+  ($u_\mathrm{WTC} < u_\mathrm{pdip}$)
+
+These fault signals have the following functions:
+
+- $F_\mathrm{reset}$, while true,
+  - resets and holds both integrators at $\tau_\mathrm{reset}$ (see
+    below); for the $K_\mathrm{Ip}/K_\mathrm{Pp}$-integrator this can be
+    prevented by setting $M_\mathrm{pUVRT} = \mathrm{false}$.
+  - sets the speed error $\omega_\mathrm{err}$, i.e. the input to the
+    proportional controller part $K_\mathrm{Pp}$, to zero
+  - changes the upper ramp rate limit of $\tau_\mathrm{reset}$ to
+    $\mathrm{d}\tau_\mathrm{maxUVRT}$ (usually set to zero, preventing
+    $\tau_\mathrm{reset}$ from inceasing during fault) [@Lorenzo-Bonache2019]
+- $F_\mathrm{freeze\,I}$ freezes the integral controller part
+  ($K_\mathrm{Ip}/K_\mathrm{Pp}$) while true.
+
+The reset value $\tau_\mathrm{reset}$ is the minimum value of:
+
+- The measured voltage (during fault) multiplied by factor
+  $\tau_\mathrm{uscale}$
+- The output $\tau_\mathrm{I}$ of the integrator itself
+- $u_\mathrm{TChook} + 1$
+
+$\tau_\mathrm{uscale}$ can be used to alter the power injection
+behaviour during fault and also the starting point for power recovery
+after post-fault. For example, setting it to zero results in zero power
+injection during fault. Higher values increase power injection, until
+the current limitation system begins to act. See [@Lorenzo-Bonache2019] for further
+details.
+
+When $F_\mathrm{reset}$ returns to false, the proportional controller
+$K_\mathrm{Pp}$ will work again as before the fault. The integral
+controller will increase from $\tau_\mathrm{reset}$ to steady-state,
+with a maximum rate dictated by $\mathrm{d}\tau_\mathrm{max}$ [@Lorenzo-Bonache2019].
+
+**Variable limits integrator with set/reset and freeze**
+
+The integrators used in the Torque PI model in
+@fig-torquePi need variable
+limits, set/reset and freeze functionalities. A suggestion for the
+implementation is shown below and the description follows thereafter.
+
+``` {modelica}
+model IntegratorVariableLimitsContinuousSetFreeze "Integrator with limited value of output (variable limits), set/reset and freeze"
+    parameter Boolean DefaultLimitMax = true "If limitMin > limitMax : if true, y = limitMax, if false, y = limitMin";
+    parameter Real K = 1 "Integrator gain";
+    parameter Real LimitMax0 "Initial value of upper limit";
+    parameter Real LimitMin0 "Initial value of lower limit";
+    parameter Boolean ReinitWhenResetIsReleased = true "true: integrator state gets reinitialized to 'set' when 'reset' turns false. false: integrator state gets reinitialized to 'set' when 'reset' turns true.";
+    parameter Real tDer = 1e-3 "Time constant of derivative filter for limits in s";
+    parameter Real TolInput = 1e-5 "Tolerance on limit crossing for integrator input";
+    parameter Real TolOutput = 1e-5 "Tolerance on limit crossing for integrator output";
+    parameter Real LimitDeadband = 0.001 "Deadband for detecting a limit crossing of the integrator's state";
+    Real w(start = Y0) "Integrator state variable";
+    parameter Real Y0 = 0 "Initial or guess value of output (must be in the limits limitMin .. limitMax)";
+
+    Real kFreezeMax "Freeze coefficient for upper limit";
+    Real kFreezeMin "Freeze coefficient for lower limit";
+    Real derLimitMax "Filtered derivative of upper limit of output";
+    Real derLimitMin "Filtered derivative of lower limit of output";
+    Modelica.Blocks.Interfaces.BooleanInput freeze "Optional connector of freeze signal";
+    Modelica.Blocks.Interfaces.RealInput limitMax "Connector of Real input signal used as maximum of output y";
+    Modelica.Blocks.Interfaces.RealInput limitMin "Connector of Real input signal used as minimum of output y";
+    Modelica.Blocks.Interfaces.BooleanInput reset "Optional connector of reset signal";
+    Modelica.Blocks.Interfaces.RealInput set "Optional connector of set signal";
+equation
+    
+    ////////// reset or freeze: keep input = 0
+    if freeze or reset then
+        v = 0;
+    else
+        v = K * u;
+    end if;
+    
+    ////////// reset: reinit integrator's state when set becomes false (or true, depending on ReinitWhenResetIsReleases)
+    when if ReinitWhenResetIsReleased then not reset else reset then
+      reinit(w, set);
+    end when;
+    
+    ////////// integrator with limits
+    derLimitMax = der(limitMax);
+    derLimitMin = der(limitMin);
+    kFreezeMax = 1 / 4 * (1 + tanh((w - limitMax) / TolOutput)) * (1 + tanh((v - derLimitMax) / TolInput));
+    kFreezeMin = 1 / 4 * (1 + tanh((limitMin - w) / TolOutput)) * (1 + tanh((derLimitMin - v) / TolInput));
+    der(w) = derLimitMax * kFreezeMax + derLimitMin * kFreezeMin + v * (1 - kFreezeMax - kFreezeMin);
+    
+    ////////// apply limit or set to output
+    if limitMin > limitMax and DefaultLimitMax then
+        y = limitMax;
+    elseif limitMin > limitMax then
+        y = limitMin;
+    elseif w > limitMax+LimitDeadband then
+        y = limitMax;
+    elseif w < limitMin-LimitDeadband then
+        y = limitMin;
+    elseif reset then
+        y = set;
+    else
+        y = w;
+    end if;
+end IntegratorVariableLimitsContinuousSetFreeze;
+```
+
+This blocks computes `w` as integral of the input `u` multiplied by the
+gain `K`, with `v = K * u`. If the integral reaches a given upper limit
+limitMax or lower limit limitMin, the integration is halted and only
+restarted if the input drives the integral away from the bounds.
+
+This freeze is imposed through two coefficients `kFreezeMax` and
+`kFreezeMin`, each defined by a continuous expression involving the
+hyperbolic tangent, the integrator input `v`, the integrator output `w`,
+the limit `limitMax` or `limitMin` and its filtered derivative
+`derLimitMax` or `derLimitMin`.
+
+The parameters `TolInput` and `TolOutput` determine the width of the
+transition zone from one domain to another.
+
+The output `y` is the result of the limitation of `w` by both variable
+limits.
+
+If the "upper" limit is smaller than the "lower" one, the output `y` is
+ruled by the parameter `DefaultLimitMax`: `y` is equal to either
+`limitMax` or `limitMin`.
+
+**set/reset**
+
+The integrator's output is forced to the value of `set` while
+`reset=true`, as it is descibed in [@IEC_61400-27-1].
+
+When `reset` returns to false (=falling edge), the integrator's state is
+reinitialized to set to resume integration without a jump discontinuity
+(change `ReinitWhenResetIsReleased` to `false` to reinitialize at a
+rising edge instead).
+
+**freeze**
+
+If boolean input is set to true, the derivative of the state variable is
+set to zero.
+
+**Parameters**
+
+Typical values were gathered from the *DIgSILENT PowerFactory* [@DIgSILENT2024]
+implementation of the model.
+
+| name | type | unit | base | description | typical value |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| $\mathrm{d}p_{\mathrm{max}}$ | float | $pu$ | $S_{\mathrm{base}} / \mathrm{s}$ | Maximum ramp rate of wind turbine power | $999$ |
+| $\mathrm{d}p_{\mathrm{refmax}}$ | float | $pu$ | $S_{\mathrm{base}} / \mathrm{s}$ | Maximum ramp rate for reference power of the wind turbine | $0.3$ |
+| $\mathrm{d}p_{\mathrm{refmin}}$ | float | $pu$ | $S_{\mathrm{base}} / \mathrm{s}$ | Minimum ramp rate for reference power of the wind turbine | $-0.3$ |
+| $\mathrm{d}\tau_{\mathrm{max}}$ | float | $pu$ | $T_{\mathrm{base}} / \mathrm{s}$ | Torque ramp rate limit, as required by some grid codes | $0.25$ |
+| $\mathrm{d}\tau_{\mathrm{maxUVRT}}$ | float | $pu$ | $T_{\mathrm{base}} / \mathrm{s}$ | Torque rise rate limit during UVRT | $0$ |
+| $K_{\mathrm{DTD}}$ | float | $pu$ | $S_{\mathrm{base}} / \Omega_{\mathrm{base}}$ | Active drive train damping: gain | $1.5$ (or $0$ if $M_\mathrm{\omega Tqpi}=\mathrm{false}$) [@Lorenzo-Bonache2017] |
+| $K_{\mathrm{Ip}}$ | float | $pu$ | $T_{\mathrm{base}} / \Omega_{\mathrm{base}} / \mathrm{s}$ | Integrator time constant of the PI controller | $5$ |
+| $K_{\mathrm{Pp}}$ | float | $pu$ | $T_{\mathrm{base}} / \Omega_{\mathrm{base}}$ | Proportional gain of the PI controller | $3$ |
+
+: Parameters of WT P control module, based on [@IEC_61400-27-1], [@Lorenzo-Bonache2017] and [@DIgSILENT2024] {#tbl-parameters}
+
+| $p$ | $\omega(p)$ |
+|:-----|:------------|
+| 0    | 0.76        |
+| 0.3  | 0.76        |
+| 0.31 | 0.86        |
+| 0.4  | 0.94        |
+| 0.5  | 1           |
+| 1    | 1           |
+
+: Typical values for lookup table $\omega(p)$, based on [@DIgSILENT2024] implementation {#tbl-wtLookupTable}
+
+## Open Source Implementations
+
+| Software | URL | Last consulted date |
+| :--- | :--- | :--- |
+| Open Modelica / Dynawo | [Dynawo](https://github.com/dynawo/dynawo) | 29/01/2025 |
+
+: Open Source Implementations {#tbl-implementations}
+
+For modeling assumptions and test results, see [Dynawo](https://github.com/dynawo/dynawo) repository. 

@@ -1,0 +1,4 @@
+---
+title: "Algebraic Equation control block"
+tags: ["control block", "algebraic equation"]
+--- 
