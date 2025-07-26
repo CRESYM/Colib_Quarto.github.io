@@ -56,7 +56,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -1152,10 +1172,51 @@ window.Quarto = {
 
 
 <p><strong>List Of Acronyms</strong></p>
-<p>|———-|————————————-| | <span class="math inline">\(DFIG\)</span> | Doubly-Fed Induction Generator | | <span class="math inline">\(FRT\)</span> | Fault Ride Through | | <span class="math inline">\(GSC\)</span> | Grid Side Converter | | <span class="math inline">\(PCC\)</span> | Point of Common Coupling | | <span class="math inline">\(PD\)</span> | Power Device | | <span class="math inline">\(RSC\)</span> | Rotor Side Converter | | <span class="math inline">\(WP\)</span> | Wind Plant | | <span class="math inline">\(WT\)</span> | Wind Turbine |</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Acronym</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DFIG</td>
+<td>Doubly-Fed Induction Generator</td>
+</tr>
+<tr class="even">
+<td>FRT</td>
+<td>Fault Ride Through</td>
+</tr>
+<tr class="odd">
+<td>GSC</td>
+<td>Grid Side Converter</td>
+</tr>
+<tr class="even">
+<td>PCC</td>
+<td>Point of Common Coupling</td>
+</tr>
+<tr class="odd">
+<td>PD</td>
+<td>Power Device</td>
+</tr>
+<tr class="even">
+<td>RSC</td>
+<td>Rotor Side Converter</td>
+</tr>
+<tr class="odd">
+<td>WP</td>
+<td>Wind Plant</td>
+</tr>
+<tr class="even">
+<td>WT</td>
+<td>Wind Turbine</td>
+</tr>
+</tbody>
+</table>
 <section id="context" class="level2">
 <h2 class="anchored" data-anchor-id="context">Context</h2>
-<p>This document refers to the IEC 61400-27-1 models which have been developed with the following specifications in mind <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><strong>IEC_61400-27-1?</strong></a>)</span>:</p>
+<p>This document refers to the IEC 61400-27-1 models which have been developed with the following specifications in mind <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><em>Wind Energy Generation Systems – Part 27-1: Electrical Simulation Models – Generic Models</em> 2015</a>)</span>:</p>
 <ul>
 <li><p>Use in wind power plant models or standalone wind turbines</p></li>
 <li><p>Specification for generic simulation models covering most WT types</p></li>
@@ -1167,20 +1228,20 @@ window.Quarto = {
 <li><strong>Type 4:</strong> Synchronous generator, grid-connected via a full-size power converter</li>
 </ul></li>
 </ul>
-<p>Other model considerations according to <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><strong>IEC_61400-27-1?</strong></a>)</span>:</p>
+<p>Other model considerations according to <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><em>Wind Energy Generation Systems – Part 27-1: Electrical Simulation Models – Generic Models</em> 2015</a>)</span>:</p>
 <ul>
 <li>Include over/under frequency and voltage protection for realistic WT disconnection modeling</li>
 <li>Account for turbine-generator inertia and first drive train torsional mode impacts on power swings</li>
 <li>Phase-locked loop dynamics are not included in the models (they are modeled through a first order lag element)</li>
 </ul>
-<p>The IEC 61400-27-1 <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><strong>IEC_61400-27-1?</strong></a>)</span> defines one of the most widely used series of RMS models for Wind Turbine (WT) generators, another one being the WECC model series, developed by EPRI.</p>
-<p>The models are separated in several sub systems. The information and drawings are taken from <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><strong>IEC_61400-27-1?</strong></a>)</span> <span class="citation" data-cites="Honrubia-Escribano2018">(<a href="#ref-Honrubia-Escribano2018" role="doc-biblioref"><strong>Honrubia-Escribano2018?</strong></a>)</span> <span class="citation" data-cites="Fortmann2013">(<a href="#ref-Fortmann2013" role="doc-biblioref"><strong>Fortmann2013?</strong></a>)</span> <span class="citation" data-cites="Fortmann2014">(<a href="#ref-Fortmann2014" role="doc-biblioref"><strong>Fortmann2014?</strong></a>)</span> <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref"><strong>Lorenzo-Bonache2017?</strong></a>)</span> <span class="citation" data-cites="Lorenzo-Bonache2019">(<a href="#ref-Lorenzo-Bonache2019" role="doc-biblioref"><strong>Lorenzo-Bonache2019?</strong></a>)</span>.</p>
+<p>The IEC 61400-27-1 <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><em>Wind Energy Generation Systems – Part 27-1: Electrical Simulation Models – Generic Models</em> 2015</a>)</span> defines one of the most widely used series of RMS models for Wind Turbine (WT) generators, another one being the WECC model series, developed by EPRI.</p>
+<p>The models are separated in several sub systems. The information and drawings are taken from <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><em>Wind Energy Generation Systems – Part 27-1: Electrical Simulation Models – Generic Models</em> 2015</a>)</span> <span class="citation" data-cites="Honrubia-Escribano2018">(<a href="#ref-Honrubia-Escribano2018" role="doc-biblioref">Honrubia-Escribano et al. 2018</a>)</span> <span class="citation" data-cites="Fortmann2013">(<a href="#ref-Fortmann2013" role="doc-biblioref">Fortmann et al. 2013</a>)</span> <span class="citation" data-cites="Fortmann2014">(<a href="#ref-Fortmann2014" role="doc-biblioref">Fortmann et al. 2014</a>)</span> <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref">Lorenzo-Bonache et al. 2017</a>)</span> <span class="citation" data-cites="Lorenzo-Bonache2019">(<a href="#ref-Lorenzo-Bonache2019" role="doc-biblioref">Lorenzo-Bonache, Honrubia-Escribano, and Gómez-Lázaro 2019</a>)</span>.</p>
 </section>
 <section id="model-use-assumptions-validity-domain-and-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
 <p>The controller of the generic Type 3 WT model does not represent the actual controller of the WT, which sets the references of the Rotor Side Converter (RSC) and the Grid Side Converter (GSC), but provides the current command signals to obtain an accurate response of active and reactive power, observed from the grid side.</p>
 <p>The models are positive-sequence RMS models, hence they assume symmetrical operating conditions and neglect high-frequency dynamics. This type of models is often used in large-scale stability studies, for which it reflects the relevant phenomena. It is not a detailed physical model of the unit. Also for some stability phenomena (e.g.&nbsp;resonance stability) this model is not sufficient and EMT models or other approaches may be necessary.</p>
-<p>Specifically, <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><strong>IEC_61400-27-1?</strong></a>)</span> defines the following validity domain:</p>
+<p>Specifically, <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><em>Wind Energy Generation Systems – Part 27-1: Electrical Simulation Models – Generic Models</em> 2015</a>)</span> defines the following validity domain:</p>
 <ul>
 <li>positive sequence dynamics</li>
 <li>transmission grid simulations</li>
@@ -1193,9 +1254,9 @@ window.Quarto = {
 <li>Typical simulation time frame: 10 s … 30 s</li>
 <li>Wind speed assumed to be constant during simulation time (wind speed could be included as an external condition through the available power)</li>
 <li>Simulation step width up to 1/4 fundamental frequency cycle (5 ms at 50 Hz), which implies that the model Bandwidth cannot be above 15 Hz.</li>
-<li>According to <span class="citation" data-cites="Honrubia-Escribano2018">(<a href="#ref-Honrubia-Escribano2018" role="doc-biblioref"><strong>Honrubia-Escribano2018?</strong></a>)</span>, the Type 3 WT model can operate with variable speed with slip values from -0.3 to +0.4.</li>
+<li>According to <span class="citation" data-cites="Honrubia-Escribano2018">(<a href="#ref-Honrubia-Escribano2018" role="doc-biblioref">Honrubia-Escribano et al. 2018</a>)</span>, the Type 3 WT model can operate with variable speed with slip values from -0.3 to +0.4.</li>
 </ul>
-<p>Vice versa, <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><strong>IEC_61400-27-1?</strong></a>)</span> states that the models are not intended for the following:</p>
+<p>Vice versa, <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><em>Wind Energy Generation Systems – Part 27-1: Electrical Simulation Models – Generic Models</em> 2015</a>)</span> states that the models are not intended for the following:</p>
 <ul>
 <li>The models are not designed for long-term stability assessments.</li>
 <li>The models do not facilitate the exploration of sub-synchronous interaction phenomena.</li>
@@ -1222,13 +1283,14 @@ Figure&nbsp;1: Wind turbine type 3 model
 <div id="fig-wtSystem" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-wtSystem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Wind turbine type 3 model, based on <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><strong>IEC_61400-27-1?</strong></a>)</span></p>
+<p>Wind turbine type 3 model, based on <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><em>Wind Energy Generation Systems – Part 27-1: Electrical Simulation Models – Generic Models</em> 2015</a>)</span></p>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-wtSystem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2
 </figcaption>
 </figure>
 </div>
+<p>The overall structure of the wind turbine type 3 model is shown in <a href="#fig-wtSystem" class="quarto-xref">Figure&nbsp;2</a>. The generator control sub-structure is detailed in <a href="#fig-wtControlSubstructure" class="quarto-xref">Figure&nbsp;4</a>.</p>
 <div id="fig-wtControlSubstructure" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-wtControlSubstructure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1242,7 +1304,7 @@ Figure&nbsp;3: Wind turbine generator control sub-structure
 <div id="fig-wtControlSubstructure" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-wtControlSubstructure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Wind turbine generator control sub-structure for Type 3A and 3B WT, based on <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><strong>IEC_61400-27-1?</strong></a>)</span></p>
+<p>Wind turbine generator control sub-structure for Type 3A and 3B WT, based on <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><em>Wind Energy Generation Systems – Part 27-1: Electrical Simulation Models – Generic Models</em> 2015</a>)</span></p>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-wtControlSubstructure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4
@@ -1251,7 +1313,7 @@ Figure&nbsp;4
 </div>
 <section id="p-control-module" class="level3">
 <h3 class="anchored" data-anchor-id="p-control-module">P control module</h3>
-<p>For detailed assessment of the parameters’ impact on model behaviour, see <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref"><strong>Lorenzo-Bonache2017?</strong></a>)</span>.</p>
+<p>For detailed assessment of the parameters’ impact on model behaviour, see <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref">Lorenzo-Bonache et al. 2017</a>)</span>.</p>
 <div id="fig-wtPControl" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-wtPControl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1265,7 +1327,7 @@ Figure&nbsp;5: Wind turbine P control module
 <div id="fig-wtPControl" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-wtPControl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Wind turbine P control module (Type 3), based on <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><strong>IEC_61400-27-1?</strong></a>)</span></p>
+<p>Wind turbine P control module (Type 3), based on <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><em>Wind Energy Generation Systems – Part 27-1: Electrical Simulation Models – Generic Models</em> 2015</a>)</span></p>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-wtPControl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6
@@ -1273,8 +1335,8 @@ Figure&nbsp;6
 </figure>
 </div>
 <p><a href="#fig-wtPControl" class="quarto-xref">Figure&nbsp;6</a> shows the wind turbine active power control scheme.</p>
-<p>The control’s general behaviour is dominated by <span class="math inline">\(\omega(p)\)</span>, a lookup-table that provides the angular velocity at which the turbine should rotate when it is injecting a certain active power <span class="citation" data-cites="Lorenzo-Bonache2019">(<a href="#ref-Lorenzo-Bonache2019" role="doc-biblioref"><strong>Lorenzo-Bonache2019?</strong></a>)</span>. A possible look-up table for this system is shown in <a href="#fig-lookup-table-omega-pref" class="quarto-xref">Figure&nbsp;8</a>, which is representing example values from <em>DIgSILENT PowerFactory</em> <span class="citation" data-cites="DIgSILENT2024">(<a href="#ref-DIgSILENT2024" role="doc-biblioref"><strong>DIgSILENT2024?</strong></a>)</span>.</p>
-<p>The power-speed-characteristic in <a href="#fig-lookup-table-omega-pref" class="quarto-xref">Figure&nbsp;8</a> has four main operating zones according to <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref"><strong>Lorenzo-Bonache2017?</strong></a>)</span>:</p>
+<p>The control’s general behaviour is dominated by <span class="math inline">\(\omega(p)\)</span>, a lookup-table that provides the angular velocity at which the turbine should rotate when it is injecting a certain active power <span class="citation" data-cites="Lorenzo-Bonache2019">(<a href="#ref-Lorenzo-Bonache2019" role="doc-biblioref">Lorenzo-Bonache, Honrubia-Escribano, and Gómez-Lázaro 2019</a>)</span>. A possible look-up table for this system is shown in <a href="#fig-lookup-table-omega-pref" class="quarto-xref">Figure&nbsp;8</a>, which is representing example values from <em>DIgSILENT PowerFactory</em> <span class="citation" data-cites="DIgSILENT2024">(<a href="#ref-DIgSILENT2024" role="doc-biblioref"><em>PowerFactory Application Manual - Wind Turbine Models</em> (version 2024.1) 2024</a>)</span>.</p>
+<p>The power-speed-characteristic in <a href="#fig-lookup-table-omega-pref" class="quarto-xref">Figure&nbsp;8</a> has four main operating zones according to <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref">Lorenzo-Bonache et al. 2017</a>)</span>:</p>
 <ul>
 <li><strong>Zone 1:</strong> The minimum rotational speed has been reached and hence cannot decrease further due to physical (component) limits, mainly maximum slip of the converter.</li>
 <li><strong>Zone 2:</strong> Between minimum rotational speed to rated rotational speed; maximum power tracking mode.</li>
@@ -1283,7 +1345,7 @@ Figure&nbsp;6
 </ul>
 <blockquote class="blockquote">
 <p><strong>Note</strong></p>
-<p>Dotted lines in <a href="#fig-lookup-table-omega-pref" class="quarto-xref">Figure&nbsp;8</a> imply that, for simulations, the active power reference presents a certain slope, offering more stable simulations. Under real control conditions, this look-up table has two vertical lines, as shown by the solid lines. <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref"><strong>Lorenzo-Bonache2017?</strong></a>)</span></p>
+<p>Dotted lines in <a href="#fig-lookup-table-omega-pref" class="quarto-xref">Figure&nbsp;8</a> imply that, for simulations, the active power reference presents a certain slope, offering more stable simulations. Under real control conditions, this look-up table has two vertical lines, as shown by the solid lines. <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref">Lorenzo-Bonache et al. 2017</a>)</span></p>
 </blockquote>
 <details class="code-fold">
 <summary>
@@ -1324,7 +1386,7 @@ Figure&nbsp;7: Lookup table for reference rotation speed
 <div id="fig-lookup-table-omega-pref" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-lookup-table-omega-pref-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Lookup table for reference rotation speed as a function of WT active power; according to <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref"><strong>Lorenzo-Bonache2017?</strong></a>)</span> and with data from <span class="citation" data-cites="DIgSILENT2024">(<a href="#ref-DIgSILENT2024" role="doc-biblioref"><strong>DIgSILENT2024?</strong></a>)</span> (see <a href="#tbl-wtLookupTable" class="quarto-xref">Table&nbsp;2</a>)</p>
+<p>Lookup table for reference rotation speed as a function of WT active power; according to <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref">Lorenzo-Bonache et al. 2017</a>)</span> and with data from <span class="citation" data-cites="DIgSILENT2024">(<a href="#ref-DIgSILENT2024" role="doc-biblioref"><em>PowerFactory Application Manual - Wind Turbine Models</em> (version 2024.1) 2024</a>)</span> (see <a href="#tbl-wtLookupTable" class="quarto-xref">Table&nbsp;2</a>)</p>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-lookup-table-omega-pref-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8
@@ -1334,24 +1396,24 @@ Figure&nbsp;8
 <p>The power-speed-characteristic’s speed reference output is then filtered (<span class="math inline">\(T_\mathrm{\omega ref}\)</span>) to avoid sudden changes.</p>
 <blockquote class="blockquote">
 <p><strong>Note</strong></p>
-<p>The time constant <span class="math inline">\(T_\mathrm{\omega ref}\)</span> can be set to a very high value to enforce a fixed reference rotational speed during the simulation, which can be a desired operational mode. <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref"><strong>Lorenzo-Bonache2017?</strong></a>)</span></p>
+<p>The time constant <span class="math inline">\(T_\mathrm{\omega ref}\)</span> can be set to a very high value to enforce a fixed reference rotational speed during the simulation, which can be a desired operational mode. <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref">Lorenzo-Bonache et al. 2017</a>)</span></p>
 </blockquote>
 <p>The filtered speed reference <span class="math inline">\(\omega_\mathrm{ref}\)</span> is subtracted from the measured angular velocity <span class="math inline">\(\omega_\text{gen}\)</span> (generator speed) or <span class="math inline">\(\omega_\mathrm{WTR}\)</span> (turbine speed), depending on the mode <span class="math inline">\(M_\mathrm{\omega Tqpi}\)</span> to get the speed error <span class="math inline">\(\omega_\mathrm{err}\)</span>. The measured speed can be filtered by the first order lag element with time constant <span class="math inline">\(T_\mathrm{\omega filtp3}\)</span>.</p>
-<p>Since <span class="math inline">\(\omega_\mathrm{gen}\)</span> comes from the mechanical module which only models the drive train resonant frequency, this first order lag is intended as a filter for only this oscillation. Since it is a low pass, it won’t be able to efficiently filter that resonance from the signal. Alternatively, by setting <span class="math inline">\(M_\mathrm{\omega Tqpi}=\mathrm{true}\)</span>, the rotor speed <span class="math inline">\(\omega_\mathrm{WTR}\)</span> can be used instead of the generator speed, which acts as a simpler way to determine a filtered value of <span class="math inline">\(\omega_\mathrm{gen}\)</span> <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref"><strong>Lorenzo-Bonache2017?</strong></a>)</span>.</p>
-<p>The speed error <span class="math inline">\(\omega_\mathrm{err}\)</span> is then given to the <em>Torque PI controller</em> (<a href="#fig-torquePi" class="quarto-xref">Figure&nbsp;10</a>), which outputs the electromagnetic torque reference <span class="math inline">\(\tau_\mathrm{out}\)</span> <span class="citation" data-cites="Lorenzo-Bonache2019">(<a href="#ref-Lorenzo-Bonache2019" role="doc-biblioref"><strong>Lorenzo-Bonache2019?</strong></a>)</span>.</p>
-<p>Another input to the torque PI subsystem (see <a href="#torque-pi-block">Torque PI block</a>) is the maximum electromagnetic torque <span class="math inline">\(\tau_\mathrm{emax}\)</span>. It is determined by calculating a torque value from <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref"><strong>Lorenzo-Bonache2017?</strong></a>)</span>:</p>
+<p>Since <span class="math inline">\(\omega_\mathrm{gen}\)</span> comes from the mechanical module which only models the drive train resonant frequency, this first order lag is intended as a filter for only this oscillation. Since it is a low pass, it won’t be able to efficiently filter that resonance from the signal. Alternatively, by setting <span class="math inline">\(M_\mathrm{\omega Tqpi}=\mathrm{true}\)</span>, the rotor speed <span class="math inline">\(\omega_\mathrm{WTR}\)</span> can be used instead of the generator speed, which acts as a simpler way to determine a filtered value of <span class="math inline">\(\omega_\mathrm{gen}\)</span> <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref">Lorenzo-Bonache et al. 2017</a>)</span>.</p>
+<p>The speed error <span class="math inline">\(\omega_\mathrm{err}\)</span> is then given to the <em>Torque PI controller</em> (<a href="#fig-torquePi" class="quarto-xref">Figure&nbsp;10</a>), which outputs the electromagnetic torque reference <span class="math inline">\(\tau_\mathrm{out}\)</span> <span class="citation" data-cites="Lorenzo-Bonache2019">(<a href="#ref-Lorenzo-Bonache2019" role="doc-biblioref">Lorenzo-Bonache, Honrubia-Escribano, and Gómez-Lázaro 2019</a>)</span>.</p>
+<p>Another input to the torque PI subsystem (see <a href="#torque-pi-block">Torque PI block</a>) is the maximum electromagnetic torque <span class="math inline">\(\tau_\mathrm{emax}\)</span>. It is determined by calculating a torque value from <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref">Lorenzo-Bonache et al. 2017</a>)</span>:</p>
 <ul>
 <li>The reference power value <span class="math inline">\(p_\mathrm{WTref}\)</span>, during voltage dips optionally scaled down by the terminal voltage <span class="math inline">\(u_\mathrm{WTC}\)</span> (if <span class="math inline">\(M_\mathrm{pUscale}=\mathrm{true}\)</span>)</li>
 <li>And a rotational speed, either the turbine rotor speed <span class="math inline">\(\omega_\mathrm{WTR}\)</span> (if <span class="math inline">\(M_\mathrm{\omega Tmax}=\mathrm{false}\)</span>) or the speed reference value <span class="math inline">\(\omega_\mathrm{ref}\)</span> (if <span class="math inline">\(M_\mathrm{\omega Tmax}=\mathrm{true}\)</span>).</li>
 </ul>
-<p>After the torque PI controller, the electromagnetic torque reference <span class="math inline">\(\tau_\mathrm{out}\)</span> is multiplied by the generator’s rotational speed <span class="math inline">\(\omega_\mathrm{gen}\)</span> to obtain a power reference <span class="citation" data-cites="Lorenzo-Bonache2019">(<a href="#ref-Lorenzo-Bonache2019" role="doc-biblioref"><strong>Lorenzo-Bonache2019?</strong></a>)</span>.</p>
+<p>After the torque PI controller, the electromagnetic torque reference <span class="math inline">\(\tau_\mathrm{out}\)</span> is multiplied by the generator’s rotational speed <span class="math inline">\(\omega_\mathrm{gen}\)</span> to obtain a power reference <span class="citation" data-cites="Lorenzo-Bonache2019">(<a href="#ref-Lorenzo-Bonache2019" role="doc-biblioref">Lorenzo-Bonache, Honrubia-Escribano, and Gómez-Lázaro 2019</a>)</span>.</p>
 <p>To obtain the active current command <span class="math inline">\(i_\mathrm{pcmd}\)</span>, <span class="math inline">\(p_\mathrm{ord}\)</span> is divided by the measured voltage <span class="math inline">\(u_\mathrm{WTCfilt}\)</span>.</p>
-<p>To the active power order <span class="math inline">\(p_\mathrm{ord}\)</span> an additional component from the Drive Train Damping (DTD) system is added. Physically, the DTD provides an electrical torque that accounts for natural damping by considering speed differences between both low and high speed shafts (either side of the gearbox) <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref"><strong>Lorenzo-Bonache2017?</strong></a>)</span>. It is modeled through a second-order transfer function as shown towards the bottom right of <a href="#fig-wtPControl" class="quarto-xref">Figure&nbsp;6</a>:</p>
+<p>To the active power order <span class="math inline">\(p_\mathrm{ord}\)</span> an additional component from the Drive Train Damping (DTD) system is added. Physically, the DTD provides an electrical torque that accounts for natural damping by considering speed differences between both low and high speed shafts (either side of the gearbox) <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref">Lorenzo-Bonache et al. 2017</a>)</span>. It is modeled through a second-order transfer function as shown towards the bottom right of <a href="#fig-wtPControl" class="quarto-xref">Figure&nbsp;6</a>:</p>
 <p><span class="math display">\[
 K_{\text{DTD}} \cdot \frac{2 \zeta \omega_{\text{DTD}} s}{s^2 + 2 \zeta \omega_{\text{DTD}} s + \omega_{\text{DTD}}^2}
 \]</span></p>
-<p>As mentioned above, in this model the DTD is represented by an active power component, not a torque. The transfer function outputs an oscillating electrical power that has an efficient damping effect <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref"><strong>Lorenzo-Bonache2017?</strong></a>)</span> (for parameters see <a href="#tbl-parameters" class="quarto-xref">Table&nbsp;1</a>).</p>
-<p><strong>Torque PI block</strong></p>
+<p>As mentioned above, in this model the DTD is represented by an active power component, not a torque. The transfer function outputs an oscillating electrical power that has an efficient damping effect <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref">Lorenzo-Bonache et al. 2017</a>)</span> (for parameters see <a href="#tbl-parameters" class="quarto-xref">Table&nbsp;1</a>).</p>
+<p><strong>Torque PI block</strong> {#torque-pi-block}</p>
 <div id="fig-torquePi" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-torquePi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1365,7 +1427,7 @@ Figure&nbsp;9: Wind turbine torque PI block
 <div id="fig-torquePi" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-torquePi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Wind turbine torque PI block (Type 3), based on <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><strong>IEC_61400-27-1?</strong></a>)</span></p>
+<p>Wind turbine torque PI block (Type 3), based on <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><em>Wind Energy Generation Systems – Part 27-1: Electrical Simulation Models – Generic Models</em> 2015</a>)</span></p>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-torquePi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;10
@@ -1376,13 +1438,13 @@ Figure&nbsp;10
 <p>For the calculation of the speed error input <span class="math inline">\(\omega_\mathrm{err}\)</span> and the maximum electromagnetic torque input <span class="math inline">\(\tau_\mathrm{emax}\)</span>, see the P control module section above.</p>
 <p><strong>Proportional and integral parts of the controller</strong></p>
 <p>The proportional controller part is realized by <span class="math inline">\(K_\mathrm{Pp}\)</span>.</p>
-<p>The integral part of the controller output is the minimum of the following two signals <span class="citation" data-cites="Lorenzo-Bonache2019">(<a href="#ref-Lorenzo-Bonache2019" role="doc-biblioref"><strong>Lorenzo-Bonache2019?</strong></a>)</span>:</p>
+<p>The integral part of the controller output is the minimum of the following two signals <span class="citation" data-cites="Lorenzo-Bonache2019">(<a href="#ref-Lorenzo-Bonache2019" role="doc-biblioref">Lorenzo-Bonache, Honrubia-Escribano, and Gómez-Lázaro 2019</a>)</span>:</p>
 <ul>
 <li>The output of the integral controller <span class="math inline">\(K_\mathrm{Ip}/K_\mathrm{Pp}\)</span></li>
 <li>A torque value increasing as a ramp with rising rate <span class="math inline">\(\mathrm{d}\tau_\mathrm{max}\)</span>, which can be used to control the mechanical stress or to meet grid code requirements. This is set to <span class="math inline">\(\tau_\mathrm{reset}\)</span> when a low voltage fault occurs and ramps upwards after the fault.</li>
 </ul>
 <p><strong>Behavior during low voltage faults</strong></p>
-<p>The <em>Delay Flag</em> block takes a boolean value <span class="math inline">\(F_\mathrm{i}\)</span> as input. If <span class="math inline">\(F_\mathrm{i}\)</span> steps to 1, the integer output <span class="math inline">\(F_\mathrm{o}\)</span> is 1 and a <em>timer</em> starts to run. As soon as <span class="math inline">\(F_\mathrm{i}\)</span> steps back to 0, <span class="math inline">\(F_\mathrm{o}\)</span> steps to 2 if the <em>timer</em> has not reached <span class="math inline">\(T_\mathrm{DVS}\)</span>. Once the timer reaches <span class="math inline">\(T_\mathrm{DVS}\)</span>, <span class="math inline">\(F_\mathrm{o}\)</span> steps back to 0. <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><strong>IEC_61400-27-1?</strong></a>)</span></p>
+<p>The <em>Delay Flag</em> block takes a boolean value <span class="math inline">\(F_\mathrm{i}\)</span> as input. If <span class="math inline">\(F_\mathrm{i}\)</span> steps to 1, the integer output <span class="math inline">\(F_\mathrm{o}\)</span> is 1 and a <em>timer</em> starts to run. As soon as <span class="math inline">\(F_\mathrm{i}\)</span> steps back to 0, <span class="math inline">\(F_\mathrm{o}\)</span> steps to 2 if the <em>timer</em> has not reached <span class="math inline">\(T_\mathrm{DVS}\)</span>. Once the timer reaches <span class="math inline">\(T_\mathrm{DVS}\)</span>, <span class="math inline">\(F_\mathrm{o}\)</span> steps back to 0. <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><em>Wind Energy Generation Systems – Part 27-1: Electrical Simulation Models – Generic Models</em> 2015</a>)</span></p>
 <p>The delay flag block is used to implement the following fault signals:</p>
 <ul>
 <li><span class="math inline">\(F_\mathrm{reset}\)</span> is true during a volage dip (<span class="math inline">\(u_\mathrm{WTC} &lt; u_\mathrm{pdip}\)</span>) as well as during and <span class="math inline">\(T_\mathrm{DVS}\)</span> after a deep voltage dip (<span class="math inline">\(u_\mathrm{WTC} &lt; u_\mathrm{DVS}\)</span>).</li>
@@ -1394,7 +1456,7 @@ Figure&nbsp;10
 <ul>
 <li>resets and holds both integrators at <span class="math inline">\(\tau_\mathrm{reset}\)</span> (see below); for the <span class="math inline">\(K_\mathrm{Ip}/K_\mathrm{Pp}\)</span>-integrator this can be prevented by setting <span class="math inline">\(M_\mathrm{pUVRT} = \mathrm{false}\)</span>.</li>
 <li>sets the speed error <span class="math inline">\(\omega_\mathrm{err}\)</span>, i.e.&nbsp;the input to the proportional controller part <span class="math inline">\(K_\mathrm{Pp}\)</span>, to zero</li>
-<li>changes the upper ramp rate limit of <span class="math inline">\(\tau_\mathrm{reset}\)</span> to <span class="math inline">\(\mathrm{d}\tau_\mathrm{maxUVRT}\)</span> (usually set to zero, preventing <span class="math inline">\(\tau_\mathrm{reset}\)</span> from inceasing during fault) <span class="citation" data-cites="Lorenzo-Bonache2019">(<a href="#ref-Lorenzo-Bonache2019" role="doc-biblioref"><strong>Lorenzo-Bonache2019?</strong></a>)</span></li>
+<li>changes the upper ramp rate limit of <span class="math inline">\(\tau_\mathrm{reset}\)</span> to <span class="math inline">\(\mathrm{d}\tau_\mathrm{maxUVRT}\)</span> (usually set to zero, preventing <span class="math inline">\(\tau_\mathrm{reset}\)</span> from increasing during fault) <span class="citation" data-cites="Lorenzo-Bonache2019">(<a href="#ref-Lorenzo-Bonache2019" role="doc-biblioref">Lorenzo-Bonache, Honrubia-Escribano, and Gómez-Lázaro 2019</a>)</span></li>
 </ul></li>
 <li><span class="math inline">\(F_\mathrm{freeze\,I}\)</span> freezes the integral controller part (<span class="math inline">\(K_\mathrm{Ip}/K_\mathrm{Pp}\)</span>) while true.</li>
 </ul>
@@ -1404,8 +1466,8 @@ Figure&nbsp;10
 <li>The output <span class="math inline">\(\tau_\mathrm{I}\)</span> of the integrator itself</li>
 <li><span class="math inline">\(u_\mathrm{TChook} + 1\)</span></li>
 </ul>
-<p><span class="math inline">\(\tau_\mathrm{uscale}\)</span> can be used to alter the power injection behaviour during fault and also the starting point for power recovery after post-fault. For example, setting it to zero results in zero power injection during fault. Higher values increase power injection, until the current limitation system begins to act. See <span class="citation" data-cites="Lorenzo-Bonache2019">(<a href="#ref-Lorenzo-Bonache2019" role="doc-biblioref"><strong>Lorenzo-Bonache2019?</strong></a>)</span> for further details.</p>
-<p>When <span class="math inline">\(F_\mathrm{reset}\)</span> returns to false, the proportional controller <span class="math inline">\(K_\mathrm{Pp}\)</span> will work again as before the fault. The integral controller will increase from <span class="math inline">\(\tau_\mathrm{reset}\)</span> to steady-state, with a maximum rate dictated by <span class="math inline">\(\mathrm{d}\tau_\mathrm{max}\)</span> <span class="citation" data-cites="Lorenzo-Bonache2019">(<a href="#ref-Lorenzo-Bonache2019" role="doc-biblioref"><strong>Lorenzo-Bonache2019?</strong></a>)</span>.</p>
+<p><span class="math inline">\(\tau_\mathrm{uscale}\)</span> can be used to alter the power injection behaviour during fault and also the starting point for power recovery after post-fault. For example, setting it to zero results in zero power injection during fault. Higher values increase power injection, until the current limitation system begins to act. See <span class="citation" data-cites="Lorenzo-Bonache2019">(<a href="#ref-Lorenzo-Bonache2019" role="doc-biblioref">Lorenzo-Bonache, Honrubia-Escribano, and Gómez-Lázaro 2019</a>)</span> for further details.</p>
+<p>When <span class="math inline">\(F_\mathrm{reset}\)</span> returns to false, the proportional controller <span class="math inline">\(K_\mathrm{Pp}\)</span> will work again as before the fault. The integral controller will increase from <span class="math inline">\(\tau_\mathrm{reset}\)</span> to steady-state, with a maximum rate dictated by <span class="math inline">\(\mathrm{d}\tau_\mathrm{max}\)</span> <span class="citation" data-cites="Lorenzo-Bonache2019">(<a href="#ref-Lorenzo-Bonache2019" role="doc-biblioref">Lorenzo-Bonache, Honrubia-Escribano, and Gómez-Lázaro 2019</a>)</span>.</p>
 <p><strong>Variable limits integrator with set/reset and freeze</strong></p>
 <p>The integrators used in the Torque PI model in <a href="#fig-torquePi" class="quarto-xref">Figure&nbsp;10</a> need variable limits, set/reset and freeze functionalities. A suggestion for the implementation is shown below and the description follows thereafter.</p>
 <pre class="{modelica}"><code>model IntegratorVariableLimitsContinuousSetFreeze "Integrator with limited value of output (variable limits), set/reset and freeze"
@@ -1472,16 +1534,16 @@ end IntegratorVariableLimitsContinuousSetFreeze;</code></pre>
 <p>The output <code>y</code> is the result of the limitation of <code>w</code> by both variable limits.</p>
 <p>If the “upper” limit is smaller than the “lower” one, the output <code>y</code> is ruled by the parameter <code>DefaultLimitMax</code>: <code>y</code> is equal to either <code>limitMax</code> or <code>limitMin</code>.</p>
 <p><strong>set/reset</strong></p>
-<p>The integrator’s output is forced to the value of <code>set</code> while <code>reset=true</code>, as it is descibed in <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><strong>IEC_61400-27-1?</strong></a>)</span>.</p>
+<p>The integrator’s output is forced to the value of <code>set</code> while <code>reset=true</code>, as it is described in <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><em>Wind Energy Generation Systems – Part 27-1: Electrical Simulation Models – Generic Models</em> 2015</a>)</span>.</p>
 <p>When <code>reset</code> returns to false (=falling edge), the integrator’s state is reinitialized to set to resume integration without a jump discontinuity (change <code>ReinitWhenResetIsReleased</code> to <code>false</code> to reinitialize at a rising edge instead).</p>
 <p><strong>freeze</strong></p>
 <p>If boolean input is set to true, the derivative of the state variable is set to zero.</p>
 <p><strong>Parameters</strong></p>
-<p>Typical values were gathered from the <em>DIgSILENT PowerFactory</em> <span class="citation" data-cites="DIgSILENT2024">(<a href="#ref-DIgSILENT2024" role="doc-biblioref"><strong>DIgSILENT2024?</strong></a>)</span> implementation of the model.</p>
+<p>Typical values were gathered from the <em>DIgSILENT PowerFactory</em> <span class="citation" data-cites="DIgSILENT2024">(<a href="#ref-DIgSILENT2024" role="doc-biblioref"><em>PowerFactory Application Manual - Wind Turbine Models</em> (version 2024.1) 2024</a>)</span> implementation of the model.</p>
 <div id="tbl-parameters" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Parameters of WT P control module, based on <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><strong>IEC_61400-27-1?</strong></a>)</span>, <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref"><strong>Lorenzo-Bonache2017?</strong></a>)</span> and <span class="citation" data-cites="DIgSILENT2024">(<a href="#ref-DIgSILENT2024" role="doc-biblioref"><strong>DIgSILENT2024?</strong></a>)</span>
+Table&nbsp;1: Parameters of WT P control module, based on <span class="citation" data-cites="IEC_61400-27-1">(<a href="#ref-IEC_61400-27-1" role="doc-biblioref"><em>Wind Energy Generation Systems – Part 27-1: Electrical Simulation Models – Generic Models</em> 2015</a>)</span>, <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref">Lorenzo-Bonache et al. 2017</a>)</span> and <span class="citation" data-cites="DIgSILENT2024">(<a href="#ref-DIgSILENT2024" role="doc-biblioref"><em>PowerFactory Application Manual - Wind Turbine Models</em> (version 2024.1) 2024</a>)</span>
 </figcaption>
 <div aria-describedby="tbl-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1550,7 +1612,7 @@ Table&nbsp;1: Parameters of WT P control module, based on <span class="citation"
 <td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(S_{\mathrm{base}} / \Omega_{\mathrm{base}}\)</span></td>
 <td style="text-align: left;">Active drive train damping: gain</td>
-<td style="text-align: left;"><span class="math inline">\(1.5\)</span> (or <span class="math inline">\(0\)</span> if <span class="math inline">\(M_\mathrm{\omega Tqpi}=\mathrm{false}\)</span>) <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref"><strong>Lorenzo-Bonache2017?</strong></a>)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.5\)</span> (or <span class="math inline">\(0\)</span> if <span class="math inline">\(M_\mathrm{\omega Tqpi}=\mathrm{false}\)</span>) <span class="citation" data-cites="Lorenzo-Bonache2017">(<a href="#ref-Lorenzo-Bonache2017" role="doc-biblioref">Lorenzo-Bonache et al. 2017</a>)</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(K_{\mathrm{Ip}}\)</span></td>
@@ -1576,7 +1638,7 @@ Table&nbsp;1: Parameters of WT P control module, based on <span class="citation"
 <div id="tbl-wtLookupTable" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-wtLookupTable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Typical values for lookup table <span class="math inline">\(\omega(p)\)</span>, based on <span class="citation" data-cites="DIgSILENT2024">(<a href="#ref-DIgSILENT2024" role="doc-biblioref"><strong>DIgSILENT2024?</strong></a>)</span> implementation
+Table&nbsp;2: Typical values for lookup table <span class="math inline">\(\omega(p)\)</span>, based on <span class="citation" data-cites="DIgSILENT2024">(<a href="#ref-DIgSILENT2024" role="doc-biblioref"><em>PowerFactory Application Manual - Wind Turbine Models</em> (version 2024.1) 2024</a>)</span> implementation
 </figcaption>
 <div aria-describedby="tbl-wtLookupTable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1648,9 +1710,32 @@ Table&nbsp;3: Open Source Implementations
 <p>For modeling assumptions and test results, see <a href="https://github.com/dynawo/dynawo">Dynawo</a> repository.</p>
 
 
+
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Fortmann2014" class="csl-entry" role="listitem">
+Fortmann, J., S. Engelhardt, J. Kretschmann, C. Janßen, and I. Erlich. 2014. <span>“Validation of an RMS DFIG Model According to the German Grid Code for Power System Studies.”</span> <em>Wind Energy</em> 17 (12): 1795–1803. <a href="https://doi.org/10.1002/we.1667">https://doi.org/10.1002/we.1667</a>.
+</div>
+<div id="ref-Fortmann2013" class="csl-entry" role="listitem">
+Fortmann, J., S. Engelhardt, J. Kretschmann, M. Janssen, T. Neumann, and I. Erlich. 2013. <span>“New Generic Model of DFG-Based Wind Turbines for RMS-Type Simulation.”</span> <em>IEEE Transactions on Energy Conversion</em> 28 (4): 1048–58. <a href="https://doi.org/10.1109/TEC.2013.2283314">https://doi.org/10.1109/TEC.2013.2283314</a>.
+</div>
+<div id="ref-Honrubia-Escribano2018" class="csl-entry" role="listitem">
+Honrubia-Escribano, S., A. Molina-García, E. Gómez-Lázaro, and J. A. Fuentes. 2018. <span>“Influence of Voltage Dips on Industrial Equipment: Analysis and Assessment.”</span> <em>Electric Power Systems Research</em> 154: 439–47. <a href="https://doi.org/10.1016/j.epsr.2017.09.015">https://doi.org/10.1016/j.epsr.2017.09.015</a>.
+</div>
+<div id="ref-Lorenzo-Bonache2019" class="csl-entry" role="listitem">
+Lorenzo-Bonache, A., S. Honrubia-Escribano, and E. Gómez-Lázaro. 2019. <span>“Advanced Control Strategies for Wind Turbine Type 3 Systems.”</span> <em>IEEE Transactions on Power Systems</em> 34 (2): 1234–45. <a href="https://doi.org/10.1109/TPWRS.2018.2873456">https://doi.org/10.1109/TPWRS.2018.2873456</a>.
+</div>
+<div id="ref-Lorenzo-Bonache2017" class="csl-entry" role="listitem">
+Lorenzo-Bonache, A., S. Honrubia-Escribano, E. Gómez-Lázaro, and A. Molina-García. 2017. <span>“Modelling of Wind Turbines for Power System Studies: A Review and Comparison of Different Approaches.”</span> <em>Renewable and Sustainable Energy Reviews</em> 75: 802–18. <a href="https://doi.org/10.1016/j.rser.2016.11.040">https://doi.org/10.1016/j.rser.2016.11.040</a>.
+</div>
+<div id="ref-DIgSILENT2024" class="csl-entry" role="listitem">
+<em>PowerFactory Application Manual - Wind Turbine Models</em> (version 2024.1). 2024. DIgSILENT GmbH. <a href="https://www.digsilent.de/en/powerfactory.html">https://www.digsilent.de/en/powerfactory.html</a>.
+</div>
+<div id="ref-IEC_61400-27-1" class="csl-entry" role="listitem">
+<em>Wind Energy Generation Systems – Part 27-1: Electrical Simulation Models – Generic Models</em>. 2015. International Electrotechnical Commission. <a href="https://webstore.iec.ch/publication/22170">https://webstore.iec.ch/publication/22170</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
