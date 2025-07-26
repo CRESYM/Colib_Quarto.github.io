@@ -22,7 +22,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -69,6 +89,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../../styles.css">
 </head>
@@ -650,17 +699,17 @@ ul.task-list li input[type="checkbox"] {
 <h1>IEEE OEL5C model</h1>
 <section id="context" class="level2">
 <h2 class="anchored" data-anchor-id="context">Context</h2>
-<p>This overexcitation limiter model first appeared in the IEEE Std 421.5-2016 {% cite IEEEExciterModels2016 %}.</p>
+<p>This overexcitation limiter model first appeared in the IEEE Std 421.5-2016 <span class="citation" data-cites="IEEEExciterModels2016">(<a href="#ref-IEEEExciterModels2016" role="doc-biblioref">Electrical and Engineers 2016</a>)</span>.</p>
 </section>
 <section id="model-use-assumptions-validity-domain-and-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
-<p>This model is associated to one of the voltage regulators (types AC, DC, ST) defined by the IEEE Std 421.5-2016 {% cite IEEEExciterModels2016 %}.</p>
+<p>This model is associated to one of the voltage regulators (types AC, DC, ST) defined by the IEEE Std 421.5-2016 <span class="citation" data-cites="IEEEExciterModels2016">(<a href="#ref-IEEEExciterModels2016" role="doc-biblioref">Electrical and Engineers 2016</a>)</span>.</p>
 <p>The model provides an overexcitation limiter signal for the purpose of takeover : the overexcitation limiter signal acts as an upper limit on the voltage regulator main signal which then becomes the excitation voltage.</p>
 </section>
 <section id="model-inputs-and-output" class="level2">
 <h2 class="anchored" data-anchor-id="model-inputs-and-output">Model inputs and output</h2>
-<p>The input signals (in pu) are the exciter field current, and possibly either the generator field current or the generator field voltage.</p>
-<p>The output signal is UOelPu, the overexcitation limiter voltage in pu (base UNom).</p>
+<p>The input signals (in <span class="math inline">\(pu\)</span>) are the exciter field current, and possibly either the generator field current or the generator field voltage.</p>
+<p>The output signal is <span class="math inline">\(UOelPu\)</span>, the overexcitation limiter voltage in <span class="math inline">\(pu\)</span> (base <span class="math inline">\(UNom\)</span>).</p>
 </section>
 <section id="model-parameters" class="level2">
 <h2 class="anchored" data-anchor-id="model-parameters">Model parameters</h2>
@@ -685,236 +734,236 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>IBiasPu</td>
+<td><span class="math inline">\(IBiasPu\)</span></td>
 <td>OEL reference bias</td>
-<td>pu (base UNom)</td>
-<td>1</td>
-<td>1</td>
-<td>2.15</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(UNom\)</span>)</td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2.15\)</span></td>
 </tr>
 <tr class="even">
-<td>IfdLevelPu</td>
+<td><span class="math inline">\(IfdLevelPu\)</span></td>
 <td>OEL activation logic pickup level</td>
-<td>pu</td>
-<td>1.4</td>
-<td>1.4</td>
-<td>1.4</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(1.4\)</span></td>
+<td><span class="math inline">\(1.4\)</span></td>
+<td><span class="math inline">\(1.4\)</span></td>
 </tr>
 <tr class="odd">
-<td>IfdLimPu</td>
+<td><span class="math inline">\(IfdLimPu\)</span></td>
 <td>OEL inverse time limit active level</td>
-<td>pu</td>
-<td>6.58</td>
-<td>6.58</td>
-<td>6.58</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(6.58\)</span></td>
+<td><span class="math inline">\(6.58\)</span></td>
+<td><span class="math inline">\(6.58\)</span></td>
 </tr>
 <tr class="even">
-<td>IfdPu</td>
+<td><span class="math inline">\(IfdPu\)</span></td>
 <td>OEL inverse time integrator pickup level</td>
-<td>pu</td>
-<td>1.02</td>
-<td>1.02</td>
-<td>1.02</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(1.02\)</span></td>
+<td><span class="math inline">\(1.02\)</span></td>
+<td><span class="math inline">\(1.02\)</span></td>
 </tr>
 <tr class="odd">
-<td>IfdRef1Pu</td>
+<td><span class="math inline">\(IfdRef1Pu\)</span></td>
 <td>OEL reference 1</td>
-<td>pu</td>
-<td>1.25</td>
-<td>1.25</td>
-<td>1.25</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(1.25\)</span></td>
+<td><span class="math inline">\(1.25\)</span></td>
+<td><span class="math inline">\(1.25\)</span></td>
 </tr>
 <tr class="even">
-<td>IfdRef2Pu</td>
+<td><span class="math inline">\(IfdRef2Pu\)</span></td>
 <td>OEL reference 2</td>
-<td>pu</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
 </tr>
 <tr class="odd">
-<td>K</td>
+<td><span class="math inline">\(K\)</span></td>
 <td>OEL lead-lag gain</td>
-<td>pu</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="even">
-<td>K1</td>
+<td><span class="math inline">\(K1\)</span></td>
 <td>Exponent for inverse time function</td>
-<td>-</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
+<td><span class="math inline">\(-\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
 </tr>
 <tr class="odd">
-<td>KIfdt</td>
+<td><span class="math inline">\(KIfdt\)</span></td>
 <td>OEL inverse time leak gain</td>
-<td>pu</td>
-<td>0.0043</td>
-<td>0.0043</td>
-<td>0.0043</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(0.0043\)</span></td>
+<td><span class="math inline">\(0.0043\)</span></td>
+<td><span class="math inline">\(0.0043\)</span></td>
 </tr>
 <tr class="even">
-<td>KiOel</td>
+<td><span class="math inline">\(KiOel\)</span></td>
 <td>OEL integral gain</td>
-<td>pu</td>
-<td>17.36</td>
-<td>8.94</td>
-<td>0</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(17.36\)</span></td>
+<td><span class="math inline">\(8.94\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td>KiVfe</td>
+<td><span class="math inline">\(KiVfe\)</span></td>
 <td>Exciter field current regulator integral gain</td>
-<td>pu</td>
-<td>0</td>
-<td>169.1</td>
-<td>0</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(169.1\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="even">
-<td>KpOel</td>
+<td><span class="math inline">\(KpOel\)</span></td>
 <td>OEL proportional gain</td>
-<td>pu</td>
-<td>0.46</td>
-<td>2.861</td>
-<td>1.0753</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(0.46\)</span></td>
+<td><span class="math inline">\(2.861\)</span></td>
+<td><span class="math inline">\(1.0753\)</span></td>
 </tr>
 <tr class="odd">
-<td>KpVfe</td>
+<td><span class="math inline">\(KpVfe\)</span></td>
 <td>Exciter field current regulator proportional gain</td>
-<td>pu</td>
-<td>0</td>
-<td>1.522</td>
-<td>0</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(1.522\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="even">
-<td>KScale1</td>
+<td><span class="math inline">\(KScale1\)</span></td>
 <td>Scale factor for OEL input</td>
-<td>pu</td>
-<td>0.295</td>
-<td>0.3503</td>
-<td>0.2296</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(0.295\)</span></td>
+<td><span class="math inline">\(0.3503\)</span></td>
+<td><span class="math inline">\(0.2296\)</span></td>
 </tr>
 <tr class="odd">
-<td>KScale2</td>
+<td><span class="math inline">\(KScale2\)</span></td>
 <td>Scale factor for exciter field current</td>
-<td>pu</td>
-<td>0</td>
-<td>0.2317</td>
-<td>0</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0.2317\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="even">
-<td>Sw1</td>
+<td><span class="math inline">\(Sw1\)</span></td>
 <td>OEL reference logic switch</td>
-<td>-</td>
-<td>true</td>
-<td>false</td>
-<td>true</td>
+<td><span class="math inline">\(-\)</span></td>
+<td><span class="math inline">\(true\)</span></td>
+<td><span class="math inline">\(false\)</span></td>
+<td><span class="math inline">\(true\)</span></td>
 </tr>
 <tr class="odd">
-<td>tBOel</td>
+<td><span class="math inline">\(tBOel\)</span></td>
 <td>OEL lag time constant</td>
-<td>s</td>
-<td>0</td>
-<td>0.32</td>
-<td>0</td>
+<td><span class="math inline">\(s\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0.32\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="even">
-<td>tCOel</td>
+<td><span class="math inline">\(tCOel\)</span></td>
 <td>OEL lead time constant</td>
-<td>s</td>
-<td>0</td>
-<td>0.9</td>
-<td>0</td>
+<td><span class="math inline">\(s\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0.9\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td>tF1</td>
+<td><span class="math inline">\(tF1\)</span></td>
 <td>OEL input transducer time constant</td>
-<td>s</td>
-<td>0</td>
-<td>0</td>
-<td>1.22</td>
+<td><span class="math inline">\(s\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(1.22\)</span></td>
 </tr>
 <tr class="even">
-<td>tF2</td>
+<td><span class="math inline">\(tF2\)</span></td>
 <td>Exciter field current transducer time constant</td>
-<td>s</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
+<td><span class="math inline">\(s\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td>tIfdLevel</td>
+<td><span class="math inline">\(tIfdLevel\)</span></td>
 <td>OEL activation logic timer setpoint</td>
-<td>s</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
+<td><span class="math inline">\(s\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
 </tr>
 <tr class="even">
-<td>tOel</td>
+<td><span class="math inline">\(tOel\)</span></td>
 <td>OEL inverse time integrator time constant</td>
-<td>s</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
+<td><span class="math inline">\(s\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
 </tr>
 <tr class="odd">
-<td>TolPI</td>
+<td><span class="math inline">\(TolPI\)</span></td>
 <td>Tolerance on PI limit crossing as a fraction of the difference between limits</td>
-<td>pu</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(-\)</span></td>
+<td><span class="math inline">\(-\)</span></td>
+<td><span class="math inline">\(-\)</span></td>
 </tr>
 <tr class="even">
-<td>VfeMaxPu</td>
+<td><span class="math inline">\(VfeMaxPu\)</span></td>
 <td>Exciter field current regulator upper limit</td>
-<td>pu (base UNom)</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(UNom\)</span>)</td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
 </tr>
 <tr class="odd">
-<td>VfeMinPu</td>
+<td><span class="math inline">\(VfeMinPu\)</span></td>
 <td>Exciter field current regulator lower limit</td>
-<td>pu (base UNom)</td>
-<td>-0.99</td>
-<td>-0.99</td>
-<td>-0.99</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(UNom\)</span>)</td>
+<td><span class="math inline">\(-0.99\)</span></td>
+<td><span class="math inline">\(-0.99\)</span></td>
+<td><span class="math inline">\(-0.99\)</span></td>
 </tr>
 <tr class="even">
-<td>VfeRefPu</td>
+<td><span class="math inline">\(VfeRefPu\)</span></td>
 <td>Exciter field current reference setpoint</td>
-<td>pu (base UNom)</td>
-<td>0</td>
-<td>2.151</td>
-<td>0</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(UNom\)</span>)</td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(2.151\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td>VOel1MaxPu</td>
+<td><span class="math inline">\(VOel1MaxPu\)</span></td>
 <td>OEL inverse time upper limit</td>
-<td>pu</td>
-<td>9.49</td>
-<td>9.49</td>
-<td>9.49</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(9.49\)</span></td>
+<td><span class="math inline">\(9.49\)</span></td>
+<td><span class="math inline">\(9.49\)</span></td>
 </tr>
 <tr class="even">
-<td>VOelMaxPu</td>
+<td><span class="math inline">\(VOelMaxPu\)</span></td>
 <td>OEL PI control upper limit</td>
-<td>pu</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
 </tr>
 <tr class="odd">
-<td>VOelMinPu</td>
+<td><span class="math inline">\(VOelMinPu\)</span></td>
 <td>OEL PI control lower limit</td>
-<td>pu</td>
-<td>-0.99</td>
-<td>-0.99</td>
-<td>-0.99</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(-0.99\)</span></td>
+<td><span class="math inline">\(-0.99\)</span></td>
+<td><span class="math inline">\(-0.99\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -922,10 +971,24 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="model-diagram" class="level2">
 <h2 class="anchored" data-anchor-id="model-diagram">Model diagram</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="OEL5C.drawio.svg" class="img-fluid figure-img"></p>
-<figcaption>OEL5C</figcaption>
+<div id="fig-oel5c" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-oel5c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="OEL5C.drawio.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-oel5c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: OEL5C
+</figcaption>
+</figure>
+</div>
+<div id="fig-oel5c" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-oel5c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p>OEL5C model diagram</p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-oel5c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2
+</figcaption>
 </figure>
 </div>
 </section>
@@ -957,7 +1020,11 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
-<p>{% bibliography –cited –file references %}</p>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-IEEEExciterModels2016" class="csl-entry" role="listitem">
+Electrical, The Institute of, and Electronics Engineers. 2016. <span>“IEEE Recommended Practice for Excitation System Models for Power System Stability Studies.”</span> <em>IEEE Std 421.5-2016</em>. <a href="https://home.engineering.iastate.edu/~jdm/ee554/IEEEstd421.5-2016RecPracExSysModsPwrSysStabStudies.pdf">https://home.engineering.iastate.edu/~jdm/ee554/IEEEstd421.5-2016RecPracExSysModsPwrSysStabStudies.pdf</a>.
+</div>
+</div>
 
 
 </section>

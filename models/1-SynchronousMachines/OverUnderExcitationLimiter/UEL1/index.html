@@ -22,7 +22,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -69,6 +89,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../../styles.css">
 </head>
@@ -650,11 +699,11 @@ ul.task-list li input[type="checkbox"] {
 <h1>IEEE UEL1 model</h1>
 <section id="context" class="level2">
 <h2 class="anchored" data-anchor-id="context">Context</h2>
-<p>This underexcitation limiter model first appeared in the IEEE Std 421.5-2016 {% cite IEEEExciterModels2016 %}.</p>
+<p>This underexcitation limiter model first appeared in the IEEE Std 421.5-2016 <span class="citation" data-cites="IEEEExciterModels2016">(<a href="#ref-IEEEExciterModels2016" role="doc-biblioref">Electrical and Engineers 2016</a>)</span>.</p>
 </section>
 <section id="model-use-assumptions-validity-domain-and-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
-<p>This model is associated to one of the voltage regulators (types AC, DC, ST) defined by the IEEE Std 421.5-2016 {% cite IEEEExciterModels2016 %}.</p>
+<p>This model is associated to one of the voltage regulators (types AC, DC, ST) defined by the IEEE Std 421.5-2016 <span class="citation" data-cites="IEEEExciterModels2016">(<a href="#ref-IEEEExciterModels2016" role="doc-biblioref">Electrical and Engineers 2016</a>)</span>.</p>
 <p>The model provides an underexcitation limiter signal for the purpose of takeover : the underexcitation limiter signal acts as a lower limit on the voltage regulator main signal which then becomes the excitation voltage.</p>
 </section>
 <section id="model-inputs-and-output" class="level2">
@@ -670,27 +719,33 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>itPu</td>
+<td><span class="math inline">\(itPu\)</span></td>
 <td>Complex stator current</td>
-<td>pu (base SnRef, UNom)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(SnRef\)</span>, <span class="math inline">\(UNom\)</span>)</td>
 </tr>
 <tr class="even">
-<td>utPu</td>
+<td><span class="math inline">\(utPu\)</span></td>
 <td>Complex stator voltage</td>
-<td>pu (base UNom)</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(UNom\)</span>)</td>
 </tr>
 <tr class="odd">
-<td>VfPu</td>
+<td><span class="math inline">\(VfPu\)</span></td>
 <td>Excitation system stabilizer signal</td>
-<td>pu</td>
+<td><span class="math inline">\(pu\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>The output signal is UUelPu, the underexcitation limiter voltage in pu (base UNom).</p>
+<p>The output signal is <span class="math inline">\(UUelPu\)</span>, the underexcitation limiter voltage in <span class="math inline">\(pu\)</span> (base <span class="math inline">\(UNom\)</span>).</p>
 </section>
 <section id="model-parameters" class="level2">
 <h2 class="anchored" data-anchor-id="model-parameters">Model parameters</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 37%">
+<col style="width: 13%">
+<col style="width: 17%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Parameter</th>
@@ -701,92 +756,106 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>Kuc</td>
+<td><span class="math inline">\(Kuc\)</span></td>
 <td>UEL center setting</td>
-<td>pu</td>
-<td>1.38</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(1.38\)</span></td>
 </tr>
 <tr class="even">
-<td>Kuf</td>
+<td><span class="math inline">\(Kuf\)</span></td>
 <td>UEL excitation system stabilizer gain</td>
-<td>pu</td>
-<td>3.3</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(3.3\)</span></td>
 </tr>
 <tr class="odd">
-<td>Kui</td>
+<td><span class="math inline">\(Kui\)</span></td>
 <td>UEL integral gain</td>
-<td>pu</td>
-<td>0</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="even">
-<td>Kul</td>
+<td><span class="math inline">\(Kul\)</span></td>
 <td>UEL proportional gain</td>
-<td>pu</td>
-<td>100</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(100\)</span></td>
 </tr>
 <tr class="odd">
-<td>Kur</td>
+<td><span class="math inline">\(Kur\)</span></td>
 <td>UEL radius setting</td>
-<td>pu</td>
-<td>1.95</td>
+<td><span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(1.95\)</span></td>
 </tr>
 <tr class="even">
-<td>tU1</td>
+<td><span class="math inline">\(tU1\)</span></td>
 <td>UEL first lead time constant</td>
-<td>s</td>
-<td>0</td>
+<td><span class="math inline">\(s\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td>tU2</td>
+<td><span class="math inline">\(tU2\)</span></td>
 <td>UEL first lag time constant</td>
-<td>s</td>
-<td>0.05</td>
+<td><span class="math inline">\(s\)</span></td>
+<td><span class="math inline">\(0.05\)</span></td>
 </tr>
 <tr class="even">
-<td>tU3</td>
+<td><span class="math inline">\(tU3\)</span></td>
 <td>UEL second lead time constant</td>
-<td>s</td>
-<td>0</td>
+<td><span class="math inline">\(s\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
-<td>tU4</td>
+<td><span class="math inline">\(tU4\)</span></td>
 <td>UEL second lag time constant</td>
-<td>s</td>
-<td>0</td>
+<td><span class="math inline">\(s\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="even">
-<td>VUcMaxPu</td>
+<td><span class="math inline">\(VUcMaxPu\)</span></td>
 <td>UEL maximum voltage magnitude</td>
-<td>pu (base UNom)</td>
-<td>5.8</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(UNom\)</span>)</td>
+<td><span class="math inline">\(5.8\)</span></td>
 </tr>
 <tr class="odd">
-<td>VUiMaxPu</td>
+<td><span class="math inline">\(VUiMaxPu\)</span></td>
 <td>UEL maximum output</td>
-<td>pu (base UNom)</td>
-<td>18</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(UNom\)</span>)</td>
+<td><span class="math inline">\(18\)</span></td>
 </tr>
 <tr class="even">
-<td>VUiMinPu</td>
+<td><span class="math inline">\(VUiMinPu\)</span></td>
 <td>UEL minimum output</td>
-<td>pu (base UNom)</td>
-<td>18</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(UNom\)</span>)</td>
+<td><span class="math inline">\(18\)</span></td>
 </tr>
 <tr class="odd">
-<td>VUrMaxPu</td>
+<td><span class="math inline">\(VUrMaxPu\)</span></td>
 <td>UEL maximum radius</td>
-<td>pu (base UNom)</td>
-<td>5.8</td>
+<td><span class="math inline">\(pu\)</span> (base <span class="math inline">\(UNom\)</span>)</td>
+<td><span class="math inline">\(5.8\)</span></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="model-diagram" class="level2">
 <h2 class="anchored" data-anchor-id="model-diagram">Model diagram</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="UEL1.drawio.svg" class="img-fluid figure-img"></p>
-<figcaption>UEL1</figcaption>
+<div id="fig-uel1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-uel1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="UEL1.drawio.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-uel1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: UEL1
+</figcaption>
+</figure>
+</div>
+<div id="fig-uel1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-uel1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p>UEL1 model diagram</p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-uel1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2
+</figcaption>
 </figure>
 </div>
 </section>
@@ -818,7 +887,11 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
-<p>{% bibliography –cited –file references %}</p>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-IEEEExciterModels2016" class="csl-entry" role="listitem">
+Electrical, The Institute of, and Electronics Engineers. 2016. <span>“IEEE Recommended Practice for Excitation System Models for Power System Stability Studies.”</span> <em>IEEE Std 421.5-2016</em>. <a href="https://home.engineering.iastate.edu/~jdm/ee554/IEEEstd421.5-2016RecPracExSysModsPwrSysStabStudies.pdf">https://home.engineering.iastate.edu/~jdm/ee554/IEEEstd421.5-2016RecPracExSysModsPwrSysStabStudies.pdf</a>.
+</div>
+</div>
 
 
 </section>
