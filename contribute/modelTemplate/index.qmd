@@ -12,7 +12,9 @@ order: 1 # defines the order of the page in the menu
 
 **This model page can be used as template for your own model. If you want to download this page in qmd format, click here:**
 
-<a href="../download/modelTemplate.zip" download="modelTemplate.zip">Download model template</a>
+<a href="../download/modelTemplate.zip" download="modelTemplate.zip" class="btn-main">
+  <i class="fas fa-download"></i> Download model template
+</a>
 
 
 :::{.callout-important}
@@ -120,7 +122,7 @@ _The code **should correspond strictly the equations/diagram/algorithm described
 **Example:**
 The code can be presented in a **modeling language code block** like this:
 
-```{openmodelica}
+```default
 model VoltageSource "Constant AC voltage"
   extends Interfaces.Source;
   parameter SI.Frequency f(start=1) "Frequency of the source";

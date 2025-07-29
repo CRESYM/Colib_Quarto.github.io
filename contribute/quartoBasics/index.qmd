@@ -241,9 +241,53 @@ This is a warning callout. Use for important caveats.
 This is an important callout. Use for critical information.
 :::
 
+## Source code
+
+Use ``` to delimit blocks of source code and a language to syntax highlight code blocks.
+
+Quarto can provide syntax highlighting for over 140 different languages (see the output of `quarto pandoc --list-highlight-languages` for a list of all of them).
+
+````markdown
+```python
+#| label: fig-polar
+#| fig-cap: "A line plot on a polar axis"
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+```
+````
+
+**Rendered result:**
+
+```python
+#| label: fig-polar
+#| fig-cap: "A line plot on a polar axis"
+
+import numpy as np
+```python
+#| label: fig-polar
+#| fig-cap: "A line plot on a polar axis"
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+```
+
 ## Code Blocks computation
 
-Code blocks that use braces around the language name (e.g. ` ```{python}`) are executable, and will be run by Quarto during render. Here is a simple example:
+Code blocks that use braces around the language name (e.g. ` ```{python}`) are executable, and will be run by Quarto during render. Supported languages for execution are:
+
+- Python
+- R
+- Julia
+- Observable JS
+
+You will find below a simple example. This example make use of the `matplotlib` and `plotly` Python packages to create a line plot on a polar axis, therefore they need to be installed before running the code block.
 
 ```markdown
 ---

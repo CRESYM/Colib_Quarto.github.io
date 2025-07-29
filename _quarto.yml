@@ -8,6 +8,7 @@ website:
     search: true
     pinned: true
     logo: assets/img/Logo_colib.svg
+    favicon: assets/img/Logo_colib.svg
     left:
       - href: index.qmd
         text: Overview
