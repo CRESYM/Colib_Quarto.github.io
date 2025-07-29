@@ -5,8 +5,7 @@ number-sections: true
 
 ## Why this library?
 
-![Reason behind Colib](why_colib.png)
-
+![Reason behind Colib](why_colib.png){#fig-why-colib fig-alt="Reason behind Colib"}
 
 At present, on one hand, operators manage to gather and build pragmatically a model database of the components directly connected to their network. They remain however blind or use rough proxies to cope with:
 -	Components indirectly connected (e.g. to neighboring, coupled networks, such as electricity or gas grids ; and/or quite likely in a soon future: across sectors)
@@ -18,7 +17,7 @@ They both face the need for a **collaborative shared dynamic simulation library*
 
 ## What is colib and what does it contain?
 
-![](what_colib.png)
+![What is Colib?](what_colib.png){#fig-what-colib fig-alt="What is Colib?"}
 
 Each model or test case is formally described in a dedicated post (like a wikipedia webpage), with links to known existing implementations.
 Some of the models and test cases directly come from CRESYM projects outputs, others are originated from external royalty-free projects. 
