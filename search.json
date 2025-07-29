@@ -224,7 +224,7 @@
     "href": "contribute/quartoBasics/index.html#inline-math",
     "title": "Quarto Basics",
     "section": "Inline Math",
-    "text": "Inline Math\nYou can include mathematical expressions inline using single dollar signs: \\(E = mc^2\\) and \\(\\alpha + \\beta = \\gamma\\).",
+    "text": "Inline Math\nYou can include mathematical expressions inline using single dollar signs:\n\n$E = mc^2 =&gt; \\(E = mc^2\\)\n$\\alpha + \\beta = \\gamma$ =&gt; \\(\\alpha + \\beta = \\gamma\\).",
     "crumbs": [
       "Quarto Basics"
     ]
@@ -234,7 +234,7 @@
     "href": "contribute/quartoBasics/index.html#display-equations",
     "title": "Quarto Basics",
     "section": "Display Equations",
-    "text": "Display Equations\nFor larger equations, use double dollar signs:\n\\[\n\\frac{\\partial^2 u}{\\partial t^2} = c^2 \\nabla^2 u\n\\tag{1}\\]\n\\[\nP(X = k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}\n\\tag{2}\\]",
+    "text": "Display Equations\nFor larger equations, use double dollar signs:\n$$\n\\frac{\\partial^2 u}{\\partial t^2} = c^2 \\nabla^2 u\n$$ {#eq-wave}\n\\[\n\\frac{\\partial^2 u}{\\partial t^2} = c^2 \\nabla^2 u\n\\tag{1}\\]\n$$\nP(X = k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}\n$$ {#eq-poisson}\n\\[\nP(X = k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}\n\\tag{2}\\]",
     "crumbs": [
       "Quarto Basics"
     ]
@@ -244,7 +244,7 @@
     "href": "contribute/quartoBasics/index.html#multi-line-equations",
     "title": "Quarto Basics",
     "section": "Multi-line Equations",
-    "text": "Multi-line Equations\n$$\n\\begin{align}\nf(x) &= ax^2 + bx + c \\\\\nf'(x) &= 2ax + b \\\\\nf''(x) &= 2a\n\\end{align}\n$$ {#eq-derivatives}\nRendered result: \\[\n\\begin{align}\nf(x) &= ax^2 + bx + c \\\\\nf'(x) &= 2ax + b \\\\\nf''(x) &= 2a\n\\end{align}\n\\tag{3}\\]",
+    "text": "Multi-line Equations\n$$\n\\begin{align}\nf(x) &= ax^2 + bx + c \\\\\nf'(x) &= 2ax + b \\\\\nf''(x) &= 2a\n\\end{align}\n$$ {#eq-derivatives}\nThe {#eq-derivatives} is used to reference the equation in the text (see Cross-References).\nRendered result: \\[\n\\begin{align}\nf(x) &= ax^2 + bx + c \\\\\nf'(x) &= 2ax + b \\\\\nf''(x) &= 2a\n\\end{align}\n\\tag{3}\\]",
     "crumbs": [
       "Quarto Basics"
     ]
@@ -274,7 +274,7 @@
     "href": "contribute/quartoBasics/index.html#examples-of-cross-references",
     "title": "Quarto Basics",
     "section": "Examples of Cross-References",
-    "text": "Examples of Cross-References\n\nReference an equation: “Using the wave equation (Equation 1)…”\nReference a section: “Details are provided in Section 5…”\nReference a figure: “See Figure 1 for the Colib project logo…”\nReference a table: “The results in Table 1 indicate…”",
+    "text": "Examples of Cross-References\n- Reference an equation: \"Using the wave equation (@eq-wave)...\"\n- Reference a section: \"Details are provided in @sec-figures...\"\n- Reference a figure: \"See @fig-logo for the Colib project logo...\"\n- Reference a table: \"The results in @tbl-features indicate...\"\n\nReference an equation: “Using the wave equation (Equation 1)…”\nReference a section: “Details are provided in Section 5…”\nReference a figure: “See Figure 1 for the Colib project logo…”\nReference a table: “The results in Table 1 indicate…”",
     "crumbs": [
       "Quarto Basics"
     ]
@@ -294,7 +294,7 @@
     "href": "contribute/quartoBasics/index.html#adding-references",
     "title": "Quarto Basics",
     "section": "Adding References",
-    "text": "Adding References\nReferences should be stored in a .bib file and specified in the YAML header:\nbibliography: references.bib",
+    "text": "Adding References\nReferences should be stored in a .bib files and specified in the YAML header. You can specify multiple files by adding them to the bibliography list:\nbibliography: \n  - references.bib\n  - references_2.bib",
     "crumbs": [
       "Quarto Basics"
     ]
