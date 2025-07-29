@@ -1,8 +1,11 @@
 ---
+title: "Collaborative Open-Source Dynamic Simulation Library"
+title-block-style: none
 toc: false
 format:
   html:
     page-layout: custom
+    css: /styles/landing_page.css
 ---
 
 ::: {.main-header}

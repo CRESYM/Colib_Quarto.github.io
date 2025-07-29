@@ -4,11 +4,11 @@ project:
     - "cp quarto_listing.js _site/site_libs/quarto-listing/quarto-listing.js"
 
 website:
+  favicon: assets/img/Logo_colib.svg
   navbar:
     search: true
     pinned: true
     logo: assets/img/Logo_colib.svg
-    favicon: assets/img/Logo_colib.svg
     left:
       - href: index.qmd
         text: Overview
@@ -105,7 +105,7 @@ format:
     theme:
       - cosmo
     css:
-      - styles.css
+      - /styles/main.css
     toc: true
     grid:
       body-width: 1200px

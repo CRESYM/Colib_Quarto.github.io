@@ -306,7 +306,7 @@
         "\n",
         "For a demonstration of a line plot on a polar axis, see @fig-polar."
       ],
-      "id": "413cc0d3"
+      "id": "15241d1e"
     },
     {
       "cell_type": "code",
@@ -397,7 +397,7 @@
         "::: {#refs}\n",
         ":::\n"
       ],
-      "id": "8930af01"
+      "id": "77485afb"
     }
   ],
   "metadata": {
