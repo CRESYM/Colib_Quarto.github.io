@@ -265,7 +265,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#why-this-library" id="toc-why-this-library" class="nav-link active" data-scroll-target="#why-this-library"><span class="header-section-number">1</span> Why this library?</a></li>
-  <li><a href="#what-does-this-library-contain" id="toc-what-does-this-library-contain" class="nav-link" data-scroll-target="#what-does-this-library-contain"><span class="header-section-number">2</span> What does this library contain?</a></li>
+  <li><a href="#what-is-colib-and-what-does-it-contain" id="toc-what-is-colib-and-what-does-it-contain" class="nav-link" data-scroll-target="#what-is-colib-and-what-does-it-contain"><span class="header-section-number">2</span> What is colib and what does it contain?</a></li>
   <li><a href="#creative-commons-attribution-4.0-international-public-license" id="toc-creative-commons-attribution-4.0-international-public-license" class="nav-link" data-scroll-target="#creative-commons-attribution-4.0-international-public-license"><span class="header-section-number">3</span> Creative Commons Attribution 4.0 International Public License</a></li>
   </ul>
 </nav>
@@ -294,19 +294,37 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="why-this-library" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="why-this-library"><span class="header-section-number">1</span> Why this library?</h2>
-<p>The power system and energy systems at large experience a paradigm shift with many novel , active components connected. Appraising the behavior and reactions of such new items is critical for network operators to simulate and anticipate system operation, and for this, <strong>available, reliable up to date and possibly specifically targeted component models</strong> are required.</p>
-<p>At present, on one hand, <strong>operators manage to gather and build pragmatically a model database of the components directly connected to their network. They remain however blind or use rough proxies</strong> to cope with: - Components indirectly connected (e.g.&nbsp;to neighboring, coupled networks, such as electricity or gas grids ; and/or quite likely in a soon future: across sectors) - Future connected ones (components at design stage, latest technology, and proprietary manufacturer models).</p>
-<p>On the other hand, <strong>research also suffers from the lack of all the necessary component models and is slowed down by the effort required to circumvent it</strong>.</p>
-<p><strong>They both face the need for a collaborative shared dynamic simulation library that would benefit to all by its high quality, transparency of model equations, and concrete applications (real test cases).</strong></p>
+<div id="fig-why-colib" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Reason behind Colib">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-why-colib-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="why_colib.png" class="img-fluid figure-img" alt="Reason behind Colib">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-why-colib-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Reason behind Colib
+</figcaption>
+</figure>
+</div>
+<p>At present, on one hand, operators manage to gather and build pragmatically a model database of the components directly connected to their network. They remain however blind or use rough proxies to cope with: - Components indirectly connected (e.g.&nbsp;to neighboring, coupled networks, such as electricity or gas grids ; and/or quite likely in a soon future: across sectors) - Future connected ones (components at design stage, latest technology, and proprietary manufacturer models).</p>
+<p>On the other hand, research also suffers from the lack of all the necessary component models and is slowed down by the effort required to circumvent it.</p>
+<p>They both face the need for a <strong>collaborative shared dynamic simulation library</strong> that would benefit to all by its high <strong>quality, transparency of model equations, and concrete applications</strong> (real test cases).</p>
 </section>
-<section id="what-does-this-library-contain" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="what-does-this-library-contain"><span class="header-section-number">2</span> What does this library contain?</h2>
-<p>It contains detailed dynamic models of electrical components and power systems test cases, containing data information and relying on those components.</p>
+<section id="what-is-colib-and-what-does-it-contain" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="what-is-colib-and-what-does-it-contain"><span class="header-section-number">2</span> What is colib and what does it contain?</h2>
+<div id="fig-what-colib" class="quarto-float quarto-figure quarto-figure-center anchored" alt="What is Colib?">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-what-colib-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="what_colib.png" class="img-fluid figure-img" alt="What is Colib?">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-what-colib-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: What is Colib?
+</figcaption>
+</figure>
+</div>
 <p>Each model or test case is formally described in a dedicated post (like a wikipedia webpage), with links to known existing implementations. Some of the models and test cases directly come from CRESYM projects outputs, others are originated from external royalty-free projects.</p>
 </section>
 <section id="creative-commons-attribution-4.0-international-public-license" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="creative-commons-attribution-4.0-international-public-license"><span class="header-section-number">3</span> Creative Commons Attribution 4.0 International Public License</h2>
-<p>Whether you are operators, researchers, managerial staff, engineers, developers, or just a power system fan inside or outside CRESYM, you can: - <strong>copy, distribute and communicate the material by any means and in any format</strong> - <strong>remix, transform and create from the material</strong></p>
+<p>Whether you are operators, researchers, managerial staff, engineers, developers, or just a power system fan inside or outside CRESYM, you can: - copy, distribute and communicate the material by any means and in any format - remix, transform and create from the material</p>
 <p>under the following conditions : - you must <strong>credit the work, include a link to the license, and indicate if any modifications have been made to the work</strong>. You must provide this information by all reasonable means, but do not suggest that the offeror endorses you or the way you have used their work. - You are <strong>not authorized to make commercial use of this work</strong>, all or part of the material composing it.</p>
 
 

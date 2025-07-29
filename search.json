@@ -518,7 +518,7 @@
     "href": "about/index.html",
     "title": "Overview about COLib",
     "section": "",
-    "text": "The power system and energy systems at large experience a paradigm shift with many novel , active components connected. Appraising the behavior and reactions of such new items is critical for network operators to simulate and anticipate system operation, and for this, available, reliable up to date and possibly specifically targeted component models are required.\nAt present, on one hand, operators manage to gather and build pragmatically a model database of the components directly connected to their network. They remain however blind or use rough proxies to cope with: - Components indirectly connected (e.g. to neighboring, coupled networks, such as electricity or gas grids ; and/or quite likely in a soon future: across sectors) - Future connected ones (components at design stage, latest technology, and proprietary manufacturer models).\nOn the other hand, research also suffers from the lack of all the necessary component models and is slowed down by the effort required to circumvent it.\nThey both face the need for a collaborative shared dynamic simulation library that would benefit to all by its high quality, transparency of model equations, and concrete applications (real test cases).",
+    "text": "Figure 1: Reason behind Colib\n\n\n\nAt present, on one hand, operators manage to gather and build pragmatically a model database of the components directly connected to their network. They remain however blind or use rough proxies to cope with: - Components indirectly connected (e.g. to neighboring, coupled networks, such as electricity or gas grids ; and/or quite likely in a soon future: across sectors) - Future connected ones (components at design stage, latest technology, and proprietary manufacturer models).\nOn the other hand, research also suffers from the lack of all the necessary component models and is slowed down by the effort required to circumvent it.\nThey both face the need for a collaborative shared dynamic simulation library that would benefit to all by its high quality, transparency of model equations, and concrete applications (real test cases).",
     "crumbs": [
       "Overview about COLib"
     ]
@@ -528,17 +528,17 @@
     "href": "about/index.html#why-this-library",
     "title": "Overview about COLib",
     "section": "",
-    "text": "The power system and energy systems at large experience a paradigm shift with many novel , active components connected. Appraising the behavior and reactions of such new items is critical for network operators to simulate and anticipate system operation, and for this, available, reliable up to date and possibly specifically targeted component models are required.\nAt present, on one hand, operators manage to gather and build pragmatically a model database of the components directly connected to their network. They remain however blind or use rough proxies to cope with: - Components indirectly connected (e.g. to neighboring, coupled networks, such as electricity or gas grids ; and/or quite likely in a soon future: across sectors) - Future connected ones (components at design stage, latest technology, and proprietary manufacturer models).\nOn the other hand, research also suffers from the lack of all the necessary component models and is slowed down by the effort required to circumvent it.\nThey both face the need for a collaborative shared dynamic simulation library that would benefit to all by its high quality, transparency of model equations, and concrete applications (real test cases).",
+    "text": "Figure 1: Reason behind Colib\n\n\n\nAt present, on one hand, operators manage to gather and build pragmatically a model database of the components directly connected to their network. They remain however blind or use rough proxies to cope with: - Components indirectly connected (e.g. to neighboring, coupled networks, such as electricity or gas grids ; and/or quite likely in a soon future: across sectors) - Future connected ones (components at design stage, latest technology, and proprietary manufacturer models).\nOn the other hand, research also suffers from the lack of all the necessary component models and is slowed down by the effort required to circumvent it.\nThey both face the need for a collaborative shared dynamic simulation library that would benefit to all by its high quality, transparency of model equations, and concrete applications (real test cases).",
     "crumbs": [
       "Overview about COLib"
     ]
   },
   {
-    "objectID": "about/index.html#what-does-this-library-contain",
-    "href": "about/index.html#what-does-this-library-contain",
+    "objectID": "about/index.html#what-is-colib-and-what-does-it-contain",
+    "href": "about/index.html#what-is-colib-and-what-does-it-contain",
     "title": "Overview about COLib",
-    "section": "2 What does this library contain?",
-    "text": "2 What does this library contain?\nIt contains detailed dynamic models of electrical components and power systems test cases, containing data information and relying on those components.\nEach model or test case is formally described in a dedicated post (like a wikipedia webpage), with links to known existing implementations. Some of the models and test cases directly come from CRESYM projects outputs, others are originated from external royalty-free projects.",
+    "section": "2 What is colib and what does it contain?",
+    "text": "2 What is colib and what does it contain?\n\n\n\n\n\n\nFigure 2: What is Colib?\n\n\n\nEach model or test case is formally described in a dedicated post (like a wikipedia webpage), with links to known existing implementations. Some of the models and test cases directly come from CRESYM projects outputs, others are originated from external royalty-free projects.",
     "crumbs": [
       "Overview about COLib"
     ]
