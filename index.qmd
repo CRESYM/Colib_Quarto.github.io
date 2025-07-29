@@ -49,7 +49,7 @@ For each component model and test case, you will find a detailed description and
 :::
 
 ::: {.button-group .scroll-fade}
-[Contribute](contribute/index.qmd){.btn-main} [About](about/index.qmd){.btn-main}
+[Contribute](contribute/howTo/index.qmd){.btn-main} [About](about/index.qmd){.btn-main}
 :::
 
 ::: {.partner-section .scroll-fade}

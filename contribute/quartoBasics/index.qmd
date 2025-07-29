@@ -95,15 +95,30 @@ superscript^2^, subscript~2~
 
 ## Inline Math
 
-You can include mathematical expressions inline using single dollar signs: $E = mc^2$ and $\alpha + \beta = \gamma$.
+You can include mathematical expressions inline using single dollar signs:
+
+- `$E = mc^2` =>  $E = mc^2$
+- `$\alpha + \beta = \gamma$` => $\alpha + \beta = \gamma$.
 
 ## Display Equations
 
 For larger equations, use double dollar signs:
 
+```markdown
 $$
 \frac{\partial^2 u}{\partial t^2} = c^2 \nabla^2 u
 $$ {#eq-wave}
+```
+
+$$
+\frac{\partial^2 u}{\partial t^2} = c^2 \nabla^2 u
+$$ {#eq-wave}
+
+```markdown
+$$
+P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}
+$$ {#eq-poisson}
+```
 
 $$
 P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}
@@ -120,6 +135,7 @@ f''(x) &= 2a
 \end{align}
 $$ {#eq-derivatives}
 ```
+The `{#eq-derivatives}` is used to reference the equation in the text (see [Cross-References](#sec-crossref)).
 
 **Rendered result:**
 $$
@@ -157,6 +173,13 @@ Quarto automatically generates numbered cross-references for:
 
 ## Examples of Cross-References
 
+```markdown
+- Reference an equation: "Using the wave equation (@eq-wave)..."
+- Reference a section: "Details are provided in @sec-figures..."
+- Reference a figure: "See @fig-logo for the Colib project logo..."
+- Reference a table: "The results in @tbl-features indicate..."
+```
+
 - Reference an equation: "Using the wave equation (@eq-wave)..."
 - Reference a section: "Details are provided in @sec-figures..."
 - Reference a figure: "See @fig-logo for the Colib project logo..."
@@ -173,10 +196,12 @@ Quarto uses BibTeX for managing references. Citations are created using `@` foll
 
 ## Adding References
 
-References should be stored in a `.bib` file and specified in the YAML header:
+References should be stored in a `.bib` files and specified in the YAML header. You can specify multiple files by adding them to the `bibliography` list:
 
 ```yaml
-bibliography: references.bib
+bibliography: 
+  - references.bib
+  - references_2.bib
 ```
 
 ## Example Bibliography Entry
