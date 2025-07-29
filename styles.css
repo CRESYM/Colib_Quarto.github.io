@@ -1,6 +1,14 @@
 /* Import Raleway font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
 
+/* Import Font Awesome for icons */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+/* Font Awesome icon spacing */
+.fas, .far, .fab, .fal {
+  margin-right: 8px;
+}
+
 /* Apply Raleway font to all elements */
 * {
   font-family: 'Raleway', sans-serif;

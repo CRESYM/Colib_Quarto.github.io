@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -378,7 +413,7 @@ window.Quarto = {
 
 
 <p><strong>This model page can be used as template for your own model. If you want to download this page in qmd format, click here:</strong></p>
-<p><a href="../download/modelTemplate.zip" download="modelTemplate.zip">Download model template</a></p>
+<p><a href="../download/modelTemplate.zip" download="modelTemplate.zip" class="btn-main"> <i class="fas fa-download"></i> Download model template </a></p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -516,15 +551,15 @@ J\frac{2}{p_f}  \frac{d\omega_m}{dt} = T_m - T_e - T_{fw}
 <p><em>This section is a code section that provides the source code for model described above.</em></p>
 <p><em>The code <strong>should correspond strictly the equations/diagram/algorithm described before</strong> and should have been validated in a tool. The date of the code should be specified at the beginning of the section, the code should be clean, readable and organized.</em></p>
 <p><strong>Example:</strong> The code can be presented in a <strong>modeling language code block</strong> like this:</p>
-<pre class="{openmodelica}"><code>model VoltageSource "Constant AC voltage"
-  extends Interfaces.Source;
-  parameter SI.Frequency f(start=1) "Frequency of the source";
-  parameter SI.Voltage V(start=1) "RMS voltage of the source";
-  parameter SI.Angle phi(start=0) "Phase shift of the source";
-equation
-  omega = 2*Modelica.Constants.pi*f;
-  v = Complex(V*cos(phi), V*sin(phi));
-end VoltageSource;</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>model VoltageSource "Constant AC voltage"</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  extends Interfaces.Source;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  parameter SI.Frequency f(start=1) "Frequency of the source";</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  parameter SI.Voltage V(start=1) "RMS voltage of the source";</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  parameter SI.Angle phi(start=0) "Phase shift of the source";</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>equation</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  omega = 2*Modelica.Constants.pi*f;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  v = Complex(V*cos(phi), V*sin(phi));</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>end VoltageSource;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="open-source-implementations-if-any" class="level2">
 <h2 class="anchored" data-anchor-id="open-source-implementations-if-any">Open source implementations (if any)</h2>
