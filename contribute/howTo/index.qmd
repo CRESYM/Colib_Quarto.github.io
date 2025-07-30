@@ -33,37 +33,53 @@ COLIB uses **Quarto Markdown (QMD)** format for all documentation pages. QMD is 
 COLIB provides two main contribution templates depending on what you want to add:
 
 ### Model Template
-Use the **Model Template** when you want to contribute:
+Use the **Model Template** when you want to contribute on:
+
 - Mathematical models of power system components
 - Control system descriptions
 - Algorithm implementations
 - Component behavior models
 
-**Download the model template:**
-<a href="../download/modelTemplate.zip" download="modelTemplate.zip">Download Model Template</a>
+<a href="../download/modelTemplate.zip" download="modelTemplate.zip" class="btn-main">
+  <i class="fas fa-download"></i> Download model template
+</a>
 
+:::{.callout-note}
 **Model template includes:**
-- Standardized sections for model description
-- Mathematical equation formatting examples
-- Parameter and variable tables
-- Source code sections
-- Reference management
+
+- Context (mandatory)
+- Model use, assumptions, validity domain and limitations (mandatory)
+- Model description (mandatory)
+- Source code (optional)
+- Open source implementations (if any)
+- Table of references & license
+:::
 
 ### Test Case Template
-Use the **Test Case Template** when you want to contribute:
+Use the **Test Case Template** when you want to contribute on:
+
 - Validation scenarios
 - Benchmark test systems
 - Simulation examples
 - Performance comparisons
 
-**Download the test case template:**
-<a href="../download/testCaseTemplate.zip" download="testCaseTemplate.zip">Download Test Case Template</a>
+<a href="../download/testCaseTemplate.zip" download="testCaseTemplate.zip" class="btn-main">
+  <i class="fas fa-download"></i> Download test case template
+</a>
 
+:::{.callout-note}
 **Test case template includes:**
-- System description sections
-- Simulation setup guidelines
-- Results presentation formats
-- Data file organization
+
+- Use case purpose​ and context (mandatory)
+- Network ​description (mandatory)
+- Static and Dynamic models​ description (mandatory)
+- Input Data (mandatory)
+- Scenarios (at least one mandatory)
+- Simulation parameters (optional)
+- Outputs (mandatory)
+- Open source implementations (if any)
+- Table of references & license
+:::
 
 ## Installing and Using Quarto
 
@@ -85,22 +101,28 @@ quarto --version
 #### 3. Install a Text Editor (Recommended)
 While you can edit QMD files with any text editor, we recommend:
 
-- **VS Code** with the Quarto extension
-- **RStudio** (built-in Quarto support)
-- **Jupyter Lab** with Quarto extension
+**VS Code** with the Quarto extension
+
+:::{.callout-note}
+You can install the Quarto extension from within the Extensions tab in VS Code, from the [Extension Marketplace](https://marketplace.visualstudio.com/items?itemName=quarto.quarto), the [Open VSX Registry](https://open-vsx.org/extension/quarto/quarto) or directly from a [VISX extension file](https://github.com/quarto-dev/quarto-vscode#visx-install).
+:::
+
+**RStudio** (built-in Quarto support)
+
+**Jupyter Lab** (built-in Quarto support)
 
 ### Basic Quarto Workflow
 
 #### 1. Create Your Contribution
 1. Download the appropriate template (model or test case)
-2. Extract the template files
-3. Open the `index.qmd` file in your preferred editor
+2. Open the `index.qmd` file in your preferred editor
 
 #### 2. Edit Your Content
-- Replace template content with your own
-- Use Markdown syntax for text formatting
-- Add mathematical equations using LaTeX syntax: `$equation$` or `$$equation$$`
-- Include figures and references as shown in the template
+Replace the content of the `index.qmd` file with your own, following the guidelines in the template.
+
+:::{.callout-tip}
+- See [model template](../modelTemplate/index.qmd) and [test case template](../testSystemTemplate/index.qmd) for more details.
+:::
 
 #### 3. Preview Your Work
 To see how your page will look, run in your terminal:

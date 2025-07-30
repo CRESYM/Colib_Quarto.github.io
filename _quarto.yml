@@ -42,6 +42,10 @@ website:
             href: ./testCases/GridFollowing_GridForming_DClink/index.qmd
           - text: Kundur two-area system
             href: ./testCases/kundur_two_area_system/index.qmd
+          - text: Converter Driven Stability
+            href: ./testCases/converterDrivenStability/index.qmd
+          - text: System Frequency Response Model with Underfrequency Load Shedding Protection
+            href: ./testCases/System_frequency_response_model_with_underfrequency_load_shedding_protection/index.qmd
       - text: Contribute
         menu:
           - text: How to contribute

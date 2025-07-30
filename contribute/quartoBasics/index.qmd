@@ -110,6 +110,7 @@ $$
 $$ {#eq-wave}
 ```
 
+**Rendered result:**
 $$
 \frac{\partial^2 u}{\partial t^2} = c^2 \nabla^2 u
 $$ {#eq-wave}
@@ -119,7 +120,7 @@ $$
 P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}
 $$ {#eq-poisson}
 ```
-
+**Rendered result:**
 $$
 P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}
 $$ {#eq-poisson}
@@ -180,6 +181,8 @@ Quarto automatically generates numbered cross-references for:
 - Reference a table: "The results in @tbl-features indicate..."
 ```
 
+**Rendered result:**
+
 - Reference an equation: "Using the wave equation (@eq-wave)..."
 - Reference a section: "Details are provided in @sec-figures..."
 - Reference a figure: "See @fig-logo for the Colib project logo..."
@@ -224,6 +227,26 @@ bibliography:
 ## Callout Blocks
 
 Quarto provides several types of callout blocks:
+
+```markdown
+:::{.callout-note}
+This is a note callout. Use it for additional information.
+:::
+
+:::{.callout-tip}
+This is a tip callout. Perfect for helpful suggestions.
+:::
+
+:::{.callout-warning}
+This is a warning callout. Use for important caveats.
+:::
+
+:::{.callout-important}
+This is an important callout. Use for critical information.
+:::
+```
+
+**Rendered result:**
 
 :::{.callout-note}
 This is a note callout. Use it for additional information.
