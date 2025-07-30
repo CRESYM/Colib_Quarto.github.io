@@ -134,20 +134,12 @@ See [Quarto Basics](../quartoBasics/index.qmd)
 
 :::{.callout-tip}
 **Pro Tips for Contributors:**
+
 - Start with the template and modify incrementally
 - Preview frequently to catch formatting issues early
 - Use descriptive file names and organize your assets
 - Follow the existing naming conventions in COLIB
 - Include comprehensive references and citations
 :::
-
-## Next Steps
-
-Ready to contribute? 
-
-1. Choose your template (model or test case)
-2. Install Quarto if you haven't already
-3. Start writing your contribution
-4. Submit when ready!
 
 Thank you for contributing to COLIB and advancing open-source power system modeling!
