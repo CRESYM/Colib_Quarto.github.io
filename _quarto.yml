@@ -109,6 +109,7 @@ format:
     toc: true
     grid:
       body-width: 1200px
+    csl: _bibliography/diabetologia.csl
 
 execute:
   freeze: auto
