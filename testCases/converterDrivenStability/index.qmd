@@ -1,4 +1,12 @@
 ---
-layout: base
+layout: chapter
 title: Converter driven stability
---- 
+listing:
+  contents: 
+    - ./
+  type: table
+  fields: [title, author]
+  sort: [title]
+  page-size: 50
+---
+

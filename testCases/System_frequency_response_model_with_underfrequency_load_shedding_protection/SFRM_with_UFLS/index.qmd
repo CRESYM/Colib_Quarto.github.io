@@ -1,6 +1,6 @@
 ---
 layout: page
-title: underfrequency load shedding protection
+title: Underfrequency load shedding protection
 tags: [opensource, System frequency response model, centre of inertia, underfrequency load shedding, low frequency demand disconnection, Python, Matlab, Simulink, '#154'] 
 date: 03/06/2024  
 last-updated: 03/06/2024 
@@ -22,33 +22,33 @@ All 4 cases are based on the Underfrequency load shedding protection scheme and 
 
 ### Input data
 
-In the presented four case studies we considered a rated frequency of 50 Hz and the following SFRM parameters: $H$ = 4, $D$ = 1, $F_H$ = 0.3, $R$ = 0.05, $K_M$ = 0.95 and $T_R$ = 8.
+In the presented four case studies we considered a rated frequency of $50$ $Hz$ and the following SFRM parameters: $H$ = $4$, $D$ = $1$, $F_H$ = $0.3$, $R$ = $0.05$, $K_M$ = $0.95$ and $T_R$ = $8$.
 
-A 10-second-long time domain simulation was carried out with a time step of 1 microsecond. $\Delta P$ was modeled as a step change of $\Delta P$ = -0.7 occurring at time $t$ = 1 second. A frequency limit value $f_{LIM}$ for the calculation of $M$ via equation (3) is $f_{LIM}$ = 47.5 Hz.
+A 10-second-long time domain simulation was carried out with a time step of $1$ microsecond. $\Delta P$ was modeled as a step change of $\Delta P$ = $-0.7$ occurring at time $t$ = $1$ second. A frequency limit value $f_{LIM}$ for the calculation of $M$ via equation (3) is $f_{LIM}$ = $47.5$ $Hz$.
 
 **Case study #1**: Simulation without UFLS.
 
 **Case study #2**: Simulation with conventional UFLS with the following settings:
 
-- number of stages $n$ = 6,
-- stage frequency thresholds 49.00 Hz, 48.80 Hz, 48.60 Hz, 48.40 Hz, 48.20 Hz, 48.00 Hz,
-- stage amounts 0.10/stage.
+- number of stages $n$ = $6$,
+- stage frequency thresholds $49.00$ $Hz$, $48.80$ $Hz$, $48.60$ $Hz$, $48.40$ $Hz$, $48.20$ $Hz$, $48.00$ $Hz$,
+- stage amounts $0.10$/stage.
 
 **Case study #3**: Simulation with innovative UFLS with the following settings:
 
-- number of stages $n$ = 6,
-- stage frequency thresholds 49.00 Hz, 48.80 Hz, 48.60 Hz, 48.40 Hz, 48.20 Hz, 48.00 Hz,
-- stage $M$ thresholds 2.0, 1.80, 1.60, 1.40, 1.20, 1.00 seconds,
+- number of stages $n$ = $6$,
+- stage frequency thresholds $49.00$ $Hz$, $48.80$ $Hz$, $48.60$ $Hz$, $48.40$ $Hz$, $48.20$ $Hz$, $48.00$ $Hz$,
+- stage $M$ thresholds $2.0$, $1.80$, $1.60$, $1.40$, $1.20$, $1.00$ seconds,
 - L-shaped $f_{thr}(M)$ threshold function
-- stage amounts 0.10/stage.
+- stage amounts $0.10$/stage.
 
 **Case study #4**: Simulation with innovative UFLS with the following settings:
 
-- number of stages $n$ = 6,
-- stage frequency thresholds 49.0, 48.95, 48.90, 48.85, 48.80, 48.75 Hz,
-- stage $M$ thresholds 2.0, 1.80, 1.60, 1.40, 1.20, 1.00 seconds,
+- number of stages $n$ = $6$,
+- stage frequency thresholds $49.0$, $48.95$, $48.90$, $48.85$, $48.80$, $48.75$ $Hz$,
+- stage $M$ thresholds $2.0$, $1.80$, $1.60$, $1.40$, $1.20$, $1.00$ seconds,
 - ellipse-shaped $f_{thr}(M)$ threshold function
-- stage amounts 0.10/stage.
+- stage amounts $0.10$/stage.
 
 ### Case study results
 
@@ -64,7 +64,7 @@ The results, provided in the continuation, can be obtained by running any of the
 
 ## Implementations
 
-| Software      | URL | Created |
+| Software | URL | Created |
 | --------------| --- | --------- |
 | Python | [Link](https://github.com/UrRudFe/My_Colib0_contributions) | 03/06/2024 |
 | Matlab/Simulink | [Link](https://github.com/UrRudFe/My_Colib0_contributions) | 03/06/2024 |

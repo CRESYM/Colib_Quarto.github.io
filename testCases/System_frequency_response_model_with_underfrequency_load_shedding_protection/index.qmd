@@ -1,4 +1,11 @@
 ---
-layout: base
+layout: chapter
 title: System frequency response model with underfrequency load shedding protection
---- 
+listing:
+  contents: 
+    - ./
+  type: table
+  fields: [title, author]
+  sort: [title]
+  page-size: 50
+---

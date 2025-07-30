@@ -6,8 +6,11 @@ date: 24/10/2024
 last-updated: 24/10/2024 
 author: Carlos Alegre (eRoots)
 reviewers: Josep Fanals (eRoots)
+bibliography: 
+  - ../../_bibliography/references.bib
 ---
- 
+
+{{< meta reviewers >}}
 
 ## Use case purpose​ and context 
 
@@ -29,15 +32,7 @@ The references can be consulted in each model's page:
 The network is formed by two VSC in Grid Following - Grid Forming configuration, a symetric monopolar DC link, a three-phase voltage source representing the grid and a load. 
 
 
-<div style="background-color:rgba(0, 0, 0, 0); text-align:center; vertical-align: middle; padding:4px 0;">
-<img src="{{ 'HVDC_scheme.svg'}}"
-     alt="HVDC scheme"
-     style="float: center; margin-right: 10px; width: 900px;" />
-</div>
-<div align = 'center'>
-Figure 1: Circuit of the DC model test case studied.
-</div>
-<br>
+![HVDC scheme](HVDC_scheme.svg){#fig-hvdc-scheme}
 
 
 ## Static and Dynamic models​ description 
@@ -56,46 +51,46 @@ It covers:
 
 - **Static data for the lines**
 
-| Line/Cable  | Nominal Voltage (kV) |  R ($$\Omega$$) |  L ($$H$$)  |
+| Line/Cable | Nominal Voltage ($kV$) | $R$ ($\Omega$) | $L$ ($H$) |
 | ----------- | -------------------- | --------- | ---------- |
-| Converter - grid filter (grid connection)   |    $$2.45$$ kV              |   $$0.0326$$     | $$0.001038$$     |
-| Converter - capacitor (GFM)   |    $$2.45$$ kV              |   $$0.0048913$$     | $$0.00031139$$     |
-| DC line   |   $$1.5$$             |   $$0.001$$     | $$0.000163$$     |
+| Converter - grid filter (grid connection) | $2.45$ | $0.0326$ | $0.001038$ |
+| Converter - capacitor (GFM) | $2.45$ | $0.0048913$ | $0.00031139$ |
+| DC line | $1.5$ | $0.001$ | $0.000163$ |
 
 - **Static data for the capacitors**
 
-| Capacitor | C (F) |  
+| Capacitor | $C$ ($F$) |  
 | ----------- | -------------------- |
-| DC line   |   $$0.15$$           |  
-| GFM   |       $$1.63 \cdot 10^{-4}$$           |  
+| DC line | $0.15$ |  
+| GFM | $1.63 \cdot 10^{-4}$ |  
 
 - **Static data for the loads**
 
-| Loads |  P ($$MW$$)  | Q($$MVar$$) |
+| Loads | $P$ ($MW$) | $Q$ ($MVar$) |
 | ----------- | -------------------- | --------- | 
-| Load 1         |    $$ 1 $$             |  $$ 0.0001 $$   |
-| Load 2         |    $$ 0.5 $$           |  $$ 0.0001 $$   |
+| Load 1 | $1$ | $0.0001$ |
+| Load 2 | $0.5$ | $0.0001$ |
 
 
 - **Dynamic data for the Grid Following VSC.** 
 
 | Parameter | Value | Units |
 | --------- | ----- | ----- |
-| $$V_{peak}$$ | $$2.45$$ | kV |
-| $$\omega_n^{PLL}$$ | $$2\pi 1000$$ | rad/s |
-| $$\zeta^{PLL}$$ | $$0.707$$ | - |
-| $$K^{PLL}_p$$ | $$3.55$$ | - |
-| $$K^{PLL}_i$$ | $$1.58 \cdot 10^4$$ | - |
-| $$\tau^{PLL}$$ | $$0.225$$ | ms |
-| $$\tau^c$$ | $$1$$ | ms |
-| $$K^{icl}_p$$ | $$1,038$$ | - |
-| $$K^{icl}_i$$ | $$32.609$$ | - |
-| $$\tau_p$$ | $$15$$ | ms |
-| $$K^{ipl}_p$$ | $$1.778 \cdot 10^{-5}$$ | - |
-| $$K^{ipl}_i$$ | $$1.778 \cdot 10^{-2}$$ | - |
-| $$V_{DC}$$ | $$1.5$$ | kV |
-| $$K^{DC}_p$$ | $$ 5 $$ | - |
-| $$K^{DC}_i$$ | $$ 50 $$ | - |
+| $V_{peak}$ | $2.45$ | $kV$ |
+| $\omega_n^{PLL}$ | $2\pi 1000$ | $rad/s$ |
+| $\zeta^{PLL}$ | $0.707$ | - |
+| $K^{PLL}_p$ | $3.55$ | - |
+| $K^{PLL}_i$ | $1.58 \cdot 10^4$ | - |
+| $\tau^{PLL}$ | $0.225$ | $ms$ |
+| $\tau^c$ | $1$ | $ms$ |
+| $K^{icl}_p$ | $1,038$ | - |
+| $K^{icl}_i$ | $32.609$ | - |
+| $\tau_p$ | $15$ | $ms$ |
+| $K^{ipl}_p$ | $1.778 \cdot 10^{-5}$ | - |
+| $K^{ipl}_i$ | $1.778 \cdot 10^{-2}$ | - |
+| $V_{DC}$ | $1.5$ | $kV$ |
+| $K^{DC}_p$ | $5$ | - |
+| $K^{DC}_i$ | $50$ | - |
 
 
 - **Dynamic data for the Grid Forming VSC.** 
@@ -103,12 +98,12 @@ It covers:
 
 | Parameter | Value | Units |
 | --------- | ----- | ----- |
-| $$V_{peak}$$ | $$2.45$$ | kV |
-| $$K^{icl}_p$$ | $$0.13494$$ | - |
-| $$K^{icl}_i$$ | $$100$$ | - |
-| $$K^{vcl}_p$$ | $$5$$ | - |
-| $$K^{vcl}_i$$ | $$500$$ | - |
-| $$K^{Droop}_p$$ | $$2\pi 50$$ | - |
+| $V_{peak}$ | $2.45$ | $kV$ |
+| $K^{icl}_p$ | $0.13494$ | - |
+| $K^{icl}_i$ | $100$ | - |
+| $K^{vcl}_p$ | $5$ | - |
+| $K^{vcl}_i$ | $500$ | - |
+| $K^{Droop}_p$ | $2\pi 50$ | - |
 
 
 ## Scenarios 
@@ -117,15 +112,15 @@ It covers:
 
 The scenario studied starts with a constant load, and after 1 second, there is second load connection. This scenario serves to study setpoint tracking operation during changes of loads.
 
-- **Event:** Setpoing for $$Q_{ac}$$ is changed at 0.5 seconds. At 1s, connection of a new load in the Grid Forming side.
+- **Event:** Setpoing for $Q_{ac}$ is changed at 0.5 seconds. At 1s, connection of a new load in the Grid Forming side.
 
-- **Operating point No. 1 (0 to 0.5 s):** $$Q^*_{ac}$$ = 0 MVAr, $$P_{load}$$ = 1 MW.
+- **Operating point No. 1 (0 to 0.5 s):** $Q^*_{ac}$ = $0$ $MVAr$, $P_{load}$ = $1$ $MW$.
 
-- **Operating point No. 2 (0.5 to 1 s):** $$Q^*_{ac}$$ = 0.46 MVAr, $$P_{load}$$ = 1 MW.
+- **Operating point No. 2 (0.5 to 1 s):** $Q^*_{ac}$ = $0.46$ $MVAr$, $P_{load}$ = $1$ $MW$.
 
-- **Operating point No. 3 (1 to 2 s):** $$Q^*_{ac}$$ = 0.46 MVAr, $$P_{load}$$ = 1.5 MW.
+- **Operating point No. 3 (1 to 2 s):** $Q^*_{ac}$ = $0.46$ $MVAr$, $P_{load}$ = $1.5$ $MW$.
 
-- **Control modes:** Setpoint tracking, Grid Forming ($$V_{ac}$$, $$\theta_{ac}$$), Grid Following ($$V_{DC}$$, $$Q_{ac}$$).
+- **Control modes:** Setpoint tracking, Grid Forming ($V_{ac}$, $\theta_{ac}$), Grid Following ($V_{DC}$, $Q_{ac}$).
 
 - **Network variant:** The breaker connecting the new load is closed at 1 second.
 
@@ -134,65 +129,25 @@ The scenario studied starts with a constant load, and after 1 second, there is s
 
 To verify the correct setpoint tracking operation, we proceed to check the different controlled magnitudes of the simulation. Firstly, the plots for the DC voltage are shown at both ends of the DC link:
 
-<div style="background-color:rgba(0, 0, 0, 0); text-align:center; vertical-align: middle; padding:4px 0;">
-<img src="{{ '/pages/testCases/GridFollowing_GridForming_DClink/VDC_GFOL.svg' | relative_url }}"
-     alt="VDC_GFOL"
-     style="float: center; margin-right: 10px; width: 900px;" />
-</div>
-<div align = 'center'>
-Figure 2: DC voltage at the Grid Following side.
-</div>
-<br>
+![VDC_GFOL](VDC_GFOL.svg){#fig-vdc-gfol}
 
-<div style="background-color:rgba(0, 0, 0, 0); text-align:center; vertical-align: middle; padding:4px 0;">
-<img src="{{ '/pages/testCases/GridFollowing_GridForming_DClink/VDC_GFM.svg' | relative_url }}"
-     alt="VDC_GMR"
-     style="float: center; margin-right: 10px; width: 900px;" />
-</div>
-<div align = 'center'>
-Figure 3: DC voltage at the Grid Forming side.
-</div>
-<br>
+![VDC_GFM](VDC_GFM.svg){#fig-vdc-gfm}
 
-As shown in both figures, the DC voltage is correctly tracked by the DC voltage controls at the Grid Following side, reaching the desired value of 1.5 kV after a transient period. The Grid Forming side follows the same progression, although uncontrolled and falling slightly below the rated voltage due to the voltage drop of the link, as expected.
+As shown in both figures, the DC voltage is correctly tracked by the DC voltage controls at the Grid Following side, reaching the desired value of $1.5$ $kV$ after a transient period. The Grid Forming side follows the same progression, although uncontrolled and falling slightly below the rated voltage due to the voltage drop of the link, as expected.
 
 The reactive power exchanged with the grid in the Grid Following side is also shown in the following figure:
 
-<div style="background-color:rgba(0, 0, 0, 0); text-align:center; vertical-align: middle; padding:4px 0;">
-<img src="{{ '/pages/testCases/GridFollowing_GridForming_DClink/Qg_GFOL.svg' | relative_url }}"
-     alt="Qg_GFOL"
-     style="float: center; margin-right: 10px; width: 900px;" />
-</div>
-<div align = 'center'>
-Figure 4: Reactive power exchanged with the grid at the Grid Following side.
-</div>
-<br>
+![Qg_GFOL](Qg_GFOL.svg){#fig-qg-gfol}
 
-Initially, no reactive power is exchanged, but after the setpoint change at 0.5 seconds, the reactive power is increased to 0.46 MVAr, as expected. 
+Initially, no reactive power is exchanged, but after the setpoint change at 0.5 seconds, the reactive power is increased to $0.46$ $MVAr$, as expected. 
 
 Lastly, the active power exchanged at both converters can be seen in the following figures:
 
-<div style="background-color:rgba(0, 0, 0, 0); text-align:center; vertical-align: middle; padding:4px 0;">
-<img src="{{ '/pages/testCases/GridFollowing_GridForming_DClink/P_GFOL.svg' | relative_url }}"
-     alt="P_GFOL"
-     style="float: center; margin-right: 10px; width: 900px;" />
-</div>
-<div align = 'center'>
-Figure 5: Active power exchanged with the grid at the Grid Following side.
-</div>
-<br>
+![P_GFOL](P_GFOL.svg){#fig-p-gfol}
 
-<div style="background-color:rgba(0, 0, 0, 0); text-align:center; vertical-align: middle; padding:4px 0;">
-<img src="{{ '/pages/testCases/GridFollowing_GridForming_DClink/P_GFM.svg' | relative_url }}"
-     alt="P_GFM"
-     style="float: center; margin-right: 10px; width: 900px;" />
-</div>
-<div align = 'center'>
-Figure 6: Active power exchanged with the load at the Grid Forming side.
-</div>
-<br>
+![P_GFM](P_GFM.svg){#fig-p-gfm}
 
-We can see that the active power exchanged in both sides is slightly lower than the expected (1 MW or 1.5 MW). This is due to the characteristics of the load, which is a constant impedance load. The value of this impedance is calculated using the nominal values for voltage and power, and since there is a voltage drop from the converter to the load, the exchanged power is lower than the nominal value.
+We can see that the active power exchanged in both sides is slightly lower than the expected ($1$ $MW$ or $1.5$ $MW$). This is due to the characteristics of the load, which is a constant impedance load. The value of this impedance is calculated using the nominal values for voltage and power, and since there is a voltage drop from the converter to the load, the exchanged power is lower than the nominal value.
 
 
 

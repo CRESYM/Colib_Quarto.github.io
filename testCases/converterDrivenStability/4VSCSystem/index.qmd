@@ -27,45 +27,45 @@ This benchmark was originally proposed by Prof. Thierry Van Cutsem (formerly wit
 
 ## Network ​description
 
-The one-line diagram is shown in the following figure (Fig.1):
+The one-line diagram is shown in the following figure:
 
 ![Four VSC system](oneline.png){#fig-oneline}
 
 The system hosts two wind parks (WP1 and WP2) and the terminal converters of two HVDC links (HVDC1 and HVDC2). The remote converter of each HVDC link is not modelled, the DC voltage being assumed constant. WP1 and WP2 are aggregated equivalents of a large number of generators. The connection transformers of all four VSCs are represented explicitly.
 
-The connection to an external system is considered through the Thévenin equivalent attached to bus C. Since the Thévenin voltage source forces the system frequency to return to its nominal value in steady state, this 100% power-electronics based system is clearly not meant to address frequency issues.
+The connection to an external system is considered through the Thévenin equivalent attached to bus $C$. Since the Thévenin voltage source forces the system frequency to return to its nominal value in steady state, this 100% power-electronics based system is clearly not meant to address frequency issues.
 
-The 400-kV part of the transmission grid is meshed, allowing to simulate the outage of one or two circuits without disconnection from the external system. The line lenghts are given in Fig. 1. Each wind park is radially connected to the grid through six 225-kV cables and six transformers in parallel to cope with the maximum production of each park. The cables are 50 km long and correspond to the AC connection of an offshore wind farm. The shunt reactors at buses E and F aim at absorbing the excess reactive power produced by the cables.
+The 400-kV part of the transmission grid is meshed, allowing to simulate the outage of one or two circuits without disconnection from the external system. The line lenghts are given in Fig. 1. Each wind park is radially connected to the grid through six 225-kV cables and six transformers in parallel to cope with the maximum production of each park. The cables are 50 km long and correspond to the AC connection of an offshore wind farm. The shunt reactors at buses $E$ and $F$ aim at absorbing the excess reactive power produced by the cables.
 The line, cable, transformer and VSC parameters are given in Table 1, 2 and 3, respectively.
 
 
-| |  $R$ ($\Omega/km$) |  $X$ ($\Omega/km$) | $\omega \cdot \frac{C}{2}$ ($\mu S/km$)| $S_{nom}$ ($MVA$)  |
+| | $R$ ($\Omega/km$) | $X$ ($\Omega/km$) | $\omega \cdot \frac{C}{2}$ ($\mu S/km$)| $S_{nom}$ ($MVA$) |
 | -- | --------------- | ------------------ | ------------------------------------ | ----------------|
-| 400-kV*         |    0.016   |   0.320    | 1.5                   | 1300          |
-| 225-kV** | 0.0084 | 0.017 | 180.0 | 2400 |
+| 400-kV* | $0.016$ | $0.320$ | $1.5$ | $1300$ |
+| 225-kV** | $0.0084$ | $0.017$ | $180.0$ | $2400$ |
 
 : line and cable data {#tbl-line-cable}
 
 \* pertain to each circuit
 ** pertain to 6 cables in parallel
 
-| Transformer | Nominal Voltage ($V$) |  $R$ ($pu$)    |  $X$ ($pu$)     | $n$     | $S_{nom}$ ($MVA$) |
+| Transformer | Nominal Voltage ($V$) | $R$ ($pu$) | $X$ ($pu$) | $n$ | $S_{nom}$ ($MVA$) |
 | ----------- | --------------- | --------- | ---------- | ------------- | -----------|
-| A1-A        | 320/400         |    0.005   |   0.15      | 1.02           | 1200       |
-| B1-A        | 320/400         |    0.005   |   0.15      | 1.04           | 1700       |
-| A2-A        | 225/400         |    0.005   |   0.15      | 1.02           | 2400       |
-| B2-B        | 225/400         |    0.005   |   0.15      | 1.05           | 2400       |
-| WP1-E*      | 66/225          |    0.005   |   12.0      | 1.05           | 2400       |
-| WP2-F*      | 66/225          |    0.005   |   12.0      | 1.04           | 2400       |
+| A1-A | $320/400$ | $0.005$ | $0.15$ | $1.02$ | $1200$ |
+| B1-A | $320/400$ | $0.005$ | $0.15$ | $1.04$ | $1700$ |
+| A2-A | $225/400$ | $0.005$ | $0.15$ | $1.02$ | $2400$ |
+| B2-B | $225/400$ | $0.005$ | $0.15$ | $1.05$ | $2400$ |
+| WP1-E* | $66/225$ | $0.005$ | $12.0$ | $1.05$ | $2400$ |
+| WP2-F* | $66/225$ | $0.005$ | $12.0$ | $1.04$ | $2400$ |
 
 : Transformer data {#tbl-transformer}
 
-| Converter   | $S_{nom}$ ($MVA$) |  $P_{nom}$ ($MVA$)  |
+| Converter | $S_{nom}$ ($MVA$) | $P_{nom}$ ($MVA$) |
 | ----------- | ---------- | ------ |
-| WP1         | 2400       |   2300 |
-| WP2         | 2400       |   2300 |
-| HVDC1       | 1200       |   1150 |
-| HVDC2       | 1700       |   1630 |  
+| WP1 | $2400$ | $2300$ |
+| WP2 | $2400$ | $2300$ |
+| HVDC1 | $1200$ | $1150$ |
+| HVDC2 | $1700$ | $1630$ |  
 
 : Converter data {#tbl-converter}
 
@@ -77,15 +77,15 @@ A single dynamic model is used for all four [converters](../../../models/4-HVDC/
 
 Two operating points were considered in the simulations, as detailed in @tbl-operating-points.
 
-| operating point #   | power ($MW$) injected by |||  |  power ($MW$) into equiv.  | load ($MW$) at bus $C$ | power ($Mvar$) of shunt reactors |
+| operating point # | power ($MW$) injected by |||  | power ($MW$) into equiv. | load ($MW$) at bus $C$ | power ($Mvar$) of shunt reactors |
 |                     | $WP1$ | $WP2$ | $HVDC1$ | $HVDC2$   |                          |                    |                                |
 | ------------------- | ------------------------ | ------------------ | -------------------------------|
-| 1                   | 2000 | 2000 | 1150  | 1400  | 6374                     |   0                |     160                        |
-| 2                   | 2000 | 2000 | -1120 | -1600 | 0                      |   1169             |     500                        |
+| $1$ | $2000$ | $2000$ | $1150$ | $1400$ | $6374$ | $0$ | $160$ |
+| $2$ | $2000$ | $2000$ | $-1120$ | $-1600$ | $0$ | $1169$ | $500$ |
 
 : Operating points {#tbl-operating-points}
 
-The first operating conditions result in a heavily loaded network, both wind parks and both HVDC links injecting active power into the grid. Nevertheless, the system is N-1 secure with respect to the outage of any 400-kV circuit. No load is present. Hence, the whole production (minus the network losses) is exported to the external system represented by the Thévenin equivalent at bus $C$, whose short-circuit power has been set to 10 $GVA$. The operating point is shown in detail in @fig-op1.
+The first operating conditions result in a heavily loaded network, both wind parks and both HVDC links injecting active power into the grid. Nevertheless, the system is N-1 secure with respect to the outage of any 400-kV circuit. No load is present. Hence, the whole production (minus the network losses) is exported to the external system represented by the Thévenin equivalent at bus $C$, whose short-circuit power has been set to $10$ $GVA$. The operating point is shown in detail in @fig-op1.
 
 ![Operating point #1](OP1.jpg){#fig-op1}
 
@@ -152,9 +152,9 @@ The limit value of the short-circuit power obtained with respectively EMT and ph
 
 Some open source implementations of this use case are available in the following software solutions:
 
-| Software      | URL | Language  | Open-Source License | Last consulted date | Comments |
+| Software | URL | Language | Open-Source License | Last consulted date | Comments |
 | --------------| --- | --------- | -------------------| ------------------- |
 | Dynawo | [Link](https://github.com/dynawo/dynawo/tree/3093_GFL_VSC) | modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/) | 17/05/2024 | - |
 | STEPSS | [Link](https://github.com/CRESYM/colib0.github.io/tree/main/pages/testCases/converterDrivenStability/4VSCSystem/STEPPS) | own modelling language | models in open source | 17/05/2024 | - |
-| EMTP-RV | to be completed | .ecf   | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/) | - |
+| EMTP-RV | to be completed | .ecf | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/) | - |
 | SimPowerSystem | to be completed | Matlab | to be completed | - | 
