@@ -560,13 +560,72 @@ Table&nbsp;3: Converter data
 </section>
 <section id="operating-points" class="level2">
 <h2 class="anchored" data-anchor-id="operating-points">Operating points</h2>
-<p>Two operating points were considered in the simulations, as detailed in <strong>?@tbl-operating-points</strong>.</p>
-<div class="line-block">operating point # | power (<span class="math inline">\(MW\)</span>) injected by ||| | power (<span class="math inline">\(MW\)</span>) into equiv. | load (<span class="math inline">\(MW\)</span>) at bus <span class="math inline">\(C\)</span> | power (<span class="math inline">\(Mvar\)</span>) of shunt reactors |<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| <span class="math inline">\(WP1\)</span> | <span class="math inline">\(WP2\)</span> | <span class="math inline">\(HVDC1\)</span> | <span class="math inline">\(HVDC2\)</span> | | | |<br>
-——————- | ———————— | —————— | ——————————-|<br>
-<span class="math inline">\(1\)</span> | <span class="math inline">\(2000\)</span> | <span class="math inline">\(2000\)</span> | <span class="math inline">\(1150\)</span> | <span class="math inline">\(1400\)</span> | <span class="math inline">\(6374\)</span> | <span class="math inline">\(0\)</span> | <span class="math inline">\(160\)</span> |<br>
-<span class="math inline">\(2\)</span> | <span class="math inline">\(2000\)</span> | <span class="math inline">\(2000\)</span> | <span class="math inline">\(-1120\)</span> | <span class="math inline">\(-1600\)</span> | <span class="math inline">\(0\)</span> | <span class="math inline">\(1169\)</span> | <span class="math inline">\(500\)</span> |</div>
-<p>: Operating points {#tbl-operating-points}</p>
+<p>Two operating points were considered in the simulations, as detailed in <a href="#tbl-operating-points" class="quarto-xref">Table&nbsp;4</a>.</p>
+<div id="tbl-operating-points" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-operating-points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: Operating points
+</figcaption>
+<div aria-describedby="tbl-operating-points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 17%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 17%">
+<col style="width: 14%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>operating point #</th>
+<th>power (MW) injected by</th>
+<th></th>
+<th></th>
+<th></th>
+<th>power (MW) into equiv.</th>
+<th>load (MW) at bus C</th>
+<th>power (Mvar) of shunt reactors</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>WP1</td>
+<td>WP2</td>
+<td>HVDC1</td>
+<td>HVDC2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>2000</td>
+<td>2000</td>
+<td>1150</td>
+<td>1400</td>
+<td>6374</td>
+<td>0</td>
+<td>160</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>2000</td>
+<td>2000</td>
+<td>-1120</td>
+<td>-1600</td>
+<td>0</td>
+<td>1169</td>
+<td>500</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
 <p>The first operating conditions result in a heavily loaded network, both wind parks and both HVDC links injecting active power into the grid. Nevertheless, the system is N-1 secure with respect to the outage of any 400-kV circuit. No load is present. Hence, the whole production (minus the network losses) is exported to the external system represented by the Thévenin equivalent at bus <span class="math inline">\(C\)</span>, whose short-circuit power has been set to <span class="math inline">\(10\)</span> <span class="math inline">\(GVA\)</span>. The operating point is shown in detail in <a href="#fig-op1" class="quarto-xref">Figure&nbsp;2</a>.</p>
 <div id="fig-op1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">

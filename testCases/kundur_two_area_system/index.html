@@ -496,10 +496,19 @@ Table&nbsp;1: ZIP Load parameters
 </figure>
 </div>
 <p>In <span class="citation" data-cites="Kundur">(<a href="#ref-Kundur" role="doc-biblioref"><em>Power System Stability and Control</em> 2007</a>)</span> it is stated that the active power should be modelled as constant current and the reactive power as constant impedance: All coefficients can be set to zero except <span class="math inline">\(I_\mathrm{p} = Z_\mathrm{q} = 1\)</span>.</p>
-<blockquote class="blockquote">
-<p>[!IMPORTANT]</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Loads L7, L9 and shunt capacitors C7, C9 can all be modeled as ZIP loads. To reproduce the <strong>load flow results</strong> from Kundur, the loads need to be modeled as constant power (P and Q), while the shunt capacitors need to be modeled as constant impedance.</p>
-</blockquote>
+</div>
+</div>
 </section>
 </section>
 <section id="input-data" class="level2">
@@ -1262,14 +1271,32 @@ Figure&nbsp;2: Eigenvalues of the system with constant excitation voltage
 </section>
 <section id="example-b" class="level3">
 <h3 class="anchored" data-anchor-id="example-b">Example b</h3>
-<blockquote class="blockquote">
-<p>[!NOTE]</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>To obtain a steady state initial condition, the exact values for the generators active and reactive power and voltage angles from load flow <a href="#load-flow">Section 6.1</a> need to be used as initial values in the dynamic simulation.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>[!NOTE]</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>In the Dyna<span class="math inline">\(\omega\)</span>o implementation, if the voltage transducer time constant <span class="math inline">\(T_\mathrm{R}\)</span> = <span class="math inline">\(0.01\)</span> <span class="math inline">\(s\)</span>, then the voltage measurement first order lag and the field flux linkage <span class="math inline">\(\lambda_\mathrm{f}\)</span> oscillate against each other with high amplitude. This is not represented in the reference results. To avoid this behaviour, set <span class="math inline">\(T_\mathrm{R} = 10^{-6}\)</span> <span class="math inline">\(s\)</span>. This has been done for the Dyna<span class="math inline">\(\omega\)</span>o implementation.</p>
-</blockquote>
+</div>
+</div>
 <p><strong>Part 1: Self-excieted dc exciter (DC1A)</strong></p>
 <p>Instead of constant excitation voltage as in <a href="#example-a">Section 6.2</a>, now the self-excited DC exciter DC1A is used. For parameters, see <a href="#tbl-dc1a-parameters" class="quarto-xref">Table&nbsp;3</a>.</p>
 <p>In related references this case has not been taken into account for comparative analysis. Like there, it has not been investigated using the Dyna<span class="math inline">\(\omega\)</span>o implementation.</p>
