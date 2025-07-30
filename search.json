@@ -3540,99 +3540,14 @@
     "text": "For a demonstration of a line plot on a polar axis, see Figure 1.\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\n\n\n\nFigure 1: A line plot on a polar axis\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
-    "objectID": "testCases/converterDrivenStability/4VSCSystem/index.html",
-    "href": "testCases/converterDrivenStability/4VSCSystem/index.html",
-    "title": "Four VSC benchmark system",
+    "objectID": "testCases/converterDrivenStability/index.html",
+    "href": "testCases/converterDrivenStability/index.html",
+    "title": "Converter driven stability",
     "section": "",
-    "text": "This 100% power electronics small test system relies on Voltage Source Converters (VSC) operating in grid following mode. It aims at showing the limitations of the phasor approximation. Hence, there is an EMT and an RMS version of this system.\nThe system was designed to offer the following features:\n\nbeing small enough for its stability margins to be easily assessed\ninvolving several VSCs electrically rather close to each other (to contemplate possible interactions)\nbeing connected to an external grid of adjustable strength in terms of short-circuit power\nrelying on generic models\nbeing freely available.",
+    "text": "Back to top",
     "crumbs": [
       "Test Cases",
-      "Converter driven stability",
-      "Four VSC benchmark system"
-    ]
-  },
-  {
-    "objectID": "testCases/converterDrivenStability/4VSCSystem/index.html#use-case-features",
-    "href": "testCases/converterDrivenStability/4VSCSystem/index.html#use-case-features",
-    "title": "Four VSC benchmark system",
-    "section": "",
-    "text": "This 100% power electronics small test system relies on Voltage Source Converters (VSC) operating in grid following mode. It aims at showing the limitations of the phasor approximation. Hence, there is an EMT and an RMS version of this system.\nThe system was designed to offer the following features:\n\nbeing small enough for its stability margins to be easily assessed\ninvolving several VSCs electrically rather close to each other (to contemplate possible interactions)\nbeing connected to an external grid of adjustable strength in terms of short-circuit power\nrelying on generic models\nbeing freely available.",
-    "crumbs": [
-      "Test Cases",
-      "Converter driven stability",
-      "Four VSC benchmark system"
-    ]
-  },
-  {
-    "objectID": "testCases/converterDrivenStability/4VSCSystem/index.html#references",
-    "href": "testCases/converterDrivenStability/4VSCSystem/index.html#references",
-    "title": "Four VSC benchmark system",
-    "section": "References",
-    "text": "References\nThis benchmark was originally proposed by Prof. Thierry Van Cutsem (formerly with University of Liège, Belgium, acting as consultant for CRESYM). The VSC dynamic model was developed and validated by the team of Prof. Xavier Guillaud (Ecole Centrale de Lille, France). As part of the BiGER project (CRESYM), this test system has been implemented in Dynawo and EMTP.",
-    "crumbs": [
-      "Test Cases",
-      "Converter driven stability",
-      "Four VSC benchmark system"
-    ]
-  },
-  {
-    "objectID": "testCases/converterDrivenStability/4VSCSystem/index.html#network-description",
-    "href": "testCases/converterDrivenStability/4VSCSystem/index.html#network-description",
-    "title": "Four VSC benchmark system",
-    "section": "Network ​description",
-    "text": "Network ​description\nThe one-line diagram is shown in the following figure (Fig.1):\n\n\n\n Fig.1. one line diagram \n\n\nThe system hosts two wind parks (WP1 and WP2) and the terminal converters of two HVDC links (HVDC1 and HVDC2). The remote converter of each HVDC link is not modelled, the DC voltage being assumed constant. WP1 and WP2 are aggregated equivalents of a large number of generators. The connection transformers of all four VSCs are represented explicitly.\nThe connection to an external system is considered through the Thévenin equivalent attached to bus C. Since the Thévenin voltage source forces the system frequency to return to its nominal value in steady state, this 100% power-electronics based system is clearly not meant to address frequency issues.\nThe 400-kV part of the transmission grid is meshed, allowing to simulate the outage of one or two circuits without disconnection from the external system. The line lenghts are given in Fig. 1. Each wind park is radially connected to the grid through six 225-kV cables and six transformers in parallel to cope with the maximum production of each park. The cables are 50 km long and correspond to the AC connection of an offshore wind farm. The shunt reactors at buses E and F aim at absorbing the excess reactive power produced by the cables. The line, cable, transformer and VSC parameters are given in Table 1, 2 and 3, respectively.\n\n\n\n\n\n\n\n\n\n\n\nR (\\[\\Omega/km\\])\nX (\\[\\Omega/km\\])\n\\[\\omega *\\frac{C}{2}\\] (\\[\\nu S/km\\])\nSnom (\\[MVA\\])\n\n\n\n\n400-kV*\n0.016\n0.320\n1.5\n1300\n\n\n225-kV**\n0.0084\n0.017\n180.0\n2400\n\n\n\n\n Table 1: line and cable data \n\n* pertain to each circuit ** pertain to 6 cables in parallel\n\n\n\n\n\n\n\n\n\n\n\nTransformer\nNominal Voltage (V)\nR (pu)\nX (pu)\n\\[n\\]\nSnom (MVA)\n\n\n\n\nA1-A\n320/400\n0.005\n0.15\n1.02\n1200\n\n\nB1-A\n320/400\n0.005\n0.15\n1.04\n1700\n\n\nA2-A\n225/400\n0.005\n0.15\n1.02\n2400\n\n\nB2-B\n225/400\n0.005\n0.15\n1.05\n2400\n\n\nWP1-E*\n66/225\n0.005\n12.0\n1.05\n2400\n\n\nWP2-F*\n66/225\n0.005\n12.0\n1.04\n2400\n\n\n\n\n Table 2: Transformer data \n\n\n\n\nConverter\nSnom (MVA)\nPnom (MVA)\n\n\n\n\nWP1\n2400\n2300\n\n\nWP2\n2400\n2300\n\n\nHVDC1\n1200\n1150\n\n\nHVDC2\n1700\n1630\n\n\n\n\n Table 3: Converter data",
-    "crumbs": [
-      "Test Cases",
-      "Converter driven stability",
-      "Four VSC benchmark system"
-    ]
-  },
-  {
-    "objectID": "testCases/converterDrivenStability/4VSCSystem/index.html#dynamic-models",
-    "href": "testCases/converterDrivenStability/4VSCSystem/index.html#dynamic-models",
-    "title": "Four VSC benchmark system",
-    "section": "Dynamic models​",
-    "text": "Dynamic models​\nA single dynamic model is used for all four converters (though with a control variant for WP1 with respect to the other VSCs).",
-    "crumbs": [
-      "Test Cases",
-      "Converter driven stability",
-      "Four VSC benchmark system"
-    ]
-  },
-  {
-    "objectID": "testCases/converterDrivenStability/4VSCSystem/index.html#operating-points",
-    "href": "testCases/converterDrivenStability/4VSCSystem/index.html#operating-points",
-    "title": "Four VSC benchmark system",
-    "section": "Operating points",
-    "text": "Operating points\nTwo operating points were considered in the simulations, as detailed in Table 4.\noperating point # | power (MW) injected by ||| | power (MW) into equiv. | load (MW) at bus C | power (Mvar) of shunt reactors |\n                    | WP1 | WP2 | HVDC1 | HVDC2 | | | |\n——————- | ———————— | —————— | ——————————-|\n1 | 2000 | 2000 | 1150 | 1400 | 6374 | 0 | 160 |\n2 | 2000 | 2000 | -1120 | -1600 | 0 | 1169 | 500 |\n\n Table 4: Operating points \n\nThe first operating conditions result in a heavily loaded network, both wind parks and both HVDC links injecting active power into the grid. Nevertheless, the system is N-1 secure with respect to the outage of any 400-kV circuit. No load is present. Hence, the whole production (minus the network losses) is exported to the external system represented by the Thévenin equivalent at bus C, whose short-circuit power has been set to 10 GVA. The operating point is shown in detail in Fig. 2.\n\n\n\n\n Fig. 2: Operating point #1 \n\nIn the second operating point, the wind parks inject the same power, a large fraction of which is evacuated by the HDVC links. This results in a lightly loaded network with larger shunt reactors connected. At this operating point, stability is assessed in terms of minimal short-circuit power of the external system. The corresponding Thévenin reactance is varied. The net power injection of the VSCs (minus the network losses) is taken by the load at bus C, which results in no power flowing into the Th´evenin equivalent. Hence, the initial state remains unchanged while the reactance is varied and there is no risk of reaching the (static) loadability limit of the equivalent (for large values of its reactance). The operating point is shown in detail in Fig. 3.\n\n\n\n\n Fig. 3: Operating point #2",
-    "crumbs": [
-      "Test Cases",
-      "Converter driven stability",
-      "Four VSC benchmark system"
-    ]
-  },
-  {
-    "objectID": "testCases/converterDrivenStability/4VSCSystem/index.html#scenarios-and-example-of-simulation-results",
-    "href": "testCases/converterDrivenStability/4VSCSystem/index.html#scenarios-and-example-of-simulation-results",
-    "title": "Four VSC benchmark system",
-    "section": "Scenarios and example of simulation results",
-    "text": "Scenarios and example of simulation results\n\nScenario #1\nScenario # 1 relates to Operating point #1. The event is a solid three-phase fault on one of the two circuits of line A-C, next to bus A. The fault is cleared after 150 ms by opening the line, which remains open. The purpose of the simulation is to test the response to a large disturbance leading to current limitation in the VSCs.\nThe voltage evolutions are given in Fig. 4. During the fault, the voltage at bus A drops to zero, due to the proximity to the fault. The residual voltages at buses B and C are easily explained by their electrical distances from bus A. Voltages quickly recover after fault clearing but they undergo a peak, due to the large injection of reactive power (large value of \\[i_q\\] component of current) during the fault with the aim of supporting voltages. It is of interest to check the value of that peak with EMT simulation.\n\n\n\n\n Fig. 4: Operating point #1: voltages \n\nThe evolution of the VSC active powers is shown in Fig. 5 (left part). During the fault, the active power of HVDC1 drops to zero owing to the zero voltage at bus A. The other three VSCs undergo a severe drop of their active power, owing to the priority given to reactive power. After fault clearing, the active powers regain their pre-disturbance values but with the imposed maximum rate of recovery. The latter is faster for the two HVDC links than for the two wind parks. The right part of the figure shows the corresponding setpoint values of the id components. These setpoints are the input the fact current control loops.\n\n\n\n\n Fig. 5: Operating point #1: : active powers and id current setpoints \n\nThe evolution of the reactive powers is shown in the left part of Fig. 6 while the setpoint values of the iq components are shown in the right part. During the fault, all VSCs have their reactive power increased but their \\[i_q\\] components evolve differently:\n\nWP2, HVDC1 and HVDC2 control their voltages (on the converter side of the connection transformer). The severe voltage drop caused by the fault is counteracted by a quick decrease of \\[i_q\\], which corresponds to maximum injection of reactive power. iq hits the -1 limit, which corresponds to the whole current being taken by the iq component (\\[i_d = 0\\]), in accordance with the reactive power priority;\nWP1 is under reactive power control. During the fault, \\[i_q\\] increases in order to counteract the reactive power increase, before regaining its pre-disturbance value.\n\n\n\n\n\n Fig.6 Scenario #1 : reactive powers and iq current setpoints\n\n\n\nScenario #2\nScenario #2 relies on Operating point #2. The event is the opening of one circuit of the line between buses A and B. This 400-kV circuit carrying only 90 MW, the disturbance can be considered small; the purpose of the simulation is to test the small-disturbance stability of the resulting operating point.\nIn order to find the stability limit of the system, the short-circuit power of the external system (connected to bus C) is progressively decreased, until the response to the disturbance becomes unacceptable, owing to undamped oscillations.\nThe limit value of the short-circuit power obtained with respectively EMT and phasor simulations have been compared. The marginal cases are shown in Fig. 7 for the EMT simulation and Fig. 8 for the phasor-mode simulation. It can be seen that in EMT simulations the system becomes unstable for a short-circuit power around 16 GVA, while in phasor-mode simulations it becomes unacceptable at 5.5 GVA. There is thus a very significant difference. This scenario is very appropriate for future analysis in the BiGER (CRESYM) project.\n\n\n\n\n Fig.7 Scenario #2 : EMT simulations in marginal cases \n\n\n\n\n\n Fig.8 Scenario #2: Phasor-mode simulation in marginal cases",
-    "crumbs": [
-      "Test Cases",
-      "Converter driven stability",
-      "Four VSC benchmark system"
-    ]
-  },
-  {
-    "objectID": "testCases/converterDrivenStability/4VSCSystem/index.html#open-source-implementations",
-    "href": "testCases/converterDrivenStability/4VSCSystem/index.html#open-source-implementations",
-    "title": "Four VSC benchmark system",
-    "section": "Open source implementations",
-    "text": "Open source implementations\nSome open source implementations of this use case are available in the following software solutions:\n\n\n\nSoftware\nURL\nLanguage\nOpen-Source License\nLast consulted date\n\n\n\n\nDynawo\nLink\nmodelica\nMPL v2.0\n17/05/2024\n\n\nSTEPSS\nLink\nown modelling language\nmodels in open source\n17/05/2024\n\n\nEMTP-RV\nto be completed\n.ecf\nMPL v2.0\n-\n\n\nSimPowerSystem\nto be completed\nMatlab\nto be completed\n-",
-    "crumbs": [
-      "Test Cases",
-      "Converter driven stability",
-      "Four VSC benchmark system"
+      "Converter driven stability"
     ]
   },
   {
@@ -3640,7 +3555,7 @@
     "href": "testCases/System_frequency_response_model_with_underfrequency_load_shedding_protection/SFRM_with_UFLS/index.html",
     "title": "underfrequency load shedding protection",
     "section": "",
-    "text": "4 simple test cases have been developed in the context of XX by University of Ljubljana.\n\n\n\nAll 4 cases are based on the Underfrequency load shedding protection scheme and SSystem frequency response model as described here\n\n\n\n\n\nIn the presented four case studies we considered a rated frequency of 50 Hz and the following SFRM parameters: H = 4, D = 1, FH = 0.3, R = 0.05, KM = 0.95 and TR = 8.\nA 10-second-long time domain simulation was carried out with a time step of 1 microsecond. ΔP was modeled as a step change of ΔP = -0.7 occurring at time t = 1 second. A frequency limit value fLIM for the calculation of M via equation (3) is fLIM = 47.5 Hz.\nCase study #1: Simulation without UFLS.\nCase study #2: Simulation with conventional UFLS with the following settings:\n\nnumber of stages n = 6,\nstage frequency thresholds 49.00 Hz, 48.80 Hz, 48.60 Hz, 48.40 Hz, 48.20 Hz, 48.00 Hz,\nstage amounts 0.10/stage.\n\nCase study #3: Simulation with innovative UFLS with the following settings:\n\nnumber of stages n = 6,\nstage frequency thresholds 49.00 Hz, 48.80 Hz, 48.60 Hz, 48.40 Hz, 48.20 Hz, 48.00 Hz,\nstage M thresholds 2.0, 1.80, 1.60, 1.40, 1.20, 1.00 seconds,\nL-shaped fthr(M) threshold function\nstage amounts 0.10/stage.\n\nCase study #4: Simulation with innovative UFLS with the following settings:\n\nnumber of stages n = 6,\nstage frequency thresholds 49.0, 48.95, 48.90, 48.85, 48.80, 48.75 Hz,\nstage M thresholds 2.0, 1.80, 1.60, 1.40, 1.20, 1.00 seconds,\nellipse-shaped fthr(M) threshold function\nstage amounts 0.10/stage.\n\n\n\n\nThe results, provided in the continuation, can be obtained by running any of the three models provided (numerical integration with Matlab, Simulink simulation, Numerical integration with Python).\n\n\n\n Fig.1. Case study #1: electric power system frequency response, obtained with SFRM without UFLS \n\n\n\n\n\n Fig.2. Case study #2: electric power system frequency response, obtained with SFRM with conventional UFLS \n\n\n\n\n\n Fig.3. Case study #3: electric power system frequency response, obtained with SFRM and UL (L-shaped threshold function) \n\n\n\n\n\n Fig.4. Case study #4: electric power system frequency response, obtained with SFRM and UL UFLS (ellipse-shaped threshold function) \n\n\n\n\n\n\n\n\n\nSoftware\nURL\nCreated\n\n\n\n\nPython\nLink\n03/06/2024\n\n\nMatlab/Simulink\nLink\n03/06/2024\n\n\n\n\n\n\n[1] P. M. Anderson and M. Mirheydar, ‘A low-order system frequency response model’, IEEE Trans. Power Syst., vol. 5, no. 3, pp. 720–729, Aug. 1990, doi: 10.1109/59.65898.\n[2] T. Skrjanc, R. Mihalic, and U. Rudez, ‘A systematic literature review on under-frequency load shedding protection using clustering methods’, Renew. Sustain. Energy Rev., vol. 180, p. 113294, Jul. 2023, doi: 10.1016/j.rser.2023.113294.\n[3] U. Rudež, ‘Method and device for improved under-frequency load shedding in electrical power systems: US 11 349 309 B2 - 2022-05-31’, 2022 [Online]. Available: https://si.espacenet.com/publicationDetails/originalDocument?FT=D&date=20220531&DB=&locale=si_SI&CC=US&NR=11349309B2&KC=B2&ND=4\n[4] U. Rudez, D. Sodin, and R. Mihalic, ‘Estimating frequency stability margin for flexible under-frequency relay operation’, Electr. Power Syst. Res., vol. 194, p. 107116, May 2021, doi: 10.1016/j.epsr.2021.107116.\n[5] U. Rudez and R. Mihalic, ‘RoCoF-based Improvement of Conventional Under-Frequency Load Shedding’, in 2019 IEEE Milan PowerTech, Jun. 2019, pp. 1–5. doi: 10.1109/PTC.2019.8810438.\n[6] M. Vadillo, L. Sigrist, and U. Rudez, ‘Design and comparison of UFLS schemes of isolated power systems based on frequency stability margin’, in 2023 IEEE Belgrade PowerTech, Belgrade, Serbia: IEEE, Jun. 2023, pp. 1–6. doi: 10.1109/PowerTech55446.2023.10202842.\n[7] U. Rudež, T. Dimitrovska, and R. Mihalič, ‘A RoCoF-based supplement to conventional under-frequency load shedding protection characteristic’, presented at the Pacworld 2019, Glasgow, Scotland: s. n.], p. Str. 1-12.\n[8] D. Sodin, R. Ilievska, A. Čampa, M. Smolnikar, and U. Rudez, ‘Proving a Concept of Flexible Under-Frequency Load Shedding with Hardware-in-the-Loop Testing’, Energies, vol. 13, no. 14, Art. no. 14, Jan. 2020, doi: 10.3390/en13143607.\n[9] A. Bonetti, J. Zakonjsek, and U. Rudez, ‘Bringing ROCOF into spotlight in Smart Grids: new standardization and UFLS method’, in 2020 2nd Global Power, Energy and Communication Conference (GPECOM), Oct. 2020, pp. 238–244. doi: 10.1109/GPECOM49333.2020.9248722.",
+    "text": "4 simple test cases have been developed in the context of XX by University of Ljubljana.\n\n\n\nAll 4 cases are based on the Underfrequency load shedding protection scheme and SSystem frequency response model as described here\n\n\n\n\n\nIn the presented four case studies we considered a rated frequency of 50 Hz and the following SFRM parameters: \\(H\\) = 4, \\(D\\) = 1, \\(F_H\\) = 0.3, \\(R\\) = 0.05, \\(K_M\\) = 0.95 and \\(T_R\\) = 8.\nA 10-second-long time domain simulation was carried out with a time step of 1 microsecond. \\(\\Delta P\\) was modeled as a step change of \\(\\Delta P\\) = -0.7 occurring at time \\(t\\) = 1 second. A frequency limit value \\(f_{LIM}\\) for the calculation of \\(M\\) via equation (3) is \\(f_{LIM}\\) = 47.5 Hz.\nCase study #1: Simulation without UFLS.\nCase study #2: Simulation with conventional UFLS with the following settings:\n\nnumber of stages \\(n\\) = 6,\nstage frequency thresholds 49.00 Hz, 48.80 Hz, 48.60 Hz, 48.40 Hz, 48.20 Hz, 48.00 Hz,\nstage amounts 0.10/stage.\n\nCase study #3: Simulation with innovative UFLS with the following settings:\n\nnumber of stages \\(n\\) = 6,\nstage frequency thresholds 49.00 Hz, 48.80 Hz, 48.60 Hz, 48.40 Hz, 48.20 Hz, 48.00 Hz,\nstage \\(M\\) thresholds 2.0, 1.80, 1.60, 1.40, 1.20, 1.00 seconds,\nL-shaped \\(f_{thr}(M)\\) threshold function\nstage amounts 0.10/stage.\n\nCase study #4: Simulation with innovative UFLS with the following settings:\n\nnumber of stages \\(n\\) = 6,\nstage frequency thresholds 49.0, 48.95, 48.90, 48.85, 48.80, 48.75 Hz,\nstage \\(M\\) thresholds 2.0, 1.80, 1.60, 1.40, 1.20, 1.00 seconds,\nellipse-shaped \\(f_{thr}(M)\\) threshold function\nstage amounts 0.10/stage.\n\n\n\n\nThe results, provided in the continuation, can be obtained by running any of the three models provided (numerical integration with Matlab, Simulink simulation, Numerical integration with Python).\n\n\n\n\n\n\nFigure 1: Case study #1: electric power system frequency response, obtained with SFRM without UFLS\n\n\n\n\n\n\n\n\n\nFigure 2: Case study #2: electric power system frequency response, obtained with SFRM with conventional UFLS\n\n\n\n\n\n\n\n\n\nFigure 3: Case study #3: electric power system frequency response, obtained with SFRM and UL (L-shaped threshold function)\n\n\n\n\n\n\n\n\n\nFigure 4: Case study #4: electric power system frequency response, obtained with SFRM and UL UFLS (ellipse-shaped threshold function)\n\n\n\n\n\n\n\n\n\n\nSoftware\nURL\nCreated\n\n\n\n\nPython\nLink\n03/06/2024\n\n\nMatlab/Simulink\nLink\n03/06/2024\n\n\n\n\n\n\n[1] P. M. Anderson and M. Mirheydar, ‘A low-order system frequency response model’, IEEE Trans. Power Syst., vol. 5, no. 3, pp. 720–729, Aug. 1990, doi: 10.1109/59.65898.\n[2] T. Skrjanc, R. Mihalic, and U. Rudez, ‘A systematic literature review on under-frequency load shedding protection using clustering methods’, Renew. Sustain. Energy Rev., vol. 180, p. 113294, Jul. 2023, doi: 10.1016/j.rser.2023.113294.\n[3] U. Rudež, ‘Method and device for improved under-frequency load shedding in electrical power systems: US 11 349 309 B2 - 2022-05-31’, 2022 [Online]. Available: https://si.espacenet.com/publicationDetails/originalDocument?FT=D&date=20220531&DB=&locale=si_SI&CC=US&NR=11349309B2&KC=B2&ND=4\n[4] U. Rudez, D. Sodin, and R. Mihalic, ‘Estimating frequency stability margin for flexible under-frequency relay operation’, Electr. Power Syst. Res., vol. 194, p. 107116, May 2021, doi: 10.1016/j.epsr.2021.107116.\n[5] U. Rudez and R. Mihalic, ‘RoCoF-based Improvement of Conventional Under-Frequency Load Shedding’, in 2019 IEEE Milan PowerTech, Jun. 2019, pp. 1–5. doi: 10.1109/PTC.2019.8810438.\n[6] M. Vadillo, L. Sigrist, and U. Rudez, ‘Design and comparison of UFLS schemes of isolated power systems based on frequency stability margin’, in 2023 IEEE Belgrade PowerTech, Belgrade, Serbia: IEEE, Jun. 2023, pp. 1–6. doi: 10.1109/PowerTech55446.2023.10202842.\n[7] U. Rudež, T. Dimitrovska, and R. Mihalič, ‘A RoCoF-based supplement to conventional under-frequency load shedding protection characteristic’, presented at the Pacworld 2019, Glasgow, Scotland: s. n.], p. Str. 1-12.\n[8] D. Sodin, R. Ilievska, A. Čampa, M. Smolnikar, and U. Rudez, ‘Proving a Concept of Flexible Under-Frequency Load Shedding with Hardware-in-the-Loop Testing’, Energies, vol. 13, no. 14, Art. no. 14, Jan. 2020, doi: 10.3390/en13143607.\n[9] A. Bonetti, J. Zakonjsek, and U. Rudez, ‘Bringing ROCOF into spotlight in Smart Grids: new standardization and UFLS method’, in 2020 2nd Global Power, Energy and Communication Conference (GPECOM), Oct. 2020, pp. 238–244. doi: 10.1109/GPECOM49333.2020.9248722.",
     "crumbs": [
       "Test Cases",
       "System frequency response model with underfrequency load shedding protection",
@@ -3676,7 +3591,7 @@
     "href": "testCases/System_frequency_response_model_with_underfrequency_load_shedding_protection/SFRM_with_UFLS/index.html#case-studies",
     "title": "underfrequency load shedding protection",
     "section": "",
-    "text": "In the presented four case studies we considered a rated frequency of 50 Hz and the following SFRM parameters: H = 4, D = 1, FH = 0.3, R = 0.05, KM = 0.95 and TR = 8.\nA 10-second-long time domain simulation was carried out with a time step of 1 microsecond. ΔP was modeled as a step change of ΔP = -0.7 occurring at time t = 1 second. A frequency limit value fLIM for the calculation of M via equation (3) is fLIM = 47.5 Hz.\nCase study #1: Simulation without UFLS.\nCase study #2: Simulation with conventional UFLS with the following settings:\n\nnumber of stages n = 6,\nstage frequency thresholds 49.00 Hz, 48.80 Hz, 48.60 Hz, 48.40 Hz, 48.20 Hz, 48.00 Hz,\nstage amounts 0.10/stage.\n\nCase study #3: Simulation with innovative UFLS with the following settings:\n\nnumber of stages n = 6,\nstage frequency thresholds 49.00 Hz, 48.80 Hz, 48.60 Hz, 48.40 Hz, 48.20 Hz, 48.00 Hz,\nstage M thresholds 2.0, 1.80, 1.60, 1.40, 1.20, 1.00 seconds,\nL-shaped fthr(M) threshold function\nstage amounts 0.10/stage.\n\nCase study #4: Simulation with innovative UFLS with the following settings:\n\nnumber of stages n = 6,\nstage frequency thresholds 49.0, 48.95, 48.90, 48.85, 48.80, 48.75 Hz,\nstage M thresholds 2.0, 1.80, 1.60, 1.40, 1.20, 1.00 seconds,\nellipse-shaped fthr(M) threshold function\nstage amounts 0.10/stage.\n\n\n\n\nThe results, provided in the continuation, can be obtained by running any of the three models provided (numerical integration with Matlab, Simulink simulation, Numerical integration with Python).\n\n\n\n Fig.1. Case study #1: electric power system frequency response, obtained with SFRM without UFLS \n\n\n\n\n\n Fig.2. Case study #2: electric power system frequency response, obtained with SFRM with conventional UFLS \n\n\n\n\n\n Fig.3. Case study #3: electric power system frequency response, obtained with SFRM and UL (L-shaped threshold function) \n\n\n\n\n\n Fig.4. Case study #4: electric power system frequency response, obtained with SFRM and UL UFLS (ellipse-shaped threshold function)",
+    "text": "In the presented four case studies we considered a rated frequency of 50 Hz and the following SFRM parameters: \\(H\\) = 4, \\(D\\) = 1, \\(F_H\\) = 0.3, \\(R\\) = 0.05, \\(K_M\\) = 0.95 and \\(T_R\\) = 8.\nA 10-second-long time domain simulation was carried out with a time step of 1 microsecond. \\(\\Delta P\\) was modeled as a step change of \\(\\Delta P\\) = -0.7 occurring at time \\(t\\) = 1 second. A frequency limit value \\(f_{LIM}\\) for the calculation of \\(M\\) via equation (3) is \\(f_{LIM}\\) = 47.5 Hz.\nCase study #1: Simulation without UFLS.\nCase study #2: Simulation with conventional UFLS with the following settings:\n\nnumber of stages \\(n\\) = 6,\nstage frequency thresholds 49.00 Hz, 48.80 Hz, 48.60 Hz, 48.40 Hz, 48.20 Hz, 48.00 Hz,\nstage amounts 0.10/stage.\n\nCase study #3: Simulation with innovative UFLS with the following settings:\n\nnumber of stages \\(n\\) = 6,\nstage frequency thresholds 49.00 Hz, 48.80 Hz, 48.60 Hz, 48.40 Hz, 48.20 Hz, 48.00 Hz,\nstage \\(M\\) thresholds 2.0, 1.80, 1.60, 1.40, 1.20, 1.00 seconds,\nL-shaped \\(f_{thr}(M)\\) threshold function\nstage amounts 0.10/stage.\n\nCase study #4: Simulation with innovative UFLS with the following settings:\n\nnumber of stages \\(n\\) = 6,\nstage frequency thresholds 49.0, 48.95, 48.90, 48.85, 48.80, 48.75 Hz,\nstage \\(M\\) thresholds 2.0, 1.80, 1.60, 1.40, 1.20, 1.00 seconds,\nellipse-shaped \\(f_{thr}(M)\\) threshold function\nstage amounts 0.10/stage.\n\n\n\n\nThe results, provided in the continuation, can be obtained by running any of the three models provided (numerical integration with Matlab, Simulink simulation, Numerical integration with Python).\n\n\n\n\n\n\nFigure 1: Case study #1: electric power system frequency response, obtained with SFRM without UFLS\n\n\n\n\n\n\n\n\n\nFigure 2: Case study #2: electric power system frequency response, obtained with SFRM with conventional UFLS\n\n\n\n\n\n\n\n\n\nFigure 3: Case study #3: electric power system frequency response, obtained with SFRM and UL (L-shaped threshold function)\n\n\n\n\n\n\n\n\n\nFigure 4: Case study #4: electric power system frequency response, obtained with SFRM and UL UFLS (ellipse-shaped threshold function)",
     "crumbs": [
       "Test Cases",
       "System frequency response model with underfrequency load shedding protection",
@@ -3810,21 +3725,106 @@
     "href": "testCases/System_frequency_response_model_with_underfrequency_load_shedding_protection/index.html",
     "title": "System frequency response model with underfrequency load shedding protection",
     "section": "",
-    "text": "{% include folderNav.html %}\n\n\n\n Back to top",
+    "text": "Back to top",
     "crumbs": [
       "Test Cases",
       "System frequency response model with underfrequency load shedding protection"
     ]
   },
   {
-    "objectID": "testCases/converterDrivenStability/index.html",
-    "href": "testCases/converterDrivenStability/index.html",
-    "title": "Converter driven stability",
+    "objectID": "testCases/converterDrivenStability/4VSCSystem/index.html",
+    "href": "testCases/converterDrivenStability/4VSCSystem/index.html",
+    "title": "Four VSC benchmark system",
     "section": "",
-    "text": "{% include folderNav.html %}\n\n\n\n Back to top",
+    "text": "This 100% power electronics small test system relies on Voltage Source Converters (VSC) operating in grid following mode. It aims at showing the limitations of the phasor approximation. Hence, there is an EMT and an RMS version of this system.\nThe system was designed to offer the following features:\n\nbeing small enough for its stability margins to be easily assessed\ninvolving several VSCs electrically rather close to each other (to contemplate possible interactions)\nbeing connected to an external grid of adjustable strength in terms of short-circuit power\nrelying on generic models\nbeing freely available.",
     "crumbs": [
       "Test Cases",
-      "Converter driven stability"
+      "Converter driven stability",
+      "Four VSC benchmark system"
+    ]
+  },
+  {
+    "objectID": "testCases/converterDrivenStability/4VSCSystem/index.html#use-case-features",
+    "href": "testCases/converterDrivenStability/4VSCSystem/index.html#use-case-features",
+    "title": "Four VSC benchmark system",
+    "section": "",
+    "text": "This 100% power electronics small test system relies on Voltage Source Converters (VSC) operating in grid following mode. It aims at showing the limitations of the phasor approximation. Hence, there is an EMT and an RMS version of this system.\nThe system was designed to offer the following features:\n\nbeing small enough for its stability margins to be easily assessed\ninvolving several VSCs electrically rather close to each other (to contemplate possible interactions)\nbeing connected to an external grid of adjustable strength in terms of short-circuit power\nrelying on generic models\nbeing freely available.",
+    "crumbs": [
+      "Test Cases",
+      "Converter driven stability",
+      "Four VSC benchmark system"
+    ]
+  },
+  {
+    "objectID": "testCases/converterDrivenStability/4VSCSystem/index.html#references",
+    "href": "testCases/converterDrivenStability/4VSCSystem/index.html#references",
+    "title": "Four VSC benchmark system",
+    "section": "References",
+    "text": "References\nThis benchmark was originally proposed by Prof. Thierry Van Cutsem (formerly with University of Liège, Belgium, acting as consultant for CRESYM). The VSC dynamic model was developed and validated by the team of Prof. Xavier Guillaud (Ecole Centrale de Lille, France). As part of the BiGER project (CRESYM), this test system has been implemented in Dynawo and EMTP.",
+    "crumbs": [
+      "Test Cases",
+      "Converter driven stability",
+      "Four VSC benchmark system"
+    ]
+  },
+  {
+    "objectID": "testCases/converterDrivenStability/4VSCSystem/index.html#network-description",
+    "href": "testCases/converterDrivenStability/4VSCSystem/index.html#network-description",
+    "title": "Four VSC benchmark system",
+    "section": "Network ​description",
+    "text": "Network ​description\nThe one-line diagram is shown in the following figure (Fig.1):\n\n\n\n\n\n\nFigure 1: Four VSC system\n\n\n\nThe system hosts two wind parks (WP1 and WP2) and the terminal converters of two HVDC links (HVDC1 and HVDC2). The remote converter of each HVDC link is not modelled, the DC voltage being assumed constant. WP1 and WP2 are aggregated equivalents of a large number of generators. The connection transformers of all four VSCs are represented explicitly.\nThe connection to an external system is considered through the Thévenin equivalent attached to bus C. Since the Thévenin voltage source forces the system frequency to return to its nominal value in steady state, this 100% power-electronics based system is clearly not meant to address frequency issues.\nThe 400-kV part of the transmission grid is meshed, allowing to simulate the outage of one or two circuits without disconnection from the external system. The line lenghts are given in Fig. 1. Each wind park is radially connected to the grid through six 225-kV cables and six transformers in parallel to cope with the maximum production of each park. The cables are 50 km long and correspond to the AC connection of an offshore wind farm. The shunt reactors at buses E and F aim at absorbing the excess reactive power produced by the cables. The line, cable, transformer and VSC parameters are given in Table 1, 2 and 3, respectively.\n\n\n\nTable 1: line and cable data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\(R\\) (\\(\\Omega/km\\))\n\\(X\\) (\\(\\Omega/km\\))\n\\(\\omega \\cdot \\frac{C}{2}\\) (\\(\\mu S/km\\))\n\\(S_{nom}\\) (\\(MVA\\))\n\n\n\n\n400-kV*\n0.016\n0.320\n1.5\n1300\n\n\n225-kV**\n0.0084\n0.017\n180.0\n2400\n\n\n\n\n\n\n* pertain to each circuit ** pertain to 6 cables in parallel\n\n\n\nTable 2: Transformer data\n\n\n\n\n\n\n\n\n\n\n\n\n\nTransformer\nNominal Voltage (\\(V\\))\n\\(R\\) (\\(pu\\))\n\\(X\\) (\\(pu\\))\n\\(n\\)\n\\(S_{nom}\\) (\\(MVA\\))\n\n\n\n\nA1-A\n320/400\n0.005\n0.15\n1.02\n1200\n\n\nB1-A\n320/400\n0.005\n0.15\n1.04\n1700\n\n\nA2-A\n225/400\n0.005\n0.15\n1.02\n2400\n\n\nB2-B\n225/400\n0.005\n0.15\n1.05\n2400\n\n\nWP1-E*\n66/225\n0.005\n12.0\n1.05\n2400\n\n\nWP2-F*\n66/225\n0.005\n12.0\n1.04\n2400\n\n\n\n\n\n\n\n\n\nTable 3: Converter data\n\n\n\n\n\nConverter\n\\(S_{nom}\\) (\\(MVA\\))\n\\(P_{nom}\\) (\\(MVA\\))\n\n\n\n\nWP1\n2400\n2300\n\n\nWP2\n2400\n2300\n\n\nHVDC1\n1200\n1150\n\n\nHVDC2\n1700\n1630",
+    "crumbs": [
+      "Test Cases",
+      "Converter driven stability",
+      "Four VSC benchmark system"
+    ]
+  },
+  {
+    "objectID": "testCases/converterDrivenStability/4VSCSystem/index.html#dynamic-models",
+    "href": "testCases/converterDrivenStability/4VSCSystem/index.html#dynamic-models",
+    "title": "Four VSC benchmark system",
+    "section": "Dynamic models​",
+    "text": "Dynamic models​\nA single dynamic model is used for all four converters (though with a control variant for WP1 with respect to the other VSCs).",
+    "crumbs": [
+      "Test Cases",
+      "Converter driven stability",
+      "Four VSC benchmark system"
+    ]
+  },
+  {
+    "objectID": "testCases/converterDrivenStability/4VSCSystem/index.html#operating-points",
+    "href": "testCases/converterDrivenStability/4VSCSystem/index.html#operating-points",
+    "title": "Four VSC benchmark system",
+    "section": "Operating points",
+    "text": "Operating points\nTwo operating points were considered in the simulations, as detailed in ?@tbl-operating-points.\noperating point # | power (\\(MW\\)) injected by ||| | power (\\(MW\\)) into equiv. | load (\\(MW\\)) at bus \\(C\\) | power (\\(Mvar\\)) of shunt reactors |\n                    | \\(WP1\\) | \\(WP2\\) | \\(HVDC1\\) | \\(HVDC2\\) | | | |\n——————- | ———————— | —————— | ——————————-|\n1 | 2000 | 2000 | 1150 | 1400 | 6374 | 0 | 160 |\n2 | 2000 | 2000 | -1120 | -1600 | 0 | 1169 | 500 |\n: Operating points {#tbl-operating-points}\nThe first operating conditions result in a heavily loaded network, both wind parks and both HVDC links injecting active power into the grid. Nevertheless, the system is N-1 secure with respect to the outage of any 400-kV circuit. No load is present. Hence, the whole production (minus the network losses) is exported to the external system represented by the Thévenin equivalent at bus \\(C\\), whose short-circuit power has been set to 10 \\(GVA\\). The operating point is shown in detail in Figure 2.\n\n\n\n\n\n\nFigure 2: Operating point #1\n\n\n\nIn the second operating point, the wind parks inject the same power, a large fraction of which is evacuated by the HDVC links. This results in a lightly loaded network with larger shunt reactors connected. At this operating point, stability is assessed in terms of minimal short-circuit power of the external system. The corresponding Thévenin reactance is varied. The net power injection of the VSCs (minus the network losses) is taken by the load at bus \\(C\\), which results in no power flowing into the Thévenin equivalent. Hence, the initial state remains unchanged while the reactance is varied and there is no risk of reaching the (static) loadability limit of the equivalent (for large values of its reactance). The operating point is shown in detail in Figure 3.\n\n\n\n\n\n\nFigure 3: Operating point #2",
+    "crumbs": [
+      "Test Cases",
+      "Converter driven stability",
+      "Four VSC benchmark system"
+    ]
+  },
+  {
+    "objectID": "testCases/converterDrivenStability/4VSCSystem/index.html#scenarios-and-example-of-simulation-results",
+    "href": "testCases/converterDrivenStability/4VSCSystem/index.html#scenarios-and-example-of-simulation-results",
+    "title": "Four VSC benchmark system",
+    "section": "Scenarios and example of simulation results",
+    "text": "Scenarios and example of simulation results\n\nScenario #1\nScenario # 1 relates to Operating point #1. The event is a solid three-phase fault on one of the two circuits of line A-C, next to bus A. The fault is cleared after 150 ms by opening the line, which remains open. The purpose of the simulation is to test the response to a large disturbance leading to current limitation in the VSCs.\nThe voltage evolutions are given in Figure 4. During the fault, the voltage at bus A drops to zero, due to the proximity to the fault. The residual voltages at buses B and C are easily explained by their electrical distances from bus A. Voltages quickly recover after fault clearing but they undergo a peak, due to the large injection of reactive power (large value of \\(i_q\\) component of current) during the fault with the aim of supporting voltages. It is of interest to check the value of that peak with EMT simulation.\n\n\n\n\n\n\nFigure 4: Operating point #1: voltages\n\n\n\nThe evolution of the VSC active powers is shown in Figure 5 (left part). During the fault, the active power of HVDC1 drops to zero owing to the zero voltage at bus A. The other three VSCs undergo a severe drop of their active power, owing to the priority given to reactive power. After fault clearing, the active powers regain their pre-disturbance values but with the imposed maximum rate of recovery. The latter is faster for the two HVDC links than for the two wind parks. The right part of the figure shows the corresponding setpoint values of the \\(i_d\\) components. These setpoints are the input the fact current control loops.\n\n\n\n\n\n\nFigure 5: Operating point #1: active powers and \\(i_d\\) current setpoints\n\n\n\nThe evolution of the reactive powers is shown in the left part of Figure 6 while the setpoint values of the \\(i_q\\) components are shown in the right part. During the fault, all VSCs have their reactive power increased but their \\(i_q\\) components evolve differently:\n\nWP2, HVDC1 and HVDC2 control their voltages (on the converter side of the connection transformer). The severe voltage drop caused by the fault is counteracted by a quick decrease of \\(i_q\\), which corresponds to maximum injection of reactive power. \\(i_q\\) hits the -1 limit, which corresponds to the whole current being taken by the \\(i_q\\) component (\\(i_d = 0\\)), in accordance with the reactive power priority;\nWP1 is under reactive power control. During the fault, \\(i_q\\) increases in order to counteract the reactive power increase, before regaining its pre-disturbance value.\n\n\n\n\n\n\n\nFigure 6: Scenario #1: reactive powers and \\(i_q\\) current setpoints\n\n\n\n\n\nScenario #2\nScenario #2 relies on Operating point #2. The event is the opening of one circuit of the line between buses A and B. This 400-kV circuit carrying only 90 MW, the disturbance can be considered small; the purpose of the simulation is to test the small-disturbance stability of the resulting operating point.\nIn order to find the stability limit of the system, the short-circuit power of the external system (connected to bus C) is progressively decreased, until the response to the disturbance becomes unacceptable, owing to undamped oscillations.\nThe limit value of the short-circuit power obtained with respectively EMT and phasor simulations have been compared. The marginal cases are shown in Figure 7 for the EMT simulation and Figure 8 for the phasor-mode simulation. It can be seen that in EMT simulations the system becomes unstable for a short-circuit power around 16 GVA, while in phasor-mode simulations it becomes unacceptable at 5.5 GVA. There is thus a very significant difference. This scenario is very appropriate for future analysis in the BiGER (CRESYM) project.\n\n\n\n\n\n\nFigure 7: Scenario #2: EMT simulations in marginal cases\n\n\n\n\n\n\n\n\n\nFigure 8: Scenario #2: Phasor-mode simulation in marginal cases",
+    "crumbs": [
+      "Test Cases",
+      "Converter driven stability",
+      "Four VSC benchmark system"
+    ]
+  },
+  {
+    "objectID": "testCases/converterDrivenStability/4VSCSystem/index.html#open-source-implementations",
+    "href": "testCases/converterDrivenStability/4VSCSystem/index.html#open-source-implementations",
+    "title": "Four VSC benchmark system",
+    "section": "Open source implementations",
+    "text": "Open source implementations\nSome open source implementations of this use case are available in the following software solutions:\n\n\n\nSoftware\nURL\nLanguage\nOpen-Source License\nLast consulted date\n\n\n\n\nDynawo\nLink\nmodelica\nMPL v2.0\n17/05/2024\n\n\nSTEPSS\nLink\nown modelling language\nmodels in open source\n17/05/2024\n\n\nEMTP-RV\nto be completed\n.ecf\nMPL v2.0\n-\n\n\nSimPowerSystem\nto be completed\nMatlab\nto be completed\n-",
+    "crumbs": [
+      "Test Cases",
+      "Converter driven stability",
+      "Four VSC benchmark system"
     ]
   },
   {

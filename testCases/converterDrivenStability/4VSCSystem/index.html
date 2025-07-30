@@ -377,15 +377,25 @@ window.Quarto = {
 <section id="network-description" class="level2">
 <h2 class="anchored" data-anchor-id="network-description">Network ​description</h2>
 <p>The one-line diagram is shown in the following figure (Fig.1):</p>
-<figure class="figure">
-<img src="{{ 'oneline.png'}}" alt="Four VSC system" style="float: center; margin-right: 10px;" class="figure-img">
-<p style="text-align: center; font-family: Serif;">
-<b> Fig.1. one line diagram </b>
-</p>
+<div id="fig-oneline" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-oneline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="oneline.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-oneline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Four VSC system
+</figcaption>
 </figure>
+</div>
 <p>The system hosts two wind parks (WP1 and WP2) and the terminal converters of two HVDC links (HVDC1 and HVDC2). The remote converter of each HVDC link is not modelled, the DC voltage being assumed constant. WP1 and WP2 are aggregated equivalents of a large number of generators. The connection transformers of all four VSCs are represented explicitly.</p>
 <p>The connection to an external system is considered through the Thévenin equivalent attached to bus C. Since the Thévenin voltage source forces the system frequency to return to its nominal value in steady state, this 100% power-electronics based system is clearly not meant to address frequency issues.</p>
 <p>The 400-kV part of the transmission grid is meshed, allowing to simulate the outage of one or two circuits without disconnection from the external system. The line lenghts are given in Fig. 1. Each wind park is radially connected to the grid through six 225-kV cables and six transformers in parallel to cope with the maximum production of each park. The cables are 50 km long and correspond to the AC connection of an offshore wind farm. The shunt reactors at buses E and F aim at absorbing the excess reactive power produced by the cables. The line, cable, transformer and VSC parameters are given in Table 1, 2 and 3, respectively.</p>
+<div id="tbl-line-cable" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-line-cable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: line and cable data
+</figcaption>
+<div aria-describedby="tbl-line-cable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 2%">
@@ -397,10 +407,10 @@ window.Quarto = {
 <thead>
 <tr class="header">
 <th></th>
-<th>R (<span class="math display">\[\Omega/km\]</span>)</th>
-<th>X (<span class="math display">\[\Omega/km\]</span>)</th>
-<th><span class="math display">\[\omega *\frac{C}{2}\]</span> (<span class="math display">\[\nu S/km\]</span>)</th>
-<th>Snom (<span class="math display">\[MVA\]</span>)</th>
+<th><span class="math inline">\(R\)</span> (<span class="math inline">\(\Omega/km\)</span>)</th>
+<th><span class="math inline">\(X\)</span> (<span class="math inline">\(\Omega/km\)</span>)</th>
+<th><span class="math inline">\(\omega \cdot \frac{C}{2}\)</span> (<span class="math inline">\(\mu S/km\)</span>)</th>
+<th><span class="math inline">\(S_{nom}\)</span> (<span class="math inline">\(MVA\)</span>)</th>
 </tr>
 </thead>
 <tbody>
@@ -420,10 +430,16 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p style="text-align: center; font-family: Serif;">
-<b> Table 1: line and cable data </b>
-</p>
+</div>
+</figure>
+</div>
 <p>* pertain to each circuit ** pertain to 6 cables in parallel</p>
+<div id="tbl-transformer" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-transformer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Transformer data
+</figcaption>
+<div aria-describedby="tbl-transformer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
@@ -436,11 +452,11 @@ window.Quarto = {
 <thead>
 <tr class="header">
 <th>Transformer</th>
-<th>Nominal Voltage (V)</th>
-<th>R (pu)</th>
-<th>X (pu)</th>
-<th><span class="math display">\[n\]</span></th>
-<th>Snom (MVA)</th>
+<th>Nominal Voltage (<span class="math inline">\(V\)</span>)</th>
+<th><span class="math inline">\(R\)</span> (<span class="math inline">\(pu\)</span>)</th>
+<th><span class="math inline">\(X\)</span> (<span class="math inline">\(pu\)</span>)</th>
+<th><span class="math inline">\(n\)</span></th>
+<th><span class="math inline">\(S_{nom}\)</span> (<span class="math inline">\(MVA\)</span>)</th>
 </tr>
 </thead>
 <tbody>
@@ -494,15 +510,21 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p style="text-align: center; font-family: Serif;">
-<b> Table 2: Transformer data </b>
-</p>
+</div>
+</figure>
+</div>
+<div id="tbl-converter" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-converter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Converter data
+</figcaption>
+<div aria-describedby="tbl-converter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Converter</th>
-<th>Snom (MVA)</th>
-<th>Pnom (MVA)</th>
+<th><span class="math inline">\(S_{nom}\)</span> (<span class="math inline">\(MVA\)</span>)</th>
+<th><span class="math inline">\(P_{nom}\)</span> (<span class="math inline">\(MVA\)</span>)</th>
 </tr>
 </thead>
 <tbody>
@@ -528,9 +550,9 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p style="text-align: center; font-family: Serif;">
-<b> Table 3: Converter data </b>
-</p>
+</div>
+</figure>
+</div>
 </section>
 <section id="dynamic-models" class="level2">
 <h2 class="anchored" data-anchor-id="dynamic-models">Dynamic models​</h2>
@@ -538,78 +560,104 @@ window.Quarto = {
 </section>
 <section id="operating-points" class="level2">
 <h2 class="anchored" data-anchor-id="operating-points">Operating points</h2>
-<p>Two operating points were considered in the simulations, as detailed in Table 4.</p>
-<div class="line-block">operating point # | power (MW) injected by ||| | power (MW) into equiv. | load (MW) at bus C | power (Mvar) of shunt reactors |<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| WP1 | WP2 | HVDC1 | HVDC2 | | | |<br>
+<p>Two operating points were considered in the simulations, as detailed in <strong>?@tbl-operating-points</strong>.</p>
+<div class="line-block">operating point # | power (<span class="math inline">\(MW\)</span>) injected by ||| | power (<span class="math inline">\(MW\)</span>) into equiv. | load (<span class="math inline">\(MW\)</span>) at bus <span class="math inline">\(C\)</span> | power (<span class="math inline">\(Mvar\)</span>) of shunt reactors |<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| <span class="math inline">\(WP1\)</span> | <span class="math inline">\(WP2\)</span> | <span class="math inline">\(HVDC1\)</span> | <span class="math inline">\(HVDC2\)</span> | | | |<br>
 ——————- | ———————— | —————— | ——————————-|<br>
 1 | 2000 | 2000 | 1150 | 1400 | 6374 | 0 | 160 |<br>
 2 | 2000 | 2000 | -1120 | -1600 | 0 | 1169 | 500 |</div>
-<p style="text-align: center; font-family: Serif;">
-<b> Table 4: Operating points </b>
-</p>
-<p>The first operating conditions result in a heavily loaded network, both wind parks and both HVDC links injecting active power into the grid. Nevertheless, the system is N-1 secure with respect to the outage of any 400-kV circuit. No load is present. Hence, the whole production (minus the network losses) is exported to the external system represented by the Thévenin equivalent at bus C, whose short-circuit power has been set to 10 GVA. The operating point is shown in detail in Fig. 2.</p>
-<figure class="figure">
-<img src="{{ '/pages/testCases/converterDrivenStability/4VSCSystem/OP1.jpg' | relative_url }}" alt="Four VSC system OP 1" style="float: center; align: center;" class="figure-img">
+<p>: Operating points {#tbl-operating-points}</p>
+<p>The first operating conditions result in a heavily loaded network, both wind parks and both HVDC links injecting active power into the grid. Nevertheless, the system is N-1 secure with respect to the outage of any 400-kV circuit. No load is present. Hence, the whole production (minus the network losses) is exported to the external system represented by the Thévenin equivalent at bus <span class="math inline">\(C\)</span>, whose short-circuit power has been set to 10 <span class="math inline">\(GVA\)</span>. The operating point is shown in detail in <a href="#fig-op1" class="quarto-xref">Figure&nbsp;2</a>.</p>
+<div id="fig-op1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-op1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="OP1.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-op1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Operating point #1
+</figcaption>
 </figure>
-<p style="text-align: center; font-family: Serif;">
-<b> Fig. 2: Operating point #1 </b>
-</p>
-<p>In the second operating point, the wind parks inject the same power, a large fraction of which is evacuated by the HDVC links. This results in a lightly loaded network with larger shunt reactors connected. At this operating point, stability is assessed in terms of minimal short-circuit power of the external system. The corresponding Thévenin reactance is varied. The net power injection of the VSCs (minus the network losses) is taken by the load at bus C, which results in no power flowing into the Th´evenin equivalent. Hence, the initial state remains unchanged while the reactance is varied and there is no risk of reaching the (static) loadability limit of the equivalent (for large values of its reactance). The operating point is shown in detail in Fig. 3.</p>
-<figure class="figure">
-<img src="{{ '/pages/testCases/converterDrivenStability/4VSCSystem/OP2.jpg' | relative_url }}" alt="Four VSC system operating point 2" style="float: center; align:center;" class="figure-img">
+</div>
+<p>In the second operating point, the wind parks inject the same power, a large fraction of which is evacuated by the HDVC links. This results in a lightly loaded network with larger shunt reactors connected. At this operating point, stability is assessed in terms of minimal short-circuit power of the external system. The corresponding Thévenin reactance is varied. The net power injection of the VSCs (minus the network losses) is taken by the load at bus <span class="math inline">\(C\)</span>, which results in no power flowing into the Thévenin equivalent. Hence, the initial state remains unchanged while the reactance is varied and there is no risk of reaching the (static) loadability limit of the equivalent (for large values of its reactance). The operating point is shown in detail in <a href="#fig-op2" class="quarto-xref">Figure&nbsp;3</a>.</p>
+<div id="fig-op2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-op2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="OP2.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-op2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Operating point #2
+</figcaption>
 </figure>
-<p style="text-align: center; font-family: Serif;">
-<b> Fig. 3: Operating point #2 </b>
-</p>
+</div>
 </section>
 <section id="scenarios-and-example-of-simulation-results" class="level2">
 <h2 class="anchored" data-anchor-id="scenarios-and-example-of-simulation-results">Scenarios and example of simulation results</h2>
 <section id="scenario-1" class="level3">
 <h3 class="anchored" data-anchor-id="scenario-1">Scenario #1</h3>
 <p>Scenario # 1 relates to Operating point #1. The event is a solid three-phase fault on one of the two circuits of line A-C, next to bus A. The fault is cleared after 150 ms by opening the line, which remains open. The purpose of the simulation is to test the response to a large disturbance leading to current limitation in the VSCs.</p>
-<p>The voltage evolutions are given in Fig. 4. During the fault, the voltage at bus A drops to zero, due to the proximity to the fault. The residual voltages at buses B and C are easily explained by their electrical distances from bus A. Voltages quickly recover after fault clearing but they undergo a peak, due to the large injection of reactive power (large value of <span class="math display">\[i_q\]</span> component of current) during the fault with the aim of supporting voltages. It is of interest to check the value of that peak with EMT simulation.</p>
-<figure class="figure">
-<img src="{{ '/pages/testCases/converterDrivenStability/4VSCSystem/volt.jpg' | relative_url }}" alt="Four VSC system OP1 voltages" style="float: center; margin-right: 10px;" class="figure-img">
+<p>The voltage evolutions are given in <a href="#fig-voltages" class="quarto-xref">Figure&nbsp;4</a>. During the fault, the voltage at bus A drops to zero, due to the proximity to the fault. The residual voltages at buses B and C are easily explained by their electrical distances from bus A. Voltages quickly recover after fault clearing but they undergo a peak, due to the large injection of reactive power (large value of <span class="math inline">\(i_q\)</span> component of current) during the fault with the aim of supporting voltages. It is of interest to check the value of that peak with EMT simulation.</p>
+<div id="fig-voltages" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-voltages-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="volt.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-voltages-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Operating point #1: voltages
+</figcaption>
 </figure>
-<p style="text-align: center; font-family: Serif;">
-<b> Fig. 4: Operating point #1: voltages </b>
-</p>
-<p>The evolution of the VSC active powers is shown in Fig. 5 (left part). During the fault, the active power of HVDC1 drops to zero owing to the zero voltage at bus A. The other three VSCs undergo a severe drop of their active power, owing to the priority given to reactive power. After fault clearing, the active powers regain their pre-disturbance values but with the imposed maximum rate of recovery. The latter is faster for the two HVDC links than for the two wind parks. The right part of the figure shows the corresponding setpoint values of the id components. These setpoints are the input the fact current control loops.</p>
-<figure class="figure">
-<img src="{{ '/pages/testCases/converterDrivenStability/4VSCSystem/P.jpg' | relative_url }}" alt="Four VSC system OP 1 active and id current" style="float: center; margin-right: 10px;" class="figure-img">
+</div>
+<p>The evolution of the VSC active powers is shown in <a href="#fig-active-powers" class="quarto-xref">Figure&nbsp;5</a> (left part). During the fault, the active power of HVDC1 drops to zero owing to the zero voltage at bus A. The other three VSCs undergo a severe drop of their active power, owing to the priority given to reactive power. After fault clearing, the active powers regain their pre-disturbance values but with the imposed maximum rate of recovery. The latter is faster for the two HVDC links than for the two wind parks. The right part of the figure shows the corresponding setpoint values of the <span class="math inline">\(i_d\)</span> components. These setpoints are the input the fact current control loops.</p>
+<div id="fig-active-powers" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-active-powers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="P.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-active-powers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Operating point #1: active powers and <span class="math inline">\(i_d\)</span> current setpoints
+</figcaption>
 </figure>
-<p style="text-align: center; font-family: Serif;">
-<b> Fig. 5: Operating point #1: : active powers and id current setpoints </b>
-</p>
-<p>The evolution of the reactive powers is shown in the left part of Fig. 6 while the setpoint values of the iq components are shown in the right part. During the fault, all VSCs have their reactive power increased but their <span class="math display">\[i_q\]</span> components evolve differently:</p>
+</div>
+<p>The evolution of the reactive powers is shown in the left part of <a href="#fig-reactive-powers" class="quarto-xref">Figure&nbsp;6</a> while the setpoint values of the <span class="math inline">\(i_q\)</span> components are shown in the right part. During the fault, all VSCs have their reactive power increased but their <span class="math inline">\(i_q\)</span> components evolve differently:</p>
 <ul>
-<li>WP2, HVDC1 and HVDC2 control their voltages (on the converter side of the connection transformer). The severe voltage drop caused by the fault is counteracted by a quick decrease of <span class="math display">\[i_q\]</span>, which corresponds to maximum injection of reactive power. iq hits the -1 limit, which corresponds to the whole current being taken by the iq component (<span class="math display">\[i_d = 0\]</span>), in accordance with the reactive power priority;</li>
-<li>WP1 is under reactive power control. During the fault, <span class="math display">\[i_q\]</span> increases in order to counteract the reactive power increase, before regaining its pre-disturbance value.</li>
+<li>WP2, HVDC1 and HVDC2 control their voltages (on the converter side of the connection transformer). The severe voltage drop caused by the fault is counteracted by a quick decrease of <span class="math inline">\(i_q\)</span>, which corresponds to maximum injection of reactive power. <span class="math inline">\(i_q\)</span> hits the -1 limit, which corresponds to the whole current being taken by the <span class="math inline">\(i_q\)</span> component (<span class="math inline">\(i_d = 0\)</span>), in accordance with the reactive power priority;</li>
+<li>WP1 is under reactive power control. During the fault, <span class="math inline">\(i_q\)</span> increases in order to counteract the reactive power increase, before regaining its pre-disturbance value.</li>
 </ul>
-<figure class="figure">
-<img src="{{ '/pages/testCases/converterDrivenStability/4VSCSystem/Q.jpg' | relative_url }}" alt="Four VSC system OP 1 active and id current" style="float: center; margin-right: 10px;" class="figure-img">
+<div id="fig-reactive-powers" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-reactive-powers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Q.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reactive-powers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Scenario #1: reactive powers and <span class="math inline">\(i_q\)</span> current setpoints
+</figcaption>
 </figure>
-<p style="text-align: center; font-family: Serif;">
-<b> Fig.6 Scenario #1 : reactive powers and iq current setpoints</b>
-</p>
+</div>
 </section>
 <section id="scenario-2" class="level3">
 <h3 class="anchored" data-anchor-id="scenario-2">Scenario #2</h3>
 <p>Scenario #2 relies on Operating point #2. The event is the opening of one circuit of the line between buses A and B. This 400-kV circuit carrying only 90 MW, the disturbance can be considered small; the purpose of the simulation is to test the small-disturbance stability of the resulting operating point.</p>
 <p>In order to find the stability limit of the system, the short-circuit power of the external system (connected to bus C) is progressively decreased, until the response to the disturbance becomes unacceptable, owing to undamped oscillations.</p>
-<p>The limit value of the short-circuit power obtained with respectively EMT and phasor simulations have been compared. The marginal cases are shown in Fig. 7 for the EMT simulation and Fig. 8 for the phasor-mode simulation. It can be seen that in EMT simulations the system becomes unstable for a short-circuit power around 16 GVA, while in phasor-mode simulations it becomes unacceptable at 5.5 GVA. There is thus a very significant difference. This scenario is very appropriate for future analysis in the BiGER (CRESYM) project.</p>
-<figure class="figure">
-<img src="{{ '/pages/testCases/converterDrivenStability/4VSCSystem/stab_limit_EMT.jpg' | relative_url }}" alt="EMT simulation cases in marginal case" style="float: center;" class="figure-img">
+<p>The limit value of the short-circuit power obtained with respectively EMT and phasor simulations have been compared. The marginal cases are shown in <a href="#fig-emt-marginal" class="quarto-xref">Figure&nbsp;7</a> for the EMT simulation and <a href="#fig-phasor-marginal" class="quarto-xref">Figure&nbsp;8</a> for the phasor-mode simulation. It can be seen that in EMT simulations the system becomes unstable for a short-circuit power around 16 GVA, while in phasor-mode simulations it becomes unacceptable at 5.5 GVA. There is thus a very significant difference. This scenario is very appropriate for future analysis in the BiGER (CRESYM) project.</p>
+<div id="fig-emt-marginal" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-emt-marginal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="stab_limit_EMT.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-emt-marginal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Scenario #2: EMT simulations in marginal cases
+</figcaption>
 </figure>
-<p style="text-align: center; font-family: Serif;">
-<b> Fig.7 Scenario #2 : EMT simulations in marginal cases </b>
-</p>
-<figure class="figure">
-<img src="{{ '/pages/testCases/converterDrivenStability/4VSCSystem/stab_limit_phasor.jpg' | relative_url }}" alt="phasor-mode simulation in marginal cases" style="float: center;" class="figure-img">
+</div>
+<div id="fig-phasor-marginal" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-phasor-marginal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="stab_limit_phasor.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-phasor-marginal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: Scenario #2: Phasor-mode simulation in marginal cases
+</figcaption>
 </figure>
-<p style="text-align: center; font-family: Serif;">
-<b> Fig.8 Scenario #2: Phasor-mode simulation in marginal cases</b>
-</p>
+</div>
 </section>
 </section>
 <section id="open-source-implementations" class="level2">
