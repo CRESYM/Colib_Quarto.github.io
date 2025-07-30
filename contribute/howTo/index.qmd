@@ -19,7 +19,7 @@ COLIB uses **Quarto Markdown (QMD)** format for all documentation pages. QMD is 
 - Produce high-quality HTML, PDF, and other output formats
 
 :::{.callout-note}
-**QMD Benefits for Scientific Documentation:**
+## QMD Benefits for Scientific Documentation:
 
 - Native support for mathematical equations using LaTeX syntax
 - Automatic cross-referencing of figures, tables, and equations
@@ -45,7 +45,7 @@ Use the **Model Template** when you want to contribute on:
 </a>
 
 :::{.callout-note}
-**Model template includes:**
+## Model template includes:
 
 - Context (mandatory)
 - Model use, assumptions, validity domain and limitations (mandatory)
@@ -68,7 +68,7 @@ Use the **Test Case Template** when you want to contribute on:
 </a>
 
 :::{.callout-note}
-**Test case template includes:**
+## Test case template includes:
 
 - Use case purpose​ and context (mandatory)
 - Network ​description (mandatory)
@@ -101,15 +101,18 @@ quarto --version
 #### 3. Install a Text Editor (Recommended)
 While you can edit QMD files with any text editor, we recommend:
 
-**VS Code** with the Quarto extension
+- **VS Code** with the Quarto extension
 
 :::{.callout-note}
 You can install the Quarto extension from within the Extensions tab in VS Code, from the [Extension Marketplace](https://marketplace.visualstudio.com/items?itemName=quarto.quarto), the [Open VSX Registry](https://open-vsx.org/extension/quarto/quarto) or directly from a [VISX extension file](https://github.com/quarto-dev/quarto-vscode#visx-install).
 :::
 
-**RStudio** (built-in Quarto support)
+- **RStudio** (built-in Quarto support)
 
-**Jupyter Lab** (built-in Quarto support)
+- **Jupyter Lab** (built-in Quarto support)
+
+### Key QMD Syntax for COLIB
+See [Quarto Basics](../quartoBasics/index.qmd)
 
 ### Basic Quarto Workflow
 
@@ -137,25 +140,16 @@ To generate the final HTML file:
 quarto render index.qmd
 ```
 
-### Key QMD Syntax for COLIB
-See [Quarto Basics](../quartoBasics/index.qmd)
-
 ## Submission Process
 
 1. **Prepare your contribution** using the appropriate template
 2. **Test your QMD file** by rendering it locally
-3. **Submit via GitHub** by creating a pull request to the COLIB repository
+3. **Submit via GitHub** by creating an issue to the COLIB repository and attach your QMD file ([create an issue](https://github.com/CRESYM/Colib_Quarto.github.io/issues/new?assignees=GJCRESYM%2C+matoubongrain&labels=enhancement%2Cbug%2Cevaluate+component&projects=Colib0&template=Evaluate.yml&title=%5BName%2FID+of+the+model%2F+test+case+to+be+evaluated%5D%3A+))
 4. **Review process** - our team will review your contribution
 5. **Publication** - approved contributions are merged and published
 
-## Getting Help
-
-- **Documentation**: Check the template examples and existing models
-- **GitHub Issues**: Report problems or ask questions on our repository
-- **Community**: Join our discussions for support and collaboration
-
 :::{.callout-tip}
-**Pro Tips for Contributors:**
+## Pro Tips for Contributors
 
 - Start with the template and modify incrementally
 - Preview frequently to catch formatting issues early
