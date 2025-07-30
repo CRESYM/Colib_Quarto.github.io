@@ -14,7 +14,7 @@
     "href": "contribute/modelTemplate/index.html#context-mandatory",
     "title": "Dummy Model description - ID1643",
     "section": "Context (mandatory)",
-    "text": "Context (mandatory)\nA short paragraph reminding the history of the model, in which context it was developed for, what are the physics and the modelling approximations behind it.\nExample:\nThe synchronous machine is one of the most studied component of a power system, being its main source of electrical energy. It is the most common type of generators, and it is present in most power plants (thermal, hydro, and some wind) as an interface between the mechanical energy and electrical energy. The mathematical model presented in this article develops the dynamic equations of synchronous machines Doe (2100) It only covers the physical part of the machine (see Section 3) not the regulations nor protections schemes.",
+    "text": "Context (mandatory)\nA short paragraph reminding the history of the model, in which context it was developed for, what are the physics and the modelling approximations behind it.\nExample:\nThe synchronous machine is one of the most studied component of a power system, being its main source of electrical energy. It is the most common type of generators, and it is present in most power plants (thermal, hydro, and some wind) as an interface between the mechanical energy and electrical energy. The mathematical model presented in this article develops the dynamic equations of synchronous machines [1] It only covers the physical part of the machine (see Section 3) not the regulations nor protections schemes.",
     "crumbs": [
       "Model template"
     ]
@@ -64,7 +64,7 @@
     "href": "contribute/modelTemplate/index.html#table-of-references-license",
     "title": "Dummy Model description - ID1643",
     "section": "Table of references & license",
-    "text": "Table of references & license\nThis section lists all the references. It must comply with current citation standards. Quarto uses BibTeX for managing reference.\n\n\nDoe, John. 2100. The Book Without Title. Dummy Publisher.",
+    "text": "Table of references & license\nThis section lists all the references. It must comply with current citation standards. Quarto uses BibTeX for managing reference.\n\n\n1. Doe J (2100) The book without title. Dummy Publisher",
     "crumbs": [
       "Model template"
     ]
@@ -8118,17 +8118,7 @@
     "href": "contribute/howTo/index.html#getting-help",
     "title": "How to Contribute to COLIB",
     "section": "Getting Help",
-    "text": "Getting Help\n\nDocumentation: Check the template examples and existing models\nGitHub Issues: Report problems or ask questions on our repository\nCommunity: Join our discussions for support and collaboration\n\n\n\n\n\n\n\nTip\n\n\n\nPro Tips for Contributors: - Start with the template and modify incrementally - Preview frequently to catch formatting issues early - Use descriptive file names and organize your assets - Follow the existing naming conventions in COLIB - Include comprehensive references and citations",
-    "crumbs": [
-      "How to contribute"
-    ]
-  },
-  {
-    "objectID": "contribute/howTo/index.html#next-steps",
-    "href": "contribute/howTo/index.html#next-steps",
-    "title": "How to Contribute to COLIB",
-    "section": "Next Steps",
-    "text": "Next Steps\nReady to contribute?\n\nChoose your template (model or test case)\nInstall Quarto if you haven’t already\nStart writing your contribution\nSubmit when ready!\n\nThank you for contributing to COLIB and advancing open-source power system modeling!",
+    "text": "Getting Help\n\nDocumentation: Check the template examples and existing models\nGitHub Issues: Report problems or ask questions on our repository\nCommunity: Join our discussions for support and collaboration\n\n\n\n\n\n\n\nTip\n\n\n\nPro Tips for Contributors:\n\nStart with the template and modify incrementally\nPreview frequently to catch formatting issues early\nUse descriptive file names and organize your assets\nFollow the existing naming conventions in COLIB\nInclude comprehensive references and citations\n\n\n\nThank you for contributing to COLIB and advancing open-source power system modeling!",
     "crumbs": [
       "How to contribute"
     ]
