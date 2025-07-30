@@ -376,7 +376,7 @@ window.Quarto = {
 </section>
 <section id="network-description" class="level2">
 <h2 class="anchored" data-anchor-id="network-description">Network ​description</h2>
-<p>The one-line diagram is shown in the following figure (Fig.1):</p>
+<p>The one-line diagram is shown in the following figure:</p>
 <div id="fig-oneline" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-oneline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -388,8 +388,8 @@ Figure&nbsp;1: Four VSC system
 </figure>
 </div>
 <p>The system hosts two wind parks (WP1 and WP2) and the terminal converters of two HVDC links (HVDC1 and HVDC2). The remote converter of each HVDC link is not modelled, the DC voltage being assumed constant. WP1 and WP2 are aggregated equivalents of a large number of generators. The connection transformers of all four VSCs are represented explicitly.</p>
-<p>The connection to an external system is considered through the Thévenin equivalent attached to bus C. Since the Thévenin voltage source forces the system frequency to return to its nominal value in steady state, this 100% power-electronics based system is clearly not meant to address frequency issues.</p>
-<p>The 400-kV part of the transmission grid is meshed, allowing to simulate the outage of one or two circuits without disconnection from the external system. The line lenghts are given in Fig. 1. Each wind park is radially connected to the grid through six 225-kV cables and six transformers in parallel to cope with the maximum production of each park. The cables are 50 km long and correspond to the AC connection of an offshore wind farm. The shunt reactors at buses E and F aim at absorbing the excess reactive power produced by the cables. The line, cable, transformer and VSC parameters are given in Table 1, 2 and 3, respectively.</p>
+<p>The connection to an external system is considered through the Thévenin equivalent attached to bus <span class="math inline">\(C\)</span>. Since the Thévenin voltage source forces the system frequency to return to its nominal value in steady state, this 100% power-electronics based system is clearly not meant to address frequency issues.</p>
+<p>The 400-kV part of the transmission grid is meshed, allowing to simulate the outage of one or two circuits without disconnection from the external system. The line lenghts are given in Fig. 1. Each wind park is radially connected to the grid through six 225-kV cables and six transformers in parallel to cope with the maximum production of each park. The cables are 50 km long and correspond to the AC connection of an offshore wind farm. The shunt reactors at buses <span class="math inline">\(E\)</span> and <span class="math inline">\(F\)</span> aim at absorbing the excess reactive power produced by the cables. The line, cable, transformer and VSC parameters are given in Table 1, 2 and 3, respectively.</p>
 <div id="tbl-line-cable" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-line-cable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -416,17 +416,17 @@ Table&nbsp;1: line and cable data
 <tbody>
 <tr class="odd">
 <td>400-kV*</td>
-<td>0.016</td>
-<td>0.320</td>
-<td>1.5</td>
-<td>1300</td>
+<td><span class="math inline">\(0.016\)</span></td>
+<td><span class="math inline">\(0.320\)</span></td>
+<td><span class="math inline">\(1.5\)</span></td>
+<td><span class="math inline">\(1300\)</span></td>
 </tr>
 <tr class="even">
 <td>225-kV**</td>
-<td>0.0084</td>
-<td>0.017</td>
-<td>180.0</td>
-<td>2400</td>
+<td><span class="math inline">\(0.0084\)</span></td>
+<td><span class="math inline">\(0.017\)</span></td>
+<td><span class="math inline">\(180.0\)</span></td>
+<td><span class="math inline">\(2400\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -462,51 +462,51 @@ Table&nbsp;2: Transformer data
 <tbody>
 <tr class="odd">
 <td>A1-A</td>
-<td>320/400</td>
-<td>0.005</td>
-<td>0.15</td>
-<td>1.02</td>
-<td>1200</td>
+<td><span class="math inline">\(320/400\)</span></td>
+<td><span class="math inline">\(0.005\)</span></td>
+<td><span class="math inline">\(0.15\)</span></td>
+<td><span class="math inline">\(1.02\)</span></td>
+<td><span class="math inline">\(1200\)</span></td>
 </tr>
 <tr class="even">
 <td>B1-A</td>
-<td>320/400</td>
-<td>0.005</td>
-<td>0.15</td>
-<td>1.04</td>
-<td>1700</td>
+<td><span class="math inline">\(320/400\)</span></td>
+<td><span class="math inline">\(0.005\)</span></td>
+<td><span class="math inline">\(0.15\)</span></td>
+<td><span class="math inline">\(1.04\)</span></td>
+<td><span class="math inline">\(1700\)</span></td>
 </tr>
 <tr class="odd">
 <td>A2-A</td>
-<td>225/400</td>
-<td>0.005</td>
-<td>0.15</td>
-<td>1.02</td>
-<td>2400</td>
+<td><span class="math inline">\(225/400\)</span></td>
+<td><span class="math inline">\(0.005\)</span></td>
+<td><span class="math inline">\(0.15\)</span></td>
+<td><span class="math inline">\(1.02\)</span></td>
+<td><span class="math inline">\(2400\)</span></td>
 </tr>
 <tr class="even">
 <td>B2-B</td>
-<td>225/400</td>
-<td>0.005</td>
-<td>0.15</td>
-<td>1.05</td>
-<td>2400</td>
+<td><span class="math inline">\(225/400\)</span></td>
+<td><span class="math inline">\(0.005\)</span></td>
+<td><span class="math inline">\(0.15\)</span></td>
+<td><span class="math inline">\(1.05\)</span></td>
+<td><span class="math inline">\(2400\)</span></td>
 </tr>
 <tr class="odd">
 <td>WP1-E*</td>
-<td>66/225</td>
-<td>0.005</td>
-<td>12.0</td>
-<td>1.05</td>
-<td>2400</td>
+<td><span class="math inline">\(66/225\)</span></td>
+<td><span class="math inline">\(0.005\)</span></td>
+<td><span class="math inline">\(12.0\)</span></td>
+<td><span class="math inline">\(1.05\)</span></td>
+<td><span class="math inline">\(2400\)</span></td>
 </tr>
 <tr class="even">
 <td>WP2-F*</td>
-<td>66/225</td>
-<td>0.005</td>
-<td>12.0</td>
-<td>1.04</td>
-<td>2400</td>
+<td><span class="math inline">\(66/225\)</span></td>
+<td><span class="math inline">\(0.005\)</span></td>
+<td><span class="math inline">\(12.0\)</span></td>
+<td><span class="math inline">\(1.04\)</span></td>
+<td><span class="math inline">\(2400\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -530,23 +530,23 @@ Table&nbsp;3: Converter data
 <tbody>
 <tr class="odd">
 <td>WP1</td>
-<td>2400</td>
-<td>2300</td>
+<td><span class="math inline">\(2400\)</span></td>
+<td><span class="math inline">\(2300\)</span></td>
 </tr>
 <tr class="even">
 <td>WP2</td>
-<td>2400</td>
-<td>2300</td>
+<td><span class="math inline">\(2400\)</span></td>
+<td><span class="math inline">\(2300\)</span></td>
 </tr>
 <tr class="odd">
 <td>HVDC1</td>
-<td>1200</td>
-<td>1150</td>
+<td><span class="math inline">\(1200\)</span></td>
+<td><span class="math inline">\(1150\)</span></td>
 </tr>
 <tr class="even">
 <td>HVDC2</td>
-<td>1700</td>
-<td>1630</td>
+<td><span class="math inline">\(1700\)</span></td>
+<td><span class="math inline">\(1630\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -564,10 +564,10 @@ Table&nbsp;3: Converter data
 <div class="line-block">operating point # | power (<span class="math inline">\(MW\)</span>) injected by ||| | power (<span class="math inline">\(MW\)</span>) into equiv. | load (<span class="math inline">\(MW\)</span>) at bus <span class="math inline">\(C\)</span> | power (<span class="math inline">\(Mvar\)</span>) of shunt reactors |<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| <span class="math inline">\(WP1\)</span> | <span class="math inline">\(WP2\)</span> | <span class="math inline">\(HVDC1\)</span> | <span class="math inline">\(HVDC2\)</span> | | | |<br>
 ——————- | ———————— | —————— | ——————————-|<br>
-1 | 2000 | 2000 | 1150 | 1400 | 6374 | 0 | 160 |<br>
-2 | 2000 | 2000 | -1120 | -1600 | 0 | 1169 | 500 |</div>
+<span class="math inline">\(1\)</span> | <span class="math inline">\(2000\)</span> | <span class="math inline">\(2000\)</span> | <span class="math inline">\(1150\)</span> | <span class="math inline">\(1400\)</span> | <span class="math inline">\(6374\)</span> | <span class="math inline">\(0\)</span> | <span class="math inline">\(160\)</span> |<br>
+<span class="math inline">\(2\)</span> | <span class="math inline">\(2000\)</span> | <span class="math inline">\(2000\)</span> | <span class="math inline">\(-1120\)</span> | <span class="math inline">\(-1600\)</span> | <span class="math inline">\(0\)</span> | <span class="math inline">\(1169\)</span> | <span class="math inline">\(500\)</span> |</div>
 <p>: Operating points {#tbl-operating-points}</p>
-<p>The first operating conditions result in a heavily loaded network, both wind parks and both HVDC links injecting active power into the grid. Nevertheless, the system is N-1 secure with respect to the outage of any 400-kV circuit. No load is present. Hence, the whole production (minus the network losses) is exported to the external system represented by the Thévenin equivalent at bus <span class="math inline">\(C\)</span>, whose short-circuit power has been set to 10 <span class="math inline">\(GVA\)</span>. The operating point is shown in detail in <a href="#fig-op1" class="quarto-xref">Figure&nbsp;2</a>.</p>
+<p>The first operating conditions result in a heavily loaded network, both wind parks and both HVDC links injecting active power into the grid. Nevertheless, the system is N-1 secure with respect to the outage of any 400-kV circuit. No load is present. Hence, the whole production (minus the network losses) is exported to the external system represented by the Thévenin equivalent at bus <span class="math inline">\(C\)</span>, whose short-circuit power has been set to <span class="math inline">\(10\)</span> <span class="math inline">\(GVA\)</span>. The operating point is shown in detail in <a href="#fig-op1" class="quarto-xref">Figure&nbsp;2</a>.</p>
 <div id="fig-op1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-op1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">

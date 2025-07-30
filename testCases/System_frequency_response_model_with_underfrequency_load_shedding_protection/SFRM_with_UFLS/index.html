@@ -374,30 +374,30 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="case-studies">Case studies</h2>
 <section id="input-data" class="level3">
 <h3 class="anchored" data-anchor-id="input-data">Input data</h3>
-<p>In the presented four case studies we considered a rated frequency of 50 Hz and the following SFRM parameters: <span class="math inline">\(H\)</span> = 4, <span class="math inline">\(D\)</span> = 1, <span class="math inline">\(F_H\)</span> = 0.3, <span class="math inline">\(R\)</span> = 0.05, <span class="math inline">\(K_M\)</span> = 0.95 and <span class="math inline">\(T_R\)</span> = 8.</p>
-<p>A 10-second-long time domain simulation was carried out with a time step of 1 microsecond. <span class="math inline">\(\Delta P\)</span> was modeled as a step change of <span class="math inline">\(\Delta P\)</span> = -0.7 occurring at time <span class="math inline">\(t\)</span> = 1 second. A frequency limit value <span class="math inline">\(f_{LIM}\)</span> for the calculation of <span class="math inline">\(M\)</span> via equation (3) is <span class="math inline">\(f_{LIM}\)</span> = 47.5 Hz.</p>
+<p>In the presented four case studies we considered a rated frequency of <span class="math inline">\(50\)</span> <span class="math inline">\(Hz\)</span> and the following SFRM parameters: <span class="math inline">\(H\)</span> = <span class="math inline">\(4\)</span>, <span class="math inline">\(D\)</span> = <span class="math inline">\(1\)</span>, <span class="math inline">\(F_H\)</span> = <span class="math inline">\(0.3\)</span>, <span class="math inline">\(R\)</span> = <span class="math inline">\(0.05\)</span>, <span class="math inline">\(K_M\)</span> = <span class="math inline">\(0.95\)</span> and <span class="math inline">\(T_R\)</span> = <span class="math inline">\(8\)</span>.</p>
+<p>A 10-second-long time domain simulation was carried out with a time step of <span class="math inline">\(1\)</span> microsecond. <span class="math inline">\(\Delta P\)</span> was modeled as a step change of <span class="math inline">\(\Delta P\)</span> = <span class="math inline">\(-0.7\)</span> occurring at time <span class="math inline">\(t\)</span> = <span class="math inline">\(1\)</span> second. A frequency limit value <span class="math inline">\(f_{LIM}\)</span> for the calculation of <span class="math inline">\(M\)</span> via equation (3) is <span class="math inline">\(f_{LIM}\)</span> = <span class="math inline">\(47.5\)</span> <span class="math inline">\(Hz\)</span>.</p>
 <p><strong>Case study #1</strong>: Simulation without UFLS.</p>
 <p><strong>Case study #2</strong>: Simulation with conventional UFLS with the following settings:</p>
 <ul>
-<li>number of stages <span class="math inline">\(n\)</span> = 6,</li>
-<li>stage frequency thresholds 49.00 Hz, 48.80 Hz, 48.60 Hz, 48.40 Hz, 48.20 Hz, 48.00 Hz,</li>
-<li>stage amounts 0.10/stage.</li>
+<li>number of stages <span class="math inline">\(n\)</span> = <span class="math inline">\(6\)</span>,</li>
+<li>stage frequency thresholds <span class="math inline">\(49.00\)</span> <span class="math inline">\(Hz\)</span>, <span class="math inline">\(48.80\)</span> <span class="math inline">\(Hz\)</span>, <span class="math inline">\(48.60\)</span> <span class="math inline">\(Hz\)</span>, <span class="math inline">\(48.40\)</span> <span class="math inline">\(Hz\)</span>, <span class="math inline">\(48.20\)</span> <span class="math inline">\(Hz\)</span>, <span class="math inline">\(48.00\)</span> <span class="math inline">\(Hz\)</span>,</li>
+<li>stage amounts <span class="math inline">\(0.10\)</span>/stage.</li>
 </ul>
 <p><strong>Case study #3</strong>: Simulation with innovative UFLS with the following settings:</p>
 <ul>
-<li>number of stages <span class="math inline">\(n\)</span> = 6,</li>
-<li>stage frequency thresholds 49.00 Hz, 48.80 Hz, 48.60 Hz, 48.40 Hz, 48.20 Hz, 48.00 Hz,</li>
-<li>stage <span class="math inline">\(M\)</span> thresholds 2.0, 1.80, 1.60, 1.40, 1.20, 1.00 seconds,</li>
+<li>number of stages <span class="math inline">\(n\)</span> = <span class="math inline">\(6\)</span>,</li>
+<li>stage frequency thresholds <span class="math inline">\(49.00\)</span> <span class="math inline">\(Hz\)</span>, <span class="math inline">\(48.80\)</span> <span class="math inline">\(Hz\)</span>, <span class="math inline">\(48.60\)</span> <span class="math inline">\(Hz\)</span>, <span class="math inline">\(48.40\)</span> <span class="math inline">\(Hz\)</span>, <span class="math inline">\(48.20\)</span> <span class="math inline">\(Hz\)</span>, <span class="math inline">\(48.00\)</span> <span class="math inline">\(Hz\)</span>,</li>
+<li>stage <span class="math inline">\(M\)</span> thresholds <span class="math inline">\(2.0\)</span>, <span class="math inline">\(1.80\)</span>, <span class="math inline">\(1.60\)</span>, <span class="math inline">\(1.40\)</span>, <span class="math inline">\(1.20\)</span>, <span class="math inline">\(1.00\)</span> seconds,</li>
 <li>L-shaped <span class="math inline">\(f_{thr}(M)\)</span> threshold function</li>
-<li>stage amounts 0.10/stage.</li>
+<li>stage amounts <span class="math inline">\(0.10\)</span>/stage.</li>
 </ul>
 <p><strong>Case study #4</strong>: Simulation with innovative UFLS with the following settings:</p>
 <ul>
-<li>number of stages <span class="math inline">\(n\)</span> = 6,</li>
-<li>stage frequency thresholds 49.0, 48.95, 48.90, 48.85, 48.80, 48.75 Hz,</li>
-<li>stage <span class="math inline">\(M\)</span> thresholds 2.0, 1.80, 1.60, 1.40, 1.20, 1.00 seconds,</li>
+<li>number of stages <span class="math inline">\(n\)</span> = <span class="math inline">\(6\)</span>,</li>
+<li>stage frequency thresholds <span class="math inline">\(49.0\)</span>, <span class="math inline">\(48.95\)</span>, <span class="math inline">\(48.90\)</span>, <span class="math inline">\(48.85\)</span>, <span class="math inline">\(48.80\)</span>, <span class="math inline">\(48.75\)</span> <span class="math inline">\(Hz\)</span>,</li>
+<li>stage <span class="math inline">\(M\)</span> thresholds <span class="math inline">\(2.0\)</span>, <span class="math inline">\(1.80\)</span>, <span class="math inline">\(1.60\)</span>, <span class="math inline">\(1.40\)</span>, <span class="math inline">\(1.20\)</span>, <span class="math inline">\(1.00\)</span> seconds,</li>
 <li>ellipse-shaped <span class="math inline">\(f_{thr}(M)\)</span> threshold function</li>
-<li>stage amounts 0.10/stage.</li>
+<li>stage amounts <span class="math inline">\(0.10\)</span>/stage.</li>
 </ul>
 </section>
 <section id="case-study-results" class="level3">

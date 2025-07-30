@@ -368,6 +368,7 @@ window.Quarto = {
 </header>
 
 
+<p>Josep Fanals (eRoots)</p>
 <section id="use-case-purpose-and-context" class="level2">
 <h2 class="anchored" data-anchor-id="use-case-purpose-and-context">Use case purpose​ and context</h2>
 <p>The following test case is used to study the behavior of a DC link using EMT simulations of the converters. There is a Voltage Source Converter at each side of the line, one operating in Grid Forming mode and the other operating in Grid Following mode.</p>
@@ -381,13 +382,16 @@ window.Quarto = {
 <section id="network-description" class="level2">
 <h2 class="anchored" data-anchor-id="network-description">Network ​description</h2>
 <p>The network is formed by two VSC in Grid Following - Grid Forming configuration, a symetric monopolar DC link, a three-phase voltage source representing the grid and a load.</p>
-<div style="background-color:rgba(0, 0, 0, 0); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><img src="{{ 'HVDC_scheme.svg'}}" alt="HVDC scheme" style="float: center; margin-right: 10px; width: 900px;"></p>
+<div id="fig-hvdc-scheme" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hvdc-scheme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="HVDC_scheme.svg" class="img-fluid figure-img">
 </div>
-<div data-align="center">
-<p>Figure 1: Circuit of the DC model test case studied.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hvdc-scheme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: HVDC scheme
+</figcaption>
+</figure>
 </div>
-<p><br></p>
 </section>
 <section id="static-and-dynamic-models-description" class="level2">
 <h2 class="anchored" data-anchor-id="static-and-dynamic-models-description">Static and Dynamic models​ description</h2>
@@ -415,29 +419,29 @@ window.Quarto = {
 <thead>
 <tr class="header">
 <th>Line/Cable</th>
-<th>Nominal Voltage (kV)</th>
-<th>R (<span class="math display">\[\Omega\]</span>)</th>
-<th>L (<span class="math display">\[H\]</span>)</th>
+<th>Nominal Voltage (<span class="math inline">\(kV\)</span>)</th>
+<th><span class="math inline">\(R\)</span> (<span class="math inline">\(\Omega\)</span>)</th>
+<th><span class="math inline">\(L\)</span> (<span class="math inline">\(H\)</span>)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Converter - grid filter (grid connection)</td>
-<td><span class="math display">\[2.45\]</span> kV</td>
-<td><span class="math display">\[0.0326\]</span></td>
-<td><span class="math display">\[0.001038\]</span></td>
+<td><span class="math inline">\(2.45\)</span></td>
+<td><span class="math inline">\(0.0326\)</span></td>
+<td><span class="math inline">\(0.001038\)</span></td>
 </tr>
 <tr class="even">
 <td>Converter - capacitor (GFM)</td>
-<td><span class="math display">\[2.45\]</span> kV</td>
-<td><span class="math display">\[0.0048913\]</span></td>
-<td><span class="math display">\[0.00031139\]</span></td>
+<td><span class="math inline">\(2.45\)</span></td>
+<td><span class="math inline">\(0.0048913\)</span></td>
+<td><span class="math inline">\(0.00031139\)</span></td>
 </tr>
 <tr class="odd">
 <td>DC line</td>
-<td><span class="math display">\[1.5\]</span></td>
-<td><span class="math display">\[0.001\]</span></td>
-<td><span class="math display">\[0.000163\]</span></td>
+<td><span class="math inline">\(1.5\)</span></td>
+<td><span class="math inline">\(0.001\)</span></td>
+<td><span class="math inline">\(0.000163\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -448,17 +452,17 @@ window.Quarto = {
 <thead>
 <tr class="header">
 <th>Capacitor</th>
-<th>C (F)</th>
+<th><span class="math inline">\(C\)</span> (<span class="math inline">\(F\)</span>)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>DC line</td>
-<td><span class="math display">\[0.15\]</span></td>
+<td><span class="math inline">\(0.15\)</span></td>
 </tr>
 <tr class="even">
 <td>GFM</td>
-<td><span class="math display">\[1.63 \cdot 10^{-4}\]</span></td>
+<td><span class="math inline">\(1.63 \cdot 10^{-4}\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -469,20 +473,20 @@ window.Quarto = {
 <thead>
 <tr class="header">
 <th>Loads</th>
-<th>P (<span class="math display">\[MW\]</span>)</th>
-<th>Q(<span class="math display">\[MVar\]</span>)</th>
+<th><span class="math inline">\(P\)</span> (<span class="math inline">\(MW\)</span>)</th>
+<th><span class="math inline">\(Q\)</span> (<span class="math inline">\(MVar\)</span>)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Load 1</td>
-<td><span class="math display">\[ 1 \]</span></td>
-<td><span class="math display">\[ 0.0001 \]</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(0.0001\)</span></td>
 </tr>
 <tr class="even">
 <td>Load 2</td>
-<td><span class="math display">\[ 0.5 \]</span></td>
-<td><span class="math display">\[ 0.0001 \]</span></td>
+<td><span class="math inline">\(0.5\)</span></td>
+<td><span class="math inline">\(0.0001\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -499,78 +503,78 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math display">\[V_{peak}\]</span></td>
-<td><span class="math display">\[2.45\]</span></td>
-<td>kV</td>
+<td><span class="math inline">\(V_{peak}\)</span></td>
+<td><span class="math inline">\(2.45\)</span></td>
+<td><span class="math inline">\(kV\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[\omega_n^{PLL}\]</span></td>
-<td><span class="math display">\[2\pi 1000\]</span></td>
-<td>rad/s</td>
+<td><span class="math inline">\(\omega_n^{PLL}\)</span></td>
+<td><span class="math inline">\(2\pi 1000\)</span></td>
+<td><span class="math inline">\(rad/s\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[\zeta^{PLL}\]</span></td>
-<td><span class="math display">\[0.707\]</span></td>
-<td>-</td>
-</tr>
-<tr class="even">
-<td><span class="math display">\[K^{PLL}_p\]</span></td>
-<td><span class="math display">\[3.55\]</span></td>
-<td>-</td>
-</tr>
-<tr class="odd">
-<td><span class="math display">\[K^{PLL}_i\]</span></td>
-<td><span class="math display">\[1.58 \cdot 10^4\]</span></td>
+<td><span class="math inline">\(\zeta^{PLL}\)</span></td>
+<td><span class="math inline">\(0.707\)</span></td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[\tau^{PLL}\]</span></td>
-<td><span class="math display">\[0.225\]</span></td>
-<td>ms</td>
-</tr>
-<tr class="odd">
-<td><span class="math display">\[\tau^c\]</span></td>
-<td><span class="math display">\[1\]</span></td>
-<td>ms</td>
-</tr>
-<tr class="even">
-<td><span class="math display">\[K^{icl}_p\]</span></td>
-<td><span class="math display">\[1,038\]</span></td>
+<td><span class="math inline">\(K^{PLL}_p\)</span></td>
+<td><span class="math inline">\(3.55\)</span></td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[K^{icl}_i\]</span></td>
-<td><span class="math display">\[32.609\]</span></td>
+<td><span class="math inline">\(K^{PLL}_i\)</span></td>
+<td><span class="math inline">\(1.58 \cdot 10^4\)</span></td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[\tau_p\]</span></td>
-<td><span class="math display">\[15\]</span></td>
-<td>ms</td>
+<td><span class="math inline">\(\tau^{PLL}\)</span></td>
+<td><span class="math inline">\(0.225\)</span></td>
+<td><span class="math inline">\(ms\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[K^{ipl}_p\]</span></td>
-<td><span class="math display">\[1.778 \cdot 10^{-5}\]</span></td>
+<td><span class="math inline">\(\tau^c\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(ms\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(K^{icl}_p\)</span></td>
+<td><span class="math inline">\(1,038\)</span></td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(K^{icl}_i\)</span></td>
+<td><span class="math inline">\(32.609\)</span></td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[K^{ipl}_i\]</span></td>
-<td><span class="math display">\[1.778 \cdot 10^{-2}\]</span></td>
-<td>-</td>
+<td><span class="math inline">\(\tau_p\)</span></td>
+<td><span class="math inline">\(15\)</span></td>
+<td><span class="math inline">\(ms\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[V_{DC}\]</span></td>
-<td><span class="math display">\[1.5\]</span></td>
-<td>kV</td>
+<td><span class="math inline">\(K^{ipl}_p\)</span></td>
+<td><span class="math inline">\(1.778 \cdot 10^{-5}\)</span></td>
+<td>-</td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[K^{DC}_p\]</span></td>
-<td><span class="math display">\[ 5 \]</span></td>
+<td><span class="math inline">\(K^{ipl}_i\)</span></td>
+<td><span class="math inline">\(1.778 \cdot 10^{-2}\)</span></td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[K^{DC}_i\]</span></td>
-<td><span class="math display">\[ 50 \]</span></td>
+<td><span class="math inline">\(V_{DC}\)</span></td>
+<td><span class="math inline">\(1.5\)</span></td>
+<td><span class="math inline">\(kV\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(K^{DC}_p\)</span></td>
+<td><span class="math inline">\(5\)</span></td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(K^{DC}_i\)</span></td>
+<td><span class="math inline">\(50\)</span></td>
 <td>-</td>
 </tr>
 </tbody>
@@ -588,33 +592,33 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math display">\[V_{peak}\]</span></td>
-<td><span class="math display">\[2.45\]</span></td>
-<td>kV</td>
+<td><span class="math inline">\(V_{peak}\)</span></td>
+<td><span class="math inline">\(2.45\)</span></td>
+<td><span class="math inline">\(kV\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[K^{icl}_p\]</span></td>
-<td><span class="math display">\[0.13494\]</span></td>
+<td><span class="math inline">\(K^{icl}_p\)</span></td>
+<td><span class="math inline">\(0.13494\)</span></td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[K^{icl}_i\]</span></td>
-<td><span class="math display">\[100\]</span></td>
+<td><span class="math inline">\(K^{icl}_i\)</span></td>
+<td><span class="math inline">\(100\)</span></td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[K^{vcl}_p\]</span></td>
-<td><span class="math display">\[5\]</span></td>
+<td><span class="math inline">\(K^{vcl}_p\)</span></td>
+<td><span class="math inline">\(5\)</span></td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td><span class="math display">\[K^{vcl}_i\]</span></td>
-<td><span class="math display">\[500\]</span></td>
+<td><span class="math inline">\(K^{vcl}_i\)</span></td>
+<td><span class="math inline">\(500\)</span></td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td><span class="math display">\[K^{Droop}_p\]</span></td>
-<td><span class="math display">\[2\pi 50\]</span></td>
+<td><span class="math inline">\(K^{Droop}_p\)</span></td>
+<td><span class="math inline">\(2\pi 50\)</span></td>
 <td>-</td>
 </tr>
 </tbody>
@@ -626,11 +630,11 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="scenario-no.-1-setpoint-tracking-operation">Scenario No.&nbsp;1 / Setpoint tracking operation</h3>
 <p>The scenario studied starts with a constant load, and after 1 second, there is second load connection. This scenario serves to study setpoint tracking operation during changes of loads.</p>
 <ul>
-<li><p><strong>Event:</strong> Setpoing for <span class="math display">\[Q_{ac}\]</span> is changed at 0.5 seconds. At 1s, connection of a new load in the Grid Forming side.</p></li>
-<li><p><strong>Operating point No.&nbsp;1 (0 to 0.5 s):</strong> <span class="math display">\[Q^*_{ac}\]</span> = 0 MVAr, <span class="math display">\[P_{load}\]</span> = 1 MW.</p></li>
-<li><p><strong>Operating point No.&nbsp;2 (0.5 to 1 s):</strong> <span class="math display">\[Q^*_{ac}\]</span> = 0.46 MVAr, <span class="math display">\[P_{load}\]</span> = 1 MW.</p></li>
-<li><p><strong>Operating point No.&nbsp;3 (1 to 2 s):</strong> <span class="math display">\[Q^*_{ac}\]</span> = 0.46 MVAr, <span class="math display">\[P_{load}\]</span> = 1.5 MW.</p></li>
-<li><p><strong>Control modes:</strong> Setpoint tracking, Grid Forming (<span class="math display">\[V_{ac}\]</span>, <span class="math display">\[\theta_{ac}\]</span>), Grid Following (<span class="math display">\[V_{DC}\]</span>, <span class="math display">\[Q_{ac}\]</span>).</p></li>
+<li><p><strong>Event:</strong> Setpoing for <span class="math inline">\(Q_{ac}\)</span> is changed at 0.5 seconds. At 1s, connection of a new load in the Grid Forming side.</p></li>
+<li><p><strong>Operating point No.&nbsp;1 (0 to 0.5 s):</strong> <span class="math inline">\(Q^*_{ac}\)</span> = <span class="math inline">\(0\)</span> <span class="math inline">\(MVAr\)</span>, <span class="math inline">\(P_{load}\)</span> = <span class="math inline">\(1\)</span> <span class="math inline">\(MW\)</span>.</p></li>
+<li><p><strong>Operating point No.&nbsp;2 (0.5 to 1 s):</strong> <span class="math inline">\(Q^*_{ac}\)</span> = <span class="math inline">\(0.46\)</span> <span class="math inline">\(MVAr\)</span>, <span class="math inline">\(P_{load}\)</span> = <span class="math inline">\(1\)</span> <span class="math inline">\(MW\)</span>.</p></li>
+<li><p><strong>Operating point No.&nbsp;3 (1 to 2 s):</strong> <span class="math inline">\(Q^*_{ac}\)</span> = <span class="math inline">\(0.46\)</span> <span class="math inline">\(MVAr\)</span>, <span class="math inline">\(P_{load}\)</span> = <span class="math inline">\(1.5\)</span> <span class="math inline">\(MW\)</span>.</p></li>
+<li><p><strong>Control modes:</strong> Setpoint tracking, Grid Forming (<span class="math inline">\(V_{ac}\)</span>, <span class="math inline">\(\theta_{ac}\)</span>), Grid Following (<span class="math inline">\(V_{DC}\)</span>, <span class="math inline">\(Q_{ac}\)</span>).</p></li>
 <li><p><strong>Network variant:</strong> The breaker connecting the new load is closed at 1 second.</p></li>
 </ul>
 </section>
@@ -638,46 +642,61 @@ window.Quarto = {
 <section id="outputs" class="level2">
 <h2 class="anchored" data-anchor-id="outputs">Outputs</h2>
 <p>To verify the correct setpoint tracking operation, we proceed to check the different controlled magnitudes of the simulation. Firstly, the plots for the DC voltage are shown at both ends of the DC link:</p>
-<div style="background-color:rgba(0, 0, 0, 0); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><img src="{{ '/pages/testCases/GridFollowing_GridForming_DClink/VDC_GFOL.svg' | relative_url }}" alt="VDC_GFOL" style="float: center; margin-right: 10px; width: 900px;"></p>
+<div id="fig-vdc-gfol" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vdc-gfol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="VDC_GFOL.svg" class="img-fluid figure-img">
 </div>
-<div data-align="center">
-<p>Figure 2: DC voltage at the Grid Following side.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vdc-gfol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: VDC_GFOL
+</figcaption>
+</figure>
 </div>
-<p><br></p>
-<div style="background-color:rgba(0, 0, 0, 0); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><img src="{{ '/pages/testCases/GridFollowing_GridForming_DClink/VDC_GFM.svg' | relative_url }}" alt="VDC_GMR" style="float: center; margin-right: 10px; width: 900px;"></p>
+<div id="fig-vdc-gfm" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vdc-gfm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="VDC_GFM.svg" class="img-fluid figure-img">
 </div>
-<div data-align="center">
-<p>Figure 3: DC voltage at the Grid Forming side.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vdc-gfm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: VDC_GFM
+</figcaption>
+</figure>
 </div>
-<p><br></p>
-<p>As shown in both figures, the DC voltage is correctly tracked by the DC voltage controls at the Grid Following side, reaching the desired value of 1.5 kV after a transient period. The Grid Forming side follows the same progression, although uncontrolled and falling slightly below the rated voltage due to the voltage drop of the link, as expected.</p>
+<p>As shown in both figures, the DC voltage is correctly tracked by the DC voltage controls at the Grid Following side, reaching the desired value of <span class="math inline">\(1.5\)</span> <span class="math inline">\(kV\)</span> after a transient period. The Grid Forming side follows the same progression, although uncontrolled and falling slightly below the rated voltage due to the voltage drop of the link, as expected.</p>
 <p>The reactive power exchanged with the grid in the Grid Following side is also shown in the following figure:</p>
-<div style="background-color:rgba(0, 0, 0, 0); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><img src="{{ '/pages/testCases/GridFollowing_GridForming_DClink/Qg_GFOL.svg' | relative_url }}" alt="Qg_GFOL" style="float: center; margin-right: 10px; width: 900px;"></p>
+<div id="fig-qg-gfol" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-qg-gfol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Qg_GFOL.svg" class="img-fluid figure-img">
 </div>
-<div data-align="center">
-<p>Figure 4: Reactive power exchanged with the grid at the Grid Following side.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-qg-gfol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Qg_GFOL
+</figcaption>
+</figure>
 </div>
-<p><br></p>
-<p>Initially, no reactive power is exchanged, but after the setpoint change at 0.5 seconds, the reactive power is increased to 0.46 MVAr, as expected.</p>
+<p>Initially, no reactive power is exchanged, but after the setpoint change at 0.5 seconds, the reactive power is increased to <span class="math inline">\(0.46\)</span> <span class="math inline">\(MVAr\)</span>, as expected.</p>
 <p>Lastly, the active power exchanged at both converters can be seen in the following figures:</p>
-<div style="background-color:rgba(0, 0, 0, 0); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><img src="{{ '/pages/testCases/GridFollowing_GridForming_DClink/P_GFOL.svg' | relative_url }}" alt="P_GFOL" style="float: center; margin-right: 10px; width: 900px;"></p>
+<div id="fig-p-gfol" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-p-gfol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="P_GFOL.svg" class="img-fluid figure-img">
 </div>
-<div data-align="center">
-<p>Figure 5: Active power exchanged with the grid at the Grid Following side.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-p-gfol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: P_GFOL
+</figcaption>
+</figure>
 </div>
-<p><br></p>
-<div style="background-color:rgba(0, 0, 0, 0); text-align:center; vertical-align: middle; padding:4px 0;">
-<p><img src="{{ '/pages/testCases/GridFollowing_GridForming_DClink/P_GFM.svg' | relative_url }}" alt="P_GFM" style="float: center; margin-right: 10px; width: 900px;"></p>
+<div id="fig-p-gfm" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-p-gfm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="P_GFM.svg" class="img-fluid figure-img">
 </div>
-<div data-align="center">
-<p>Figure 6: Active power exchanged with the load at the Grid Forming side.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-p-gfm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: P_GFM
+</figcaption>
+</figure>
 </div>
-<p><br></p>
-<p>We can see that the active power exchanged in both sides is slightly lower than the expected (1 MW or 1.5 MW). This is due to the characteristics of the load, which is a constant impedance load. The value of this impedance is calculated using the nominal values for voltage and power, and since there is a voltage drop from the converter to the load, the exchanged power is lower than the nominal value.</p>
+<p>We can see that the active power exchanged in both sides is slightly lower than the expected (<span class="math inline">\(1\)</span> <span class="math inline">\(MW\)</span> or <span class="math inline">\(1.5\)</span> <span class="math inline">\(MW\)</span>). This is due to the characteristics of the load, which is a constant impedance load. The value of this impedance is calculated using the nominal values for voltage and power, and since there is a voltage drop from the converter to the load, the exchanged power is lower than the nominal value.</p>
 </section>
 <section id="open-source-implementations" class="level2">
 <h2 class="anchored" data-anchor-id="open-source-implementations">Open source implementations</h2>

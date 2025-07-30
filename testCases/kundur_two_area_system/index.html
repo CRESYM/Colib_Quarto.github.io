@@ -22,7 +22,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -377,28 +397,27 @@ window.Quarto = {
 
 <section id="use-case-purpose-and-context" class="level2">
 <h2 class="anchored" data-anchor-id="use-case-purpose-and-context">Use case purpose​ and context</h2>
-<p>The <em>Kundur two area system</em> is a test system for studies on dynamic stability, oscillations, damping, power exchange and other use cases. It is a widely used standard test case defined in Kundur’s <em>Power system stability and control</em> <a href="#1">[1]</a> (Fig. E12.8).</p>
+<p>The <em>Kundur two area system</em> is a test system for studies on dynamic stability, oscillations, damping, power exchange and other use cases. It is a widely used standard test case defined in Kundur’s <em>Power system stability and control</em> <span class="citation" data-cites="Kundur">(<a href="#ref-Kundur" role="doc-biblioref"><em>Power System Stability and Control</em> 2007</a>)</span> (Fig. E12.8).</p>
 </section>
 <section id="table-of-references" class="level2">
 <h2 class="anchored" data-anchor-id="table-of-references">Table of references</h2>
-<p><a id="1">[1]</a> P. Kundur, <em>Power System Stability and Control</em>. New York: McGraw-Hill Education Ltd, 1994.</p>
-<p><a id="2">[2]</a> R. Ramos and I. Hiskens, “PES-TR18: Benchmark Systems for Small-Signal Stability Analysis and Control,” Aug.&nbsp;2015.</p>
-<p><a id="3">[3]</a> Shackshaft and Henser, “Model of generator saturation for use in power system studies.” Apr.&nbsp;1979.</p>
+<p>For additional references see the bibliography and the following sources:</p>
+<p>R. Ramos and I. Hiskens, “PES-TR18: Benchmark Systems for Small-Signal Stability Analysis and Control,” Aug.&nbsp;2015.</p>
+<p>Shackshaft and Henser, “Model of generator saturation for use in power system studies.” Apr.&nbsp;1979.</p>
 </section>
 <section id="network-description" class="level2">
 <h2 class="anchored" data-anchor-id="network-description">Network ​description</h2>
-<p><img src="drawings/Kundur_two_area.drawio.svg" class="img-fluid"></p>
 <div id="fig-two-area-system" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-two-area-system-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Figure&nbsp;1: Kundur’s two-area test system <a href="#1">[1]</a></p>
+<img src="drawings/Kundur_two_area.drawio.svg" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-two-area-system-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-two-area-system-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Kundur’s two-area test system
 </figcaption>
 </figure>
 </div>
-<p>In <a href="#fig-two-area-system" class="quarto-xref">Figure&nbsp;1</a> the test system is shown. As <a href="#1">[1]</a> describes it, it consists of two similar areas connected by a weak tie.</p>
+<p>In 1 the test system is shown. As <span class="citation" data-cites="Kundur">(<a href="#ref-Kundur" role="doc-biblioref"><em>Power System Stability and Control</em> 2007</a>)</span> describes it, it consists of two similar areas connected by a weak tie.</p>
 <p>The parameters are listed in <a href="#input-data">Section 5</a>. The system consists of 11 buses connected by lines or transformers. There are 4 generators G1…G4, two loads L7 and L9 as well as two shunt capacitors C7 and C9.</p>
 </section>
 <section id="static-and-dynamic-models-description" class="level2">
@@ -406,46 +425,39 @@ Figure&nbsp;1
 <p>This test case includes the following components:</p>
 <section id="generators" class="level3">
 <h3 class="anchored" data-anchor-id="generators">Generators</h3>
-<section id="governors" class="level4">
-<h4 class="anchored" data-anchor-id="governors">Governors</h4>
+<p><strong>Governors</strong></p>
 <p>The generator model <strong>does not include a governor</strong>.</p>
-</section>
-<section id="avrs" class="level4">
-<h4 class="anchored" data-anchor-id="avrs">AVRs</h4>
+<p><strong>AVRs</strong></p>
 <p>The following AVRs are used in this test system, depending on the used scenario:</p>
 <ul>
 <li>no AVR: Manual excitation, i.e.&nbsp;constant field voltage</li>
 <li>AVR DC1A (similar to DC1C, <a href="https://colib.net/pages/models/regulations/avr/DC1C/">see colib page here</a>)
 <ul>
-<li><span class="math display">\[K_\mathrm{a}=\]</span> 20 pu</li>
-<li><span class="math display">\[K_\mathrm{a}=\]</span> 200 pu</li>
+<li><span class="math inline">\(K_\mathrm{a}=\)</span> <span class="math inline">\(20\)</span> <span class="math inline">\(pu\)</span></li>
+<li><span class="math inline">\(K_\mathrm{a}=\)</span> <span class="math inline">\(200\)</span> <span class="math inline">\(pu\)</span></li>
 </ul></li>
 <li>AVR ST1A (similar to ST1C, <a href="https://colib.net/pages/models/regulations/avr/ST1C/">see colib page here</a>)
 <ul>
 <li>(with/without transient gain reduction (TGR) and/or power system stabilizer (PSS))</li>
 </ul></li>
 </ul>
-<p>For details on the scenarios, see <a href="#scenarios">Section&nbsp;6</a>. The parameters are given in the tables of <a href="#input-data">Section&nbsp;5</a>.</p>
-</section>
+<p>For details on the scenarios, see <a href="#scenarios">Section 6</a>. The parameters are given in the tables of <a href="#input-data">Section 5</a>.</p>
 </section>
 <section id="loads-static-zip-model" class="level3">
 <h3 class="anchored" data-anchor-id="loads-static-zip-model">Loads (static ZIP model)</h3>
 <p><a href="#eq-zipload-p" class="quarto-xref">Equation&nbsp;1</a> and <a href="#eq-zipload-q" class="quarto-xref">Equation&nbsp;2</a> define ZIP load model. Depending on the coefficients in <a href="#tbl-zip-load-parameters" class="quarto-xref">Table&nbsp;1</a> it models a constant impedance, current or power load.</p>
 <p><span id="eq-zipload-p"><span class="math display">\[
 P = P_\mathrm{Ref} \cdot (1 + \Delta P) \cdot \left(Z_\mathrm{p} \cdot \left(\frac{U}{U_\mathrm{0}}\right)^2 + I_\mathrm{p} \cdot \frac{U}{U_\mathrm{0}} + P_\mathrm{p}\right)
-\qquad(1)\]</span></span> <span id="eq-zipload-q"><span class="math display">\[
+\tag{1}\]</span></span></p>
+<p><span id="eq-zipload-q"><span class="math display">\[
 Q = Q_\mathrm{Ref} \cdot (1 + \Delta Q) \cdot \left(Z_\mathrm{q} \cdot \left(\frac{U}{U_\mathrm{0}}\right)^2 + I_\mathrm{q} \cdot \frac{U}{U_\mathrm{0}} + P_\mathrm{q}\right)
-\qquad(2)\]</span></span></p>
+\tag{2}\]</span></span></p>
 <div id="tbl-zip-load-parameters" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-zip-load-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-zip-load-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: ZIP Load parameters
 </figcaption>
 <div aria-describedby="tbl-zip-load-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Table&nbsp;1: ZIP Load parameters</p>
-</div>
-</figure>
-</div>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -455,32 +467,35 @@ Table&nbsp;1
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{p}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{p}\)</span></td>
 <td style="text-align: left;">Current coefficient for active power</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{q}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{q}\)</span></td>
 <td style="text-align: left;">Current coefficient for reactive power</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[P_\mathrm{p}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(P_\mathrm{p}\)</span></td>
 <td style="text-align: left;">Power coefficient for active power</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[P_\mathrm{q}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(P_\mathrm{q}\)</span></td>
 <td style="text-align: left;">Power coefficient for reactive power</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[Z_\mathrm{p}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(Z_\mathrm{p}\)</span></td>
 <td style="text-align: left;">Impedance coefficient for active power</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[Z_\mathrm{q}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(Z_\mathrm{q}\)</span></td>
 <td style="text-align: left;">Impedance coefficient for reactive power</td>
 </tr>
 </tbody>
 </table>
-<p>In <a href="#1">[1]</a> it is stated that the active power should be modelled as constant current and the reactive power as constant impedance: All coefficients can be set to zero except <span class="math display">\[I_\mathrm{p} = Z_\mathrm{q} = 1\]</span>.</p>
+</div>
+</figure>
+</div>
+<p>In <span class="citation" data-cites="Kundur">(<a href="#ref-Kundur" role="doc-biblioref"><em>Power System Stability and Control</em> 2007</a>)</span> it is stated that the active power should be modelled as constant current and the reactive power as constant impedance: All coefficients can be set to zero except <span class="math inline">\(I_\mathrm{p} = Z_\mathrm{q} = 1\)</span>.</p>
 <blockquote class="blockquote">
 <p>[!IMPORTANT]</p>
 <p>Loads L7, L9 and shunt capacitors C7, C9 can all be modeled as ZIP loads. To reproduce the <strong>load flow results</strong> from Kundur, the loads need to be modeled as constant power (P and Q), while the shunt capacitors need to be modeled as constant impedance.</p>
@@ -491,14 +506,10 @@ Table&nbsp;1
 <h2 class="anchored" data-anchor-id="input-data">Input Data</h2>
 <div id="tbl-sm-parameters" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-sm-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sm-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Synchronous machine parameters
 </figcaption>
 <div aria-describedby="tbl-sm-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Table&nbsp;2: Synchronous machine parameters</p>
-</div>
-</figure>
-</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 18%">
@@ -509,108 +520,116 @@ Table&nbsp;2
 <tr class="header">
 <th style="text-align: left;">parameter</th>
 <th style="text-align: left;">value</th>
-<th>pu base</th>
+<th><span class="math inline">\(pu\)</span> base</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[A_\mathrm{Sat}\]</span></td>
-<td style="text-align: left;">0.015</td>
+<td style="text-align: left;"><span class="math inline">\(A_\mathrm{Sat}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.015\)</span></td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[B_\mathrm{Sat}\]</span></td>
-<td style="text-align: left;">9.6</td>
+<td style="text-align: left;"><span class="math inline">\(B_\mathrm{Sat}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(9.6\)</span></td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[H\]</span></td>
-<td style="text-align: left;">6.5 s (for G1 and G2) and 6.175 pu (for G3 and G4)</td>
+<td style="text-align: left;"><span class="math inline">\(H\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(6.5\)</span> <span class="math inline">\(s\)</span> (for G1 and G2) and <span class="math inline">\(6.175\)</span> <span class="math inline">\(pu\)</span> (for G3 and G4)</td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{D}\]</span></td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(K_\mathrm{D}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[\Psi_\mathrm{T1}\]</span></td>
-<td style="text-align: left;">0.9</td>
-<td>-</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span class="math display">\[R_\mathrm{a}\]</span></td>
-<td style="text-align: left;">0.0025 pu</td>
-<td><span class="math display">\[U_\mathrm{n\,SM}^2 / S_\mathrm{r\,SM}\]</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{r\,SM}\]</span></td>
-<td style="text-align: left;">900 MVA</td>
+<td style="text-align: left;"><span class="math inline">\(\Psi_\mathrm{T1}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.9\)</span></td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{d0}'\]</span></td>
-<td style="text-align: left;">8.0 s</td>
-<td>-</td>
+<td style="text-align: left;"><span class="math inline">\(R_\mathrm{a}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.0025\)</span> <span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(U_\mathrm{n\,SM}^2 / S_\mathrm{r\,SM}\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{d0}''\]</span></td>
-<td style="text-align: left;">0.03 s</td>
-<td>-</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{q0}'\]</span></td>
-<td style="text-align: left;">0.4 s</td>
-<td>-</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{q0}''\]</span></td>
-<td style="text-align: left;">0.05 s</td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{r\,SM}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(900\)</span> <span class="math inline">\(MVA\)</span></td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[U_\mathrm{n\,SM}\]</span></td>
-<td style="text-align: left;">20 kV</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{d0}'\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(8.0\)</span> <span class="math inline">\(s\)</span></td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[X_\mathrm{d}\]</span></td>
-<td style="text-align: left;">1.8 pu</td>
-<td><span class="math display">\[U_\mathrm{n\,SM}^2 / S_\mathrm{r\,SM}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{d0}''\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.03\)</span> <span class="math inline">\(s\)</span></td>
+<td>-</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[X_\mathrm{d}'\]</span></td>
-<td style="text-align: left;">0.3 pu</td>
-<td><span class="math display">\[U_\mathrm{n\,SM}^2 / S_\mathrm{r\,SM}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{q0}'\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.4\)</span> <span class="math inline">\(s\)</span></td>
+<td>-</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[X_\mathrm{d}''\]</span></td>
-<td style="text-align: left;">0.25 pu</td>
-<td><span class="math display">\[U_\mathrm{n\,SM}^2 / S_\mathrm{r\,SM}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{q0}''\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.05\)</span> <span class="math inline">\(s\)</span></td>
+<td>-</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[X_\mathrm{l}\]</span></td>
-<td style="text-align: left;">0.2 pu</td>
-<td><span class="math display">\[U_\mathrm{n\,SM}^2 / S_\mathrm{r\,SM}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(U_\mathrm{n\,SM}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(20\)</span> <span class="math inline">\(kV\)</span></td>
+<td>-</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[X_\mathrm{q}\]</span></td>
-<td style="text-align: left;">1.7 pu</td>
-<td><span class="math display">\[U_\mathrm{n\,SM}^2 / S_\mathrm{r\,SM}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(X_\mathrm{d}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.8\)</span> <span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(U_\mathrm{n\,SM}^2 / S_\mathrm{r\,SM}\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[X_\mathrm{q}'\]</span></td>
-<td style="text-align: left;">0.55 pu</td>
-<td><span class="math display">\[U_\mathrm{n\,SM}^2 / S_\mathrm{r\,SM}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(X_\mathrm{d}'\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.3\)</span> <span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(U_\mathrm{n\,SM}^2 / S_\mathrm{r\,SM}\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[X_\mathrm{q}''\]</span></td>
-<td style="text-align: left;">0.25 pu</td>
-<td><span class="math display">\[U_\mathrm{n\,SM}^2 / S_\mathrm{r\,SM}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(X_\mathrm{d}''\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.25\)</span> <span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(U_\mathrm{n\,SM}^2 / S_\mathrm{r\,SM}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(X_\mathrm{l}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.2\)</span> <span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(U_\mathrm{n\,SM}^2 / S_\mathrm{r\,SM}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(X_\mathrm{q}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.7\)</span> <span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(U_\mathrm{n\,SM}^2 / S_\mathrm{r\,SM}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(X_\mathrm{q}'\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.55\)</span> <span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(U_\mathrm{n\,SM}^2 / S_\mathrm{r\,SM}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(X_\mathrm{q}''\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.25\)</span> <span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(U_\mathrm{n\,SM}^2 / S_\mathrm{r\,SM}\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>Table&nbsp;3: AVR DC1A parameters, see <a href="#2">[2]</a></p>
+</div>
+</figure>
+</div>
+<div id="tbl-dc1a-parameters" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dc1a-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: AVR DC1A parameters
+</figcaption>
+<div aria-describedby="tbl-dc1a-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 29%">
@@ -626,83 +645,91 @@ Table&nbsp;2
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[A_\mathrm{ex}\]</span></td>
-<td style="text-align: left;">0.0056 pu</td>
+<td style="text-align: left;"><span class="math inline">\(A_\mathrm{ex}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.0056\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">Exciter saturation factor</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[B_\mathrm{ex}\]</span></td>
-<td style="text-align: left;">1.075 pu</td>
+<td style="text-align: left;"><span class="math inline">\(B_\mathrm{ex}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.075\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">Exciter saturation factor</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{A}\]</span></td>
-<td style="text-align: left;">20 pu</td>
+<td style="text-align: left;"><span class="math inline">\(K_\mathrm{A}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(20\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">AVR steady state gain</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{E}\]</span></td>
-<td style="text-align: left;">1 pu</td>
+<td style="text-align: left;"><span class="math inline">\(K_\mathrm{E}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">Exciter feedback time constant</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{F}\]</span></td>
-<td style="text-align: left;">0.125 pu</td>
+<td style="text-align: left;"><span class="math inline">\(K_\mathrm{F}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.125\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">Stabilizer feedback gain</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{A}\]</span></td>
-<td style="text-align: left;">0.055 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{A}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.055\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">AVR equivalent time constant</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{B}\]</span></td>
-<td style="text-align: left;">0 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{B}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">TGR block 1 denominator time constant</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{C}\]</span></td>
-<td style="text-align: left;">0 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{C}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">TGR block 2 numerator time constant</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{C}\]</span></td>
-<td style="text-align: left;">0 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{C}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">TGR block 2 numerator time constant</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{C}\]</span></td>
-<td style="text-align: left;">0 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{C}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">TGR block 2 numerator time constant</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{E}\]</span></td>
-<td style="text-align: left;">0.36 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{E}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.36\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">Exciter time constant</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{F1}\]</span></td>
-<td style="text-align: left;">1.8 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{F1}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.8\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">Stabilizer feedback time constant</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{R}\]</span></td>
-<td style="text-align: left;">0.05 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{R}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.05\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">Voltage transducer time constant</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[V_\mathrm{R\,max}\]</span></td>
-<td style="text-align: left;">5 pu</td>
+<td style="text-align: left;"><span class="math inline">\(V_\mathrm{R\,max}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(5\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">Max. AVR output</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[V_\mathrm{R\,min}\]</span></td>
-<td style="text-align: left;">-3 pu</td>
+<td style="text-align: left;"><span class="math inline">\(V_\mathrm{R\,min}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(-3\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">Min. AVR output</td>
 </tr>
 </tbody>
 </table>
-<p>Table&nbsp;4: AVR ST1A parameters, see <a href="#2">[2]</a></p>
+</div>
+</figure>
+</div>
+<div id="tbl-st1a-parameters" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-st1a-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: AVR ST1A parameters
+</figcaption>
+<div aria-describedby="tbl-st1a-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 29%">
@@ -718,98 +745,106 @@ Table&nbsp;2
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{LR}\]</span></td>
-<td style="text-align: left;">3 pu</td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{LR}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(3\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">Field current instantaneous limit</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{A}\]</span></td>
-<td style="text-align: left;">200 pu</td>
+<td style="text-align: left;"><span class="math inline">\(K_\mathrm{A}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(200\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">AVR steady state gain</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{C}\]</span></td>
-<td style="text-align: left;">0 pu</td>
+<td style="text-align: left;"><span class="math inline">\(K_\mathrm{C}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">Commutation factor for rectifier bridge</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{F}\]</span></td>
-<td style="text-align: left;">0 pu</td>
+<td style="text-align: left;"><span class="math inline">\(K_\mathrm{F}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">Stabilizer feedback gain</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{LR}\]</span></td>
-<td style="text-align: left;">0 pu</td>
+<td style="text-align: left;"><span class="math inline">\(K_\mathrm{LR}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">Field current limiter gain</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{A}\]</span></td>
-<td style="text-align: left;">0 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{A}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">Rectifier bridge equivalent time constant</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{B}\]</span></td>
-<td style="text-align: left;">10 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{B}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(10\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">TGR block 1 denominator time constant</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{B1}\]</span></td>
-<td style="text-align: left;">0 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{B1}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">TGR block 1 denominator time constant</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{C}\]</span></td>
-<td style="text-align: left;">1 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{C}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">TGR block 1 numerator time constant</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{C1}\]</span></td>
-<td style="text-align: left;">0 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{C1}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">TGR block 2 numerator time constant</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{F}\]</span></td>
-<td style="text-align: left;">1 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{F}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">Stabilizer feedback time constant</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{R}\]</span></td>
-<td style="text-align: left;">0.01 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{R}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.01\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">Voltage transducer time constant</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[V_\mathrm{A\,max}\]</span></td>
-<td style="text-align: left;">4 pu</td>
+<td style="text-align: left;"><span class="math inline">\(V_\mathrm{A\,max}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(4\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">Max. AVR output</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[V_\mathrm{A\,min}\]</span></td>
-<td style="text-align: left;">-4 pu</td>
+<td style="text-align: left;"><span class="math inline">\(V_\mathrm{A\,min}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(-4\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">Min. AVR output</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[V_\mathrm{I\,max}\]</span></td>
-<td style="text-align: left;">99 pu</td>
+<td style="text-align: left;"><span class="math inline">\(V_\mathrm{I\,max}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(99\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">Max. voltage error</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[V_\mathrm{I\,min}\]</span></td>
-<td style="text-align: left;">-99 pu</td>
+<td style="text-align: left;"><span class="math inline">\(V_\mathrm{I\,min}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(-99\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">Min. voltage error</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[V_\mathrm{R\,max}\]</span></td>
-<td style="text-align: left;">4 pu</td>
+<td style="text-align: left;"><span class="math inline">\(V_\mathrm{R\,max}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(4\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">Max. rectifier bridge output</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[V_\mathrm{R\,min}\]</span></td>
-<td style="text-align: left;">-4 pu</td>
+<td style="text-align: left;"><span class="math inline">\(V_\mathrm{R\,min}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(-4\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">Min. rectifier bridge output</td>
 </tr>
 </tbody>
 </table>
-<p>Table&nbsp;5: PSS parameters, see <a href="#2">[2]</a></p>
+</div>
+</figure>
+</div>
+<div id="tbl-pss-parameters" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-pss-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5: PSS parameters
+</figcaption>
+<div aria-describedby="tbl-pss-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 29%">
@@ -825,102 +860,101 @@ Table&nbsp;2
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[A_\mathrm{1}\]</span></td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(A_\mathrm{1}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 <td style="text-align: left;">2nd order denominator coefficient</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[A_\mathrm{2}\]</span></td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(A_\mathrm{2}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 <td style="text-align: left;">2nd order denominator coefficient</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[A_\mathrm{3}\]</span></td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(A_\mathrm{3}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 <td style="text-align: left;">2nd order numerator coefficient</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[A_\mathrm{4}\]</span></td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(A_\mathrm{4}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 <td style="text-align: left;">2nd order numerator coefficient</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[A_\mathrm{5}\]</span></td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(A_\mathrm{5}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 <td style="text-align: left;">2nd order denominator coefficient</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[A_\mathrm{6}\]</span></td>
-<td style="text-align: left;">0</td>
+<td style="text-align: left;"><span class="math inline">\(A_\mathrm{6}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 <td style="text-align: left;">2nd order denominator coefficient</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{S}\]</span></td>
-<td style="text-align: left;">20 pu</td>
+<td style="text-align: left;"><span class="math inline">\(K_\mathrm{S}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(20\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">PSS gain</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[L_\mathrm{S\,max}\]</span></td>
-<td style="text-align: left;">0.05 pu</td>
+<td style="text-align: left;"><span class="math inline">\(L_\mathrm{S\,max}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.05\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">PSS max. output</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[L_\mathrm{S\,min}\]</span></td>
-<td style="text-align: left;">-0.05 pu</td>
+<td style="text-align: left;"><span class="math inline">\(L_\mathrm{S\,min}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(-0.05\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">PSS min. output</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{1}\]</span></td>
-<td style="text-align: left;">0.05 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{1}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.05\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">1st lead-lag numerator time constant</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{2}\]</span></td>
-<td style="text-align: left;">0.02 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{2}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.02\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">1st lead-lag denominator time constant</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{3}\]</span></td>
-<td style="text-align: left;">3 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{3}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(3\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">2nd lead-lag numerator time constant</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{4}\]</span></td>
-<td style="text-align: left;">5.4 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{4}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(5.4\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">2nd lead-lag denominator time constant</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{5}\]</span></td>
-<td style="text-align: left;">10 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{5}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(10\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">Washout block numerator time constant</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{6}\]</span></td>
-<td style="text-align: left;">10 s</td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{6}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(10\)</span> <span class="math inline">\(s\)</span></td>
 <td style="text-align: left;">Washout block denominator time constant</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[V_\mathrm{CL}\]</span></td>
-<td style="text-align: left;">0 pu</td>
+<td style="text-align: left;"><span class="math inline">\(V_\mathrm{CL}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">Lower voltage limit for PSS operation</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[V_\mathrm{CU}\]</span></td>
-<td style="text-align: left;">0 pu</td>
+<td style="text-align: left;"><span class="math inline">\(V_\mathrm{CU}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span> <span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;">Upper voltage limit for PSS operation</td>
 </tr>
 </tbody>
 </table>
-<div id="tbl-trafo-parameters" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-trafo-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;3
-</figcaption>
-<div aria-describedby="tbl-trafo-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Table&nbsp;6: Step-up transformer parameters</p>
 </div>
 </figure>
 </div>
+<div id="tbl-trafo-parameters" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-trafo-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6: Step-up transformer parameters
+</figcaption>
+<div aria-describedby="tbl-trafo-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 35%">
@@ -931,42 +965,41 @@ Table&nbsp;3
 <tr class="header">
 <th style="text-align: left;">parameter</th>
 <th style="text-align: left;">value</th>
-<th>pu base</th>
+<th><span class="math inline">\(pu\)</span> base</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">off-nominal ratio</td>
-<td style="text-align: left;">1</td>
+<td style="text-align: left;"><span class="math inline">\(1\)</span></td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{r\,Tr}\]</span></td>
-<td style="text-align: left;">900 MVA</td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{r\,Tr}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(900\)</span> <span class="math inline">\(MVA\)</span></td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[ü\]</span></td>
-<td style="text-align: left;">230kV/20kV</td>
+<td style="text-align: left;"><span class="math inline">\(ü\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(230kV/20kV\)</span></td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[\underline{X}_\mathrm{Tr}\]</span></td>
-<td style="text-align: left;">0 + j0.15 pu</td>
-<td><span class="math display">\[U_\mathrm{n\,Tr}^2 / S_\mathrm{r\,Tr}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\underline{X}_\mathrm{Tr}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0 + j0.15\)</span> <span class="math inline">\(pu\)</span></td>
+<td><span class="math inline">\(U_\mathrm{n\,Tr}^2 / S_\mathrm{r\,Tr}\)</span></td>
 </tr>
 </tbody>
 </table>
-<div id="tbl-grid-parameters" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-grid-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4
-</figcaption>
-<div aria-describedby="tbl-grid-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Table&nbsp;7: Grid parameters</p>
 </div>
 </figure>
 </div>
+<div id="tbl-grid-parameters" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-grid-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;7: Grid parameters
+</figcaption>
+<div aria-describedby="tbl-grid-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 16%">
@@ -977,52 +1010,51 @@ Table&nbsp;4
 <tr class="header">
 <th style="text-align: left;">parameter</th>
 <th style="text-align: left;">value</th>
-<th>pu base</th>
+<th><span class="math inline">\(pu\)</span> base</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[b_\mathrm{C}\]</span></td>
-<td style="text-align: left;">0.00175 pu / km</td>
-<td><span class="math display">\[S_\mathrm{r\,grid} / U_\mathrm{n\,grid}^2\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(b_\mathrm{C}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.00175\)</span> <span class="math inline">\(pu\)</span> / <span class="math inline">\(km\)</span></td>
+<td><span class="math inline">\(S_\mathrm{r\,grid} / U_\mathrm{n\,grid}^2\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">line length <span class="math display">\[l\]</span></td>
-<td style="text-align: left;">see <a href="#fig-two-area-system" class="quarto-xref">Figure&nbsp;1</a></td>
+<td style="text-align: left;">line length <span class="math inline">\(l\)</span></td>
+<td style="text-align: left;">see 1</td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[r\]</span></td>
-<td style="text-align: left;">0.0001 pu / km</td>
-<td><span class="math display">\[U_\mathrm{n\,grid}^2 / S_\mathrm{r\,grid}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(r\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.0001\)</span> <span class="math inline">\(pu\)</span> / <span class="math inline">\(km\)</span></td>
+<td><span class="math inline">\(U_\mathrm{n\,grid}^2 / S_\mathrm{r\,grid}\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{r\,grid}\]</span></td>
-<td style="text-align: left;">100 MVA</td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{r\,grid}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(100\)</span> <span class="math inline">\(MVA\)</span></td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[U_\mathrm{n\,grid}\]</span></td>
-<td style="text-align: left;">230 kV</td>
+<td style="text-align: left;"><span class="math inline">\(U_\mathrm{n\,grid}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(230\)</span> <span class="math inline">\(kV\)</span></td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[x_\mathrm{L}\]</span></td>
-<td style="text-align: left;">0.001 pu / km</td>
-<td><span class="math display">\[U_\mathrm{n\,grid}^2 / S_\mathrm{r\,grid}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_\mathrm{L}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.001\)</span> <span class="math inline">\(pu\)</span> / <span class="math inline">\(km\)</span></td>
+<td><span class="math inline">\(U_\mathrm{n\,grid}^2 / S_\mathrm{r\,grid}\)</span></td>
 </tr>
 </tbody>
 </table>
-<div id="tbl-load-parameters" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-load-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;5
-</figcaption>
-<div aria-describedby="tbl-load-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Table&nbsp;8: Load parameters</p>
 </div>
 </figure>
 </div>
+<div id="tbl-load-parameters" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-load-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;8: Load parameters
+</figcaption>
+<div aria-describedby="tbl-load-parameters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1032,57 +1064,56 @@ Table&nbsp;5
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[P_\mathrm{C7}\]</span></td>
-<td style="text-align: left;">0 MW</td>
+<td style="text-align: left;"><span class="math inline">\(P_\mathrm{C7}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span> <span class="math inline">\(MW\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[P_\mathrm{C9}\]</span></td>
-<td style="text-align: left;">0 MW</td>
+<td style="text-align: left;"><span class="math inline">\(P_\mathrm{C9}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(0\)</span> <span class="math inline">\(MW\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[P_\mathrm{L7}\]</span></td>
-<td style="text-align: left;">967 MW</td>
+<td style="text-align: left;"><span class="math inline">\(P_\mathrm{L7}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(967\)</span> <span class="math inline">\(MW\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[P_\mathrm{L9}\]</span></td>
-<td style="text-align: left;">1767 MW</td>
+<td style="text-align: left;"><span class="math inline">\(P_\mathrm{L9}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1767\)</span> <span class="math inline">\(MW\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[Q_\mathrm{C7}\]</span></td>
-<td style="text-align: left;">200 MVAr</td>
+<td style="text-align: left;"><span class="math inline">\(Q_\mathrm{C7}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(200\)</span> <span class="math inline">\(MVAr\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[Q_\mathrm{C9}\]</span></td>
-<td style="text-align: left;">350 MVAr</td>
+<td style="text-align: left;"><span class="math inline">\(Q_\mathrm{C9}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(350\)</span> <span class="math inline">\(MVAr\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[Q_\mathrm{L7}\]</span></td>
-<td style="text-align: left;">100 MVAr</td>
+<td style="text-align: left;"><span class="math inline">\(Q_\mathrm{L7}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(100\)</span> <span class="math inline">\(MVAr\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[Q_\mathrm{L9}\]</span></td>
-<td style="text-align: left;">100 MVAr</td>
+<td style="text-align: left;"><span class="math inline">\(Q_\mathrm{L9}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(100\)</span> <span class="math inline">\(MVAr\)</span></td>
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 </section>
 <section id="scenarios" class="level2">
 <h2 class="anchored" data-anchor-id="scenarios">Scenarios</h2>
-<p>The following sceniarios are taken from <a href="#1">[1]</a> and <a href="#2">[2]</a>, which are also considered for reference results.</p>
-<p>The shown results are obtained from the Dyna<span class="math display">\[\omega\]</span>o Modelica implementation of the test case.</p>
+<p>The following sceniarios are taken from <span class="citation" data-cites="Kundur">(<a href="#ref-Kundur" role="doc-biblioref"><em>Power System Stability and Control</em> 2007</a>)</span> and related references, which are also considered for reference results.</p>
+<p>The shown results are obtained from the Dyna<span class="math inline">\(\omega\)</span>o Modelica implementation of the test case.</p>
 <section id="load-flow" class="level3">
 <h3 class="anchored" data-anchor-id="load-flow">Load flow</h3>
 <p>The load flow results are given in <a href="#tbl-loadflowU" class="quarto-xref">Table&nbsp;9</a> and <a href="#tbl-loadflowS" class="quarto-xref">Table&nbsp;10</a>.</p>
 <div id="tbl-loadflowU" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-loadflowU-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;6
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-loadflowU-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;9: Loadflow voltages of Dynawo implementation
 </figcaption>
 <div aria-describedby="tbl-loadflowU-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Table&nbsp;9: Loadflow voltages of Dynawo implementation</p>
-</div>
-</figure>
-</div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 12%">
@@ -1092,78 +1123,77 @@ Table&nbsp;6
 <thead>
 <tr class="header">
 <th style="text-align: left;">Bus name</th>
-<th style="text-align: left;">Complex voltage in pu</th>
-<th style="text-align: left;">Kundur reference voltage in pu</th>
+<th style="text-align: left;">Complex voltage in <span class="math inline">\(pu\)</span></th>
+<th style="text-align: left;">Kundur reference voltage in <span class="math inline">\(pu\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">bus01</td>
-<td style="text-align: left;"><span class="math display">\[1.030 \angle 20.200°\]</span></td>
-<td style="text-align: left;"><span class="math display">\[1.03 \angle 20.2°\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.030 \angle 20.200°\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.03 \angle 20.2°\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">bus02</td>
-<td style="text-align: left;"><span class="math display">\[1.010 \angle 10.433°\]</span></td>
-<td style="text-align: left;"><span class="math display">\[1.01 \angle 10.5°\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.010 \angle 10.433°\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.01 \angle 10.5°\)</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">bus03</td>
-<td style="text-align: left;"><span class="math display">\[1.030 \angle -6.885°\]</span></td>
-<td style="text-align: left;"><span class="math display">\[1.03 \angle -6.8°\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.030 \angle -6.885°\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.03 \angle -6.8°\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">bus04</td>
-<td style="text-align: left;"><span class="math display">\[1.010 \angle -17.074°\]</span></td>
-<td style="text-align: left;"><span class="math display">\[1.01 \angle -17.0°\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.010 \angle -17.074°\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.01 \angle -17.0°\)</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">bus05</td>
-<td style="text-align: left;"><span class="math display">\[1.006 \angle 13.737°\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.006 \angle 13.737°\)</span></td>
 <td style="text-align: left;">-</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">bus06</td>
-<td style="text-align: left;"><span class="math display">\[0.978 \angle 3.651°\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.978 \angle 3.651°\)</span></td>
 <td style="text-align: left;">-</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">bus07</td>
-<td style="text-align: left;"><span class="math display">\[0.961 \angle -4.759°\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.961 \angle -4.759°\)</span></td>
 <td style="text-align: left;">-</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">bus08</td>
-<td style="text-align: left;"><span class="math display">\[0.949 \angle -18.633°\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.949 \angle -18.633°\)</span></td>
 <td style="text-align: left;">-</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">bus09</td>
-<td style="text-align: left;"><span class="math display">\[0.971 \angle -32.234°\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.971 \angle -32.234°\)</span></td>
 <td style="text-align: left;">-</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">bus10</td>
-<td style="text-align: left;"><span class="math display">\[0.983 \angle -23.819°\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(0.983 \angle -23.819°\)</span></td>
 <td style="text-align: left;">-</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">bus11</td>
-<td style="text-align: left;"><span class="math display">\[1.008 \angle -13.511°\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.008 \angle -13.511°\)</span></td>
 <td style="text-align: left;">-</td>
 </tr>
 </tbody>
 </table>
-<div id="tbl-loadflowS" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-loadflowS-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;7
-</figcaption>
-<div aria-describedby="tbl-loadflowS-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Table&nbsp;10: Loadflow generator powers of Dynawo implementation</p>
 </div>
 </figure>
 </div>
+<div id="tbl-loadflowS" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-loadflowS-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;10: Loadflow generator powers of Dynawo implementation
+</figcaption>
+<div aria-describedby="tbl-loadflowS-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 18%">
@@ -1173,54 +1203,59 @@ Table&nbsp;7
 <thead>
 <tr class="header">
 <th style="text-align: left;">Generator name</th>
-<th style="text-align: left;">Complex power in MVA</th>
-<th style="text-align: left;">Kundur reference power in MVA</th>
+<th style="text-align: left;">Complex power in <span class="math inline">\(MVA\)</span></th>
+<th style="text-align: left;">Kundur reference power in <span class="math inline">\(MVA\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">G1</td>
-<td style="text-align: left;"><span class="math display">\[700.105 + \mathrm{j}185.067\]</span></td>
-<td style="text-align: left;"><span class="math display">\[700 + \mathrm{j}185\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(700.105 + \mathrm{j}185.067\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(700 + \mathrm{j}185\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">G2</td>
-<td style="text-align: left;"><span class="math display">\[700.000 + \mathrm{j}234.676\]</span></td>
-<td style="text-align: left;"><span class="math display">\[700 + \mathrm{j}235\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(700.000 + \mathrm{j}234.676\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(700 + \mathrm{j}235\)</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">G3</td>
-<td style="text-align: left;"><span class="math display">\[719.000 + \mathrm{j}175.986\]</span></td>
-<td style="text-align: left;"><span class="math display">\[719 + \mathrm{j}176\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(719.000 + \mathrm{j}175.986\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(719 + \mathrm{j}176\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">G4</td>
-<td style="text-align: left;"><span class="math display">\[700.000 + \mathrm{j}202.071\]</span></td>
-<td style="text-align: left;"><span class="math display">\[700 + \mathrm{j}202\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(700.000 + \mathrm{j}202.071\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(700 + \mathrm{j}202\)</span></td>
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <ul>
-<li>The active power exchange from Area 1 to Area 2 (see <a href="#fig-two-area-system" class="quarto-xref">Figure&nbsp;1</a>) is 400.431 MW in the Dyna<span class="math display">\[\omega\]</span>o implementation and 400 MW in the Kundur reference.</li>
+<li>The active power exchange from Area 1 to Area 2 (see
+<ol class="example" type="1">
+<li>is <span class="math inline">\(400.431\)</span> <span class="math inline">\(MW\)</span> in the Dyna<span class="math inline">\(\omega\)</span>o implementation and <span class="math inline">\(400\)</span> <span class="math inline">\(MW\)</span> in the Kundur reference.</li>
+</ol></li>
 </ul>
 </section>
 <section id="example-a" class="level3">
 <h3 class="anchored" data-anchor-id="example-a">Example a</h3>
 <p><em>Example a</em> examines small-signal performance of the system with constant excitation.</p>
 <ul>
-<li>All four generators are on manual excitation (field voltage <span class="math display">\[E_\mathrm{fd} = \mathrm{const.}\]</span>)</li>
+<li>All four generators are on manual excitation (field voltage <span class="math inline">\(E_\mathrm{fd} = \mathrm{const.}\)</span>)</li>
 <li>Constant current characteristics of active load components</li>
 <li>Constant impedance characteristics of reactive load components</li>
 </ul>
-<p><a href="#fig-example-a-eigenvalues" class="quarto-xref">Figure&nbsp;2</a> shows the result of an eigenvalue analysis of this system, compared to the reference values from <a href="#1">[1]</a>. The remaining differences probalby originate from differing model implementations of the synchronous machines in Dyna<span class="math display">\[\omega\]</span> compared to the ones used by Kundur.</p>
-<p><img src="images/20240814123344.png" class="img-fluid"></p>
+<p><a href="#fig-example-a-eigenvalues" class="quarto-xref">Figure&nbsp;2</a> shows the result of an eigenvalue analysis of this system, compared to the reference values from <span class="citation" data-cites="Kundur">(<a href="#ref-Kundur" role="doc-biblioref"><em>Power System Stability and Control</em> 2007</a>)</span>. The remaining differences probalby originate from differing model implementations of the synchronous machines in Dyna<span class="math inline">\(\omega\)</span> compared to the ones used by Kundur.</p>
 <div id="fig-example-a-eigenvalues" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-example-a-eigenvalues-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Figure&nbsp;2: Eigenvalues of the system with constant excitation voltage</p>
+<img src="images/20240814123344.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-example-a-eigenvalues-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-example-a-eigenvalues-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Eigenvalues of the system with constant excitation voltage
 </figcaption>
 </figure>
 </div>
@@ -1229,91 +1264,80 @@ Figure&nbsp;2
 <h3 class="anchored" data-anchor-id="example-b">Example b</h3>
 <blockquote class="blockquote">
 <p>[!NOTE]</p>
-<p>To obtain a steady state initial condition, the exact values for the generators active and reactive power and voltage angles from load flow <a href="#load-flow">Section&nbsp;6.1</a> need to be used as initial values in the dynamic simulation.</p>
+<p>To obtain a steady state initial condition, the exact values for the generators active and reactive power and voltage angles from load flow <a href="#load-flow">Section 6.1</a> need to be used as initial values in the dynamic simulation.</p>
 </blockquote>
 <blockquote class="blockquote">
 <p>[!NOTE]</p>
-<p>In the Dyna<span class="math display">\[\omega\]</span>o implementation, if the voltage transducer time constant <span class="math display">\[T_\mathrm{R}\]</span> = 0.01 s, then the voltage measurement first order lag and the field flux linkage <span class="math display">\[\lambda_\mathrm{f}\]</span> oscillate against each other with high amplitude. This is not represented in the reference results of <a href="#2">[2]</a>. To avoid this behaviour, set <span class="math display">\[T_\mathrm{R} = 10^{-6}\]</span> s. This has been done for the Dyna<span class="math display">\[\omega\]</span>o implementation.</p>
+<p>In the Dyna<span class="math inline">\(\omega\)</span>o implementation, if the voltage transducer time constant <span class="math inline">\(T_\mathrm{R}\)</span> = <span class="math inline">\(0.01\)</span> <span class="math inline">\(s\)</span>, then the voltage measurement first order lag and the field flux linkage <span class="math inline">\(\lambda_\mathrm{f}\)</span> oscillate against each other with high amplitude. This is not represented in the reference results. To avoid this behaviour, set <span class="math inline">\(T_\mathrm{R} = 10^{-6}\)</span> <span class="math inline">\(s\)</span>. This has been done for the Dyna<span class="math inline">\(\omega\)</span>o implementation.</p>
 </blockquote>
-<section id="part-1-self-excieted-dc-exciter-dc1a" class="level4">
-<h4 class="anchored" data-anchor-id="part-1-self-excieted-dc-exciter-dc1a">Part 1: Self-excieted dc exciter (DC1A)</h4>
-<p>Instead of constant excitation voltage as in <a href="#example-a">Section&nbsp;6.2</a>, now the self-excited DC exciter DC1A is used. For parameters, see <a href="#tbl-dc1a-parameters" class="quarto-xref">Table&nbsp;3</a>.</p>
-<p>In <a href="#2">[2]</a> this case has not been taken into account for comparative analysis. Like there, it has not been investigated using the Dyna<span class="math display">\[\omega\]</span>o implementation.</p>
-</section>
-<section id="part-2-thyristor-exciter-st1a-with-high-transient-gain" class="level4">
-<h4 class="anchored" data-anchor-id="part-2-thyristor-exciter-st1a-with-high-transient-gain">Part 2: Thyristor exciter (ST1A) with high transient gain</h4>
-<p>Instead of constant excitation voltage as in <a href="#example-a">Section&nbsp;6.2</a>, now the thyristor exciter ST1A is used. For parameters, see <a href="#tbl-dc1a-parameters" class="quarto-xref">Table&nbsp;3</a>. It has high transient gain, i.e.&nbsp;no transient gain reduction.</p>
-<p>The implementation in Dyna<span class="math display">\[\omega\]</span>o does not allow to set saturation parameters <span class="math display">\[A_\mathrm{sat}\]</span> and <span class="math display">\[B_\mathrm{sat}\]</span> as in <a href="#tbl-sm-parameters" class="quarto-xref">Table&nbsp;2</a> because its synchronous machine model uses a different saturation model. Instead of the model from Kundur <a href="#1">[1]</a>, the Shackshaft model <a href="#3">[3]</a> is used. To get the unstable pole close to the one in the Kundur reference, the Shackshaft parameters have been set to <span class="math display">\[m_\mathrm{d}=1\]</span>, <span class="math display">\[m_\mathrm{q}=1\]</span>, <span class="math display">\[n_\mathrm{d}=9\]</span>, <span class="math display">\[n_\mathrm{q}=9\]</span>.</p>
+<p><strong>Part 1: Self-excieted dc exciter (DC1A)</strong></p>
+<p>Instead of constant excitation voltage as in <a href="#example-a">Section 6.2</a>, now the self-excited DC exciter DC1A is used. For parameters, see <a href="#tbl-dc1a-parameters" class="quarto-xref">Table&nbsp;3</a>.</p>
+<p>In related references this case has not been taken into account for comparative analysis. Like there, it has not been investigated using the Dyna<span class="math inline">\(\omega\)</span>o implementation.</p>
+<p><strong>Part 2: Thyristor exciter (ST1A) with high transient gain</strong></p>
+<p>Instead of constant excitation voltage as in <a href="#example-a">Section 6.2</a>, now the thyristor exciter ST1A is used. For parameters, see <a href="#tbl-st1a-parameters" class="quarto-xref">Table&nbsp;4</a>. It has high transient gain, i.e.&nbsp;no transient gain reduction.</p>
+<p>The implementation in Dyna<span class="math inline">\(\omega\)</span>o does not allow to set saturation parameters <span class="math inline">\(A_\mathrm{sat}\)</span> and <span class="math inline">\(B_\mathrm{sat}\)</span> as in <a href="#tbl-sm-parameters" class="quarto-xref">Table&nbsp;2</a> because its synchronous machine model uses a different saturation model. Instead of the model from Kundur <span class="citation" data-cites="Kundur">(<a href="#ref-Kundur" role="doc-biblioref"><em>Power System Stability and Control</em> 2007</a>)</span>, the Shackshaft model is used. To get the unstable pole close to the one in the Kundur reference, the Shackshaft parameters have been set to <span class="math inline">\(m_\mathrm{d}=1\)</span>, <span class="math inline">\(m_\mathrm{q}=1\)</span>, <span class="math inline">\(n_\mathrm{d}=9\)</span>, <span class="math inline">\(n_\mathrm{q}=9\)</span>.</p>
 <p>The voltage transducer time constant has been</p>
-<p><img src="images/20240814131709.png" class="img-fluid"></p>
 <div id="fig-example-b-2-eigenvalues" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-example-b-2-eigenvalues-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Figure&nbsp;3: Unstable eigenvalue of the system with exciter ST1A</p>
+<img src="images/20240814131709.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-example-b-2-eigenvalues-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-example-b-2-eigenvalues-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Unstable eigenvalue of the system with exciter ST1A
 </figcaption>
 </figure>
 </div>
-<p>As in <a href="#2">[2]</a>, a steps to the synchronous machines’ voltege references have been applied according to <a href="#tbl-example-b-steps" class="quarto-xref">Table&nbsp;11</a>. Those were selected to excite the inter-area oscillation mode and the other electromechanical modes in the system <a href="#2">[2]</a>.</p>
+<p>As in related references, a steps to the synchronous machines’ voltege references have been applied according to <a href="#tbl-example-b-steps" class="quarto-xref">Table&nbsp;11</a>. Those were selected to excite the inter-area oscillation mode and the other electromechanical modes in the system.</p>
 <div id="tbl-example-b-steps" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-example-b-steps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;8
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-example-b-steps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;11: Voltage reference steps
 </figcaption>
 <div aria-describedby="tbl-example-b-steps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Table&nbsp;11: Voltage reference steps as in <a href="#2">[2]</a></p>
-</div>
-</figure>
-</div>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Generator</th>
-<th style="text-align: left;">Step of <span class="math display">\[U_\mathrm{ref}\]</span></th>
+<th style="text-align: left;">Step of <span class="math inline">\(U_\mathrm{ref}\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">G1</td>
-<td style="text-align: left;">+3%</td>
+<td style="text-align: left;"><span class="math inline">\(+3\%\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">G2</td>
-<td style="text-align: left;">-1%</td>
+<td style="text-align: left;"><span class="math inline">\(-1\%\)</span></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">G3</td>
-<td style="text-align: left;">-3%</td>
+<td style="text-align: left;"><span class="math inline">\(-3\%\)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">G4</td>
-<td style="text-align: left;">+1%</td>
+<td style="text-align: left;"><span class="math inline">\(+1\%\)</span></td>
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>The step response of the generators can be seen in <a href="#fig-example-b-2-stepresponse" class="quarto-xref">Figure&nbsp;4</a>.</p>
-<p><img src="images/20240814133617.png" class="img-fluid"></p>
 <div id="fig-example-b-2-stepresponse" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-example-b-2-stepresponse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Figure&nbsp;4: Unstable step response of the system with ST1A without transient gain reduction</p>
+<img src="images/20240814133617.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-example-b-2-stepresponse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-example-b-2-stepresponse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Unstable step response of the system with ST1A without transient gain reduction
 </figcaption>
 </figure>
 </div>
-</section>
-<section id="part-3-thyristor-exciter-st1a-with-transient-gain-reduction-tgr" class="level4">
-<h4 class="anchored" data-anchor-id="part-3-thyristor-exciter-st1a-with-transient-gain-reduction-tgr">Part 3: Thyristor exciter (ST1A) with transient gain reduction (TGR)</h4>
-<p>Simlilarly to <a href="#sec-exampleB2" class="quarto-xref">Section&nbsp;6.3.2</a>, the ST1A exciter is used. In this case, transient gain reduction (TGR) is activated by setting <span class="math display">\[T_\mathrm{A} = 1\]</span>.</p>
-</section>
-<section id="part-4-thyristor-exciter-st1a-with-high-transient-gain-and-pss" class="level4">
-<h4 class="anchored" data-anchor-id="part-4-thyristor-exciter-st1a-with-high-transient-gain-and-pss">Part 4: Thyristor exciter (ST1A) with high transient gain and PSS</h4>
-<p>Simlilarly to <a href="#sec-exampleB2" class="quarto-xref">Section&nbsp;6.3.2</a>, the ST1A exciter is used. In this case, a power system stabilizer according to <a href="#1">[1]</a> (Figure 6-8) is activated and parameterized according to <a href="#tbl-pss-parameters" class="quarto-xref">Table&nbsp;5</a>.</p>
-</section>
+<p><strong>Part 3: Thyristor exciter (ST1A) with transient gain reduction (TGR)</strong></p>
+<p>Simlilarly to <a href="#example-b">Section 6.3.2</a>, the ST1A exciter is used. In this case, transient gain reduction (TGR) is activated by setting <span class="math inline">\(T_\mathrm{A} = 1\)</span>.</p>
+<p><strong>Part 4: Thyristor exciter (ST1A) with high transient gain and PSS</strong></p>
+<p>Simlilarly to <a href="#example-b">Section 6.3.2</a>, the ST1A exciter is used. In this case, a power system stabilizer according to <span class="citation" data-cites="Kundur">(<a href="#ref-Kundur" role="doc-biblioref"><em>Power System Stability and Control</em> 2007</a>)</span> (Figure 6-8) is activated and parameterized according to <a href="#tbl-pss-parameters" class="quarto-xref">Table&nbsp;5</a>.</p>
 </section>
 </section>
 <section id="open-source-implementations" class="level2">
@@ -1343,9 +1367,14 @@ Figure&nbsp;4
 </table>
 
 
+
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Kundur" class="csl-entry" role="listitem">
+<em>Power System Stability and Control</em>. 2007. McGraw- Hill.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
