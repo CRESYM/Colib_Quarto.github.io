@@ -104,12 +104,12 @@ constant current and the reactive power as constant impedance: All
 coefficients can be set to zero except
 $I_\mathrm{p} = Z_\mathrm{q} = 1$.
 
-> [!IMPORTANT]
->
-> Loads L7, L9 and shunt capacitors C7, C9 can all be modeled as ZIP
-> loads. To reproduce the **load flow results** from Kundur, the loads
-> need to be modeled as constant power (P and Q), while the shunt
-> capacitors need to be modeled as constant impedance.
+:::{.callout-important}
+Loads L7, L9 and shunt capacitors C7, C9 can all be modeled as ZIP
+loads. To reproduce the **load flow results** from Kundur, the loads
+need to be modeled as constant power (P and Q), while the shunt
+capacitors need to be modeled as constant impedance.
+:::
 
 ## Input Data
 
@@ -308,22 +308,13 @@ machines in Dyna$\omega$ compared to the ones used by Kundur.
 
 ### Example b
 
-> [!NOTE]
->
-> To obtain a steady state initial condition, the exact values for the
-> generators active and reactive power and voltage angles from load flow
-> [Section 6.1](#load-flow) need to be used as initial values in the dynamic 
-> simulation.
+:::{.callout-note}
+To obtain a steady state initial condition, the exact values for the generators active and reactive power and voltage angles from load flow [Section 6.1](#load-flow) need to be used as initial values in the dynamic simulation.
+:::
 
-> [!NOTE]
->
-> In the Dyna$\omega$o implementation, if the voltage transducer time
-> constant $T_\mathrm{R}$ = $0.01$ $s$, then the voltage measurement first
-> order lag and the field flux linkage $\lambda_\mathrm{f}$ oscillate
-> against each other with high amplitude. This is not represented in the
-> reference results. To avoid this behaviour, set
-> $T_\mathrm{R} = 10^{-6}$ $s$. This has been done for the Dyna$\omega$o
-> implementation.
+:::{.callout-note}
+In the Dyna$\omega$o implementation, if the voltage transducer time constant $T_\mathrm{R}$ = $0.01$ $s$, then the voltage measurement first order lag and the field flux linkage $\lambda_\mathrm{f}$ oscillate against each other with high amplitude. This is not represented in the reference results. To avoid this behaviour, set $T_\mathrm{R} = 10^{-6}$ $s$. This has been done for the Dyna$\omega$o implementation.
+:::
 
 **Part 1: Self-excieted dc exciter (DC1A)**
 

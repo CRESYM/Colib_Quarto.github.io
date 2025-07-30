@@ -77,11 +77,11 @@ A single dynamic model is used for all four [converters](../../../models/4-HVDC/
 
 Two operating points were considered in the simulations, as detailed in @tbl-operating-points.
 
-| operating point # | power ($MW$) injected by |||  | power ($MW$) into equiv. | load ($MW$) at bus $C$ | power ($Mvar$) of shunt reactors |
-|                     | $WP1$ | $WP2$ | $HVDC1$ | $HVDC2$   |                          |                    |                                |
-| ------------------- | ------------------------ | ------------------ | -------------------------------|
-| $1$ | $2000$ | $2000$ | $1150$ | $1400$ | $6374$ | $0$ | $160$ |
-| $2$ | $2000$ | $2000$ | $-1120$ | $-1600$ | $0$ | $1169$ | $500$ |
+| operating point #   | power (MW) injected by |      |       |       | power (MW) into equiv. | load (MW) at bus C | power (Mvar) of shunt reactors |
+| ------------------- | ---------------------- | ---- | ----- | ----- | ---------------------- | ------------------ | ------------------------------ |
+|                     | WP1                    | WP2  | HVDC1 | HVDC2 |                        |                    |                                |
+| 1                   | 2000                   | 2000 | 1150  | 1400  | 6374                   | 0                  | 160                            |
+| 2                   | 2000                   | 2000 | -1120 | -1600 | 0                      | 1169               | 500                            |
 
 : Operating points {#tbl-operating-points}
 
