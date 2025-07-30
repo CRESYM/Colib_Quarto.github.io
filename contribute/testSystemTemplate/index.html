@@ -26,7 +26,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -210,6 +209,14 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../../testCases/kundur_two_area_system/index.html">
  <span class="dropdown-text">Kundur two-area system</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../testCases/converterDrivenStability/index.html">
+ <span class="dropdown-text">Converter Driven Stability</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../testCases/System_frequency_response_model_with_underfrequency_load_shedding_protection/index.html">
+ <span class="dropdown-text">System Frequency Response Model with Underfrequency Load Shedding Protection</span></a>
   </li>  
     </ul>
   </li>
@@ -404,7 +411,7 @@ Important
 <h2 class="anchored" data-anchor-id="use-case-purpose-and-context-mandatory">Use case purpose​ and context (mandatory)</h2>
 <p><em>This section aims at explaining the main purpose of the test case, the reason why it was built. The history behind the test case can also be given for clarity.</em></p>
 <p><strong>Example</strong></p>
-<p>The <em>Kundur two area system</em> is a test system for studies on dynamic stability, oscillations, damping, power exchange and other use cases. It is a widely used standard test case defined in <span class="citation" data-cites="Kundur"><em>Power System Stability and Control</em> (<a href="#ref-Kundur" role="doc-biblioref">2007</a>)</span> (<a href="#fig-KTA" class="quarto-xref">Figure&nbsp;1</a>).</p>
+<p>The <em>Kundur two area system</em> is a test system for studies on dynamic stability, oscillations, damping, power exchange and other use cases. It is a widely used standard test case defined in <span class="citation" data-cites="Kundur">[<a href="#ref-Kundur" role="doc-biblioref">1</a>]</span> (<a href="#fig-KTA" class="quarto-xref">Figure&nbsp;1</a>).</p>
 </section>
 <section id="network-description-mandatory" class="level2">
 <h2 class="anchored" data-anchor-id="network-description-mandatory">Network ​description (mandatory)</h2>
@@ -423,7 +430,7 @@ Note
 </div>
 </div>
 <p><strong>Example</strong></p>
-<p>The test system is shown <a href="#fig-KTA" class="quarto-xref">Figure&nbsp;1</a>. As <span class="citation" data-cites="Kundur"><em>Power System Stability and Control</em> (<a href="#ref-Kundur" role="doc-biblioref">2007</a>)</span> describes it, it consists of two similar areas connected by a weak tie.</p>
+<p>The test system is shown <a href="#fig-KTA" class="quarto-xref">Figure&nbsp;1</a>. As <span class="citation" data-cites="Kundur">[<a href="#ref-Kundur" role="doc-biblioref">1</a>]</span> describes it, it consists of two similar areas connected by a weak tie.</p>
 <p>The parameters are listed in <a href="#sec-inputData" class="quarto-xref">Section&nbsp;4</a>. The system consists of 11 buses connected by lines or transformers. There are 4 generators G1…G4, two loads L7 and L9 as well as two shunt capacitors C7 and C9.</p>
 <div id="fig-KTA" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Kundur two area test system">
 <figure class="quarto-float quarto-float-fig figure">
@@ -691,9 +698,9 @@ Table&nbsp;1: Synchronous machine parameters
 <section id="table-of-references-license" class="level2">
 <h2 class="anchored" data-anchor-id="table-of-references-license">Table of references &amp; license</h2>
 <p><em>This section lists all the references. It must comply with current citation standards. Quarto uses BibTeX for managing reference.</em></p>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-Kundur" class="csl-entry" role="listitem">
-<em>Power System Stability and Control</em>. 2007. McGraw- Hill.
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">(2007) Power system stability and control. McGraw- Hill</div>
 </div>
 </div>
 

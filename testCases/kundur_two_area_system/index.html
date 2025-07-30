@@ -26,7 +26,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -210,6 +209,14 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../../testCases/kundur_two_area_system/index.html">
  <span class="dropdown-text">Kundur two-area system</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../testCases/converterDrivenStability/index.html">
+ <span class="dropdown-text">Converter Driven Stability</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../testCases/System_frequency_response_model_with_underfrequency_load_shedding_protection/index.html">
+ <span class="dropdown-text">System Frequency Response Model with Underfrequency Load Shedding Protection</span></a>
   </li>  
     </ul>
   </li>
@@ -397,7 +404,7 @@ window.Quarto = {
 
 <section id="use-case-purpose-and-context" class="level2">
 <h2 class="anchored" data-anchor-id="use-case-purpose-and-context">Use case purpose​ and context</h2>
-<p>The <em>Kundur two area system</em> is a test system for studies on dynamic stability, oscillations, damping, power exchange and other use cases. It is a widely used standard test case defined in Kundur’s <em>Power system stability and control</em> <span class="citation" data-cites="Kundur">(<a href="#ref-Kundur" role="doc-biblioref"><em>Power System Stability and Control</em> 2007</a>)</span> (Fig. E12.8).</p>
+<p>The <em>Kundur two area system</em> is a test system for studies on dynamic stability, oscillations, damping, power exchange and other use cases. It is a widely used standard test case defined in Kundur’s <em>Power system stability and control</em> <span class="citation" data-cites="Kundur">[<a href="#ref-Kundur" role="doc-biblioref">1</a>]</span> (Fig. E12.8).</p>
 </section>
 <section id="table-of-references" class="level2">
 <h2 class="anchored" data-anchor-id="table-of-references">Table of references</h2>
@@ -417,7 +424,7 @@ Figure&nbsp;1: Kundur’s two-area test system
 </figcaption>
 </figure>
 </div>
-<p>In 1 the test system is shown. As <span class="citation" data-cites="Kundur">(<a href="#ref-Kundur" role="doc-biblioref"><em>Power System Stability and Control</em> 2007</a>)</span> describes it, it consists of two similar areas connected by a weak tie.</p>
+<p>In 1 the test system is shown. As <span class="citation" data-cites="Kundur">[<a href="#ref-Kundur" role="doc-biblioref">1</a>]</span> describes it, it consists of two similar areas connected by a weak tie.</p>
 <p>The parameters are listed in <a href="#input-data">Section 5</a>. The system consists of 11 buses connected by lines or transformers. There are 4 generators G1…G4, two loads L7 and L9 as well as two shunt capacitors C7 and C9.</p>
 </section>
 <section id="static-and-dynamic-models-description" class="level2">
@@ -495,7 +502,7 @@ Table&nbsp;1: ZIP Load parameters
 </div>
 </figure>
 </div>
-<p>In <span class="citation" data-cites="Kundur">(<a href="#ref-Kundur" role="doc-biblioref"><em>Power System Stability and Control</em> 2007</a>)</span> it is stated that the active power should be modelled as constant current and the reactive power as constant impedance: All coefficients can be set to zero except <span class="math inline">\(I_\mathrm{p} = Z_\mathrm{q} = 1\)</span>.</p>
+<p>In <span class="citation" data-cites="Kundur">[<a href="#ref-Kundur" role="doc-biblioref">1</a>]</span> it is stated that the active power should be modelled as constant current and the reactive power as constant impedance: All coefficients can be set to zero except <span class="math inline">\(I_\mathrm{p} = Z_\mathrm{q} = 1\)</span>.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1112,7 +1119,7 @@ Table&nbsp;8: Load parameters
 </section>
 <section id="scenarios" class="level2">
 <h2 class="anchored" data-anchor-id="scenarios">Scenarios</h2>
-<p>The following sceniarios are taken from <span class="citation" data-cites="Kundur">(<a href="#ref-Kundur" role="doc-biblioref"><em>Power System Stability and Control</em> 2007</a>)</span> and related references, which are also considered for reference results.</p>
+<p>The following sceniarios are taken from <span class="citation" data-cites="Kundur">[<a href="#ref-Kundur" role="doc-biblioref">1</a>]</span> and related references, which are also considered for reference results.</p>
 <p>The shown results are obtained from the Dyna<span class="math inline">\(\omega\)</span>o Modelica implementation of the test case.</p>
 <section id="load-flow" class="level3">
 <h3 class="anchored" data-anchor-id="load-flow">Load flow</h3>
@@ -1257,7 +1264,7 @@ Table&nbsp;10: Loadflow generator powers of Dynawo implementation
 <li>Constant current characteristics of active load components</li>
 <li>Constant impedance characteristics of reactive load components</li>
 </ul>
-<p><a href="#fig-example-a-eigenvalues" class="quarto-xref">Figure&nbsp;2</a> shows the result of an eigenvalue analysis of this system, compared to the reference values from <span class="citation" data-cites="Kundur">(<a href="#ref-Kundur" role="doc-biblioref"><em>Power System Stability and Control</em> 2007</a>)</span>. The remaining differences probalby originate from differing model implementations of the synchronous machines in Dyna<span class="math inline">\(\omega\)</span> compared to the ones used by Kundur.</p>
+<p><a href="#fig-example-a-eigenvalues" class="quarto-xref">Figure&nbsp;2</a> shows the result of an eigenvalue analysis of this system, compared to the reference values from <span class="citation" data-cites="Kundur">[<a href="#ref-Kundur" role="doc-biblioref">1</a>]</span>. The remaining differences probalby originate from differing model implementations of the synchronous machines in Dyna<span class="math inline">\(\omega\)</span> compared to the ones used by Kundur.</p>
 <div id="fig-example-a-eigenvalues" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-example-a-eigenvalues-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1302,7 +1309,7 @@ Note
 <p>In related references this case has not been taken into account for comparative analysis. Like there, it has not been investigated using the Dyna<span class="math inline">\(\omega\)</span>o implementation.</p>
 <p><strong>Part 2: Thyristor exciter (ST1A) with high transient gain</strong></p>
 <p>Instead of constant excitation voltage as in <a href="#example-a">Section 6.2</a>, now the thyristor exciter ST1A is used. For parameters, see <a href="#tbl-st1a-parameters" class="quarto-xref">Table&nbsp;4</a>. It has high transient gain, i.e.&nbsp;no transient gain reduction.</p>
-<p>The implementation in Dyna<span class="math inline">\(\omega\)</span>o does not allow to set saturation parameters <span class="math inline">\(A_\mathrm{sat}\)</span> and <span class="math inline">\(B_\mathrm{sat}\)</span> as in <a href="#tbl-sm-parameters" class="quarto-xref">Table&nbsp;2</a> because its synchronous machine model uses a different saturation model. Instead of the model from Kundur <span class="citation" data-cites="Kundur">(<a href="#ref-Kundur" role="doc-biblioref"><em>Power System Stability and Control</em> 2007</a>)</span>, the Shackshaft model is used. To get the unstable pole close to the one in the Kundur reference, the Shackshaft parameters have been set to <span class="math inline">\(m_\mathrm{d}=1\)</span>, <span class="math inline">\(m_\mathrm{q}=1\)</span>, <span class="math inline">\(n_\mathrm{d}=9\)</span>, <span class="math inline">\(n_\mathrm{q}=9\)</span>.</p>
+<p>The implementation in Dyna<span class="math inline">\(\omega\)</span>o does not allow to set saturation parameters <span class="math inline">\(A_\mathrm{sat}\)</span> and <span class="math inline">\(B_\mathrm{sat}\)</span> as in <a href="#tbl-sm-parameters" class="quarto-xref">Table&nbsp;2</a> because its synchronous machine model uses a different saturation model. Instead of the model from Kundur <span class="citation" data-cites="Kundur">[<a href="#ref-Kundur" role="doc-biblioref">1</a>]</span>, the Shackshaft model is used. To get the unstable pole close to the one in the Kundur reference, the Shackshaft parameters have been set to <span class="math inline">\(m_\mathrm{d}=1\)</span>, <span class="math inline">\(m_\mathrm{q}=1\)</span>, <span class="math inline">\(n_\mathrm{d}=9\)</span>, <span class="math inline">\(n_\mathrm{q}=9\)</span>.</p>
 <p>The voltage transducer time constant has been</p>
 <div id="fig-example-b-2-eigenvalues" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1364,7 +1371,7 @@ Figure&nbsp;4: Unstable step response of the system with ST1A without transient 
 <p><strong>Part 3: Thyristor exciter (ST1A) with transient gain reduction (TGR)</strong></p>
 <p>Simlilarly to <a href="#example-b">Section 6.3.2</a>, the ST1A exciter is used. In this case, transient gain reduction (TGR) is activated by setting <span class="math inline">\(T_\mathrm{A} = 1\)</span>.</p>
 <p><strong>Part 4: Thyristor exciter (ST1A) with high transient gain and PSS</strong></p>
-<p>Simlilarly to <a href="#example-b">Section 6.3.2</a>, the ST1A exciter is used. In this case, a power system stabilizer according to <span class="citation" data-cites="Kundur">(<a href="#ref-Kundur" role="doc-biblioref"><em>Power System Stability and Control</em> 2007</a>)</span> (Figure 6-8) is activated and parameterized according to <a href="#tbl-pss-parameters" class="quarto-xref">Table&nbsp;5</a>.</p>
+<p>Simlilarly to <a href="#example-b">Section 6.3.2</a>, the ST1A exciter is used. In this case, a power system stabilizer according to <span class="citation" data-cites="Kundur">[<a href="#ref-Kundur" role="doc-biblioref">1</a>]</span> (Figure 6-8) is activated and parameterized according to <a href="#tbl-pss-parameters" class="quarto-xref">Table&nbsp;5</a>.</p>
 </section>
 </section>
 <section id="open-source-implementations" class="level2">
@@ -1397,9 +1404,9 @@ Figure&nbsp;4: Unstable step response of the system with ST1A without transient 
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-Kundur" class="csl-entry" role="listitem">
-<em>Power System Stability and Control</em>. 2007. McGraw- Hill.
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">(2007) Power system stability and control. McGraw- Hill</div>
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -196,6 +196,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../../testCases/kundur_two_area_system/index.html">
  <span class="dropdown-text">Kundur two-area system</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../testCases/converterDrivenStability/index.html">
+ <span class="dropdown-text">Converter Driven Stability</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../testCases/System_frequency_response_model_with_underfrequency_load_shedding_protection/index.html">
+ <span class="dropdown-text">System Frequency Response Model with Underfrequency Load Shedding Protection</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -372,15 +380,70 @@ Note
 <p>COLIB provides two main contribution templates depending on what you want to add:</p>
 <section id="model-template" class="level3">
 <h3 class="anchored" data-anchor-id="model-template">Model Template</h3>
-<p>Use the <strong>Model Template</strong> when you want to contribute: - Mathematical models of power system components - Control system descriptions - Algorithm implementations - Component behavior models</p>
-<p><strong>Download the model template:</strong> <a href="../download/modelTemplate.zip" download="modelTemplate.zip">Download Model Template</a></p>
-<p><strong>Model template includes:</strong> - Standardized sections for model description - Mathematical equation formatting examples - Parameter and variable tables - Source code sections - Reference management</p>
+<p>Use the <strong>Model Template</strong> when you want to contribute on:</p>
+<ul>
+<li>Mathematical models of power system components</li>
+<li>Control system descriptions</li>
+<li>Algorithm implementations</li>
+<li>Component behavior models</li>
+</ul>
+<p><a href="../download/modelTemplate.zip" download="modelTemplate.zip" class="btn-main"> <i class="fas fa-download"></i> Download model template </a></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Model template includes:</strong></p>
+<ul>
+<li>Context (mandatory)</li>
+<li>Model use, assumptions, validity domain and limitations (mandatory)</li>
+<li>Model description (mandatory)</li>
+<li>Source code (optional)</li>
+<li>Open source implementations (if any)</li>
+<li>Table of references &amp; license</li>
+</ul>
+</div>
+</div>
 </section>
 <section id="test-case-template" class="level3">
 <h3 class="anchored" data-anchor-id="test-case-template">Test Case Template</h3>
-<p>Use the <strong>Test Case Template</strong> when you want to contribute: - Validation scenarios - Benchmark test systems - Simulation examples - Performance comparisons</p>
-<p><strong>Download the test case template:</strong> <a href="../download/testCaseTemplate.zip" download="testCaseTemplate.zip">Download Test Case Template</a></p>
-<p><strong>Test case template includes:</strong> - System description sections - Simulation setup guidelines - Results presentation formats - Data file organization</p>
+<p>Use the <strong>Test Case Template</strong> when you want to contribute on:</p>
+<ul>
+<li>Validation scenarios</li>
+<li>Benchmark test systems</li>
+<li>Simulation examples</li>
+<li>Performance comparisons</li>
+</ul>
+<p><a href="../download/testCaseTemplate.zip" download="testCaseTemplate.zip" class="btn-main"> <i class="fas fa-download"></i> Download test case template </a></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Test case template includes:</strong></p>
+<ul>
+<li>Use case purpose​ and context (mandatory)</li>
+<li>Network ​description (mandatory)</li>
+<li>Static and Dynamic models​ description (mandatory)</li>
+<li>Input Data (mandatory)</li>
+<li>Scenarios (at least one mandatory)</li>
+<li>Simulation parameters (optional)</li>
+<li>Outputs (mandatory)</li>
+<li>Open source implementations (if any)</li>
+<li>Table of references &amp; license</li>
+</ul>
+</div>
+</div>
 </section>
 </section>
 <section id="installing-and-using-quarto" class="level2">
@@ -405,11 +468,22 @@ Note
 <section id="install-a-text-editor-recommended" class="level4">
 <h4 class="anchored" data-anchor-id="install-a-text-editor-recommended">3. Install a Text Editor (Recommended)</h4>
 <p>While you can edit QMD files with any text editor, we recommend:</p>
-<ul>
-<li><strong>VS Code</strong> with the Quarto extension</li>
-<li><strong>RStudio</strong> (built-in Quarto support)</li>
-<li><strong>Jupyter Lab</strong> with Quarto extension</li>
-</ul>
+<p><strong>VS Code</strong> with the Quarto extension</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can install the Quarto extension from within the Extensions tab in VS Code, from the <a href="https://marketplace.visualstudio.com/items?itemName=quarto.quarto">Extension Marketplace</a>, the <a href="https://open-vsx.org/extension/quarto/quarto">Open VSX Registry</a> or directly from a <a href="https://github.com/quarto-dev/quarto-vscode#visx-install">VISX extension file</a>.</p>
+</div>
+</div>
+<p><strong>RStudio</strong> (built-in Quarto support)</p>
+<p><strong>Jupyter Lab</strong> (built-in Quarto support)</p>
 </section>
 </section>
 <section id="basic-quarto-workflow" class="level3">
@@ -418,18 +492,27 @@ Note
 <h4 class="anchored" data-anchor-id="create-your-contribution">1. Create Your Contribution</h4>
 <ol type="1">
 <li>Download the appropriate template (model or test case)</li>
-<li>Extract the template files</li>
 <li>Open the <code>index.qmd</code> file in your preferred editor</li>
 </ol>
 </section>
 <section id="edit-your-content" class="level4">
 <h4 class="anchored" data-anchor-id="edit-your-content">2. Edit Your Content</h4>
+<p>Replace the content of the <code>index.qmd</code> file with your own, following the guidelines in the template.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li>Replace template content with your own</li>
-<li>Use Markdown syntax for text formatting</li>
-<li>Add mathematical equations using LaTeX syntax: <code>$equation$</code> or <code>$$equation$$</code></li>
-<li>Include figures and references as shown in the template</li>
+<li>See <a href="../../contribute/modelTemplate/index.html">model template</a> and <a href="../../contribute/testSystemTemplate/index.html">test case template</a> for more details.</li>
 </ul>
+</div>
+</div>
 </section>
 <section id="preview-your-work" class="level4">
 <h4 class="anchored" data-anchor-id="preview-your-work">3. Preview Your Work</h4>
