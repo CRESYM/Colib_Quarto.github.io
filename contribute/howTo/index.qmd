@@ -81,6 +81,26 @@ Use the **Test Case Template** when you want to contribute on:
 - Table of references & license
 :::
 
+### Existing page improvements
+You can also contribute enhance the current COLIB content by:
+
+- Refining and enriching existing documentation quality
+- Supplementing current model or test case descriptions with missing details
+- Fixing inaccuracies, typos, or outdated information
+- Adding practical examples, clarifications, or better explanations
+- Updating references, citations, or technical specifications
+- Improving formatting, structure, or readability
+- And much more!
+
+:::{.callout-note}
+## Steps for page improvement contributions:
+
+1. **Browse and select** the specific page you wish to enhance from the COLIB repository
+2. **Document your improvements** by creating a detailed GitHub issue explaining what changes you propose and why
+3. **Provide your modifications** either as an updated QMD file attachment or as specific textual changes in the issue
+4. **Submit for review** - your contribution will go through the same quality review process as new content submissions
+:::
+
 ## Installing and Using Quarto
 
 ### Installation
