@@ -1,0 +1,87 @@
+.code-editor {
+	background-color: #f8f9fa;
+	border: 2px solid #dee2e6;
+	border-radius: 8px;
+	padding: 15px;
+	margin: 10px 0;
+	font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+	min-height: 120px;
+	transition: border-color 0.3s ease;
+	width: 100%;
+}
+
+.code-editor:focus {
+	outline: none;
+	border-color: #0d6efd;
+	box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.success-message {
+	background-color: #d1edff;
+	border: 2px solid #0d6efd;
+	border-radius: 8px;
+	padding: 15px;
+	margin: 10px 0;
+	color: #0d47a1;
+	display: none;
+	animation: fadeIn 0.5s ease-in;
+}
+
+.error-message {
+	background-color: #f8d7da;
+	border: 2px solid #dc3545;
+	border-radius: 8px;
+	padding: 15px;
+	margin: 10px 0;
+	color: #721c24;
+	display: none;
+	animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+	from { opacity: 0; transform: translateY(-10px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+.tutorial-step {
+	background-color: #f8f9fa;
+	border-left: 4px solid #0d6efd;
+	padding: 20px;
+	margin: 20px 0;
+	border-radius: 0 8px 8px 0;
+}
+
+.check-button {
+	background-color: #198754;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 14px;
+	margin-top: 10px;
+	transition: background-color 0.3s ease;
+}
+
+.check-button:hover {
+	background-color: #157347;
+}
+
+.step-counter {
+	background-color: #0d6efd;
+	color: white;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+.code-editor-container {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+}

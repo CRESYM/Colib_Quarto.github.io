@@ -71,6 +71,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles/main.css">
+<link rel="stylesheet" href="../../styles/tutorial.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light">
@@ -334,94 +335,18 @@ What You’ll Learn
 </ul>
 </div>
 </div>
-<style>
-.code-editor {
-    background-color: #f8f9fa;
-    border: 2px solid #dee2e6;
-    border-radius: 8px;
-    padding: 15px;
-    margin: 10px 0;
-    font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
-    min-height: 120px;
-    transition: border-color 0.3s ease;
-}
-
-.code-editor:focus {
-    outline: none;
-    border-color: #0d6efd;
-    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
-}
-
-.success-message {
-    background-color: #d1edff;
-    border: 2px solid #0d6efd;
-    border-radius: 8px;
-    padding: 15px;
-    margin: 10px 0;
-    color: #0d47a1;
-    display: none;
-    animation: fadeIn 0.5s ease-in;
-}
-
-.error-message {
-    background-color: #f8d7da;
-    border: 2px solid #dc3545;
-    border-radius: 8px;
-    padding: 15px;
-    margin: 10px 0;
-    color: #721c24;
-    display: none;
-    animation: fadeIn 0.5s ease-in;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.tutorial-step {
-    background-color: #f8f9fa;
-    border-left: 4px solid #0d6efd;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 0 8px 8px 0;
-}
-
-.check-button {
-    background-color: #198754;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.check-button:hover {
-    background-color: #157347;
-}
-
-.step-counter {
-    background-color: #0d6efd;
-    color: white;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    margin-right: 10px;
-}
-</style>
 <section id="sec-step1" class="level2">
 <h2 class="anchored" data-anchor-id="sec-step1">Step 1: Your First QMD Header</h2>
 <div class="tutorial-step">
 <p><span class="step-counter">1</span><strong>Let’s start with the basics!</strong></p>
 <p>Every QMD page needs a YAML header. Try writing a basic header for a new model page about a synchronous generator.</p>
-<p><strong>Your task:</strong> Write a YAML header that includes: - A title: “Synchronous Generator Model” - Author: “Your Name” - Categories: model, generator</p>
+<p><strong>Your task:</strong> Write a YAML header that includes:</p>
+<ul>
+<li>A title: “Synchronous Generator Model”</li>
+<li>Author: “Your Name”</li>
+<li>Categories: model, generator</li>
+</ul>
+<div class="code-editor-container">
 <textarea class="code-editor" id="editor1" placeholder="Write your YAML header here...
 
 Example format:
@@ -430,11 +355,18 @@ title: " your="" title"="" author:="" "your="" name"="" categories:="" [category
 <button class="check-button" onclick="checkStep1()">
 Check My Answer
 </button>
+</div>
 <div id="success1" class="success-message">
 <p>🎉 <strong>Excellent!</strong> You’ve successfully created a YAML header. The header provides essential metadata for your page and helps organize content in COLIB.</p>
 </div>
 <div id="error1" class="error-message">
-<p>❌ <strong>Not quite right.</strong> Make sure you include: - Three dashes (—) at the beginning and end - title: “Synchronous Generator Model” - author: “Your Name” - categories: [model, generator]</p>
+<p>❌ <strong>Not quite right.</strong> Make sure you include:</p>
+<ul>
+<li>Three dashes (—) at the beginning and end</li>
+<li>title: “Synchronous Generator Model”</li>
+<li>author: “Your Name”</li>
+<li>categories: [model, generator]</li>
+</ul>
 </div>
 </div>
 </section>
@@ -444,7 +376,14 @@ Check My Answer
 <p><span class="step-counter">2</span><strong>Power system models need math!</strong></p>
 <p>One of COLIB’s strengths is beautiful mathematical documentation. Let’s write the fundamental equation for active power in a synchronous generator.</p>
 <p><strong>Your task:</strong> Write the equation for electrical power output: P = (E × V × sin(δ)) / X</p>
-<p>Where: - P is electrical power output - E is internal EMF - V is terminal voltage - δ is power angle - X is synchronous reactance</p>
+<p>Where:</p>
+<ul>
+<li>P is electrical power output</li>
+<li>E is internal EMF</li>
+<li>V is terminal voltage</li>
+<li>δ is power angle</li>
+<li>X is synchronous reactance</li>
+</ul>
 <p>Use LaTeX syntax with double dollar signs for display equations and add a label <code>{#eq-power}</code>.</p>
 <textarea class="code-editor" id="editor2" placeholder="Write your equation here...
 
@@ -459,7 +398,12 @@ Check My Answer
 <p>🎉 <strong>Perfect!</strong> You’ve written a properly formatted equation. LaTeX equations make your documentation professional and precise.</p>
 </div>
 <div id="error2" class="error-message">
-<p>❌ <strong>Try again.</strong> Remember to: - Use double dollar signs ($$) - Write the equation: P = - Add the label {#eq-power}</p>
+<p>❌ <strong>Try again.</strong> Remember to:</p>
+<ul>
+<li>Use double dollar signs ($$)</li>
+<li>Write the equation: P = </li>
+<li>Add the label {#eq-power}</li>
+</ul>
 </div>
 </div>
 </section>
@@ -468,7 +412,12 @@ Check My Answer
 <div class="tutorial-step">
 <p><span class="step-counter">3</span><strong>Document your model clearly!</strong></p>
 <p>Good documentation explains the model’s purpose and assumptions. Let’s create a model description section.</p>
-<p><strong>Your task:</strong> Write a brief model description that includes: - A heading “## Model Description” - A paragraph explaining this is a simplified synchronous generator model - A callout block (note type) listing the key assumptions</p>
+<p><strong>Your task:</strong> Write a brief model description that includes:</p>
+<ul>
+<li>A heading <code>## Model Description</code></li>
+<li>A paragraph explaining this is a simplified synchronous generator model</li>
+<li>A callout block (note type) listing the key assumptions</li>
+</ul>
 <textarea class="code-editor" id="editor3" placeholder="Write your model description here...
 
 Include:
@@ -482,7 +431,12 @@ Check My Answer
 <p>🎉 <strong>Great work!</strong> You’ve created a well-structured model description. Clear documentation helps other researchers understand and use your models correctly.</p>
 </div>
 <div id="error3" class="error-message">
-<p>❌ <strong>Keep trying.</strong> Make sure you include: - The heading: ## Model Description - A paragraph about the synchronous generator model - A callout note using :::{.callout-note} syntax</p>
+<p>❌ <strong>Keep trying.</strong> Make sure you include:</p>
+<ul>
+<li>The heading: <code>## Model Description</code></li>
+<li>A paragraph about the synchronous generator model</li>
+<li>A callout note using :::{.callout-note} syntax</li>
+</ul>
 </div>
 </div>
 </section>
@@ -503,7 +457,12 @@ Check My Answer
 <p>🎉 <strong>Excellent!</strong> Cross-references make your documentation professional and help readers navigate between related content easily.</p>
 </div>
 <div id="error4" class="error-message">
-<p>❌ <strong>Not quite.</strong> Make sure to: - Write a complete sentence - Include <strong>?@eq-power</strong> somewhere in your sentence - Explain how the equation relates to the model</p>
+<p>❌ <strong>Not quite.</strong> Make sure to:</p>
+<ul>
+<li>Write a complete sentence</li>
+<li>Include <strong>?@eq-power</strong> somewhere in your sentence</li>
+<li>Explain how the equation relates to the model</li>
+</ul>
 </div>
 </div>
 </section>
@@ -512,8 +471,14 @@ Check My Answer
 <div class="tutorial-step">
 <p><span class="step-counter">5</span><strong>Put it all together!</strong></p>
 <p>Now let’s combine everything into a complete mini model page. This is your final challenge!</p>
-<p><strong>Your task:</strong> Create a complete QMD page that includes: 1. YAML header (from Step 1) 2. A “## Mathematical Model” section with your equation (from Step 2)<br>
-3. Model description section (from Step 3) 4. A reference to the equation (from Step 4)</p>
+<p><strong>Your task:</strong> Create a complete QMD page that includes:</p>
+<ol type="1">
+<li>YAML header (from Step 1)</li>
+<li>A <code>## Mathematical Model</code> section with your equation (from Step 2)<br>
+</li>
+<li>Model description section (from Step 3)</li>
+<li>A reference to the equation (from Step 4)</li>
+</ol>
 <textarea class="code-editor" id="editor5" style="min-height: 200px;" placeholder="Combine all previous steps into one complete page..."></textarea>
 <button class="check-button" onclick="checkStep5()">
 Check My Complete Page
@@ -549,10 +514,10 @@ Ready for More?
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Explore the <a href="../../contribute/modelTemplate/index.html">Model Template</a> for detailed guidelines</li>
 <li>Check out <a href="../../contribute/quartoBasics/index.html">Quarto Basics</a> for advanced features</li>
-<li>Browse existing models in the <a href="../../models/index.html">Models section</a> for inspiration</li>
 <li>Start your first contribution using the <a href="../../contribute/howTo/index.html">How to Contribute</a> guide</li>
+<li>Explore the <a href="../../contribute/modelTemplate/index.html">Model Template</a> and <a href="../../contribute/testSystemTemplate/index.html">Test Case Template</a> for detailed guidelines</li>
+<li>Browse existing models and test cases in the <a href="../../models/index.html">Models section</a> and <a href="../../testCases/index.html">Test Cases section</a> for inspiration</li>
 </ul>
 </div>
 </div>
@@ -624,9 +589,8 @@ function checkStep4() {
     const error = document.getElementById('error4');
     
     const hasReference = input.includes('@eq-power');
-    const hasSentence = input.length > 20 && (input.includes('.') || input.includes('!') || input.includes('?'));
     
-    if (hasReference && hasSentence) {
+    if (hasReference) {
         success.style.display = 'block';
         error.style.display = 'none';
     } else {
