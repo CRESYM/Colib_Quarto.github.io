@@ -85,3 +85,54 @@
 	flex-direction: column;
 	margin-bottom: 20px;
 }
+
+/* CodeMirror Enhanced Styles */
+.CodeMirror {
+	border: 2px solid #dee2e6;
+	border-radius: 8px;
+	font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+	font-size: 14px;
+	min-height: 120px;
+	background-color: #f8f9fa;
+	margin: 10px 0;
+	transition: border-color 0.3s ease;
+}
+
+.CodeMirror:focus-within {
+	border-color: #0d6efd;
+	box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.CodeMirror-placeholder {
+	color: #6c757d !important;
+	font-style: italic;
+}
+
+.CodeMirror-gutters {
+	background-color: #f8f9fa;
+	border-right: 1px solid #dee2e6;
+}
+
+.CodeMirror-linenumber {
+	color: #6c757d;
+}
+
+/* Dark mode support for syntax highlighting */
+.cm-keyword { color: #0066cc; font-weight: bold; }
+.cm-string { color: #22863a; }
+.cm-comment { color: #6f42c1; font-style: italic; }
+.cm-number { color: #005cc5; }
+.cm-variable { color: #24292e; }
+.cm-operator { color: #d73a49; }
+
+/* Tutorial-specific CodeMirror styling */
+.tutorial-step .CodeMirror {
+	margin: 15px 0 20px 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+	.CodeMirror {
+		font-size: 12px;
+	}
+}
