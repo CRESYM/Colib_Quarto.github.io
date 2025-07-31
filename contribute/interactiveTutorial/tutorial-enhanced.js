@@ -24,7 +24,7 @@ function initializeEditors() {
   if (editor2Element && typeof CodeMirror !== 'undefined') {
     editors.editor2 = CodeMirror.fromTextArea(editor2Element, {
       mode: 'markdown',
-      theme: 'default',
+      theme: '3024-night',
       lineNumbers: true,
       lineWrapping: true,
       placeholder: editor2Element.placeholder,
@@ -38,7 +38,7 @@ function initializeEditors() {
   if (editor3Element && typeof CodeMirror !== 'undefined') {
     editors.editor3 = CodeMirror.fromTextArea(editor3Element, {
       mode: 'markdown',
-      theme: 'default',
+      theme: '3024-night',
       lineNumbers: true,
       lineWrapping: true,
       placeholder: editor3Element.placeholder,
@@ -52,7 +52,7 @@ function initializeEditors() {
   if (editor4Element && typeof CodeMirror !== 'undefined') {
     editors.editor4 = CodeMirror.fromTextArea(editor4Element, {
       mode: 'markdown',
-      theme: 'default',
+      theme: '3024-night',
       lineNumbers: true,
       lineWrapping: true,
       placeholder: editor4Element.placeholder,
@@ -95,7 +95,7 @@ function checkStep1() {
   const success = document.getElementById('success1');
   const error = document.getElementById('error1');
 
-  const hasTitle = input.includes('title:') && input.toLowerCase().includes('Synchronous Generator Model');
+  const hasTitle = input.includes('title:') && input.toLowerCase().includes('synchronous generator model');
   const hasAuthor = input.includes('author:');
   const hasCategories = input.includes('categories:') && input.includes('model') && input.includes('generator');
   const hasDashes = input.includes('---');
@@ -135,7 +135,7 @@ function checkStep3() {
   const hasHeading = input.toLowerCase().includes('## model description') || input.toLowerCase().includes('##model description');
   const hasCallout = input.includes(':::{.callout-note}') && input.includes(':::');
   const hasParagraph = input.split('\n').some(line =>
-    line.trim().length > 20 && !line.includes('#') && !line.includes(':::')
+    !line.includes('#') && !line.includes(':::')
   );
 
   if (hasHeading && hasCallout && hasParagraph) {
@@ -171,9 +171,10 @@ function checkStep5() {
   const hasYAML = input.includes('---') && input.includes('title:');
   const hasEquation = input.includes('$$') && input.includes('{#eq-power}');
   const hasDescription = input.toLowerCase().includes('## model description');
+  const hasModel = input.toLowerCase().includes('## mathematical model');
   const hasReference = input.includes('@eq-power');
 
-  if (hasYAML && hasEquation && hasDescription && hasReference) {
+  if (hasYAML && hasEquation && hasDescription && hasModel && hasReference) {
     success.style.display = 'block';
     error.style.display = 'none';
     // Celebration effect
