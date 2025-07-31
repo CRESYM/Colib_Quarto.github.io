@@ -22,7 +22,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -1130,14 +1149,14 @@ window.Quarto = {
 
 <section id="context" class="level2">
 <h2 class="anchored" data-anchor-id="context">Context</h2>
-<p>System frequency response model (SFRM) is useful for representing frequency behavior of an electric power system after a sudden power imbalance occurs. It was developed to average the dynamic behavior of multiple synchronous machines into an equivalent single-generator unit model. It filters out all inter-generator oscillations and provides the average electric power system frequency response. SFRM was first introduced in <span class="citation" data-cites="Anderson1990">[<a href="#ref-Anderson1990" role="doc-biblioref"><strong>Anderson1990?</strong></a>]</span> and was utilized in several publications since then.</p>
-<p>UFLS is incorporated to SFRM as an additional feedback function (see Model description for more details). Apart from conventional UFLS algorithm, this model includes an innovative UFLS (<span class="citation" data-cites="Rudez2022">[<a href="#ref-Rudez2022" role="doc-biblioref"><strong>Rudez2022?</strong></a>]</span>, <span class="citation" data-cites="Rudez2021">[<a href="#ref-Rudez2021" role="doc-biblioref"><strong>Rudez2021?</strong></a>]</span>) proposed by University of Ljubljana, Slovenia, with two different types of settings ( the shapes of tripping curves in f-M plane can be either L-shaped like in Fig. 5b (L-shaped) or ellipse-shaped like in Fig. 5c).</p>
+<p>System frequency response model (SFRM) is useful for representing frequency behavior of an electric power system after a sudden power imbalance occurs. It was developed to average the dynamic behavior of multiple synchronous machines into an equivalent single-generator unit model. It filters out all inter-generator oscillations and provides the average electric power system frequency response. SFRM was first introduced in <span class="citation" data-cites="Anderson1990">[<a href="#ref-Anderson1990" role="doc-biblioref">1</a>]</span> and was utilized in several publications since then.</p>
+<p>UFLS is incorporated to SFRM as an additional feedback function (see Model description for more details). Apart from conventional UFLS algorithm, this model includes an innovative UFLS (<span class="citation" data-cites="Rudez2022">[<a href="#ref-Rudez2022" role="doc-biblioref">2</a>]</span>, <span class="citation" data-cites="Rudez2021">[<a href="#ref-Rudez2021" role="doc-biblioref">3</a>]</span>) proposed by University of Ljubljana, Slovenia, with two different types of settings ( the shapes of tripping curves in f-M plane can be either L-shaped like in Fig. 5b (L-shaped) or ellipse-shaped like in Fig. 5c).</p>
 <p>This model has been developed in the context of XX project which aims at studying the XX.</p>
 </section>
 <section id="model-use-assumptions-validity-domain-and-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
-<p>SFRM can be very handy for studying different frequency-control mechanisms, including Under-Frequency Load Shedding (UFLS), often referred to as Low-Frequency Demand Disconnection (LFDD). UFLS is governed by the system frequency and decreases system consumption once certain criteria are met. Depending on the criteria, a variety of UFLS algorithms exist in the literature <span class="citation" data-cites="Skrjanc2023">[<a href="#ref-Skrjanc2023" role="doc-biblioref"><strong>Skrjanc2023?</strong></a>]</span>, among which conventional frequency-threshold-based UFLS algorithm is prevailing. In the past, this type of system integrity protection scheme was rarely activated due to abundance of rotational masses, synchronized to the electrical power system. Namely, the so-called system inertia <span class="math inline">\(H\)</span> has a stabilizing effect on electric-power frequency, making it very resilient to power imbalances. However, by replacing conventional generation with converter-interfaced sources without any rotational masses, system inertia is decreasing and as a result, the sensitivity to power imbalances is increasing. This calls for new frequency control and protection strategies, which can be easily studied using SFRM.</p>
-<p>Most of the researchers agree that the flexibility of conventional UFLS is insufficient, especially under low-inertia conditions and uncertain stage sizes due to DER. Load disconnection based on frequency alone is simply inappropriate and offers poor adaptability. This is why numerous attempts can be found in the literature to increase UFLS adaptability to various operating conditions. One such innovation, developed at University of Ljubljana (noted as UL-UFLS) and presented in this model, takes advantage of frequency and its rate of change (rate-of-change-of-frequency - <span class="math inline">\(RoCoF\)</span>) to add a second tripping criterion alongside frequency violation. Source <span class="citation" data-cites="Rudez2021">[<a href="#ref-Rudez2021" role="doc-biblioref"><strong>Rudez2021?</strong></a>]</span> defines a frequency stability margin <span class="math inline">\(M(t)\)</span>, whose pros and cons were extensively discussed in <span class="citation" data-cites="Rudez2019">[<a href="#ref-Rudez2019" role="doc-biblioref"><strong>Rudez2019?</strong></a>]</span>, <span class="citation" data-cites="Vadillo2023">[<a href="#ref-Vadillo2023" role="doc-biblioref"><strong>Vadillo2023?</strong></a>]</span>, <span class="citation" data-cites="Rudez2019b">[<a href="#ref-Rudez2019b" role="doc-biblioref"><strong>Rudez2019b?</strong></a>]</span>, <span class="citation" data-cites="Sodin2020">[<a href="#ref-Sodin2020" role="doc-biblioref"><strong>Sodin2020?</strong></a>]</span>, <span class="citation" data-cites="Bonetti2020">[<a href="#ref-Bonetti2020" role="doc-biblioref"><strong>Bonetti2020?</strong></a>]</span>.</p>
+<p>SFRM can be very handy for studying different frequency-control mechanisms, including Under-Frequency Load Shedding (UFLS), often referred to as Low-Frequency Demand Disconnection (LFDD). UFLS is governed by the system frequency and decreases system consumption once certain criteria are met. Depending on the criteria, a variety of UFLS algorithms exist in the literature <span class="citation" data-cites="Skrjanc2023">[<a href="#ref-Skrjanc2023" role="doc-biblioref">4</a>]</span>, among which conventional frequency-threshold-based UFLS algorithm is prevailing. In the past, this type of system integrity protection scheme was rarely activated due to abundance of rotational masses, synchronized to the electrical power system. Namely, the so-called system inertia <span class="math inline">\(H\)</span> has a stabilizing effect on electric-power frequency, making it very resilient to power imbalances. However, by replacing conventional generation with converter-interfaced sources without any rotational masses, system inertia is decreasing and as a result, the sensitivity to power imbalances is increasing. This calls for new frequency control and protection strategies, which can be easily studied using SFRM.</p>
+<p>Most of the researchers agree that the flexibility of conventional UFLS is insufficient, especially under low-inertia conditions and uncertain stage sizes due to DER. Load disconnection based on frequency alone is simply inappropriate and offers poor adaptability. This is why numerous attempts can be found in the literature to increase UFLS adaptability to various operating conditions. One such innovation, developed at University of Ljubljana (noted as UL-UFLS) and presented in this model, takes advantage of frequency and its rate of change (rate-of-change-of-frequency - <span class="math inline">\(RoCoF\)</span>) to add a second tripping criterion alongside frequency violation. Source <span class="citation" data-cites="Rudez2021">[<a href="#ref-Rudez2021" role="doc-biblioref">3</a>]</span> defines a frequency stability margin <span class="math inline">\(M(t)\)</span>, whose pros and cons were extensively discussed in <span class="citation" data-cites="Rudez2019">[<a href="#ref-Rudez2019" role="doc-biblioref">5</a>]</span>, <span class="citation" data-cites="Vadillo2023">[<a href="#ref-Vadillo2023" role="doc-biblioref">6</a>]</span>, <span class="citation" data-cites="Rudez2019b">[<a href="#ref-Rudez2019b" role="doc-biblioref">7</a>]</span>, <span class="citation" data-cites="Sodin2020">[<a href="#ref-Sodin2020" role="doc-biblioref">8</a>]</span>, <span class="citation" data-cites="Bonetti2020">[<a href="#ref-Bonetti2020" role="doc-biblioref">9</a>]</span>.</p>
 </section>
 <section id="model-description" class="level2">
 <h2 class="anchored" data-anchor-id="model-description">Model description</h2>
@@ -1164,7 +1183,7 @@ TF_2 (s) &amp;= \frac{K_{\text{m}}(1+F_{\text{H}} T_{\text{R}} s)}{R(1+T_{\text{
 <section id="underfrequency-load-shedding" class="level3">
 <h3 class="anchored" data-anchor-id="underfrequency-load-shedding">Underfrequency load shedding</h3>
 <p>UFLS is incorporated to SFRM as an additional feedback function providing <span class="math inline">\(P_{UFLS}\)</span>, as seen in Fig. 1. The impact of UFLS on acceleration power <span class="math inline">\(P_a\)</span> is nonlinear, since UFLS provides discrete actions.</p>
-<p>Apart from conventional UFLS algorithm, the model includes an innovative UFLS (<span class="citation" data-cites="Rudez2022">[<a href="#ref-Rudez2022" role="doc-biblioref"><strong>Rudez2022?</strong></a>]</span>, <span class="citation" data-cites="Rudez2021">[<a href="#ref-Rudez2021" role="doc-biblioref"><strong>Rudez2021?</strong></a>]</span> intellectual property of University of Ljubljana, Slovenia), with two different types of settings.</p>
+<p>Apart from conventional UFLS algorithm, the model includes an innovative UFLS (<span class="citation" data-cites="Rudez2022">[<a href="#ref-Rudez2022" role="doc-biblioref">2</a>]</span>, <span class="citation" data-cites="Rudez2021">[<a href="#ref-Rudez2021" role="doc-biblioref">3</a>]</span> intellectual property of University of Ljubljana, Slovenia), with two different types of settings.</p>
 <div id="fig-sfrm" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sfrm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1335,9 +1354,38 @@ Figure&nbsp;10
 <p>The references are included in the bibliography.</p>
 
 
+
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-Anderson1990" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Anderson PM, Mirheydar M (1990) A low-order system frequency response model. IEEE Transactions on Power Systems 5(3):720–729. <a href="https://doi.org/10.1109/59.65898">https://doi.org/10.1109/59.65898</a></div>
+</div>
+<div id="ref-Rudez2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Rudež U (2022) <a href="https://si.espacenet.com/publicationDetails/originalDocument?FT=D&amp;date=20220531&amp;DB=&amp;locale=si_SI&amp;CC=US&amp;NR=11349309B2&amp;KC=B2&amp;ND=4">Method and device for improved under-frequency load shedding in electrical power systems</a></div>
+</div>
+<div id="ref-Rudez2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Rudez U, Sodin D, Mihalic R (2021) Estimating frequency stability margin for flexible under-frequency relay operation. Electric Power Systems Research 194:107116. <a href="https://doi.org/10.1016/j.epsr.2021.107116">https://doi.org/10.1016/j.epsr.2021.107116</a></div>
+</div>
+<div id="ref-Skrjanc2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Skrjanc T, Mihalic R, Rudez U (2023) A systematic literature review on under-frequency load shedding protection using clustering methods. Renewable and Sustainable Energy Reviews 180:113294. <a href="https://doi.org/10.1016/j.rser.2023.113294">https://doi.org/10.1016/j.rser.2023.113294</a></div>
+</div>
+<div id="ref-Rudez2019" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">Rudez U, Mihalic R (2019) <a href="https://doi.org/10.1109/PTC.2019.8810438">RoCoF-based improvement of conventional under-frequency load shedding</a>. In: 2019 IEEE milan PowerTech. pp 1–5</div>
+</div>
+<div id="ref-Vadillo2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Vadillo M, Sigrist L, Rudez U (2023) <a href="https://doi.org/10.1109/PowerTech55446.2023.10202842">Design and comparison of UFLS schemes of isolated power systems based on frequency stability margin</a>. In: 2023 IEEE belgrade PowerTech. IEEE, Belgrade, Serbia, pp 1–6</div>
+</div>
+<div id="ref-Rudez2019b" class="csl-entry" role="listitem">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">Rudež U, Dimitrovska T, Mihalič R (2019) A RoCoF-based supplement to conventional under-frequency load shedding protection characteristic. In: Pacworld 2019. Glasgow, Scotland, pp 1–12</div>
+</div>
+<div id="ref-Sodin2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline">Sodin D, Ilievska R, Čampa A, Smolnikar M, Rudez U (2020) Proving a concept of flexible under-frequency load shedding with hardware-in-the-loop testing. Energies 13(14):3607. <a href="https://doi.org/10.3390/en13143607">https://doi.org/10.3390/en13143607</a></div>
+</div>
+<div id="ref-Bonetti2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">9. </div><div class="csl-right-inline">Bonetti A, Zakonjsek J, Rudez U (2020) <a href="https://doi.org/10.1109/GPECOM49333.2020.9248722">Bringing ROCOF into spotlight in smart grids: New standardization and UFLS method</a>. In: 2020 2nd global power, energy and communication conference (GPECOM). pp 238–244</div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
