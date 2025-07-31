@@ -7,6 +7,8 @@ order: 4
 format:
   html:
     css: ../../styles/tutorial.css
+    resources:
+      - tutorial-enhanced.js
 ---
 
 # Welcome to the Interactive COLIB Tutorial! {#sec-intro}
@@ -39,8 +41,8 @@ Every QMD page needs a YAML header. Try writing a basic header for a new model p
 
 Example format:
 ---
-title: "Your Title"
-author: "Your Name"
+title: 'Your Title'
+author: 'Your Name'
 categories: [category1, category2]
 ---"></textarea>
 
@@ -218,100 +220,12 @@ You've completed the interactive COLIB tutorial! You now know how to:
 - Browse existing models and test cases in the [Models section](../../models/index.qmd) and [Test Cases section](../../testCases/index.qmd) for inspiration
 :::
 
-<script>
-function normalizeText(text) {
-    return text.trim().toLowerCase().replace(/\s+/g, ' ');
-}
-
-function checkStep1() {
-    const input = document.getElementById('editor1').value;
-    const success = document.getElementById('success1');
-    const error = document.getElementById('error1');
-    
-    const hasTitle = input.includes('title:') && input.includes('Synchronous Generator Model');
-    const hasAuthor = input.includes('author:');
-    const hasCategories = input.includes('categories:') && input.includes('model') && input.includes('generator');
-    const hasDashes = input.includes('---');
-    
-    if (hasTitle && hasAuthor && hasCategories && hasDashes) {
-        success.style.display = 'block';
-        error.style.display = 'none';
-    } else {
-        error.style.display = 'block';
-        success.style.display = 'none';
-    }
-}
-
-function checkStep2() {
-    const input = document.getElementById('editor2').value;
-    const success = document.getElementById('success2');
-    const error = document.getElementById('error2');
-    
-    const hasDoubleDollar = input.includes('$$');
-    const hasEquation = input.includes('P') && input.includes('E') && input.includes('V') && input.includes('sin');
-    const hasLabel = input.includes('{#eq-power}');
-    
-    if (hasDoubleDollar && hasEquation && hasLabel) {
-        success.style.display = 'block';
-        error.style.display = 'none';
-    } else {
-        error.style.display = 'block';
-        success.style.display = 'none';
-    }
-}
-
-function checkStep3() {
-    const input = document.getElementById('editor3').value;
-    const success = document.getElementById('success3');
-    const error = document.getElementById('error3');
-    
-    const hasHeading = input.includes('## Model Description') || input.includes('##Model Description');
-    const hasCallout = input.includes(':::{.callout-note}') && input.includes(':::');
-    const hasParagraph = input.split('\n').some(line => 
-        line.trim().length > 20 && !line.includes('#') && !line.includes(':::')
-    );
-    
-    if (hasHeading && hasCallout && hasParagraph) {
-        success.style.display = 'block';
-        error.style.display = 'none';
-    } else {
-        error.style.display = 'block';
-        success.style.display = 'none';
-    }
-}
-
-function checkStep4() {
-    const input = document.getElementById('editor4').value;
-    const success = document.getElementById('success4');
-    const error = document.getElementById('error4');
-    
-    const hasReference = input.includes('@eq-power');
-    
-    if (hasReference) {
-        success.style.display = 'block';
-        error.style.display = 'none';
-    } else {
-        error.style.display = 'block';
-        success.style.display = 'none';
-    }
-}
-
-function checkStep5() {
-    const input = document.getElementById('editor5').value;
-    const success = document.getElementById('success5');
-    const error = document.getElementById('error5');
-    
-    const hasYAML = input.includes('---') && input.includes('title:');
-    const hasEquation = input.includes('$$') && input.includes('{#eq-power}');
-    const hasDescription = input.includes('## Model Description');
-    const hasReference = input.includes('@eq-power');
-    
-    if (hasYAML && hasEquation && hasDescription && hasReference) {
-        success.style.display = 'block';
-        error.style.display = 'none';
-    } else {
-        error.style.display = 'block';
-        success.style.display = 'none';
-    }
-}
-</script> 
+```{=html}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/yaml/yaml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/markdown/markdown.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/matchbrackets.min.js"></script>
+<script src="tutorial-enhanced.js"></script>
+```
