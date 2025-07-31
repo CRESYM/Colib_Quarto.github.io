@@ -35,7 +35,6 @@ Every QMD page needs a YAML header. Try writing a basic header for a new model p
 - Author: "Your Name"
 - Categories: model, generator
 
-<div class="code-editor-container">
 <textarea class="code-editor" id="editor1" placeholder="Write your YAML header here...
 
 Example format:
@@ -46,7 +45,6 @@ categories: [category1, category2]
 ---"></textarea>
 
 <button class="check-button" onclick="checkStep1()">Check My Answer</button>
-</div>
 
 <div class="success-message" id="success1">
 🎉 **Excellent!** You've successfully created a YAML header. The header provides essential metadata for your page and helps organize content in COLIB.
@@ -183,7 +181,7 @@ Now let's combine everything into a complete mini model page. This is your final
 3. Model description section (from Step 3)
 4. A reference to the equation (from Step 4)
 
-<textarea class="code-editor" id="editor5" style="min-height: 200px;" placeholder="Combine all previous steps into one complete page..."></textarea>
+<textarea class="code-editor" id="editor5" style="min-height: 300px;" placeholder="Combine all previous steps into one complete page..."></textarea>
 
 <button class="check-button" onclick="checkStep5()">Check My Complete Page</button>
 
