@@ -1,0 +1,389 @@
+---
+title: "Interactive Tutorial: Getting Started with COLIB"
+author: "COLIB Team" 
+categories: [contribution, tutorial, interactive, qmd, beginner]
+layout: page
+order: 4
+---
+
+# Welcome to the Interactive COLIB Tutorial! {#sec-intro}
+
+This tutorial will guide you through the basics of contributing to COLIB step by step. You'll learn by doing - each section includes interactive exercises where you'll write code and get immediate feedback.
+
+:::{.callout-note}
+## What You'll Learn
+- Basic QMD syntax and structure
+- How to write mathematical equations for power systems
+- Creating proper documentation for models
+- COLIB contribution standards
+:::
+
+<style>
+.code-editor {
+    background-color: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+    min-height: 120px;
+    transition: border-color 0.3s ease;
+}
+
+.code-editor:focus {
+    outline: none;
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.success-message {
+    background-color: #d1edff;
+    border: 2px solid #0d6efd;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    color: #0d47a1;
+    display: none;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    border: 2px solid #dc3545;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    color: #721c24;
+    display: none;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tutorial-step {
+    background-color: #f8f9fa;
+    border-left: 4px solid #0d6efd;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.check-button {
+    background-color: #198754;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.check-button:hover {
+    background-color: #157347;
+}
+
+.step-counter {
+    background-color: #0d6efd;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 10px;
+}
+</style>
+
+## Step 1: Your First QMD Header {#sec-step1}
+
+<div class="tutorial-step">
+<span class="step-counter">1</span>**Let's start with the basics!** 
+
+Every QMD page needs a YAML header. Try writing a basic header for a new model page about a synchronous generator.
+
+**Your task:** Write a YAML header that includes:
+- A title: "Synchronous Generator Model"
+- Author: "Your Name"
+- Categories: model, generator
+
+<textarea class="code-editor" id="editor1" placeholder="Write your YAML header here...
+
+Example format:
+---
+title: "Your Title"
+author: "Your Name"
+categories: [category1, category2]
+---"></textarea>
+
+<button class="check-button" onclick="checkStep1()">Check My Answer</button>
+
+<div class="success-message" id="success1">
+🎉 **Excellent!** You've successfully created a YAML header. The header provides essential metadata for your page and helps organize content in COLIB.
+</div>
+
+<div class="error-message" id="error1">
+❌ **Not quite right.** Make sure you include:
+- Three dashes (---) at the beginning and end
+- title: "Synchronous Generator Model"
+- author: "Your Name" 
+- categories: [model, generator]
+</div>
+</div>
+
+## Step 2: Mathematical Equations {#sec-step2}
+
+<div class="tutorial-step">
+<span class="step-counter">2</span>**Power system models need math!** 
+
+One of COLIB's strengths is beautiful mathematical documentation. Let's write the fundamental equation for active power in a synchronous generator.
+
+**Your task:** Write the equation for electrical power output:
+P = (E × V × sin(δ)) / X
+
+Where:
+- P is electrical power output
+- E is internal EMF 
+- V is terminal voltage
+- δ is power angle
+- X is synchronous reactance
+
+Use LaTeX syntax with double dollar signs for display equations and add a label `{#eq-power}`.
+
+<textarea class="code-editor" id="editor2" placeholder="Write your equation here...
+
+Example format:
+$$
+Your equation here
+$$ {#eq-your-label}"></textarea>
+
+<button class="check-button" onclick="checkStep2()">Check My Answer</button>
+
+<div class="success-message" id="success2">
+🎉 **Perfect!** You've written a properly formatted equation. LaTeX equations make your documentation professional and precise.
+</div>
+
+<div class="error-message" id="error2">
+❌ **Try again.** Remember to:
+- Use double dollar signs ($$) 
+- Write the equation: P = \frac{E \times V \times \sin(\delta)}{X}
+- Add the label {#eq-power}
+</div>
+</div>
+
+## Step 3: Model Description Section {#sec-step3}
+
+<div class="tutorial-step">
+<span class="step-counter">3</span>**Document your model clearly!** 
+
+Good documentation explains the model's purpose and assumptions. Let's create a model description section.
+
+**Your task:** Write a brief model description that includes:
+- A heading "## Model Description"
+- A paragraph explaining this is a simplified synchronous generator model
+- A callout block (note type) listing the key assumptions
+
+<textarea class="code-editor" id="editor3" placeholder="Write your model description here...
+
+Include:
+- ## Model Description
+- A paragraph about the model
+- A callout note with assumptions"></textarea>
+
+<button class="check-button" onclick="checkStep3()">Check My Answer</button>
+
+<div class="success-message" id="success3">
+🎉 **Great work!** You've created a well-structured model description. Clear documentation helps other researchers understand and use your models correctly.
+</div>
+
+<div class="error-message" id="error3">
+❌ **Keep trying.** Make sure you include:
+- The heading: ## Model Description
+- A paragraph about the synchronous generator model
+- A callout note using :::{.callout-note} syntax
+</div>
+</div>
+
+## Step 4: Cross-References {#sec-step4}
+
+<div class="tutorial-step">
+<span class="step-counter">4</span>**Link it all together!** 
+
+Professional documentation uses cross-references to connect different parts. Let's reference the equation you created earlier.
+
+**Your task:** Write a sentence that references the power equation from Step 2 using Quarto's cross-reference syntax.
+
+**Hint:** Use `@eq-power` to reference your equation.
+
+<textarea class="code-editor" id="editor4" placeholder="Write a sentence referencing the equation...
+
+Example: The power output is calculated using @eq-power, which shows..."></textarea>
+
+<button class="check-button" onclick="checkStep4()">Check My Answer</button>
+
+<div class="success-message" id="success4">
+🎉 **Excellent!** Cross-references make your documentation professional and help readers navigate between related content easily.
+</div>
+
+<div class="error-message" id="error4">
+❌ **Not quite.** Make sure to:
+- Write a complete sentence
+- Include @eq-power somewhere in your sentence
+- Explain how the equation relates to the model
+</div>
+</div>
+
+## Step 5: Complete Model Template {#sec-step5}
+
+<div class="tutorial-step">
+<span class="step-counter">5</span>**Put it all together!** 
+
+Now let's combine everything into a complete mini model page. This is your final challenge!
+
+**Your task:** Create a complete QMD page that includes:
+1. YAML header (from Step 1)
+2. A "## Mathematical Model" section with your equation (from Step 2)  
+3. Model description section (from Step 3)
+4. A reference to the equation (from Step 4)
+
+<textarea class="code-editor" id="editor5" style="min-height: 200px;" placeholder="Combine all previous steps into one complete page..."></textarea>
+
+<button class="check-button" onclick="checkStep5()">Check My Complete Page</button>
+
+<div class="success-message" id="success5">
+🎊 **Congratulations!** You've successfully created a complete COLIB model page! You now understand the basic structure and can start contributing to COLIB.
+
+**Next steps:**
+- Download the full model template from the [How to Contribute](../howTo/index.qmd) page
+- Browse existing models for inspiration
+- Start working on your own contribution!
+</div>
+
+<div class="error-message" id="error5">
+❌ **Almost there!** Make sure your complete page includes all elements from the previous steps in the correct order.
+</div>
+</div>
+
+## Congratulations! 🎉 {#sec-conclusion}
+
+You've completed the interactive COLIB tutorial! You now know how to:
+
+- ✅ Create proper YAML headers
+- ✅ Write mathematical equations in LaTeX
+- ✅ Structure model documentation  
+- ✅ Use cross-references effectively
+- ✅ Combine elements into a complete page
+
+:::{.callout-tip}
+## Ready for More?
+
+- Explore the [Model Template](../modelTemplate/index.qmd) for detailed guidelines
+- Check out [Quarto Basics](../quartoBasics/index.qmd) for advanced features
+- Browse existing models in the [Models section](../../models/index.qmd) for inspiration
+- Start your first contribution using the [How to Contribute](../howTo/index.qmd) guide
+:::
+
+<script>
+function normalizeText(text) {
+    return text.trim().toLowerCase().replace(/\s+/g, ' ');
+}
+
+function checkStep1() {
+    const input = document.getElementById('editor1').value;
+    const success = document.getElementById('success1');
+    const error = document.getElementById('error1');
+    
+    const hasTitle = input.includes('title:') && input.includes('Synchronous Generator Model');
+    const hasAuthor = input.includes('author:');
+    const hasCategories = input.includes('categories:') && input.includes('model') && input.includes('generator');
+    const hasDashes = input.includes('---');
+    
+    if (hasTitle && hasAuthor && hasCategories && hasDashes) {
+        success.style.display = 'block';
+        error.style.display = 'none';
+    } else {
+        error.style.display = 'block';
+        success.style.display = 'none';
+    }
+}
+
+function checkStep2() {
+    const input = document.getElementById('editor2').value;
+    const success = document.getElementById('success2');
+    const error = document.getElementById('error2');
+    
+    const hasDoubleDollar = input.includes('$$');
+    const hasEquation = input.includes('P') && input.includes('E') && input.includes('V') && input.includes('sin');
+    const hasLabel = input.includes('{#eq-power}');
+    
+    if (hasDoubleDollar && hasEquation && hasLabel) {
+        success.style.display = 'block';
+        error.style.display = 'none';
+    } else {
+        error.style.display = 'block';
+        success.style.display = 'none';
+    }
+}
+
+function checkStep3() {
+    const input = document.getElementById('editor3').value;
+    const success = document.getElementById('success3');
+    const error = document.getElementById('error3');
+    
+    const hasHeading = input.includes('## Model Description') || input.includes('##Model Description');
+    const hasCallout = input.includes(':::{.callout-note}') && input.includes(':::');
+    const hasParagraph = input.split('\n').some(line => 
+        line.trim().length > 20 && !line.includes('#') && !line.includes(':::')
+    );
+    
+    if (hasHeading && hasCallout && hasParagraph) {
+        success.style.display = 'block';
+        error.style.display = 'none';
+    } else {
+        error.style.display = 'block';
+        success.style.display = 'none';
+    }
+}
+
+function checkStep4() {
+    const input = document.getElementById('editor4').value;
+    const success = document.getElementById('success4');
+    const error = document.getElementById('error4');
+    
+    const hasReference = input.includes('@eq-power');
+    const hasSentence = input.length > 20 && (input.includes('.') || input.includes('!') || input.includes('?'));
+    
+    if (hasReference && hasSentence) {
+        success.style.display = 'block';
+        error.style.display = 'none';
+    } else {
+        error.style.display = 'block';
+        success.style.display = 'none';
+    }
+}
+
+function checkStep5() {
+    const input = document.getElementById('editor5').value;
+    const success = document.getElementById('success5');
+    const error = document.getElementById('error5');
+    
+    const hasYAML = input.includes('---') && input.includes('title:');
+    const hasEquation = input.includes('$$') && input.includes('{#eq-power}');
+    const hasDescription = input.includes('## Model Description');
+    const hasReference = input.includes('@eq-power');
+    
+    if (hasYAML && hasEquation && hasDescription && hasReference) {
+        success.style.display = 'block';
+        error.style.display = 'none';
+    } else {
+        error.style.display = 'block';
+        success.style.display = 'none';
+    }
+}
+</script> 
