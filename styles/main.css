@@ -78,7 +78,7 @@ html {
 }
 
 .btn-main {
-  background-color: #39729E;
+  background-color: #447099;
   color: white;
   padding: 12px 30px;
   border-radius: 30px;
@@ -91,8 +91,7 @@ html {
 }
 
 .btn-main:hover {
-  opacity: 0.7;
-  box-shadow: 0 4px 12px #e1e1e1;
+  background-color: #305775;
 }
 
 /* Navbar Logo Styles */
@@ -244,7 +243,7 @@ html {
 }
 
 .nav-link:hover, .nav-link.active {
-  color: #39729E !important;
+  color: #305775 !important;
 }
 
 .sidebar-item {
