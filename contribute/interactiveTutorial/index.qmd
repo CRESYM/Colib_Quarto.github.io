@@ -4,6 +4,9 @@ author: "COLIB Team"
 categories: [contribution, tutorial, interactive, qmd, beginner]
 layout: page
 order: 4
+format:
+  html:
+    css: ../../styles/tutorial.css
 ---
 
 # Welcome to the Interactive COLIB Tutorial! {#sec-intro}
@@ -18,88 +21,6 @@ This tutorial will guide you through the basics of contributing to COLIB step by
 - COLIB contribution standards
 :::
 
-<style>
-.code-editor {
-    background-color: #f8f9fa;
-    border: 2px solid #dee2e6;
-    border-radius: 8px;
-    padding: 15px;
-    margin: 10px 0;
-    font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
-    min-height: 120px;
-    transition: border-color 0.3s ease;
-}
-
-.code-editor:focus {
-    outline: none;
-    border-color: #0d6efd;
-    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
-}
-
-.success-message {
-    background-color: #d1edff;
-    border: 2px solid #0d6efd;
-    border-radius: 8px;
-    padding: 15px;
-    margin: 10px 0;
-    color: #0d47a1;
-    display: none;
-    animation: fadeIn 0.5s ease-in;
-}
-
-.error-message {
-    background-color: #f8d7da;
-    border: 2px solid #dc3545;
-    border-radius: 8px;
-    padding: 15px;
-    margin: 10px 0;
-    color: #721c24;
-    display: none;
-    animation: fadeIn 0.5s ease-in;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.tutorial-step {
-    background-color: #f8f9fa;
-    border-left: 4px solid #0d6efd;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 0 8px 8px 0;
-}
-
-.check-button {
-    background-color: #198754;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.check-button:hover {
-    background-color: #157347;
-}
-
-.step-counter {
-    background-color: #0d6efd;
-    color: white;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    margin-right: 10px;
-}
-</style>
 
 ## Step 1: Your First QMD Header {#sec-step1}
 
@@ -109,10 +30,12 @@ This tutorial will guide you through the basics of contributing to COLIB step by
 Every QMD page needs a YAML header. Try writing a basic header for a new model page about a synchronous generator.
 
 **Your task:** Write a YAML header that includes:
+
 - A title: "Synchronous Generator Model"
 - Author: "Your Name"
 - Categories: model, generator
 
+<div class="code-editor-container">
 <textarea class="code-editor" id="editor1" placeholder="Write your YAML header here...
 
 Example format:
@@ -123,6 +46,7 @@ categories: [category1, category2]
 ---"></textarea>
 
 <button class="check-button" onclick="checkStep1()">Check My Answer</button>
+</div>
 
 <div class="success-message" id="success1">
 🎉 **Excellent!** You've successfully created a YAML header. The header provides essential metadata for your page and helps organize content in COLIB.
@@ -130,6 +54,7 @@ categories: [category1, category2]
 
 <div class="error-message" id="error1">
 ❌ **Not quite right.** Make sure you include:
+
 - Three dashes (---) at the beginning and end
 - title: "Synchronous Generator Model"
 - author: "Your Name" 
@@ -148,6 +73,7 @@ One of COLIB's strengths is beautiful mathematical documentation. Let's write th
 P = (E × V × sin(δ)) / X
 
 Where:
+
 - P is electrical power output
 - E is internal EMF 
 - V is terminal voltage
@@ -171,6 +97,7 @@ $$ {#eq-your-label}"></textarea>
 
 <div class="error-message" id="error2">
 ❌ **Try again.** Remember to:
+
 - Use double dollar signs ($$) 
 - Write the equation: P = \frac{E \times V \times \sin(\delta)}{X}
 - Add the label {#eq-power}
@@ -185,7 +112,8 @@ $$ {#eq-your-label}"></textarea>
 Good documentation explains the model's purpose and assumptions. Let's create a model description section.
 
 **Your task:** Write a brief model description that includes:
-- A heading "## Model Description"
+
+- A heading `## Model Description`
 - A paragraph explaining this is a simplified synchronous generator model
 - A callout block (note type) listing the key assumptions
 
@@ -204,7 +132,8 @@ Include:
 
 <div class="error-message" id="error3">
 ❌ **Keep trying.** Make sure you include:
-- The heading: ## Model Description
+
+- The heading: `## Model Description`
 - A paragraph about the synchronous generator model
 - A callout note using :::{.callout-note} syntax
 </div>
@@ -233,6 +162,7 @@ Example: The power output is calculated using @eq-power, which shows..."></texta
 
 <div class="error-message" id="error4">
 ❌ **Not quite.** Make sure to:
+
 - Write a complete sentence
 - Include @eq-power somewhere in your sentence
 - Explain how the equation relates to the model
@@ -247,8 +177,9 @@ Example: The power output is calculated using @eq-power, which shows..."></texta
 Now let's combine everything into a complete mini model page. This is your final challenge!
 
 **Your task:** Create a complete QMD page that includes:
+
 1. YAML header (from Step 1)
-2. A "## Mathematical Model" section with your equation (from Step 2)  
+2. A `## Mathematical Model` section with your equation (from Step 2)  
 3. Model description section (from Step 3)
 4. A reference to the equation (from Step 4)
 
@@ -283,10 +214,10 @@ You've completed the interactive COLIB tutorial! You now know how to:
 :::{.callout-tip}
 ## Ready for More?
 
-- Explore the [Model Template](../modelTemplate/index.qmd) for detailed guidelines
 - Check out [Quarto Basics](../quartoBasics/index.qmd) for advanced features
-- Browse existing models in the [Models section](../../models/index.qmd) for inspiration
 - Start your first contribution using the [How to Contribute](../howTo/index.qmd) guide
+- Explore the [Model Template](../modelTemplate/index.qmd) and [Test Case Template](../testSystemTemplate/index.qmd) for detailed guidelines
+- Browse existing models and test cases in the [Models section](../../models/index.qmd) and [Test Cases section](../../testCases/index.qmd) for inspiration
 :::
 
 <script>
@@ -357,9 +288,8 @@ function checkStep4() {
     const error = document.getElementById('error4');
     
     const hasReference = input.includes('@eq-power');
-    const hasSentence = input.length > 20 && (input.includes('.') || input.includes('!') || input.includes('?'));
     
-    if (hasReference && hasSentence) {
+    if (hasReference) {
         success.style.display = 'block';
         error.style.display = 'none';
     } else {
