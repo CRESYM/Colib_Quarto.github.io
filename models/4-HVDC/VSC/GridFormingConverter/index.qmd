@@ -2,4 +2,11 @@
 layout: base
 title: Grid forming converter (GFM)
 categories: [grid forming converter, GFM]
+listing:
+  contents: 
+    - ./
+  type: table
+  fields: [title, author]
+  sort: [title]
+  page-size: 50
 ---

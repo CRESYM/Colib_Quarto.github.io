@@ -2,4 +2,11 @@
 title: "Network Components"
 categories: [network components]
 order: 6
+listing:
+  contents: 
+    - ./
+  type: table
+  fields: [title, author]
+  sort: [title]
+  page-size: 50
 --- 

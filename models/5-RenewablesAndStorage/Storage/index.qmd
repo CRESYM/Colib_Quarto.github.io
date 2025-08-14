@@ -1,4 +1,11 @@
 ---
 title: "Storage"
 categories: [storage]
+listing:
+  contents: 
+    - ./
+  type: table
+  fields: [title, author]
+  sort: [title]
+  page-size: 50
 --- 

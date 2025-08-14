@@ -1,7 +1,7 @@
 ---
 title: "Flywheel model"
 categories: ["flywheel", "FW", "Optimal Power Flow", "storage","optimal design", "DC OPF", "inertia"]
-bibliography: ../../../_bibliography/references.bib
+bibliography: ../../../../_bibliography/references.bib
 ---
 
 ## Context and assumptions

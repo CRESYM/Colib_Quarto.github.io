@@ -2,4 +2,11 @@
 layout: base
 title: Voltage Source Converter (VSC)
 categories: [voltage source Converter, VSC]
+listing:
+  contents: 
+    - ./
+  type: table
+  fields: [title, author]
+  sort: [title]
+  page-size: 50
 ---

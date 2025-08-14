@@ -3,4 +3,11 @@ title: Compensation and FACTS
 categories: [Compensation, FACTS]
 bibliography: ../../_bibliography/references.bib
 order: 3
+listing:
+  contents: 
+    - ./
+  type: table
+  fields: [title, author]
+  sort: [title]
+  page-size: 50
 --- 

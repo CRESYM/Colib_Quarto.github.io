@@ -1,4 +1,11 @@
 ---
 title: "Wind power"
 categories: []
+listing:
+  contents: 
+    - ./
+  type: table
+  fields: [title, author]
+  sort: [title]
+  page-size: 50
 --- 
