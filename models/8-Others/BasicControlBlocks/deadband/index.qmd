@@ -1,4 +1,4 @@
 ---
 title: "Deadband control block"
-tags: ["control block", "deadband"]
+categories: ["control block", "deadband"]
 --- 

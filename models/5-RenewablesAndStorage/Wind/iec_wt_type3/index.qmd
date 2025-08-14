@@ -1,6 +1,6 @@
 ---
 title: "IEC Wind Turbine Type 3 (Doubly-Fed Induction Generator)"
-tags: ["regulations", "WT", "wind", "controller", "Opensource", "IEC", "RMS", "modelica", "dynawo", "#62"]
+categories: ["regulations", "WT", "wind", "controller", "Opensource", "IEC", "RMS", "modelica", "dynawo", "#62"]
 date: 20/12/2024
 last-updated: 20/12/2024
 authors: "Martin Franke (Fraunhofer IEE), Luka Plavec (Fraunhofer IEE)"
@@ -367,7 +367,7 @@ The integrators used in the Torque PI model in
 limits, set/reset and freeze functionalities. A suggestion for the
 implementation is shown below and the description follows thereafter.
 
-``` {modelica}
+```default
 model IntegratorVariableLimitsContinuousSetFreeze "Integrator with limited value of output (variable limits), set/reset and freeze"
     parameter Boolean DefaultLimitMax = true "If limitMin > limitMax : if true, y = limitMax, if false, y = limitMin";
     parameter Real K = 1 "Integrator gain";

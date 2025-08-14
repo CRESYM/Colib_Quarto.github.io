@@ -1,6 +1,6 @@
 ---
 title: "Timer control block"
-tags: ["control block", "timer"]
+categories: ["control block", "timer"]
 authors: Mathilde Bongrain
 date: 16/10/2023
 version: version-1.0.0

@@ -1,5 +1,5 @@
 ---
 layout: base
 title: Grid forming converter (GFM)
-tags: [grid forming converter, GFM]
+categories: [grid forming converter, GFM]
 ---

@@ -1,4 +1,4 @@
 ---
 title: "Wind power"
-tags: []
+categories: []
 --- 

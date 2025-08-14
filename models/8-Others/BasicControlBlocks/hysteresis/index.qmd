@@ -1,6 +1,6 @@
 ---
 title: "Hysteresis control block"
-tags: ["control block", "hysteresis"]
+categories: ["control block", "hysteresis"]
 authors: Mathilde Bongrain
 date: 16/10/2023
 version: version-1.0.0

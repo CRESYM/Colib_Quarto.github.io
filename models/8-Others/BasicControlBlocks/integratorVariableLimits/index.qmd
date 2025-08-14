@@ -1,4 +1,4 @@
 ---
 title: "Integrator Variable Limits control block"
-tags: ["control block", "integrator", "variable limits"]
+categories: ["control block", "integrator", "variable limits"]
 --- 

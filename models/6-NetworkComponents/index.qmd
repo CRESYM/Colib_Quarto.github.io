@@ -1,4 +1,4 @@
 ---
 title: "Network Components"
-tags: [network components]
+categories: [network components]
 --- 

@@ -1,4 +1,4 @@
 ---
 title: "System integrity protection schemes"
-tags: [system integrity protection schemes]
+categories: [system integrity protection schemes]
 --- 

@@ -1,7 +1,7 @@
 ---
 layout: page 
 title: L2EP generic RMS grid following voltage source converter 
-tags: [Opensource, RMS, phasor, TMRL2, voltage source, converter, wind, pv, hdvc, dynawo, STEPSS ] 
+categories: [Opensource, RMS, phasor, TMRL2, voltage source, converter, wind, pv, hdvc, dynawo, STEPSS ] 
 date: 17/05/2024 
 last-updated: 17/05/2024
 id: #131

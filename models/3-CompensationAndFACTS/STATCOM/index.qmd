@@ -1,6 +1,6 @@
 ---
 title: EMT STATCOM (Grid Following mode)
-tags: ["Opensource", "EMT", "voltage source", "converter", "STATCOM", "wind", "pv", "hvdc", "following"] 
+categories: ["Opensource", "EMT", "voltage source", "converter", "STATCOM", "wind", "pv", "hvdc", "following"] 
 date: 22/07/2024 
 last-updated: 24/07/2024
 id: #188

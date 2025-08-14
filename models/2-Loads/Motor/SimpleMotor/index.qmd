@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Single-cage induction motor model
-tags: ["#200", "Induction motor", "RMS", "Dynawo", "Opensource"]
+categories: ["#200", "Induction motor", "RMS", "Dynawo", "Opensource"]
 date: 09/08/2024
 last-updated: 09/08/2024
 author: Frédéric Sabot (ULB)

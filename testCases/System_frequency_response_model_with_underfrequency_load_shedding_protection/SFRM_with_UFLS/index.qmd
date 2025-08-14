@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Underfrequency load shedding protection
-tags: [opensource, System frequency response model, centre of inertia, underfrequency load shedding, low frequency demand disconnection, Python, Matlab, Simulink, '#154'] 
+categories: [opensource, System frequency response model, centre of inertia, underfrequency load shedding, low frequency demand disconnection, Python, Matlab, Simulink, '#154'] 
 date: 03/06/2024  
 last-updated: 03/06/2024 
 author: Urban Rudez

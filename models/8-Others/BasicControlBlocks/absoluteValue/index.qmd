@@ -1,4 +1,4 @@
 ---
 title: "Absolute Value control block"
-tags: ["control block", "absolute value"]
+categories: ["control block", "absolute value"]
 --- 

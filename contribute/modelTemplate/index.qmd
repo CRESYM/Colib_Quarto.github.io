@@ -1,7 +1,7 @@
 ---
 layout: page 
 title: Dummy Model description - ID1643 # be a specific as possible
-categories: [Opensource, single-phase, three-phase, EMT, RMS, DynamicPhasor,  CIM, WECC, CIGRE, IEEE, IEC, Modelica, Julia, Python, RTDS, DigSilent Power Factory, PSSE, STEPSS, dynawo, NEPLAN, DPSin, EMTP, PSCAD, NEPLAN, Matlab, OpalRT, powerworld, GE PSLF, PSS, Governor, HVDC, line] # tags: opensource, phase number, modeling detail level, standard, language, device name
+categories: [Opensource, single-phase, three-phase, EMT, RMS, DynamicPhasor,  CIM, WECC, CIGRE, IEEE, IEC, Modelica, Julia, Python, RTDS, DigSilent Power Factory, PSSE, STEPSS, dynawo, NEPLAN, DPSin, EMTP, PSCAD, NEPLAN, Matlab, OpalRT, powerworld, GE PSLF, PSS, Governor, HVDC, line] # categories: opensource, phase number, modeling detail level, standard, language, device name
 date: 02/01/2024 # date of page creation 
 last-updated: 08/03/2024 # date of the last page modification
 author: "John Doe" # one or several names

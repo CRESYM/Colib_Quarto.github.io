@@ -1,6 +1,6 @@
 ---
 title: "Others"
-tags: [other, control block, event]
+categories: [other, control block, event]
 bibliography: ../../_bibliography/references.bib
 ---
 

@@ -1,4 +1,4 @@
 ---
 title: "Photovoltaics"
-tags: [Photovoltaics, PV]
+categories: [Photovoltaics, PV]
 --- 

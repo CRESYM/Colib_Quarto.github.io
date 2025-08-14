@@ -1,4 +1,4 @@
 ---
 title: "2-Limited Proportional Integral Controller"
-tags: ["control block", "2-limited PI controller"]
+categories: ["control block", "2-limited PI controller"]
 --- 

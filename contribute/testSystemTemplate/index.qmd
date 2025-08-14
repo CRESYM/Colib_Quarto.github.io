@@ -1,7 +1,7 @@
 ---
 layout: page 
 title: Dummy Test System description - ID123 # be a specific as possible
-categories: [Opensource, small, medium, large EMT, RMS, DynamicPhasor,  CIM, WECC, CIGRE, IEEE, IEC, Modelica, Julia, Python, RTDS, DigSilent Power Factory, PSSE, STEPSS, dynawo, NEPLAN, DPSim, EMTP, PSCAD, NEPLAN, Matlab, OpalRT, powerworld, GE PSLF, PSS, Short term Voltage, long term voltage, small signal,  frequency, converter driven instability slow interaction, converter driven instability fast interaction, resonance, restoration] # tags: opensource, test system size Small (<10 nodes), medium (>10 and <100 nodes), large (>100 nodes), modeling detail level, standard, language, phenomenon, 
+categories: [Opensource, small, medium, large EMT, RMS, DynamicPhasor,  CIM, WECC, CIGRE, IEEE, IEC, Modelica, Julia, Python, RTDS, DigSilent Power Factory, PSSE, STEPSS, dynawo, NEPLAN, DPSim, EMTP, PSCAD, NEPLAN, Matlab, OpalRT, powerworld, GE PSLF, PSS, Short term Voltage, long term voltage, small signal,  frequency, converter driven instability slow interaction, converter driven instability fast interaction, resonance, restoration] # categories: opensource, test system size Small (<10 nodes), medium (>10 and <100 nodes), large (>100 nodes), modeling detail level, standard, language, phenomenon, 
 date: 02/01/2024 # date of page creation 
 last-updated: 08/03/2024 # date of the last page modification
 author: "John Doe" # one or several names

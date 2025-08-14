@@ -1,4 +1,4 @@
 ---
 title: "Lines"
-tags: [Lines]
+categories: [Lines]
 --- 

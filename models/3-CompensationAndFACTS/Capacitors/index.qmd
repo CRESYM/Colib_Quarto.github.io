@@ -1,5 +1,5 @@
 ---
 title: Capacitors 
-tags: [capacitors]
+categories: [capacitors]
 bibliography: ../../../_bibliography/references.bib
 --- 

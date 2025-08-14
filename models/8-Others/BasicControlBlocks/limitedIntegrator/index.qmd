@@ -1,4 +1,4 @@
 ---
 title: "Limited Integrator control block"
-tags: ["control block", "limited integrator"]
+categories: ["control block", "limited integrator"]
 --- 

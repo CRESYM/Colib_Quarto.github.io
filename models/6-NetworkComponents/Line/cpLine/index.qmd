@@ -1,4 +1,4 @@
 ---
 title: "CP Line"
-tags: [line, cp]
+categories: [line, cp]
 --- 

@@ -1,7 +1,7 @@
 ---
 layout: page 
 title: EPRI Grid Forming
-tags: ["Opensource", "RMS", "GFM", "GFL", "converter", "wind", "generic", "pv", "hvdc", "EPRI", "Dynawo"] 
+categories: ["Opensource", "RMS", "GFM", "GFL", "converter", "wind", "generic", "pv", "hvdc", "EPRI", "Dynawo"] 
 date: 20/12/2024
 last-updated: 22/01/2025
 id: #63

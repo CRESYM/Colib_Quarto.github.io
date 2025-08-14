@@ -1,7 +1,7 @@
 ---
 layout: page 
 title: Generic EMT Grid Forming Voltage Source Converter 
-tags: ["Opensource", "EMT", "voltage source", "converter", "wind", "pv", "hvdc", "Droop Control", "Virtual Synchronous Machine", "grid forming", "PSTess"] 
+categories: ["Opensource", "EMT", "voltage source", "converter", "wind", "pv", "hvdc", "Droop Control", "Virtual Synchronous Machine", "grid forming", "PSTess"] 
 date: 03/07/2024 
 last-updated: 17/07/2024
 id: #175

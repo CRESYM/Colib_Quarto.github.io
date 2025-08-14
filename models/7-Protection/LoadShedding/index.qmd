@@ -1,4 +1,4 @@
 ---
 title: "Load Shedding"
-tags: [load schedding]
+categories: [load schedding]
 --- 

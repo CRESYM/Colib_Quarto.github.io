@@ -1,4 +1,4 @@
 ---
 title: "Switch control block"
-tags: ["control block", "switch"]
+categories: ["control block", "switch"]
 --- 

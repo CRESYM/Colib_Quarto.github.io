@@ -1,4 +1,4 @@
 ---
 title: "Limiter control block"
-tags: ["control block", "limiter"]
+categories: ["control block", "limiter"]
 --- 

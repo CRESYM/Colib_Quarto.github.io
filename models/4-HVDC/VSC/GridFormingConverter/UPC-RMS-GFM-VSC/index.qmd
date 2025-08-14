@@ -1,7 +1,7 @@
 ---
 layout: page 
 title: Generic Phasor Grid Forming Voltage Source Converter 
-tags: ["Opensource", "Phasor", "voltage source", "converter", "wind", "pv", "hvdc", "Droop Control", "Virtual Synchronous Machine", "grid forming", "PSTess"] 
+categories: ["Opensource", "Phasor", "voltage source", "converter", "wind", "pv", "hvdc", "Droop Control", "Virtual Synchronous Machine", "grid forming", "PSTess"] 
 date: 18/07/2024 
 last-updated: 22/07/2024
 id: #180

@@ -1,4 +1,4 @@
 ---
 title: "Pi Line"
-tags: [line, pi]
+categories: [line, pi]
 --- 

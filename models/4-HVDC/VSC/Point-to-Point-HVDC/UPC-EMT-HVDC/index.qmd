@@ -1,7 +1,7 @@
 ---
 layout: page 
 title: UPC generic EMT Point-to-Point HVDC model
-tags: ["Opensource", "EMT", "voltage source", "converter", "hvdc", "point-to-point"] 
+categories: ["Opensource", "EMT", "voltage source", "converter", "hvdc", "point-to-point"] 
 date: 03/07/2024 
 last-updated: 19/07/2024
 id: #181

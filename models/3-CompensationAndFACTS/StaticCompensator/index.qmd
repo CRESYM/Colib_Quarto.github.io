@@ -1,6 +1,6 @@
 ---
 title: Static Compensator model
-tags: ["#220","Capacitor", "Reactor", "Compensation", "dynawo"]
+categories: ["#220","Capacitor", "Reactor", "Compensation", "dynawo"]
 date: 10/05/2024 
 last-updated: 05/12/2024
 id: #220
