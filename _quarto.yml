@@ -34,6 +34,18 @@ website:
             href: ./models/1-SynchronousMachines/index.qmd
           - text: Loads
             href: ./models/2-Loads/index.qmd
+          - text: Compensation and FACTS
+            href: ./models/3-CompensationAndFACTS/index.qmd
+          - text: HVDC
+            href: ./models/4-HVDC/index.qmd
+          - text: Renewables and Storage
+            href: ./models/5-RenewablesAndStorage/index.qmd
+          - text: Network Components
+            href: ./models/6-NetworkComponents/index.qmd
+          - text: Protection
+            href: ./models/7-Protection/index.qmd
+          - text: Others
+            href: ./models/8-Others/index.qmd
       - text: Test Cases
         menu:
           - text: All test cases
