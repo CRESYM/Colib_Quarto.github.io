@@ -263,6 +263,10 @@ html {
   list-style: circle;
 }
 
+header > .quarto-title > h1 {
+  margin: 1.25rem 0 !important;
+}
+
 /* Responsive Design - Minimal Media Queries */
 @media (max-width: 768px) {
   .main-header {
