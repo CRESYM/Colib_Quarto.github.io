@@ -194,15 +194,55 @@
     ]
   },
   {
-    "objectID": "models/5-RenewablesAndStorage/Storage/index.html",
-    "href": "models/5-RenewablesAndStorage/Storage/index.html",
-    "title": "Storage",
+    "objectID": "models/5-RenewablesAndStorage/Storage/Flywheel/index.html",
+    "href": "models/5-RenewablesAndStorage/Storage/Flywheel/index.html",
+    "title": "Flywheel model",
     "section": "",
-    "text": "Back to top",
+    "text": "This model is used in the following publication: Rigo-Mariani R, Sareni B, Roboam X. Integrated Optimal Design of a Smart Microgrid With Storage. IEEE Trans Smart Grid 2017;8:1762–70. https://doi.org/10.1109/TSG.2015.2507131.\nIt is used to model the operation of a flywheel as a part of a microgrid system where different components are connected through a common DC bus. The objective of the model is to size the flywheel (and the other components) by minimization of the operational cost of the microgrid system.\nOnly active power flows are modelled.",
     "crumbs": [
       "Models",
       "Renewables and storage",
-      "Storage"
+      "Storage",
+      "Flywheel model"
+    ]
+  },
+  {
+    "objectID": "models/5-RenewablesAndStorage/Storage/Flywheel/index.html#context-and-assumptions",
+    "href": "models/5-RenewablesAndStorage/Storage/Flywheel/index.html#context-and-assumptions",
+    "title": "Flywheel model",
+    "section": "",
+    "text": "This model is used in the following publication: Rigo-Mariani R, Sareni B, Roboam X. Integrated Optimal Design of a Smart Microgrid With Storage. IEEE Trans Smart Grid 2017;8:1762–70. https://doi.org/10.1109/TSG.2015.2507131.\nIt is used to model the operation of a flywheel as a part of a microgrid system where different components are connected through a common DC bus. The objective of the model is to size the flywheel (and the other components) by minimization of the operational cost of the microgrid system.\nOnly active power flows are modelled.",
+    "crumbs": [
+      "Models",
+      "Renewables and storage",
+      "Storage",
+      "Flywheel model"
+    ]
+  },
+  {
+    "objectID": "models/5-RenewablesAndStorage/Storage/Flywheel/index.html#model",
+    "href": "models/5-RenewablesAndStorage/Storage/Flywheel/index.html#model",
+    "title": "Flywheel model",
+    "section": "Model",
+    "text": "Model\n\nDescription\n\n\nSchema\n\n\nIndexes\n\\(t\\): Time, defined in \\([1,..,T]\\), where \\(T \\in \\Re^+\\) is the horizon\n\n\nParameters\n\\(\\delta t\\): Time step, 1 hour\n\\(K\\): Self discharge of the flywheel, in kWh/h\n\\(E_{max}\\): Maximum stored energy, 100 kWh\n\n\nVariables\n\\(P_t^{FW}\\): True power of the flywheel, in kW\n\\(P_t^{st}\\): Power flowing from/to the flywheel (defined as positive for discharge power), in kW\n\\(SOC_t\\): State Of Charge of the flywheel, in %\n\n\nFunctions\nA function to compute the losses versus the SOC:\n\\[\n\\begin{align}\nP^{loss} : [0;1] &\\to \\Re^+, (kWh)\\\\\nSOC_t &\\mapsto P^{loss}(SOC_t), (kW)\n\\end{align}\n\\]\nA function to compute the efficiency versus the power of the flywheel:\n\\[\n\\begin{align}\n\\eta : \\Re^+ (kW) &\\to [0;1] \\\\\nP_t^{st}, (kW) &\\mapsto \\eta(P_t^{st})\n\\end{align}\n\\]\n\n\nEquations\nTrue power of the flywheel:\n\\[\nP_t^{FW} = \\left\\{\n    \\begin{array}{ll}\n        P^{loss}(SOC_t) + P_t^{st} \\eta(-P_t^{st}) & \\mbox{if } P_t^{st} &lt; 0\\\\\n        P^{loss}(SOC_t) + P_t^{st}/\\eta(P_t^{st}) & \\mbox{otherwise.}\n    \\end{array}\n\\right.\n\\]\nDiscretization of the SOC differential equation:",
+    "crumbs": [
+      "Models",
+      "Renewables and storage",
+      "Storage",
+      "Flywheel model"
+    ]
+  },
+  {
+    "objectID": "models/5-RenewablesAndStorage/Storage/Flywheel/index.html#open-source-implementations",
+    "href": "models/5-RenewablesAndStorage/Storage/Flywheel/index.html#open-source-implementations",
+    "title": "Flywheel model",
+    "section": "Open source implementations",
+    "text": "Open source implementations\nFor details on these functions, see: G. Celli et al., “Meshed vs. radial MV distribution network in presence of large amount of DG,” in Proc. IEEE PES Power Syst. Conf. Expo., New York, NY, USA, 2004, pp. 709–714.",
+    "crumbs": [
+      "Models",
+      "Renewables and storage",
+      "Storage",
+      "Flywheel model"
     ]
   },
   {
@@ -222,7 +262,7 @@
     "href": "models/4-HVDC/VSC/index.html",
     "title": "Voltage Source Converter (VSC)",
     "section": "",
-    "text": "Back to top",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nEPRI Grid Forming\n\n\nNils Wiese (Fraunhofer IEE), Martin Franke (Fraunhofer IEE), Saikrishna Vallabhaneni\n\n\n\n\n\n\nFull-Phasor Grid Following Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nGeneric EMT Grid Forming Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nGeneric Phasor Grid Forming Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nGrid following converter (GFL)\n\n\n \n\n\n\n\n\n\nGrid forming converter (GFM)\n\n\n \n\n\n\n\n\n\nL2EP generic RMS grid following voltage source converter\n\n\nThierry Van Cutsem\n\n\n\n\n\n\nPhasor-I0 Grid Following Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nPhasor-I1 Grid Following Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nPhasor-PQ1 Grid Following Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nPoint-to-Point HVDC\n\n\n \n\n\n\n\n\n\nRTE Average phasor voltage source converter HVDC Model\n\n\nMathilde Bongrain (CRESYM)\n\n\n\n\n\n\nUPC generic EMT Grid Following Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nUPC generic EMT Point-to-Point HVDC model\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nNo matching items\n Back to top",
     "crumbs": [
       "Models",
       "HVDC",
@@ -458,7 +498,7 @@
     "href": "models/4-HVDC/VSC/Point-to-Point-HVDC/index.html",
     "title": "Point-to-Point HVDC",
     "section": "",
-    "text": "Back to top",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nRTE Average phasor voltage source converter HVDC Model\n\n\nMathilde Bongrain (CRESYM)\n\n\n\n\n\n\nUPC generic EMT Point-to-Point HVDC model\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nNo matching items\n Back to top",
     "crumbs": [
       "Models",
       "HVDC",
@@ -841,7 +881,7 @@
     "href": "models/7-Protection/index.html",
     "title": "Protection",
     "section": "",
-    "text": "Back to top",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nLine Protection\n\n\n \n\n\n\n\n\n\nLoad Shedding\n\n\n \n\n\n\n\n\n\nMachine Protection\n\n\n \n\n\n\n\n\n\nProtection\n\n\n \n\n\n\n\n\n\nSystem integrity protection schemes\n\n\n \n\n\n\n\n\n\nUnderfrequency load shedding scheme based on System frequency response model\n\n\nUrban Rudez\n\n\n\n\n\n\nNo matching items\n Back to top",
     "crumbs": [
       "Models",
       "Protection"
@@ -3102,7 +3142,7 @@
     "href": "models/6-NetworkComponents/Line/index.html",
     "title": "Lines",
     "section": "",
-    "text": "Back to top",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nCP Line\n\n\n \n\n\n\n\n\n\nFD Line\n\n\n \n\n\n\n\n\n\nPi Line\n\n\n \n\n\n\n\n\n\nNo matching items\n Back to top",
     "crumbs": [
       "Models",
       "Network Components",
@@ -3153,7 +3193,7 @@
     "href": "models/8-Others/BasicControlBlocks/index.html",
     "title": "Control block",
     "section": "",
-    "text": "Back to top",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\n2-Limited Proportional Integral Controller\n\n\n \n\n\n\n\n\n\nAbsolute Value control block\n\n\n \n\n\n\n\n\n\nAlgebraic Equation control block\n\n\n \n\n\n\n\n\n\nDeadband control block\n\n\n \n\n\n\n\n\n\nHysteresis control block\n\n\nMathilde Bongrain\n\n\n\n\n\n\nIntegrator Variable Limits control block\n\n\n \n\n\n\n\n\n\nIntegrator control block with a positive time constant T\n\n\nMathilde Bongrain\n\n\n\n\n\n\nLimited Integrator control block\n\n\n \n\n\n\n\n\n\nLimited Proportional Integral Controller\n\n\n \n\n\n\n\n\n\nLimiter Variable Bounds control block\n\n\n \n\n\n\n\n\n\nLimiter control block\n\n\n \n\n\n\n\n\n\nProportional Integral Controller\n\n\n \n\n\n\n\n\n\nSwitch control block\n\n\n \n\n\n\n\n\n\nTimer control block\n\n\nMathilde Bongrain\n\n\n\n\n\n\nTransfer function between an input and output one time constant\n\n\nMathilde Bongrain\n\n\n\n\n\n\nNo matching items\n Back to top",
     "crumbs": [
       "Models",
       "Others",
@@ -3282,7 +3322,7 @@
     "href": "models/8-Others/index.html",
     "title": "Others",
     "section": "",
-    "text": "[1]\n\n\n\n\n Back to topReferences\n\n1. Doe J (2100) The book without title. Dummy Publisher",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\n2-Limited Proportional Integral Controller\n\n\n \n\n\n\n\n\n\nAbsolute Value control block\n\n\n \n\n\n\n\n\n\nAlgebraic Equation control block\n\n\n \n\n\n\n\n\n\nControl block\n\n\n \n\n\n\n\n\n\nDeadband control block\n\n\n \n\n\n\n\n\n\nEvents\n\n\n \n\n\n\n\n\n\nHysteresis control block\n\n\nMathilde Bongrain\n\n\n\n\n\n\nIntegrator Variable Limits control block\n\n\n \n\n\n\n\n\n\nIntegrator control block with a positive time constant T\n\n\nMathilde Bongrain\n\n\n\n\n\n\nLimited Integrator control block\n\n\n \n\n\n\n\n\n\nLimited Proportional Integral Controller\n\n\n \n\n\n\n\n\n\nLimiter Variable Bounds control block\n\n\n \n\n\n\n\n\n\nLimiter control block\n\n\n \n\n\n\n\n\n\nProportional Integral Controller\n\n\n \n\n\n\n\n\n\nSwitch control block\n\n\n \n\n\n\n\n\n\nTimer control block\n\n\nMathilde Bongrain\n\n\n\n\n\n\nTransfer function between an input and output one time constant\n\n\nMathilde Bongrain\n\n\n\n\n\n\nNo matching items\n Back to top",
     "crumbs": [
       "Models",
       "Others"
@@ -4427,7 +4467,7 @@
     "href": "models/3-CompensationAndFACTS/index.html",
     "title": "Compensation and FACTS",
     "section": "",
-    "text": "Back to top",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nCapacitors\n\n\n \n\n\n\n\n\n\nEMT STATCOM (Grid Following mode)\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nStatic Compensator model\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nNo matching items\n Back to top",
     "crumbs": [
       "Models",
       "Compensation and FACTS"
@@ -4697,7 +4737,7 @@
     "href": "models/6-NetworkComponents/Transformers/index.html",
     "title": "Transformers",
     "section": "",
-    "text": "Back to top",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nCantilever Transformer\n\n\n \n\n\n\n\n\n\nNo matching items\n Back to top",
     "crumbs": [
       "Models",
       "Network Components",
@@ -4709,7 +4749,7 @@
     "href": "models/6-NetworkComponents/index.html",
     "title": "Network Components",
     "section": "",
-    "text": "Back to top",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nBuses\n\n\n \n\n\n\n\n\n\nCP Line\n\n\n \n\n\n\n\n\n\nCantilever Transformer\n\n\n \n\n\n\n\n\n\nFD Line\n\n\n \n\n\n\n\n\n\nLines\n\n\n \n\n\n\n\n\n\nPi Line\n\n\n \n\n\n\n\n\n\nTransformers\n\n\n \n\n\n\n\n\n\nNo matching items\n Back to top",
     "crumbs": [
       "Models",
       "Network Components"
@@ -7441,7 +7481,7 @@
     "href": "models/7-Protection/LoadShedding/index.html",
     "title": "Load Shedding",
     "section": "",
-    "text": "Back to top",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nUnderfrequency load shedding scheme based on System frequency response model\n\n\nUrban Rudez\n\n\n\n\n\n\nNo matching items\n Back to top",
     "crumbs": [
       "Models",
       "Protection",
@@ -7667,7 +7707,7 @@
     "href": "models/4-HVDC/VSC/GridFollowingConverter/index.html",
     "title": "Grid following converter (GFL)",
     "section": "",
-    "text": "Back to top",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nFull-Phasor Grid Following Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nL2EP generic RMS grid following voltage source converter\n\n\nThierry Van Cutsem\n\n\n\n\n\n\nPhasor-I0 Grid Following Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nPhasor-I1 Grid Following Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nPhasor-PQ1 Grid Following Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nUPC generic EMT Grid Following Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nNo matching items\n Back to top",
     "crumbs": [
       "Models",
       "HVDC",
@@ -7960,7 +8000,7 @@
     "href": "models/4-HVDC/VSC/GridFormingConverter/index.html",
     "title": "Grid forming converter (GFM)",
     "section": "",
-    "text": "Back to top",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nEPRI Grid Forming\n\n\nNils Wiese (Fraunhofer IEE), Martin Franke (Fraunhofer IEE), Saikrishna Vallabhaneni\n\n\n\n\n\n\nGeneric EMT Grid Forming Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nGeneric Phasor Grid Forming Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nNo matching items\n Back to top",
     "crumbs": [
       "Models",
       "HVDC",
@@ -7973,62 +8013,22 @@
     "href": "models/4-HVDC/index.html",
     "title": "HVDC",
     "section": "",
-    "text": "Back to top",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nEPRI Grid Forming\n\n\nNils Wiese (Fraunhofer IEE), Martin Franke (Fraunhofer IEE), Saikrishna Vallabhaneni\n\n\n\n\n\n\nFull-Phasor Grid Following Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nGeneric EMT Grid Forming Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nGeneric Phasor Grid Forming Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nGrid following converter (GFL)\n\n\n \n\n\n\n\n\n\nGrid forming converter (GFM)\n\n\n \n\n\n\n\n\n\nL2EP generic RMS grid following voltage source converter\n\n\nThierry Van Cutsem\n\n\n\n\n\n\nLine Commutated Converters (LCC)\n\n\n \n\n\n\n\n\n\nPhasor-I0 Grid Following Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nPhasor-I1 Grid Following Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nPhasor-PQ1 Grid Following Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nPoint-to-Point HVDC\n\n\n \n\n\n\n\n\n\nRTE Average phasor voltage source converter HVDC Model\n\n\nMathilde Bongrain (CRESYM)\n\n\n\n\n\n\nUPC generic EMT Grid Following Voltage Source Converter\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nUPC generic EMT Point-to-Point HVDC model\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\nVoltage Source Converter (VSC)\n\n\n \n\n\n\n\n\n\nNo matching items\n Back to top",
     "crumbs": [
       "Models",
       "HVDC"
     ]
   },
   {
-    "objectID": "models/5-RenewablesAndStorage/Storage/flywheel.html",
-    "href": "models/5-RenewablesAndStorage/Storage/flywheel.html",
-    "title": "Flywheel model",
+    "objectID": "models/5-RenewablesAndStorage/Storage/index.html",
+    "href": "models/5-RenewablesAndStorage/Storage/index.html",
+    "title": "Storage",
     "section": "",
-    "text": "This model is used in the following publication: Rigo-Mariani R, Sareni B, Roboam X. Integrated Optimal Design of a Smart Microgrid With Storage. IEEE Trans Smart Grid 2017;8:1762–70. https://doi.org/10.1109/TSG.2015.2507131.\nIt is used to model the operation of a flywheel as a part of a microgrid system where different components are connected through a common DC bus. The objective of the model is to size the flywheel (and the other components) by minimization of the operational cost of the microgrid system.\nOnly active power flows are modelled.",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nFlywheel model\n\n\n \n\n\n\n\n\n\nNo matching items\n Back to top",
     "crumbs": [
       "Models",
       "Renewables and storage",
-      "Storage",
-      "Flywheel model"
-    ]
-  },
-  {
-    "objectID": "models/5-RenewablesAndStorage/Storage/flywheel.html#context-and-assumptions",
-    "href": "models/5-RenewablesAndStorage/Storage/flywheel.html#context-and-assumptions",
-    "title": "Flywheel model",
-    "section": "",
-    "text": "This model is used in the following publication: Rigo-Mariani R, Sareni B, Roboam X. Integrated Optimal Design of a Smart Microgrid With Storage. IEEE Trans Smart Grid 2017;8:1762–70. https://doi.org/10.1109/TSG.2015.2507131.\nIt is used to model the operation of a flywheel as a part of a microgrid system where different components are connected through a common DC bus. The objective of the model is to size the flywheel (and the other components) by minimization of the operational cost of the microgrid system.\nOnly active power flows are modelled.",
-    "crumbs": [
-      "Models",
-      "Renewables and storage",
-      "Storage",
-      "Flywheel model"
-    ]
-  },
-  {
-    "objectID": "models/5-RenewablesAndStorage/Storage/flywheel.html#model",
-    "href": "models/5-RenewablesAndStorage/Storage/flywheel.html#model",
-    "title": "Flywheel model",
-    "section": "Model",
-    "text": "Model\n\nDescription\n\n\nSchema\n\n\nIndexes\n\\(t\\): Time, defined in \\([1,..,T]\\), where \\(T \\in \\Re^+\\) is the horizon\n\n\nParameters\n\\(\\delta t\\): Time step, 1 hour\n\\(K\\): Self discharge of the flywheel, in kWh/h\n\\(E_{max}\\): Maximum stored energy, 100 kWh\n\n\nVariables\n\\(P_t^{FW}\\): True power of the flywheel, in kW\n\\(P_t^{st}\\): Power flowing from/to the flywheel (defined as positive for discharge power), in kW\n\\(SOC_t\\): State Of Charge of the flywheel, in %\n\n\nFunctions\nA function to compute the losses versus the SOC:\n\\[\n\\begin{align}\nP^{loss} : [0;1] &\\to \\Re^+, (kWh)\\\\\nSOC_t &\\mapsto P^{loss}(SOC_t), (kW)\n\\end{align}\n\\]\nA function to compute the efficiency versus the power of the flywheel:\n\\[\n\\begin{align}\n\\eta : \\Re^+ (kW) &\\to [0;1] \\\\\nP_t^{st}, (kW) &\\mapsto \\eta(P_t^{st})\n\\end{align}\n\\]\n\n\nEquations\nTrue power of the flywheel:\n\\[\nP_t^{FW} = \\left\\{\n    \\begin{array}{ll}\n        P^{loss}(SOC_t) + P_t^{st} \\eta(-P_t^{st}) & \\mbox{if } P_t^{st} &lt; 0\\\\\n        P^{loss}(SOC_t) + P_t^{st}/\\eta(P_t^{st}) & \\mbox{otherwise.}\n    \\end{array}\n\\right.\n\\]\nDiscretization of the SOC differential equation:",
-    "crumbs": [
-      "Models",
-      "Renewables and storage",
-      "Storage",
-      "Flywheel model"
-    ]
-  },
-  {
-    "objectID": "models/5-RenewablesAndStorage/Storage/flywheel.html#open-source-implementations",
-    "href": "models/5-RenewablesAndStorage/Storage/flywheel.html#open-source-implementations",
-    "title": "Flywheel model",
-    "section": "Open source implementations",
-    "text": "Open source implementations\nFor details on these functions, see: G. Celli et al., “Meshed vs. radial MV distribution network in presence of large amount of DG,” in Proc. IEEE PES Power Syst. Conf. Expo., New York, NY, USA, 2004, pp. 709–714.",
-    "crumbs": [
-      "Models",
-      "Renewables and storage",
-      "Storage",
-      "Flywheel model"
+      "Storage"
     ]
   },
   {
@@ -8036,7 +8036,7 @@
     "href": "models/5-RenewablesAndStorage/Wind/index.html",
     "title": "Wind power",
     "section": "",
-    "text": "Back to top",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nIEC Wind Turbine Type 3 (Doubly-Fed Induction Generator)\n\n\nMartin Franke (Fraunhofer IEE), Luka Plavec (Fraunhofer IEE)\n\n\n\n\n\n\nNo matching items\n Back to top",
     "crumbs": [
       "Models",
       "Renewables and storage",
@@ -8048,7 +8048,7 @@
     "href": "models/5-RenewablesAndStorage/index.html",
     "title": "Renewables and storage",
     "section": "",
-    "text": "Back to top",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nFlywheel model\n\n\n \n\n\n\n\n\n\nIEC Wind Turbine Type 3 (Doubly-Fed Induction Generator)\n\n\nMartin Franke (Fraunhofer IEE), Luka Plavec (Fraunhofer IEE)\n\n\n\n\n\n\nPhotovoltaics\n\n\n \n\n\n\n\n\n\nStorage\n\n\n \n\n\n\n\n\n\nWind power\n\n\n \n\n\n\n\n\n\nNo matching items\n Back to top",
     "crumbs": [
       "Models",
       "Renewables and storage"
