@@ -4,56 +4,11 @@ title: How to Contribute to COLIB
 categories: [contribution, quarto, qmd, template, guide]
 author: "COLIB Team"
 order: 1
-format:
-  html:
-    css: ../../styles/tutorial.css
-    resources:
-      - contribute-workflow.js
 ---
 
-Welcome to the COLIB contribution guide! This page will help you understand how to contribute to the COLIB library. Choose your contribution path below to get started.
+Welcome to the COLIB contribution guide! This page will help you understand how to contribute models and test cases to the COLIB library using our standardized templates and tools.
 
-## Choose Your Contribution Type
-
-Select what type of contribution you'd like to make:
-
-<div class="contribution-selector">
-<div class="option-card" id="option-add-content" onclick="selectContributionType('add-content')">
-<div class="option-icon">📚</div>
-<h3>Add Model or Test System</h3>
-<p>Contribute new models, test cases, or validation scenarios to the COLIB library</p>
-<ul>
-<li>Mathematical models of power system components</li>
-<li>Benchmark test systems</li>
-<li>Validation scenarios</li>
-<li>Simulation examples</li>
-</ul>
-</div>
-
-<div class="option-card" id="option-modify-content" onclick="selectContributionType('modify-content')">
-<div class="option-icon">🔧</div>
-<h3>Improve Existing Content</h3>
-<p>Propose modifications to existing content or report bugs in the library</p>
-<ul>
-<li>Fix inaccuracies or typos</li>
-<li>Enhance documentation quality</li>
-<li>Add missing details</li>
-<li>Report bugs or issues</li>
-</ul>
-</div>
-</div>
-
-<div class="workflow-container" id="workflow-container" style="display: none;">
-  <!-- Dynamic workflow content will be inserted here -->
-</div>
-
-<!-- Hidden workflow content templates -->
-<div id="add-content-workflow" style="display: none;">
-
-## Step 1: What is QMD format? {#sec-qmd-intro}
-
-<div class="workflow-step" id="step-qmd">
-<span class="step-counter">1</span>**Understanding QMD Format** 
+## What is QMD format?
 
 COLIB uses **Quarto Markdown (QMD)** format for all documentation pages. QMD is an extension of standard Markdown that allows you to:
 
@@ -73,52 +28,12 @@ COLIB uses **Quarto Markdown (QMD)** format for all documentation pages. QMD is 
 - Professional formatting and styling
 :::
 
-<button class="next-step-button" onclick="showStep('step-install')">Continue to Installation →</button>
-</div>
-
-## Step 2: Install Quarto {#sec-install-quarto}
-
-<div class="workflow-step" id="step-install" style="display: none;">
-<span class="step-counter">2</span>**Installing Quarto** 
-
-### Installation
-
-#### 1. Install Quarto
-Visit the [official Quarto website](https://quarto.org/docs/get-started/) and download the installer for your operating system:
-
-- **Windows**: Download the `.msi` installer
-- **macOS**: Download the `.pkg` installer  
-- **Linux**: Use the appropriate package manager or download the `.deb`/`.rpm` package
-
-#### 2. Verify Installation
-Open a terminal/command prompt and run:
-```bash
-quarto --version
-```
-
-#### 3. Install a Text Editor (Recommended)
-While you can edit QMD files with any text editor, we recommend:
-
-- **VS Code** with the Quarto extension
-- **RStudio** (built-in Quarto support)
-- **Jupyter Lab** (built-in Quarto support)
-
-:::{.callout-note}
-You can install the Quarto extension from within the Extensions tab in VS Code, from the [Extension Marketplace](https://marketplace.visualstudio.com/items?itemName=quarto.quarto), the [Open VSX Registry](https://open-vsx.org/extension/quarto/quarto) or directly from a [VISX extension file](https://github.com/quarto-dev/quarto-vscode#visx-install).
-:::
-
-<button class="next-step-button" onclick="showStep('step-template')">Continue to Template Selection →</button>
-</div>
-
-## Step 3: Download Template {#sec-template-selection}
-
-<div class="workflow-step" id="step-template" style="display: none;">
-<span class="step-counter">3</span>**Choose Your Template** 
+## Choosing Your Template
 
 COLIB provides two main contribution templates depending on what you want to add:
 
 ### Model Template
-Use the **Model Template** when you want to contribute:
+Use the **Model Template** when you want to contribute on:
 
 - Mathematical models of power system components
 - Control system descriptions
@@ -141,7 +56,7 @@ Use the **Model Template** when you want to contribute:
 :::
 
 ### Test Case Template
-Use the **Test Case Template** when you want to contribute:
+Use the **Test Case Template** when you want to contribute on:
 
 - Validation scenarios
 - Benchmark test systems
@@ -166,228 +81,101 @@ Use the **Test Case Template** when you want to contribute:
 - Table of references & license
 :::
 
-<button class="next-step-button" onclick="showStep('step-fill-template')">Continue to Template Completion →</button>
-</div>
+### Existing page improvements
+You can also contribute enhance the current COLIB content by:
 
-## Step 4: Fill Your Template {#sec-fill-template}
+- Refining and enriching existing documentation quality
+- Supplementing current model or test case descriptions with missing details
+- Fixing inaccuracies, typos, or outdated information
+- Adding practical examples, clarifications, or better explanations
+- Updating references, citations, or technical specifications
+- Improving formatting, structure, or readability
+- And much more!
 
-<div class="workflow-step" id="step-fill-template" style="display: none;">
-<span class="step-counter">4</span>**Complete Your Template** 
+:::{.callout-note}
+## Steps for page improvement contributions:
 
-Now let's help you fill out your template step by step. We'll guide you through each section:
-
-<div class="template-sections">
-  <div class="section-card" onclick="expandSection('context-section')">
-    <h4><i class="fas fa-info-circle"></i> Context Section</h4>
-    <p>Describe the background and motivation for your contribution</p>
-  </div>
-  
-  <div class="section-content" id="context-section" style="display: none;">
-    <h5>What to include in Context:</h5>
-    <ul>
-      <li>Background information and motivation</li>
-      <li>Why this model/test case is needed</li>
-      <li>How it fits into power system analysis</li>
-    </ul>
-    
-    <textarea class="section-editor" id="context-editor" placeholder="Write your context section here...
-
-Example:
-This synchronous generator model is essential for transient stability studies in power systems. It provides accurate representation of machine dynamics during fault conditions..."></textarea>
-    
-    <button class="validate-section" onclick="validateSection('context')">Validate Context Section</button>
-    <div class="validation-result" id="context-validation"></div>
-  </div>
-
-  <div class="section-card" onclick="expandSection('model-section')">
-    <h4><i class="fas fa-cogs"></i> Model Description</h4>
-    <p>Detailed technical description of your model or test case</p>
-  </div>
-  
-  <div class="section-content" id="model-section" style="display: none;">
-    <h5>What to include in Model Description:</h5>
-    <ul>
-      <li>Mathematical equations and formulations</li>
-      <li>Variables and parameters</li>
-      <li>Implementation details</li>
-      <li>Assumptions and limitations</li>
-    </ul>
-    
-    <textarea class="section-editor" id="model-editor" placeholder="Write your model description here...
-
-Include:
-- Mathematical equations using LaTeX syntax: $$P = \frac{E \times V \times \sin(\delta)}{X}$$
-- Variable definitions
-- Parameter descriptions"></textarea>
-    
-    <button class="validate-section" onclick="validateSection('model')">Validate Model Section</button>
-    <div class="validation-result" id="model-validation"></div>
-  </div>
-
-  <div class="section-card" onclick="expandSection('references-section')">
-    <h4><i class="fas fa-book"></i> References & License</h4>
-    <p>Citations and licensing information</p>
-  </div>
-  
-  <div class="section-content" id="references-section" style="display: none;">
-    <h5>What to include in References:</h5>
-    <ul>
-      <li>Academic papers and books</li>
-      <li>Standards and guidelines</li>
-      <li>Software documentation</li>
-      <li>License information</li>
-    </ul>
-    
-    <textarea class="section-editor" id="references-editor" placeholder="Add your references here...
-
-Example:
-[@kundur1994power] Kundur, P. (1994). Power system stability and control. McGraw-hill.
-[@ieee2016guide] IEEE Guide for Synchronous Generator Modeling Practices and Applications in Power System Stability Analyses."></textarea>
-    
-    <button class="validate-section" onclick="validateSection('references')">Validate References Section</button>
-    <div class="validation-result" id="references-validation"></div>
-  </div>
-</div>
-
-<div class="template-completion-status" id="completion-status">
-  <h4>Template Completion Status:</h4>
-  <div class="progress-bar">
-    <div class="progress-fill" id="progress-fill"></div>
-  </div>
-  <p id="completion-text">Complete all sections to proceed to validation</p>
-</div>
-
-<button class="next-step-button" id="continue-validation" onclick="showStep('step-validate')" style="display: none;">Continue to Validation →</button>
-</div>
-
-## Step 5: Validate Your Contribution {#sec-validate}
-
-<div class="workflow-step" id="step-validate" style="display: none;">
-<span class="step-counter">5</span>**Validate Your Template** 
-
-Before submitting, let's validate that your template is complete and follows COLIB standards:
-
-<div class="validation-panel">
-  <div class="upload-section">
-    <h4><i class="fas fa-upload"></i> Upload Your QMD File</h4>
-    <p>Upload your completed template file for validation:</p>
-    
-    <input type="file" id="qmd-file-upload" accept=".qmd,.md" onchange="handleFileUpload(event)">
-    <label for="qmd-file-upload" class="file-upload-label">
-      <i class="fas fa-cloud-upload-alt"></i> Choose QMD File
-    </label>
-    
-    <div class="file-info" id="file-info" style="display: none;">
-      <p><strong>Selected file:</strong> <span id="file-name"></span></p>
-      <p><strong>Size:</strong> <span id="file-size"></span></p>
-    </div>
-  </div>
-  
-  <button class="validate-button" id="validate-full" onclick="validateFullTemplate()" disabled>
-    <i class="fas fa-check-circle"></i> Validate Template
-  </button>
-  
-  <div class="validation-results" id="validation-results" style="display: none;">
-    <h4>Validation Results:</h4>
-    <div class="validation-checklist" id="validation-checklist">
-      <!-- Validation results will be populated here -->
-    </div>
-  </div>
-</div>
-
-<button class="next-step-button" id="continue-submit" onclick="showStep('step-submit')" style="display: none;">Continue to Submission →</button>
-</div>
-
-## Step 6: Submit Your Contribution {#sec-submit}
-
-<div class="workflow-step" id="step-submit" style="display: none;">
-<span class="step-counter">6</span>**Submit for Review** 
-
-<div class="submission-panel">
-  <div class="submission-info">
-    <h4><i class="fas fa-paper-plane"></i> Ready to Submit!</h4>
-    <p>Your template has been validated and is ready for submission. Click the button below to create a GitHub issue with your contribution:</p>
-  </div>
-  
-  <a href="https://github.com/CRESYM/Colib_Quarto.github.io/issues/new?assignees=GJCRESYM%2C+matoubongrain&labels=enhancement%2Cbug%2Cevaluate+component&projects=Colib0&template=Evaluate.yml&title=%5BName%2FID+of+the+model%2F+test+case+to+be+evaluated%5D%3A+" 
-     target="_blank" 
-     class="submit-button"
-     onclick="showSubmissionSuccess()">
-    <i class="fas fa-github"></i> Create GitHub Issue & Submit
-  </a>
-  
-  <div class="submission-instructions">
-    <h5>What happens next:</h5>
-    <ol>
-      <li><strong>GitHub Issue Creation:</strong> A new issue will be created in the COLIB repository</li>
-      <li><strong>Attach Your File:</strong> Upload your validated QMD file to the GitHub issue</li>
-      <li><strong>Review Process:</strong> The COLIB team will review your contribution</li>
-      <li><strong>Feedback & Revision:</strong> You may receive feedback for improvements</li>
-      <li><strong>Publication:</strong> Approved contributions are merged and published</li>
-    </ol>
-  </div>
-</div>
-
-<div class="submission-success" id="submission-success" style="display: none;">
-  <div class="success-message">
-    <h3><i class="fas fa-check-circle"></i> Congratulations!</h3>
-    <p>Your contribution has been submitted successfully. The review process is now underway.</p>
-    <p><strong>You will be notified via GitHub when your contribution is reviewed and validated.</strong></p>
-  </div>
-</div>
-</div>
-
-</div>
-
-<!-- Bug report/modification workflow -->
-<div id="modify-content-workflow" style="display: none;">
-
-## Improve Existing Content {#sec-improve-content}
-
-<div class="workflow-step">
-<span class="step-counter">1</span>**Choose Improvement Type** 
-
-You can contribute to COLIB by improving existing content in several ways:
-
-<div class="improvement-options">
-  <div class="improvement-card" onclick="openGitHubIssue('bug')">
-    <div class="improvement-icon">🐛</div>
-    <h4>Report a Bug</h4>
-    <p>Found an error, typo, or technical inaccuracy? Report it so we can fix it.</p>
-  </div>
-  
-  <div class="improvement-card" onclick="openGitHubIssue('enhancement')">
-    <div class="improvement-icon">✨</div>
-    <h4>Suggest Enhancement</h4>
-    <p>Have ideas to improve existing models, add missing details, or enhance documentation?</p>
-  </div>
-  
-  <div class="improvement-card" onclick="openGitHubIssue('documentation')">
-    <div class="improvement-icon">📝</div>
-    <h4>Documentation Improvement</h4>
-    <p>Help improve clarity, add examples, or update references in existing pages.</p>
-  </div>
-</div>
-
-:::{.callout-tip}
-## Tips for Effective Contributions
-
-- **Be specific**: Include page links, section references, and clear descriptions
-- **Provide context**: Explain why the change is needed and how it improves COLIB
-- **Suggest solutions**: When possible, provide specific text or code improvements
-- **Include references**: Support your suggestions with relevant sources
+1. **Browse and select** the specific page you wish to enhance from the COLIB repository
+2. **Document your improvements** by creating a detailed GitHub issue explaining what changes you propose and why
+3. **Provide your modifications** either as an updated QMD file attachment or as specific textual changes in the issue
+4. **Submit for review** - your contribution will go through the same quality review process as new content submissions
 :::
 
-<div class="github-redirect-message" id="github-message" style="display: none;">
-  <h4><i class="fas fa-external-link-alt"></i> Redirecting to GitHub</h4>
-  <p>You'll be redirected to GitHub to create an issue for your contribution. Please provide detailed information about your suggested improvement.</p>
-</div>
+## Installing and Using Quarto
 
-</div>
+### Installation
 
-</div>
+#### 1. Install Quarto
+Visit the [official Quarto website](https://quarto.org/docs/get-started/) and download the installer for your operating system:
 
-<!-- CSS and JavaScript -->
-```{=html}
-<script src="contribute-workflow.js"></script>
+- **Windows**: Download the `.msi` installer
+- **macOS**: Download the `.pkg` installer  
+- **Linux**: Use the appropriate package manager or download the `.deb`/`.rpm` package
+
+#### 2. Verify Installation
+Open a terminal/command prompt and run:
+```bash
+quarto --version
 ```
+
+#### 3. Install a Text Editor (Recommended)
+While you can edit QMD files with any text editor, we recommend:
+
+- **VS Code** with the Quarto extension
+
+:::{.callout-note}
+You can install the Quarto extension from within the Extensions tab in VS Code, from the [Extension Marketplace](https://marketplace.visualstudio.com/items?itemName=quarto.quarto), the [Open VSX Registry](https://open-vsx.org/extension/quarto/quarto) or directly from a [VISX extension file](https://github.com/quarto-dev/quarto-vscode#visx-install).
+:::
+
+- **RStudio** (built-in Quarto support)
+
+- **Jupyter Lab** (built-in Quarto support)
+
+### Key QMD Syntax for COLIB
+See [Quarto Basics](../quartoBasics/index.qmd)
+
+### Basic Quarto Workflow
+
+#### 1. Create Your Contribution
+1. Download the appropriate template (model or test case)
+2. Open the `index.qmd` file in your preferred editor
+
+#### 2. Edit Your Content
+Replace the content of the `index.qmd` file with your own, following the guidelines in the template.
+
+:::{.callout-tip}
+- See [model template](../modelTemplate/index.qmd) and [test case template](../testSystemTemplate/index.qmd) for more details.
+:::
+
+#### 3. Preview Your Work
+To see how your page will look, run in your terminal:
+```bash
+quarto preview index.qmd
+```
+This opens a live preview in your browser that updates as you edit.
+
+#### 4. Render Final Output
+To generate the final HTML file:
+```bash
+quarto render index.qmd
+```
+
+## Submission Process
+
+1. **Prepare your contribution** using the appropriate template
+2. **Test your QMD file** by rendering it locally
+3. **Submit via GitHub** by creating an issue to the COLIB repository and attach your QMD file ([create an issue](https://github.com/CRESYM/Colib_Quarto.github.io/issues/new?assignees=GJCRESYM%2C+matoubongrain&labels=enhancement%2Cbug%2Cevaluate+component&projects=Colib0&template=Evaluate.yml&title=%5BName%2FID+of+the+model%2F+test+case+to+be+evaluated%5D%3A+))
+4. **Review process** - our team will review your contribution
+5. **Publication** - approved contributions are merged and published
+
+:::{.callout-tip}
+## Pro Tips for Contributors
+
+- Start with the template and modify incrementally
+- Preview frequently to catch formatting issues early
+- Use descriptive file names and organize your assets
+- Follow the existing naming conventions in COLIB
+- Include comprehensive references and citations
+:::
+
+Thank you for contributing to COLIB and advancing open-source power system modeling!
