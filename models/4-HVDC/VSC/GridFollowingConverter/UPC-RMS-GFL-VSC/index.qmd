@@ -5,7 +5,7 @@ categories: ["Opensource", "Phasor", "voltage source", "converter", "wind", "pv"
 date: 26/06/2024 
 last-updated: 09/07/2024
 id: #165
-authors: Carlos Alegre (eRoots)
+author: Carlos Alegre (eRoots)
 reviewers: Eduardo Prieto Araujo (UPC), Josep Fanals Batllori (eRoots)
 bibliography: ../../../../../_bibliography/references.bib
 ---

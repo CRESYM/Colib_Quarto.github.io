@@ -5,7 +5,7 @@ categories: ["Opensource", "RMS", "GFM", "GFL", "converter", "wind", "generic", 
 date: 20/12/2024
 last-updated: 22/01/2025
 id: #63
-authors: Nils Wiese (Fraunhofer IEE), Martin Franke (Fraunhofer IEE), Saikrishna Vallabhaneni
+author: Nils Wiese (Fraunhofer IEE), Martin Franke (Fraunhofer IEE), Saikrishna Vallabhaneni
 reviewers: Lampros Papangelis (CRESYM)
 bibliography: ../../../../../_bibliography/references.bib
 ---

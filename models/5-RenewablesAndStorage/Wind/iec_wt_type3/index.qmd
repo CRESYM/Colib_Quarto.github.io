@@ -3,7 +3,7 @@ title: "IEC Wind Turbine Type 3 (Doubly-Fed Induction Generator)"
 categories: ["regulations", "WT", "wind", "controller", "Opensource", "IEC", "RMS", "modelica", "dynawo", "#62"]
 date: 20/12/2024
 last-updated: 20/12/2024
-authors: "Martin Franke (Fraunhofer IEE), Luka Plavec (Fraunhofer IEE)"
+author: "Martin Franke (Fraunhofer IEE), Luka Plavec (Fraunhofer IEE)"
 reviewers: "Lampros Papangelis (CRESYM)"
 id: "#62"
 bibliography: ../../../../_bibliography/references.bib

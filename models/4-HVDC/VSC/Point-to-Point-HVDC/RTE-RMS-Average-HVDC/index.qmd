@@ -5,7 +5,7 @@ categories: ["#24","opensource","phasor", "HVDC", "VSC", "generic", "MRL4", "Sin
 date: 21/06/2023 
 last-updated: 29/03/2024
 id: #91
-authors: Mathilde Bongrain (CRESYM)
+author: Mathilde Bongrain (CRESYM)
 reviewers: 
 bibliography: ../../../../../_bibliography/references.bib
 ---

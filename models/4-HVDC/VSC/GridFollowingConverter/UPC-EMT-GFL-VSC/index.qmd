@@ -5,7 +5,7 @@ categories: ["Opensource", "EMT", "voltage source", "converter", "wind", "pv", "
 date: 05/06/2024 
 last-updated: 03/07/2024
 id: #163
-authors: Carlos Alegre (eRoots)
+author: Carlos Alegre (eRoots)
 reviewers: Eduardo Prieto Araujo (UPC), Josep Fanals Batllori (eRoots)
 bibliography: ../../../../../_bibliography/references.bib
 ---

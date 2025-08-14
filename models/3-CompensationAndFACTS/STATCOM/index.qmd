@@ -4,7 +4,7 @@ categories: ["Opensource", "EMT", "voltage source", "converter", "STATCOM", "win
 date: 22/07/2024 
 last-updated: 24/07/2024
 id: #188
-authors: Carlos Alegre (eRoots)
+author: Carlos Alegre (eRoots)
 reviewers: Eduardo Prieto Araujo (UPC), Josep Fanals Batllori (eRoots)
 bibliography: ../../../_bibliography/references.bib
 ---

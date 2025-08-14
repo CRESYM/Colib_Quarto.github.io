@@ -4,7 +4,7 @@ categories: ["#220","Capacitor", "Reactor", "Compensation", "dynawo"]
 date: 10/05/2024 
 last-updated: 05/12/2024
 id: #220
-authors: Carlos Alegre (eRoots)
+author: Carlos Alegre (eRoots)
 reviewers: Eduardo Prieto Araujo (UPC), Josep Fanals Batllori (eRoots)
 bibliography: ../../../_bibliography/references.bib
 ---

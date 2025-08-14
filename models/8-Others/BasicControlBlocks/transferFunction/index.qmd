@@ -1,7 +1,7 @@
 ---
 title: "Transfer function between an input and output one time constant"
 categories: ["control block", "transfer function"]
-authors: Mathilde Bongrain
+author: Mathilde Bongrain
 date: 16/10/2023
 version: version-1.0.0
 ---

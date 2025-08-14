@@ -1,7 +1,7 @@
 ---
 title: "Integrator control block with a positive time constant T"
 categories: ["control block", "integrator"]
-authors: Mathilde Bongrain
+author: Mathilde Bongrain
 date: 16/10/2023
 version: version-1.0.0
 ---

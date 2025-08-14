@@ -5,7 +5,7 @@ categories: [Opensource, RMS, phasor, TMRL2, voltage source, converter, wind, pv
 date: 17/05/2024 
 last-updated: 17/05/2024
 id: #131
-authors: Thierry Van Cutsem
+author: Thierry Van Cutsem
 reviewers: Mathilde Bongrain (CRESYM)
 bibliography: ../../../../../_bibliography/references.bib
 ---
