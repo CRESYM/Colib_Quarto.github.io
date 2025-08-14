@@ -104,38 +104,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles/main.css">
-<link rel="stylesheet" href="../../styles/tutorial.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light">
@@ -355,8 +325,20 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#choose-your-contribution-type" id="toc-choose-your-contribution-type" class="nav-link active" data-scroll-target="#choose-your-contribution-type">Choose Your Contribution Type</a></li>
-  <li><a href="#sec-improve-content" id="toc-sec-improve-content" class="nav-link" data-scroll-target="#sec-improve-content">Improve Existing Content</a></li>
+  <li><a href="#what-is-qmd-format" id="toc-what-is-qmd-format" class="nav-link active" data-scroll-target="#what-is-qmd-format">What is QMD format?</a></li>
+  <li><a href="#choosing-your-template" id="toc-choosing-your-template" class="nav-link" data-scroll-target="#choosing-your-template">Choosing Your Template</a>
+  <ul class="collapse">
+  <li><a href="#model-template" id="toc-model-template" class="nav-link" data-scroll-target="#model-template">Model Template</a></li>
+  <li><a href="#test-case-template" id="toc-test-case-template" class="nav-link" data-scroll-target="#test-case-template">Test Case Template</a></li>
+  <li><a href="#existing-page-improvements" id="toc-existing-page-improvements" class="nav-link" data-scroll-target="#existing-page-improvements">Existing page improvements</a></li>
+  </ul></li>
+  <li><a href="#installing-and-using-quarto" id="toc-installing-and-using-quarto" class="nav-link" data-scroll-target="#installing-and-using-quarto">Installing and Using Quarto</a>
+  <ul class="collapse">
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#key-qmd-syntax-for-colib" id="toc-key-qmd-syntax-for-colib" class="nav-link" data-scroll-target="#key-qmd-syntax-for-colib">Key QMD Syntax for COLIB</a></li>
+  <li><a href="#basic-quarto-workflow" id="toc-basic-quarto-workflow" class="nav-link" data-scroll-target="#basic-quarto-workflow">Basic Quarto Workflow</a></li>
+  </ul></li>
+  <li><a href="#submission-process" id="toc-submission-process" class="nav-link" data-scroll-target="#submission-process">Submission Process</a></li>
   </ul>
 </nav>
     </div>
@@ -395,72 +377,9 @@ window.Quarto = {
 </header>
 
 
-<p>Welcome to the COLIB contribution guide! This page will help you understand how to contribute to the COLIB library. Choose your contribution path below to get started.</p>
-<section id="choose-your-contribution-type" class="level2">
-<h2 class="anchored" data-anchor-id="choose-your-contribution-type">Choose Your Contribution Type</h2>
-<p>Select what type of contribution you’d like to make:</p>
-<div class="contribution-selector">
-<div id="option-add-content" class="option-card" onclick="selectContributionType('add-content')">
-<div class="option-icon">
-📚
-</div>
-<h3 class="anchored">
-Add Model or Test System
-</h3>
-<p>
-Contribute new models, test cases, or validation scenarios to the COLIB library
-</p>
-<ul>
-<li>
-Mathematical models of power system components
-</li>
-<li>
-Benchmark test systems
-</li>
-<li>
-Validation scenarios
-</li>
-<li>
-Simulation examples
-</li>
-</ul>
-</div>
-<div id="option-modify-content" class="option-card" onclick="selectContributionType('modify-content')">
-<div class="option-icon">
-🔧
-</div>
-<h3 class="anchored">
-Improve Existing Content
-</h3>
-<p>
-Propose modifications to existing content or report bugs in the library
-</p>
-<ul>
-<li>
-Fix inaccuracies or typos
-</li>
-<li>
-Enhance documentation quality
-</li>
-<li>
-Add missing details
-</li>
-<li>
-Report bugs or issues
-</li>
-</ul>
-</div>
-</div>
-<div id="workflow-container" class="workflow-container" style="display: none;">
-<p><!-- Dynamic workflow content will be inserted here --></p>
-</div>
-<!-- Hidden workflow content templates -->
-</section>
-<div id="add-content-workflow" style="display: none;">
-<section id="sec-qmd-intro" class="level2">
-<h2 class="anchored" data-anchor-id="sec-qmd-intro">Step 1: What is QMD format?</h2>
-<div id="step-qmd" class="workflow-step">
-<p><span class="step-counter">1</span><strong>Understanding QMD Format</strong></p>
+<p>Welcome to the COLIB contribution guide! This page will help you understand how to contribute models and test cases to the COLIB library using our standardized templates and tools.</p>
+<section id="what-is-qmd-format" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-qmd-format">What is QMD format?</h2>
 <p>COLIB uses <strong>Quarto Markdown (QMD)</strong> format for all documentation pages. QMD is an extension of standard Markdown that allows you to:</p>
 <ul>
 <li>Write scientific documentation with LaTeX math equations</li>
@@ -488,68 +407,13 @@ QMD Benefits for Scientific Documentation:
 </ul>
 </div>
 </div>
-<button class="next-step-button" onclick="showStep('step-install')">
-Continue to Installation →
-</button>
-</div>
 </section>
-<section id="sec-install-quarto" class="level2">
-<h2 class="anchored" data-anchor-id="sec-install-quarto">Step 2: Install Quarto</h2>
-<div id="step-install" class="workflow-step" style="display: none;">
-<p><span class="step-counter">2</span><strong>Installing Quarto</strong></p>
-<section id="installation" class="level3">
-<h3 class="anchored" data-anchor-id="installation">Installation</h3>
-<section id="install-quarto" class="level4">
-<h4 class="anchored" data-anchor-id="install-quarto">1. Install Quarto</h4>
-<p>Visit the <a href="https://quarto.org/docs/get-started/">official Quarto website</a> and download the installer for your operating system:</p>
-<ul>
-<li><strong>Windows</strong>: Download the <code>.msi</code> installer</li>
-<li><strong>macOS</strong>: Download the <code>.pkg</code> installer<br>
-</li>
-<li><strong>Linux</strong>: Use the appropriate package manager or download the <code>.deb</code>/<code>.rpm</code> package</li>
-</ul>
-</section>
-<section id="verify-installation" class="level4">
-<h4 class="anchored" data-anchor-id="verify-installation">2. Verify Installation</h4>
-<p>Open a terminal/command prompt and run:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="install-a-text-editor-recommended" class="level4">
-<h4 class="anchored" data-anchor-id="install-a-text-editor-recommended">3. Install a Text Editor (Recommended)</h4>
-<p>While you can edit QMD files with any text editor, we recommend:</p>
-<ul>
-<li><strong>VS Code</strong> with the Quarto extension</li>
-<li><strong>RStudio</strong> (built-in Quarto support)</li>
-<li><strong>Jupyter Lab</strong> (built-in Quarto support)</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You can install the Quarto extension from within the Extensions tab in VS Code, from the <a href="https://marketplace.visualstudio.com/items?itemName=quarto.quarto">Extension Marketplace</a>, the <a href="https://open-vsx.org/extension/quarto/quarto">Open VSX Registry</a> or directly from a <a href="https://github.com/quarto-dev/quarto-vscode#visx-install">VISX extension file</a>.</p>
-</div>
-</div>
-<button class="next-step-button" onclick="showStep('step-template')">
-Continue to Template Selection →
-</button>
-</section>
-</section>
-</div>
-</section>
-<section id="sec-template-selection" class="level2">
-<h2 class="anchored" data-anchor-id="sec-template-selection">Step 3: Download Template</h2>
-<div id="step-template" class="workflow-step" style="display: none;">
-<p><span class="step-counter">3</span><strong>Choose Your Template</strong></p>
+<section id="choosing-your-template" class="level2">
+<h2 class="anchored" data-anchor-id="choosing-your-template">Choosing Your Template</h2>
 <p>COLIB provides two main contribution templates depending on what you want to add:</p>
 <section id="model-template" class="level3">
 <h3 class="anchored" data-anchor-id="model-template">Model Template</h3>
-<p>Use the <strong>Model Template</strong> when you want to contribute:</p>
+<p>Use the <strong>Model Template</strong> when you want to contribute on:</p>
 <ul>
 <li>Mathematical models of power system components</li>
 <li>Control system descriptions</li>
@@ -580,7 +444,7 @@ Model template includes:
 </section>
 <section id="test-case-template" class="level3">
 <h3 class="anchored" data-anchor-id="test-case-template">Test Case Template</h3>
-<p>Use the <strong>Test Case Template</strong> when you want to contribute:</p>
+<p>Use the <strong>Test Case Template</strong> when you want to contribute on:</p>
 <ul>
 <li>Validation scenarios</li>
 <li>Benchmark test systems</li>
@@ -611,212 +475,160 @@ Test case template includes:
 </ul>
 </div>
 </div>
-<button class="next-step-button" onclick="showStep('step-fill-template')">
-Continue to Template Completion →
-</button>
 </section>
+<section id="existing-page-improvements" class="level3">
+<h3 class="anchored" data-anchor-id="existing-page-improvements">Existing page improvements</h3>
+<p>You can also contribute enhance the current COLIB content by:</p>
+<ul>
+<li>Refining and enriching existing documentation quality</li>
+<li>Supplementing current model or test case descriptions with missing details</li>
+<li>Fixing inaccuracies, typos, or outdated information</li>
+<li>Adding practical examples, clarifications, or better explanations</li>
+<li>Updating references, citations, or technical specifications</li>
+<li>Improving formatting, structure, or readability</li>
+<li>And much more!</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-</section>
-<section id="sec-fill-template" class="level2">
-<h2 class="anchored" data-anchor-id="sec-fill-template">Step 4: Fill Your Template</h2>
-<div id="step-fill-template" class="workflow-step" style="display: none;">
-<p><span class="step-counter">4</span><strong>Complete Your Template</strong></p>
-<p>Now let’s help you fill out your template step by step. We’ll guide you through each section:</p>
-<div class="template-sections">
-<div class="section-card" onclick="expandSection('context-section')">
-<pre><code>&lt;h4&gt;&lt;i class="fas fa-info-circle"&gt;&lt;/i&gt; Context Section&lt;/h4&gt;
-&lt;p&gt;Describe the background and motivation for your contribution&lt;/p&gt;</code></pre>
-</div>
-<div id="context-section" class="section-content" style="display: none;">
-<pre><code>&lt;h5&gt;What to include in Context:&lt;/h5&gt;
-&lt;ul&gt;
-  &lt;li&gt;Background information and motivation&lt;/li&gt;
-  &lt;li&gt;Why this model/test case is needed&lt;/li&gt;
-  &lt;li&gt;How it fits into power system analysis&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;textarea class="section-editor" id="context-editor" placeholder="Write your context section here...</code></pre>
-Example: This synchronous generator model is essential for transient stability studies in power systems. It provides accurate representation of machine dynamics during fault conditions…“&gt;
-
-<pre><code>&lt;button class="validate-section" onclick="validateSection('context')"&gt;Validate Context Section&lt;/button&gt;
-&lt;div class="validation-result" id="context-validation"&gt;&lt;/div&gt;</code></pre>
-</div>
-<div class="section-card" onclick="expandSection('model-section')">
-<pre><code>&lt;h4&gt;&lt;i class="fas fa-cogs"&gt;&lt;/i&gt; Model Description&lt;/h4&gt;
-&lt;p&gt;Detailed technical description of your model or test case&lt;/p&gt;</code></pre>
-</div>
-<div id="model-section" class="section-content" style="display: none;">
-<pre><code>&lt;h5&gt;What to include in Model Description:&lt;/h5&gt;
-&lt;ul&gt;
-  &lt;li&gt;Mathematical equations and formulations&lt;/li&gt;
-  &lt;li&gt;Variables and parameters&lt;/li&gt;
-  &lt;li&gt;Implementation details&lt;/li&gt;
-  &lt;li&gt;Assumptions and limitations&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;textarea class="section-editor" id="model-editor" placeholder="Write your model description here...</code></pre>
-Include: - Mathematical equations using LaTeX syntax: <span class="math display">\[P = \frac{E \times V \times \sin(\delta)}{X}\]</span> - Variable definitions - Parameter descriptions”&gt;
-
-<pre><code>&lt;button class="validate-section" onclick="validateSection('model')"&gt;Validate Model Section&lt;/button&gt;
-&lt;div class="validation-result" id="model-validation"&gt;&lt;/div&gt;</code></pre>
-</div>
-<div class="section-card" onclick="expandSection('references-section')">
-<pre><code>&lt;h4&gt;&lt;i class="fas fa-book"&gt;&lt;/i&gt; References &amp; License&lt;/h4&gt;
-&lt;p&gt;Citations and licensing information&lt;/p&gt;</code></pre>
-</div>
-<div id="references-section" class="section-content" style="display: none;">
-<pre><code>&lt;h5&gt;What to include in References:&lt;/h5&gt;
-&lt;ul&gt;
-  &lt;li&gt;Academic papers and books&lt;/li&gt;
-  &lt;li&gt;Standards and guidelines&lt;/li&gt;
-  &lt;li&gt;Software documentation&lt;/li&gt;
-  &lt;li&gt;License information&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;textarea class="section-editor" id="references-editor" placeholder="Add your references here...</code></pre>
-Example: <span class="citation" data-cites="kundur1994power">[@kundur1994power]</span> Kundur, P. (1994). Power system stability and control. McGraw-hill. <span class="citation" data-cites="ieee2016guide">[@ieee2016guide]</span> IEEE Guide for Synchronous Generator Modeling Practices and Applications in Power System Stability Analyses.”&gt;
-
-<pre><code>&lt;button class="validate-section" onclick="validateSection('references')"&gt;Validate References Section&lt;/button&gt;
-&lt;div class="validation-result" id="references-validation"&gt;&lt;/div&gt;</code></pre>
+<div class="callout-title-container flex-fill">
+Steps for page improvement contributions:
 </div>
 </div>
-<div id="completion-status" class="template-completion-status">
-<h4 class="anchored">
-Template Completion Status:
-</h4>
-<div class="progress-bar">
-<pre><code>&lt;div class="progress-fill" id="progress-fill"&gt;&lt;/div&gt;</code></pre>
-</div>
-<p id="completion-text">
-Complete all sections to proceed to validation
-</p>
-</div>
-<button class="next-step-button" id="continue-validation" onclick="showStep('step-validate')" style="display: none;">
-Continue to Validation →
-</button>
-</div>
-</section>
-<section id="sec-validate" class="level2">
-<h2 class="anchored" data-anchor-id="sec-validate">Step 5: Validate Your Contribution</h2>
-<div id="step-validate" class="workflow-step" style="display: none;">
-<p><span class="step-counter">5</span><strong>Validate Your Template</strong></p>
-<p>Before submitting, let’s validate that your template is complete and follows COLIB standards:</p>
-<div class="validation-panel">
-<div class="upload-section">
-<pre><code>&lt;h4&gt;&lt;i class="fas fa-upload"&gt;&lt;/i&gt; Upload Your QMD File&lt;/h4&gt;
-&lt;p&gt;Upload your completed template file for validation:&lt;/p&gt;
-
-&lt;input type="file" id="qmd-file-upload" accept=".qmd,.md" onchange="handleFileUpload(event)"&gt;
-&lt;label for="qmd-file-upload" class="file-upload-label"&gt;
-  &lt;i class="fas fa-cloud-upload-alt"&gt;&lt;/i&gt; Choose QMD File
-&lt;/label&gt;
-
-&lt;div class="file-info" id="file-info" style="display: none;"&gt;
-  &lt;p&gt;&lt;strong&gt;Selected file:&lt;/strong&gt; &lt;span id="file-name"&gt;&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Size:&lt;/strong&gt; &lt;span id="file-size"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;</code></pre>
-</div>
-<p><button class="validate-button" id="validate-full" onclick="validateFullTemplate()" disabled=""> <i class="fas fa-check-circle"></i> Validate Template </button></p>
-<div id="validation-results" class="validation-results" style="display: none;">
-<pre><code>&lt;h4&gt;Validation Results:&lt;/h4&gt;
-&lt;div class="validation-checklist" id="validation-checklist"&gt;
-  &lt;!-- Validation results will be populated here --&gt;
-&lt;/div&gt;</code></pre>
-</div>
-</div>
-<button class="next-step-button" id="continue-submit" onclick="showStep('step-submit')" style="display: none;">
-Continue to Submission →
-</button>
-</div>
-</section>
-<section id="sec-submit" class="level2">
-<h2 class="anchored" data-anchor-id="sec-submit">Step 6: Submit Your Contribution</h2>
-<div id="step-submit" class="workflow-step" style="display: none;">
-<p><span class="step-counter">6</span><strong>Submit for Review</strong></p>
-<div class="submission-panel">
-<div class="submission-info">
-<pre><code>&lt;h4&gt;&lt;i class="fas fa-paper-plane"&gt;&lt;/i&gt; Ready to Submit!&lt;/h4&gt;
-&lt;p&gt;Your template has been validated and is ready for submission. Click the button below to create a GitHub issue with your contribution:&lt;/p&gt;</code></pre>
-</div>
-<p><a href="https://github.com/CRESYM/Colib_Quarto.github.io/issues/new?assignees=GJCRESYM%2C+matoubongrain&amp;labels=enhancement%2Cbug%2Cevaluate+component&amp;projects=Colib0&amp;template=Evaluate.yml&amp;title=%5BName%2FID+of+the+model%2F+test+case+to+be+evaluated%5D%3A+" target="_blank" class="submit-button" onclick="showSubmissionSuccess()"> <i class="fas fa-github"></i> Create GitHub Issue &amp; Submit </a></p>
-<div class="submission-instructions">
-<pre><code>&lt;h5&gt;What happens next:&lt;/h5&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;GitHub Issue Creation:&lt;/strong&gt; A new issue will be created in the COLIB repository&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Attach Your File:&lt;/strong&gt; Upload your validated QMD file to the GitHub issue&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Review Process:&lt;/strong&gt; The COLIB team will review your contribution&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Feedback &amp; Revision:&lt;/strong&gt; You may receive feedback for improvements&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Publication:&lt;/strong&gt; Approved contributions are merged and published&lt;/li&gt;
-&lt;/ol&gt;</code></pre>
-</div>
-</div>
-<div id="submission-success" class="submission-success" style="display: none;">
-<div class="success-message">
-<pre><code>&lt;h3&gt;&lt;i class="fas fa-check-circle"&gt;&lt;/i&gt; Congratulations!&lt;/h3&gt;
-&lt;p&gt;Your contribution has been submitted successfully. The review process is now underway.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;You will be notified via GitHub when your contribution is reviewed and validated.&lt;/strong&gt;&lt;/p&gt;</code></pre>
-</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Browse and select</strong> the specific page you wish to enhance from the COLIB repository</li>
+<li><strong>Document your improvements</strong> by creating a detailed GitHub issue explaining what changes you propose and why</li>
+<li><strong>Provide your modifications</strong> either as an updated QMD file attachment or as specific textual changes in the issue</li>
+<li><strong>Submit for review</strong> - your contribution will go through the same quality review process as new content submissions</li>
+</ol>
 </div>
 </div>
 </section>
+</section>
+<section id="installing-and-using-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="installing-and-using-quarto">Installing and Using Quarto</h2>
+<section id="installation" class="level3">
+<h3 class="anchored" data-anchor-id="installation">Installation</h3>
+<section id="install-quarto" class="level4">
+<h4 class="anchored" data-anchor-id="install-quarto">1. Install Quarto</h4>
+<p>Visit the <a href="https://quarto.org/docs/get-started/">official Quarto website</a> and download the installer for your operating system:</p>
+<ul>
+<li><strong>Windows</strong>: Download the <code>.msi</code> installer</li>
+<li><strong>macOS</strong>: Download the <code>.pkg</code> installer<br>
+</li>
+<li><strong>Linux</strong>: Use the appropriate package manager or download the <code>.deb</code>/<code>.rpm</code> package</li>
+</ul>
+</section>
+<section id="verify-installation" class="level4">
+<h4 class="anchored" data-anchor-id="verify-installation">2. Verify Installation</h4>
+<p>Open a terminal/command prompt and run:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="install-a-text-editor-recommended" class="level4">
+<h4 class="anchored" data-anchor-id="install-a-text-editor-recommended">3. Install a Text Editor (Recommended)</h4>
+<p>While you can edit QMD files with any text editor, we recommend:</p>
+<ul>
+<li><strong>VS Code</strong> with the Quarto extension</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<!-- Bug report/modification workflow -->
-<div id="modify-content-workflow" style="display: none;">
-<section id="sec-improve-content" class="level2">
-<h2 class="anchored" data-anchor-id="sec-improve-content">Improve Existing Content</h2>
-<div class="workflow-step">
-<p><span class="step-counter">1</span><strong>Choose Improvement Type</strong></p>
-<p>You can contribute to COLIB by improving existing content in several ways:</p>
-<div class="improvement-options">
-<div class="improvement-card" onclick="openGitHubIssue('bug')">
-<pre><code>&lt;div class="improvement-icon"&gt;🐛&lt;/div&gt;
-&lt;h4&gt;Report a Bug&lt;/h4&gt;
-&lt;p&gt;Found an error, typo, or technical inaccuracy? Report it so we can fix it.&lt;/p&gt;</code></pre>
-</div>
-<div class="improvement-card" onclick="openGitHubIssue('enhancement')">
-<pre><code>&lt;div class="improvement-icon"&gt;✨&lt;/div&gt;
-&lt;h4&gt;Suggest Enhancement&lt;/h4&gt;
-&lt;p&gt;Have ideas to improve existing models, add missing details, or enhance documentation?&lt;/p&gt;</code></pre>
-</div>
-<div class="improvement-card" onclick="openGitHubIssue('documentation')">
-<pre><code>&lt;div class="improvement-icon"&gt;📝&lt;/div&gt;
-&lt;h4&gt;Documentation Improvement&lt;/h4&gt;
-&lt;p&gt;Help improve clarity, add examples, or update references in existing pages.&lt;/p&gt;</code></pre>
+<div class="callout-title-container flex-fill">
+Note
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>You can install the Quarto extension from within the Extensions tab in VS Code, from the <a href="https://marketplace.visualstudio.com/items?itemName=quarto.quarto">Extension Marketplace</a>, the <a href="https://open-vsx.org/extension/quarto/quarto">Open VSX Registry</a> or directly from a <a href="https://github.com/quarto-dev/quarto-vscode#visx-install">VISX extension file</a>.</p>
+</div>
+</div>
+<ul>
+<li><p><strong>RStudio</strong> (built-in Quarto support)</p></li>
+<li><p><strong>Jupyter Lab</strong> (built-in Quarto support)</p></li>
+</ul>
+</section>
+</section>
+<section id="key-qmd-syntax-for-colib" class="level3">
+<h3 class="anchored" data-anchor-id="key-qmd-syntax-for-colib">Key QMD Syntax for COLIB</h3>
+<p>See <a href="../../contribute/quartoBasics/index.html">Quarto Basics</a></p>
+</section>
+<section id="basic-quarto-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="basic-quarto-workflow">Basic Quarto Workflow</h3>
+<section id="create-your-contribution" class="level4">
+<h4 class="anchored" data-anchor-id="create-your-contribution">1. Create Your Contribution</h4>
+<ol type="1">
+<li>Download the appropriate template (model or test case)</li>
+<li>Open the <code>index.qmd</code> file in your preferred editor</li>
+</ol>
+</section>
+<section id="edit-your-content" class="level4">
+<h4 class="anchored" data-anchor-id="edit-your-content">2. Edit Your Content</h4>
+<p>Replace the content of the <code>index.qmd</code> file with your own, following the guidelines in the template.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tips for Effective Contributions
+Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><strong>Be specific</strong>: Include page links, section references, and clear descriptions</li>
-<li><strong>Provide context</strong>: Explain why the change is needed and how it improves COLIB</li>
-<li><strong>Suggest solutions</strong>: When possible, provide specific text or code improvements</li>
-<li><strong>Include references</strong>: Support your suggestions with relevant sources</li>
+<li>See <a href="../../contribute/modelTemplate/index.html">model template</a> and <a href="../../contribute/testSystemTemplate/index.html">test case template</a> for more details.</li>
 </ul>
 </div>
 </div>
-<div id="github-message" class="github-redirect-message" style="display: none;">
-<h4 class="anchored">
-<i class="fas fa-external-link-alt"></i> Redirecting to GitHub
-</h4>
-<p>
-You’ll be redirected to GitHub to create an issue for your contribution. Please provide detailed information about your suggested improvement.
-</p>
-</div>
-</div>
 </section>
+<section id="preview-your-work" class="level4">
+<h4 class="anchored" data-anchor-id="preview-your-work">3. Preview Your Work</h4>
+<p>To see how your page will look, run in your terminal:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview index.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This opens a live preview in your browser that updates as you edit.</p>
+</section>
+<section id="render-final-output" class="level4">
+<h4 class="anchored" data-anchor-id="render-final-output">4. Render Final Output</h4>
+<p>To generate the final HTML file:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render index.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="submission-process" class="level2">
+<h2 class="anchored" data-anchor-id="submission-process">Submission Process</h2>
+<ol type="1">
+<li><strong>Prepare your contribution</strong> using the appropriate template</li>
+<li><strong>Test your QMD file</strong> by rendering it locally</li>
+<li><strong>Submit via GitHub</strong> by creating an issue to the COLIB repository and attach your QMD file (<a href="https://github.com/CRESYM/Colib_Quarto.github.io/issues/new?assignees=GJCRESYM%2C+matoubongrain&amp;labels=enhancement%2Cbug%2Cevaluate+component&amp;projects=Colib0&amp;template=Evaluate.yml&amp;title=%5BName%2FID+of+the+model%2F+test+case+to+be+evaluated%5D%3A+">create an issue</a>)</li>
+<li><strong>Review process</strong> - our team will review your contribution</li>
+<li><strong>Publication</strong> - approved contributions are merged and published</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<!-- CSS and JavaScript -->
-<script src="contribute-workflow.js"></script>
+<div class="callout-title-container flex-fill">
+Pro Tips for Contributors
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Start with the template and modify incrementally</li>
+<li>Preview frequently to catch formatting issues early</li>
+<li>Use descriptive file names and organize your assets</li>
+<li>Follow the existing naming conventions in COLIB</li>
+<li>Include comprehensive references and citations</li>
+</ul>
+</div>
+</div>
+<p>Thank you for contributing to COLIB and advancing open-source power system modeling!</p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

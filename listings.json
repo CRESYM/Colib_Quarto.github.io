@@ -211,12 +211,9 @@
     ]
   },
   {
-    "listing": "/testCases/index.html",
+    "listing": "/testCases/converterDrivenStability/index.html",
     "items": [
-      "/testCases/converterDrivenStability/4VSCSystem/index.html",
-      "/testCases/GridFollowing_GridForming_DClink/index.html",
-      "/testCases/kundur_two_area_system/index.html",
-      "/testCases/System_frequency_response_model_with_underfrequency_load_shedding_protection/SFRM_with_UFLS/index.html"
+      "/testCases/converterDrivenStability/4VSCSystem/index.html"
     ]
   },
   {
@@ -226,9 +223,12 @@
     ]
   },
   {
-    "listing": "/testCases/converterDrivenStability/index.html",
+    "listing": "/testCases/index.html",
     "items": [
-      "/testCases/converterDrivenStability/4VSCSystem/index.html"
+      "/testCases/converterDrivenStability/4VSCSystem/index.html",
+      "/testCases/GridFollowing_GridForming_DClink/index.html",
+      "/testCases/kundur_two_area_system/index.html",
+      "/testCases/System_frequency_response_model_with_underfrequency_load_shedding_protection/SFRM_with_UFLS/index.html"
     ]
   },
   {
