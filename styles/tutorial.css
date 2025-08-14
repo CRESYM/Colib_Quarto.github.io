@@ -177,3 +177,28 @@
 		font-size: 12px;
 	}
 }
+
+/* Additional styles for contribution workflow */
+.btn-main {
+	background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+	color: white;
+	padding: 0.75rem 1.5rem;
+	border-radius: 6px;
+	text-decoration: none;
+	display: inline-block;
+	margin: 1rem 0;
+	transition: all 0.3s ease;
+	border: none;
+	cursor: pointer;
+}
+
+.btn-main:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(0,123,255,0.3);
+	color: white;
+	text-decoration: none;
+}
+
+.btn-main i {
+	margin-right: 0.5rem;
+}
