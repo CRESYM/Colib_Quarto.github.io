@@ -67,5 +67,4 @@ For each of them, the description of the object is presented on one side, and th
 
 ## 🤝 Contributing
 
-Want to contribute? Go see: [How to contribute page](/pages/about/contribute)
-
+Want to contribute? Go see: [How to contribute page](https://cresym.github.io/Colib_Quarto.github.io/contribute/howTo/)
