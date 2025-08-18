@@ -1,4 +1,5 @@
 ---
+layout: chapter
 title: Compensation and FACTS
 categories: [Compensation, FACTS]
 bibliography: ../../_bibliography/references.bib

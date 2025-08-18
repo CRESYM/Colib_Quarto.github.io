@@ -1,4 +1,5 @@
 ---
+layout: chapter
 title: "Load Shedding"
 categories: [load schedding]
 listing:

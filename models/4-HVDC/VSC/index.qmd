@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: chapter
 title: Voltage Source Converter (VSC)
 categories: [voltage source Converter, VSC]
 listing:

@@ -1,4 +1,5 @@
 ---
+layout: chapter
 title: "Others"
 categories: [other, control block, event]
 bibliography: ../../_bibliography/references.bib

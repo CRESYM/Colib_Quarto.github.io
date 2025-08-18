@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: chapter
 title: HVDC
 categories: [HVDC]
 order: 4

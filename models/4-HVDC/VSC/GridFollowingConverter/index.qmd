@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: chapter
 title: Grid following converter (GFL)
 categories: [grid following converter, GFL]
 listing:

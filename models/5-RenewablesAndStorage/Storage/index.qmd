@@ -1,4 +1,5 @@
 ---
+layout: chapter
 title: "Storage"
 categories: [storage]
 listing:

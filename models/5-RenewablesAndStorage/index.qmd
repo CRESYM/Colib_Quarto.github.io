@@ -1,4 +1,5 @@
 ---
+layout: chapter
 title: "Renewables and storage"
 categories: [renewables, storage]
 order: 5
