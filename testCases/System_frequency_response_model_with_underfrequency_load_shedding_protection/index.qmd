@@ -4,6 +4,8 @@ title: System frequency response model with underfrequency load shedding protect
 listing:
   contents: 
     - ./
+  exclude:
+    layout: chapter
   type: table
   fields: [title, author]
   sort: [title]

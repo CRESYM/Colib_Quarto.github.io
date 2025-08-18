@@ -5,6 +5,8 @@ order: 1
 listing:
   contents: 
     - ./
+  exclude:
+    layout: chapter
   type: table
   fields: [title, author]
   sort: [title]
