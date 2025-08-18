@@ -6,13 +6,10 @@
       "/models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/index.html",
       "/models/4-HVDC/VSC/GridFormingConverter/UPC-EMT-GFM-VSC/index.html",
       "/models/4-HVDC/VSC/GridFormingConverter/UPC-RMS-GFM-VSC/index.html",
-      "/models/4-HVDC/VSC/GridFollowingConverter/index.html",
-      "/models/4-HVDC/VSC/GridFormingConverter/index.html",
       "/models/4-HVDC/VSC/GridFollowingConverter/L2EP-RMS-GFL-VSC/index.html",
       "/models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/PhasorIo/index.html",
       "/models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/PhasorI1/index.html",
       "/models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/PhasorPQ1/index.html",
-      "/models/4-HVDC/VSC/Point-to-Point-HVDC/index.html",
       "/models/4-HVDC/VSC/Point-to-Point-HVDC/RTE-RMS-Average-HVDC/index.html",
       "/models/4-HVDC/VSC/GridFollowingConverter/UPC-EMT-GFL-VSC/index.html",
       "/models/4-HVDC/VSC/Point-to-Point-HVDC/UPC-EMT-HVDC/index.html"
@@ -29,7 +26,6 @@
     "listing": "/models/7-Protection/index.html",
     "items": [
       "/models/7-Protection/LineProtection/index.html",
-      "/models/7-Protection/LoadShedding/index.html",
       "/models/7-Protection/MachineProtection/index.html",
       "/models/7-Protection/TransformerProtection/index.html",
       "/models/7-Protection/SystemIntegrityProtectionSchemes/index.html",
@@ -93,11 +89,9 @@
       "/models/1-SynchronousMachines/Generator/GENQEC/index.html",
       "/models/1-SynchronousMachines/Generator/GENSAL/index.html",
       "/models/1-SynchronousMachines/Generator/GENTPJ/index.html",
-      "/models/1-SynchronousMachines/Generator/index.html",
       "/models/1-SynchronousMachines/Governor/GovCT2/index.html",
       "/models/1-SynchronousMachines/Governor/GovHydro4/index.html",
       "/models/1-SynchronousMachines/Governor/GovSteamEU/index.html",
-      "/models/1-SynchronousMachines/Governor/index.html",
       "/models/1-SynchronousMachines/Governor/HYGOV/index.html",
       "/models/1-SynchronousMachines/Governor/IEEEG1/index.html",
       "/models/1-SynchronousMachines/Governor/IEEEG2/index.html",
@@ -107,12 +101,10 @@
       "/models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL3C/index.html",
       "/models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL4C/index.html",
       "/models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL5C/index.html",
-      "/models/1-SynchronousMachines/OverUnderExcitationLimiter/index.html",
       "/models/1-SynchronousMachines/PowerSystemStabilizer/PSS1A/index.html",
       "/models/1-SynchronousMachines/PowerSystemStabilizer/PSS2C/index.html",
       "/models/1-SynchronousMachines/PowerSystemStabilizer/PSS3C/index.html",
       "/models/1-SynchronousMachines/PowerSystemStabilizer/PSS6C/index.html",
-      "/models/1-SynchronousMachines/PowerSystemStabilizer/index.html",
       "/models/1-SynchronousMachines/OverUnderExcitationLimiter/SCL1C/index.html",
       "/models/1-SynchronousMachines/OverUnderExcitationLimiter/SCL2C/index.html",
       "/models/1-SynchronousMachines/ExciterAndVoltageRegulator/SCRX/index.html",
@@ -126,8 +118,7 @@
       "/models/1-SynchronousMachines/Governor/TGOV1/index.html",
       "/models/1-SynchronousMachines/Governor/TGOV3/index.html",
       "/models/1-SynchronousMachines/OverUnderExcitationLimiter/UEL1/index.html",
-      "/models/1-SynchronousMachines/OverUnderExcitationLimiter/UEL2C/index.html",
-      "/models/1-SynchronousMachines/ExciterAndVoltageRegulator/index.html"
+      "/models/1-SynchronousMachines/OverUnderExcitationLimiter/UEL2C/index.html"
     ]
   },
   {
@@ -194,7 +185,6 @@
       "/models/8-Others/BasicControlBlocks/2limitedProportionalIntegralController/index.html",
       "/models/8-Others/BasicControlBlocks/absoluteValue/index.html",
       "/models/8-Others/BasicControlBlocks/algebraicEquation/index.html",
-      "/models/8-Others/BasicControlBlocks/index.html",
       "/models/8-Others/BasicControlBlocks/deadband/index.html",
       "/models/8-Others/Events/index.html",
       "/models/8-Others/BasicControlBlocks/hysteresis/index.html",
@@ -252,9 +242,7 @@
       "/models/6-NetworkComponents/Line/cpLine/index.html",
       "/models/6-NetworkComponents/Transformers/CantileverTransformer/index.html",
       "/models/6-NetworkComponents/Line/FDLine/index.html",
-      "/models/6-NetworkComponents/Line/index.html",
-      "/models/6-NetworkComponents/Line/piLine/index.html",
-      "/models/6-NetworkComponents/Transformers/index.html"
+      "/models/6-NetworkComponents/Line/piLine/index.html"
     ]
   },
   {
@@ -263,7 +251,6 @@
       "/models/2-Loads/ExpLoad/index.html",
       "/models/2-Loads/FDLoad/index.html",
       "/models/2-Loads/Motor/WECC_Motor/index.html",
-      "/models/2-Loads/Motor/index.html",
       "/models/2-Loads/Motor/SimpleMotor/index.html",
       "/models/2-Loads/ZIPLoad/index.html"
     ]
@@ -395,18 +382,14 @@
       "/models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/index.html",
       "/models/4-HVDC/VSC/GridFormingConverter/UPC-EMT-GFM-VSC/index.html",
       "/models/4-HVDC/VSC/GridFormingConverter/UPC-RMS-GFM-VSC/index.html",
-      "/models/4-HVDC/VSC/GridFollowingConverter/index.html",
-      "/models/4-HVDC/VSC/GridFormingConverter/index.html",
       "/models/4-HVDC/VSC/GridFollowingConverter/L2EP-RMS-GFL-VSC/index.html",
       "/models/4-HVDC/LCC/index.html",
       "/models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/PhasorIo/index.html",
       "/models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/PhasorI1/index.html",
       "/models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/PhasorPQ1/index.html",
-      "/models/4-HVDC/VSC/Point-to-Point-HVDC/index.html",
       "/models/4-HVDC/VSC/Point-to-Point-HVDC/RTE-RMS-Average-HVDC/index.html",
       "/models/4-HVDC/VSC/GridFollowingConverter/UPC-EMT-GFL-VSC/index.html",
-      "/models/4-HVDC/VSC/Point-to-Point-HVDC/UPC-EMT-HVDC/index.html",
-      "/models/4-HVDC/VSC/index.html"
+      "/models/4-HVDC/VSC/Point-to-Point-HVDC/UPC-EMT-HVDC/index.html"
     ]
   },
   {
@@ -426,9 +409,7 @@
     "items": [
       "/models/5-RenewablesAndStorage/Storage/Flywheel/index.html",
       "/models/5-RenewablesAndStorage/Wind/iec_wt_type3/index.html",
-      "/models/5-RenewablesAndStorage/PV/index.html",
-      "/models/5-RenewablesAndStorage/Storage/index.html",
-      "/models/5-RenewablesAndStorage/Wind/index.html"
+      "/models/5-RenewablesAndStorage/PV/index.html"
     ]
   }
 ]
