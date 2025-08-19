@@ -29,14 +29,7 @@ As all the EMTs model, it is not suitable for low-frequency studies, such as pow
 
 The equivalent circuit of this model is shown in the following figure:
 
-<div style="background-color:rgba(0, 0, 0, 0); text-align:center; vertical-align: middle; padding:4px 0;">
- <img src="{{ 'HVDC_scheme.svg'}}"
-      alt="HVDC scheme"
-      style="float: center; margin-right: 10px; width: 900px;" />
- </div>
-<div align = 'center'>
-Figure 1: Equivalent circuit of the HVDC model
-</div>
+![Equivalent circuit of the HVDC model](HVDC_scheme.svg){#fig-hvdc-scheme}
 
 
 The bipolar topology is used, distributing the resistance in both the positive and the negative pole cables. Other possible topologies can be considered, such as the monopolar with earth return [[1]](#1). Note that the filter is included inside the Grid Forming VSC block.
@@ -47,11 +40,12 @@ The internal controls of each VSC are the same as the ones described in their in
 
 The DC electric equations during the transient are given by:
 
-<div style="background-color:rgba(0, 0, 0, 0.0470588); text-align:center; vertical-align: middle; padding:4px 0;">
-
-$$ C \frac{dV_{DC_1}}{dt} = I_{DC} - I_{DC_1} $$
-$$ C \frac{dV_{DC_2}}{dt} = I_{DC_2} - I_{DC} $$
-</div>
+$$
+\begin{align}
+C \frac{dV_{DC_1}}{dt} = I_{DC} - I_{DC_1} \\
+C \frac{dV_{DC_2}}{dt} = I_{DC_2} - I_{DC}
+\end{align}
+$$
 
 where the current $$I_{DC}$$ corresponds to the DC current flowing through the line, and $$I_{DC_1}$$ and $$I_{DC_2}$$ are the currents at the DC side of the converters. The current difference is the current flowing through the capacitor, which will be non-zero during the transient, and zero in the steady-state.
 
@@ -59,13 +53,13 @@ When isolated, a converter can control directly two of the electrical variables,
 
 | Control Mode | Constraint 1        | Constraint 2 | VSC Control Type |
 |--------------|-------------------- |--------------|------------------|
-| 1            | $$\theta$$          | $$v_{ac}$$   | I                |
-| 2            | $$P_{DC}$$          | $$Q_{ac}$$   | I                |
-| 3            | $$P_{DC}$$          | $$v_{ac}$$   | I                |
-| 4            | $$v_{DC}$$          | $$Q_{ac}$$   | II               |
-| 5            | $$v_{DC}$$          | $$v_{ac}$$   | II               |
-| 6            | $$v_{DC} \; droop$$ | $$Q_{ac}$$   | III              |
-| 7            | $$v_{DC} \; droop$$ | $$v_{ac}$$   | III              |
+| $1$            | $\theta$          | $v_{ac}$   | $I$                |
+| $2$            | $P_{DC}$          | $Q_{ac}$   | $I$                |
+| $3$            | $P_{DC}$          | $v_{ac}$   | $I$                |
+| $4$            | $v_{DC}$          | $Q_{ac}$   | $II$               |
+| $5$            | $v_{DC}$          | $v_{ac}$   | $II$               |
+| $6$            | $v_{DC} \; droop$ | $Q_{ac}$   | $III$              |
+| $7$            | $v_{DC} \; droop$ | $v_{ac}$   | $III$              |
 
 When pairing the two converters, there are controls that can overlap and some rules that have to be followed [[5]](#5):
 
@@ -80,22 +74,15 @@ In the model presented, one of the possible configuration (GFM - GFOL) is consid
 
 Both converters follow the same control principles as the individual models, but some slight changes are added in order to coordinate both controls.
 
-#### Grid Forming
+**Grid Forming**
 
 The main controls of the [EMT Grid Forming converter](../../GridFormingConverter/UPC-EMTGridFormingVSC/) in the DC link are the same as in the isolated mode. In this case, instead of having an AC equivalent voltage source, there is a three-phase load or generator which can be modelled using the ZIP model (for instance, some possibilities would be a fixed impedance load, or a fixed power load/generator). Since there is no grid, the model proposed imposes directly the angle from a reference angular speed, without considering any droop control, as well as the voltage magnitude. This means that the AC side of the GFM converter acts as an ideal voltage source. Another possibility would consider an active power setpoint with a droop control for the frequency. Again, this showcases how the two degrees of freedom of the converter can be used to define the control.
 
-#### Grid Following
+**Grid Following**
 
 There are a few more changes in this case since it has to maintain a DC voltage level while exchanging power. Its control resembles the one in the [STATCOM model](../../CompensationDevices/STATCOM/), incorporating a DC voltage control over the standard Grid Following controls, but adding the DC power exchanged in the active power tracking. The modified setpoint tracking is shown in the following block diagram:
 
-<div style="background-color:rgba(0, 0, 0, 0); text-align:center; vertical-align: middle; padding:4px 0;">
- <img src="{{ 'PcontrolHVDC.svg'}}"
-      alt="HVDC P control"
-      style="float: center; margin-right: 10px; width: 700px;" />
- </div>
-<div align = 'center'>
-Figure 2: Active power control diagram of the HVDC model
-</div>
+![Active power control diagram of the HVDC model](PcontrolHVDC.svg){#fig-hvdc-p-control}
 <br>
 
 Where $$P_{DC}$$ is the power injected from the DC line, $$P^*$$ is the power setpoint that has to be drawn from the capacitors from the DC side in order to maintain the voltage and $$P$$ is the resulting injection to the AC grid grom the GFOL converter.
