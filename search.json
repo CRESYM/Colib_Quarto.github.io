@@ -3152,14 +3152,66 @@
   {
     "objectID": "models/8-Others/BasicControlBlocks/switch/index.html",
     "href": "models/8-Others/BasicControlBlocks/switch/index.html",
-    "title": "Switch control block",
+    "title": "Switch",
     "section": "",
-    "text": "Back to top",
+    "text": "Set the output state to one among \\(n\\) input states, based on the value of a controlling state.",
     "crumbs": [
       "Models",
       "Others",
       "Control block",
-      "Switch control block"
+      "Switch"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/switch/index.html#diagram",
+    "href": "models/8-Others/BasicControlBlocks/switch/index.html#diagram",
+    "title": "Switch",
+    "section": "Diagram",
+    "text": "Diagram\n\n\n\nswitch diagram\n\n\n\nSwitch diagram (example for \\(n=3\\))\n\nSyntax:\n\nfunction name: switch\ninput variable : \\(x_i(l),  l \\in \\{1, 2, ... , n \\}\\)\nvariable \\(x_k\\)\nvariable \\(x_j\\)\n\nInternal states : none\nDiscrete variable : \\(z \\in \\{1, 2, ... , n \\}\\)",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Switch"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/switch/index.html#equations",
+    "href": "models/8-Others/BasicControlBlocks/switch/index.html#equations",
+    "title": "Switch",
+    "section": "Equations",
+    "text": "Equations\n\\[ 0 = x_j - x_i(z) \\]",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Switch"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/switch/index.html#discrete-transitions",
+    "href": "models/8-Others/BasicControlBlocks/switch/index.html#discrete-transitions",
+    "title": "Switch",
+    "section": "Discrete transitions",
+    "text": "Discrete transitions\nz ← max(1, min(n, nint(xk)))\nwhere nint function returns the nearest integer.",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Switch"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/switch/index.html#initialisation-of-discrete-variables",
+    "href": "models/8-Others/BasicControlBlocks/switch/index.html#initialisation-of-discrete-variables",
+    "title": "Switch",
+    "section": "Initialisation of discrete variables",
+    "text": "Initialisation of discrete variables\nSame code as for the discrete transitions.",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Switch"
     ]
   },
   {
@@ -3232,7 +3284,7 @@
     "href": "models/8-Others/BasicControlBlocks/index.html",
     "title": "Control block",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nAbsolute Value control block\n\n\n \n\n\n\n\n\n\nAlgebraic Equation control block\n\n\n \n\n\n\n\n\n\nDeadband control block\n\n\n \n\n\n\n\n\n\nHysteresis control block\n\n\nMathilde Bongrain\n\n\n\n\n\n\nIntegrator Variable Limits control block\n\n\n \n\n\n\n\n\n\nIntegrator control block with a positive time constant T\n\n\nMathilde Bongrain\n\n\n\n\n\n\nLimited Integrator control block\n\n\n \n\n\n\n\n\n\nLimited Proportional Integral Controller\n\n\n \n\n\n\n\n\n\nLimiter Variable Bounds control block\n\n\n \n\n\n\n\n\n\nLimiter control block\n\n\n \n\n\n\n\n\n\nProportional Integral Controller\n\n\n \n\n\n\n\n\n\nProportional integral (PI) controller with non-windup limit on the integral term and limit on the proportional term\n\n\n \n\n\n\n\n\n\nSwitch control block\n\n\n \n\n\n\n\n\n\nTimer control block\n\n\nMathilde Bongrain\n\n\n\n\n\n\nTransfer function between an input and output one time constant\n\n\nMathilde Bongrain\n\n\n\n\n\n\nNo matching items\n Back to top",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nAbsolute value of input\n\n\n \n\n\n\n\n\n\nAlgebraic equation\n\n\n \n\n\n\n\n\n\nDeadband control block\n\n\n \n\n\n\n\n\n\nHysteresis control block\n\n\n \n\n\n\n\n\n\nIntegrator control block with (positive) time constant T and non-windup limits on output\n\n\n \n\n\n\n\n\n\nIntegrator control block with (positive) time constant T and non-windup variable limits on output\n\n\n \n\n\n\n\n\n\nIntegrator control block with a positive time constant T\n\n\n \n\n\n\n\n\n\nLimiter control block with constant bounds\n\n\n \n\n\n\n\n\n\nLimiter control block with variable bounds\n\n\n \n\n\n\n\n\n\nProportional integral (PI) controller\n\n\n \n\n\n\n\n\n\nProportional integral (PI) controller with non-windup limit on the integral term\n\n\n \n\n\n\n\n\n\nProportional integral (PI) controller with non-windup limit on the integral term and limit on the proportional term\n\n\n \n\n\n\n\n\n\nSwitch\n\n\n \n\n\n\n\n\n\nTimer control block\n\n\n \n\n\n\n\n\n\nTransfer function between an input and output one time constant\n\n\n \n\n\n\n\n\n\nNo matching items\n Back to top",
     "crumbs": [
       "Models",
       "Others",
@@ -3244,7 +3296,7 @@
     "href": "models/8-Others/BasicControlBlocks/hysteresis/index.html",
     "title": "Hysteresis control block",
     "section": "",
-    "text": "Figure 1: Hysteresis diagram\n\n\n\n\n\n\nHysteresis control block diagram\n\n\nFigure 2\n\n\n\n\n\n\n\n\n\nFigure 3: Detailed hysteresis diagram\n\n\n\n\n\n\nDetailed hysteresis control block diagram\n\n\nFigure 4\n\n\n\n\nD stands for “Decreasing”\nI stands for “Increasing”\nB stands for “Before jumping”\nA stands for “After jumping”\n\nSyntax:\n\nfunction name: hyst\ninput variable : \\(x_i\\)\noutput variable: \\(x_j\\)\ndata name, parameter name or math expression for \\(x_I\\)\ndata name, parameter name or math expression for \\(y_{IB}\\)\ndata name, parameter name or math expression for \\(y_{IA}\\)\ndata name, parameter name or math expression for \\(x_{D}\\)\ndata name, parameter name or math expression for \\(y_{BD}\\)\ndata name, parameter name or math expression for \\(y_{DA}\\)\ndata name, parameter name or math expression for \\(z_0\\)\n\nInternal states : none\nDiscrete variable : \\(z \\in \\{-1,1\\}\\)",
+    "text": "hysteresis diagram\n\n\n\nHysteresis control block diagram\n\n\n\n\ndetailedHysteresisDiagram\n\n\n\nDetailed hysteresis diagram\n\n\n\\(D\\) stands for “Decreasing”\n\\(I\\) stands for “Increasing”\n\\(B\\) stands for “Before jumping”\n\\(A\\) stands for “After jumping”\n\nSyntax:\n\nfunction name: hyst\ninput variable : \\(x_i\\)\noutput variable: \\(x_j\\)\ndata name, parameter name or math expression for \\(x_I\\)\ndata name, parameter name or math expression for \\(y_{IB}\\)\ndata name, parameter name or math expression for \\(y_{IA}\\)\ndata name, parameter name or math expression for \\(x_{D}\\)\ndata name, parameter name or math expression for \\(y_{BD}\\)\ndata name, parameter name or math expression for \\(y_{DA}\\)\ndata name, parameter name or math expression for \\(z_0\\)\n\nInternal states : none\nDiscrete variable : \\(z \\in \\{-1,1\\}\\)",
     "crumbs": [
       "Models",
       "Others",
@@ -3257,7 +3309,7 @@
     "href": "models/8-Others/BasicControlBlocks/hysteresis/index.html#diagram",
     "title": "Hysteresis control block",
     "section": "",
-    "text": "Figure 1: Hysteresis diagram\n\n\n\n\n\n\nHysteresis control block diagram\n\n\nFigure 2\n\n\n\n\n\n\n\n\n\nFigure 3: Detailed hysteresis diagram\n\n\n\n\n\n\nDetailed hysteresis control block diagram\n\n\nFigure 4\n\n\n\n\nD stands for “Decreasing”\nI stands for “Increasing”\nB stands for “Before jumping”\nA stands for “After jumping”\n\nSyntax:\n\nfunction name: hyst\ninput variable : \\(x_i\\)\noutput variable: \\(x_j\\)\ndata name, parameter name or math expression for \\(x_I\\)\ndata name, parameter name or math expression for \\(y_{IB}\\)\ndata name, parameter name or math expression for \\(y_{IA}\\)\ndata name, parameter name or math expression for \\(x_{D}\\)\ndata name, parameter name or math expression for \\(y_{BD}\\)\ndata name, parameter name or math expression for \\(y_{DA}\\)\ndata name, parameter name or math expression for \\(z_0\\)\n\nInternal states : none\nDiscrete variable : \\(z \\in \\{-1,1\\}\\)",
+    "text": "hysteresis diagram\n\n\n\nHysteresis control block diagram\n\n\n\n\ndetailedHysteresisDiagram\n\n\n\nDetailed hysteresis diagram\n\n\n\\(D\\) stands for “Decreasing”\n\\(I\\) stands for “Increasing”\n\\(B\\) stands for “Before jumping”\n\\(A\\) stands for “After jumping”\n\nSyntax:\n\nfunction name: hyst\ninput variable : \\(x_i\\)\noutput variable: \\(x_j\\)\ndata name, parameter name or math expression for \\(x_I\\)\ndata name, parameter name or math expression for \\(y_{IB}\\)\ndata name, parameter name or math expression for \\(y_{IA}\\)\ndata name, parameter name or math expression for \\(x_{D}\\)\ndata name, parameter name or math expression for \\(y_{BD}\\)\ndata name, parameter name or math expression for \\(y_{DA}\\)\ndata name, parameter name or math expression for \\(z_0\\)\n\nInternal states : none\nDiscrete variable : \\(z \\in \\{-1,1\\}\\)",
     "crumbs": [
       "Models",
       "Others",
@@ -3296,7 +3348,7 @@
     "href": "models/8-Others/BasicControlBlocks/hysteresis/index.html#initialization-of-discrete-variables",
     "title": "Hysteresis control block",
     "section": "Initialization of discrete variables",
-    "text": "Initialization of discrete variables\nif xi &gt; xI then\n    z ← 1\nelse if xi &lt; xD then\n    z ← −1\nelse\n    if z0 ≥ 0 then\n        z ← 1\n    else\n        z ← 0\n    end if\nend if\nN.B.\nAt \\(t = 0\\), if \\(x_D &lt; x_i(0) &lt; x_I\\) the initial state of the system is indeterminate, since it could operate on the (\\(y_{IA}\\), \\(y_{DB}\\)) line (i.e. with an initial value of z equal to 1) as well as on the (\\(y_{DA}\\), \\(y_{IB}\\)) line (i.e. with an initial value of z equal to −1). Hence, the user must specify \\(z_0\\), the initial value of z. If \\(x_i(0) &lt; x_D\\) (resp. \\(x_i(0) &gt; x_I\\)) the initial value is \\(z = −1\\) (resp. \\(z = 1\\)) and \\(z_0\\) is not used. The data must obey \\(x_D &lt; x_I\\), otherwise the model would not correspond to hysteresis.",
+    "text": "Initialization of discrete variables\nif xi &gt; xI then\n    z ← 1\nelse if xi &lt; xD then\n    z ← −1\nelse\n    if z0 ≥ 0 then\n        z ← 1\n    else\n        z ← 0\n    end if\nend if\nN.B.\nAt \\(t = 0\\), if \\(x_D &lt; x_i(0) &lt; x_I\\) the initial state of the system is indeterminate, since it could operate on the (\\(y_{IA}\\), \\(y_{DB}\\)) line (i.e. with an initial value of \\(z\\) equal to 1) as well as on the (\\(y_{DA}\\), \\(y_{IB}\\)) line (i.e. with an initial value of \\(z\\) equal to −1). Hence, the user must specify \\(z_0\\), the initial value of \\(z\\). If \\(x_i(0) &lt; x_D\\) (resp. \\(x_i(0) &gt; x_I\\)) the initial value is \\(z = −1\\) (resp. \\(z = 1\\)) and \\(z_0\\) is not used. The data must obey \\(x_D &lt; x_I\\), otherwise the model would not correspond to hysteresis.",
     "crumbs": [
       "Models",
       "Others",
@@ -3307,40 +3359,183 @@
   {
     "objectID": "models/8-Others/BasicControlBlocks/absoluteValue/index.html",
     "href": "models/8-Others/BasicControlBlocks/absoluteValue/index.html",
-    "title": "Absolute Value control block",
+    "title": "Absolute value of input",
     "section": "",
-    "text": "Back to top",
+    "text": "\\[ x_j = |x_i | \\]\n\n\n\nabsDiagram\n\n\n\nAbsolute value of input diagram\n\nSyntax:\n\nfunction name: abs\ninput variable : \\(x_i\\)\noutput variable: \\(x_j\\)\n\nInternal states : none\nDiscrete variable : \\(z \\in \\{-1,1\\}\\)",
     "crumbs": [
       "Models",
       "Others",
       "Control block",
-      "Absolute Value control block"
+      "Absolute value of input"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/absoluteValue/index.html#diagram",
+    "href": "models/8-Others/BasicControlBlocks/absoluteValue/index.html#diagram",
+    "title": "Absolute value of input",
+    "section": "",
+    "text": "\\[ x_j = |x_i | \\]\n\n\n\nabsDiagram\n\n\n\nAbsolute value of input diagram\n\nSyntax:\n\nfunction name: abs\ninput variable : \\(x_i\\)\noutput variable: \\(x_j\\)\n\nInternal states : none\nDiscrete variable : \\(z \\in \\{-1,1\\}\\)",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Absolute value of input"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/absoluteValue/index.html#equations",
+    "href": "models/8-Others/BasicControlBlocks/absoluteValue/index.html#equations",
+    "title": "Absolute value of input",
+    "section": "Equations",
+    "text": "Equations\n\\[\n0 = \\left\\{\n    \\begin{array}{lll}\n        x_j - x_i & if & z=1 \\\\\n        x_i - x_j & if & z=-1\n    \\end{array}\n\\right.\n\\]",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Absolute value of input"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/absoluteValue/index.html#discrete-transitions",
+    "href": "models/8-Others/BasicControlBlocks/absoluteValue/index.html#discrete-transitions",
+    "title": "Absolute value of input",
+    "section": "Discrete transitions",
+    "text": "Discrete transitions\nif z = 1 then\n    if xi &lt; 0 then\n        z ← −1\n    end if\nelse\n    if xi &gt; 0 then\n        z ← 1\n    end if\nend if",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Absolute value of input"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/absoluteValue/index.html#initialization-of-discrete-variables",
+    "href": "models/8-Others/BasicControlBlocks/absoluteValue/index.html#initialization-of-discrete-variables",
+    "title": "Absolute value of input",
+    "section": "Initialization of discrete variables",
+    "text": "Initialization of discrete variables\nif xi &gt; 0 then\nz ← 1\nelse\nz ← 0\nend if",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Absolute value of input"
     ]
   },
   {
     "objectID": "models/8-Others/BasicControlBlocks/integratorVariableLimits/index.html",
     "href": "models/8-Others/BasicControlBlocks/integratorVariableLimits/index.html",
-    "title": "Integrator Variable Limits control block",
+    "title": "Integrator control block with (positive) time constant T and non-windup variable limits on output",
     "section": "",
-    "text": "Back to top",
+    "text": "integrator diagram\n\n\n\nIntegrator control block with (positive) time constant T and non-windup variable limits on output diagram\n\nSyntax:\n\nfunction name: invlim\ninput variable : \\(x_i\\)\noutput variable: \\(x_j\\)\nvariable \\(x_{min}\\)\nvariable \\(x_{max}\\)\n\nInternal states : none\nDiscrete variable : \\(z \\in \\{-1,1\\}\\)",
     "crumbs": [
       "Models",
       "Others",
       "Control block",
-      "Integrator Variable Limits control block"
+      "Integrator control block with (positive) time constant T and non-windup variable limits on output"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/integratorVariableLimits/index.html#diagram",
+    "href": "models/8-Others/BasicControlBlocks/integratorVariableLimits/index.html#diagram",
+    "title": "Integrator control block with (positive) time constant T and non-windup variable limits on output",
+    "section": "",
+    "text": "integrator diagram\n\n\n\nIntegrator control block with (positive) time constant T and non-windup variable limits on output diagram\n\nSyntax:\n\nfunction name: invlim\ninput variable : \\(x_i\\)\noutput variable: \\(x_j\\)\nvariable \\(x_{min}\\)\nvariable \\(x_{max}\\)\n\nInternal states : none\nDiscrete variable : \\(z \\in \\{-1,1\\}\\)",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Integrator control block with (positive) time constant T and non-windup variable limits on output"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/integratorVariableLimits/index.html#equations",
+    "href": "models/8-Others/BasicControlBlocks/integratorVariableLimits/index.html#equations",
+    "title": "Integrator control block with (positive) time constant T and non-windup variable limits on output",
+    "section": "Equations",
+    "text": "Equations\n\\[\n\\begin{align}\n\\left\\{\n    \\begin{array}{lll}\n         T \\dot{x_j} = x_i & if & z=0 \\\\\n        0= x_j - x_{min} & if & z=-1 \\\\\n        0 = x_j - x_{max} & if & z=1\n    \\end{array}\n\\right.\n\\end{align}\n\\]",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Integrator control block with (positive) time constant T and non-windup variable limits on output"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/integratorVariableLimits/index.html#discrete-transitions",
+    "href": "models/8-Others/BasicControlBlocks/integratorVariableLimits/index.html#discrete-transitions",
+    "title": "Integrator control block with (positive) time constant T and non-windup variable limits on output",
+    "section": "Discrete transitions",
+    "text": "Discrete transitions\nif z = 0 then\n    if xj &gt; xmax then\n        z ← 1\n    else if xj &lt; xmin then\n        z ← −1\n    end if\nelse if z = 1 then\n    if xi &lt; 0 then\n        z ← 0\n    end if\nelse if z = −1 then\n    if xi &gt; 0 then\n        z ← 0\n    end if\nend if",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Integrator control block with (positive) time constant T and non-windup variable limits on output"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/integratorVariableLimits/index.html#initialisation-of-discrete-variables",
+    "href": "models/8-Others/BasicControlBlocks/integratorVariableLimits/index.html#initialisation-of-discrete-variables",
+    "title": "Integrator control block with (positive) time constant T and non-windup variable limits on output",
+    "section": "Initialisation of discrete variables",
+    "text": "Initialisation of discrete variables\nif xj &gt; xmax then\n    z ← 1\nelse if xj &lt; xmin then\n    z ← −1\nelse\n    z ← 0\nend if\nN.B. A zero value for \\(T\\) is not allowed. If too small a value is specified for \\(T\\), the solver may encounter a singularity and the simulation may not proceed.",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Integrator control block with (positive) time constant T and non-windup variable limits on output"
     ]
   },
   {
     "objectID": "models/8-Others/BasicControlBlocks/proportionalIntegralController/index.html",
     "href": "models/8-Others/BasicControlBlocks/proportionalIntegralController/index.html",
-    "title": "Proportional Integral Controller",
+    "title": "Proportional integral (PI) controller",
     "section": "",
-    "text": "Back to top",
+    "text": "pictl diagram\n\n\n\nProportional integral (PI) controller diagram\n\nSyntax:\n\nfunction name: pictl\ninput variable : \\(x_k\\)\noutput variable: \\(x_j\\)\ndata name, parameter name or math expression for \\(K_I\\)\ndata name, parameter name or math expression for \\(K_p\\)\n\nInternal states : variable \\(x_i\\)\nDiscrete variable : none",
     "crumbs": [
       "Models",
       "Others",
       "Control block",
-      "Proportional Integral Controller"
+      "Proportional integral (PI) controller"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/proportionalIntegralController/index.html#diagram",
+    "href": "models/8-Others/BasicControlBlocks/proportionalIntegralController/index.html#diagram",
+    "title": "Proportional integral (PI) controller",
+    "section": "",
+    "text": "pictl diagram\n\n\n\nProportional integral (PI) controller diagram\n\nSyntax:\n\nfunction name: pictl\ninput variable : \\(x_k\\)\noutput variable: \\(x_j\\)\ndata name, parameter name or math expression for \\(K_I\\)\ndata name, parameter name or math expression for \\(K_p\\)\n\nInternal states : variable \\(x_i\\)\nDiscrete variable : none",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Proportional integral (PI) controller"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/proportionalIntegralController/index.html#equations",
+    "href": "models/8-Others/BasicControlBlocks/proportionalIntegralController/index.html#equations",
+    "title": "Proportional integral (PI) controller",
+    "section": "Equations",
+    "text": "Equations\n\\[\n\\begin{align}\n\\dot{x_i} = K_i x_k \\\\\n0 = K_p x_k + x_i - x_j\n\\end{align}\n\\]",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Proportional integral (PI) controller"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/proportionalIntegralController/index.html#initialization-of-internal-state-variables",
+    "href": "models/8-Others/BasicControlBlocks/proportionalIntegralController/index.html#initialization-of-internal-state-variables",
+    "title": "Proportional integral (PI) controller",
+    "section": "Initialization of internal state variables",
+    "text": "Initialization of internal state variables\n\\[\nx_i = x_j\n\\]",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Proportional integral (PI) controller"
     ]
   },
   {
@@ -3348,7 +3543,59 @@
     "href": "models/8-Others/BasicControlBlocks/deadband/index.html",
     "title": "Deadband control block",
     "section": "",
-    "text": "Back to top",
+    "text": "deadbandDiagram\n\n\n\nDeadband control block diagram\n\n\n\n\ndetailedDeadbandDiagram\n\n\n\nDetailed deadband diagram\n\nSyntax:\n\nfunction name: db\ninput variable : \\(x_i\\)\noutput variable: \\(x_j\\)\ndata name, parameter name or math expression for \\(\\delta_1\\)\ndata name, parameter name or math expression for \\(s_1\\)\ndata name, parameter name or math expression for \\(a_1\\)\ndata name, parameter name or math expression for \\(\\delta_2\\)\ndata name, parameter name or math expression for \\(s_2\\)\ndata name, parameter name or math expression for \\(a_2\\)\n\nInternal states : none\nDiscrete variable : \\(z \\in \\{-1,0,1\\}\\)",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Deadband control block"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/deadband/index.html#diagram",
+    "href": "models/8-Others/BasicControlBlocks/deadband/index.html#diagram",
+    "title": "Deadband control block",
+    "section": "",
+    "text": "deadbandDiagram\n\n\n\nDeadband control block diagram\n\n\n\n\ndetailedDeadbandDiagram\n\n\n\nDetailed deadband diagram\n\nSyntax:\n\nfunction name: db\ninput variable : \\(x_i\\)\noutput variable: \\(x_j\\)\ndata name, parameter name or math expression for \\(\\delta_1\\)\ndata name, parameter name or math expression for \\(s_1\\)\ndata name, parameter name or math expression for \\(a_1\\)\ndata name, parameter name or math expression for \\(\\delta_2\\)\ndata name, parameter name or math expression for \\(s_2\\)\ndata name, parameter name or math expression for \\(a_2\\)\n\nInternal states : none\nDiscrete variable : \\(z \\in \\{-1,0,1\\}\\)",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Deadband control block"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/deadband/index.html#equations",
+    "href": "models/8-Others/BasicControlBlocks/deadband/index.html#equations",
+    "title": "Deadband control block",
+    "section": "Equations",
+    "text": "Equations\n\\[\n0 = \\left\\{\n    \\begin{array}{lll}\n        x_j & if & z=0 \\\\\n        x_j - s_2 - a_2(x_i - \\delta_2) & if & z=1 \\\\\n        x_j - s_1 - a_1(x_i - \\delta_1) & if & z=-1\n    \\end{array}\n\\right.\n\\]",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Deadband control block"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/deadband/index.html#discrete-transitions",
+    "href": "models/8-Others/BasicControlBlocks/deadband/index.html#discrete-transitions",
+    "title": "Deadband control block",
+    "section": "Discrete transitions",
+    "text": "Discrete transitions\nif z ∈ {0, 1} then\n    if xi &lt; δ1 then\n        z ← −1\n    end if\nelse if z ∈ {−1, 0} then\n    if xi &gt; δ2 then\n        z ← 1\n    end if\nelse if z ∈ {−1, 1} then\n    if δ1 &lt; xi &lt; δ2 then\n        z ← 0\n    end if\nend if",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Deadband control block"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/deadband/index.html#initialization-of-discrete-variables",
+    "href": "models/8-Others/BasicControlBlocks/deadband/index.html#initialization-of-discrete-variables",
+    "title": "Deadband control block",
+    "section": "Initialization of discrete variables",
+    "text": "Initialization of discrete variables\nif xi &gt; δ2 then\n    z ← 1\nelse if xi &lt; δ1 then\n    z ← −1\nelse\n    z ← 0\nend if\nN.B.\nThe data must obey \\(\\delta_1 &lt; \\delta_2\\), \\(a_1 \\geq 0\\) and \\(a_2 \\geq 0\\) (see for instance the diagram above). A particular case is \\(s_1 = s_2 = 0\\) and \\(a_1 = a_2 = 1\\) (but all values are allowed for these four parameters).",
     "crumbs": [
       "Models",
       "Others",
@@ -3361,7 +3608,7 @@
     "href": "models/8-Others/index.html",
     "title": "Others",
     "section": "",
-    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nAbsolute Value control block\n\n\n \n\n\n\n\n\n\nAlgebraic Equation control block\n\n\n \n\n\n\n\n\n\nDeadband control block\n\n\n \n\n\n\n\n\n\nEvents\n\n\n \n\n\n\n\n\n\nHysteresis control block\n\n\nMathilde Bongrain\n\n\n\n\n\n\nIntegrator Variable Limits control block\n\n\n \n\n\n\n\n\n\nIntegrator control block with a positive time constant T\n\n\nMathilde Bongrain\n\n\n\n\n\n\nLimited Integrator control block\n\n\n \n\n\n\n\n\n\nLimited Proportional Integral Controller\n\n\n \n\n\n\n\n\n\nLimiter Variable Bounds control block\n\n\n \n\n\n\n\n\n\nLimiter control block\n\n\n \n\n\n\n\n\n\nProportional Integral Controller\n\n\n \n\n\n\n\n\n\nProportional integral (PI) controller with non-windup limit on the integral term and limit on the proportional term\n\n\n \n\n\n\n\n\n\nSwitch control block\n\n\n \n\n\n\n\n\n\nTimer control block\n\n\nMathilde Bongrain\n\n\n\n\n\n\nTransfer function between an input and output one time constant\n\n\nMathilde Bongrain\n\n\n\n\n\n\nNo matching items\n Back to top",
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\n\n\n\n\n\nAbsolute value of input\n\n\n \n\n\n\n\n\n\nAlgebraic equation\n\n\n \n\n\n\n\n\n\nDeadband control block\n\n\n \n\n\n\n\n\n\nEvents\n\n\n \n\n\n\n\n\n\nHysteresis control block\n\n\n \n\n\n\n\n\n\nIntegrator control block with (positive) time constant T and non-windup limits on output\n\n\n \n\n\n\n\n\n\nIntegrator control block with (positive) time constant T and non-windup variable limits on output\n\n\n \n\n\n\n\n\n\nIntegrator control block with a positive time constant T\n\n\n \n\n\n\n\n\n\nLimiter control block with constant bounds\n\n\n \n\n\n\n\n\n\nLimiter control block with variable bounds\n\n\n \n\n\n\n\n\n\nProportional integral (PI) controller\n\n\n \n\n\n\n\n\n\nProportional integral (PI) controller with non-windup limit on the integral term\n\n\n \n\n\n\n\n\n\nProportional integral (PI) controller with non-windup limit on the integral term and limit on the proportional term\n\n\n \n\n\n\n\n\n\nSwitch\n\n\n \n\n\n\n\n\n\nTimer control block\n\n\n \n\n\n\n\n\n\nTransfer function between an input and output one time constant\n\n\n \n\n\n\n\n\n\nNo matching items\n Back to top",
     "crumbs": [
       "Models",
       "Others"
@@ -4463,7 +4710,7 @@
     "href": "models/8-Others/BasicControlBlocks/integrator/index.html",
     "title": "Integrator control block with a positive time constant T",
     "section": "",
-    "text": "Figure 1: Integrator diagram\n\n\n\n\n\n\nIntegrator control block diagram\n\n\nFigure 2\n\n\n\nSyntax:\n\nfunction name: int\ninput variable : \\(x_i\\)\noutput variable : \\(x_j\\)\ndata name, parameter name or math expression for \\(T\\)\n\nInternal states : none\nDiscrete variable : none",
+    "text": "integrator diagram\n\n\n\nIntegrator control block with a positive time constant T diagram\n\nSyntax:\n\nfunction name: int\ninput variable : \\(x_i\\)\noutput variable : \\(x_j\\)\ndata name, parameter name or math expression for \\(T\\)\n\nInternal states : none\nDiscrete variable : none",
     "crumbs": [
       "Models",
       "Others",
@@ -4476,7 +4723,7 @@
     "href": "models/8-Others/BasicControlBlocks/integrator/index.html#diagram",
     "title": "Integrator control block with a positive time constant T",
     "section": "",
-    "text": "Figure 1: Integrator diagram\n\n\n\n\n\n\nIntegrator control block diagram\n\n\nFigure 2\n\n\n\nSyntax:\n\nfunction name: int\ninput variable : \\(x_i\\)\noutput variable : \\(x_j\\)\ndata name, parameter name or math expression for \\(T\\)\n\nInternal states : none\nDiscrete variable : none",
+    "text": "integrator diagram\n\n\n\nIntegrator control block with a positive time constant T diagram\n\nSyntax:\n\nfunction name: int\ninput variable : \\(x_i\\)\noutput variable : \\(x_j\\)\ndata name, parameter name or math expression for \\(T\\)\n\nInternal states : none\nDiscrete variable : none",
     "crumbs": [
       "Models",
       "Others",
@@ -4500,40 +4747,170 @@
   {
     "objectID": "models/8-Others/BasicControlBlocks/limiter/index.html",
     "href": "models/8-Others/BasicControlBlocks/limiter/index.html",
-    "title": "Limiter control block",
+    "title": "Limiter control block with constant bounds",
     "section": "",
-    "text": "Back to top",
+    "text": "limiter diagram\n\n\n\nLimiter control block with constant bounds diagram\n\nSyntax:\n\nfunction name: lim\ninput variable : \\(x_i\\)\noutput variable: \\(x_j\\)\ndata name, parameter name or math expression for \\(x_{min}\\)\ndata name, parameter name or math expression for \\(x_{max}\\)\n\nInternal states : none\nDiscrete variable : \\(z \\in \\{-1,0, 1\\}\\)",
     "crumbs": [
       "Models",
       "Others",
       "Control block",
-      "Limiter control block"
+      "Limiter control block with constant bounds"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/limiter/index.html#diagram",
+    "href": "models/8-Others/BasicControlBlocks/limiter/index.html#diagram",
+    "title": "Limiter control block with constant bounds",
+    "section": "",
+    "text": "limiter diagram\n\n\n\nLimiter control block with constant bounds diagram\n\nSyntax:\n\nfunction name: lim\ninput variable : \\(x_i\\)\noutput variable: \\(x_j\\)\ndata name, parameter name or math expression for \\(x_{min}\\)\ndata name, parameter name or math expression for \\(x_{max}\\)\n\nInternal states : none\nDiscrete variable : \\(z \\in \\{-1,0, 1\\}\\)",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Limiter control block with constant bounds"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/limiter/index.html#equations",
+    "href": "models/8-Others/BasicControlBlocks/limiter/index.html#equations",
+    "title": "Limiter control block with constant bounds",
+    "section": "Equations",
+    "text": "Equations\n\\[\n0 = \\left\\{\n    \\begin{array}{lll}\n        x_j - x_i & if & z=0 \\\\\n        x_j - x_{min} & if & z=-1 \\\\\n        x_j - x_{max} & if & z=1\n    \\end{array}\n\\right.\n\\]",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Limiter control block with constant bounds"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/limiter/index.html#discrete-transitions",
+    "href": "models/8-Others/BasicControlBlocks/limiter/index.html#discrete-transitions",
+    "title": "Limiter control block with constant bounds",
+    "section": "Discrete transitions",
+    "text": "Discrete transitions\nif z = 0 then\n    if xi &gt; xmax then\n        z ← 1\n    else if xi &lt; xmin then\n        z ← −1\n    end if\nelse if z = 1 then\n    if xi &lt; xmax then\n        z ← 0\n    end if\nelse if z = −1 then\n    if xi &gt; xmin then\n        z ← 0\n    end if\nend if",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Limiter control block with constant bounds"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/limiter/index.html#initialisation-of-discrete-variables",
+    "href": "models/8-Others/BasicControlBlocks/limiter/index.html#initialisation-of-discrete-variables",
+    "title": "Limiter control block with constant bounds",
+    "section": "Initialisation of discrete variables",
+    "text": "Initialisation of discrete variables\nif xj &gt; xmax then\n    z ← 1\nelse if xj &lt; xmin then\n    z ← −1\nelse\n    z ← 0\nend if",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Limiter control block with constant bounds"
     ]
   },
   {
     "objectID": "models/8-Others/BasicControlBlocks/algebraicEquation/index.html",
     "href": "models/8-Others/BasicControlBlocks/algebraicEquation/index.html",
-    "title": "Algebraic Equation control block",
+    "title": "Algebraic equation",
     "section": "",
-    "text": "Back to top",
+    "text": "function name: algeq\n\nInternal states : none\nDiscrete variable : none",
     "crumbs": [
       "Models",
       "Others",
       "Control block",
-      "Algebraic Equation control block"
+      "Algebraic equation"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/algebraicEquation/index.html#syntax",
+    "href": "models/8-Others/BasicControlBlocks/algebraicEquation/index.html#syntax",
+    "title": "Algebraic equation",
+    "section": "",
+    "text": "function name: algeq\n\nInternal states : none\nDiscrete variable : none",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Algebraic equation"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/algebraicEquation/index.html#equations",
+    "href": "models/8-Others/BasicControlBlocks/algebraicEquation/index.html#equations",
+    "title": "Algebraic equation",
+    "section": "Equations",
+    "text": "Equations\nThis block forces an algebraic constraint (or equation) involving one of several states : \\[f(x_1, x_2, ..., x_n)= 0\\] where \\(n\\) is the number of system states (\\(n \\geq 1\\))\nN.B. Note that this blocks does not really have “inputs” and “outputs”. The latter stem from the rest of the model involving the algebraic constraint.",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Algebraic equation"
     ]
   },
   {
     "objectID": "models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html",
     "href": "models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html",
-    "title": "Limiter Variable Bounds control block",
+    "title": "Limiter control block with variable bounds",
     "section": "",
-    "text": "Back to top",
+    "text": "limiter diagram\n\n\n\nLimiter control block with variable bounds diagram\n\nSyntax:\n\nfunction name: limvb\ninput variable : \\(x_i\\)\noutput variable: \\(x_j\\)\nvariable \\(x_{min}\\)\nvariable \\(x_{max}\\)\n\nInternal states : none\nDiscrete variable : \\(z \\in \\{-1,0, 1\\}\\)",
     "crumbs": [
       "Models",
       "Others",
       "Control block",
-      "Limiter Variable Bounds control block"
+      "Limiter control block with variable bounds"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html#diagram",
+    "href": "models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html#diagram",
+    "title": "Limiter control block with variable bounds",
+    "section": "",
+    "text": "limiter diagram\n\n\n\nLimiter control block with variable bounds diagram\n\nSyntax:\n\nfunction name: limvb\ninput variable : \\(x_i\\)\noutput variable: \\(x_j\\)\nvariable \\(x_{min}\\)\nvariable \\(x_{max}\\)\n\nInternal states : none\nDiscrete variable : \\(z \\in \\{-1,0, 1\\}\\)",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Limiter control block with variable bounds"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html#equations",
+    "href": "models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html#equations",
+    "title": "Limiter control block with variable bounds",
+    "section": "Equations",
+    "text": "Equations\n\\[\n0 = \\left\\{\n    \\begin{array}{lll}\n        x_j - x_i & if & z=0 \\\\\n        x_j - x_{min} & if & z=-1 \\\\\n        x_j - x_{max} & if & z=1\n    \\end{array}\n\\right.\n\\]",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Limiter control block with variable bounds"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html#discrete-transitions",
+    "href": "models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html#discrete-transitions",
+    "title": "Limiter control block with variable bounds",
+    "section": "Discrete transitions",
+    "text": "Discrete transitions\nif z = 0 then\n    if xi &gt; xmax then\n        z ← 1\n    else if xi &lt; xmin then\n        z ← −1\n    end if\nelse if z = 1 then\n    if xi &lt; xmax then\n        z ← 0\n    end if\nelse if z = −1 then\n    if xi &gt; xmin then\n        z ← 0\n    end if\nend if",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Limiter control block with variable bounds"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html#initialisation-of-discrete-variables",
+    "href": "models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html#initialisation-of-discrete-variables",
+    "title": "Limiter control block with variable bounds",
+    "section": "Initialisation of discrete variables",
+    "text": "Initialisation of discrete variables\nif xj &gt; xmax then\n    z ← 1\nelse if xj &lt; xmin then\n    z ← −1\nelse\n    z ← 0\nend if",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Limiter control block with variable bounds"
     ]
   },
   {
@@ -4541,7 +4918,7 @@
     "href": "models/8-Others/BasicControlBlocks/transferFunction/index.html",
     "title": "Transfer function between an input and output one time constant",
     "section": "",
-    "text": "Figure 1: Transfer function diagram\n\n\n\n\n\n\nTransfer function control block diagram\n\n\nFigure 2\n\n\n\nSyntax:\n\nfunction name: tf1p\ninput variable : \\(x_i\\)\noutput variable : \\(x_j\\)\ndata name, parameter name or math expression for \\(G\\)\ndata name, parameter name or math expression for \\(T\\)\n\nInternal states : none\nDiscrete variable : none",
+    "text": "transfer function diagram\n\n\n\nTransfer function between an input and output one time constant diagram\n\nSyntax:\n\nfunction name: tf1p\ninput variable : \\(x_i\\)\noutput variable : \\(x_j\\)\ndata name, parameter name or math expression for \\(G\\)\ndata name, parameter name or math expression for \\(T\\)\n\nInternal states : none\nDiscrete variable : none",
     "crumbs": [
       "Models",
       "Others",
@@ -4554,7 +4931,7 @@
     "href": "models/8-Others/BasicControlBlocks/transferFunction/index.html#diagram",
     "title": "Transfer function between an input and output one time constant",
     "section": "",
-    "text": "Figure 1: Transfer function diagram\n\n\n\n\n\n\nTransfer function control block diagram\n\n\nFigure 2\n\n\n\nSyntax:\n\nfunction name: tf1p\ninput variable : \\(x_i\\)\noutput variable : \\(x_j\\)\ndata name, parameter name or math expression for \\(G\\)\ndata name, parameter name or math expression for \\(T\\)\n\nInternal states : none\nDiscrete variable : none",
+    "text": "transfer function diagram\n\n\n\nTransfer function between an input and output one time constant diagram\n\nSyntax:\n\nfunction name: tf1p\ninput variable : \\(x_i\\)\noutput variable : \\(x_j\\)\ndata name, parameter name or math expression for \\(G\\)\ndata name, parameter name or math expression for \\(T\\)\n\nInternal states : none\nDiscrete variable : none",
     "crumbs": [
       "Models",
       "Others",
@@ -4578,27 +4955,131 @@
   {
     "objectID": "models/8-Others/BasicControlBlocks/limitedIntegrator/index.html",
     "href": "models/8-Others/BasicControlBlocks/limitedIntegrator/index.html",
-    "title": "Limited Integrator control block",
+    "title": "Integrator control block with (positive) time constant T and non-windup limits on output",
     "section": "",
-    "text": "Back to top",
+    "text": "integrator diagram\n\n\n\nIntegrator control block with (positive) time constant T and non-windup limits on output diagram\n\nSyntax:\n\nfunction name: inlim\ninput variable : \\(x_i\\)\noutput variable: \\(x_j\\)\ndata name, parameter name or math expression for \\(x_{min}\\)\ndata name, parameter name or math expression for \\(x_{max}\\)\n\nInternal states : none\nDiscrete variable : \\(z \\in \\{-1,1\\}\\)",
     "crumbs": [
       "Models",
       "Others",
       "Control block",
-      "Limited Integrator control block"
+      "Integrator control block with (positive) time constant T and non-windup limits on output"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/limitedIntegrator/index.html#diagram",
+    "href": "models/8-Others/BasicControlBlocks/limitedIntegrator/index.html#diagram",
+    "title": "Integrator control block with (positive) time constant T and non-windup limits on output",
+    "section": "",
+    "text": "integrator diagram\n\n\n\nIntegrator control block with (positive) time constant T and non-windup limits on output diagram\n\nSyntax:\n\nfunction name: inlim\ninput variable : \\(x_i\\)\noutput variable: \\(x_j\\)\ndata name, parameter name or math expression for \\(x_{min}\\)\ndata name, parameter name or math expression for \\(x_{max}\\)\n\nInternal states : none\nDiscrete variable : \\(z \\in \\{-1,1\\}\\)",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Integrator control block with (positive) time constant T and non-windup limits on output"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/limitedIntegrator/index.html#equations",
+    "href": "models/8-Others/BasicControlBlocks/limitedIntegrator/index.html#equations",
+    "title": "Integrator control block with (positive) time constant T and non-windup limits on output",
+    "section": "Equations",
+    "text": "Equations\n\\[\n\\begin{align}\n\\left\\{\n    \\begin{array}{lll}\n         T \\dot{x_j} = x_i & if & z=0 \\\\\n        0= x_j - x_{min} & if & z=-1 \\\\\n        0 = x_j - x_{max} & if & z=1\n    \\end{array}\n\\right.\n\\end{align}\n\\]",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Integrator control block with (positive) time constant T and non-windup limits on output"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/limitedIntegrator/index.html#discrete-transitions",
+    "href": "models/8-Others/BasicControlBlocks/limitedIntegrator/index.html#discrete-transitions",
+    "title": "Integrator control block with (positive) time constant T and non-windup limits on output",
+    "section": "Discrete transitions",
+    "text": "Discrete transitions\nif z = 0 then\n    if xj &gt; xmax then\n        z ← 1\n    else if xj &lt; xmin then\n        z ← −1\n    end if\nelse if z = 1 then\n    if xi &lt; 0 then\n        z ← 0\n    end if\nelse if z = −1 then\n    if xi &gt; 0 then\n        z ← 0\n    end if\nend if",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Integrator control block with (positive) time constant T and non-windup limits on output"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/limitedIntegrator/index.html#initialisation-of-discrete-variables",
+    "href": "models/8-Others/BasicControlBlocks/limitedIntegrator/index.html#initialisation-of-discrete-variables",
+    "title": "Integrator control block with (positive) time constant T and non-windup limits on output",
+    "section": "Initialisation of discrete variables",
+    "text": "Initialisation of discrete variables\nif xj &gt; xmax then\n    z ← 1\nelse if xj &lt; xmin then\n    z ← −1\nelse\n    z ← 0\nend if\nN.B. A zero value for \\(T\\) is not allowed. If too small a value is specified for \\(T\\), the solver may encounter a singularity and the simulation may not proceed.",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Integrator control block with (positive) time constant T and non-windup limits on output"
     ]
   },
   {
     "objectID": "models/8-Others/BasicControlBlocks/limitedProportionalIntegralController/index.html",
     "href": "models/8-Others/BasicControlBlocks/limitedProportionalIntegralController/index.html",
-    "title": "Limited Proportional Integral Controller",
+    "title": "Proportional integral (PI) controller with non-windup limit on the integral term",
     "section": "",
-    "text": "Back to top",
+    "text": "pictlim diagram\n\n\n\nProportional integral (PI) controller with non-windup limit on the integral term diagram\n\nSyntax:\n\nfunction name: pictllim\ninput variable : \\(x_k\\)\noutput variable: \\(x_j\\)\ndata name, parameter name or math expression for \\(K_I\\)\ndata name, parameter name or math expression for \\(K_p\\)\ndata name, parameter name or math expression for \\(x_i^{min}\\)\ndata name, parameter name or math expression for \\(x_i^{max}\\)\n\nInternal states : variable \\(x_i\\)\nDiscrete variable : \\(z \\in \\{-1,0,1\\}\\)",
     "crumbs": [
       "Models",
       "Others",
       "Control block",
-      "Limited Proportional Integral Controller"
+      "Proportional integral (PI) controller with non-windup limit on the integral term"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/limitedProportionalIntegralController/index.html#diagram",
+    "href": "models/8-Others/BasicControlBlocks/limitedProportionalIntegralController/index.html#diagram",
+    "title": "Proportional integral (PI) controller with non-windup limit on the integral term",
+    "section": "",
+    "text": "pictlim diagram\n\n\n\nProportional integral (PI) controller with non-windup limit on the integral term diagram\n\nSyntax:\n\nfunction name: pictllim\ninput variable : \\(x_k\\)\noutput variable: \\(x_j\\)\ndata name, parameter name or math expression for \\(K_I\\)\ndata name, parameter name or math expression for \\(K_p\\)\ndata name, parameter name or math expression for \\(x_i^{min}\\)\ndata name, parameter name or math expression for \\(x_i^{max}\\)\n\nInternal states : variable \\(x_i\\)\nDiscrete variable : \\(z \\in \\{-1,0,1\\}\\)",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Proportional integral (PI) controller with non-windup limit on the integral term"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/limitedProportionalIntegralController/index.html#equations",
+    "href": "models/8-Others/BasicControlBlocks/limitedProportionalIntegralController/index.html#equations",
+    "title": "Proportional integral (PI) controller with non-windup limit on the integral term",
+    "section": "Equations",
+    "text": "Equations\n\\[\n\\begin{align}\n\\left\\{\n    \\begin{array}{lll}\n         \\dot{x_i} = K_i x_k & if & z=0 \\\\\n        0= x_i - x_i^{min} & if & z=-1 \\\\\n        0 = x_i - x_i^{max} & if & z=1\n    \\end{array}\n\\right.\n\\end{align}\n\\]\n\\[ 0 = K_p x_k + x_i - x_j \\]",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Proportional integral (PI) controller with non-windup limit on the integral term"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/limitedProportionalIntegralController/index.html#discrete-transitions",
+    "href": "models/8-Others/BasicControlBlocks/limitedProportionalIntegralController/index.html#discrete-transitions",
+    "title": "Proportional integral (PI) controller with non-windup limit on the integral term",
+    "section": "Discrete transitions",
+    "text": "Discrete transitions\nif z = 0 then\n    if xi &gt; xmaxi then\n        z ← 1\n    else if xi &lt; xmini then\n        z ← −1\n    end if\nelse if z = 1 then\n    if Ki*xk &lt; 0 then\n        z ← 0\n    end if\nelse if z = −1 then\n    if Ki*xk &gt; 0 then\n        z ← 0\n    end if\nend if",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Proportional integral (PI) controller with non-windup limit on the integral term"
+    ]
+  },
+  {
+    "objectID": "models/8-Others/BasicControlBlocks/limitedProportionalIntegralController/index.html#initialization-of-internal-state-variables-and-discrete-variables",
+    "href": "models/8-Others/BasicControlBlocks/limitedProportionalIntegralController/index.html#initialization-of-internal-state-variables-and-discrete-variables",
+    "title": "Proportional integral (PI) controller with non-windup limit on the integral term",
+    "section": "Initialization of internal state variables and discrete variables",
+    "text": "Initialization of internal state variables and discrete variables\nif Ki*xk &gt; 0 then\n    z ← 1\n    xi ← xmaxi\nelse if Ki*xk &lt; 0 then\n    z ← −1\n    xi ← xmini\nelse\n    z ← 0\n    xi ← xj\nend if",
+    "crumbs": [
+      "Models",
+      "Others",
+      "Control block",
+      "Proportional integral (PI) controller with non-windup limit on the integral term"
     ]
   },
   {
@@ -4606,7 +5087,7 @@
     "href": "models/8-Others/BasicControlBlocks/timer/index.html",
     "title": "Timer control block",
     "section": "",
-    "text": "Timer with varying delay. The latter is a piecewise linear function of the monitored variable If \\(x_i\\) is smaller than a threshold \\(v_1\\), the output \\(x_j\\) is equal to zero. Otherwise, \\(x_j\\) changes from zero to one at time \\(t* + \\tau(x_i)\\) where t* is the time at which the input \\(x_i\\) became larger than \\(v_1\\) and the delay \\(\\tau (x_i)\\) varies with \\(x_i\\) according to a piecewise linear characteristic involving \\(n\\) points (see diagram below).",
+    "text": "Timer with varying delay. The latter is a piecewise linear function of the monitored variable If \\(x_i\\) is smaller than a threshold \\(v_1\\), the output \\(x_j\\) is equal to zero. Otherwise, \\(x_j\\) changes from zero to one at time \\(t^* + \\tau(x_i)\\) where \\(t^*\\) is the time at which the input \\(x_i\\) became larger than \\(v_1\\) and the delay \\(\\tau (x_i)\\) varies with \\(x_i\\) according to a piecewise linear characteristic involving \\(n\\) points (see diagram below).",
     "crumbs": [
       "Models",
       "Others",
@@ -4619,7 +5100,7 @@
     "href": "models/8-Others/BasicControlBlocks/timer/index.html#diagram",
     "title": "Timer control block",
     "section": "Diagram",
-    "text": "Diagram\n\n\n\n\n\n\nFigure 1: Timer diagram\n\n\n\n\n\n\nTimer control block diagram\n\n\nFigure 2\n\n\n\n\n\n\n\n\n\nFigure 3: Detailed timer diagram\n\n\n\n\n\n\nDetailed timer control block diagram\n\n\nFigure 4\n\n\n\nSyntax:\n\nfunction name: timer\ninput variable : \\(x_i\\)\noutput variable: \\(x_j\\)\ndata name, parameter name or math expression for \\(v_l\\) where \\(l \\in \\{0,1, ..., n\\}\\)\ndata name, parameter name or math expression for \\(T_l\\)\n\nInternal states : \\(x_1\\)\nDiscrete variable : \\(z \\in \\{-1,0,1\\}\\)",
+    "text": "Diagram\n\n\n\ntimer diagram\n\n\n\nTimer control block diagram\n\n\n\n\ndetailed timer diagram\n\n\n\nDetailed timer diagram\n\nSyntax:\n\nfunction name: timer\ninput variable : \\(x_i\\)\noutput variable: \\(x_j\\)\ndata name, parameter name or math expression for \\(v_l\\) where \\(l \\in \\{0,1, ..., n\\}\\)\ndata name, parameter name or math expression for \\(T_l\\)\n\nInternal states : \\(x_1\\)\nDiscrete variable : \\(z \\in \\{-1,0,1\\}\\)",
     "crumbs": [
       "Models",
       "Others",
@@ -4632,7 +5113,7 @@
     "href": "models/8-Others/BasicControlBlocks/timer/index.html#equations",
     "title": "Timer control block",
     "section": "Equations",
-    "text": "Equations\n\\[\n0 = \\left\\{\n    \\begin{array}{lll}\n        x_j & if & z \\in \\{-1, 0\\} \\\\\n        x_j - 1 & if & z=1\n    \\end{array}\n\\right.\n\\]\n\\[\n\\left\\{\n    \\begin{array}{lll}\n        x_1 & if & z =-1 \\\\\n        \\dot{x_1} = 1 & if & z= 0 \\\\\n        \\dot{x_1} = 0 & if & z= 1\n    \\end{array}\n\\right.\n\\]",
+    "text": "Equations\n\\[\n0 = \\left\\{\n    \\begin{array}{lll}\n        x_j & if & z \\in \\{-1, 0\\} \\\\\n        x_j - 1 & if & z=1\n    \\end{array}\n\\right.\n\\]\n\\[\n\\begin{align}\n\\left\\{\n    \\begin{array}{lll}\n        x_1 & if & z =-1 \\\\\n        \\dot{x_1} = 1 & if & z= 0 \\\\\n        \\dot{x_1} = 0 & if & z= 1\n    \\end{array}\n\\right.\n\\end{align}\n\\]",
     "crumbs": [
       "Models",
       "Others",
@@ -7476,7 +7957,7 @@
     "href": "models/index.html",
     "title": "Models",
     "section": "",
-    "text": "This section contains the documentation for the various dynamic models implemented in the Collaborative Open-Source Dynamic Simulation Library.\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n      \n        Author\n      \n      \n        Categories\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\nAC1C\n\n\n\nVoltage regulator\n\nAC1C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEAC1C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nAC6C\n\n\n\nVoltage regulator\n\nAC6C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEAC6C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nAC7C\n\n\n\nVoltage regulator\n\nAC7C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEAC7C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nAC8C\n\n\n\nVoltage regulator\n\nAC8C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEAC8C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nAbsolute Value control block\n\n\n\ncontrol block\n\nabsolute value\n\n\n\n\n\n\n\n\n\n\n\nAcRotatingExciter (submodel)\n\n\n\nVoltage regulator submodel\n\nAcRotatingExciter\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nAlgebraic Equation control block\n\n\n\ncontrol block\n\nalgebraic equation\n\n\n\n\n\n\n\n\n\n\n\nBBSEX1\n\n\n\nVoltage regulator\n\nBBSEX1\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcBBC\n\nIEC\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nBuses\n\n\n\n\n\n\n\n\n\n\n\n\n\nCP Line\n\n\n\nline\n\ncp\n\n\n\n\n\n\n\n\n\n\n\nCantilever Transformer\n\n\n\ntransformer\n\ncantilever\n\n\n\n\n\n\n\n\n\n\n\nCapacitors\n\n\n\ncapacitors\n\n\n\n\n\n\n\n\n\n\n\nDC1C\n\n\n\nVoltage regulator\n\nDC1C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEDC1C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nDeadband control block\n\n\n\ncontrol block\n\ndeadband\n\n\n\n\n\n\n\n\n\n\n\nEMT STATCOM (Grid Following mode)\n\n\n\nOpensource\n\nEMT\n\nvoltage source\n\nconverter\n\nSTATCOM\n\nwind\n\npv\n\nhvdc\n\nfollowing\n\n\n\n\n\n\nOct 7, 2025\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nEPRI Grid Forming\n\n\n\nOpensource\n\nRMS\n\nGFM\n\nGFL\n\nconverter\n\nwind\n\ngeneric\n\npv\n\nhvdc\n\nEPRI\n\nDynawo\n\n\n\n\n\n\nAug 12, 2025\n\n\nNils Wiese (Fraunhofer IEE), Martin Franke (Fraunhofer IEE), Saikrishna Vallabhaneni\n\n\n\n\n\n\n\nEvents\n\n\n\n\n\n\n\n\n\n\n\n\n\nExponential Load Model\n\n\n\n#143\n\nload\n\nExponential\n\nsteady-state\n\npolynomial\n\n\n\n\n\n\nMay 5, 2026\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nFD Line\n\n\n\nline\n\nfd\n\n\n\n\n\n\n\n\n\n\n\nFlywheel model\n\n\n\nflywheel\n\nFW\n\nOptimal Power Flow\n\nstorage\n\noptimal design\n\nDC OPF\n\ninertia\n\n\n\n\n\n\n\n\n\n\n\nFrequency Dependent Load Model\n\n\n\n#145\n\nload\n\nFrequency\n\npolynomial\n\nZIP\n\nexponential\n\n\n\n\n\n\nMay 5, 2026\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nFull-Phasor Grid Following Voltage Source Converter\n\n\n\nOpensource\n\nPhasor\n\nvoltage source\n\nconverter\n\nwind\n\npv\n\nhvdc\n\n\n\n\n\n\nFeb 6, 2026\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nGAST\n\n\n\nGovernor\n\nGAST\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nGovGAST\n\nIEC\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nGENQEC Synchronous Machine with Saturation\n\n\n\n#197\n\nSynchronous machine\n\nRotor\n\nStator\n\nPowerWorld\n\nOpensource\n\nGENROU\n\nGENSAL\n\nGENTPF\n\nGENTPJ\n\nGENQEC\n\nSaturation\n\n\n\n\n\n\nAug 8, 2024\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nGENROU/GENSAL Salient-pole/round-rotor synchronous machine without saturation\n\n\n\n#110\n\nSynchronous machine\n\nRMS\n\nEMT\n\nPhasorial\n\nRotor\n\nStator\n\nDynawo\n\nOpensource\n\nGENROU\n\nGENSAL\n\n\n\n\n\n\nOct 4, 2024\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nGENTPF/GENTPJ Synchronous Machine with Saturation\n\n\n\n#196\n\nSynchronous machine\n\nRotor\n\nStator\n\nPowerWorld\n\nOpensource\n\nGENROU\n\nGENSAL\n\nGENTPF\n\nGENTPJ\n\nSaturation\n\n\n\n\n\n\nMay 8, 2024\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nGeneric EMT Grid Forming Voltage Source Converter\n\n\n\nOpensource\n\nEMT\n\nvoltage source\n\nconverter\n\nwind\n\npv\n\nhvdc\n\nDroop Control\n\nVirtual Synchronous Machine\n\ngrid forming\n\nPSTess\n\n\n\n\n\n\nMar 7, 2024\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nGeneric Phasor Grid Forming Voltage Source Converter\n\n\n\nOpensource\n\nPhasor\n\nvoltage source\n\nconverter\n\nwind\n\npv\n\nhvdc\n\nDroop Control\n\nVirtual Synchronous Machine\n\ngrid forming\n\nPSTess\n\n\n\n\n\n\nJun 7, 2025\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nGovCT2 / GGOV2\n\n\n\nregulations\n\ngovernor\n\ncontroller\n\nsynchronous machine\n\nOpensource\n\nIEC\n\nCIMDynamic\n\nRMS\n\nmodelica\n\ndynawo\n\nRMS\n\n#53\n\n\n\n\n\n\nNov 4, 2025\n\n\nMartin Franke (Fraunhofer IEE)\n\n\n\n\n\n\n\nGovHydro4\n\n\n\nregulations\n\ngovernor\n\ncontroller\n\nsynchronous machine\n\nOpensource\n\nIEC\n\nCIMDynamic\n\nRMS\n\nmodelica\n\ndynawo\n\nRMS\n\n#54\n\n\n\n\n\n\nMay 9, 2025\n\n\nNils Wiese, Martin Franke, Saikrishna Vallabhaneni (Fraunhofer IEE)\n\n\n\n\n\n\n\nGovSteamEU\n\n\n\nregulations\n\ngovernor\n\ncontroller\n\nsynchronous machine\n\nOpensource\n\nIEC\n\nCIMDynamic\n\nRMS\n\nmodelica\n\ndynawo\n\n#59\n\n\n\n\n\n\nAug 6, 2025\n\n\nMartin Franke (Fraunhofer IEE), Saikrishna Vallabhaneni (Fraunhofer IEE), Nils Wiese (IEE)\n\n\n\n\n\n\n\nHYGOV\n\n\n\nGovernor\n\nHYGOV\n\ngeneric\n\nOpensource\n\ndynawo\n\n#106\n\nWEHGOV\n\nWPIDHY\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nHysteresis control block\n\n\n\ncontrol block\n\nhysteresis\n\n\n\n\n\n\nApr 10, 2024\n\n\nMathilde Bongrain\n\n\n\n\n\n\n\nIEC Wind Turbine Type 3 (Doubly-Fed Induction Generator)\n\n\n\nregulations\n\nWT\n\nwind\n\ncontroller\n\nOpensource\n\nIEC\n\nRMS\n\nmodelica\n\ndynawo\n\n#62\n\n\n\n\n\n\nAug 12, 2025\n\n\nMartin Franke (Fraunhofer IEE), Luka Plavec (Fraunhofer IEE)\n\n\n\n\n\n\n\nIEEEG1 / GovSteam 1\n\n\n\nGovernor\n\nIEEEG1\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nGovSteam1\n\nIEC\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nIEEEG2 / GovSteam 2\n\n\n\nGovernor\n\nIEEEG2\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nGovHydroIEEE0\n\nIEC\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nIEEEX2\n\n\n\nVoltage regulator\n\nIEEEX2\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcDC2A\n\nIEC\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nIEEX2A\n\n\n\nVoltage regulator\n\nIEEX2A\n\ngeneric\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nInduction motor model with rotor flux dynamics\n\n\n\n#200\n\nInduction motor\n\nRMS\n\nDynawo\n\nOpensource\n\n\n\n\n\n\nDec 8, 2024\n\n\nFrédéric Sabot (ULB)\n\n\n\n\n\n\n\nIntegrator Variable Limits control block\n\n\n\ncontrol block\n\nintegrator\n\nvariable limits\n\n\n\n\n\n\n\n\n\n\n\nIntegrator control block with a positive time constant T\n\n\n\ncontrol block\n\nintegrator\n\n\n\n\n\n\nApr 10, 2024\n\n\nMathilde Bongrain\n\n\n\n\n\n\n\nL2EP generic RMS grid following voltage source converter\n\n\n\nOpensource\n\nRMS\n\nphasor\n\nTMRL2\n\nvoltage source\n\nconverter\n\nwind\n\npv\n\nhdvc\n\ndynawo\n\nSTEPSS\n\n\n\n\n\n\nMay 5, 2025\n\n\nThierry Van Cutsem\n\n\n\n\n\n\n\nLimited Integrator control block\n\n\n\ncontrol block\n\nlimited integrator\n\n\n\n\n\n\n\n\n\n\n\nLimited Proportional Integral Controller\n\n\n\ncontrol block\n\nlimited PI controller\n\n\n\n\n\n\n\n\n\n\n\nLimiter Variable Bounds control block\n\n\n\ncontrol block\n\nlimiter\n\nvariable bounds\n\n\n\n\n\n\n\n\n\n\n\nLimiter control block\n\n\n\ncontrol block\n\nlimiter\n\n\n\n\n\n\n\n\n\n\n\nLine Commutated Converters (LCC)\n\n\n\nline commutated Converter\n\nLCC\n\n\n\n\n\n\n\n\n\n\n\nLine Protection\n\n\n\nline protection\n\n\n\n\n\n\n\n\n\n\n\nMachine Protection\n\n\n\nmachine protection\n\n\n\n\n\n\n\n\n\n\n\nOEL2C\n\n\n\nVoltage regulator\n\nOEL2C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nIEEE\n\ndynawo\n\n#236\n\n\n\n\n\n\nAug 10, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nOEL3C\n\n\n\nVoltage regulator\n\nOEL3C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nIEEE\n\ndynawo\n\n#236\n\n\n\n\n\n\nAug 10, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nOEL4C\n\n\n\nVoltage regulator\n\nOEL4C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nIEEE\n\ndynawo\n\n#236\n\n\n\n\n\n\nAug 10, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nOEL5C\n\n\n\nVoltage regulator\n\nOEL5C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nIEEE\n\ndynawo\n\n#236\n\n\n\n\n\n\nAug 10, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nPSS1A\n\n\n\nPower system stabilizer\n\nPSS1A\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nPssIEEE1A\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nPSS2C\n\n\n\nPower system stabilizer\n\nPSS2C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nPssIEEE2C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nPSS3C\n\n\n\nPower system stabilizer\n\nPSS3C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nPssIEEE3C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nPSS6C\n\n\n\nPower system stabilizer\n\nPSS6C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nPssIEEE6C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nPhasor-I0 Grid Following Voltage Source Converter\n\n\n\nOpensource\n\nPhasor\n\nvoltage source\n\nconverter\n\nwind\n\npv\n\nhvdc\n\n\n\n\n\n\nFeb 6, 2026\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nPhasor-I1 Grid Following Voltage Source Converter\n\n\n\nOpensource\n\nPhasor\n\nvoltage source\n\nconverter\n\nwind\n\npv\n\nhvdc\n\n\n\n\n\n\nFeb 6, 2026\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nPhasor-PQ1 Grid Following Voltage Source Converter\n\n\n\nOpensource\n\nPhasor\n\nvoltage source\n\nconverter\n\nwind\n\npv\n\nhvdc\n\n\n\n\n\n\nFeb 6, 2026\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nPhotovoltaics\n\n\n\nPhotovoltaics\n\nPV\n\n\n\n\n\n\n\n\n\n\n\nPi Line\n\n\n\nline\n\npi\n\n\n\n\n\n\n\n\n\n\n\nProportional Integral Controller\n\n\n\ncontrol block\n\nPI controller\n\n\n\n\n\n\n\n\n\n\n\nProportional integral (PI) controller with non-windup limit on the integral term and limit on the proportional term\n\n\n\n\n\nApr 10, 2024\n\n\n\n\n\n\n\nProtection\n\n\n\nprotection\n\n\n\n\n\n\n\n\n\n\n\nRTE Average phasor voltage source converter HVDC Model\n\n\n\n#24\n\nopensource\n\nphasor\n\nHVDC\n\nVSC\n\ngeneric\n\nMRL4\n\nSingle phase\n\ndynawo\n\n\n\n\n\n\nSep 6, 2024\n\n\nMathilde Bongrain (CRESYM)\n\n\n\n\n\n\n\nSCL1C\n\n\n\nVoltage regulator\n\nSCL1C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nIEEE\n\ndynawo\n\n#236\n\n\n\n\n\n\nAug 10, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nSCL2C\n\n\n\nVoltage regulator\n\nSCL2C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nIEEE\n\ndynawo\n\n#236\n\n\n\n\n\n\nAug 10, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nSCRX\n\n\n\nVoltage regulator\n\nSCRX\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcSCRX\n\nIEC\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nST1C\n\n\n\nVoltage regulator\n\nST1C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEST1C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nST4C\n\n\n\nVoltage regulator\n\nST4C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEST4C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nST5C\n\n\n\nVoltage regulator\n\nST5C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEST5C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nST6C\n\n\n\nVoltage regulator\n\nST6C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEST6C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nST7C\n\n\n\nVoltage regulator\n\nST7C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEST7C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nST9C\n\n\n\nVoltage regulator\n\nST9C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEST9C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nSingle-cage induction motor model\n\n\n\n#200\n\nInduction motor\n\nRMS\n\nDynawo\n\nOpensource\n\n\n\n\n\n\nSep 8, 2024\n\n\nFrédéric Sabot (ULB)\n\n\n\n\n\n\n\nStatic Compensator model\n\n\n\n#220\n\nCapacitor\n\nReactor\n\nCompensation\n\ndynawo\n\n\n\n\n\n\nOct 5, 2024\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nSwitch control block\n\n\n\ncontrol block\n\nswitch\n\n\n\n\n\n\n\n\n\n\n\nSynchronous Machine Model (SM1)\n\n\n\n#110\n\nSynchronous machine\n\nRMS\n\nEMT\n\nPhasor\n\nRotor\n\nStator\n\nDynawo\n\nOpensource\n\nGENROU\n\nGENSAL\n\n\n\n\n\n\nOct 4, 2024\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nSystem integrity protection schemes\n\n\n\nsystem integrity protection schemes\n\n\n\n\n\n\n\n\n\n\n\nTGOV1\n\n\n\nGovernor\n\nTGOV1\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nGovSteam0\n\nIEC\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nTGOV3\n\n\n\nGovernor\n\nTGOV3\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nGovSteamFV3\n\nIEC\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nTimer control block\n\n\n\ncontrol block\n\ntimer\n\n\n\n\n\n\nApr 10, 2024\n\n\nMathilde Bongrain\n\n\n\n\n\n\n\nTransfer function between an input and output one time constant\n\n\n\ncontrol block\n\ntransfer function\n\n\n\n\n\n\nApr 10, 2024\n\n\nMathilde Bongrain\n\n\n\n\n\n\n\nUEL1\n\n\n\nVoltage regulator\n\nUEL1\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nIEEE\n\ndynawo\n\n#236\n\n\n\n\n\n\nAug 10, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nUEL2C\n\n\n\nVoltage regulator\n\nUEL2C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nIEEE\n\ndynawo\n\n#236\n\n\n\n\n\n\nAug 10, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nUPC generic EMT Grid Following Voltage Source Converter\n\n\n\nOpensource\n\nEMT\n\nvoltage source\n\nconverter\n\nwind\n\npv\n\nhvdc\n\nfollowing\n\nNREL\n\nPSCAD\n\nDPSIM\n\nSimplusGrid\n\nMatlab\n\n\n\n\n\n\nMay 6, 2024\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nUPC generic EMT Point-to-Point HVDC model\n\n\n\nOpensource\n\nEMT\n\nvoltage source\n\nconverter\n\nhvdc\n\npoint-to-point\n\n\n\n\n\n\nMar 7, 2024\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nUnderfrequency load shedding scheme based on System frequency response model\n\n\n\n#154\n\nopensource\n\nSystem frequency response model\n\ncentre of inertia\n\nunderfrequency load shedding\n\nlow frequency demand disconnection\n\nPython\n\nMatlab\n\nSimulink\n\n\n\n\n\n\nMar 6, 2024\n\n\nUrban Rudez\n\n\n\n\n\n\n\nZIP Load Model\n\n\n\n#141\n\nload\n\nZIP\n\nsteady-state\n\npolynomial\n\n\n\n\n\n\nApr 5, 2026\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\nNo matching items\n\n  \n\n Back to top",
+    "text": "This section contains the documentation for the various dynamic models implemented in the Collaborative Open-Source Dynamic Simulation Library.\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n      \n        Author\n      \n      \n        Categories\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\nAC1C\n\n\n\nVoltage regulator\n\nAC1C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEAC1C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nAC6C\n\n\n\nVoltage regulator\n\nAC6C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEAC6C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nAC7C\n\n\n\nVoltage regulator\n\nAC7C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEAC7C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nAC8C\n\n\n\nVoltage regulator\n\nAC8C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEAC8C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nAbsolute value of input\n\n\n\n\n\nApr 10, 2024\n\n\n\n\n\n\n\nAcRotatingExciter (submodel)\n\n\n\nVoltage regulator submodel\n\nAcRotatingExciter\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nAlgebraic equation\n\n\n\n\n\nApr 10, 2024\n\n\n\n\n\n\n\nBBSEX1\n\n\n\nVoltage regulator\n\nBBSEX1\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcBBC\n\nIEC\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nBuses\n\n\n\n\n\n\n\n\n\n\n\n\n\nCP Line\n\n\n\nline\n\ncp\n\n\n\n\n\n\n\n\n\n\n\nCantilever Transformer\n\n\n\ntransformer\n\ncantilever\n\n\n\n\n\n\n\n\n\n\n\nCapacitors\n\n\n\ncapacitors\n\n\n\n\n\n\n\n\n\n\n\nDC1C\n\n\n\nVoltage regulator\n\nDC1C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEDC1C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nDeadband control block\n\n\n\n\n\nApr 10, 2024\n\n\n\n\n\n\n\nEMT STATCOM (Grid Following mode)\n\n\n\nOpensource\n\nEMT\n\nvoltage source\n\nconverter\n\nSTATCOM\n\nwind\n\npv\n\nhvdc\n\nfollowing\n\n\n\n\n\n\nOct 7, 2025\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nEPRI Grid Forming\n\n\n\nOpensource\n\nRMS\n\nGFM\n\nGFL\n\nconverter\n\nwind\n\ngeneric\n\npv\n\nhvdc\n\nEPRI\n\nDynawo\n\n\n\n\n\n\nAug 12, 2025\n\n\nNils Wiese (Fraunhofer IEE), Martin Franke (Fraunhofer IEE), Saikrishna Vallabhaneni\n\n\n\n\n\n\n\nEvents\n\n\n\n\n\n\n\n\n\n\n\n\n\nExponential Load Model\n\n\n\n#143\n\nload\n\nExponential\n\nsteady-state\n\npolynomial\n\n\n\n\n\n\nMay 5, 2026\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nFD Line\n\n\n\nline\n\nfd\n\n\n\n\n\n\n\n\n\n\n\nFlywheel model\n\n\n\nflywheel\n\nFW\n\nOptimal Power Flow\n\nstorage\n\noptimal design\n\nDC OPF\n\ninertia\n\n\n\n\n\n\n\n\n\n\n\nFrequency Dependent Load Model\n\n\n\n#145\n\nload\n\nFrequency\n\npolynomial\n\nZIP\n\nexponential\n\n\n\n\n\n\nMay 5, 2026\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nFull-Phasor Grid Following Voltage Source Converter\n\n\n\nOpensource\n\nPhasor\n\nvoltage source\n\nconverter\n\nwind\n\npv\n\nhvdc\n\n\n\n\n\n\nFeb 6, 2026\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nGAST\n\n\n\nGovernor\n\nGAST\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nGovGAST\n\nIEC\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nGENQEC Synchronous Machine with Saturation\n\n\n\n#197\n\nSynchronous machine\n\nRotor\n\nStator\n\nPowerWorld\n\nOpensource\n\nGENROU\n\nGENSAL\n\nGENTPF\n\nGENTPJ\n\nGENQEC\n\nSaturation\n\n\n\n\n\n\nAug 8, 2024\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nGENROU/GENSAL Salient-pole/round-rotor synchronous machine without saturation\n\n\n\n#110\n\nSynchronous machine\n\nRMS\n\nEMT\n\nPhasorial\n\nRotor\n\nStator\n\nDynawo\n\nOpensource\n\nGENROU\n\nGENSAL\n\n\n\n\n\n\nOct 4, 2024\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nGENTPF/GENTPJ Synchronous Machine with Saturation\n\n\n\n#196\n\nSynchronous machine\n\nRotor\n\nStator\n\nPowerWorld\n\nOpensource\n\nGENROU\n\nGENSAL\n\nGENTPF\n\nGENTPJ\n\nSaturation\n\n\n\n\n\n\nMay 8, 2024\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nGeneric EMT Grid Forming Voltage Source Converter\n\n\n\nOpensource\n\nEMT\n\nvoltage source\n\nconverter\n\nwind\n\npv\n\nhvdc\n\nDroop Control\n\nVirtual Synchronous Machine\n\ngrid forming\n\nPSTess\n\n\n\n\n\n\nMar 7, 2024\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nGeneric Phasor Grid Forming Voltage Source Converter\n\n\n\nOpensource\n\nPhasor\n\nvoltage source\n\nconverter\n\nwind\n\npv\n\nhvdc\n\nDroop Control\n\nVirtual Synchronous Machine\n\ngrid forming\n\nPSTess\n\n\n\n\n\n\nJun 7, 2025\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nGovCT2 / GGOV2\n\n\n\nregulations\n\ngovernor\n\ncontroller\n\nsynchronous machine\n\nOpensource\n\nIEC\n\nCIMDynamic\n\nRMS\n\nmodelica\n\ndynawo\n\nRMS\n\n#53\n\n\n\n\n\n\nNov 4, 2025\n\n\nMartin Franke (Fraunhofer IEE)\n\n\n\n\n\n\n\nGovHydro4\n\n\n\nregulations\n\ngovernor\n\ncontroller\n\nsynchronous machine\n\nOpensource\n\nIEC\n\nCIMDynamic\n\nRMS\n\nmodelica\n\ndynawo\n\nRMS\n\n#54\n\n\n\n\n\n\nMay 9, 2025\n\n\nNils Wiese, Martin Franke, Saikrishna Vallabhaneni (Fraunhofer IEE)\n\n\n\n\n\n\n\nGovSteamEU\n\n\n\nregulations\n\ngovernor\n\ncontroller\n\nsynchronous machine\n\nOpensource\n\nIEC\n\nCIMDynamic\n\nRMS\n\nmodelica\n\ndynawo\n\n#59\n\n\n\n\n\n\nAug 6, 2025\n\n\nMartin Franke (Fraunhofer IEE), Saikrishna Vallabhaneni (Fraunhofer IEE), Nils Wiese (IEE)\n\n\n\n\n\n\n\nHYGOV\n\n\n\nGovernor\n\nHYGOV\n\ngeneric\n\nOpensource\n\ndynawo\n\n#106\n\nWEHGOV\n\nWPIDHY\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nHysteresis control block\n\n\n\n\n\nApr 10, 2024\n\n\n\n\n\n\n\nIEC Wind Turbine Type 3 (Doubly-Fed Induction Generator)\n\n\n\nregulations\n\nWT\n\nwind\n\ncontroller\n\nOpensource\n\nIEC\n\nRMS\n\nmodelica\n\ndynawo\n\n#62\n\n\n\n\n\n\nAug 12, 2025\n\n\nMartin Franke (Fraunhofer IEE), Luka Plavec (Fraunhofer IEE)\n\n\n\n\n\n\n\nIEEEG1 / GovSteam 1\n\n\n\nGovernor\n\nIEEEG1\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nGovSteam1\n\nIEC\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nIEEEG2 / GovSteam 2\n\n\n\nGovernor\n\nIEEEG2\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nGovHydroIEEE0\n\nIEC\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nIEEEX2\n\n\n\nVoltage regulator\n\nIEEEX2\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcDC2A\n\nIEC\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nIEEX2A\n\n\n\nVoltage regulator\n\nIEEX2A\n\ngeneric\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nInduction motor model with rotor flux dynamics\n\n\n\n#200\n\nInduction motor\n\nRMS\n\nDynawo\n\nOpensource\n\n\n\n\n\n\nDec 8, 2024\n\n\nFrédéric Sabot (ULB)\n\n\n\n\n\n\n\nIntegrator control block with (positive) time constant T and non-windup limits on output\n\n\n\n\n\nApr 10, 2024\n\n\n\n\n\n\n\nIntegrator control block with (positive) time constant T and non-windup variable limits on output\n\n\n\n\n\nApr 10, 2024\n\n\n\n\n\n\n\nIntegrator control block with a positive time constant T\n\n\n\n\n\nApr 10, 2024\n\n\n\n\n\n\n\nL2EP generic RMS grid following voltage source converter\n\n\n\nOpensource\n\nRMS\n\nphasor\n\nTMRL2\n\nvoltage source\n\nconverter\n\nwind\n\npv\n\nhdvc\n\ndynawo\n\nSTEPSS\n\n\n\n\n\n\nMay 5, 2025\n\n\nThierry Van Cutsem\n\n\n\n\n\n\n\nLimiter control block with constant bounds\n\n\n\n\n\nApr 10, 2024\n\n\n\n\n\n\n\nLimiter control block with variable bounds\n\n\n\n\n\nApr 10, 2024\n\n\n\n\n\n\n\nLine Commutated Converters (LCC)\n\n\n\nline commutated Converter\n\nLCC\n\n\n\n\n\n\n\n\n\n\n\nLine Protection\n\n\n\nline protection\n\n\n\n\n\n\n\n\n\n\n\nMachine Protection\n\n\n\nmachine protection\n\n\n\n\n\n\n\n\n\n\n\nOEL2C\n\n\n\nVoltage regulator\n\nOEL2C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nIEEE\n\ndynawo\n\n#236\n\n\n\n\n\n\nAug 10, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nOEL3C\n\n\n\nVoltage regulator\n\nOEL3C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nIEEE\n\ndynawo\n\n#236\n\n\n\n\n\n\nAug 10, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nOEL4C\n\n\n\nVoltage regulator\n\nOEL4C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nIEEE\n\ndynawo\n\n#236\n\n\n\n\n\n\nAug 10, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nOEL5C\n\n\n\nVoltage regulator\n\nOEL5C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nIEEE\n\ndynawo\n\n#236\n\n\n\n\n\n\nAug 10, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nPSS1A\n\n\n\nPower system stabilizer\n\nPSS1A\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nPssIEEE1A\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nPSS2C\n\n\n\nPower system stabilizer\n\nPSS2C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nPssIEEE2C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nPSS3C\n\n\n\nPower system stabilizer\n\nPSS3C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nPssIEEE3C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nPSS6C\n\n\n\nPower system stabilizer\n\nPSS6C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nPssIEEE6C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nPhasor-I0 Grid Following Voltage Source Converter\n\n\n\nOpensource\n\nPhasor\n\nvoltage source\n\nconverter\n\nwind\n\npv\n\nhvdc\n\n\n\n\n\n\nFeb 6, 2026\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nPhasor-I1 Grid Following Voltage Source Converter\n\n\n\nOpensource\n\nPhasor\n\nvoltage source\n\nconverter\n\nwind\n\npv\n\nhvdc\n\n\n\n\n\n\nFeb 6, 2026\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nPhasor-PQ1 Grid Following Voltage Source Converter\n\n\n\nOpensource\n\nPhasor\n\nvoltage source\n\nconverter\n\nwind\n\npv\n\nhvdc\n\n\n\n\n\n\nFeb 6, 2026\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nPhotovoltaics\n\n\n\nPhotovoltaics\n\nPV\n\n\n\n\n\n\n\n\n\n\n\nPi Line\n\n\n\nline\n\npi\n\n\n\n\n\n\n\n\n\n\n\nProportional integral (PI) controller\n\n\n\n\n\nApr 10, 2024\n\n\n\n\n\n\n\nProportional integral (PI) controller with non-windup limit on the integral term\n\n\n\n\n\nApr 10, 2024\n\n\n\n\n\n\n\nProportional integral (PI) controller with non-windup limit on the integral term and limit on the proportional term\n\n\n\n\n\nApr 10, 2024\n\n\n\n\n\n\n\nProtection\n\n\n\nprotection\n\n\n\n\n\n\n\n\n\n\n\nRTE Average phasor voltage source converter HVDC Model\n\n\n\n#24\n\nopensource\n\nphasor\n\nHVDC\n\nVSC\n\ngeneric\n\nMRL4\n\nSingle phase\n\ndynawo\n\n\n\n\n\n\nSep 6, 2024\n\n\nMathilde Bongrain (CRESYM)\n\n\n\n\n\n\n\nSCL1C\n\n\n\nVoltage regulator\n\nSCL1C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nIEEE\n\ndynawo\n\n#236\n\n\n\n\n\n\nAug 10, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nSCL2C\n\n\n\nVoltage regulator\n\nSCL2C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nIEEE\n\ndynawo\n\n#236\n\n\n\n\n\n\nAug 10, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nSCRX\n\n\n\nVoltage regulator\n\nSCRX\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcSCRX\n\nIEC\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nST1C\n\n\n\nVoltage regulator\n\nST1C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEST1C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nST4C\n\n\n\nVoltage regulator\n\nST4C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEST4C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nST5C\n\n\n\nVoltage regulator\n\nST5C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEST5C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nST6C\n\n\n\nVoltage regulator\n\nST6C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEST6C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nST7C\n\n\n\nVoltage regulator\n\nST7C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEST7C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nST9C\n\n\n\nVoltage regulator\n\nST9C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nExcIEEEST9C\n\nIEEE\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nSingle-cage induction motor model\n\n\n\n#200\n\nInduction motor\n\nRMS\n\nDynawo\n\nOpensource\n\n\n\n\n\n\nSep 8, 2024\n\n\nFrédéric Sabot (ULB)\n\n\n\n\n\n\n\nStatic Compensator model\n\n\n\n#220\n\nCapacitor\n\nReactor\n\nCompensation\n\ndynawo\n\n\n\n\n\n\nOct 5, 2024\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nSwitch\n\n\n\n\n\nApr 10, 2024\n\n\n\n\n\n\n\nSynchronous Machine Model (SM1)\n\n\n\n#110\n\nSynchronous machine\n\nRMS\n\nEMT\n\nPhasor\n\nRotor\n\nStator\n\nDynawo\n\nOpensource\n\nGENROU\n\nGENSAL\n\n\n\n\n\n\nOct 4, 2024\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nSystem integrity protection schemes\n\n\n\nsystem integrity protection schemes\n\n\n\n\n\n\n\n\n\n\n\nTGOV1\n\n\n\nGovernor\n\nTGOV1\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nGovSteam0\n\nIEC\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nTGOV3\n\n\n\nGovernor\n\nTGOV3\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nGovSteamFV3\n\nIEC\n\ndynawo\n\n#106\n\n\n\n\n\n\nMay 4, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nTimer control block\n\n\n\n\n\nApr 10, 2024\n\n\n\n\n\n\n\nTransfer function between an input and output one time constant\n\n\n\n\n\nApr 10, 2024\n\n\n\n\n\n\n\nUEL1\n\n\n\nVoltage regulator\n\nUEL1\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nIEEE\n\ndynawo\n\n#236\n\n\n\n\n\n\nAug 10, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nUEL2C\n\n\n\nVoltage regulator\n\nUEL2C\n\ngeneric\n\nOpensource\n\nCIM model\n\nRMS\n\nphasor\n\nMRL4\n\nSingle phase\n\nIEEE\n\ndynawo\n\n#236\n\n\n\n\n\n\nAug 10, 2024\n\n\nErwan Guichard (DPS for RTE)\n\n\n\n\n\n\n\nUPC generic EMT Grid Following Voltage Source Converter\n\n\n\nOpensource\n\nEMT\n\nvoltage source\n\nconverter\n\nwind\n\npv\n\nhvdc\n\nfollowing\n\nNREL\n\nPSCAD\n\nDPSIM\n\nSimplusGrid\n\nMatlab\n\n\n\n\n\n\nMay 6, 2024\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nUPC generic EMT Point-to-Point HVDC model\n\n\n\nOpensource\n\nEMT\n\nvoltage source\n\nconverter\n\nhvdc\n\npoint-to-point\n\n\n\n\n\n\nMar 7, 2024\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\n\n\nUnderfrequency load shedding scheme based on System frequency response model\n\n\n\n#154\n\nopensource\n\nSystem frequency response model\n\ncentre of inertia\n\nunderfrequency load shedding\n\nlow frequency demand disconnection\n\nPython\n\nMatlab\n\nSimulink\n\n\n\n\n\n\nMar 6, 2024\n\n\nUrban Rudez\n\n\n\n\n\n\n\nZIP Load Model\n\n\n\n#141\n\nload\n\nZIP\n\nsteady-state\n\npolynomial\n\n\n\n\n\n\nApr 5, 2026\n\n\nCarlos Alegre (eRoots)\n\n\n\n\n\nNo matching items\n\n  \n\n Back to top",
     "crumbs": [
       "Models"
     ]

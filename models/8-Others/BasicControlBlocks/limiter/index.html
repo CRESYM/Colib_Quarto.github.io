@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-04-10">
 
-<title>Limiter control block</title>
+<title>Limiter control block with constant bounds</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -68,6 +104,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../../styles/main.css">
 </head>
@@ -237,7 +302,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/index.html">Others</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/BasicControlBlocks/index.html">Control block</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/BasicControlBlocks/limiter/index.html">Limiter control block</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/index.html">Others</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/BasicControlBlocks/index.html">Control block</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/BasicControlBlocks/limiter/index.html">Limiter control block with constant bounds</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -988,37 +1053,37 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/limiter/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Limiter control block</span></a>
+ <span class="menu-text">Limiter control block with constant bounds</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/proportionalIntegralController/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Proportional Integral Controller</span></a>
+ <span class="menu-text">Proportional integral (PI) controller</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/algebraicEquation/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Algebraic Equation control block</span></a>
+ <span class="menu-text">Algebraic equation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/integratorVariableLimits/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Integrator Variable Limits control block</span></a>
+ <span class="menu-text">Integrator control block with (positive) time constant T and non-windup variable limits on output</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Limiter Variable Bounds control block</span></a>
+ <span class="menu-text">Limiter control block with variable bounds</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/absoluteValue/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Absolute Value control block</span></a>
+ <span class="menu-text">Absolute value of input</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1036,13 +1101,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/limitedIntegrator/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Limited Integrator control block</span></a>
+ <span class="menu-text">Integrator control block with (positive) time constant T and non-windup limits on output</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/limitedProportionalIntegralController/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Limited Proportional Integral Controller</span></a>
+ <span class="menu-text">Proportional integral (PI) controller with non-windup limit on the integral term</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1060,7 +1125,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/switch/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Switch control block</span></a>
+ <span class="menu-text">Switch</span></a>
   </div>
 </li>
       </ul>
@@ -1074,26 +1139,43 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#diagram" id="toc-diagram" class="nav-link active" data-scroll-target="#diagram">Diagram</a></li>
+  <li><a href="#equations" id="toc-equations" class="nav-link" data-scroll-target="#equations">Equations</a></li>
+  <li><a href="#discrete-transitions" id="toc-discrete-transitions" class="nav-link" data-scroll-target="#discrete-transitions">Discrete transitions</a></li>
+  <li><a href="#initialisation-of-discrete-variables" id="toc-initialisation-of-discrete-variables" class="nav-link" data-scroll-target="#initialisation-of-discrete-variables">Initialisation of discrete variables</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/index.html">Others</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/BasicControlBlocks/index.html">Control block</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/BasicControlBlocks/limiter/index.html">Limiter control block</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/index.html">Others</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/BasicControlBlocks/index.html">Control block</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/BasicControlBlocks/limiter/index.html">Limiter control block with constant bounds</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Limiter control block</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">control block</div>
-    <div class="quarto-category">limiter</div>
-  </div>
-  </div>
+<h1 class="title">Limiter control block with constant bounds</h1>
+</div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Mathilde Bongrain </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 10, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -1103,8 +1185,70 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="diagram" class="level2">
+<h2 class="anchored" data-anchor-id="diagram">Diagram</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="limiter.svg" class="img-fluid figure-img"></p>
+<figcaption>limiter diagram</figcaption>
+</figure>
+</div>
+<div class="figure-caption">
+<p>Limiter control block with constant bounds diagram</p>
+</div>
+<p>Syntax:</p>
+<ul>
+<li>function name: lim</li>
+<li>input variable : <span class="math inline">\(x_i\)</span></li>
+<li>output variable: <span class="math inline">\(x_j\)</span></li>
+<li>data name, parameter name or math expression for <span class="math inline">\(x_{min}\)</span></li>
+<li>data name, parameter name or math expression for <span class="math inline">\(x_{max}\)</span></li>
+</ul>
+<p>Internal states : none</p>
+<p>Discrete variable : <span class="math inline">\(z \in \{-1,0, 1\}\)</span></p>
+</section>
+<section id="equations" class="level2">
+<h2 class="anchored" data-anchor-id="equations">Equations</h2>
+<p><span class="math display">\[
+0 = \left\{
+    \begin{array}{lll}
+        x_j - x_i &amp; if &amp; z=0 \\
+        x_j - x_{min} &amp; if &amp; z=-1 \\
+        x_j - x_{max} &amp; if &amp; z=1
+    \end{array}
+\right.
+\]</span></p>
+</section>
+<section id="discrete-transitions" class="level2">
+<h2 class="anchored" data-anchor-id="discrete-transitions">Discrete transitions</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>if z = 0 then</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    if xi &gt; xmax then</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        z ← 1</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    else if xi &lt; xmin then</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        z ← −1</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    end if</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>else if z = 1 then</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    if xi &lt; xmax then</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        z ← 0</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    end if</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>else if z = −1 then</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    if xi &gt; xmin then</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        z ← 0</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    end if</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>end if</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="initialisation-of-discrete-variables" class="level2">
+<h2 class="anchored" data-anchor-id="initialisation-of-discrete-variables">Initialisation of discrete variables</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>if xj &gt; xmax then</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    z ← 1</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>else if xj &lt; xmin then</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    z ← −1</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>else</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    z ← 0</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>end if</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

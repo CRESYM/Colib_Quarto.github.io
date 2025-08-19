@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Mathilde Bongrain">
 <meta name="dcterms.date" content="2024-04-10">
 
 <title>Transfer function between an input and output one time constant</title>
@@ -1019,37 +1018,37 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/limiter/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Limiter control block</span></a>
+ <span class="menu-text">Limiter control block with constant bounds</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/proportionalIntegralController/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Proportional Integral Controller</span></a>
+ <span class="menu-text">Proportional integral (PI) controller</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/algebraicEquation/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Algebraic Equation control block</span></a>
+ <span class="menu-text">Algebraic equation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/integratorVariableLimits/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Integrator Variable Limits control block</span></a>
+ <span class="menu-text">Integrator control block with (positive) time constant T and non-windup variable limits on output</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Limiter Variable Bounds control block</span></a>
+ <span class="menu-text">Limiter control block with variable bounds</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/absoluteValue/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Absolute Value control block</span></a>
+ <span class="menu-text">Absolute value of input</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1067,13 +1066,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/limitedIntegrator/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Limited Integrator control block</span></a>
+ <span class="menu-text">Integrator control block with (positive) time constant T and non-windup limits on output</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/limitedProportionalIntegralController/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Limited Proportional Integral Controller</span></a>
+ <span class="menu-text">Proportional integral (PI) controller with non-windup limit on the integral term</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1091,7 +1090,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/switch/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Switch control block</span></a>
+ <span class="menu-text">Switch</span></a>
   </div>
 </li>
       </ul>
@@ -1121,11 +1120,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/index.html">Others</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/BasicControlBlocks/index.html">Control block</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/BasicControlBlocks/transferFunction/index.html">Transfer function between an input and output one time constant</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Transfer function between an input and output one time constant</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">control block</div>
-    <div class="quarto-category">transfer function</div>
-  </div>
-  </div>
+</div>
 
 
 
@@ -1155,25 +1150,14 @@ window.Quarto = {
 
 <section id="diagram" class="level2">
 <h2 class="anchored" data-anchor-id="diagram">Diagram</h2>
-<div id="fig-transferfunction" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-transferfunction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="transferFunction.svg" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-transferfunction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Transfer function diagram
-</figcaption>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="transferFunction.svg" class="img-fluid figure-img"></p>
+<figcaption>transfer function diagram</figcaption>
 </figure>
 </div>
-<div id="fig-transferfunction" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-transferfunction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Transfer function control block diagram</p>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-transferfunction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2
-</figcaption>
-</figure>
+<div class="figure-caption">
+<p>Transfer function between an input and output one time constant diagram</p>
 </div>
 <p>Syntax:</p>
 <ul>

@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Mathilde Bongrain">
 <meta name="dcterms.date" content="2024-04-10">
 
 <title>Timer control block</title>
@@ -21,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -1019,37 +1053,37 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/limiter/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Limiter control block</span></a>
+ <span class="menu-text">Limiter control block with constant bounds</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/proportionalIntegralController/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Proportional Integral Controller</span></a>
+ <span class="menu-text">Proportional integral (PI) controller</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/algebraicEquation/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Algebraic Equation control block</span></a>
+ <span class="menu-text">Algebraic equation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/integratorVariableLimits/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Integrator Variable Limits control block</span></a>
+ <span class="menu-text">Integrator control block with (positive) time constant T and non-windup variable limits on output</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Limiter Variable Bounds control block</span></a>
+ <span class="menu-text">Limiter control block with variable bounds</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/absoluteValue/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Absolute Value control block</span></a>
+ <span class="menu-text">Absolute value of input</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1067,13 +1101,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/limitedIntegrator/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Limited Integrator control block</span></a>
+ <span class="menu-text">Integrator control block with (positive) time constant T and non-windup limits on output</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/limitedProportionalIntegralController/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Limited Proportional Integral Controller</span></a>
+ <span class="menu-text">Proportional integral (PI) controller with non-windup limit on the integral term</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1091,7 +1125,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/switch/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Switch control block</span></a>
+ <span class="menu-text">Switch</span></a>
   </div>
 </li>
       </ul>
@@ -1124,11 +1158,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/index.html">Others</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/BasicControlBlocks/index.html">Control block</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/BasicControlBlocks/timer/index.html">Timer control block</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Timer control block</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">control block</div>
-    <div class="quarto-category">timer</div>
-  </div>
-  </div>
+</div>
 
 
 
@@ -1156,48 +1186,26 @@ window.Quarto = {
 </header>
 
 
-<p>Timer with varying delay. The latter is a piecewise linear function of the monitored variable If <span class="math inline">\(x_i\)</span> is smaller than a threshold <span class="math inline">\(v_1\)</span>, the output <span class="math inline">\(x_j\)</span> is equal to zero. Otherwise, <span class="math inline">\(x_j\)</span> changes from zero to one at time <span class="math inline">\(t* + \tau(x_i)\)</span> where t* is the time at which the input <span class="math inline">\(x_i\)</span> became larger than <span class="math inline">\(v_1\)</span> and the delay <span class="math inline">\(\tau (x_i)\)</span> varies with <span class="math inline">\(x_i\)</span> according to a piecewise linear characteristic involving <span class="math inline">\(n\)</span> points (see diagram below).</p>
+<p>Timer with varying delay. The latter is a piecewise linear function of the monitored variable If <span class="math inline">\(x_i\)</span> is smaller than a threshold <span class="math inline">\(v_1\)</span>, the output <span class="math inline">\(x_j\)</span> is equal to zero. Otherwise, <span class="math inline">\(x_j\)</span> changes from zero to one at time <span class="math inline">\(t^* + \tau(x_i)\)</span> where <span class="math inline">\(t^*\)</span> is the time at which the input <span class="math inline">\(x_i\)</span> became larger than <span class="math inline">\(v_1\)</span> and the delay <span class="math inline">\(\tau (x_i)\)</span> varies with <span class="math inline">\(x_i\)</span> according to a piecewise linear characteristic involving <span class="math inline">\(n\)</span> points (see diagram below).</p>
 <section id="diagram" class="level2">
 <h2 class="anchored" data-anchor-id="diagram">Diagram</h2>
-<div id="fig-timer" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-timer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="timer.svg" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-timer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Timer diagram
-</figcaption>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="timer.svg" class="img-fluid figure-img"></p>
+<figcaption>timer diagram</figcaption>
 </figure>
 </div>
-<div id="fig-timer" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-timer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="figure-caption">
 <p>Timer control block diagram</p>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-timer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2
-</figcaption>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="detailedTimer.svg" class="img-fluid figure-img"></p>
+<figcaption>detailed timer diagram</figcaption>
 </figure>
 </div>
-<div id="fig-detailed-timer" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-detailed-timer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="detailedTimer.svg" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-detailed-timer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Detailed timer diagram
-</figcaption>
-</figure>
-</div>
-<div id="fig-detailed-timer" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-detailed-timer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p>Detailed timer control block diagram</p>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-detailed-timer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4
-</figcaption>
-</figure>
+<div class="figure-caption">
+<p>Detailed timer diagram</p>
 </div>
 <p>Syntax:</p>
 <ul>
@@ -1221,6 +1229,7 @@ Figure&nbsp;4
 \right.
 \]</span></p>
 <p><span class="math display">\[
+\begin{align}
 \left\{
     \begin{array}{lll}
         x_1 &amp; if &amp; z =-1 \\
@@ -1228,32 +1237,33 @@ Figure&nbsp;4
         \dot{x_1} = 0 &amp; if &amp; z= 1
     \end{array}
 \right.
+\end{align}
 \]</span></p>
 </section>
 <section id="discrete-transitions" class="level2">
 <h2 class="anchored" data-anchor-id="discrete-transitions">Discrete transitions</h2>
-<pre><code>if z = −1 then
-    if xi ≥ v1 then
-        z ← 0
-    end if
-else
-    if xi &lt; v1 then
-    z ← −1
-    end if
-end if</code></pre>
-<pre><code>if z = 0 then
-    if x1 ≥ τ(xi) then
-        z ← 1
-    end if
-end if</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>if z = −1 then</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    if xi ≥ v1 then</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        z ← 0</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    end if</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>else</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    if xi &lt; v1 then</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    z ← −1</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    end if</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>end if</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>if z = 0 then</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    if x1 ≥ τ(xi) then</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        z ← 1</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    end if</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>end if</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="initialization-of-internal-states" class="level2">
 <h2 class="anchored" data-anchor-id="initialization-of-internal-states">Initialization of internal states</h2>
-<pre><code>x1 ← 0</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x1 ← 0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="initialisation-of-the-discrete-variables" class="level2">
 <h2 class="anchored" data-anchor-id="initialisation-of-the-discrete-variables">Initialisation of the discrete variables</h2>
-<pre><code>z ← -1</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>z ← -1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The <span class="math inline">\(v_i\)</span> values must be increasing, but two consecutive values may be equal, i.e.&nbsp;<span class="math inline">\(v_1 \leq v_2 \leq v_3 \leq . . . \leq v_{n−1} \leq v_n\)</span>. The piecewise linear characteristic is typically used to approximate an inverse-time characteristic, in which case the <span class="math inline">\(T\)</span> values are decreasing, i.e.&nbsp;<span class="math inline">\(T_1 \geq T_2 \geq T_3 \geq . . . \geq T_{n−1} \geq T_n\)</span>.<br>
 Nevertheless, non decreasing values are also allowed. If the initial value of <span class="math inline">\(x_i\)</span> is larger than <span class="math inline">\(v_1\)</span>, <span class="math inline">\(x_j\)</span> will change to one after the time <span class="math inline">\(\tau(x_i)\)</span>, unless <span class="math inline">\(x_i\)</span> decreases below <span class="math inline">\(v_1\)</span> before the delay <span class="math inline">\(\tau\)</span> is elapsed.</p>
 
