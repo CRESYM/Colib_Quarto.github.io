@@ -162,7 +162,6 @@
   {
     "listing": "/models/8-Others/BasicControlBlocks/index.html",
     "items": [
-      "/models/8-Others/BasicControlBlocks/2limitedProportionalIntegralController/index.html",
       "/models/8-Others/BasicControlBlocks/absoluteValue/index.html",
       "/models/8-Others/BasicControlBlocks/algebraicEquation/index.html",
       "/models/8-Others/BasicControlBlocks/deadband/index.html",
@@ -174,6 +173,7 @@
       "/models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html",
       "/models/8-Others/BasicControlBlocks/limiter/index.html",
       "/models/8-Others/BasicControlBlocks/proportionalIntegralController/index.html",
+      "/models/8-Others/BasicControlBlocks/2limitedProportionalIntegralController/index.html",
       "/models/8-Others/BasicControlBlocks/switch/index.html",
       "/models/8-Others/BasicControlBlocks/timer/index.html",
       "/models/8-Others/BasicControlBlocks/transferFunction/index.html"
@@ -182,7 +182,6 @@
   {
     "listing": "/models/8-Others/index.html",
     "items": [
-      "/models/8-Others/BasicControlBlocks/2limitedProportionalIntegralController/index.html",
       "/models/8-Others/BasicControlBlocks/absoluteValue/index.html",
       "/models/8-Others/BasicControlBlocks/algebraicEquation/index.html",
       "/models/8-Others/BasicControlBlocks/deadband/index.html",
@@ -195,6 +194,7 @@
       "/models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html",
       "/models/8-Others/BasicControlBlocks/limiter/index.html",
       "/models/8-Others/BasicControlBlocks/proportionalIntegralController/index.html",
+      "/models/8-Others/BasicControlBlocks/2limitedProportionalIntegralController/index.html",
       "/models/8-Others/BasicControlBlocks/switch/index.html",
       "/models/8-Others/BasicControlBlocks/timer/index.html",
       "/models/8-Others/BasicControlBlocks/transferFunction/index.html"
@@ -264,7 +264,6 @@
   {
     "listing": "/models/index.html",
     "items": [
-      "/models/8-Others/BasicControlBlocks/2limitedProportionalIntegralController/index.html",
       "/models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC1C/index.html",
       "/models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC6C/index.html",
       "/models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC7C/index.html",
@@ -328,6 +327,7 @@
       "/models/5-RenewablesAndStorage/PV/index.html",
       "/models/6-NetworkComponents/Line/piLine/index.html",
       "/models/8-Others/BasicControlBlocks/proportionalIntegralController/index.html",
+      "/models/8-Others/BasicControlBlocks/2limitedProportionalIntegralController/index.html",
       "/models/7-Protection/TransformerProtection/index.html",
       "/models/4-HVDC/VSC/Point-to-Point-HVDC/RTE-RMS-Average-HVDC/index.html",
       "/models/1-SynchronousMachines/OverUnderExcitationLimiter/SCL1C/index.html",

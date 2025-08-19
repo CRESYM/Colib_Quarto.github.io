@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-04-10">
 
-<title>2-Limited Proportional Integral Controller</title>
+<title>Proportional integral (PI) controller with non-windup limit on the integral term and limit on the proportional term</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -68,6 +104,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../../styles/main.css">
 </head>
@@ -237,7 +302,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/index.html">Others</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/BasicControlBlocks/index.html">Control block</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/BasicControlBlocks/2limitedProportionalIntegralController/index.html">2-Limited Proportional Integral Controller</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/index.html">Others</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/BasicControlBlocks/index.html">Control block</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/BasicControlBlocks/2limitedProportionalIntegralController/index.html">Proportional integral (PI) controller with non-windup limit on the integral term and limit on the proportional term</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -1048,7 +1113,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/8-Others/BasicControlBlocks/2limitedProportionalIntegralController/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">2-Limited Proportional Integral Controller</span></a>
+ <span class="menu-text">Proportional integral (PI) controller with non-windup limit on the integral term and limit on the proportional term</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1074,26 +1139,43 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#diagram" id="toc-diagram" class="nav-link active" data-scroll-target="#diagram">Diagram</a></li>
+  <li><a href="#equations" id="toc-equations" class="nav-link" data-scroll-target="#equations">Equations</a></li>
+  <li><a href="#discrete-transitions" id="toc-discrete-transitions" class="nav-link" data-scroll-target="#discrete-transitions">Discrete transitions</a></li>
+  <li><a href="#initialization-of-internal-state-variables-and-discrete-variables" id="toc-initialization-of-internal-state-variables-and-discrete-variables" class="nav-link" data-scroll-target="#initialization-of-internal-state-variables-and-discrete-variables">Initialization of internal state variables and discrete variables</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/index.html">Others</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/BasicControlBlocks/index.html">Control block</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/BasicControlBlocks/2limitedProportionalIntegralController/index.html">2-Limited Proportional Integral Controller</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/index.html">Others</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/BasicControlBlocks/index.html">Control block</a></li><li class="breadcrumb-item"><a href="../../../../models/8-Others/BasicControlBlocks/2limitedProportionalIntegralController/index.html">Proportional integral (PI) controller with non-windup limit on the integral term and limit on the proportional term</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">2-Limited Proportional Integral Controller</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">control block</div>
-    <div class="quarto-category">2-limited PI controller</div>
-  </div>
-  </div>
+<h1 class="title">Proportional integral (PI) controller with non-windup limit on the integral term and limit on the proportional term</h1>
+</div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Mathilde Bongrain </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 10, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -1103,8 +1185,115 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="diagram" class="level2">
+<h2 class="anchored" data-anchor-id="diagram">Diagram</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2limitedProportionalIntegralController.svg" class="img-fluid figure-img"></p>
+<figcaption>pict2lim diagram</figcaption>
+</figure>
+</div>
+<div class="figure-caption">
+<p>Proportional integral (PI) controller with non-windup limit on the integral term and limit on the proportional term diagram</p>
+</div>
+<p>Syntax:</p>
+<ul>
+<li>function name: pictl2lim</li>
+<li>input variable : <span class="math inline">\(x_k\)</span></li>
+<li>output variable: <span class="math inline">\(x_j\)</span></li>
+<li>data name, parameter name or math expression for <span class="math inline">\(K_I\)</span></li>
+<li>data name, parameter name or math expression for <span class="math inline">\(K_p\)</span></li>
+<li>data name, parameter name or math expression for <span class="math inline">\(x_i^{min}\)</span></li>
+<li>data name, parameter name or math expression for <span class="math inline">\(x_i^{max}\)</span></li>
+<li>data name, parameter name or math expression for <span class="math inline">\(x_p^{min}\)</span></li>
+<li>data name, parameter name or math expression for <span class="math inline">\(x_p^{max}\)</span></li>
+</ul>
+<p>Internal states : variable <span class="math inline">\(x_i\)</span> and <span class="math inline">\(x_p\)</span></p>
+<p>Discrete variable : <span class="math inline">\(z_1 \in \{-1,0,1\}\)</span> and <span class="math inline">\(z_2 \in \{-1,0,1\}\)</span></p>
+</section>
+<section id="equations" class="level2">
+<h2 class="anchored" data-anchor-id="equations">Equations</h2>
+<p><span class="math display">\[
+\begin{align}
+\left\{
+    \begin{array}{lll}
+         0 = K_p x_k - x_p &amp; if &amp; z_1=0 \\
+        0= x_p - x_p^{min} &amp; if &amp; z_1=-1 \\
+        0 = x_p - x_p^{max} &amp; if &amp; z_1=1
+    \end{array}
+\right.
+\end{align}
+\]</span></p>
+<p><span class="math display">\[
+\begin{align}
+\left\{
+    \begin{array}{lll}
+         \dot{x_i} = K_i x_k &amp; if &amp; z_2=0 \\
+        0= x_i - x_i^{min} &amp; if &amp; z_2=-1 \\
+        0 = x_i - x_i^{max} &amp; if &amp; z_2=1
+    \end{array}
+\right.
+\end{align}
+\]</span></p>
+<p><span class="math display">\[ 0 = x_p + x_i - x_j \]</span></p>
+</section>
+<section id="discrete-transitions" class="level2">
+<h2 class="anchored" data-anchor-id="discrete-transitions">Discrete transitions</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>if z1 = 0 then</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    if xp &gt; xmaxp then</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        z1 ← 1</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    else if xp &lt; xminp then</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        z1 ← −1</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    end if</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>else if z1 = 1 then</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    if Kp*xk &lt; xmaxp  then</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        z1 ← 0</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    end if</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>else if z1 = −1 then</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    if Kp*xk &gt; xminp  then</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        z1 ← 0</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    end if</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>end if</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>if z2 = 0 then</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    if xi &gt; xmaxi then</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        z2 ← 1</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    else if xi &lt; xmini then</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        z2 ← −1</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    end if</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>else if z2 = 1 then</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    if Ki*xk &lt; 0 then</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        z2 ← 0</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    end if</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>else if z2 = −1 then</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    if Ki*xk &gt; 0 then</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        z2 ← 0</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    end if</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>end if</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="initialization-of-internal-state-variables-and-discrete-variables" class="level2">
+<h2 class="anchored" data-anchor-id="initialization-of-internal-state-variables-and-discrete-variables">Initialization of internal state variables and discrete variables</h2>
+<p><strong>Initialisation of the internal state <span class="math inline">\(x_p\)</span></strong>: <span class="math inline">\(x_p = min( x_p^{max}, max(x_p^{min}, K_px_k) )\)</span></p>
+<p><strong>Initialisation of the internal <span class="math inline">\(x_i\)</span> and the discrete variables:</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>if Kp*xk &gt; xmaxp then</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    z1 ← 1</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>else if Kp*xk &lt; xminp then</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    z1 ← −1</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>else</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    z1 ← 0</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>end if</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>if Ki*xk &gt; 0 then</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    z2 ← 1</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    xi ← xmaxi</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>else if Ki*xk &lt; 0 then</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    z2 ← −1</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    xi ← xmini</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>else</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    z2 ← 0</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    xi ← xj − xp</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>end if</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
