@@ -19,18 +19,18 @@ reference power and generator speed and outputs the mechanical torque.
 
 This GovCT2 is a modification of the GovCT1 in order to represent the
 frequency-dependent fuel flow limit of a specific gas turbine
-manufacturer. Both are based on *Rowen's model* from 1983 [1].
+manufacturer. Both are based on *Rowen's model* from 1983 [@Machowski2020].
 
 When comparing to older standards: GovCT2 is identical to GGOV2 and
 GovCT1 is identical to GGOV1.
 
-GovCT2 is part of the CIM/CGMES standard, see [2] and [3]. CIM is
+GovCT2 is part of the CIM/CGMES standard, see [@Alliander2024] and [@IEC61970-302-2023]. CIM is
 developed by ENTSO-E and aims at ensuring the reliability of grid models
 and market information exchanges. ENTSO-E developed CGMES as a superset
 of the IEC CIM standards (belonging to IEC CIM16) in 2013 to fulfill the
 requirements of transmission system operators and their data exchanges.
 
-The following information has been gathered from [2], [4] and [3].
+The following information has been gathered from [@Alliander2024], [@Neplan2015] and [@IEC61970-302-2023].
 
 ## Model use, assumptions, validity domain and limitations
 
@@ -63,11 +63,11 @@ necessary.
 
 ### Model schema
 
-![Model schema, based on [3]](drawings/GovCT2.drawio.svg){#fig-modelSchema}
+![Model schema, based on [@IEC61970-302-2023]](drawings/GovCT2.drawio.svg){#fig-modelSchema}
 
 ### Major control paths
 
-The following section is based on [1] (p. 517f).
+The following section is based on [@Machowski2020] (p. 517f).
 
 The model has three major control paths (speed/load, acceleration,
 temperature) associated with the dynamic response during disturbances.
@@ -83,11 +83,11 @@ $\omega$ and automatic generation control power $P_{MWSet}$.
 
 The resulting signal is then passed through a deadband, limits and a
 PID-controller. To represent a specific governor, some elements can be
-deactivated by setting parameters to zero (examples in [1]).
+deactivated by setting parameters to zero (examples in [@Machowski2020]).
 
 **Supervisory load controller**
 
-In [3] the $P_{MWSet}$ path is described as an optional
+In [@IEC61970-302-2023] the $P_{MWSet}$ path is described as an optional
 additional outer loop associated with a power plant control (supervisory
 load controller). This is active when $K_{I,MW}$ is not equal to
 zero. It is a slow acting reset control and it adjusts the speed/load
@@ -95,10 +95,10 @@ reference of the turbine governor to maintain the electrical power of
 the unit at the value which it has been initialized with. That value is
 stored in $P_{MW,set}$ when the model is initialized, and can be
 changed during simulation. The load controller is expected to have a
-slow reaction compared to the speed governor. [3]
+slow reaction compared to the speed governor. [@IEC61970-302-2023]
 
 A value $K_{I,MW}$ = to 0.01 corresponds to a time constant of
-100 s; 0.001 corresponds to 1000 s (relatively slow acting) [3].
+100 s; 0.001 corresponds to 1000 s (relatively slow acting) [@IEC61970-302-2023].
 
 **Acceleration (fsra)**
 
@@ -107,10 +107,10 @@ A value $K_{I,MW}$ = to 0.01 corresponds to a time constant of
 > smaller power systems with large frequency variations. If the
 > generating unit begins to accelerate at a rate over
 > [$a_{set}$] ($pu/s^2$) then this control loop acts to limit
-> fuel flow. [1]
+> fuel flow. [@Machowski2020]
 
 It can be disabled by setting $a_{set}$ to a large value, such
-as 1. [3]
+as 1. [@IEC61970-302-2023]
 
 **Temperature (fsrt) / load limit**
 
@@ -122,68 +122,68 @@ constant for temperature (or power or which ever signal is being
 modelled). Additionally, the gains of the limiter, $K_{P,load}$
 and $K_{I,load}$, should be set to achieve fast and stable
 control when the limit $P_{ldref}$ is reached. To deactivate the
-load limit, set the parameter $P_{ldref}$ to a high value [3].
+load limit, set the parameter $P_{ldref}$ to a high value [@IEC61970-302-2023].
 
 The lead-lag block with $T_{sa}$ and $T_{sb}$ can be used
 to model the exhaust gas temperature measurement system in gas turbines.
 A "radiation shield" component of larger gas turbines can be modeled by
 setting $T_{sa}=4\,s$ and $T_{sb}=5\,s$,
-for example [3].
+for example [@IEC61970-302-2023].
 
 > The temperature limit [tlim] in $pu$ corresponds to the fuel flow
-> required for 1 $pu$ turbine power. [1]
+> required for 1 $pu$ turbine power. [@Machowski2020]
 
 #### Turbine/engine model
 
 The output from the low value select block is given to the first order
-lag element representing the fuel or gate system (Valve). [1]
+lag element representing the fuel or gate system (Valve). [@Machowski2020]
 
 $V_{max}$ and $V_{min}$ represent the maximum and minimum
 fuel valve opening. $W_{fspd}$ is the fuel flow multiplyer.
 
-$W_{fnl}$ is the fuel required to run the compensator [1].
+$W_{fnl}$ is the fuel required to run the compensator [@Machowski2020].
 
 The range of fuel valve travel and of fuel flow is unity, so the limits
 lie between 0 $pu$ and 1 $pu$. $V_{max}$ can be reduced below 1, for
 example to model a load limit defined by the operator or supervisory
-controller [3]. Additionally there is a dynamic frequency dependent
-limit reduction, see **Frequency dependent (valve) limit** section.
+controller [@IEC61970-302-2023]. Additionally there is a dynamic frequency dependent
+limit reduction, see [Frequency dependent (valve) limit](#frequency-dependent-valve-limit) section.
 
 For a gas turbine, in the presence of a minimum firing limit,
 $V_{min}$ normally is set greater than zero and less than
-$W_{fnl}$ [3].
+$W_{fnl}$ [@IEC61970-302-2023].
 
 The value of the fuel flow at maximum power shall be $\leq 1$, depending
-on the value of $K_{turb}$ [3]. It translates the fuel
-consumption (or water flow) to mechanical power output [1].
+on the value of $K_{turb}$ [@IEC61970-302-2023]. It translates the fuel
+consumption (or water flow) to mechanical power output [@Machowski2020].
 
 The time delay $e^{-sT_{eng}}$ is used in representing diesel
 engines where there is a small but measurable transport delay between a
 change in fuel flow setting and the development of torque.
 $T_{eng}$ should be zero in all but special cases where this
-transport delay is of particular concern [3].
+transport delay is of particular concern [@IEC61970-302-2023].
 
 The switch $W_{fspd}$ is responsible for recognizing whether fuel
 flow, for a given fuel valve stroke, is be proportional to engine speed
-[3]. If True, fuel flow is proportional to speed. This is applicable
+[@IEC61970-302-2023]. If True, fuel flow is proportional to speed. This is applicable
 for some gas turbines and diesel engines with positive displacement fuel
 injectors. If false, the fuel control system keeps fuel flow independent
 of engine speed.
 
 **Speed sensitivity / Damping**
 
-If $D_m=0$, the speed sensitivity paths are not active. [3]
+If $D_m=0$, the speed sensitivity paths are not active. [@IEC61970-302-2023]
 
 If $D_m>0$, it models friction losses (variation of the engine
 power with the shaft speed; slightly increasing losses with increasing
 speed are characteristic for reciprocating engines and some
-aeroderivative turbines [3]).
+aeroderivative turbines [@IEC61970-302-2023]).
 
 If $D_m<0$, it can model an influence of rotation speed on
 exhaust temperature using an exponential characteristic determined by
 $D_m$. The maximum permissible fuel flow falls with falling
 speed (typical for single-shaft industrial turbines due to exhaust
-temperature limits) [3]. The authors suspect that this could represent
+temperature limits) [@IEC61970-302-2023]. The authors suspect that this could represent
 fan cooling.
 
 #### Frequency dependent (valve) limit
@@ -211,9 +211,9 @@ $V_{max,\omega} = (P_{lim} / K_{turb} + W_{fnl})$.
 
 $P_{lim}$ will then change with frequency. If f rises above
 $P_{lim,1}$ again, $V_{max,\omega}$ ramps back to
-$V_{max}$ [3].
+$V_{max}$ [@IEC61970-302-2023].
 
-![Frequency dependent valve limit as described in [3]](drawings/GovCT2.frequencylimit.drawio.svg){#fig-frequencyDependentLimit}
+![Frequency dependent valve limit as described in [@IEC61970-302-2023]](drawings/GovCT2.frequencylimit.drawio.svg){#fig-frequencyDependentLimit}
 
 ### Parameters
 
@@ -227,7 +227,7 @@ acceleration parameters are based on the nominal frequency of the grid
 | name                          | type  | unit | IEC name     | description                                                                                                | typical value |
 | :---------------------------- | :---- | :----- | :----------- | :--------------------------------------------------------------------------------------------------------- | :------------ |
 | $a_{set}$            | float | $pu/s$   | $Aset$         | Acceleration limiter setpoint                                                                              | $10$            |
-| $\Delta\omega_{db}$  | float | $pu$     | $db$           | Frequency error deadband. Recommended to be =0 in most applications [3]                                    | $0$             |
+| $\Delta\omega_{db}$  | float | $pu$     | $db$           | Frequency error deadband. Recommended to be =0 in most applications [@IEC61970-302-2023]                                    | $0$             |
 | $\Delta\omega_{max}$ | float | $pu$     | $Maxerr$       | Maximum value for frequency error                                                                          | $1$             |
 | $\Delta\omega_{min}$ | float | $pu$     | $Minerr$       | Minimum value for frequency error                                                                          | $-1$            |
 | $\Delta t$                  | float | $s$      | $\Delta t$ | Correction factor to adapt the unit of $K_a$ from $pu/s$ to $pu$                                    | $1$             |

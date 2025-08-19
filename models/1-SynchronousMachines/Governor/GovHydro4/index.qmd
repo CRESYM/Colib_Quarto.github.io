@@ -13,7 +13,7 @@ bibliography: ../../../../_bibliography/references.bib
 
 ## Context
 
-The following information has been gathered from [1], [2] and [3].
+The following information has been gathered from @Kundur1994, @Neplan2015 and @IECCIMForDynamics2024.
 
 In a hydroelectric power plant, the governing system's main function is
 to control the speed or load of the turbine by the means of gate
@@ -22,14 +22,14 @@ mechanical energy, which is then converted into electrical energy by a
 synchronous generator. The governor monitors the speed of the turbine
 and adjusts the position of the gates that control the water flow to
 keep the speed steady. It does this by comparing the actual speed with
-the desired speed and making changes accordingly [1].
+the desired speed and making changes accordingly @Kundur1994.
 
-For more details also see [4] and [5].
+For more details also see @PESTR12013 and @Feltes2013.
 
 ### Types of turbines
 
 Turbines used in the hydro power plants are mainly classified into two
-types [1]:
+types @Kundur1994:
 
 - **Impulse turbines** like the Pelton wheel and simple turbine, are
   used for high heads, typically 300 meters or more. They work by
@@ -47,7 +47,7 @@ governors.
 ## Model use, assumptions, validity domain and limitations
 
 GovHydro4 is a general model that can be used to represent simple,
-Francis/Pelton or Kaplan turbines [3].
+Francis/Pelton or Kaplan turbines @IECCIMForDynamics2024.
 
 The model is a positive-sequence RMS model, hence it assumes symmetrical
 operating conditions and neglects high-frequency dynamics. This type of
@@ -63,7 +63,7 @@ greater than zero, and typically remain below 1 $pu$ when power is at 1
 $pu$. The operating limits are defined by $G_{max}$ and $G_{min}$.
 
 The dynamic analysis of hydraulic turbines is typically based on the
-following assumptions regarding the stability of the water column [1]:
+following assumptions regarding the stability of the water column @Kundur1994:
 
 - Hydraulic resistance is considered negligible.
 - The penstock pipe is assumed to be inelastic, and the water is treated
@@ -95,7 +95,7 @@ following assumptions regarding the stability of the water column [1]:
   opening-to-blade angle.
 
 
-![The gate-head-flow-power characteristics for a kaplan turbine model [3]](drawings/fig-gate-head-flow-characteristics-output-1.png){#fig-gate-head-flow-characteristics}
+![The gate-head-flow-power characteristics for a kaplan turbine model [@IECCIMForDynamics2024]](drawings/fig-gate-head-flow-characteristics-output-1.png){#fig-gate-head-flow-characteristics}
 
 ::: {#tbl-gate-head-flow-characteristics}
 
@@ -116,7 +116,7 @@ Gate head flow characteristics
 
 **Note:** The output signal of the lookup-table actually represents a flow rate,
 not a power value ($q_f$ in @fig-control_diagram).
-Since in [3] the power variable $P_{gv}$ is used instead,
+Since in @IECCIMForDynamics2024 the power variable $P_{gv}$ is used instead,
 this is also used here in @fig-gate-head-flow-characteristics and @tbl-turb_parameters
 
 ### Transient droop
@@ -133,7 +133,7 @@ adjust. As the system stabilizes, the governor returns to normal
 operation with permanent droop $R_{perm}$, responding more
 sensitively to speed deviations to maintain steady-state operation. This
 compensation mechanism ensures stable control performance, crucial for
-maintaining the stability of hydroelectric power plants [1].
+maintaining the stability of hydroelectric power plants @Kundur1994.
 
 ### Dead bands
 
@@ -143,7 +143,7 @@ the unintentional deadband ($\Delta P_{db}$). The former is
 intentionally added to the control to prevent continuous adjustment of
 the mechanical power in response to minor frequency deviations. It has a
 fixed region with zero output. The latter implements a hysteresis around
-the operating point, representing backlash of the mechanical actuator [5].
+the operating point, representing backlash of the mechanical actuator @Feltes2013.
 
 ## Model schema
 
