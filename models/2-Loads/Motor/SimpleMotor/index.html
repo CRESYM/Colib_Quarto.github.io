@@ -22,7 +22,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -1119,7 +1138,7 @@ window.Quarto = {
   <li><a href="#equations" id="toc-equations" class="nav-link" data-scroll-target="#equations">Equations</a></li>
   </ul></li>
   <li><a href="#open-source-implementations" id="toc-open-source-implementations" class="nav-link" data-scroll-target="#open-source-implementations">Open source implementations</a></li>
-  <li><a href="#table-of-references" id="toc-table-of-references" class="nav-link" data-scroll-target="#table-of-references">Table of references</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -1166,7 +1185,7 @@ window.Quarto = {
 
 <section id="context" class="level2">
 <h2 class="anchored" data-anchor-id="context">Context</h2>
-<p>Motors are a particular kind of load that can account for a large share of the total load especially in industrialised countries. Adequate representation of motors is important, especially in short-term voltage stability studies as motors can cause fault-induced delayed voltage recovery. This page presents a single-cage induction motor model based on the textbook three-phase induction motor equivalent circuit <a href="#1">[1]</a>.</p>
+<p>Motors are a particular kind of load that can account for a large share of the total load especially in industrialised countries. Adequate representation of motors is important, especially in short-term voltage stability studies as motors can cause fault-induced delayed voltage recovery. This page presents a single-cage induction motor model based on the textbook three-phase induction motor equivalent circuit <span class="citation" data-cites="Guru2001">[<a href="#ref-Guru2001" role="doc-biblioref">1</a>]</span>.</p>
 </section>
 <section id="model-use-assumptions-validity-domain-and-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
@@ -1340,11 +1359,10 @@ C_e = R_r * \frac{\left|I_r\right|^2}{\omega_s s}\\
 C_l = C_{l, 0} \left(\frac{\omega}{\omega_0}\right)^\eta\\
 \end{align}
 \]</span></p>
-</section></section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main></div>
-
-
+</section>
+</section>
 <section id="open-source-implementations" class="level2">
-<h2 data-anchor-id="open-source-implementations">Open source implementations</h2>
+<h2 class="anchored" data-anchor-id="open-source-implementations">Open source implementations</h2>
 <p>This model has been successfully implemented in :</p>
 <table class="caption-top table">
 <thead>
@@ -1369,14 +1387,18 @@ C_l = C_{l, 0} \left(\frac{\omega}{\omega_0}\right)^\eta\\
 </tbody>
 </table>
 </section>
-<section id="table-of-references" class="level2">
-<h2 data-anchor-id="table-of-references">Table of references</h2>
-<p><a id="1">[1]</a> Guru, B. S.; Warrier, R. K. “Electric Machinery and Transformers”, 3th ed., New York, United States, 2001, Oxford University Press</p>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-Guru2001" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Guru BS, Warrier RK (2001) Electric machinery and transformers, 3rd ed. Oxford University Press, New York, United States</div>
+</div>
+</div>
 
 
 </section>
 
- <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1776,7 +1798,7 @@ C_l = C_{l, 0} \left(\frac{\omega}{\omega_0}\right)^\eta\\
     }
   });
   </script>
- <!-- /content -->
+</div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">

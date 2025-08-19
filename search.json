@@ -4838,11 +4838,11 @@
     ]
   },
   {
-    "objectID": "models/2-Loads/Motor/SimpleMotor/index.html#table-of-references",
-    "href": "models/2-Loads/Motor/SimpleMotor/index.html#table-of-references",
+    "objectID": "models/2-Loads/Motor/SimpleMotor/index.html#references",
+    "href": "models/2-Loads/Motor/SimpleMotor/index.html#references",
     "title": "Single-cage induction motor model",
-    "section": "Table of references",
-    "text": "Table of references\n[1] Guru, B. S.; Warrier, R. K. “Electric Machinery and Transformers”, 3th ed., New York, United States, 2001, Oxford University Press",
+    "section": "References",
+    "text": "References\n\n\n1. Guru BS, Warrier RK (2001) Electric machinery and transformers, 3rd ed. Oxford University Press, New York, United States",
     "crumbs": [
       "Models",
       "Loads",
