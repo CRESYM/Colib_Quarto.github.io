@@ -22,7 +22,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -1189,12 +1208,12 @@ window.Quarto = {
 
 <section id="context" class="level2">
 <h2 class="anchored" data-anchor-id="context">Context</h2>
-<p>The following information has been gathered from [1], [2] and [3].</p>
-<p>In a hydroelectric power plant, the governing system’s main function is to control the speed or load of the turbine by the means of gate opening. The prime movers convert the kinetic energy of the water into mechanical energy, which is then converted into electrical energy by a synchronous generator. The governor monitors the speed of the turbine and adjusts the position of the gates that control the water flow to keep the speed steady. It does this by comparing the actual speed with the desired speed and making changes accordingly [1].</p>
-<p>For more details also see [4] and [5].</p>
+<p>The following information has been gathered from <span class="citation" data-cites="Kundur1994">[<a href="#ref-Kundur1994" role="doc-biblioref">1</a>]</span>, <span class="citation" data-cites="Neplan2015">[<a href="#ref-Neplan2015" role="doc-biblioref">2</a>]</span> and <span class="citation" data-cites="IECCIMForDynamics2024">[<a href="#ref-IECCIMForDynamics2024" role="doc-biblioref">3</a>]</span>.</p>
+<p>In a hydroelectric power plant, the governing system’s main function is to control the speed or load of the turbine by the means of gate opening. The prime movers convert the kinetic energy of the water into mechanical energy, which is then converted into electrical energy by a synchronous generator. The governor monitors the speed of the turbine and adjusts the position of the gates that control the water flow to keep the speed steady. It does this by comparing the actual speed with the desired speed and making changes accordingly <span class="citation" data-cites="Kundur1994">[<a href="#ref-Kundur1994" role="doc-biblioref">1</a>]</span>.</p>
+<p>For more details also see <span class="citation" data-cites="PESTR12013">[<a href="#ref-PESTR12013" role="doc-biblioref">4</a>]</span> and <span class="citation" data-cites="Feltes2013">[<a href="#ref-Feltes2013" role="doc-biblioref">5</a>]</span>.</p>
 <section id="types-of-turbines" class="level3">
 <h3 class="anchored" data-anchor-id="types-of-turbines">Types of turbines</h3>
-<p>Turbines used in the hydro power plants are mainly classified into two types [1]:</p>
+<p>Turbines used in the hydro power plants are mainly classified into two types <span class="citation" data-cites="Kundur1994">[<a href="#ref-Kundur1994" role="doc-biblioref">1</a>]</span>:</p>
 <ul>
 <li><strong>Impulse turbines</strong> like the Pelton wheel and simple turbine, are used for high heads, typically 300 meters or more. They work by directing high-velocity water jets onto spoon-shaped buckets on a runner, converting potential energy to kinetic energy entirely at atmospheric pressure.</li>
 <li><strong>Reaction turbines</strong> such as the Francis and propeller turbines work with water’s kinetic and potential energy. In the Francis turbine, water flows axially through guide vanes, impacting the runner tangentially, suitable for heads up to 360 meters.</li>
@@ -1204,10 +1223,10 @@ window.Quarto = {
 </section>
 <section id="model-use-assumptions-validity-domain-and-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
-<p>GovHydro4 is a general model that can be used to represent simple, Francis/Pelton or Kaplan turbines [3].</p>
+<p>GovHydro4 is a general model that can be used to represent simple, Francis/Pelton or Kaplan turbines <span class="citation" data-cites="IECCIMForDynamics2024">[<a href="#ref-IECCIMForDynamics2024" role="doc-biblioref">3</a>]</span>.</p>
 <p>The model is a positive-sequence RMS model, hence it assumes symmetrical operating conditions and neglects high-frequency dynamics. This type of model is often used in large-scale stability studies, for which it reflects the relevant phenomena. It is not a detailed physical model of the unit. Also for some stability phenomena (e.g.&nbsp;resonance stability) this model is not sufficient and EMT models or other approaches may be necessary.</p>
 <p>The gates operate within a range of 0 to 1 <span class="math inline">\(pu\)</span>, transitioning from fully closed to fully open. At zero power, the gates maintain a position greater than zero, and typically remain below 1 <span class="math inline">\(pu\)</span> when power is at 1 <span class="math inline">\(pu\)</span>. The operating limits are defined by <span class="math inline">\(G_{max}\)</span> and <span class="math inline">\(G_{min}\)</span>.</p>
-<p>The dynamic analysis of hydraulic turbines is typically based on the following assumptions regarding the stability of the water column [1]:</p>
+<p>The dynamic analysis of hydraulic turbines is typically based on the following assumptions regarding the stability of the water column <span class="citation" data-cites="Kundur1994">[<a href="#ref-Kundur1994" role="doc-biblioref">1</a>]</span>:</p>
 <ul>
 <li>Hydraulic resistance is considered negligible.</li>
 <li>The penstock pipe is assumed to be inelastic, and the water is treated as incompressible.</li>
@@ -1236,7 +1255,7 @@ window.Quarto = {
 <img src="drawings/fig-gate-head-flow-characteristics-output-1.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gate-head-flow-characteristics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: The gate-head-flow-power characteristics for a kaplan turbine model [3]
+Figure&nbsp;1: The gate-head-flow-power characteristics for a kaplan turbine model <span class="citation" data-cites="IECCIMForDynamics2024">[<a href="#ref-IECCIMForDynamics2024" role="doc-biblioref">3</a>]</span>
 </figcaption>
 </figure>
 </div>
@@ -1309,15 +1328,15 @@ Table&nbsp;1: Gate head flow characteristics
 </div>
 </figure>
 </div>
-<p><strong>Note:</strong> The output signal of the lookup-table actually represents a flow rate, not a power value (<span class="math inline">\(q_f\)</span> in <a href="#fig-control_diagram" class="quarto-xref">Figure&nbsp;2</a>). Since in [3] the power variable <span class="math inline">\(P_{gv}\)</span> is used instead, this is also used here in 1 and <a href="#tbl-turb_parameters" class="quarto-xref">Table&nbsp;3</a></p>
+<p><strong>Note:</strong> The output signal of the lookup-table actually represents a flow rate, not a power value (<span class="math inline">\(q_f\)</span> in <a href="#fig-control_diagram" class="quarto-xref">Figure&nbsp;2</a>). Since in <span class="citation" data-cites="IECCIMForDynamics2024">[<a href="#ref-IECCIMForDynamics2024" role="doc-biblioref">3</a>]</span> the power variable <span class="math inline">\(P_{gv}\)</span> is used instead, this is also used here in 1 and <a href="#tbl-turb_parameters" class="quarto-xref">Table&nbsp;3</a></p>
 </section>
 <section id="transient-droop" class="level3">
 <h3 class="anchored" data-anchor-id="transient-droop">Transient droop</h3>
-<p>Hydro power turbines have a unique behavior, where adjusting the gate position for controlling water flow results in an immediate but temporary change in turbine power output to the opposite direction, known as non-minimum phase behavior. To address this, a mechanism called transient droop compensation is employed. This mechanism, which shown in the upper half of the <a href="#fig-control_diagram" class="quarto-xref">Figure&nbsp;2</a>, involves rate feedback or transient gain reduction, which slows down or limits gate movement until water flow and power output have had time to adjust. As the system stabilizes, the governor returns to normal operation with permanent droop <span class="math inline">\(R_{perm}\)</span>, responding more sensitively to speed deviations to maintain steady-state operation. This compensation mechanism ensures stable control performance, crucial for maintaining the stability of hydroelectric power plants [1].</p>
+<p>Hydro power turbines have a unique behavior, where adjusting the gate position for controlling water flow results in an immediate but temporary change in turbine power output to the opposite direction, known as non-minimum phase behavior. To address this, a mechanism called transient droop compensation is employed. This mechanism, which shown in the upper half of the <a href="#fig-control_diagram" class="quarto-xref">Figure&nbsp;2</a>, involves rate feedback or transient gain reduction, which slows down or limits gate movement until water flow and power output have had time to adjust. As the system stabilizes, the governor returns to normal operation with permanent droop <span class="math inline">\(R_{perm}\)</span>, responding more sensitively to speed deviations to maintain steady-state operation. This compensation mechanism ensures stable control performance, crucial for maintaining the stability of hydroelectric power plants <span class="citation" data-cites="Kundur1994">[<a href="#ref-Kundur1994" role="doc-biblioref">1</a>]</span>.</p>
 </section>
 <section id="dead-bands" class="level3">
 <h3 class="anchored" data-anchor-id="dead-bands">Dead bands</h3>
-<p>There is a difference between the intentional deadband (<span class="math inline">\(\Delta \omega_{db}\)</span>, <span class="math inline">\(\Delta \omega_{\varepsilon}\)</span>) and the unintentional deadband (<span class="math inline">\(\Delta P_{db}\)</span>). The former is intentionally added to the control to prevent continuous adjustment of the mechanical power in response to minor frequency deviations. It has a fixed region with zero output. The latter implements a hysteresis around the operating point, representing backlash of the mechanical actuator [5].</p>
+<p>There is a difference between the intentional deadband (<span class="math inline">\(\Delta \omega_{db}\)</span>, <span class="math inline">\(\Delta \omega_{\varepsilon}\)</span>) and the unintentional deadband (<span class="math inline">\(\Delta P_{db}\)</span>). The former is intentionally added to the control to prevent continuous adjustment of the mechanical power in response to minor frequency deviations. It has a fixed region with zero output. The latter implements a hysteresis around the operating point, representing backlash of the mechanical actuator <span class="citation" data-cites="Feltes2013">[<a href="#ref-Feltes2013" role="doc-biblioref">5</a>]</span>.</p>
 </section>
 </section>
 <section id="model-schema" class="level2">
@@ -1708,12 +1727,29 @@ Table&nbsp;5: Outputs
 </table>
 </section>
 <section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
+
+
 
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-Kundur1994" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Kundur P (1994) Power system stability and control. McGraw-Hill Education Ltd, New York</div>
+</div>
+<div id="ref-Neplan2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">(2015) <a href="https://www.neplan.ch">TURBINE-GOVERNOR MODELS – standard dynamic turbine-governor systems in NEPLAN power system analysis tool</a>. Neplan</div>
+</div>
+<div id="ref-IECCIMForDynamics2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Commission IE (2024) <a href="https://webstore.iec.ch/preview/info_iec61970-302%7Bed2.0%7Db.pdf">Energy management system application program interface (EMS-API) part 302: Common information model (CIM) dynamics</a>. IEC 61970-302</div>
+</div>
+<div id="ref-PESTR12013" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Task Force on Turbine-Governor Modeling P system dynamic performance committee (2013) <a href="https://site.ieee.org/fw-pes/files/2013/01/PES_TR1.pdf">Dynamic models for turbine-governors in power system studies</a>. IEEE Power &amp; Energy Society PES-TR1 Technical report</div>
+</div>
+<div id="ref-Feltes2013" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">Feltes J, Grande-Moran C, Guzowski C, et al (2013) <a href="https://doi.org/10.2172/1098022">Review of existing hydroelectric turbine-governor simulation models</a>. Argonne National Laboratory</div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

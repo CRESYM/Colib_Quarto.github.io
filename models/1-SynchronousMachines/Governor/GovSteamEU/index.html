@@ -22,7 +22,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -1187,12 +1206,12 @@ window.Quarto = {
 <section id="context" class="level2">
 <h2 class="anchored" data-anchor-id="context">Context</h2>
 <p>The traditional operation of electrical power systems depends on the performance of the synchronous generators of thermal plants, typically driven by various types of turbines such as steam, gas, or hydro turbines. Steam turbines are commonly found in coal, oil, and nuclear power plants. The process begins with the generation of high-pressure high-temperature steam in a boiler. A governor regulates the mechanical power (<span class="math inline">\(P_m\)</span>) delivered from the turbine to the electrical generator. Modern governors with electro-hydraulic control, like the GovSteamEU, evolved from governors with mechanical-hydraulic control.</p>
-<p>GovSteamEU is documented in [1]. Many aspects of modeling steam governors with electro-hydraulic control are already explained in a 1973 IEEE report [2].</p>
+<p>GovSteamEU is documented in <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">1</a>]</span>. Many aspects of modeling steam governors with electro-hydraulic control are already explained in a 1973 IEEE report <span class="citation" data-cites="IEEE1973SteamHydro">[<a href="#ref-IEEE1973SteamHydro" role="doc-biblioref">2</a>]</span>.</p>
 </section>
 <section id="model-use-assumptions-validity-domain-and-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
 <p>The model is a positive-sequence RMS model, hence it assumes symmetrical operating conditions and neglects high-frequency dynamics. This type of model is often used in large-scale stability studies, for which it reflects the relevant phenomena. It is not a detailed physical model of the unit. Also for some stability phenomena (e.g.&nbsp;resonance stability) this model is not sufficient and EMT models or other approaches may be necessary .</p>
-<p>The model operates only under the assumption that resistive and mechanical losses are negligible, and in steady state condition <span class="math inline">\(P_{e} = P_{m}\)</span>. This assumes that mechanical losses do not have any major effect on dynamic stability [1].</p>
+<p>The model operates only under the assumption that resistive and mechanical losses are negligible, and in steady state condition <span class="math inline">\(P_{e} = P_{m}\)</span>. This assumes that mechanical losses do not have any major effect on dynamic stability <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">1</a>]</span>.</p>
 </section>
 <section id="model-schema" class="level2">
 <h2 class="anchored" data-anchor-id="model-schema">Model schema</h2>
@@ -1202,7 +1221,7 @@ window.Quarto = {
 <img src="./drawings/GovSteamEU.drawio.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-control_diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Model schema, based on [1] and [3]
+Figure&nbsp;1: Model schema, based on <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">1</a>]</span> and <span class="citation" data-cites="Neplan2015">[<a href="#ref-Neplan2015" role="doc-biblioref">3</a>]</span>
 </figcaption>
 </figure>
 </div>
@@ -1221,34 +1240,34 @@ Figure&nbsp;2: Steam turbine with high pressure (HP) and low pressure (LP) part
 <h2 class="anchored" data-anchor-id="model-description">Model description</h2>
 <section id="turbine-model" class="level3">
 <h3 class="anchored" data-anchor-id="turbine-model">Turbine model</h3>
-<p>The turbine model is the mechanical part of the model with boiler, high pressure (HP) turbine and low pressure (LP) turbine [4]. Its output is the mechanical power <span class="math inline">\(P_{m}\)</span>. A schematic representation of a steam turbine with HP and LP part is shown in <a href="#fig-Steam_turbine_configuration" class="quarto-xref">Figure&nbsp;2</a>. The HP stage’s single-triangle symbol and the LP stage’s double-triangle symbol represent the fact that in the HP stage steam expands in only one direction whereas in the LP stage it expands in two directions [5].</p>
+<p>The turbine model is the mechanical part of the model with boiler, high pressure (HP) turbine and low pressure (LP) turbine <span class="citation" data-cites="Kundur1994">[<a href="#ref-Kundur1994" role="doc-biblioref">4</a>]</span>. Its output is the mechanical power <span class="math inline">\(P_{m}\)</span>. A schematic representation of a steam turbine with HP and LP part is shown in <a href="#fig-Steam_turbine_configuration" class="quarto-xref">Figure&nbsp;2</a>. The HP stage’s single-triangle symbol and the LP stage’s double-triangle symbol represent the fact that in the HP stage steam expands in only one direction whereas in the LP stage it expands in two directions <span class="citation" data-cites="Armbruster1996">[<a href="#ref-Armbruster1996" role="doc-biblioref">5</a>]</span>.</p>
 <section id="boiler" class="level4">
 <h4 class="anchored" data-anchor-id="boiler">Boiler</h4>
 <p>The boiler is responsible for converting water into high-pressure, high-temperature steam. In normal operation <span class="math inline">\(P_{set}\)</span> is used as the boiler set-point <span class="math inline">\(P_{set,boiler}\)</span>, i.e.&nbsp;the heat supplied to the boiler. In over speed situation, the emergency speed control signal is used instead, see <strong>Emergency speed control and intercept valve (IV)</strong> section.</p>
-<p>The boiler output, i.e.&nbsp;the amount of steam supplied from the boiler to the turbine, is manipulated by the control valves [4].</p>
+<p>The boiler output, i.e.&nbsp;the amount of steam supplied from the boiler to the turbine, is manipulated by the control valves <span class="citation" data-cites="Kundur1994">[<a href="#ref-Kundur1994" role="doc-biblioref">4</a>]</span>.</p>
 </section>
 <section id="high-pressure-hp-and-low-pressure-lp-turbine-stages" class="level4">
 <h4 class="anchored" data-anchor-id="high-pressure-hp-and-low-pressure-lp-turbine-stages">High-Pressure (HP) and low pressure (LP) turbine stages</h4>
 <p>The HP and LP stages are modeled by a first order elements and gains <span class="math inline">\(T_{hp}\)</span>, <span class="math inline">\(K_{hp}\)</span> and <span class="math inline">\(T_{lp}\)</span>, <span class="math inline">\(K_{lp}\)</span>.</p>
 <p>Steam power from the boiler enters the HP stage and is partly converted into mechanical power. The steam output from the HP stage then enters the reheater. Because the HP stage’s dynamic response is relevant here, the output of the <span class="math inline">\(T_{hp}\)</span> lag element is used as input, but without the gain <span class="math inline">\(K_{hp}\)</span>.</p>
 <p>Before entering the LP stage, the output steam from the HP stage must be reheated to prevent any water droplets from entering and to increase efficiency. The reheater is also modeled by a first order element with time constant <span class="math inline">\(T_{rh}\)</span>.</p>
-<p>From there the reheated steam passes the intercept valve and enters the LP stage. Here, the first order element directly contains the gain <span class="math inline">\(K_{lp}\)</span>, because only the generated power is of interest (the dynamic behaviour of the steam flow without gain is not necessary because there is no other following turbine stage) [4].</p>
+<p>From there the reheated steam passes the intercept valve and enters the LP stage. Here, the first order element directly contains the gain <span class="math inline">\(K_{lp}\)</span>, because only the generated power is of interest (the dynamic behaviour of the steam flow without gain is not necessary because there is no other following turbine stage) <span class="citation" data-cites="Kundur1994">[<a href="#ref-Kundur1994" role="doc-biblioref">4</a>]</span>.</p>
 <p>The mechanical power output <span class="math inline">\(P_{m}\)</span> is the sum of the parts generated by the HP and LP turbine stages. To accurately represent this distribution, the gains for the HP and LP turbine stages must satisfy the following condition:</p>
 <p><span class="math display">\[K_{hp} + K_{lp}  = 1\]</span></p>
 </section>
 </section>
 <section id="control-paths" class="level3">
 <h3 class="anchored" data-anchor-id="control-paths">Control paths</h3>
-<p>The governor controller is responsible for regulating the steam flow to maintain the desired turbine speed or power output. It consists of two primary control paths [4], island and grid connected mode. They output the setpoint of the control valve’s position.</p>
+<p>The governor controller is responsible for regulating the steam flow to maintain the desired turbine speed or power output. It consists of two primary control paths <span class="citation" data-cites="Kundur1994">[<a href="#ref-Kundur1994" role="doc-biblioref">4</a>]</span>, island and grid connected mode. They output the setpoint of the control valve’s position.</p>
 <section id="island-mode-omega-part" class="level4">
 <h4 class="anchored" data-anchor-id="island-mode-omega-part">Island mode (<span class="math inline">\(\omega\)</span>-part)</h4>
-<p>In island mode, the input is the turbine’s rotational speed <span class="math inline">\(\omega\)</span>. It operates without connection to any external power grid, with the primary goal of maintaining a constant turbine speed. To achieve this, the measured turbine speed <span class="math inline">\(\omega\)</span> is subtracted from the reference speed <span class="math inline">\(\omega_{ref}\)</span> to obtain the error signal <span class="math inline">\(\Delta\omega\)</span>. After passing the dead-band <span class="math inline">\(\Delta \omega_{db}\)</span>, it is used as input for the proportional <span class="math inline">\(K_{\omega,cor}\)</span> [4] [6].</p>
+<p>In island mode, the input is the turbine’s rotational speed <span class="math inline">\(\omega\)</span>. It operates without connection to any external power grid, with the primary goal of maintaining a constant turbine speed. To achieve this, the measured turbine speed <span class="math inline">\(\omega\)</span> is subtracted from the reference speed <span class="math inline">\(\omega_{ref}\)</span> to obtain the error signal <span class="math inline">\(\Delta\omega\)</span>. After passing the dead-band <span class="math inline">\(\Delta \omega_{db}\)</span>, it is used as input for the proportional <span class="math inline">\(K_{\omega,cor}\)</span> <span class="citation" data-cites="Kundur1994">[<a href="#ref-Kundur1994" role="doc-biblioref">4</a>]</span> <span class="citation" data-cites="Machowski2020">[<a href="#ref-Machowski2020" role="doc-biblioref">6</a>]</span>.</p>
 <p>The output of the island mode does not pass through the electrohydraulic transducer because it is an analog/mechanical controller, whereas the output of the PID controller of the grid connected mode is an electric signal.</p>
 </section>
 <section id="grid-connected-mode-f-part" class="level4">
 <h4 class="anchored" data-anchor-id="grid-connected-mode-f-part">Grid connected mode (<span class="math inline">\(f\)</span>-part)</h4>
 <p>In grid connected mode, the input is the measured electrical frequency <span class="math inline">\(f\)</span>. The plant is linked to an upstream grid and contributes to overall grid stability. Here, frequency control is achieved through collective behavior; individual output adjustments are made via droop regulation.</p>
-<p>This is implemented via a proportional gain <span class="math inline">\(K_{f,cor}\)</span> with dead-band <span class="math inline">\(\Delta f_{db}\)</span> contributing to the power set-point <span class="math inline">\(P_{set}\)</span>. The measured power <span class="math inline">\(P_{e}\)</span> is then subtracted to obtain the error signal <span class="math inline">\(\Delta f\)</span> of the PID controller [4] [6].</p>
+<p>This is implemented via a proportional gain <span class="math inline">\(K_{f,cor}\)</span> with dead-band <span class="math inline">\(\Delta f_{db}\)</span> contributing to the power set-point <span class="math inline">\(P_{set}\)</span>. The measured power <span class="math inline">\(P_{e}\)</span> is then subtracted to obtain the error signal <span class="math inline">\(\Delta f\)</span> of the PID controller <span class="citation" data-cites="Kundur1994">[<a href="#ref-Kundur1994" role="doc-biblioref">4</a>]</span> <span class="citation" data-cites="Machowski2020">[<a href="#ref-Machowski2020" role="doc-biblioref">6</a>]</span>.</p>
 </section>
 <section id="emergency-speed-control-and-intercept-valve-iv" class="level4">
 <h4 class="anchored" data-anchor-id="emergency-speed-control-and-intercept-valve-iv">Emergency speed control and intercept valve (IV)</h4>
@@ -1258,9 +1277,9 @@ Figure&nbsp;2: Steam turbine with high pressure (HP) and low pressure (LP) part
 <p>This has the effect of reducing the control valve and boiler set-points (<span class="math inline">\(P_{set,ctrl}\)</span>, <span class="math inline">\(P_{set,boiler}\)</span>) fast, independently of what the controllers and the power set-point <span class="math inline">\(P_{set}\)</span> do.</p>
 <p>This fast reduction of <span class="math inline">\(P_{set,ctrl}\)</span> also affects the intercept valve model, see below.</p>
 <p><strong>Intercept valve (IV)</strong></p>
-<p>Intercept valves remain fully open (set-point and position = 1) for regular speed/load adjustments [4]. In overspeed situations, the intercept valve shall close quickly and then reopen once normal conditions are restored.</p>
+<p>Intercept valves remain fully open (set-point and position = 1) for regular speed/load adjustments <span class="citation" data-cites="Kundur1994">[<a href="#ref-Kundur1994" role="doc-biblioref">4</a>]</span>. In overspeed situations, the intercept valve shall close quickly and then reopen once normal conditions are restored.</p>
 <p>In this model, the intercept valve set-point is generated by the <em>intercept valves set-point generation</em> block. The input is the control valves input signal.</p>
-<p>If the control valve set-point <span class="math inline">\(P_{set,ctrl}\)</span> is above <span class="math inline">\(P_{simx}\)</span>, the output is 1. If <span class="math inline">\(P_{set,ctrl}\)</span> drops below, the output is reduced linearly until it reaches 0. In other implementations, a step to 0 is used instead of linear reduction as shown in the <a href="#fig-control_diagram" class="quarto-xref">Figure&nbsp;1</a> from [1].</p>
+<p>If the control valve set-point <span class="math inline">\(P_{set,ctrl}\)</span> is above <span class="math inline">\(P_{simx}\)</span>, the output is 1. If <span class="math inline">\(P_{set,ctrl}\)</span> drops below, the output is reduced linearly until it reaches 0. In other implementations, a step to 0 is used instead of linear reduction as shown in the <a href="#fig-control_diagram" class="quarto-xref">Figure&nbsp;1</a> from <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">1</a>]</span>.</p>
 <p>In combination with the emergency speed control block, this leads to a fast reduction of the intercept valve set-point in case of over speed and hence interrupting the steam flow into the LP turbine and quickly reducing <span class="math inline">\(P_{m}\)</span>.</p>
 </section>
 </section>
@@ -1271,7 +1290,7 @@ Figure&nbsp;2: Steam turbine with high pressure (HP) and low pressure (LP) part
 </section>
 <section id="parameters" class="level2">
 <h2 class="anchored" data-anchor-id="parameters">Parameters:</h2>
-<p>The parameters are based on [1] and [3].</p>
+<p>The parameters are based on <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">1</a>]</span> and <span class="citation" data-cites="Neplan2015">[<a href="#ref-Neplan2015" role="doc-biblioref">3</a>]</span>.</p>
 <p>Per-unit parameters are on base of <span class="math inline">\(P_{base}\)</span>, which is normally the capability of the turbine in MW.</p>
 <div id="tbl-parameters" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -1576,7 +1595,7 @@ Table&nbsp;1: Parameters
 </div>
 </figure>
 </div>
-<p><strong>Note:</strong> As stated in [1], to represent a turbine without a reheater, set <span class="math inline">\(T_{rh}\)</span> to a very small value (e.g.&nbsp;0 s or 0.001 s) and <span class="math inline">\(T_{lp} \approx\)</span> 0.5 s.</p>
+<p><strong>Note:</strong> As stated in <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">1</a>]</span>, to represent a turbine without a reheater, set <span class="math inline">\(T_{rh}\)</span> to a very small value (e.g.&nbsp;0 s or 0.001 s) and <span class="math inline">\(T_{lp} \approx\)</span> 0.5 s.</p>
 </section>
 <section id="variables" class="level2">
 <h2 class="anchored" data-anchor-id="variables">Variables</h2>
@@ -1744,12 +1763,32 @@ P_{c,0} = P_{m,0} - \min\left(\max\left(K_{\omega,cor} \cdot 1, \omega_{min}\rig
 </table>
 </section>
 <section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
+
+
 
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-IEC61970-302-2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">(2023) DIN EN IEC 61970-302 – schnittstelle für anwendungsprogramme für energiemanagementsysteme (EMS­API) teil 302: Allgemeines informationsmodell (CIM) dynamik. International Electrotechnical Commission</div>
+</div>
+<div id="ref-IEEE1973SteamHydro" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">IEEE Working Group on Prime Mover and Energy Supply Models for System Dynamic Performance Studies (1973) Dynamic models for steam and hydro turbines in power system studies. IEEE Transactions on Power Apparatus and Systems PAS-92(6):1904–1915. <a href="https://doi.org/10.1109/TPAS.1973.293570">https://doi.org/10.1109/TPAS.1973.293570</a></div>
+</div>
+<div id="ref-Neplan2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">(2015) <a href="https://www.neplan.ch">TURBINE-GOVERNOR MODELS – standard dynamic turbine-governor systems in NEPLAN power system analysis tool</a>. Neplan</div>
+</div>
+<div id="ref-Kundur1994" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Kundur P (1994) Power system stability and control. McGraw-Hill Education Ltd, New York</div>
+</div>
+<div id="ref-Armbruster1996" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">Armbruster SA (1996) <a href="https://doi.org/10.1007/978-1-4613-0427-2_8">Steam turbine generators</a>. In: Power plant engineering. Springer US, Boston, MA</div>
+</div>
+<div id="ref-Machowski2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Machowski J, Lubosny Z, Bialek JW, Bumby JR (2020) <a href="https://www.wiley.com/en-us/Power+System+Dynamics%3A+Stability+and+Control%2C+3rd+Edition-p-9781119526360">Power system dynamics: Stability and control, 3rd edition</a>. Wiley</div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

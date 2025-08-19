@@ -22,7 +22,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -1177,10 +1196,10 @@ window.Quarto = {
 <section id="context" class="level2">
 <h2 class="anchored" data-anchor-id="context">Context</h2>
 <p>In a power plant, a governor regulates the mechanical power (<span class="math inline">\(P_m\)</span>) or torque (<span class="math inline">\(T_m\)</span>) delivered from the turbine to the electrical generator. This governor model includes the turbine dynamics, i.e.&nbsp;it takes a reference power and generator speed and outputs the mechanical torque.</p>
-<p>This GovCT2 is a modification of the GovCT1 in order to represent the frequency-dependent fuel flow limit of a specific gas turbine manufacturer. Both are based on <em>Rowen’s model</em> from 1983 [1].</p>
+<p>This GovCT2 is a modification of the GovCT1 in order to represent the frequency-dependent fuel flow limit of a specific gas turbine manufacturer. Both are based on <em>Rowen’s model</em> from 1983 <span class="citation" data-cites="Machowski2020">[<a href="#ref-Machowski2020" role="doc-biblioref">1</a>]</span>.</p>
 <p>When comparing to older standards: GovCT2 is identical to GGOV2 and GovCT1 is identical to GGOV1.</p>
-<p>GovCT2 is part of the CIM/CGMES standard, see [2] and [3]. CIM is developed by ENTSO-E and aims at ensuring the reliability of grid models and market information exchanges. ENTSO-E developed CGMES as a superset of the IEC CIM standards (belonging to IEC CIM16) in 2013 to fulfill the requirements of transmission system operators and their data exchanges.</p>
-<p>The following information has been gathered from [2], [4] and [3].</p>
+<p>GovCT2 is part of the CIM/CGMES standard, see <span class="citation" data-cites="Alliander2024">[<a href="#ref-Alliander2024" role="doc-biblioref">2</a>]</span> and <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">3</a>]</span>. CIM is developed by ENTSO-E and aims at ensuring the reliability of grid models and market information exchanges. ENTSO-E developed CGMES as a superset of the IEC CIM standards (belonging to IEC CIM16) in 2013 to fulfill the requirements of transmission system operators and their data exchanges.</p>
+<p>The following information has been gathered from <span class="citation" data-cites="Alliander2024">[<a href="#ref-Alliander2024" role="doc-biblioref">2</a>]</span>, <span class="citation" data-cites="Neplan2015">[<a href="#ref-Neplan2015" role="doc-biblioref">4</a>]</span> and <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">3</a>]</span>.</p>
 </section>
 <section id="model-use-assumptions-validity-domain-and-limitations" class="level2">
 <h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
@@ -1213,48 +1232,48 @@ window.Quarto = {
 <img src="drawings/GovCT2.drawio.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-modelSchema-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Model schema, based on [3]
+Figure&nbsp;1: Model schema, based on <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">3</a>]</span>
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="major-control-paths" class="level3">
 <h3 class="anchored" data-anchor-id="major-control-paths">Major control paths</h3>
-<p>The following section is based on [1] (p.&nbsp;517f).</p>
+<p>The following section is based on <span class="citation" data-cites="Machowski2020">[<a href="#ref-Machowski2020" role="doc-biblioref">1</a>]</span> (p.&nbsp;517f).</p>
 <p>The model has three major control paths (speed/load, acceleration, temperature) associated with the dynamic response during disturbances. Outputs of these control functions are all inputs into a minimum value selector determining the least fuel request. This is then given to the actuator.</p>
 <section id="speedload-fsrn" class="level4">
 <h4 class="anchored" data-anchor-id="speedload-fsrn">Speed/load (fsrn)</h4>
 <p>This can be considered the main control path. It corresponds directly to the governor. The inputs are load demand <span class="math inline">\(P_{ref}\)</span>, rotor speed <span class="math inline">\(\omega\)</span> and automatic generation control power <span class="math inline">\(P_{MWSet}\)</span>.</p>
-<p>The resulting signal is then passed through a deadband, limits and a PID-controller. To represent a specific governor, some elements can be deactivated by setting parameters to zero (examples in [1]).</p>
+<p>The resulting signal is then passed through a deadband, limits and a PID-controller. To represent a specific governor, some elements can be deactivated by setting parameters to zero (examples in <span class="citation" data-cites="Machowski2020">[<a href="#ref-Machowski2020" role="doc-biblioref">1</a>]</span>).</p>
 <p><strong>Supervisory load controller</strong></p>
-<p>In [3] the <span class="math inline">\(P_{MWSet}\)</span> path is described as an optional additional outer loop associated with a power plant control (supervisory load controller). This is active when <span class="math inline">\(K_{I,MW}\)</span> is not equal to zero. It is a slow acting reset control and it adjusts the speed/load reference of the turbine governor to maintain the electrical power of the unit at the value which it has been initialized with. That value is stored in <span class="math inline">\(P_{MW,set}\)</span> when the model is initialized, and can be changed during simulation. The load controller is expected to have a slow reaction compared to the speed governor. [3]</p>
-<p>A value <span class="math inline">\(K_{I,MW}\)</span> = to 0.01 corresponds to a time constant of 100 s; 0.001 corresponds to 1000 s (relatively slow acting) [3].</p>
+<p>In <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">3</a>]</span> the <span class="math inline">\(P_{MWSet}\)</span> path is described as an optional additional outer loop associated with a power plant control (supervisory load controller). This is active when <span class="math inline">\(K_{I,MW}\)</span> is not equal to zero. It is a slow acting reset control and it adjusts the speed/load reference of the turbine governor to maintain the electrical power of the unit at the value which it has been initialized with. That value is stored in <span class="math inline">\(P_{MW,set}\)</span> when the model is initialized, and can be changed during simulation. The load controller is expected to have a slow reaction compared to the speed governor. <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">3</a>]</span></p>
+<p>A value <span class="math inline">\(K_{I,MW}\)</span> = to 0.01 corresponds to a time constant of 100 s; 0.001 corresponds to 1000 s (relatively slow acting) <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">3</a>]</span>.</p>
 <p><strong>Acceleration (fsra)</strong></p>
 <blockquote class="blockquote">
-<p>[…] for studies of large power systems, [the acceleration control loop] can be ignored. It is important for islanding studies and smaller power systems with large frequency variations. If the generating unit begins to accelerate at a rate over [<span class="math inline">\(a_{set}\)</span>] (<span class="math inline">\(pu/s^2\)</span>) then this control loop acts to limit fuel flow. [1]</p>
+<p>[…] for studies of large power systems, [the acceleration control loop] can be ignored. It is important for islanding studies and smaller power systems with large frequency variations. If the generating unit begins to accelerate at a rate over [<span class="math inline">\(a_{set}\)</span>] (<span class="math inline">\(pu/s^2\)</span>) then this control loop acts to limit fuel flow. <span class="citation" data-cites="Machowski2020">[<a href="#ref-Machowski2020" role="doc-biblioref">1</a>]</span></p>
 </blockquote>
-<p>It can be disabled by setting <span class="math inline">\(a_{set}\)</span> to a large value, such as 1. [3]</p>
+<p>It can be disabled by setting <span class="math inline">\(a_{set}\)</span> to a large value, such as 1. <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">3</a>]</span></p>
 <p><strong>Temperature (fsrt) / load limit</strong></p>
-<p>The load limiter module allows to set a maximum output limit <span class="math inline">\(P_{ldref}\)</span>. This can also model an exhaust temperature limit, in which case <span class="math inline">\(P_{ldref}\)</span> is not to be interpreted as a power value. The time constant <span class="math inline">\(T_{f,load}\)</span> should match the measurement time constant for temperature (or power or which ever signal is being modelled). Additionally, the gains of the limiter, <span class="math inline">\(K_{P,load}\)</span> and <span class="math inline">\(K_{I,load}\)</span>, should be set to achieve fast and stable control when the limit <span class="math inline">\(P_{ldref}\)</span> is reached. To deactivate the load limit, set the parameter <span class="math inline">\(P_{ldref}\)</span> to a high value [3].</p>
-<p>The lead-lag block with <span class="math inline">\(T_{sa}\)</span> and <span class="math inline">\(T_{sb}\)</span> can be used to model the exhaust gas temperature measurement system in gas turbines. A “radiation shield” component of larger gas turbines can be modeled by setting <span class="math inline">\(T_{sa}=4\,s\)</span> and <span class="math inline">\(T_{sb}=5\,s\)</span>, for example [3].</p>
+<p>The load limiter module allows to set a maximum output limit <span class="math inline">\(P_{ldref}\)</span>. This can also model an exhaust temperature limit, in which case <span class="math inline">\(P_{ldref}\)</span> is not to be interpreted as a power value. The time constant <span class="math inline">\(T_{f,load}\)</span> should match the measurement time constant for temperature (or power or which ever signal is being modelled). Additionally, the gains of the limiter, <span class="math inline">\(K_{P,load}\)</span> and <span class="math inline">\(K_{I,load}\)</span>, should be set to achieve fast and stable control when the limit <span class="math inline">\(P_{ldref}\)</span> is reached. To deactivate the load limit, set the parameter <span class="math inline">\(P_{ldref}\)</span> to a high value <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">3</a>]</span>.</p>
+<p>The lead-lag block with <span class="math inline">\(T_{sa}\)</span> and <span class="math inline">\(T_{sb}\)</span> can be used to model the exhaust gas temperature measurement system in gas turbines. A “radiation shield” component of larger gas turbines can be modeled by setting <span class="math inline">\(T_{sa}=4\,s\)</span> and <span class="math inline">\(T_{sb}=5\,s\)</span>, for example <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">3</a>]</span>.</p>
 <blockquote class="blockquote">
-<p>The temperature limit [tlim] in <span class="math inline">\(pu\)</span> corresponds to the fuel flow required for 1 <span class="math inline">\(pu\)</span> turbine power. [1]</p>
+<p>The temperature limit [tlim] in <span class="math inline">\(pu\)</span> corresponds to the fuel flow required for 1 <span class="math inline">\(pu\)</span> turbine power. <span class="citation" data-cites="Machowski2020">[<a href="#ref-Machowski2020" role="doc-biblioref">1</a>]</span></p>
 </blockquote>
 </section>
 <section id="turbineengine-model" class="level4">
 <h4 class="anchored" data-anchor-id="turbineengine-model">Turbine/engine model</h4>
-<p>The output from the low value select block is given to the first order lag element representing the fuel or gate system (Valve). [1]</p>
+<p>The output from the low value select block is given to the first order lag element representing the fuel or gate system (Valve). <span class="citation" data-cites="Machowski2020">[<a href="#ref-Machowski2020" role="doc-biblioref">1</a>]</span></p>
 <p><span class="math inline">\(V_{max}\)</span> and <span class="math inline">\(V_{min}\)</span> represent the maximum and minimum fuel valve opening. <span class="math inline">\(W_{fspd}\)</span> is the fuel flow multiplyer.</p>
-<p><span class="math inline">\(W_{fnl}\)</span> is the fuel required to run the compensator [1].</p>
-<p>The range of fuel valve travel and of fuel flow is unity, so the limits lie between 0 <span class="math inline">\(pu\)</span> and 1 <span class="math inline">\(pu\)</span>. <span class="math inline">\(V_{max}\)</span> can be reduced below 1, for example to model a load limit defined by the operator or supervisory controller [3]. Additionally there is a dynamic frequency dependent limit reduction, see <strong>Frequency dependent (valve) limit</strong> section.</p>
-<p>For a gas turbine, in the presence of a minimum firing limit, <span class="math inline">\(V_{min}\)</span> normally is set greater than zero and less than <span class="math inline">\(W_{fnl}\)</span> [3].</p>
-<p>The value of the fuel flow at maximum power shall be <span class="math inline">\(\leq 1\)</span>, depending on the value of <span class="math inline">\(K_{turb}\)</span> [3]. It translates the fuel consumption (or water flow) to mechanical power output [1].</p>
-<p>The time delay <span class="math inline">\(e^{-sT_{eng}}\)</span> is used in representing diesel engines where there is a small but measurable transport delay between a change in fuel flow setting and the development of torque. <span class="math inline">\(T_{eng}\)</span> should be zero in all but special cases where this transport delay is of particular concern [3].</p>
-<p>The switch <span class="math inline">\(W_{fspd}\)</span> is responsible for recognizing whether fuel flow, for a given fuel valve stroke, is be proportional to engine speed [3]. If True, fuel flow is proportional to speed. This is applicable for some gas turbines and diesel engines with positive displacement fuel injectors. If false, the fuel control system keeps fuel flow independent of engine speed.</p>
+<p><span class="math inline">\(W_{fnl}\)</span> is the fuel required to run the compensator <span class="citation" data-cites="Machowski2020">[<a href="#ref-Machowski2020" role="doc-biblioref">1</a>]</span>.</p>
+<p>The range of fuel valve travel and of fuel flow is unity, so the limits lie between 0 <span class="math inline">\(pu\)</span> and 1 <span class="math inline">\(pu\)</span>. <span class="math inline">\(V_{max}\)</span> can be reduced below 1, for example to model a load limit defined by the operator or supervisory controller <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">3</a>]</span>. Additionally there is a dynamic frequency dependent limit reduction, see <a href="#frequency-dependent-valve-limit">Frequency dependent (valve) limit</a> section.</p>
+<p>For a gas turbine, in the presence of a minimum firing limit, <span class="math inline">\(V_{min}\)</span> normally is set greater than zero and less than <span class="math inline">\(W_{fnl}\)</span> <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">3</a>]</span>.</p>
+<p>The value of the fuel flow at maximum power shall be <span class="math inline">\(\leq 1\)</span>, depending on the value of <span class="math inline">\(K_{turb}\)</span> <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">3</a>]</span>. It translates the fuel consumption (or water flow) to mechanical power output <span class="citation" data-cites="Machowski2020">[<a href="#ref-Machowski2020" role="doc-biblioref">1</a>]</span>.</p>
+<p>The time delay <span class="math inline">\(e^{-sT_{eng}}\)</span> is used in representing diesel engines where there is a small but measurable transport delay between a change in fuel flow setting and the development of torque. <span class="math inline">\(T_{eng}\)</span> should be zero in all but special cases where this transport delay is of particular concern <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">3</a>]</span>.</p>
+<p>The switch <span class="math inline">\(W_{fspd}\)</span> is responsible for recognizing whether fuel flow, for a given fuel valve stroke, is be proportional to engine speed <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">3</a>]</span>. If True, fuel flow is proportional to speed. This is applicable for some gas turbines and diesel engines with positive displacement fuel injectors. If false, the fuel control system keeps fuel flow independent of engine speed.</p>
 <p><strong>Speed sensitivity / Damping</strong></p>
-<p>If <span class="math inline">\(D_m=0\)</span>, the speed sensitivity paths are not active. [3]</p>
-<p>If <span class="math inline">\(D_m&gt;0\)</span>, it models friction losses (variation of the engine power with the shaft speed; slightly increasing losses with increasing speed are characteristic for reciprocating engines and some aeroderivative turbines [3]).</p>
-<p>If <span class="math inline">\(D_m&lt;0\)</span>, it can model an influence of rotation speed on exhaust temperature using an exponential characteristic determined by <span class="math inline">\(D_m\)</span>. The maximum permissible fuel flow falls with falling speed (typical for single-shaft industrial turbines due to exhaust temperature limits) [3]. The authors suspect that this could represent fan cooling.</p>
+<p>If <span class="math inline">\(D_m=0\)</span>, the speed sensitivity paths are not active. <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">3</a>]</span></p>
+<p>If <span class="math inline">\(D_m&gt;0\)</span>, it models friction losses (variation of the engine power with the shaft speed; slightly increasing losses with increasing speed are characteristic for reciprocating engines and some aeroderivative turbines <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">3</a>]</span>).</p>
+<p>If <span class="math inline">\(D_m&lt;0\)</span>, it can model an influence of rotation speed on exhaust temperature using an exponential characteristic determined by <span class="math inline">\(D_m\)</span>. The maximum permissible fuel flow falls with falling speed (typical for single-shaft industrial turbines due to exhaust temperature limits) <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">3</a>]</span>. The authors suspect that this could represent fan cooling.</p>
 </section>
 <section id="frequency-dependent-valve-limit" class="level4">
 <h4 class="anchored" data-anchor-id="frequency-dependent-valve-limit">Frequency dependent (valve) limit</h4>
@@ -1262,14 +1281,14 @@ Figure&nbsp;1: Model schema, based on [3]
 <p>In normal operation, the limit is <span class="math inline">\(V_{max,\omega} = V_{max}\)</span> and the there is no frequency dependent reduction.</p>
 <p>When the frequency <span class="math inline">\(f\)</span> in Hz drops below <span class="math inline">\(f_{lim,1}\)</span>, the value for <span class="math inline">\(P_{lim}\)</span>, the power limit, is calculated by linear interpolation between the values <span class="math inline">\(f_{lim,1}, f_{lim,2}, \dots\)</span> and <span class="math inline">\(P_{lim,1}, P_{lim,2}, \dots\)</span> of a lookup table. The table consists of 10 data points which monotonically decrease in both power and frequency, point 1 being the hightest. The lowest data point does act as a lower limit, i.e.&nbsp;is not extrapolated to lower values.</p>
 <p><span class="math inline">\(V_{max,\omega}\)</span> then ramps with the rate <span class="math inline">\(P_{rate}\)</span> from the initial and maximum value to the new value <span class="math inline">\(V_{max,\omega} = (P_{lim} / K_{turb} + W_{fnl})\)</span>.</p>
-<p><span class="math inline">\(P_{lim}\)</span> will then change with frequency. If f rises above <span class="math inline">\(P_{lim,1}\)</span> again, <span class="math inline">\(V_{max,\omega}\)</span> ramps back to <span class="math inline">\(V_{max}\)</span> [3].</p>
+<p><span class="math inline">\(P_{lim}\)</span> will then change with frequency. If f rises above <span class="math inline">\(P_{lim,1}\)</span> again, <span class="math inline">\(V_{max,\omega}\)</span> ramps back to <span class="math inline">\(V_{max}\)</span> <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">3</a>]</span>.</p>
 <div id="fig-frequencyDependentLimit" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-frequencyDependentLimit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="drawings/GovCT2.frequencylimit.drawio.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-frequencyDependentLimit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Frequency dependent valve limit as described in [3]
+Figure&nbsp;2: Frequency dependent valve limit as described in <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">3</a>]</span>
 </figcaption>
 </figure>
 </div>
@@ -1317,7 +1336,7 @@ Table&nbsp;1: Parameters
 <td style="text-align: left;">float</td>
 <td style="text-align: left;"><span class="math inline">\(pu\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(db\)</span></td>
-<td style="text-align: left;">Frequency error deadband. Recommended to be =0 in most applications [3]</td>
+<td style="text-align: left;">Frequency error deadband. Recommended to be =0 in most applications <span class="citation" data-cites="IEC61970-302-2023">[<a href="#ref-IEC61970-302-2023" role="doc-biblioref">3</a>]</span></td>
 <td style="text-align: left;"><span class="math inline">\(0\)</span></td>
 </tr>
 <tr class="odd">
@@ -1962,12 +1981,26 @@ Table&nbsp;3: Outputs
 </table>
 </section>
 <section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
+
+
 
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-Machowski2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Machowski J, Lubosny Z, Bialek JW, Bumby JR (2020) <a href="https://www.wiley.com/en-us/Power+System+Dynamics%3A+Stability+and+Control%2C+3rd+Edition-p-9781119526360">Power system dynamics: Stability and control, 3rd edition</a>. Wiley</div>
+</div>
+<div id="ref-Alliander2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Alliander <a href="https://alliander-opensource.github.io/cgmes-profiles/Dynamics/GovCT2/">CGMES profiles - GovCT2</a></div>
+</div>
+<div id="ref-IEC61970-302-2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">(2023) DIN EN IEC 61970-302 – schnittstelle für anwendungsprogramme für energiemanagementsysteme (EMS­API) teil 302: Allgemeines informationsmodell (CIM) dynamik. International Electrotechnical Commission</div>
+</div>
+<div id="ref-Neplan2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">(2015) <a href="https://www.neplan.ch">TURBINE-GOVERNOR MODELS – standard dynamic turbine-governor systems in NEPLAN power system analysis tool</a>. Neplan</div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

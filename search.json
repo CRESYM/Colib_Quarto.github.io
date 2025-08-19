@@ -2726,19 +2726,6 @@
     ]
   },
   {
-    "objectID": "models/1-SynchronousMachines/Governor/GovHydro4/index.html#references",
-    "href": "models/1-SynchronousMachines/Governor/GovHydro4/index.html#references",
-    "title": "GovHydro4",
-    "section": "References",
-    "text": "References",
-    "crumbs": [
-      "Models",
-      "Synchronous machines",
-      "Governors (GOV)",
-      "GovHydro4"
-    ]
-  },
-  {
     "objectID": "models/1-SynchronousMachines/PowerSystemStabilizer/index.html",
     "href": "models/1-SynchronousMachines/PowerSystemStabilizer/index.html",
     "title": "Power System Stabilizers (PSS)",
@@ -5356,19 +5343,6 @@
     ]
   },
   {
-    "objectID": "models/1-SynchronousMachines/Governor/GovSteamEU/index.html#references",
-    "href": "models/1-SynchronousMachines/Governor/GovSteamEU/index.html#references",
-    "title": "GovSteamEU",
-    "section": "References",
-    "text": "References",
-    "crumbs": [
-      "Models",
-      "Synchronous machines",
-      "Governors (GOV)",
-      "GovSteamEU"
-    ]
-  },
-  {
     "objectID": "models/1-SynchronousMachines/Governor/HYGOV/index.html",
     "href": "models/1-SynchronousMachines/Governor/HYGOV/index.html",
     "title": "HYGOV",
@@ -5699,19 +5673,6 @@
     "title": "GovCT2 / GGOV2",
     "section": "Open source implementations",
     "text": "Open source implementations\nThis model has been successfully implemented in :\n\n\n\nSoftware\nURL\nLanguage\nOpen-Source License\nLast consulted date\nComments\n\n\n\n\nOpen Modelica / Dynawo\nDynawo\nmodelica\nMPL v2.0\n15/05/2024\nFor modeling assumptions and test results, see Dynawo repository.",
-    "crumbs": [
-      "Models",
-      "Synchronous machines",
-      "Governors (GOV)",
-      "GovCT2 / GGOV2"
-    ]
-  },
-  {
-    "objectID": "models/1-SynchronousMachines/Governor/GovCT2/index.html#references",
-    "href": "models/1-SynchronousMachines/Governor/GovCT2/index.html#references",
-    "title": "GovCT2 / GGOV2",
-    "section": "References",
-    "text": "References",
     "crumbs": [
       "Models",
       "Synchronous machines",
