@@ -32,7 +32,7 @@ The model is not valid either for harmonic studies, as it only considers the fun
 
 The following block diagram shows the main components of the STATCOM model:
 
-![STATCOM schematic.](EMT_STATCOM_scheme.svg){#fig-statcom-schematic}
+![STATCOM schematic.](EMT_STATCOM_scheme.svg){#fig-statcom-schematic width=100%}
 
 Notice how it follows the same structure as the Grid Following model, with the addition of the DC Voltage regulation. This control is explained in the following subsection, while the rest can be consulted in the [Grid Following page](../../4-%20HVDC/VSC/GridFollowingConverter/EMTGridFollowingVSC/).
 
