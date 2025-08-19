@@ -6,12 +6,13 @@ date: 09/08/2024
 last-updated: 09/08/2024
 author: Frédéric Sabot (ULB)
 reviewers: Lampros Papangelis (CRESYM)
+bibliography: ../../../../_bibliography/references.bib
 ---
 
 
 ## Context
 
-Motors are a particular kind of load that can account for a large share of the total load especially in industrialised countries. Adequate representation of motors is important, especially in short-term voltage stability studies as motors can cause fault-induced delayed voltage recovery. This page presents a single-cage induction motor model based on the textbook three-phase induction motor equivalent circuit [[1]](#1).
+Motors are a particular kind of load that can account for a large share of the total load especially in industrialised countries. Adequate representation of motors is important, especially in short-term voltage stability studies as motors can cause fault-induced delayed voltage recovery. This page presents a single-cage induction motor model based on the textbook three-phase induction motor equivalent circuit [@Guru2001].
 
 ## Model use, assumptions, validity domain and limitations
 
@@ -81,8 +82,6 @@ C_l = C_{l, 0} \left(\frac{\omega}{\omega_0}\right)^\eta\\
 \end{align}
 $$
 
-</div>
-
 ## Open source implementations
 
 This model has been successfully implemented in :
@@ -92,6 +91,7 @@ This model has been successfully implemented in :
 |Dynawo|[Link](https://github.com/dynawo/dynawo/blob/master/dynawo/sources/Models/Modelica/Dynawo/Electrical/Machines/Motors/SimplifiedMotor.mo)| modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/)  | 09/08/2024 | no comment |
 
 
-## Table of references
+## References
 
-<a id="1">[1]</a> Guru, B. S.; Warrier, R. K. "Electric Machinery and Transformers", 3th ed., New York, United States, 2001, Oxford University Press
+::: {#refs}
+:::
