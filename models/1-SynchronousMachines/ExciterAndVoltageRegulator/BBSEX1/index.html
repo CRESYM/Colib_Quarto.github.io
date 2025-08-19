@@ -1220,33 +1220,33 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(U_s\)</span></td>
+<td><span class="math inline">\(U_s P_u\)</span></td>
 <td>measured stator voltage</td>
-<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
+<td><span class="math inline">\({pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(U_{s,Ref}\)</span></td>
+<td><span class="math inline">\(U_{s} R_{ef} P_u\)</span></td>
 <td>reference stator voltage</td>
-<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
+<td><span class="math inline">\({pu}\)</span> (base <span class="math inline">\(U N_{om}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(U_{Oel}\)</span> (optional)</td>
+<td><span class="math inline">\(U_{Oel} P_u\)</span> (optional)</td>
 <td>output voltage of overexcitation limiter</td>
-<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
+<td><span class="math inline">\({pu}\)</span> (base <span class="math inline">\(U N_{om}\)</span>)</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(U_{Pss}\)</span> (optional)</td>
+<td><span class="math inline">\(U P_{ss} P_u\)</span> (optional)</td>
 <td>output voltage of power system stabilizer</td>
-<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
+<td><span class="math inline">\({pu}\)</span> (base <span class="math inline">\(U N_{om}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(U_{Uel}\)</span> (optional)</td>
+<td><span class="math inline">\(U U_{el} P_u\)</span> (optional)</td>
 <td>output voltage of underexcitation limiter</td>
-<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
+<td><span class="math inline">\({pu}\)</span> (base <span class="math inline">\(U N_{om}\)</span>)</td>
 </tr>
 </tbody>
 </table>
-<p>The output signal is <span class="math inline">\(E_{fd}\)</span>, the excitation voltage in <span class="math inline">\(\text{pu}\)</span> (user-selected base voltage).</p>
+<p>The output signal is <span class="math inline">\(E_{fd} P_u\)</span>, the excitation voltage in <span class="math inline">\(pu\)</span> (user-selected base voltage).</p>
 </section>
 <section id="model-parameters" class="level2">
 <h2 class="anchored" data-anchor-id="model-parameters">Model parameters</h2>
@@ -1265,54 +1265,54 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(E_{fd,Max}\)</span></td>
+<td><span class="math inline">\(E_{fd} Max P_u\)</span></td>
 <td>Maximum excitation voltage</td>
-<td><span class="math inline">\(\text{pu}\)</span> (user-selected base voltage)</td>
+<td><span class="math inline">\({pu}\)</span> (user-selected base voltage)</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(E_{fd,Min}\)</span></td>
+<td><span class="math inline">\(E_{fd} Min P_u\)</span></td>
 <td>Minimum excitation voltage</td>
-<td><span class="math inline">\(\text{pu}\)</span> (user-selected base voltage)</td>
+<td><span class="math inline">\({pu}\)</span> (user-selected base voltage)</td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(K\)</span></td>
 <td>Voltage regulator gain</td>
-<td><span class="math inline">\(\text{pu}\)</span></td>
+<td><span class="math inline">\({pu}\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(t_1\)</span></td>
 <td>Voltage regulator first time constant</td>
-<td><span class="math inline">\(\text{s}\)</span></td>
+<td><span class="math inline">\({s}\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(t_2\)</span></td>
 <td>Voltage regulator second time constant</td>
-<td><span class="math inline">\(\text{s}\)</span></td>
+<td><span class="math inline">\({s}\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(t_3\)</span></td>
 <td>Voltage regulator lead time constant</td>
-<td><span class="math inline">\(\text{s}\)</span></td>
+<td><span class="math inline">\({s}\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(t_4\)</span></td>
 <td>Voltage regulator lag time constant</td>
-<td><span class="math inline">\(\text{s}\)</span></td>
+<td><span class="math inline">\({s}\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(t_R\)</span></td>
 <td>Stator voltage filter time constant</td>
-<td><span class="math inline">\(\text{s}\)</span></td>
+<td><span class="math inline">\({s}\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(V_{r,Max}\)</span></td>
+<td><span class="math inline">\(V_{r} Max P_u\)</span></td>
 <td>Maximum output voltage of voltage regulator</td>
-<td><span class="math inline">\(\text{pu}\)</span> (user-selected base voltage)</td>
+<td><span class="math inline">\({pu}\)</span> (user-selected base voltage)</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(V_{r,Min}\)</span></td>
+<td><span class="math inline">\(V_{r} Min P_u\)</span></td>
 <td>Minimum output voltage of voltage regulator</td>
-<td><span class="math inline">\(\text{pu}\)</span> (user-selected base voltage)</td>
+<td><span class="math inline">\({pu}\)</span> (user-selected base voltage)</td>
 </tr>
 </tbody>
 </table>

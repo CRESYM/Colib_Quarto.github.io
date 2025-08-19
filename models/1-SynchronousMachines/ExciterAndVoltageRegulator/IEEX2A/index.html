@@ -1205,33 +1205,33 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(U_s\)</span></td>
+<td><span class="math inline">\(U_s P_u\)</span></td>
 <td>measured stator voltage</td>
-<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
+<td><span class="math inline">\({pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(U_{s,Ref}\)</span></td>
+<td><span class="math inline">\(U_{s} R_{ef} P_u\)</span></td>
 <td>reference stator voltage</td>
-<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
+<td><span class="math inline">\({pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(U_{Oel}\)</span> (optional)</td>
+<td><span class="math inline">\(U O_{el} P_u\)</span> (optional)</td>
 <td>output voltage of overexcitation limiter</td>
-<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
+<td><span class="math inline">\({pu}\)</span> (base <span class="math inline">\(U N_{om}\)</span>)</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(U_{Pss}\)</span> (optional)</td>
+<td><span class="math inline">\(U P_{ss} P_u\)</span> (optional)</td>
 <td>output voltage of power system stabilizer</td>
-<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
+<td><span class="math inline">\({pu}\)</span> (base <span class="math inline">\(U N_{om}\)</span>)</td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(U_{Uel}\)</span> (optional)</td>
+<td><span class="math inline">\(U U_{el} P_u\)</span> (optional)</td>
 <td>output voltage of underexcitation limiter</td>
-<td><span class="math inline">\(\text{pu}\)</span> (base <span class="math inline">\(U_{Nom}\)</span>)</td>
+<td><span class="math inline">\({pu}\)</span> (base <span class="math inline">\(U N_{om}\)</span>)</td>
 </tr>
 </tbody>
 </table>
-<p>The output signal is <span class="math inline">\(E_{fd}\)</span>, the excitation voltage in <span class="math inline">\(\text{pu}\)</span> (user-selected base voltage).</p>
+<p>The output signal is <span class="math inline">\(E_{fd} P_u\)</span>, the excitation voltage in <span class="math inline">\({pu}\)</span> (user-selected base voltage).</p>
 </section>
 <section id="model-parameters" class="level2">
 <h2 class="anchored" data-anchor-id="model-parameters">Model parameters</h2>
@@ -1252,7 +1252,7 @@ window.Quarto = {
 <tr class="odd">
 <td><span class="math inline">\(A_{Ex}\)</span></td>
 <td>Gain of saturation function</td>
-<td><span class="math inline">\(\text{pu}\)</span></td>
+<td><span class="math inline">\({pu}\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(B_{Ex}\)</span></td>
@@ -1260,64 +1260,64 @@ window.Quarto = {
 <td><span class="math inline">\(-\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(E_{fd,Min}\)</span></td>
+<td><span class="math inline">\(E_{fd} Min P_u\)</span></td>
 <td>Minimum excitation voltage</td>
-<td><span class="math inline">\(\text{pu}\)</span> (user-selected base voltage)</td>
+<td><span class="math inline">\({pu}\)</span> (user-selected base voltage)</td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(K_a\)</span></td>
 <td>Voltage regulator gain</td>
-<td><span class="math inline">\(\text{pu}\)</span></td>
+<td><span class="math inline">\({pu}\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(K_e\)</span></td>
 <td>Exciter field proportional constant</td>
-<td><span class="math inline">\(\text{pu}\)</span></td>
+<td><span class="math inline">\({pu}\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(K_f\)</span></td>
 <td>Exciter rate feedback gain</td>
-<td><span class="math inline">\(\text{pu}\)</span></td>
+<td><span class="math inline">\({pu}\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(t_A\)</span></td>
 <td>Voltage regulator time constant</td>
-<td><span class="math inline">\(\text{s}\)</span></td>
+<td><span class="math inline">\({s}\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(t_B\)</span></td>
 <td>Voltage regulator lag time constant</td>
-<td><span class="math inline">\(\text{s}\)</span></td>
+<td><span class="math inline">\({s}\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(t_C\)</span></td>
 <td>Voltage regulator lead time constant</td>
-<td><span class="math inline">\(\text{s}\)</span></td>
+<td><span class="math inline">\({s}\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(t_E\)</span></td>
 <td>Exciter field time constant</td>
-<td><span class="math inline">\(\text{s}\)</span></td>
+<td><span class="math inline">\({s}\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(t_{F1}\)</span></td>
 <td>Feedback lead time constant</td>
-<td><span class="math inline">\(\text{s}\)</span></td>
+<td><span class="math inline">\({s}\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(t_R\)</span></td>
 <td>Stator voltage filter time constant</td>
-<td><span class="math inline">\(\text{s}\)</span></td>
+<td><span class="math inline">\({s}\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(V_{r,Max}\)</span></td>
+<td><span class="math inline">\(V_{r} Max P_u\)</span></td>
 <td>Maximum field voltage</td>
-<td><span class="math inline">\(\text{pu}\)</span> (user-selected base voltage)</td>
+<td><span class="math inline">\({pu}\)</span> (user-selected base voltage)</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(V_{r,Min}\)</span></td>
+<td><span class="math inline">\(V_{r} Min P_u\)</span></td>
 <td>Minimum field voltage</td>
-<td><span class="math inline">\(\text{pu}\)</span> (user-selected base voltage)</td>
+<td><span class="math inline">\({pu}\)</span> (user-selected base voltage)</td>
 </tr>
 </tbody>
 </table>
