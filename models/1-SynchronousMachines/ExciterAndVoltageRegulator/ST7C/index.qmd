@@ -28,38 +28,38 @@ The input variables are :
 
 | Variable | Description | Units |
 |-----------|--------------| ------|
-| $U_s$ |measured stator voltage | $\text{pu}$ (base $U_{Nom}$)|
-|$U_{s,Ref}$ |reference stator voltage |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Oel}$ (optional) |output voltage of overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Pss}$ (optional) |output voltage of power system stabilizer |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Scl,Oel}$ (optional) |output voltage of stator current overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Scl,Uel}$ (optional) |output voltage of stator current underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Uel}$ (optional) |output voltage of underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+| $U_s P_u$ |measured stator voltage | ${pu}$ (base $U N_{om}$)|
+|$U_{s} R_{ef} P_u$ |reference stator voltage |${pu}$ (base $U N_{om}$)|
+|$U_{Oel} P_u$ (optional) |output voltage of overexcitation limiter |${pu}$ (base $U N_{om}$)|
+|$U P_{ss} P_u$ (optional) |output voltage of power system stabilizer |${pu}$ (base $U N_{om}$)|
+|$U S_{cl} O_{el} P_u$ (optional) |output voltage of stator current overexcitation limiter |${pu}$ (base $U N_{om}$)|
+|$U S_{cl} U_{el} P_u$ (optional) |output voltage of stator current underexcitation limiter |${pu}$ (base $U N_{om}$)|
+|$U U_{el} P_u$ (optional) |output voltage of underexcitation limiter |${pu}$ (base $U N_{om}$)|
 
-The output signal is $E_{fd}$, the excitation voltage in $\text{pu}$ (user-selected base voltage).
+The output signal is $E_{fd} P_u$, the excitation voltage in ${pu}$ (user-selected base voltage).
 
 ## Model parameters
 
 | Parameters | Description | Units |
 |-----------|--------------| ------|
-|$K_h$ |High-value gate feedback gain |$\text{pu}$|
-|$K_{ia}$ |Voltage regulator feedback gain |$\text{pu}$|
-|$K_l$ |Low-value gate feedback gain |$\text{pu}$|
-|$K_{pa}$ |Voltage regulator proportional gain |$\text{pu}$|
-|$\text{PositionOel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) take-over at AVR output|$-$|
-|$\text{PositionScl}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) take-over at AVR output|$-$|
-|$\text{PositionUel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) take-over at AVR output|$-$|
-|$t_A$ |Thyristor bridge firing control equivalent time constant |$\text{s}$|
-|$t_B$ |Voltage regulator lag time constant |$\text{s}$|
-|$t_C$ |Voltage regulator lead time constant |$\text{s}$|
-|$t_F$ |Stator voltage lag time constant |$\text{s}$|
-|$t_G$ |Stator voltage lead time constant |$\text{s}$|
-|$t_{Ia}$ |Feedback time constant |$\text{s}$|
-|$t_R$ |Stator voltage filter time constant |$\text{s}$|
-|$V_{Max}$ |Maximum reference voltage |$\text{pu}$ (user-selected base voltage)|
-|$V_{Min}$ |Minimum reference voltage |$\text{pu}$ (user-selected base voltage)|
-|$V_{r,Max}$ |Maximum field voltage |$\text{pu}$ (user-selected base voltage)|
-|$V_{r,Min}$ |Minimum field voltage |$\text{pu}$ (user-selected base voltage)|
+|$K_h$ |High-value gate feedback gain |${pu}$|
+|$K_{ia}$ |Voltage regulator feedback gain |${pu}$|
+|$K_l$ |Low-value gate feedback gain |${pu}$|
+|$K_{pa}$ |Voltage regulator proportional gain |${pu}$|
+|${PositionOel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) take-over at AVR output|$-$|
+|${PositionScl}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) take-over at AVR output|$-$|
+|${PositionUel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) take-over at AVR output|$-$|
+|$t_A$ |Thyristor bridge firing control equivalent time constant |${s}$|
+|$t U_{B1}$ |Second lag time constant |${s}$|
+|$t U_{B2}$ |First lag time constant |${s}$|
+|$t U_{C1}$ |Second lead time constant |${s}$|
+|$t U_{C2}$ |First lead time constant |${s}$|
+|$t_{I} a$ |Feedback time constant |${s}$|
+|$t_R$ |Stator voltage filter time constant |${s}$|
+|$V_{Max} P_u$ |Maximum reference voltage |${pu}$ (user-selected base voltage)|
+|$V_{Min} P_u$ |Minimum reference voltage |${pu}$ (user-selected base voltage)|
+|$V_{r} Max P_u$ |Maximum field voltage |${pu}$ (user-selected base voltage)|
+|$V_{r} Min P_u$ |Minimum field voltage |${pu}$ (user-selected base voltage)|
 
 ## Model diagram
 

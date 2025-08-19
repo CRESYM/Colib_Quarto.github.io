@@ -28,50 +28,50 @@ The input variables are :
 
 | Variable | Description | Units |
 |-----------|--------------| ------|
-| $I_r$ |rotor current |$\text{pu}$ (base $S_{Nom}$, user-selected base voltage)|
-|$i_t$ |complex current at the terminal |$\text{pu}$ (base $S_{Nom}$, $U_{Nom}$)|
-|$U_s$ |measured stator voltage |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{s,Ref}$ |reference stator voltage |$\text{pu}$ (base $U_{Nom}$)|
-|$u_t$ |complex voltage at the terminal |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Oel}$ (optional) |output voltage of overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Pss}$ (optional) |output voltage of power system stabilizer |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Scl,Oel}$ (optional) |output voltage of stator current overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Scl,Uel}$ (optional) |output voltage of stator current underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Uel}$ (optional) |output voltage of underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+| $I_r P_u$ |rotor current |${pu}$ (base $S_{Nom}$, user-selected base voltage)|
+|$i_t P_u$ |complex current at the terminal |${pu}$ (base $S_{Nom}$, $U_{Nom}$)|
+|$U_s P_u$ |measured stator voltage |${pu}$ (base $U N_{om}$)|
+|$U_{s} R_{ef} P_u$ |reference stator voltage |${pu}$ (base $U N_{om}$)|
+|$u_t P_u$ |complex voltage at the terminal |${pu}$ (base $U N_{om}$)|
+|$U_{Oel} P_u$ (optional) |output voltage of overexcitation limiter |${pu}$ (base $U N_{om}$)|
+|$U_{Pss} P_u$ (optional) |output voltage of power system stabilizer |${pu}$ (base $U N_{om}$)|
+|$U_{Scl} O_{el} P_u$ (optional) |output voltage of stator current overexcitation limiter |${pu}$ (base $U N_{om}$)|
+|$U_{Scl} U_{el} P_u$ (optional) |output voltage of stator current underexcitation limiter |${pu}$ (base $U N_{om}$)|
+|$U_{Uel} P_u$ (optional) |output voltage of underexcitation limiter |${pu}$ (base $U N_{om}$)|
 
-The output signal is $E_{fd}$, the excitation voltage in $\text{pu}$ (user-selected base voltage).
+The output signal is $E_{fd} P_u$, the excitation voltage in ${pu}$ (user-selected base voltage).
 
 ## Model parameters
 
 | Parameter | Description | Units |
 |-----------|--------------| ------|
-|$I_{lr}$ |Exciter output current limit reference |$\text{pu}$ (base $S_{Nom}$, user-selected base voltage)|
-|$K_c$ |Rectifier loading factor proportional to commutating reactance |$\text{pu}$|
-|$K_{cl}$ |Field current limiter conversion factor |$\text{pu}$|
-|$K_{ff}$ |Feedforward gain of inner loop field regulator |$\text{pu}$|
-|$K_g$ |Feedback gain constant of inner loop field regulator |$\text{pu}$|
-|$K_i$ |Potential circuit (current) gain coefficient |$\text{pu}$|
-|$K_{ia}$ |Integral gain of PI |$\text{pu}$|
-|$K_{lr}$ |Gain of field current limiter |$\text{pu}$|
-|$K_m$ |Gain of error of inner loop field regulator |$\text{pu}$|
-|$K_p$ |Potential circuit gain |$\text{pu}$|
-|$K_{pa}$ |Proportional gain of PI |$\text{pu}$|
-|$\text{PositionOel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) AVR input summation, (4) take-over at AVR output|$-$|
-|$\text{PositionScl}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) AVR input summation, (4) take-over at AVR output|$-$|
-|$\text{PositionUel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) AVR input summation, (4) take-over at AVR output|$-$|
-|$\text{Sw1}$ |If true, power source derived from terminal voltage, if false, independent from terminal voltage|$-$|
-|$t_A$ |Voltage regulator time constant |$\text{s}$|
-|$t_G$ |Feedback time constant of inner loop field regulator |$\text{s}$|
-|$\Theta_p$ |Potential circuit phase angle |$\text{rad}$|
-|$t_R$ |Stator voltage filter time constant |$\text{s}$|
-|$V_{a,Max}$ |Maximum output voltage of limited first order |$\text{pu}$ (user-selected base voltage)|
-|$V_{a,Min}$ |Minimum output voltage of limited first order |$\text{pu}$ (user-selected base voltage)|
-|$V_{b,Max}$ |Maximum available exciter field voltage |$\text{pu}$ (base $U_{Nom}$)|
-|$V_{m,Max}$ |Maximum output voltage of second PI |$\text{pu}$ (user-selected base voltage)|
-|$V_{m,Min}$ |Minimum output voltage of second PI |$\text{pu}$ (user-selected base voltage)|
-|$V_{r,Max}$ |Maximum output voltage of first PI |$\text{pu}$ (user-selected base voltage)|
-|$V_{r,Min}$ |Minimum output voltage of first PI |$\text{pu}$ (user-selected base voltage)|
-|$X_l$ |Reactance associated with potential source |$\text{pu}$ (base $S_{Nom}$, $U_{Nom}$)|
+|$I_{lr} P_u$ |Exciter output current limit reference |${pu}$ (base $S_{Nom}$, user-selected base voltage)|
+|$K_c$ |Rectifier loading factor proportional to commutating reactance |${pu}$|
+|$K_{cl}$ |Field current limiter conversion factor |${pu}$|
+|$K_{ff}$ |Feedforward gain of inner loop field regulator |${pu}$|
+|$K_g$ |Feedback gain constant of inner loop field regulator |${pu}$|
+|$K_i$ |Potential circuit (current) gain coefficient |${pu}$|
+|$K_{ia}$ |Integral gain of PI |${pu}$|
+|$K_{lr}$ |Gain of field current limiter |${pu}$|
+|$K_m$ |Gain of error of inner loop field regulator |${pu}$|
+|$K_p$ |Potential circuit gain |${pu}$|
+|$K_{pa}$ |Proportional gain of PI |${pu}$|
+|${PositionOel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) AVR input summation, (4) take-over at AVR output|$-$|
+|${PositionScl}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) AVR input summation, (4) take-over at AVR output|$-$|
+|${PositionUel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) AVR input summation, (4) take-over at AVR output|$-$|
+|${Sw1}$ |If true, power source derived from terminal voltage, if false, independent from terminal voltage|$-$|
+|$t_A$ |Voltage regulator time constant |${s}$|
+|$t_G$ |Feedback time constant of inner loop field regulator |${s}$|
+|$\Theta_p$ |Potential circuit phase angle |${rad}$|
+|$t_R$ |Stator voltage filter time constant |${s}$|
+|$V_{a} Max P_u$ |Maximum output voltage of limited first order |${pu}$ (user-selected base voltage)|
+|$V_{a} Min P_u$ |Minimum output voltage of limited first order |${pu}$ (user-selected base voltage)|
+|$V_{b} Max P_u$ |Maximum available exciter field voltage |${pu}$ (base $U_{Nom}$)|
+|$V_{m} Max P_u$ |Maximum output voltage of second PI |${pu}$ (user-selected base voltage)|
+|$V_{m} Min P_u$ |Minimum output voltage of second PI |${pu}$ (user-selected base voltage)|
+|$V_{r} Max P_u$ |Maximum output voltage of first PI |${pu}$ (user-selected base voltage)|
+|$V_{r} Min P_u$ |Minimum output voltage of first PI |${pu}$ (user-selected base voltage)|
+|$X_l P_u$ |Reactance associated with potential source |${pu}$ (base $S N_{om}$, $U N_{om}$)|
 
 ## Model diagram
 

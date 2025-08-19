@@ -28,42 +28,42 @@ The input variables are :
 
 | Variable | Description | Units |
 |-----------|--------------| ------|
-|$I_r$ |rotor current |$\text{pu}$ (base $S_{Nom}$, user-selected base voltage)|
-|$U_s$ |measured stator voltage |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{s,Ref}$ |reference stator voltage |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Oel}$ (optional) |output voltage of overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Pss}$ (optional) |output voltage of power system stabilizer |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Scl,Oel}$ (optional) |output voltage of stator current overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Scl,Uel}$ (optional) |output voltage of stator current underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Uel}$ (optional) |output voltage of underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+|$I_r P_u$ |rotor current |${pu}$ (base $S_{Nom}$, user-selected base voltage)|
+|$U_s P_u$ |measured stator voltage |${pu}$ (base $U_{Nom}$)|
+|$U_{s} R_{ef} P_u$ |reference stator voltage |${pu}$ (base $U_{Nom}$)|
+|$U O_{el} P_u$ (optional) |output voltage of overexcitation limiter |${pu}$ (base $U N_{om}$)|
+|$U P_{ss} P_u$ (optional) |output voltage of power system stabilizer |${pu}$ (base $U N_{om}$)|
+|$U S_{cl} O_{el} P_u$ (optional) |output voltage of stator current overexcitation limiter |${pu}$ (base $U N_{om}$)|
+|$U S_{cl} U_{el} P_u$ (optional) |output voltage of stator current underexcitation limiter |${pu}$ (base $U N_{om}$)|
+|$U U_{el} P_u$ (optional) |output voltage of underexcitation limiter |${pu}$ (base $U N_{om}$)|
 
-The output signal is $E_{fd}$, the excitation voltage in $\text{pu}$ (user-selected base voltage).
+The output signal is $E_{fd} P_u$, the excitation voltage in ${pu}$ (user-selected base voltage).
 
 ## Model parameters
 
 | Parameter | Description | Units |
 |-----------|--------------| ------|
-|$K_c$ |Rectifier loading factor proportional to commutating reactance |$\text{pu}$|
-|$K_r$ |Gain of voltage after overexcitation and underexcitation limitations |$\text{pu}$|
-|$\text{PositionOel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input|$-$|
-|$\text{PositionScl}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input|$-$|
-|$\text{PositionUel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input|$-$|
-|$t_1$ |Inverse timing current constant |$\text{s}$|
-|$t_{B1}$ |Second lag time constant |$\text{s}$|
-|$t_{B2}$ |First lag time constant |$\text{s}$|
-|$t_{C1}$ |Second lead time constant |$\text{s}$|
-|$t_{C2}$ |First lead time constant |$\text{s}$|
-|$t_{OB1}$ |Second lag time constant (overexcitation limitation) |$\text{s}$|
-|$t_{OB2}$ |First lag time constant (overexcitation limitation) |$\text{s}$|
-|$t_{OC1}$ |Second lead time constant (overexcitation limitation) |$\text{s}$|
-|$t_{OC2}$ |First lead time constant (overexcitation limitation) |$\text{s}$|
-|$t_R$ |Stator voltage filter time constant |$\text{s}$|
-|$t_{UB1}$ |Second lag time constant (underexcitation limitation) |$\text{s}$|
-|$t_{UB2}$ |First lag time constant (underexcitation limitation) |$\text{s}$|
-|$t_{UC1}$ |Second lead time constant (underexcitation limitation) |$\text{s}$|
-|$t_{UC2}$ |First lead time constant (underexcitation limitation) |$\text{s}$|
-|$V_{r,Max}$ |Maximum field voltage |$\text{pu}$ (user-selected base voltage)|
-|$V_{r,Min}$ |Minimum field voltage |$\text{pu}$ (user-selected base voltage)|
+|$K_c$ |Rectifier loading factor proportional to commutating reactance |${pu}$|
+|$K_r$ |Gain of voltage after overexcitation and underexcitation limitations |${pu}$|
+|${PositionOel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input|$-$|
+|${PositionScl}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input|$-$|
+|${PositionUel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input|$-$|
+|$t_1$ |Inverse timing current constant |${s}$|
+|$t U_{B1}$ |Second lag time constant |${s}$|
+|$t U_{B2}$ |First lag time constant |${s}$|
+|$t U_{C1}$ |Second lead time constant |${s}$|
+|$t U_{C2}$ |First lead time constant |${s}$|
+|$t O_{B1}$ |Second lag time constant (overexcitation limitation) |${s}$|
+|$t O_{B2}$ |First lag time constant (overexcitation limitation) |${s}$|
+|$t O_{C1}$ |Second lead time constant (overexcitation limitation) |${s}$|
+|$t O_{C2}$ |First lead time constant (overexcitation limitation) |${s}$|
+|$t_R$ |Stator voltage filter time constant |${s}$|
+|$t U_{B1}$ |Second lag time constant (underexcitation limitation) |${s}$|
+|$t U_{B2}$ |First lag time constant (underexcitation limitation) |${s}$|
+|$t U_{C1}$ |Second lead time constant (underexcitation limitation) |${s}$|
+|$t U_{C2}$ |First lead time constant (underexcitation limitation) |${s}$| 
+|$V_{r} Max P_u$ |Maximum field voltage |${pu}$ (user-selected base voltage)|
+|$V_{r} Min P_u$ |Minimum field voltage |${pu}$ (user-selected base voltage)|
 
 ## Model diagram
 

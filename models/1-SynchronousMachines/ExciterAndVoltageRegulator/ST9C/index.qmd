@@ -27,47 +27,47 @@ The input variables are :
 
 | Variable | Description | Units |
 |-----------|--------------| ------|
-|$I_r$ |rotor current |$\text{pu}$ (base $S_{Nom}$, user-selected base voltage)|
-|$i_t$ |complex current at the terminal |$\text{pu}$ (base $S_{Nom}$, $U_{Nom}$)|
-|$U_s$ |measured stator voltage |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{s,Ref}$ |reference stator voltage |$\text{pu}$ (base $U_{Nom}$)|
-|$u_t$ |complex voltage at the terminal |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Oel}$ (optional) |output voltage of overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Pss}$ (optional) |output voltage of power system stabilizer |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Scl,Oel}$ (optional) |output voltage of stator current overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Scl,Uel}$ (optional) |output voltage of stator current underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Uel}$ (optional) |output voltage of underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+|$I_r P_u$ |rotor current |${pu}$ (base $S N_{om}$, user-selected base voltage)|
+|$i_t P_u$ |complex current at the terminal |${pu}$ (base $S_{Nom}$, $U N_{om}$)|
+|$U_s P_u$ |measured stator voltage |${pu}$ (base $U N_{om}$)|
+|$U_{s} R_{ef} P_u$ |reference stator voltage |${pu}$ (base $U N_{om}$)|
+|$u_t P_u$ |complex voltage at the terminal |${pu}$ (base $U N_{om}$)|
+|$U O_{el} P_u$ (optional) |output voltage of overexcitation limiter |${pu}$ (base $U N_{om}$)|
+|$U P_{ss} P_u$ (optional) |output voltage of power system stabilizer |${pu}$ (base $U N_{om}$)|
+|$U S_{cl} O_{el} P_u$ (optional) |output voltage of stator current overexcitation limiter |${pu}$ (base $U N_{om}$)|
+|$U S_{cl} U_{el} P_u$ (optional) |output voltage of stator current underexcitation limiter |${pu}$ (base $U N_{om}$)|
+|$U U_{el} P_u$ (optional) |output voltage of underexcitation limiter |${pu}$ (base $U N_{om}$)|
 
-The output signal is $E_{fd}$, the excitation voltage in $\text{pu}$ (user-selected base voltage).
+The output signal is $E_{fd} P_u$, the excitation voltage in ${pu}$ (user-selected base voltage).
 
 ## Model parameters
 
 | Parameter | Description | Units |
 |-----------|--------------| ------|
-|$K_a$ |Voltage regulator gain |$\text{pu}$|
-|$K_{as}$ |Power converter gain proportional to supply voltage |$\text{pu}$|
-|$K_c$ |Rectifier loading factor proportional to commutating reactance |$\text{pu}$|
-|$K_i$ |Potential circuit (current) gain coefficient |$\text{pu}$|
-|$K_p$ |Potential circuit gain |$\text{pu}$|
-|$K_u$ |Gain associated with activation of takeover UEL |$\text{pu}$|
-|$\text{PositionOel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over|$-$|
-|$\text{PositionScl}$ |Input location : (0) none, (1) voltage error summation, (2) take-over|$-$|
-|$\text{PositionUel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over|$-$|
-|$\text{Sw1}$ |If true, power source derived from terminal voltage, if false, independent from terminal voltage|$-$|
-|$t_A$ |Voltage regulator time constant |$\text{s}$|
-|$t_{As}$ |Equivalent time constant of power converter firing control |$\text{s}$|
-|$t_{AUel}$ |Time constant of underexcitation limiter |$\text{s}$|
-|$t_{Bd}$ |Filter time constant of differential part of voltage regulator |$\text{s}$|
-|$t_{Cd}$ |Time constant of differential part of voltage regulator |$\text{s}$|
-|$\Theta_p$ |Potential circuit phase angle |$\text{rad}$|
-|$t_R$ |Stator voltage filter time constant |$\text{s}$|
-|$V_{a,Max}$ |Maximum output voltage of limited first order |$\text{pu}$|
-|$V_{a,Min}$ |Minimum output voltage of limited first order |$\text{pu}$|
-|$V_{b,Max}$ |Maximum available exciter field voltage |$\text{pu}$ (base $U_{Nom}$)|
-|$V_{r,Max}$ |Maximum field voltage |$\text{pu}$ (user-selected base voltage)|
-|$V_{r,Min}$ |Minimum field voltage |$\text{pu}$ (user-selected base voltage)|
-|$X_l$ |Reactance associated with potential source |$\text{pu}$ (base $S_{Nom}$, $U_{Nom}$)|
-|$Z_a$ |Dead-band for differential part influence on voltage regulator |$\text{pu}$ (base $U_{Nom}$)|
+|$K_a$ |Voltage regulator gain |${pu}$|
+|$K_{as}$ |Power converter gain proportional to supply voltage |${pu}$|
+|$K_c$ |Rectifier loading factor proportional to commutating reactance |${pu}$|
+|$K_i$ |Potential circuit (current) gain coefficient |${pu}$|
+|$K_p$ |Potential circuit gain |${pu}$|
+|$K_u$ |Gain associated with activation of takeover UEL |${pu}$|
+|${PositionOel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over|$-$|
+|${PositionScl}$ |Input location : (0) none, (1) voltage error summation, (2) take-over|$-$|
+|${PositionUel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over|$-$|
+|${Sw1}$ |If true, power source derived from terminal voltage, if false, independent from terminal voltage|$-$|
+|$t_A$ |Voltage regulator time constant |${s}$|
+|$t_{As}$ |Equivalent time constant of power converter firing control |${s}$|
+|$t_{AUel}$ |Time constant of underexcitation limiter |${s}$|
+|$t_{Bd}$ |Filter time constant of differential part of voltage regulator |${s}$|
+|$t_{Cd}$ |Time constant of differential part of voltage regulator |${s}$|
+|$\Theta_p$ |Potential circuit phase angle |${rad}$|
+|$t_R$ |Stator voltage filter time constant |${s}$|
+|$V_{a} Max P_u$ |Maximum output voltage of limited first order |${pu}$|
+|$V_{a} Min P_u$ |Minimum output voltage of limited first order |${pu}$|
+|$V_{b} Max P_u$ |Maximum available exciter field voltage |${pu}$ (base $U N_{om}$)|
+|$V_{r} Max P_u$ |Maximum field voltage |${pu}$ (user-selected base voltage)|
+|$V_{r} Min P_u$ |Minimum field voltage |${pu}$ (user-selected base voltage)|
+|$X_l P_u$ |Reactance associated with potential source |${pu}$ (base $S_{Nom}$, $U_{Nom}$)|
+|$Z_a P_u$ |Dead-band for differential part influence on voltage regulator |${pu}$ (base $U N_{om}$)|
 
 ## Model diagram
 
