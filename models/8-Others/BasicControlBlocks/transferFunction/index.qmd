@@ -1,5 +1,6 @@
 ---
-title: "Transfer function between an input and output one time constant"
+layout: page
+title: Transfer function between an input and output one time constant
 categories: ["control block", "transfer function"]
 author: Mathilde Bongrain
 date: 16/10/2023
@@ -8,10 +9,10 @@ version: version-1.0.0
 
 ## Diagram
 
-![Transfer function diagram](transferFunction.svg){#fig-transferfunction}
+![transfer function diagram](transferFunction.svg)
 
-::: {#fig-transferfunction}
-Transfer function control block diagram
+::: {.figure-caption}
+Transfer function between an input and output one time constant diagram
 :::
 
 Syntax:  
@@ -30,4 +31,4 @@ Discrete variable : none
 
 $$ T \dot{x_j} = - x_j + G x_i$$
 
-**N.B.** A zero value for $T$ is allowed. 
+**N.B.** A zero value for $T$ is allowed.

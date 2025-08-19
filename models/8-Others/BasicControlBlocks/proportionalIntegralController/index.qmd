@@ -1,4 +1,44 @@
 ---
-title: "Proportional Integral Controller"
-categories: ["control block", "PI controller"]
---- 
+id: pictl1
+layout: page
+title: Proportional integral (PI) controller
+categories: ["control block", "PI", "Proportional Integral"]
+author: Mathilde Bongrain
+date: 16/10/2023
+version: version-1.0.0
+---
+
+## Diagram
+
+![pictl diagram](proportionalIntegralController.svg)
+
+::: {.figure-caption}
+Proportional integral (PI) controller diagram
+:::
+
+Syntax:  
+
+- function name: pictl
+- input variable : $x_k$
+- output variable: $x_j$
+- data name, parameter name or math expression for $K_I$
+- data name, parameter name or math expression for $K_p$
+
+Internal states : variable $x_i$
+
+Discrete variable : none
+
+## Equations
+
+$$
+\begin{align}
+\dot{x_i} = K_i x_k \\
+0 = K_p x_k + x_i - x_j
+\end{align}
+$$
+
+## Initialization of internal state variables
+
+$$
+x_i = x_j
+$$
