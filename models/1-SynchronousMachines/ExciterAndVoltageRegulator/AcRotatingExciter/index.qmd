@@ -30,29 +30,29 @@ The input variables are :
 
 | Variable | Description | Units |
 |-----------|--------------| ------|
-| $E_{fe}$ | output voltage of voltage regulator | $\text{pu}$ (user-selected base voltage)|
-| $I_r$ | rotor current | $\text{pu}$ (base $S_{Nom}$, user-selected base voltage)|
+| $E_{fe} P_u$ | output voltage of voltage regulator | $pu$ (user-selected base voltage)|
+| $I_r P_u$ | rotor current | $pu$ (base $S_{Nom}$, user-selected base voltage)|
 
 The output variables are :
 
 | Variable | Description | Units |
 |-----------|--------------| ------|
-| $E_{fd}$ | excitation voltage | $\text{pu}$ (user-selected base voltage)|
-| $V_{fe}$ | field current signal | $\text{pu}$ (user-selected base voltage)|
+| $E_{fd} P_u$ | excitation voltage | $pu$ (user-selected base voltage)|
+| $V_{fe} P_u$ | field current signal | $pu$ (user-selected base voltage)|
 
 ## Model parameters
 
 | Parameter | Description | Units |
 |-----------|--------------| ------|
-|$A_{Ex}$ | Gain of saturation function | $\text{pu}$|
-|$B_{Ex}$ | Exponential coefficient of saturation function|$-$|
-|$K_c$ | Rectifier loading factor proportional to commutating reactance | $\text{pu}$|
-|$K_d$ | Demagnetizing factor, function of exciter alternator reactances | $\text{pu}$|
-|$K_e$ | Exciter field resistance constant |$\text{pu}$|
-|$t_E$ | Exciter field time constant | $\text{s}$|
-|$\text{TolLi}$ | Tolerance on limit crossing as a fraction of the difference between initial limits of limited integrator | $\text{pu}$|
-|$V_{e,Min}$ | Minimum exciter output voltage | $\text{pu}$ (user-selected base voltage)|
-|$V_{fe,Max}$ | Maximum exciter field current signal | $\text{pu}$ (user-selected base voltage)|
+|$A E_x$ | Gain of saturation function | $pu$|
+|$B E_x$ | Exponential coefficient of saturation function|$-$|
+|$K_c$ | Rectifier loading factor proportional to commutating reactance | $pu$|
+|$K_d$ | Demagnetizing factor, function of exciter alternator reactances | $pu$|
+|$K_e$ | Exciter field resistance constant |${pu}$|
+|$t_E$ | Exciter field time constant | ${s}$|
+|${TolLi}$ | Tolerance on limit crossing as a fraction of the difference between initial limits of limited integrator | $pu$|
+|$V_{e} Min P_u$ | Minimum exciter output voltage | $pu$ (user-selected base voltage)|
+|$V_{fe} Max P_u$ | Maximum exciter field current signal | $pu$ (user-selected base voltage)|
 
 ## Model diagram
 

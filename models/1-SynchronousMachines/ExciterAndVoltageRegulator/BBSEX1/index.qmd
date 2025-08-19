@@ -27,28 +27,28 @@ The input variables are :
 
 | Variable | Description | Units |
 |-----------|--------------| ------|
-| $U_s$ | measured stator voltage |$\text{pu}$ (base $U_{Nom}$)|
-| $U_{s,Ref}$ | reference stator voltage |$\text{pu}$ (base $U_{Nom}$)|
-| $U_{Oel}$ (optional) | output voltage of overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
-| $U_{Pss}$ (optional) | output voltage of power system stabilizer |$\text{pu}$ (base $U_{Nom}$)|
-| $U_{Uel}$ (optional) | output voltage of underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+| $U_s P_u$ | measured stator voltage |${pu}$ (base $U_{Nom}$)|
+| $U_{s} R_{ef} P_u$ | reference stator voltage |${pu}$ (base $U N_{om}$)|
+| $U_{Oel} P_u$ (optional) | output voltage of overexcitation limiter |${pu}$ (base $U N_{om}$)|
+| $U P_{ss} P_u$ (optional) | output voltage of power system stabilizer |${pu}$ (base $U N_{om}$)|
+| $U U_{el} P_u$ (optional) | output voltage of underexcitation limiter |${pu}$ (base $U N_{om}$)|
 
-The output signal is $E_{fd}$, the excitation voltage in $\text{pu}$ (user-selected base voltage).
+The output signal is $E_{fd} P_u$, the excitation voltage in $pu$ (user-selected base voltage).
 
 ## Model parameters
 
 | Parameter | Description | Units |
 |-----------|--------------| ------|
-|$E_{fd,Max}$ | Maximum excitation voltage | $\text{pu}$ (user-selected base voltage)|
-|$E_{fd,Min}$ | Minimum excitation voltage |$\text{pu}$ (user-selected base voltage)|
-|$K$ | Voltage regulator gain |$\text{pu}$|
-|$t_1$ | Voltage regulator first time constant |$\text{s}$|
-|$t_2$ |Voltage regulator second time constant |$\text{s}$|
-|$t_3$ | Voltage regulator lead time constant |$\text{s}$|
-|$t_4$ |Voltage regulator lag time constant |$\text{s}$|
-|$t_R$ |Stator voltage filter time constant |$\text{s}$|
-|$V_{r,Max}$ |Maximum output voltage of voltage regulator |$\text{pu}$ (user-selected base voltage)|
-|$V_{r,Min}$ |Minimum output voltage of voltage regulator |$\text{pu}$ (user-selected base voltage)|
+|$E_{fd} Max P_u$ | Maximum excitation voltage | ${pu}$ (user-selected base voltage)|
+|$E_{fd} Min P_u$ | Minimum excitation voltage |${pu}$ (user-selected base voltage)|
+|$K$ | Voltage regulator gain |${pu}$|
+|$t_1$ | Voltage regulator first time constant |${s}$|
+|$t_2$ |Voltage regulator second time constant |${s}$|
+|$t_3$ | Voltage regulator lead time constant |${s}$|
+|$t_4$ |Voltage regulator lag time constant |${s}$|
+|$t_R$ |Stator voltage filter time constant |${s}$|
+|$V_{r} Max P_u$ |Maximum output voltage of voltage regulator |${pu}$ (user-selected base voltage)|
+|$V_{r} Min P_u$ |Minimum output voltage of voltage regulator |${pu}$ (user-selected base voltage)|
 
 ## Model diagram
 

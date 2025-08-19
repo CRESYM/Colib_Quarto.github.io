@@ -27,28 +27,28 @@ The input variables are :
 
 | Variable | Description | Units |
 |-----------|--------------| ------|
-|$I_r$ |rotor current |$\text{pu}$ (base $S_{Nom}$, user-selected base voltage)|
-|$U_s$ |measured stator voltage |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{s,Ref}$ |reference stator voltage |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Oel}$ (optional) |output voltage of overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Pss}$ (optional) |output voltage of power system stabilizer |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Uel}$ (optional) |output voltage of underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+|$I_r P_u$ |rotor current |${pu}$ (base $S_{Nom}$, user-selected base voltage)|
+|$U_s P_u$ |measured stator voltage |${pu}$ (base $U N_{om}$)|
+|$U_{s} R_{ef} P_u$ |reference stator voltage |${pu}$ (base $U N_{om}$)|
+|$U O_{el} P_u$ (optional) |output voltage of overexcitation limiter |${pu}$ (base $U N_{om}$)|
+|$U P_{ss} P_u$ (optional) |output voltage of power system stabilizer |${pu}$ (base $U N_{om}$)|
+|$U U_{el} P_u$ (optional) |output voltage of underexcitation limiter |${pu}$ (base $U N_{om}$)|
 
-The output signal is $E_{fd}$, the excitation voltage in $\text{pu}$ (user-selected base voltage).
+The output signal is $E_{fd} P_u$, the excitation voltage in ${pu}$ (user-selected base voltage).
 
 ## Model parameters
 
 | Parameter | Description | Units |
 |-----------|--------------| ------|
-|$\text{CSwitch}$ |If true, exciter is solid-fed, if false, exciter is bus-fed|$-$|
-|$\text{IrThresholdOn}$ |If true, rotor current threshold applies|$-$|
-|$K$ |Voltage regulator gain |$\text{pu}$|
-|$\text{RcToRfd}$ |Ratio of field discharge resistance to field winding resistance|$-$|
-|$t_A$ |Transient gain reduction lead time constant |$\text{s}$|
-|$t_B$ |Transient gain reduction lag time constant |$\text{s}$|
-|$t_E$ |Voltage regulator time constant |$\text{s}$|
-|$V_{r,Max}$ |Maximum output voltage of voltage regulator |$\text{pu}$ (user-selected base voltage)|
-|$V_{r,Min}$ |Minimum output voltage of voltage regulator |$\text{pu}$ (user-selected base voltage)|
+|${CSwitch}$ |If true, exciter is solid-fed, if false, exciter is bus-fed|$-$|
+|${IrThresholdOn}$ |If true, rotor current threshold applies|$-$|
+|$K$ |Voltage regulator gain |${pu}$|
+|${RcToRfd}$ |Ratio of field discharge resistance to field winding resistance|$-$|
+|$t_A$ |Transient gain reduction lead time constant |${s}$|
+|$t_B$ |Transient gain reduction lag time constant |${s}$|
+|$t_E$ |Voltage regulator time constant |${s}$|
+|$V_{r} Max P_u$ |Maximum output voltage of voltage regulator |${pu}$ (user-selected base voltage)|
+|$V_{r} Min P_u$ |Minimum output voltage of voltage regulator |${pu}$ (user-selected base voltage)|
 
 ## Model diagram
 

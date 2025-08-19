@@ -33,50 +33,50 @@ The input variables are :
 
 | Variable | Description | Units |
 |-----------|--------------| ------|
-| $I_r$ | rotor current | $\text{pu}$ (base $S_{Nom}$, user-selected base voltage)|
-| $U_s$ |measured stator voltage |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{s,Ref}$ |reference stator voltage |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Oel}$ (optional) |output voltage of overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Pss}$ (optional) |output voltage of power system stabilizer |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Scl,Oel}$ (optional) |output voltage of stator current overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Scl,Uel}$ (optional) |output voltage of stator current underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Uel}$ (optional) |output voltage of underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+| $I_r P_u$ | rotor current | ${pu}$ (base $S_{Nom}$, user-selected base voltage)|
+| $U_s P_u$ |measured stator voltage |${pu}$ (base $U_{Nom}$)|
+|$U_s R_{ef} P_u$ |reference stator voltage |${pu}$ (base $U_{Nom}$)|
+|$U O_{el} P_u$ (optional) |output voltage of overexcitation limiter |${pu}$ (base $U_{Nom}$)|
+|$U P_{ss} P_u$ (optional) |output voltage of power system stabilizer |${pu}$ (base $U_{Nom}$)|
+|$U S_{cl} O_{el} P_u$ (optional) |output voltage of stator current overexcitation limiter |${pu}$ (base $U_{Nom}$)|
+|$U S_{cl} U_{el} P_u$ (optional) |output voltage of stator current underexcitation limiter |${pu}$ (base $U_{Nom}$)|
+|$U U_{el} P_u$ (optional) |output voltage of underexcitation limiter |${pu}$ (base $U_{Nom}$)|
 
-The output signal is $E_{fd}$, the excitation voltage in $\text{pu}$ (user-selected base voltage).
+The output signal is $E_{fd} P_u$, the excitation voltage in ${pu}$ (user-selected base voltage).
 
 ## Model parameters
 
 | Parameter | Description | Units |
 |-----------|--------------| ------|
-|$A_{Ex}$ |Gain of saturation function |$\text{pu}$|
-|$B_{Ex}$ |Exponential coefficient of saturation function|$-$|
-|$E_{fe,Max}$ |Maximum exciter field voltage |$\text{pu}$ (user-selected base voltage)|
-|$E_{fe,Min}$ |Minimum exciter field voltage |$\text{pu}$ (user-selected base voltage)|
-|$K_a$ |Voltage regulator ga|$\text{pu}$|
-|$K_c$ |Rectifier loading factor proportional to commutating reactance |$\text{pu}$|
-|$K_d$ |Demagnetizing factor, function of exciter alternator reactances |$\text{pu}$|
-|$K_e$ |Exciter field resistance constant |$\text{pu}$|
-|$K_h$ |Exciter field current feedback gain |$\text{pu}$|
-|$\text{PositionOel}$ |Input location :(0) none, (1) voltage error summation, (2) take-over at AVR output|$-$|
-|$\text{PositionScl}$ |Input location :(0) none, (1) voltage error summation, (2) take-over at AVR output|$-$|
-|$\text{PositionUel}$ |Input location :(0) none, (1) voltage error summation, (2) take-over at AVR output|$-$|
-|$t_A$ |First lag time constant |$\text{s}$|
-|$t_B$ |Second lag time constant |$\text{s}$|
-|$t_C$ |Second lead time constant |$\text{s}$|
-|$t_E$ |Exciter field time constant |$\text{s}$|
-|$t_H$ |Feedback lag time constant |$\text{s}$|
-|$t_J$ |Feedback lead time constant |$\text{s}$|
-|$t_K$ |First lead time constant |$\text{s}$|
-|$\text{TolLi}$ |Tolerance on limit crossing as a fraction of the difference between initial limits of limited integrator |$\text{pu}$|
-|$t_R$ |Stator voltage filter time constant |$\text{s}$|
-|$V_{fe,Lim}$ |Threshold of field current signal for feedback |$\text{pu}$ (user-selected base voltage)|
-|$V_{a,Max}$ |Maximum output voltage of voltage regulator |$\text{pu}$ (user-selected base voltage)|
-|$V_{a,Min}$ |Minimum output voltage of voltage regulator |$\text{pu}$ (user-selected base voltage)|
-|$V_{e,Min}$ |Minimum exciter output voltage |$\text{pu}$ (user-selected base voltage)|
-|$V_{fe,Max}$ |Maximum exciter field current signal |$\text{pu}$ (user-selected base voltage)|
-|$V_{h,Max}$ |Maximum feedback voltage |$\text{pu}$ (user-selected base voltage)|
-|$V_{r,Max}$ |Maximum field voltage |$\text{pu}$ (user-selected base voltage)|
-|$V_{r,Min}$ |Minimum field voltage |$\text{pu}$ (user-selected base voltage)|
+|$A E_x$ |Gain of saturation function |${pu}$|
+|$B E_x$ |Exponential coefficient of saturation function|$-$|
+|$E_{fe} Max P_u$ |Maximum exciter field voltage |${pu}$ (user-selected base voltage)|
+|$E_{fe} Min P_u$ |Minimum exciter field voltage |${pu}$ (user-selected base voltage)|
+|$K_a$ |Voltage regulator ga|${pu}$|
+|$K_c$ |Rectifier loading factor proportional to commutating reactance |${pu}$|
+|$K_d$ |Demagnetizing factor, function of exciter alternator reactances |${pu}$|
+|$K_e$ |Exciter field resistance constant |${pu}$|
+|$K_h$ |Exciter field current feedback gain |$-$|
+|${PositionOel}$ |Input location :(0) none, (1) voltage error summation, (2) take-over at AVR output|$-$|
+|${PositionScl}$ |Input location :(0) none, (1) voltage error summation, (2) take-over at AVR output|$-$|
+|${PositionUel}$ |Input location :(0) none, (1) voltage error summation, (2) take-over at AVR output|$-$|
+|$t_A$ |First lag time constant |${s}$|
+|$t_B$ |Second lag time constant |${s}$|
+|$t_C$ |Second lead time constant |${s}$|
+|$t_E$ |Exciter field time constant |${s}$|
+|$t_H$ |Feedback lag time constant |${s}$|
+|$t_J$ |Feedback lead time constant |${s}$|
+|$t_K$ |First lead time constant |${s}$|
+|${TolLi}$ |Tolerance on limit crossing as a fraction of the difference between initial limits of limited integrator |${pu}$|
+|$t_R$ |Stator voltage filter time constant |${s}$|
+|$V_{fe} Lim P_u$ |Threshold of field current signal for feedback |${pu}$ (user-selected base voltage)|
+|$V_{a} Max P_u$ |Maximum output voltage of voltage regulator |${pu}$ (user-selected base voltage)|
+|$V_{a} Min P_u$ |Minimum output voltage of voltage regulator |${pu}$ (user-selected base voltage)|
+|$V_{e} Min P_u$ |Minimum exciter output voltage |${pu}$ (user-selected base voltage)|
+|$V_{fe} Max P_u$ |Maximum exciter field current signal |${pu}$ (user-selected base voltage)|
+|$V_{h} Max P_u$ |Maximum feedback voltage |${pu}$ (user-selected base voltage)|
+|$V_{r} Max P_u$ |Maximum field voltage |${pu}$ (user-selected base voltage)|
+|$V_{r} Min P_u$ |Minimum field voltage |${pu}$ (user-selected base voltage)|
 
 ## Model diagram
 

@@ -32,61 +32,61 @@ The input variables are :
 
 | Variable | Description | Units |
 |-----------|--------------| ------|
-|$I_r$ | rotor current | $\text{pu}$ (base $S_{Nom}$, user-selected base voltage)|
-|$i_t$ |complex current at the terminal |$\text{pu}$ (base $S_{Nom}$, $U_{Nom}$)|
-|$U_s$ |measured stator voltage |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{s,Ref}$ |reference stator voltage |$\text{pu}$ (base $U_{Nom}$)|
-|$u_t$ |complex voltage at the terminal |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Oel}$ (optional) |output voltage of overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Pss}$ (optional) |output voltage of power system stabilizer |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Scl,Oel}$ (optional) |output voltage of stator current overexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Scl,Uel}$ (optional) |output voltage of stator current underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
-|$U_{Uel}$ (optional) |output voltage of underexcitation limiter |$\text{pu}$ (base $U_{Nom}$)|
+|$I_r P_u$ | rotor current | ${pu}$ (base $S N_{om}$, user-selected base voltage)|
+|$I_t P_u$ |complex current at the terminal |${pu}$ (base $S N_{om}$, $U N_{om}$)|
+|$U_s P_u$ |measured stator voltage |${pu}$ (base $U N_{om}$)|
+|$U_{s} R_{ef} P_u$ |reference stator voltage |${pu}$ (base $U N_{om}$)|
+|$U_t$ $P_u$ |complex voltage at the terminal |${pu}$ (base $U N_{om}$)|
+|$U O_{el} P_u$ (optional) |output voltage of overexcitation limiter |${pu}$ (base $U N_{om}$)|
+|$U P_{ss} P_u$ (optional) |output voltage of power system stabilizer |${pu}$ (base $U N_{om}$)|
+|$U S_{cl} O_{el} P_u$ (optional) |output voltage of stator current overexcitation limiter |${pu}$ (base $U N_{om}$)|
+|$U S_{cl} U_{el} P_u$ (optional) |output voltage of stator current underexcitation limiter |${pu}$ (base $U N_{om}$)|
+|$U U_{el} P_u$ (optional) |output voltage of underexcitation limiter |${pu}$ (base $U N_{om}$)|
 
-The output signal is $E_{fd}$, the excitation voltage in $\text{pu}$ (user-selected base voltage).
+The output signal is $E_{fd} P_u$, the excitation voltage in ${pu}$ (user-selected base voltage).
 
 ## Model parameters
 
 | Parameter | Description | Units |
 |-----------|--------------| ------|
-|$A_{Ex}$ |Gain of saturation function | $\text{pu}$|
-|$B_{Ex}$ |Exponential coefficient of saturation function|$-$|
-|$K_a$ |Voltage regulator gain|$\text{pu}$|
-|$K_c$ |Rectifier loading factor proportional to commutating reactance |$\text{pu}$|
-|$K_{c1}$ |Rectifier loading factor proportional to commutating reactance (exciter) |$\text{pu}$|
-|$K_d$ |Demagnetizing factor, function of exciter alternator reactances |$\text{pu}$|
-|$K_{dr}$ |Regulator derivative gain|$\text{pu}$|
-|$K_e$ |Exciter field resistance constant |$\text{pu}$|
-|$K_{f1}$ |Generator field voltage feedback gain|$\text{pu}$|
-|$K_{f2}$ |Exciter field current feedback gain|$\text{pu}$|
-|$K_{f3}$ |Rate feedback gain|$\text{pu}$|
-|$K_i$ |Potential circuit (current) gaincoefficient |$\text{pu}$|
-|$K_{ia}$ |Amplifier integral gain|$\text{pu}$|
-|$K_{ir}$ |Regulator integral gain|$\text{pu}$|
-|$K_l$ |Exciter field current limiter gain|$\text{pu}$|
-|$K_p$ |Potential source gain|$\text{pu}$|
-|$K_{pa}$ |Amplifier proportional gain|$\text{pu}$|
-|$K_{pr}$ |Regulator proportional gain|$\text{pu}$|
-|$\text{PositionOel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) take-over at AVR output|$-$|
-|$\text{PositionPss}$ |Input location : (0) none, (1) voltage error summation, (2) after take-over UEL|$-$|
-|$\text{PositionScl}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) take-over at AVR output|$-$|
-|$\text{PositionUel}$ |Input location :(0) none, (1) voltage error summation, (2) take-over at AVR input, (3) take-over at AVR output|$-$|
-|$\text{Sw1}$ |If true, power source derived from terminal voltage, if false, independent from terminal voltage|$-$|
-|$t_A$ | Voltage regulator time constant |$\text{s}$|
-|$t_{Dr}$ |Derivative gainwashout time constant |$\text{s}$|
-|$t_E$ |Exciter field time constant |$\text{s}$|
-|$t_F$ |Rate feedback time constant |$\text{s}$|
-|$\Theta_p$ |Potential circuit phase angle |$\text{rad}$|
-|$\text{TolLi}$ |Tolerance on limit crossing as a fraction of the difference between initial limits of limited integrator |$\text{pu}$|
-|$t_R$ |Stator voltage filter time constant |$\text{s}$|
-|$V_{a,Max}$ |Maximum output voltage of limited PI |$\text{pu}$ (user-selected base voltage)|
-|$V_{a,Min}$ |Minimum output voltage of limited PI |$\text{pu}$ (user-selected base voltage)|
-|$V_{b,Max}$ |Maximum available exciter field voltage |$\text{pu}$ (base $U_{Nom}$)|
-|$V_{e,Min}$ |Minimum exciter output voltage |$\text{pu}$ (user-selected base voltage)|
-|$V_{fe,Max}$ |Maximum exciter field current signal |$\text{pu}$ (user-selected base voltage)|
-|$V_{r,Max}$ |Maximum output voltage of limited PID |$\text{pu}$ (user-selected base voltage)|
-|$V_{r,Min}$ |Minimum output voltage of limited PID |$\text{pu}$ (user-selected base voltage)|
-|$X_l$ |Reactance associated with potential source |$\text{pu}$ (base $S_{Nom}$, $U_{Nom}$)|
+|$A E_x$ |Gain of saturation function | ${pu}$|
+|$B E_x$ |Exponential coefficient of saturation function|$-$|
+|$K_a$ |Voltage regulator gain|${pu}$|
+|$K_c$ |Rectifier loading factor proportional to commutating reactance |${pu}$|
+|$K_{c1}$ |Rectifier loading factor proportional to commutating reactance (exciter) |${pu}$|
+|$K_d$ |Demagnetizing factor, function of exciter alternator reactances |${pu}$|
+|$K_{dr}$ |Regulator derivative gain|${pu}$|
+|$K_e$ |Exciter field resistance constant |${pu}$|
+|$K_{f1}$ |Generator field voltage feedback gain|${pu}$|
+|$K_{f2}$ |Exciter field current feedback gain|${pu}$|
+|$K_{f3}$ |Rate feedback gain|${pu}$|
+|$K_i$ |Potential circuit (current) gaincoefficient |${pu}$|
+|$K_{ia}$ |Amplifier integral gain|${pu}$|
+|$K_{ir}$ |Regulator integral gain|${pu}$|
+|$K_l$ |Exciter field current limiter gain|${pu}$|
+|$K_p$ |Potential source gain|${pu}$|
+|$K_{pa}$ |Amplifier proportional gain|${pu}$|
+|$K_{pr}$ |Regulator proportional gain|${pu}$|
+|${PositionOel}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) take-over at AVR output|$-$|
+|${PositionPss}$ |Input location : (0) none, (1) voltage error summation, (2) after take-over UEL|$-$|
+|${PositionScl}$ |Input location : (0) none, (1) voltage error summation, (2) take-over at AVR input, (3) take-over at AVR output|$-$|
+|${PositionUel}$ |Input location :(0) none, (1) voltage error summation, (2) take-over at AVR input, (3) take-over at AVR output|$-$|
+|${Sw1}$ |If true, power source derived from terminal voltage, if false, independent from terminal voltage|$-$|
+|$t_A$ | Voltage regulator time constant |${s}$|
+|$t_{Dr}$ |Derivative gainwashout time constant |${s}$|
+|$t_E$ |Exciter field time constant |${s}$|
+|$t_F$ |Rate feedback time constant |${s}$|
+|$\Theta_p$ |Potential circuit phase angle |${rad}$|
+|${TolLi}$ |Tolerance on limit crossing as a fraction of the difference between initial limits of limited integrator |${pu}$|
+|$t_R$ |Stator voltage filter time constant |${s}$|
+|$V_{a} Max P_u$ |Maximum output voltage of limited PI |${pu}$ (user-selected base voltage)|
+|$V_{a} Min P_u$ |Minimum output voltage of limited PI |${pu}$ (user-selected base voltage)|
+|$V_{b} Max P_u$ |Maximum available exciter field voltage |${pu}$ (base $U N_{om}$)|
+|$V_{e} Min P_u$ |Minimum exciter output voltage |${pu}$ (user-selected base voltage)|
+|$V_{fe} Max P_u$ |Maximum exciter field current signal |${pu}$ (user-selected base voltage)|
+|$V_{r} Max P_u$ |Maximum output voltage of limited PID |${pu}$ (user-selected base voltage)|
+|$V_{r} Min P_u$ |Minimum output voltage of limited PID |${pu}$ (user-selected base voltage)|
+|$X_l P_u$ |Reactance associated with potential source |${pu}$ (base $S N_{om}$, $U N_{om}$)|
 
 ## Model diagram
 
