@@ -2691,7 +2691,7 @@ Table&nbsp;12: Outputs, based on <span class="citation" data-cites="IEC61400-27-
 <p>Current is limited to the maximum admissible current <span class="math inline">\(i_\mathrm{max}\)</span>. During FRT there is a separate maximum current value <span class="math inline">\(i_\mathrm{maxdip}\)</span>.</p>
 <p>In addition to <span class="math inline">\(i_\mathrm{max}\)</span>, Voltage Dependent Limits (VDL) are defined for active and reactive current components through the look-up tables <span class="math inline">\(\mathbf{i_\mathrm{pmax}}(u_\mathrm{WT})\)</span> and <span class="math inline">\(\mathbf{i_\mathrm{qmax}}(u_\mathrm{WT})\)</span>.</p>
 <p>The current limitation contains an additional high-voltage current limit logic (Kpqu-logic), which limits voltage-supporting reactive current injection when voltage is already high (parameters <span class="math inline">\(u_\mathrm{pqumax}\)</span>, <span class="math inline">\(K_\mathrm{pqu}\)</span>).</p>
-<p>The following <a href="#fig-currentLimCode" class="quarto-xref">Figure&nbsp;9</a> shows a python inspired pseudo-code implementation of the the current limitation as shown in <span class="citation" data-cites="Franke2024">[<a href="#ref-Franke2024" role="doc-biblioref">8</a>]</span>.</p>
+<p>The following <a href="#lst-currentLimCode" class="quarto-xref">code&nbsp;1</a> shows a python inspired pseudo-code implementation of the the current limitation as shown in <span class="citation" data-cites="Franke2024">[<a href="#ref-Franke2024" role="doc-biblioref">8</a>]</span>.</p>
 <div id="fig-WTCurrentLim" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-WTCurrentLim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2702,6 +2702,12 @@ Figure&nbsp;8: Wind turbine current limitation, based on <span class="citation" 
 </figcaption>
 </figure>
 </div>
+<div id="lst-currentLimCode" class="default listing quarto-float quarto-figure quarto-figure-left anchored">
+<figure class="quarto-float quarto-float-lst figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-lst" id="lst-currentLimCode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Listing&nbsp;1: Python-inspired pseudo code implementation of the current limitation block, based on <span class="citation" data-cites="Franke2024">[<a href="#ref-Franke2024" role="doc-biblioref">8</a>]</span>
+</figcaption>
+<div aria-describedby="lst-currentLimCode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    M_DFSLim,imax_hook,iqmax_hook = (0,0,0)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    if F_FRT == 1:</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        i_maxset = i_maxdip</span>
@@ -2733,14 +2739,7 @@ Figure&nbsp;8: Wind turbine current limitation, based on <span class="citation" 
 <span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>                    abs(i_qcmd), </span>
 <span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>                    i_qmaxVDL(u_WTCfilt))**2)</span>
 <span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="fig-currentLimCode" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-currentLimCode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src=".png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-currentLimCode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9: Python-inspired pseoudo code implementation of the current limitation block, based on <span class="citation" data-cites="Franke2024">[<a href="#ref-Franke2024" role="doc-biblioref">8</a>]</span>
-</figcaption>
 </figure>
 </div>
 <p><strong>Parameters</strong></p>
@@ -2980,7 +2979,7 @@ Table&nbsp;15: Outputs, based on <span class="citation" data-cites="IEC61400-27-
 <img src="drawings/WT_mechanical.drawio.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mechanicalModule-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10: Wind turbine two mass mechanical module, based on <span class="citation" data-cites="IEC61400-27-1_2020">[<a href="#ref-IEC61400-27-1_2020" role="doc-biblioref">1</a>]</span>
+Figure&nbsp;9: Wind turbine two mass mechanical module, based on <span class="citation" data-cites="IEC61400-27-1_2020">[<a href="#ref-IEC61400-27-1_2020" role="doc-biblioref">1</a>]</span>
 </figcaption>
 </figure>
 </div>
@@ -3148,14 +3147,14 @@ x_\mathrm{drt\,0} = P_\mathrm{ag\,0} / \omega_0
 </section>
 <section id="sec-aerodynamic2d" class="level3">
 <h3 class="anchored" data-anchor-id="sec-aerodynamic2d">Two-dimensional aerodynamic module</h3>
-<p>The two-dimensional aerodynamic module is shown in <a href="#fig-wtAerodynamic" class="quarto-xref">Figure&nbsp;11</a>. <span class="math inline">\(\theta_0\)</span> represents the rated pitch angle (refers to the angle at which the turbine blades are positioned to achieve maximum power output at a specific wind speed).</p>
+<p>The two-dimensional aerodynamic module is shown in <a href="#fig-wtAerodynamic" class="quarto-xref">Figure&nbsp;10</a>. <span class="math inline">\(\theta_0\)</span> represents the rated pitch angle (refers to the angle at which the turbine blades are positioned to achieve maximum power output at a specific wind speed).</p>
 <div id="fig-wtAerodynamic" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-wtAerodynamic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="drawings/WT_aerodynamic.drawio.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wtAerodynamic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;11: Wind turbine two-dimensional aerodynamic module, based on <span class="citation" data-cites="IEC61400-27-1_2020">[<a href="#ref-IEC61400-27-1_2020" role="doc-biblioref">1</a>]</span>
+Figure&nbsp;10: Wind turbine two-dimensional aerodynamic module, based on <span class="citation" data-cites="IEC61400-27-1_2020">[<a href="#ref-IEC61400-27-1_2020" role="doc-biblioref">1</a>]</span>
 </figcaption>
 </figure>
 </div>
@@ -3349,11 +3348,11 @@ Table&nbsp;21: Outputs, based on <span class="citation" data-cites="IEC61400-27-
 <img src="drawings/WT_pitch.drawio.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wtPitchAngleControl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12: Wind turbine pitch angle module (Type 3), based on <span class="citation" data-cites="IEC61400-27-1_2020">[<a href="#ref-IEC61400-27-1_2020" role="doc-biblioref">1</a>]</span>
+Figure&nbsp;11: Wind turbine pitch angle module (Type 3), based on <span class="citation" data-cites="IEC61400-27-1_2020">[<a href="#ref-IEC61400-27-1_2020" role="doc-biblioref">1</a>]</span>
 </figcaption>
 </figure>
 </div>
-<p>The pitch angle control module is shown in <a href="#fig-wtPitchAngleControl" class="quarto-xref">Figure&nbsp;12</a>. It uses two PI controllers to control the pitch angle <span class="math inline">\(\theta\)</span>, one associated with rotor speed (<span class="math inline">\(K_\mathrm{I\omega}\)</span>, <span class="math inline">\(K_\mathrm{P\omega}\)</span>) and one with generator power (<span class="math inline">\(K_\mathrm{Ic}\)</span>, <span class="math inline">\(K_\mathrm{Pc}\)</span>) <span class="citation" data-cites="Honrubia-Escribano2018_review">[<a href="#ref-Honrubia-Escribano2018_review" role="doc-biblioref">2</a>]</span>.</p>
+<p>The pitch angle control module is shown in <a href="#fig-wtPitchAngleControl" class="quarto-xref">Figure&nbsp;11</a>. It uses two PI controllers to control the pitch angle <span class="math inline">\(\theta\)</span>, one associated with rotor speed (<span class="math inline">\(K_\mathrm{I\omega}\)</span>, <span class="math inline">\(K_\mathrm{P\omega}\)</span>) and one with generator power (<span class="math inline">\(K_\mathrm{Ic}\)</span>, <span class="math inline">\(K_\mathrm{Pc}\)</span>) <span class="citation" data-cites="Honrubia-Escribano2018_review">[<a href="#ref-Honrubia-Escribano2018_review" role="doc-biblioref">2</a>]</span>.</p>
 <p>The outputs of both PI controllers are pitch angle setpoints (<span class="math inline">\(\theta_\mathrm{\omega}\)</span> and <span class="math inline">\(\theta_\mathrm{c}\)</span>). They are kept inside their respective limits (<span class="math inline">\(\theta_\mathrm{\omega min|max}\)</span> and <span class="math inline">\(\theta_\mathrm{cmin|max}\)</span>), similarly for the pitch angles’ rates of change.</p>
 <p>The rotor speed and power integrators are anti-windup, which means that the integrator is blocked when the lower or upper limit of <span class="math inline">\(\theta\)</span> are reached, until the error input changes direction. Both controller outputs are added before a low-pass filter (time constant <span class="math inline">\(T_\theta\)</span>) is applied. The filter with limitation detection considers the pitch angle limitation <span class="math inline">\(\theta_\mathrm{min|max}\)</span> and pitch angle rate of change <span class="math inline">\(\mathrm{d}\theta_{\mathrm{min|max}}\)</span>.</p>
 <p>The pitch angle rate of change plays a crucial role during power system faults since it avoids overspeeding during faults by controlling how fast the aerodynamic power is reduced <span class="citation" data-cites="Honrubia-Escribano2018_review">[<a href="#ref-Honrubia-Escribano2018_review" role="doc-biblioref">2</a>]</span>.</p>
@@ -3649,13 +3648,13 @@ x_\mathrm{Ic} = x_\mathrm{\theta c} = 0
 <img src="drawings/WT_GS_3A.drawio.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-generatorType3a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;13: Wind turbine type 3A generator system model, based on <span class="citation" data-cites="IEC61400-27-1_2020">[<a href="#ref-IEC61400-27-1_2020" role="doc-biblioref">1</a>]</span>
+Figure&nbsp;12: Wind turbine type 3A generator system model, based on <span class="citation" data-cites="IEC61400-27-1_2020">[<a href="#ref-IEC61400-27-1_2020" role="doc-biblioref">1</a>]</span>
 </figcaption>
 </figure>
 </div>
 <p>The Type 3A Generator System represents a DFIG. Inside the WT controls, <span class="math inline">\(i_\mathrm{p}\)</span> and <span class="math inline">\(i_\mathrm{q}\)</span> represent active and reactive current components. On the grid side (gs), after the reference frame rotation, this is not the case, because the voltage angle is different. Hence, the PI current controller’s output as well as the feedback of the generator system’s current need to be rotated in either direction to match the respective reference frames.</p>
 <p>Because the stator is directly coupled to the grid in case of a DFIG, an abrupt voltage variation will cause a change in the reactive power flow. The addition/subtraction of <span class="math inline">\(u / x_\mathrm{eqv}\)</span> is added to simulate these electromagnetic transients (related to rotor flux derivative) <span class="citation" data-cites="Honrubia-Escribano2018_review">[<a href="#ref-Honrubia-Escribano2018_review" role="doc-biblioref">2</a>]</span> <span class="citation" data-cites="Lorenzo-Bonache2019_iet">[<a href="#ref-Lorenzo-Bonache2019_iet" role="doc-biblioref">6</a>]</span>.</p>
-<p>The air-gap power <span class="math inline">\(p_\mathrm{ag}\)</span> is an additional output of the model, which is used as an input for the mechanical model in <a href="#fig-mechanicalModule" class="quarto-xref">Figure&nbsp;10</a>.</p>
+<p>The air-gap power <span class="math inline">\(p_\mathrm{ag}\)</span> is an additional output of the model, which is used as an input for the mechanical model in <a href="#fig-mechanicalModule" class="quarto-xref">Figure&nbsp;9</a>.</p>
 <p>In this model a DC chopper is assumed. The model is not applicable for older DFIG systems that require a crowbar during grid faults <span class="citation" data-cites="Fortmann2015">[<a href="#ref-Fortmann2015" role="doc-biblioref">3</a>]</span>, p.&nbsp;111).</p>
 </section>
 <section id="type-3b" class="level5">
@@ -3666,12 +3665,12 @@ Figure&nbsp;13: Wind turbine type 3A generator system model, based on <span clas
 <img src="drawings/WT_GS_3B.drawio.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-generatorType3b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14: Wind turbine type 3B generator system model, based on <span class="citation" data-cites="IEC61400-27-1_2020">[<a href="#ref-IEC61400-27-1_2020" role="doc-biblioref">1</a>]</span>
+Figure&nbsp;13: Wind turbine type 3B generator system model, based on <span class="citation" data-cites="IEC61400-27-1_2020">[<a href="#ref-IEC61400-27-1_2020" role="doc-biblioref">1</a>]</span>
 </figcaption>
 </figure>
 </div>
 <p>The Type 3B Generator System models a DFIG with crowbar circuit.</p>
-<p>In the model, as shown in <a href="#fig-generatorType3b" class="quarto-xref">Figure&nbsp;14</a>, the crowbar system is not physically modeled but instead represented by multiplying the current commands by zero for a certain period of time when the voltage module’s derivative goes beyond a certain threshold <span class="citation" data-cites="Lorenzo-Bonache2017_energies">[<a href="#ref-Lorenzo-Bonache2017_energies" role="doc-biblioref">5</a>]</span>.</p>
+<p>In the model, as shown in <a href="#fig-generatorType3b" class="quarto-xref">Figure&nbsp;13</a>, the crowbar system is not physically modeled but instead represented by multiplying the current commands by zero for a certain period of time when the voltage module’s derivative goes beyond a certain threshold <span class="citation" data-cites="Lorenzo-Bonache2017_energies">[<a href="#ref-Lorenzo-Bonache2017_energies" role="doc-biblioref">5</a>]</span>.</p>
 </section>
 <section id="paramaters" class="level4">
 <h4 class="anchored" data-anchor-id="paramaters">Paramaters</h4>
@@ -4409,11 +4408,11 @@ Table&nbsp;34: Outputs, based on <span class="citation" data-cites="IEC61400-27-
 <img src="drawings/WP_control_and_communication.drawio.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15: Wind plant control and communication, based on <span class="citation" data-cites="IEC61400-27-1_2020">[<a href="#ref-IEC61400-27-1_2020" role="doc-biblioref">1</a>]</span>
+Figure&nbsp;14: Wind plant control and communication, based on <span class="citation" data-cites="IEC61400-27-1_2020">[<a href="#ref-IEC61400-27-1_2020" role="doc-biblioref">1</a>]</span>
 </figcaption>
 </figure>
 </div>
-<p>The Wind Plant (WP) model includes two controllers: active power / frequency controller (<a href="#fig-wpActivePower" class="quarto-xref">Figure&nbsp;16</a>) and and reactive power / voltage control (<a href="#fig-wpReactivePower" class="quarto-xref">Figure&nbsp;17</a>).</p>
+<p>The Wind Plant (WP) model includes two controllers: active power / frequency controller (<a href="#fig-wpActivePower" class="quarto-xref">Figure&nbsp;15</a>) and and reactive power / voltage control (<a href="#fig-wpReactivePower" class="quarto-xref">Figure&nbsp;16</a>).</p>
 <p>Both, the P and Q controllers, freeze their state variables during FRT.</p>
 <p>The WP model controls one single Point of Common Coupling (PCC). According to <span class="citation" data-cites="IEC61400-27-1_2020">[<a href="#ref-IEC61400-27-1_2020" role="doc-biblioref">1</a>]</span> it is normally enough to use a single aggregated model for all WTs in a WP. Still, also large WP can be modeled by using multiple WT models which all get the same reference values from the WP controller.</p>
 <section id="wp-p-control" class="level3">
@@ -4424,7 +4423,7 @@ Figure&nbsp;15: Wind plant control and communication, based on <span class="cita
 <img src="drawings/WP_P.drawio.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wpActivePower-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;16: WPP P control module, based on <span class="citation" data-cites="IEC61400-27-1_2020">[<a href="#ref-IEC61400-27-1_2020" role="doc-biblioref">1</a>]</span>
+Figure&nbsp;15: WPP P control module, based on <span class="citation" data-cites="IEC61400-27-1_2020">[<a href="#ref-IEC61400-27-1_2020" role="doc-biblioref">1</a>]</span>
 </figcaption>
 </figure>
 </div>
@@ -4693,7 +4692,7 @@ x_\mathrm{WPIp} = (1-K_\mathrm{WppRef})P_\mathrm{WTRef\,0}
 <img src="drawings/WP_Q.drawio.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wpReactivePower-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;17: WPP Q control module, based on <span class="citation" data-cites="IEC61400-27-1_2020">[<a href="#ref-IEC61400-27-1_2020" role="doc-biblioref">1</a>]</span>
+Figure&nbsp;16: WPP Q control module, based on <span class="citation" data-cites="IEC61400-27-1_2020">[<a href="#ref-IEC61400-27-1_2020" role="doc-biblioref">1</a>]</span>
 </figcaption>
 </figure>
 </div>
@@ -5017,10 +5016,10 @@ x_\mathrm{PDrefRamprate} = \frac{Q_\mathrm{ord\,0}}{U_0}
 <div id="fig-wpCommunication" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-wpCommunication-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="drawings/WP_Communication.drawio.svg" class="img-fluid figure-img">
+<img src="drawings/WP_communication.drawio.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wpCommunication-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;18: Linear communication delay module, example with 3 delayed variables, based on <span class="citation" data-cites="IEC61400-27-1_2020">[<a href="#ref-IEC61400-27-1_2020" role="doc-biblioref">1</a>]</span>
+Figure&nbsp;17: Linear communication delay module, example with 3 delayed variables, based on <span class="citation" data-cites="IEC61400-27-1_2020">[<a href="#ref-IEC61400-27-1_2020" role="doc-biblioref">1</a>]</span>
 </figcaption>
 </figure>
 </div>
