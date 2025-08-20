@@ -1,5 +1,14 @@
 ---
-layout: base
+layout: chapter
 title: Line Commutated Converters (LCC)
 categories: [line commutated Converter, LCC]
+listing:
+  contents: 
+    - ./
+  exclude:
+    layout: chapter
+  type: table
+  fields: [title, author]
+  sort: [title]
+  page-size: 50
 ---

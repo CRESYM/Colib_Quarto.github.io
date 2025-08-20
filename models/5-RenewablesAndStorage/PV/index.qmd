@@ -1,4 +1,14 @@
 ---
+layout: chapter
 title: "Photovoltaics"
 categories: [Photovoltaics, PV]
+listing:
+  contents: 
+    - ./
+  exclude:
+    layout: chapter
+  type: table
+  fields: [title, author]
+  sort: [title]
+  page-size: 50
 --- 

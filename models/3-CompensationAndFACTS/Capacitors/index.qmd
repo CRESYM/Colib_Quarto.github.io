@@ -1,5 +1,14 @@
 ---
+layout: chapter
 title: Capacitors 
 categories: [capacitors]
-bibliography: ../../../_bibliography/references.bib
+listing:
+  contents: 
+    - ./
+  exclude:
+    layout: chapter
+  type: table
+  fields: [title, author]
+  sort: [title]
+  page-size: 50
 --- 
