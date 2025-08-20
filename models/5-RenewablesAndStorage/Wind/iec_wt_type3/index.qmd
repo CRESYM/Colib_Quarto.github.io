@@ -760,11 +760,11 @@ logic (Kpqu-logic), which limits voltage-supporting reactive current
 injection when voltage is already high (parameters $u_\mathrm{pqumax}$,
 $K_\mathrm{pqu}$).
 
-The following @fig-currentLimCode shows a python inspired pseudo-code implementation of the the current limitation as shown in @Franke2024.
+The following [code @lst-currentLimCode] shows a python inspired pseudo-code implementation of the the current limitation as shown in @Franke2024.
 
 ![Wind turbine current limitation, based on @IEC61400-27-1_2020](drawings/WT_CurrentLim.drawio.svg){#fig-WTCurrentLim}
 
-```default
+```{#lst-currentLimCode .default lst-cap="Python-inspired pseudo code implementation of the current limitation block, based on @Franke2024"}
     M_DFSLim,imax_hook,iqmax_hook = (0,0,0)
     if F_FRT == 1:
         i_maxset = i_maxdip
@@ -797,7 +797,6 @@ The following @fig-currentLimCode shows a python inspired pseudo-code implementa
                     i_qmaxVDL(u_WTCfilt))**2)
         ))
 ```
-![Python-inspired pseoudo code implementation of the current limitation block, based on @Franke2024](){#fig-currentLimCode}
 
 **Parameters**
 
@@ -1498,7 +1497,7 @@ $$ {#eq-initXpdreframprate}
 ### Linear communication delay module
 
 
-![Linear communication delay module, example with 3 delayed variables, based on @IEC61400-27-1_2020](drawings/WP_Communication.drawio.svg){#fig-wpCommunication}
+![Linear communication delay module, example with 3 delayed variables, based on @IEC61400-27-1_2020](drawings/WP_communication.drawio.svg){#fig-wpCommunication}
 
 **Parameters**
 
