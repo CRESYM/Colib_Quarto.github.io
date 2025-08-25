@@ -33,10 +33,6 @@
   {
     "listing": "/models/7-Protection/index.html",
     "items": [
-      "/models/7-Protection/LineProtection/index.html",
-      "/models/7-Protection/MachineProtection/index.html",
-      "/models/7-Protection/TransformerProtection/index.html",
-      "/models/7-Protection/SystemIntegrityProtectionSchemes/index.html",
       "/models/7-Protection/LoadShedding/UFLS/index.html"
     ]
   },
@@ -205,7 +201,6 @@
       "/models/8-Others/BasicControlBlocks/absoluteValue/index.html",
       "/models/8-Others/BasicControlBlocks/algebraicEquation/index.html",
       "/models/8-Others/BasicControlBlocks/deadband/index.html",
-      "/models/8-Others/Events/index.html",
       "/models/8-Others/BasicControlBlocks/hysteresis/index.html",
       "/models/8-Others/BasicControlBlocks/limitedIntegrator/index.html",
       "/models/8-Others/BasicControlBlocks/integratorVariableLimits/index.html",
@@ -265,7 +260,6 @@
   {
     "listing": "/models/6-NetworkComponents/index.html",
     "items": [
-      "/models/6-NetworkComponents/Bus/index.html",
       "/models/6-NetworkComponents/Transformers/CantileverTransformer/index.html",
       "/models/6-NetworkComponents/Line/cpLine/index.html",
       "/models/6-NetworkComponents/Line/FDLine/index.html",
@@ -307,14 +301,12 @@
       "/models/1-SynchronousMachines/ExciterAndVoltageRegulator/AcRotatingExciter/index.html",
       "/models/8-Others/BasicControlBlocks/algebraicEquation/index.html",
       "/models/1-SynchronousMachines/ExciterAndVoltageRegulator/BBSEX1/index.html",
-      "/models/6-NetworkComponents/Bus/index.html",
       "/models/6-NetworkComponents/Transformers/CantileverTransformer/index.html",
       "/models/6-NetworkComponents/Line/cpLine/index.html",
       "/models/1-SynchronousMachines/ExciterAndVoltageRegulator/DC1C/index.html",
       "/models/8-Others/BasicControlBlocks/deadband/index.html",
       "/models/3-CompensationAndFACTS/STATCOM/index.html",
       "/models/4-HVDC/VSC/GridFormingConverter/EPRI-GFM-Converter/index.html",
-      "/models/8-Others/Events/index.html",
       "/models/2-Loads/ExpLoad/index.html",
       "/models/5-RenewablesAndStorage/Storage/Flywheel/index.html",
       "/models/6-NetworkComponents/Line/FDLine/index.html",
@@ -343,8 +335,6 @@
       "/models/4-HVDC/VSC/GridFollowingConverter/L2EP-RMS-GFL-VSC/index.html",
       "/models/8-Others/BasicControlBlocks/limiter/index.html",
       "/models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html",
-      "/models/7-Protection/LineProtection/index.html",
-      "/models/7-Protection/MachineProtection/index.html",
       "/models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL2C/index.html",
       "/models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL3C/index.html",
       "/models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL4C/index.html",
@@ -360,7 +350,6 @@
       "/models/8-Others/BasicControlBlocks/proportionalIntegralController/index.html",
       "/models/8-Others/BasicControlBlocks/limitedProportionalIntegralController/index.html",
       "/models/8-Others/BasicControlBlocks/2limitedProportionalIntegralController/index.html",
-      "/models/7-Protection/TransformerProtection/index.html",
       "/models/4-HVDC/VSC/Point-to-Point-HVDC/RTE-RMS-Average-HVDC/index.html",
       "/models/1-SynchronousMachines/OverUnderExcitationLimiter/SCL1C/index.html",
       "/models/1-SynchronousMachines/OverUnderExcitationLimiter/SCL2C/index.html",
@@ -375,7 +364,6 @@
       "/models/3-CompensationAndFACTS/StaticCompensator/index.html",
       "/models/8-Others/BasicControlBlocks/switch/index.html",
       "/models/1-SynchronousMachines/Generator/SM1/index.html",
-      "/models/7-Protection/SystemIntegrityProtectionSchemes/index.html",
       "/models/1-SynchronousMachines/Governor/TGOV1/index.html",
       "/models/1-SynchronousMachines/Governor/TGOV3/index.html",
       "/models/8-Others/BasicControlBlocks/timer/index.html",
