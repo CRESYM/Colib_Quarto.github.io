@@ -604,7 +604,7 @@ $i_\mathrm{qvhook} < 0$. This behavior is opposite to the normal path.
 To solve this, the fast injection path's sign can be inverted, as has
 been done in @fig-QControlModule (red -1 block).
 
-| $$M_\mathrm{qG}$$ | Description |
+| $M_\mathrm{qG}$ | Description |
 |:---|:---|
 | 0 | Voltage control |
 | 1 | Reactive power control |
@@ -614,7 +614,7 @@ been done in @fig-QControlModule (red -1 block).
 
 : Q control normal path control modes, based on @IEC61400-27-1_2020 {#tbl-qControlModesNormal}
 
-| $$M_\mathrm{qFRT}$$ | During Fault | Post Fault |
+| $M_\mathrm{qFRT}$ | During Fault | Post Fault |
 |:---|:---|:---|
 | 0 | A function of the voltage change compared to the pre-fault voltage | Same function as during fault |
 | 1 | Pre-fault current plus a term depending on the voltage change compared to the pre-fault voltage | Same function as during fault |
@@ -627,30 +627,30 @@ been done in @fig-QControlModule (red -1 block).
 
 | name | type | unit | base | description | typical value |
 |:---|:---|:---|:---|:---|:---|
-| $$\Delta u_\mathrm{db1}$$ | float | pu | $$U_\mathrm{base}$$ | Voltage difference dead band lower limit | -0.1 |
-| $$\Delta u_\mathrm{db2}$$ | float | pu | $$U_\mathrm{base}$$ | Voltage differnce dead band upper limit | 0.1 |
-| $$i_\mathrm{qh1}$$ | float | pu | $$I_\mathrm{base}$$ | Maximum reactive current injection during FRT | 1.05 |
-| $$i_\mathrm{qmax}$$ | float | pu | $$I_\mathrm{base}$$ | Maximum reactive current injection | 1.05 |
-| $$i_\mathrm{qmin}$$ | float | pu | $$I_\mathrm{base}$$ | Minimum reactive current injection | -1.05 |
-| $$i_\mathrm{qpost}$$ | float | pu | $$I_\mathrm{base}$$ | Post-fault reactive current injection | 0 |
-| $$K_\mathrm{Iq}$$ | float | pu | $$U_\mathrm{base}/S_\mathrm{base}/s$$ | Q PI controller integral gain | 2 |
-| $$K_\mathrm{Iu}$$ | float | pu | $$I_\mathrm{base}/U_\mathrm{base}/s$$ | U PI controller integral gain | 2 |
-| $$K_\mathrm{Pq}$$ | float | pu | $$U_\mathrm{base}/S_\mathrm{base}$$ | Q PI controller proportional gain | 0 |
-| $$K_\mathrm{Pu}$$ | float | pu | $$I_\mathrm{base}/U_\mathrm{base}$$ | U PI controller proportional gain | 2 |
-| $$K_\mathrm{PuFRT}$$ | float | pu | $$I_\mathrm{base}/U_\mathrm{base}$$ | U PI controller proportional gain during FRT | 0 |
-| $$K_\mathrm{qv}$$ | float | pu | $$I_\mathrm{base}/U_\mathrm{base}$$ | Droop for fast reactive current injection | 2 |
-| $$M_\mathrm{qFRT}$$ | bool | \- | \- | Fast reactive current injection Q control mode (<a href="#tbl-qControlModesFast" class="quarto-xref">Table 6</a>) | 2 |
-| $$M_\mathrm{qG}$$ | bool | \- | \- | Normal path Q control mode (<a href="#tbl-qControlModesNormal" class="quarto-xref">Table 5</a>) | 1 |
-| $$r_\mathrm{drop}$$ | float | pu | $$Z_\mathrm{base}$$ | Voltage drop resistance | 0 |
-| $$T_\mathrm{post}$$ | float | s | \- | Duration of post-fault period | 0 |
-| $$T_\mathrm{qord}$$ | float | s | \- | Time constant in reactive power order lag | 0 |
-| $$T_\mathrm{uss}$$ | float | s | \- | Steady state voltage filter time constant | 30 |
-| $$u_\mathrm{max}$$ | float | pu | $$U_\mathrm{base}$$ | Upper limit in U PI controller integrator | 2 |
-| $$u_\mathrm{min}$$ | float | pu | $$U_\mathrm{base}$$ | Lower limit in U PI controller integrator | 0 |
-| $$u_\mathrm{qdip}$$ | float | pu | $$U_\mathrm{base}$$ | Q control: voltage threshold for UVRT detection | 0.9 |
-| $$u_\mathrm{qrise}$$ | float | pu | $$U_\mathrm{base}$$ | Q Control: Voltage threshold for OVRT detection | 1.1 |
-| $$u_\mathrm{ref0}$$ | float | pu | $$U_\mathrm{base}$$ | Voltage reference bias | 0 |
-| $$x_\mathrm{drop}$$ | float | pu | $$Z_\mathrm{base}$$ | Voltage drop reactance | 0 |
+| $\Delta u_\mathrm{db1}$ | float | pu | $U_\mathrm{base}$ | Voltage difference dead band lower limit | -0.1 |
+| $\Delta u_\mathrm{db2}$ | float | pu | $U_\mathrm{base}$ | Voltage differnce dead band upper limit | 0.1 |
+| $i_\mathrm{qh1}$ | float | pu | $I_\mathrm{base}$ | Maximum reactive current injection during FRT | 1.05 |
+| $i_\mathrm{qmax}$ | float | pu | $I_\mathrm{base}$ | Maximum reactive current injection | 1.05 |
+| $i_\mathrm{qmin}$ | float | pu | $I_\mathrm{base}$ | Minimum reactive current injection | -1.05 |
+| $i_\mathrm{qpost}$ | float | pu | $I_\mathrm{base}$ | Post-fault reactive current injection | 0 |
+| $K_\mathrm{Iq}$ | float | pu | $U_\mathrm{base}/S_\mathrm{base}/s$ | Q PI controller integral gain | 2 |
+| $K_\mathrm{Iu}$ | float | pu | $I_\mathrm{base}/U_\mathrm{base}/s$ | U PI controller integral gain | 2 |
+| $K_\mathrm{Pq}$ | float | pu | $U_\mathrm{base}/S_\mathrm{base}$ | Q PI controller proportional gain | 0 |
+| $K_\mathrm{Pu}$ | float | pu | $I_\mathrm{base}/U_\mathrm{base}$ | U PI controller proportional gain | 2 |
+| $K_\mathrm{PuFRT}$ | float | pu | $I_\mathrm{base}/U_\mathrm{base}$ | U PI controller proportional gain during FRT | 0 |
+| $K_\mathrm{qv}$ | float | pu | $I_\mathrm{base}/U_\mathrm{base}$ | Droop for fast reactive current injection | 2 |
+| $M_\mathrm{qFRT}$ | bool | \- | \- | Fast reactive current injection Q control mode (@tbl-qControlModesFast) | 2 |
+| $M_\mathrm{qG}$ | bool | \- | \- | Normal path Q control mode (@tbl-qControlModesNormal) | 1 |
+| $r_\mathrm{drop}$ | float | pu | $Z_\mathrm{base}$ | Voltage drop resistance | 0 |
+| $T_\mathrm{post}$ | float | s | \- | Duration of post-fault period | 0 |
+| $T_\mathrm{qord}$ | float | s | \- | Time constant in reactive power order lag | 0 |
+| $T_\mathrm{uss}$ | float | s | \- | Steady state voltage filter time constant | 30 |
+| $u_\mathrm{max}$ | float | pu | $U_\mathrm{base}$ | Upper limit in U PI controller integrator | 2 |
+| $u_\mathrm{min}$ | float | pu | $U_\mathrm{base}$ | Lower limit in U PI controller integrator | 0 |
+| $u_\mathrm{qdip}$ | float | pu | $U_\mathrm{base}$ | Q control: voltage threshold for UVRT detection | 0.9 |
+| $u_\mathrm{qrise}$ | float | pu | $U_\mathrm{base}$ | Q Control: Voltage threshold for OVRT detection | 1.1 |
+| $u_\mathrm{ref0}$ | float | pu | $U_\mathrm{base}$ | Voltage reference bias | 0 |
+| $x_\mathrm{drop}$ | float | pu | $Z_\mathrm{base}$ | Voltage drop reactance | 0 |
 
 : Parameters of WT Q control, based on @IEC61400-27-1_2020 and @DIgSILENT2024_powerfactory {#tbl-parametersQControl}
 
@@ -660,14 +660,14 @@ been done in @fig-QControlModule (red -1 block).
 
 | name | type | unit | base | description |
 |:---|:---|:---|:---|:---|
-| $$i_\mathrm{dfhook}$$ | float | pu | $$I_\mathrm{base}$$ | user-defined input for during-fault reactive current |
-| $$i_\mathrm{pfhook}$$ | float | pu | $$I_\mathrm{base}$$ | user-defined input for post-fault period reactive current |
-| $$p_\mathrm{WTCfilt}$$ | float | pu | $$S_\mathrm{base}$$ | measured active power |
-| $$q_\mathrm{WTCfilt}$$ | float | pu | $$S_\mathrm{base}$$ | measured reactive power |
-| $$q_\mathrm{WTmax}$$ | float | pu | $$S_\mathrm{base}$$ | maximum reactive power from Q limitation module (may be used to implement a capability curve) |
-| $$q_\mathrm{WTmin}$$ | float | pu | $$S_\mathrm{base}$$ | minimum reactive power from Q limitation module (may be used to implement a capability curve) |
-| $$u_\mathrm{WTCfilt}$$ | float | pu | $$U_\mathrm{base}$$ | measured voltage |
-| $$x_\mathrm{WTref}$$ | float | pu | $$Z_\mathrm{base}$$ | voltage or reactive power reference, depending on control mode |
+| $i_\mathrm{dfhook}$ | float | pu | $I_\mathrm{base}$ | user-defined input for during-fault reactive current |
+| $i_\mathrm{pfhook}$ | float | pu | $I_\mathrm{base}$ | user-defined input for post-fault period reactive current |
+| $p_\mathrm{WTCfilt}$ | float | pu | $S_\mathrm{base}$ | measured active power |
+| $q_\mathrm{WTCfilt}$ | float | pu | $S_\mathrm{base}$ | measured reactive power |
+| $q_\mathrm{WTmax}$ | float | pu | $S_\mathrm{base}$ | maximum reactive power from Q limitation module (may be used to implement a capability curve) |
+| $q_\mathrm{WTmin}$ | float | pu | $S_\mathrm{base}$ | minimum reactive power from Q limitation module (may be used to implement a capability curve) |
+| $u_\mathrm{WTCfilt}$ | float | pu | $U_\mathrm{base}$ | measured voltage |
+| $x_\mathrm{WTref}$ | float | pu | $Z_\mathrm{base}$ | voltage or reactive power reference, depending on control mode |
 
 : Inputs, based on @IEC61400-27-1_2020 and @Lorenzo-Bonache2017_energies {#tbl-inputsQControl}
 
@@ -676,10 +676,10 @@ been done in @fig-QControlModule (red -1 block).
 
 | name | type | unit | base | description |
 |:---|:---|:---|:---|:---|
-| $$F_\mathrm{FRT}$$ | integer | \- | \- | Fault signal: 0=no fault, 1=fault, 2=post-fault |
-| $$i_\mathrm{qbasehook}$$ | float | pu | $$I_\mathrm{base}$$ | Normal path component of reactive current command |
-| $$I_\mathrm{qcmd}$$ | float | \- | $$I_\mathrm{base}$$ | reactive current command |
-| $$I_\mathrm{qvhook}$$ | float | \- | $$I_\mathrm{base}$$ | Fast reactive current injection path component of reactive current command |
+| $F_\mathrm{FRT}$ | integer | \- | \- | Fault signal: 0=no fault, 1=fault, 2=post-fault |
+| $i_\mathrm{qbasehook}$ | float | pu | $I_\mathrm{base}$ | Normal path component of reactive current command |
+| $I_\mathrm{qcmd}$ | float | \- | $I_\mathrm{base}$ | reactive current command |
+| $I_\mathrm{qvhook}$ | float | \- | $I_\mathrm{base}$ | Fast reactive current injection path component of reactive current command |
 
 : Inputs, based on @IEC61400-27-1_2020 {#tbl-inputsQControl}
 
@@ -713,10 +713,10 @@ implement the generator's capability curve.
 
 | name | type | unit | base | description | typical value |
 |:---|:---|:---|:---|:---|:---|
-| $$\mathbf{q_\mathrm{maxp}}(p)$$ | lookup-table | pu | $$S_\mathrm{base}$$ | Maximum Q as a function of P | [0,0; 0.3,0.33; 1,0.33] |
-| $$\mathbf{q_\mathrm{maxu}}(u)$$ | lookup-table | pu | $$S_\mathrm{base}$$ | Maximum Q as a function of U | [0,0; 0.8,0.33; 0.9,0.33] |
-| $$\mathbf{q_\mathrm{minp}}(p)$$ | lookup-table | pu | $$S_\mathrm{base}$$ | Minimum Q as a function of P | [0,0; 0.3,-0.33; 1,-0.33] |
-| $$\mathbf{q_\mathrm{minu}}(u)$$ | lookup-table | pu | $$S_\mathrm{base}$$ | Minimum Q as a function of U | [0,0; 0.8,-0.33; 0.9,-0.33] |
+| $\mathbf{q_\mathrm{maxp}}(p)$ | lookup-table | pu | $S_\mathrm{base}$ | Maximum Q as a function of P | [0,0; 0.3,0.33; 1,0.33] |
+| $\mathbf{q_\mathrm{maxu}}(u)$ | lookup-table | pu | $S_\mathrm{base}$ | Maximum Q as a function of U | [0,0; 0.8,0.33; 0.9,0.33] |
+| $\mathbf{q_\mathrm{minp}}(p)$ | lookup-table | pu | $S_\mathrm{base}$ | Minimum Q as a function of P | [0,0; 0.3,-0.33; 1,-0.33] |
+| $\mathbf{q_\mathrm{minu}}(u)$ | lookup-table | pu | $S_\mathrm{base}$ | Minimum Q as a function of U | [0,0; 0.8,-0.33; 0.9,-0.33] |
 
 : Parameters of Q limitation module, based on @IEC61400-27-1_2020 and @DIgSILENT2024_powerfactory {#tbl-parametersWTQlim}
 
@@ -726,9 +726,9 @@ implement the generator's capability curve.
 
 | name | type | unit | base | description |
 |:---|:---|:---|:---|:---|
-| $$F_\mathrm{FRT}$$ | boolean | \- | \- | WT Fault Ride Through (FRT) flag signal |
-| $$p_\mathrm{WTCfilt}$$ | float | pu | $$S_\mathrm{base}$$ | Measured active power at the WT terminal |
-| $$u_\mathrm{WTCfilt}$$ | float | pu | $$U_\mathrm{base}$$ | Measured voltage of the WT terminal |
+| $F_\mathrm{FRT}$ | boolean | \- | \- | WT Fault Ride Through (FRT) flag signal |
+| $p_\mathrm{WTCfilt}$ | float | pu | $S_\mathrm{base}$ | Measured active power at the WT terminal |
+| $u_\mathrm{WTCfilt}$ | float | pu | $U_\mathrm{base}$ | Measured voltage of the WT terminal |
 
 : Inputs, based on @IEC61400-27-1_2020 {#tbl-inputsWTQlim}
 
@@ -736,8 +736,8 @@ implement the generator's capability curve.
 
 | name                 | type  | unit | base              | description               |
 |:---------------------|:------|:-----|:------------------|:--------------------------|
-| $$q_\mathrm{WTmax}$$ | float | pu   | $$S_\mathrm{base}$$ | Maximum WT reactive power |
-| $$q_\mathrm{WTmin}$$ | float | pu   | $$S_\mathrm{base}$$ | Minimum WT reactive power |
+| $q_\mathrm{WTmax}$ | float | pu   | $S_\mathrm{base}$ | Maximum WT reactive power |
+| $q_\mathrm{WTmin}$ | float | pu   | $S_\mathrm{base}$ | Minimum WT reactive power |
 
 : Outputs, based on @IEC61400-27-1_2020 {#tbl-outputsWTQlim}
 
@@ -802,14 +802,14 @@ The following [code @lst-currentLimCode] shows a python inspired pseudo-code imp
 
 | name | type | unit | base | description | typical value |
 |:---|:---|:---|:---|:---|:---|
-| $$i_\mathrm{max}$$ | float | pu | $$I_\mathrm{base}$$ | WT terminal maximum admissible current | 1.3 |
-| $$i_\mathrm{maxdip}$$ | float | pu | $$I_\mathrm{base}$$ | WT terminal maximum admissible current during fault | 1.3 |
-| $$\mathbf{i_\mathrm{pmax}}(u_\mathrm{WT})$$ | lookup-table | pu | $$I_\mathrm{base}$$ | lookup-table for maximum active current as a function of voltage | [0,0; 0.1,0; 0.15,1; 0.9,1; 0.91,1.2; 1.2,1.2] |
-| $$\mathbf{i_\mathrm{qmax}}(u_\mathrm{WT})$$ | lookup-table | pu | $$I_\mathrm{base}$$ | lookup-table for maximum reactive current as a function of voltage | [0,0.1; 0.2,0.95; 0.2,1; 0.9,1; 0.9,0.36; 1.1,0.3] |
-| $$K_\mathrm{pqu}$$ | float | pu | $$I_\mathrm{base}/U_\mathrm{base}$$ | Droop of reactive current limit with resepect to voltage | 20 |
-| $$M_\mathrm{DFSLim}$$ | boolean | \- | \- | Type 3 stator current limitation (false = total current limitation, true = stator current limitation) | false |
-| $$M_\mathrm{qpri}$$ | boolean | \- | \- | Active or reactive power priority during fault (false = active power priority, true = reactive power priority) | true |
-| $$u_\mathrm{pqumax}$$ | float | pu | $$U_\mathrm{base}$$ | Operation point of WT voltage where where no reactive current can be delivered | 1.1 |
+| $i_\mathrm{max}$ | float | pu | $I_\mathrm{base}$ | WT terminal maximum admissible current | 1.3 |
+| $i_\mathrm{maxdip}$ | float | pu | $I_\mathrm{base}$ | WT terminal maximum admissible current during fault | 1.3 |
+| $\mathbf{i_\mathrm{pmax}}(u_\mathrm{WT})$ | lookup-table | pu | $I_\mathrm{base}$ | lookup-table for maximum active current as a function of voltage | [0,0; 0.1,0; 0.15,1; 0.9,1; 0.91,1.2; 1.2,1.2] |
+| $\mathbf{i_\mathrm{qmax}}(u_\mathrm{WT})$ | lookup-table | pu | $I_\mathrm{base}$ | lookup-table for maximum reactive current as a function of voltage | [0,0.1; 0.2,0.95; 0.2,1; 0.9,1; 0.9,0.36; 1.1,0.3] |
+| $K_\mathrm{pqu}$ | float | pu | $I_\mathrm{base}/U_\mathrm{base}$ | Droop of reactive current limit with resepect to voltage | 20 |
+| $M_\mathrm{DFSLim}$ | boolean | \- | \- | Type 3 stator current limitation (false = total current limitation, true = stator current limitation) | false |
+| $M_\mathrm{qpri}$ | boolean | \- | \- | Active or reactive power priority during fault (false = active power priority, true = reactive power priority) | true |
+| $u_\mathrm{pqumax}$ | float | pu | $U_\mathrm{base}$ | Operation point of WT voltage where where no reactive current can be delivered | 1.1 |
 
 : Parameters of current limitation module, based on @IEC61400-27-1_2020 and @DIgSILENT2024_powerfactory {#tbl-parametersCurrentLim}
 
@@ -819,13 +819,13 @@ The following [code @lst-currentLimCode] shows a python inspired pseudo-code imp
 
 | name | type | unit | base | description |
 |:---|:---|:---|:---|:---|
-| $$F_\mathrm{FRT}$$ | integer | \- | \- | FRT signal |
-| $$i_\mathrm{max\_hook}$$ | float | pu | $$I_\mathrm{base}$$ | External offset value of maximum current module |
-| $$i_\mathrm{pcmd}$$ | float | pu | $$I_\mathrm{base}$$ | Active current command |
-| $$i_\mathrm{qcmd}$$ | float | pu | $$I_\mathrm{base}$$ | Reactive current command |
-| $$i_\mathrm{qmax\_hook}$$ | float | pu | $$I_\mathrm{base}$$ | External offset value of maximum reactive current |
-| $$\omega_\mathrm{gen}$$ | float | pu | $$\Omega_\mathrm{base}$$ | Generator speed |
-| $$u_\mathrm{WTCfilt}$$ | float | pu | $$U_\mathrm{base}$$ | Measured voltage |
+| $F_\mathrm{FRT}$ | integer | \- | \- | FRT signal |
+| $i_\mathrm{max\_hook}$ | float | pu | $I_\mathrm{base}$ | External offset value of maximum current module |
+| $i_\mathrm{pcmd}$ | float | pu | $I_\mathrm{base}$ | Active current command |
+| $i_\mathrm{qcmd}$ | float | pu | $I_\mathrm{base}$ | Reactive current command |
+| $i_\mathrm{qmax\_hook}$ | float | pu | $I_\mathrm{base}$ | External offset value of maximum reactive current |
+| $\omega_\mathrm{gen}$ | float | pu | $\Omega_\mathrm{base}$ | Generator speed |
+| $u_\mathrm{WTCfilt}$ | float | pu | $U_\mathrm{base}$ | Measured voltage |
 
 : Inputs, based on @IEC61400-27-1_2020 {#tbl-inputsCurrentLim}
 
@@ -834,9 +834,9 @@ The following [code @lst-currentLimCode] shows a python inspired pseudo-code imp
 
 | name | type | unit | base | description |
 |:---|:---|:---|:---|:---|
-| $$i_\mathrm{pmax}$$ | float | pu | $$I_\mathrm{base}$$ | Maximum active current limit |
-| $$i_\mathrm{qmax}$$ | float | pu | $$I_\mathrm{base}$$ | Maximum reactive current limit |
-| $$i_\mathrm{qmin}$$ | float | pu | $$I_\mathrm{base}$$ | Minimum reactive current limit |
+| $i_\mathrm{pmax}$ | float | pu | $I_\mathrm{base}$ | Maximum active current limit |
+| $i_\mathrm{qmax}$ | float | pu | $I_\mathrm{base}$ | Maximum reactive current limit |
+| $i_\mathrm{qmin}$ | float | pu | $I_\mathrm{base}$ | Minimum reactive current limit |
 
 : Outputs, based on @IEC61400-27-1_2020 {#tbl-outputsCurrentLim}
 
@@ -852,10 +852,10 @@ between generator rotor and WT rotor).
 
 | name | type | unit | base | description | typical value |
 |:---|:---|:---|:---|:---|:---|
-| $$c_\mathrm{drt}$$ | float | pu | $$T_\mathrm{base}/\Omega_\mathrm{base}$$ | Damping of drive train | 2.344 |
-| $$H_\mathrm{gen}$$ | float | s | \- | Inertia of generator rotor (inertial time constant) | 3.395 |
-| $$H_\mathrm{WTR}$$ | float | s | \- | Inertia of WT rotor (inertial time constant) | 0.962 |
-| $$k_\mathrm{drt}$$ | float | pu | $$T_\mathrm{base}$$ | Stiffness of drive train | 1.378 |
+| $c_\mathrm{drt}$ | float | pu | $T_\mathrm{base}/\Omega_\mathrm{base}$ | Damping of drive train | 2.344 |
+| $H_\mathrm{gen}$ | float | s | \- | Inertia of generator rotor (inertial time constant) | 3.395 |
+| $H_\mathrm{WTR}$ | float | s | \- | Inertia of WT rotor (inertial time constant) | 0.962 |
+| $k_\mathrm{drt}$ | float | pu | $T_\mathrm{base}$ | Stiffness of drive train | 1.378 |
 
 : Parameters of mechanical module, based on @IEC61400-27-1_2020 and @Tsourakis2009 {#tbl-parametersMechanical}
 
@@ -865,8 +865,8 @@ between generator rotor and WT rotor).
 
 | name | type | unit | base | description |
 |:---|:---|:---|:---|:---|
-| $$p_\mathrm{aero}$$ | float | pu | $$S_\mathrm{base}$$ | Aerodynamic power (Power transferred from wind to WT rotor |
-| $$p_\mathrm{ag}$$ | float | pu | $$S_\mathrm{base}$$ | Air gap power (power transferred from generator rotor to stator) |
+| $p_\mathrm{aero}$ | float | pu | $S_\mathrm{base}$ | Aerodynamic power (Power transferred from wind to WT rotor |
+| $p_\mathrm{ag}$ | float | pu | $S_\mathrm{base}$ | Air gap power (power transferred from generator rotor to stator) |
 
 : Inputs, based on @IEC61400-27-1_2020 {#tbl-inputsMechanical}
 
@@ -874,8 +874,8 @@ between generator rotor and WT rotor).
 
 | name | type | unit | base | description |
 |:---|:---|:---|:---|:---|
-| $$\omega_\mathrm{gen}$$ | float | pu | $$\Omega_\mathrm{base}$$ | generator rotor speed |
-| $$\omega_\mathrm{WTR}$$ | float | pu | $$\Omega_\mathrm{base}$$ | Wind turbine rotor speed |
+| $\omega_\mathrm{gen}$ | float | pu | $\Omega_\mathrm{base}$ | generator rotor speed |
+| $\omega_\mathrm{WTR}$ | float | pu | $\Omega_\mathrm{base}$ | Wind turbine rotor speed |
 
 : Outputs, based on @IEC61400-27-1_2020 {#tbl-outputsMechanical}
 
@@ -1241,12 +1241,12 @@ grid frequency.
 
 | name | type | unit | base | description | typical value |
 |:---|:---|:---|:---|:---|:---|
-| $$\mathrm{d}\Phi_\mathrm{max}$$ | float | pu | $$f_\mathrm{n}/\mathrm{s}$$ | Max. rate of change of frequency, should be larger than any ROCOF protection threshold in the system. | 0.1 (5 Hz/s) |
-| $$T_\mathrm{ffilt}$$ | float | s | \- | frequency measurement fitler time constant | 0.005 |
-| $$T_\mathrm{ifilt}$$ | float | s | \- | current measurement fitler time constant | 0.005 |
-| $$T_\mathrm{pfilt}$$ | float | s | \- | active power measurement fitler time constant | 0.005 |
-| $$T_\mathrm{qfilt}$$ | float | s | \- | reactive power measurement fitler time constant | 0.005 |
-| $$T_\mathrm{ufilt}$$ | float | s | \- | voltage measurement fitler time constant | 0.005 |
+| $\mathrm{d}\Phi_\mathrm{max}$ | float | pu | $f_\mathrm{n}/\mathrm{s}$ | Max. rate of change of frequency, should be larger than any ROCOF protection threshold in the system. | 0.1 (5 Hz/s) |
+| $T_\mathrm{ffilt}$ | float | s | \- | frequency measurement fitler time constant | 0.005 |
+| $T_\mathrm{ifilt}$ | float | s | \- | current measurement fitler time constant | 0.005 |
+| $T_\mathrm{pfilt}$ | float | s | \- | active power measurement fitler time constant | 0.005 |
+| $T_\mathrm{qfilt}$ | float | s | \- | reactive power measurement fitler time constant | 0.005 |
+| $T_\mathrm{ufilt}$ | float | s | \- | voltage measurement fitler time constant | 0.005 |
 
 : Parameters, based on @IEC61400-27-1_2020 and @DIgSILENT2024_powerfactory {#tbl-parametersMeasurement}
 
@@ -1256,9 +1256,9 @@ grid frequency.
 
 | name | type | unit | base | description |
 |:---|:---|:---|:---|:---|
-| $$f_\mathrm{sys}$$ | float | pu | $$\Omega_\mathrm{base}$$ | grid frequency of global power system |
-| $$\underline{i}$$ | complex | pu | $$I_\mathrm{base}$$ | measured current |
-| $$\underline{u}$$ | complex | pu | $$U_\mathrm{base}$$ | measured voltage |
+| $f_\mathrm{sys}$ | float | pu | $\Omega_\mathrm{base}$ | grid frequency of global power system |
+| $\underline{i}$ | complex | pu | $I_\mathrm{base}$ | measured current |
+| $\underline{u}$ | complex | pu | $U_\mathrm{base}$ | measured voltage |
 
 : Inputs, based on @IEC61400-27-1_2020 {#tbl-inputsMeasurement}
 
@@ -1266,12 +1266,12 @@ grid frequency.
 
 | name | type | unit | base | description |
 |:---|:---|:---|:---|:---|
-| $$f_\mathrm{filt}$$ | float | pu | $$\Omega_\mathrm{base}$$ | frequency with measurement delay |
-| $$i_\mathrm{filt}$$ | float | pu | $$I_\mathrm{base}$$ | current with measurement delay |
-| $$p_\mathrm{filt}$$ | float | pu | $$S_\mathrm{base}$$ | active power with measurement delay |
-| $$q_\mathrm{filt}$$ | float | pu | $$S_\mathrm{base}$$ | reactive power with measurement delay |
-| $$u$$ | float | pu | $$U_\mathrm{base}$$ | voltage without measurement delay |
-| $$u_\mathrm{filt}$$ | float | pu | $$U_\mathrm{base}$$ | voltage with measurement delay |
+| $f_\mathrm{filt}$ | float | pu | $\Omega_\mathrm{base}$ | frequency with measurement delay |
+| $i_\mathrm{filt}$ | float | pu | $I_\mathrm{base}$ | current with measurement delay |
+| $p_\mathrm{filt}$ | float | pu | $S_\mathrm{base}$ | active power with measurement delay |
+| $q_\mathrm{filt}$ | float | pu | $S_\mathrm{base}$ | reactive power with measurement delay |
+| $u$ | float | pu | $U_\mathrm{base}$ | voltage without measurement delay |
+| $u_\mathrm{filt}$ | float | pu | $U_\mathrm{base}$ | voltage with measurement delay |
 
 : Outputs, based on @IEC61400-27-1_2020 {#tbl-outputsMeasurement}
 
@@ -1393,11 +1393,11 @@ external reference changes @IEC61400-27-1_2020.
 
 | name | type | unit | base | description |
 |:---|:---|:---|:---|:---|
-| $$f_\mathrm{WPfiltCom}$$ | float | pu | $$f_\mathrm{n}$$ | Measured frequency |
-| $$F_\mathrm{WPfiltCom}$$ | boolean | \- | \- | WP FRT signal |
-| $$p_\mathrm{WPfiltCom}$$ | float | pu | $$S_\mathrm{n}$$ | Measured active power |
-| $$p_\mathrm{WPhook}$$ | float | pu | $$S_\mathrm{base}$$ | External active power reference offset |
-| $$p_\mathrm{WPrefCom}$$ | float | pu | $$S_\mathrm{base}$$ | Active power WP reference value |
+| $f_\mathrm{WPfiltCom}$ | float | pu | $f_\mathrm{n}$ | Measured frequency |
+| $F_\mathrm{WPfiltCom}$ | boolean | \- | \- | WP FRT signal |
+| $p_\mathrm{WPfiltCom}$ | float | pu | $S_\mathrm{n}$ | Measured active power |
+| $p_\mathrm{WPhook}$ | float | pu | $S_\mathrm{base}$ | External active power reference offset |
+| $p_\mathrm{WPrefCom}$ | float | pu | $S_\mathrm{base}$ | Active power WP reference value |
 
 : Inputs, based on @IEC61400-27-1_2020 {#tbl-inputsWPP}
 
@@ -1405,7 +1405,7 @@ external reference changes @IEC61400-27-1_2020.
 
 | name | type | unit | base | description |
 |:---|:---|:---|:---|:---|
-| $$p_\mathrm{PDref}$$ | float | pu | $$S_\mathrm{base}$$ | Power Device (PD) active power reference |
+| $p_\mathrm{PDref}$ | float | pu | $S_\mathrm{base}$ | Power Device (PD) active power reference |
 
 : Outputs, based on @IEC61400-27-1_2020 {#tbl-outputsWPP}
 

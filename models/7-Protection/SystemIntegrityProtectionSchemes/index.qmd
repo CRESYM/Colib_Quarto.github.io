@@ -1,4 +1,13 @@
 ---
 title: "System integrity protection schemes"
 categories: [system integrity protection schemes]
+listing:
+  contents: 
+    - ./
+  exclude:
+    layout: chapter
+  type: table
+  fields: [title, author]
+  sort: [title]
+  page-size: 50
 --- 

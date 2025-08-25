@@ -1,4 +1,13 @@
 ---
 title: "Machine Protection"
 categories: [machine protection]
+listing:
+  contents: 
+    - ./
+  exclude:
+    layout: chapter
+  type: table
+  fields: [title, author]
+  sort: [title]
+  page-size: 50
 --- 

@@ -1,4 +1,13 @@
 ---
 title: "Line Protection"
 categories: [line protection]
+listing:
+  contents: 
+    - ./
+  exclude:
+    layout: chapter
+  type: table
+  fields: [title, author]
+  sort: [title]
+  page-size: 50
 --- 
