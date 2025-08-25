@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Carlos Alegre (eRoots)">
+<meta name="dcterms.date" content="2024-02-05">
 
-<title>Cantilever Transformer</title>
+<title>Cantilever Transformer Model</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +22,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -68,6 +89,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../../styles/main.css">
 </head>
@@ -237,7 +287,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/index.html">Network Components</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Transformers/index.html">Transformers</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Transformers/CantileverTransformer/index.html">Cantilever Transformer</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/index.html">Network Components</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Transformers/index.html">Transformers</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Transformers/CantileverTransformer/index.html">Cantilever Transformer Model</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -861,19 +911,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/6-NetworkComponents/Line/cpLine/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CP Line</span></a>
+ <span class="menu-text">Constant parameters Line Model</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/6-NetworkComponents/Line/piLine/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Pi Line</span></a>
+ <span class="menu-text">Pi-equivalent Line Model</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/6-NetworkComponents/Line/FDLine/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">FD Line</span></a>
+ <span class="menu-text">Frequency Dependent Line Model</span></a>
   </div>
 </li>
       </ul>
@@ -890,7 +940,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/6-NetworkComponents/Transformers/CantileverTransformer/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Cantilever Transformer</span></a>
+ <span class="menu-text">Cantilever Transformer Model</span></a>
   </div>
 </li>
       </ul>
@@ -1074,18 +1124,41 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
+  <li><a href="#model-use-assumptions-validity-domain-and-limitations" id="toc-model-use-assumptions-validity-domain-and-limitations" class="nav-link" data-scroll-target="#model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</a></li>
+  <li><a href="#model-description" id="toc-model-description" class="nav-link" data-scroll-target="#model-description">Model description</a>
+  <ul class="collapse">
+  <li><a href="#parts-of-the-transformers" id="toc-parts-of-the-transformers" class="nav-link" data-scroll-target="#parts-of-the-transformers">Parts of the transformers</a></li>
+  <li><a href="#transformer-equations" id="toc-transformer-equations" class="nav-link" data-scroll-target="#transformer-equations">Transformer equations</a></li>
+  <li><a href="#operational-principles" id="toc-operational-principles" class="nav-link" data-scroll-target="#operational-principles">Operational principles</a></li>
+  </ul></li>
+  <li><a href="#open-source-implementations" id="toc-open-source-implementations" class="nav-link" data-scroll-target="#open-source-implementations">Open source implementations</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/index.html">Network Components</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Transformers/index.html">Transformers</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Transformers/CantileverTransformer/index.html">Cantilever Transformer</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/index.html">Network Components</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Transformers/index.html">Transformers</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Transformers/CantileverTransformer/index.html">Cantilever Transformer Model</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Cantilever Transformer</h1>
+<h1 class="title">Cantilever Transformer Model</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">transformer</div>
-    <div class="quarto-category">cantilever</div>
+    <div class="quarto-category">#114</div>
+    <div class="quarto-category">Transformer</div>
+    <div class="quarto-category">Single-phase</div>
+    <div class="quarto-category">Cantilever equivalent</div>
+    <div class="quarto-category">Leakage flux</div>
+    <div class="quarto-category">Steady-state</div>
+    <div class="quarto-category">Phasorial</div>
+    <div class="quarto-category">Dynawo</div>
+    <div class="quarto-category">Modelica</div>
+    <div class="quarto-category">RMS</div>
   </div>
   </div>
 
@@ -1093,7 +1166,19 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Carlos Alegre (eRoots) </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 5, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -1103,10 +1188,194 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="context" class="level2">
+<h2 class="anchored" data-anchor-id="context">Context</h2>
+<p>Transformers are essential parts of the grid as two-port devices that change the voltage level from one of its ends to the other. It allows to be able to change the voltage to a suitable level to perform any of the actions necessary for the grid. For example, it is used to raise the voltage to be able to transport electricity minimizing the losses, and then lower the voltage until reaching appropriate levels for consumption without risking the integrity of the users.</p>
+</section>
+<section id="model-use-assumptions-validity-domain-and-limitations" class="level2">
+<h2 class="anchored" data-anchor-id="model-use-assumptions-validity-domain-and-limitations">Model use, assumptions, validity domain and limitations</h2>
+<p>The model is developed for the single-phase transformer, considering a non-ideal model with some simplifications that allow to perform the steady-state analysis of transformers. Starting from the <em>T-equivalent model</em> described as a semi-ideal transformer in references <span class="citation" data-cites="fitzgerald2002electric">[<a href="#ref-fitzgerald2002electric" role="doc-biblioref">1</a>]</span>, <span class="citation" data-cites="matsch2002electromagnetic">[<a href="#ref-matsch2002electromagnetic" role="doc-biblioref">2</a>]</span> and <span class="citation" data-cites="kothari2010electric">[<a href="#ref-kothari2010electric" role="doc-biblioref">3</a>]</span>, it describes an approximation by grouping the impedance of the primary and secondary windings. In reference <span class="citation" data-cites="fitzgerald2002electric">[<a href="#ref-fitzgerald2002electric" role="doc-biblioref">1</a>]</span>, it is referred to as <em>cantilever equivalent circuit</em>.</p>
+<p>The assumptions are:</p>
+<ul>
+<li>The model assumes linearity with respect to the magnetic circuits, not considering saturation.</li>
+<li>Each winding has a leakage flux associated, which does not contribute to the core flux, and is included only in the total flux passing through the winding in which is generated. The path taken by this flux is mainly through the air, and can be modelled as a linear function of the current associated to the winding.</li>
+<li>The primary winding current is divided in two components, one is the current associated to the magnetomotive force produced to compensate for the demagnetizing force produced by the secondary windings, which can be though of as a load, and the second component is associated to the current necessary to produce the mutual flux.</li>
+<li>In practice, not all the turns of the coils are affected by the leakage flux, and not all the magnetizing flux produced by one winding affects all the turns of the other winding. For that reason, the number of turns of each winding (<span class="math inline">\(N_i\)</span>) is assumed to be an equivalent number of turns, which differs from the actual number of turns.</li>
+<li>The final equivalent model neglects the voltage drop produced by the exciting current in the secondary leakage impedance.</li>
+</ul>
+<p>The model does replicate exactly the theoretical value of the voltage at the secondary winding calculated with full information, as the equivalent impedance is a simplified approach of the losses. Since the leakage reactances are not easily measured in practice, the <em>cantilever model</em> approach is preferred rather than the <em>T-equivalent</em> approach, as there are short-circuit and open-circuit tests that can be used to determine these equivalent values. Nevertheless, the <em>T-equivalent</em> model is described and can be used if the primary and secondary leakage reactances are known. It also reduces the computations needed to perform the analysis.</p>
+<p>Steady-state analysis of balanced three-phase transformers can be performed by using this single-phase model in one of the phases and then considering the phase shift for the rest of the phases. Depending on the configuration of the sides of the three-phase transformers (Delta-Delta, Star-Star, Delta-Star, Star-Delta), some rescaling of the impedances may be needed. Chapter 2.7 and Appendix A of <span class="citation" data-cites="fitzgerald2002electric">[<a href="#ref-fitzgerald2002electric" role="doc-biblioref">1</a>]</span> discuss the details of this analysis.</p>
+<p>It cannot be used to perform transient analysis, as it does not consider the time-dependent behavior of the transformer. It is also not suitable for the analysis of transformers with a high degree of saturation, as it does not consider the non-linear behavior of the magnetic circuit.</p>
+</section>
+<section id="model-description" class="level2">
+<h2 class="anchored" data-anchor-id="model-description">Model description</h2>
+<section id="parts-of-the-transformers" class="level3">
+<h3 class="anchored" data-anchor-id="parts-of-the-transformers">Parts of the transformers</h3>
+<p>There are two physical parts of the transformers relevant for the model described, as seen in the following schematic representation <span class="citation" data-cites="kothari2010electric">[<a href="#ref-kothari2010electric" role="doc-biblioref">3</a>]</span>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Trafo_scheme.svg" class="img-fluid figure-img"></p>
+<figcaption>Transformer schematic representation</figcaption>
+</figure>
+</div>
+<div class="figure-caption">
+<p><strong>Figure 1:</strong> Transformer schematic representation</p>
+</div>
+<p><strong>Windings</strong></p>
+<p>Windings are copper coil turns grouped in different bundles. Windings can be primary windings, to which the voltage is applied, or secondary windings, which have an output voltage that is product of the transformation.</p>
+<p>They can also be considered high voltage windings or low voltage windings, and both of them can act as primary or secondary depending on the direction of the power. In the generation part of the power system, the primary winding of the transformer will correspond to the low voltage level, since the generation occurs at low voltage, and it has to be raised to a higher level for the transmission grid. In the consumer part of the power system, the primary will be the high voltage level, and the secondary will be the low voltage level.</p>
+<p><strong>Core</strong></p>
+<p>The core has two primary functions. The more obvious one, it acts as the support of both the primary and secondary windings. The second function is to create a low reluctance path for the magnetic flux. It is typically made of soft iron in order to lower the eddy current losses.</p>
+</section>
+<section id="transformer-equations" class="level3">
+<h3 class="anchored" data-anchor-id="transformer-equations">Transformer equations</h3>
+<p><strong>Variables</strong></p>
+<p>|| Variable | details | Unit | || ————–| —— | —– | || <span class="math inline">\(v^H\)</span> | HV side terminal phase-to-ground voltage phasor | <span class="math inline">\(pu\)</span> | || <span class="math inline">\(v^L\)</span> | LV side terminal phase-to-ground voltage phasor | <span class="math inline">\(pu\)</span> | || <span class="math inline">\(i^H\)</span> | HV side current phasor | <span class="math inline">\(pu\)</span> | || <span class="math inline">\(i^L\)</span> | LV side current phasor | <span class="math inline">\(pu\)</span> | || <span class="math inline">\(P^H\)</span> | HV side active power | <span class="math inline">\(pu\)</span> | || <span class="math inline">\(P^L\)</span> | LV side active power | <span class="math inline">\(pu\)</span> | || <span class="math inline">\(Q^H\)</span> | HV side reactive power | <span class="math inline">\(pu\)</span> | || <span class="math inline">\(Q^L\)</span> | LV side reactive power | <span class="math inline">\(pu\)</span> |</p>
+<p><strong>Parameters</strong></p>
+<p>|| Parameter | details | Unit | || ————–| —— | —– | || <span class="math inline">\(N_1\)</span> | Number of turns of the primary winding | unitless | || <span class="math inline">\(N_2\)</span> | Number of turns of the secondary winding | unitless | || <span class="math inline">\(a\)</span>| Transformation ratio <span class="math inline">\(a = \frac{N_1}{N_2}\)</span> | <span class="math inline">\(pu\)</span> | || <span class="math inline">\(S_{base}\)</span> | Transformer rated power | <span class="math inline">\(VA\)</span> | || <span class="math inline">\(V_{base, L}\)</span> | LV side rated voltage | <span class="math inline">\(V\)</span> | || <span class="math inline">\(V_{base, H}\)</span> | HV side rated voltage | <span class="math inline">\(V\)</span> | || <span class="math inline">\(I_{base, L}\)</span> | LV side base current <span class="math inline">\(I_{base} = \frac{S_{base}}{V_{base, L}}\)</span> | <span class="math inline">\(A\)</span> | || <span class="math inline">\(I_{base, H}\)</span> | HV side base current <span class="math inline">\(I_{base} = \frac{S_{base}}{V_{base, H}}\)</span> | <span class="math inline">\(A\)</span> | || <span class="math inline">\(Z_{base, L}\)</span> | LV side base impedance <span class="math inline">\(R_{base} = \frac{V_{base, L}^2}{S_{base}}\)</span> | <span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(Z_{base, H}\)</span> | HV side base impedance <span class="math inline">\(R_{base} = \frac{V_{base, H}^2}{S_{base}}\)</span> | <span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(V_{oc}\)</span> | Open-circuit voltage | <span class="math inline">\(V\)</span> | || <span class="math inline">\(P_{oc}\)</span> | Open-circuit active power | <span class="math inline">\(W\)</span> | || <span class="math inline">\(I_{oc}\)</span> | Open-circuit current | <span class="math inline">\(A\)</span> | || <span class="math inline">\(V_{sc}\)</span> | Short-circuit voltage | <span class="math inline">\(V\)</span> | || <span class="math inline">\(P_{sc}\)</span> | Short-circuit active power | <span class="math inline">\(W\)</span> | || <span class="math inline">\(I_{sc}\)</span> | Short-circuit current | <span class="math inline">\(A\)</span> | || <span class="math inline">\(R_{eq}\)</span> | Equivalent resistance <span class="math inline">\(R_{eq} = R_{sc} = \frac{P_{sc}}{I_{sc}^2}\)</span>| <span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(\|Z_{eq}\|\)</span> | Module of the equivalent impedance <span class="math inline">\(\|Z_{eq}\| = \|Z_{sc}\| = \frac{P_{sc}}{I_{sc}^2}\)</span>| <span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(X_{eq}\)</span> | Equivalent reactance <span class="math inline">\(X_{eq} = X_{sc} = \sqrt(\|Z_{sc}\|^2 - R_{sc}^2)\)</span> | <span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(R_{c}\)</span> | Magnetizing resistance <span class="math inline">\(R_{c} = \frac{V_{oc}^2}{P_{oc}}\)</span>| <span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(\|Z_{\varphi}\|\)</span> | Module of the magnetizing impedance <span class="math inline">\(\|Z_{\varphi}\| = \frac{V_{oc}}{I_{oc}}\)</span> | <span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(X_{m}\)</span> | Magnetizing reactance <span class="math inline">\(X_{m} = \frac{1}{\sqrt(\frac{1}{\|Z_{\varphi}\|^2} - \frac{1}{R_{c}^2})}\)</span> | <span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(Z_{eq}\)</span> | Equivalent impedance <span class="math inline">\(Z_{eq} = R_{eq} + jX_{eq}\)</span>| <span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(Y_{\varphi}\)</span> | Magnetizing admittance <span class="math inline">\(Y_{\varphi} = \frac{1}{R_{c} + jX_{m}}\)</span>| <span class="math inline">\(\Omega^{-1}\)</span> |</p>
+<p><strong>Systems of equations</strong></p>
+<p>The system of equations has 6 equations and 8 variables. The user must set a fixed value for two of the variables in order to have a single solution. The complete system in Per-Unit representation is:</p>
+<p><span class="math display">\[
+\begin{align}
+v^H &amp;= v^L + Z_{eq}^H i^H\\
+i^H &amp;= Y_{\varphi}^L v^L - i^L\\
+P^H &amp;= \mathbb{R}(v^H i^{H*})\\
+Q^H &amp;= \mathbb{I}(v^H i^{H*})\\
+P^L &amp;= \mathbb{R}(v^L i^{L*})\\
+Q^L &amp;= \mathbb{I}(v^L i^{L*})
+\end{align}
+\]</span></p>
+<p>where <span class="math inline">\(\mathbb{R}\)</span> and <span class="math inline">\(\mathbb{I}\)</span> correspond to the real and imaginary part of the complex power. The admittance can be represented in either Per-Unit system, as long as the transformation to Per-Unit is done according to the computation of their values (i.e.&nbsp;if the equivalent impedance is computed referred to the HV, the Per-Unit system used must use the HV base voltage).</p>
+</section>
+<section id="operational-principles" class="level3">
+<h3 class="anchored" data-anchor-id="operational-principles">Operational principles</h3>
+<p><strong>Ideal transformer</strong></p>
+<p>An ideal transformer consists on a primary winding and a secondary winding that are magnetically coupled by an iron-core, which is assumed to serve as a lossless path of magnetic flux. The primary winding is connected to an alternating voltage source, which produces an alternating flux the amplitude of which depends on the number of turns of the winding.</p>
+<p>As it is ideal, all this flux is considered to be <em>mutual flux</em> that links the primary and secondary, inducing a voltage in the latter the amplitude of which also depends on the number of turns of the secondary winding. The electromotive force induced by the primary circuit is calculated as:</p>
+<p><span class="math display">\[e_1 = \frac{d\psi_1}{dt} = N_1 \frac{d\varphi}{dt}\]</span></p>
+<p>where <span class="math inline">\(N_1\)</span> is the number of turns of the primary circuit, <span class="math inline">\(\psi_1\)</span> is the linkage flux of the primary winding and <span class="math inline">\(\varphi\)</span> is the mutual flux that links both windings.</p>
+<p>The primary winding magnetic electric equation is:</p>
+<p><span class="math display">\[v_1 = R_1 i_1 + e_1\]</span></p>
+<p>Considering an ideal transformer with no magnetic or electrical losses (i.e, <span class="math inline">\(R=0\)</span>), the terminal voltage equals the induced electromotive force. Regarding the secondary transformer, the induced electromotive force produces a voltage in its terminals:</p>
+<p><span class="math display">\[v_2 = e_2 = N_2 \frac{d\varphi}{dt}\]</span></p>
+<p>Since the magnetic flux relates both terminal voltage expressions, the following relationship holds:</p>
+<p><span class="math display">\[\frac{v_1}{v_2} = \frac{N_1}{N_2}\]</span></p>
+<p>where <span class="math inline">\(\frac{N_1}{N_2}\)</span> is also called the <em>transformation ratio</em>. Focusing now on the magnetomotive forces produced, the primary circuit can be considered as a generator and the secondary as a load, yielding the following expression:</p>
+<p><span class="math display">\[
+\begin{align}
+N_1 i_1 - N_2 i_2 &amp;= 0\\
+\frac{i_1}{i_2} &amp;= \frac{N_2}{N_1}
+\end{align}
+\]</span></p>
+<p>and substituting it in the voltage relationship:</p>
+<p><span class="math display">\[v_1 i_1 = v_2 i_2\]</span></p>
+<p>showing that the input power equals the output power. This is a result of the several idealizations that have been assumed.</p>
+<p><strong>Equivalent-T circuit for non-ideal transformers</strong></p>
+<p>The transformer can now be described with the following equivalent circuit, normally referred to as <em>equivalent-T circuit</em>, as an ideal transformer with external impedances that model all the losses:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Tequiv_trafo.svg" class="img-fluid figure-img"></p>
+<figcaption>T-equivalent circuit of a transformer</figcaption>
+</figure>
+</div>
+<div class="figure-caption">
+<p><strong>Figure 2:</strong> T-equivalent circuit of a transformer</p>
+</div>
+<p>The transformer has been omitted, and it can be thought as if it was at the right-most or the left-most part of the equivalent circuit, depending on the reference winding chosen.</p>
+<p>Considering this non-ideal transformer, the relationship between currents and voltages for the windings can be written as follows:</p>
+<p><span class="math display">\[
+\begin{align}
+v_1 &amp;= R_1 i_1 + \frac{d\Psi_1}{dt} \\
+v_2 &amp;= R_2 i_2 + \frac{d\Psi_2}{dt}
+\end{align}
+\]</span></p>
+<p>where <span class="math inline">\(R_i\)</span> is the winding resistance in <span class="math inline">\(\Omega\)</span>, <span class="math inline">\(v_i\)</span> is the terminal voltage in <span class="math inline">\(V\)</span>, <span class="math inline">\(i_i\)</span> is the winding current in <span class="math inline">\(A\)</span> and <span class="math inline">\(\Psi_i\)</span> is the magnetic flux linkages in <span class="math inline">\(Wb\)</span>. The subindex <span class="math inline">\(1\)</span> refers to the primary winding of the transformer, while the subindex <span class="math inline">\(2\)</span> refers to the secondary winding.</p>
+<p>Since there can be some losses in the magnetic circuit, the total linkage flux is split into mutual flux, which is the flux confined in the iron-core and produced by the magnetomotive forces of both windings, and the leakage flux, which links only the winding at which is generated.</p>
+<p>From the point of view of the primary circuit, the leakage flux induces a voltage in the primary winding that adds to the voltage induced by the mutual flux, and it is considered proportional to the current the primary current <span class="math inline">\(i_1\)</span>. It is represented by the primary leakage inductance <span class="math inline">\(L_{l_1}\)</span> and its corresponding reactance <span class="math inline">\(X_{l_1} = 2\pi f L_{l_1}\)</span>, with <span class="math inline">\(f\)</span> the frequency of the current in <span class="math inline">\(Hz\)</span>.</p>
+<p>Regarding the magnetic circuit, the primary current must produce the magnetomotive force to counteract the magnetomotive force produced by the secondary winding, which can be regarded as the demagnetizing winding, and in addition to that it has to produce the resultant mutual flux. The current components that produce each magnetomotive force are defined as the load component <span class="math inline">\(i_{2'}\)</span> and the exciting component <span class="math inline">\(i_\varphi\)</span>. The following equation represents the magnetomotive forces balance:</p>
+<p><span class="math display">\[N_1 i_{\varphi} = N_1 i_1 - N_2 i_2 = N_1 (i_{\varphi} + i_{2'}) - N_2 i_2\]</span></p>
+<p>from where it can be extracted that <span class="math inline">\(i_{2'} = \frac{N_2}{N_1} i_2\)</span>, which would be the ideal transformer relationship between the primary and secondary current with <span class="math inline">\(i_2' = i_1\)</span>. <span class="math inline">\(N_1\)</span> and <span class="math inline">\(N_2\)</span> correspond to the equivalent number of turns for the primary and secondary windings respectively.</p>
+<p>The exciting current is split into a core-loss component <span class="math inline">\(i_c\)</span> in phase with the electromotive force produced by the primary circuit, and a magnetizing component <span class="math inline">\(i_m\)</span> lagging the electromotive force by 90º. These two components can be represented by the means of a core-loss resistance <span class="math inline">\(R_c\)</span> and a magnetizing inductance <span class="math inline">\(L_m\)</span>, which can be represented as a reactance as <span class="math inline">\(X_m = 2\pi f L_m\)</span>.</p>
+<p>In the equivalent circuit shown in Figure 2, the reference winding is the primary, and all the secondary quantities (those with a <span class="math inline">\('\)</span> on top) are referred from the primary. To recover the actual value of these secondary quantities, the following transformation can be applied as done with the current earlier:</p>
+<p><span class="math display">\[
+\begin{align}
+X_{l_2}' &amp;= (\frac{N_1}{N_2})^2 X_{l_2} \\
+R_{2}' &amp;= (\frac{N_1}{N_2})^2 R_{2} \\
+v_{2}' &amp;= \frac{N_1}{N_2}v_{2}
+\end{align}
+\]</span></p>
+<p><strong>Cantilever equivalent circuit</strong></p>
+<p>The equivalent-T circuit can be simplified by moving the shunt impedance to before the primary resistance and reactance, which enables the representation of both windings’ impedance as a unified equivalent impedance. The error induced by displacing the shunt impedance is small, since it is only disregarding the voltage drop caused by the exciting current when passing through the primary impedance, and this current is much smaller than the primary current. The resulting equivalent circuit is called the <em>cantilever equivalent circuit</em>, which in this case is referred from the primary circuit, meaning that the secondary circuit quantities have to be rescaled using the transformation ratio. The following figure represents this equivalent circuit:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cantilever.svg" class="img-fluid figure-img"></p>
+<figcaption>Cantilever equivalent circuit of a transformer</figcaption>
+</figure>
+</div>
+<div class="figure-caption">
+<p><strong>Figure 3:</strong> Cantilever equivalent circuit of a transformer</p>
+</div>
+<p>where <span class="math inline">\(R_{eq} = R_1 + R_2'\)</span> and <span class="math inline">\(X_{eq} = X_{l_1} + X_{l_2}'\)</span>. All the parameters of this equivalent model can be obtained after performing an open-circuit and a short-circuit test.</p>
+<p><strong>Short-circuit test</strong></p>
+<p>This test is used to find the equivalent series impedance <span class="math inline">\(R_{eq} + jX_{eq}\)</span>. It considers a short-circuit in the secondary terminals of the T-equivalent circuit, and assumes that the iron-core is not saturated.</p>
+<p>The short-circuit impedance from the primary side is:</p>
+<p><span class="math display">\[Z_{sc} = R_1 + jX_{l_1} + \frac{Z_{\varphi} R_2' + jX_{l_2}'}{Z_{\varphi} + R_2' + jX_{l_2}'} \approx R_1 + jX_{l_1} + R_2' + jX_{l_2}' = R_{eq} + jX_{eq}\]</span></p>
+<p>where the approximation is done considering the impedance of the exciting branch is much larger than that of the secondary.</p>
+<p>When doing the test, the measurements that are necessary to compute the equivalent impedance are the RMS magnitude of the applied voltage <span class="math inline">\(V_{sc}\)</span>, the short-circuit current <span class="math inline">\(I_{sc}\)</span> and the power <span class="math inline">\(P_{sc}\)</span>. Using these measurements, the values for the impedance components are:</p>
+<p><span class="math display">\[
+\begin{align}
+|Z_{eq}| &amp;= |Z_{sc}| = \frac{V_{sc}}{I_{sc}} \\
+R_{eq} &amp;= R_{sc} = \frac{P_{sc}}{I_{sc}^2} \\
+X_{eq} &amp;= X_{sc} = \sqrt(|Z_{sc}|^2 - R_{sc}^2)
+\end{align}
+\]</span></p>
+<p><strong>Open-circuit test</strong></p>
+<p>To calculate the magnetizing impedance, the test performed is the open-circuit test, which is performed by opening the secondary circuit and applying a voltage in the primary circuit, which generates an exciting current. It is performed at the rated voltages, which ensures that the exciting current is of a few percent of the rated current of the transformer.</p>
+<p>The open-circuit impedance from the primary side is:</p>
+<p><span class="math display">\[Z_{oc} = R_1 + jX_{l_1} + Z_{\varphi} = R_1 + jX_{l_1} + \frac{R_c(jX_m)}{R_c + jX_m} \approx \frac{R_c(jX_m)}{R_c + jX_m}\]</span></p>
+<p>which assumes that the magnetizing impedance is much larger than the primary impedance.</p>
+<p>With the measurements of the voltage applied <span class="math inline">\(V_{oc}\)</span>, the open-circuit current <span class="math inline">\(I_{oc}\)</span> and the power <span class="math inline">\(P_{oc}\)</span>, the magnetizing impedance terms can be calculated as:</p>
+<p><span class="math display">\[
+\begin{align}
+|Z_{\varphi}| &amp;= \frac{V_{oc}}{I_{oc}} \\
+R_{c} &amp;= \frac{V_{oc}^2}{P_{oc}} \\
+X_{m} &amp;= \frac{1}{\sqrt((\frac{1}{|Z_{\varphi}|})^2 - (\frac{1}{R_c})^2)}
+\end{align}
+\]</span></p>
+<p><strong>Per-Unit system</strong></p>
+<p>The equivalent circuit will be expressed in Per-Unit system, converting the transformer turn ratios in 1:1. This allows the removal of the ideal transformer of the model and hence the need to express the quantities referring to the primary or the secondary. This system is determined by setting arbitrary values for two quantities, typically <span class="math inline">\(S_{base}\)</span> and <span class="math inline">\(V_{base}\)</span>, and then determining the rest of the base quantities using the relationships:</p>
+<p><span class="math display">\[
+\begin{align}
+S_{base} (P_{base}, Q_{base}) &amp;= V_{base} I_{base} \\
+Z_{base} (R_{base}, X_{base}) &amp;= \frac{V_{base}}{I_{base}}
+\end{align}
+\]</span></p>
+<p>The <span class="math inline">\(V_{base}\)</span> value will change for each side of the transformer according to the transformation ratio.</p>
+</section>
+</section>
+<section id="open-source-implementations" class="level2">
+<h2 class="anchored" data-anchor-id="open-source-implementations">Open source implementations</h2>
+<p>This model has been successfully implemented in:</p>
+<p>|| Software | URL | Language | Open-Source License | Last consulted date | Comments | || Dynawo | <a href="https://github.com/dynawo/dynawo/blob/master/dynawo/sources/Models/Modelica/Dynawo/Electrical/Transformers/TransformerFixedRatio.mo">Link</a> | Modelica | <a href="https://www.mozilla.org/en-US/MPL/2.0/">MPL v2.0</a> |02/05/2024 | no comments |</p>
+</section>
+<section id="references" class="level2">
 
 
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-fitzgerald2002electric" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Fitzgerald AE, Kingsley C, Umans SD (2002) Electric machinery, 6th ed. McGraw-Hill, New York, USA</div>
+</div>
+<div id="ref-matsch2002electromagnetic" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Matsch LW, Morgan JD (2002) Electromagnetic and electromechanical machines, 6th ed. McGraw-Hill, New York, USA</div>
+</div>
+<div id="ref-kothari2010electric" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Kothari DP, Nagrath IJ (2010) Electric machines, 4th ed. Tata McGraw-Hill, New Delhi, India</div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

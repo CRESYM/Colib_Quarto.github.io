@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Carlos Alegre (eRoots)">
+<meta name="dcterms.date" content="2024-09-05">
 
-<title>FD Line</title>
+<title>Frequency Dependent Line Model</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +22,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -68,6 +89,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../../styles/main.css">
 </head>
@@ -237,7 +287,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/index.html">Network Components</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/index.html">Lines</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/FDLine/index.html">FD Line</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/index.html">Network Components</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/index.html">Lines</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/FDLine/index.html">Frequency Dependent Line Model</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -861,19 +911,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/6-NetworkComponents/Line/cpLine/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CP Line</span></a>
+ <span class="menu-text">Constant parameters Line Model</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/6-NetworkComponents/Line/piLine/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Pi Line</span></a>
+ <span class="menu-text">Pi-equivalent Line Model</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/6-NetworkComponents/Line/FDLine/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">FD Line</span></a>
+ <span class="menu-text">Frequency Dependent Line Model</span></a>
   </div>
 </li>
       </ul>
@@ -890,7 +940,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/6-NetworkComponents/Transformers/CantileverTransformer/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Cantilever Transformer</span></a>
+ <span class="menu-text">Cantilever Transformer Model</span></a>
   </div>
 </li>
       </ul>
@@ -1074,18 +1124,44 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
+  <li><a href="#model-use-assumptions-and-validity" id="toc-model-use-assumptions-and-validity" class="nav-link" data-scroll-target="#model-use-assumptions-and-validity">Model use, assumptions and validity</a></li>
+  <li><a href="#model-description" id="toc-model-description" class="nav-link" data-scroll-target="#model-description">Model description</a>
+  <ul class="collapse">
+  <li><a href="#line-parameters" id="toc-line-parameters" class="nav-link" data-scroll-target="#line-parameters">Line parameters</a></li>
+  <li><a href="#line-variables" id="toc-line-variables" class="nav-link" data-scroll-target="#line-variables">Line variables</a></li>
+  <li><a href="#equations" id="toc-equations" class="nav-link" data-scroll-target="#equations">Equations</a></li>
+  </ul></li>
+  <li><a href="#operational-principles" id="toc-operational-principles" class="nav-link" data-scroll-target="#operational-principles">Operational principles</a>
+  <ul class="collapse">
+  <li><a href="#rational-approximation-of-z_c-and-a_1" id="toc-rational-approximation-of-z_c-and-a_1" class="nav-link" data-scroll-target="#rational-approximation-of-z_c-and-a_1">Rational approximation of <span class="math inline">\(Z_C\)</span> and <span class="math inline">\(a_1\)</span></a></li>
+  <li><a href="#r-c-equivalent-circuit-and-historical-terms-calculation" id="toc-r-c-equivalent-circuit-and-historical-terms-calculation" class="nav-link" data-scroll-target="#r-c-equivalent-circuit-and-historical-terms-calculation">R-C equivalent circuit and historical terms calculation</a></li>
+  <li><a href="#algorithm-of-solution" id="toc-algorithm-of-solution" class="nav-link" data-scroll-target="#algorithm-of-solution">Algorithm of solution</a></li>
+  </ul></li>
+  <li><a href="#open-source-implementations" id="toc-open-source-implementations" class="nav-link" data-scroll-target="#open-source-implementations">Open-source implementations</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/index.html">Network Components</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/index.html">Lines</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/FDLine/index.html">FD Line</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/index.html">Network Components</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/index.html">Lines</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/FDLine/index.html">Frequency Dependent Line Model</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">FD Line</h1>
+<h1 class="title">Frequency Dependent Line Model</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">line</div>
-    <div class="quarto-category">fd</div>
+    <div class="quarto-category">#120</div>
+    <div class="quarto-category">pi-equivalent</div>
+    <div class="quarto-category">Frequency Dependent</div>
+    <div class="quarto-category">Martí</div>
+    <div class="quarto-category">EMT</div>
+    <div class="quarto-category">transient</div>
+    <div class="quarto-category">transmission</div>
   </div>
   </div>
 
@@ -1093,7 +1169,19 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Carlos Alegre (eRoots) </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 5, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -1103,10 +1191,251 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="context" class="level2">
+<h2 class="anchored" data-anchor-id="context">Context</h2>
+<p>Fast-transient phenomena of transmission lines have been a matter of study in order to describe its behavior during non-normal operation. To mitigate possible unwanted effects and correctly protect transmission line, there is a need of accurate models that correctly predict the performance during these events. Since the introduction of the computer as a tool for power system analysis, many works have tried to solve numerically the complex differential equations that describe the physics of transmission lines, being the one of the first relevant H. W. Dommel’s work <span class="citation" data-cites="dommel1969digital">[<a href="#ref-dommel1969digital" role="doc-biblioref">1</a>]</span>. His work did not cover the dependence of the line parameters with respect to the frequency of the system, which added more complexity to the problem. Later works have been developed until reaching a really accurate model developed by José R. Martí <span class="citation" data-cites="marti1982accurate">[<a href="#ref-marti1982accurate" role="doc-biblioref">2</a>]</span> and <span class="citation" data-cites="marti1981problem">[<a href="#ref-marti1981problem" role="doc-biblioref">3</a>]</span>, which is still used to perform fast-transient analysis of transmission lines.</p>
+</section>
+<section id="model-use-assumptions-and-validity" class="level2">
+<h2 class="anchored" data-anchor-id="model-use-assumptions-and-validity">Model use, assumptions and validity</h2>
+<p>The model can be used to perform EMT analysis of transmission lines as described in Martí’s approach in <span class="citation" data-cites="marti1982accurate">[<a href="#ref-marti1982accurate" role="doc-biblioref">2</a>]</span> and <span class="citation" data-cites="marti1981problem">[<a href="#ref-marti1981problem" role="doc-biblioref">3</a>]</span>.</p>
+<p>The assumptions are:</p>
+<ul>
+<li><p>The line parameters are in general dependent on the frequency of the system.</p></li>
+<li><p>The relation between voltages and current at both ends of the transmission line in the frequency-domain are described by the distributed parameter transmission line equations as developed in the <span class="math inline">\(\pi\)</span>-equivalent model.</p></li>
+<li><p>The description in the time-domain considers that voltage (or current) oscillations can be modelled as traveling waves along the line with a certain propagation speed, having a forward traveling component and backwards traveling component.</p></li>
+<li><p>There is a time delay between the pulses at each end of the line.</p></li>
+<li><p>In the approach described, there is an equivalent network at both ends of the line that matches the frequency response of the characteristic impedance of the line.</p></li>
+<li><p>The model considers two weight functions that are related to the voltage response of the line at each end for a given voltage impulse. For the model with the equivalent networks matching the characteristic impedance behavior, the weight functions are a formed by a single spike for the receiving end, while for the source end equals to 0, since there is no wave reflections.</p></li>
+</ul>
+<p>The model is valid to perform EMT studies, able to predict the behavior in studies involving high frequencies and long-range transmission lines.</p>
+<p>It is not recommended for lower frequencies, shorter range transmission lines, or for studies where the frequency dependence of the line parameters is not relevant, as it involves a higher computational cost than other models. It is also not recommended when the physical characteristics of the line are not well detailed for a wide range of frequencies, since the model needs to model the frequency response of the impedance of the line.</p>
+</section>
+<section id="model-description" class="level2">
+<h2 class="anchored" data-anchor-id="model-description">Model description</h2>
+<section id="line-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="line-parameters">Line parameters</h3>
+<p>|| Parameters | details | Unit | || ————–| —— | —– | || <span class="math inline">\(Z_C\)</span> | Characteristic impedance of the grid at a given frequency |<span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(e_{R_h}(t)\)</span> | History term of the phase to ground voltage of the receiving end| <span class="math inline">\(V\)</span> | || <span class="math inline">\(e_{S_h}(t)\)</span> | History term of the phase to ground voltage of the sending end | <span class="math inline">\(V\)</span> |</p>
+</section>
+<section id="line-variables" class="level3">
+<h3 class="anchored" data-anchor-id="line-variables">Line variables</h3>
+<p>|| Variable | details | Unit | || — | — | — | || <span class="math inline">\(Z_C(\omega)\)</span> | Characteristic impedance of the grid at a given frequency |<span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(v_S(t)\)</span> | Phase to ground voltage at the sending end at time <span class="math inline">\(t\)</span> | <span class="math inline">\(V\)</span> | || <span class="math inline">\(e_S(t)\)</span> | Phase to ground voltage across the characteristic impedance at the sending end at time <span class="math inline">\(t\)</span> | <span class="math inline">\(V\)</span> | || <span class="math inline">\(v_R(t)\)</span> | Phase to ground voltage at the receiving end at time <span class="math inline">\(t\)</span> | <span class="math inline">\(V\)</span> | || <span class="math inline">\(e_R(t)\)</span> | Phase to ground voltage across the characteristic impedance at the receiving end at time <span class="math inline">\(t\)</span> | <span class="math inline">\(V\)</span> |</p>
+</section>
+<section id="equations" class="level3">
+<h3 class="anchored" data-anchor-id="equations">Equations</h3>
+<p><span class="math display">\[
+\begin{align}
+v_S(t) &amp;= e_S(t) + e_{S_h}(t) \\
+v_R(t) &amp;= e_R(t) + e_{R_h}(t)
+\end{align}
+\]</span></p>
+<p>where <span class="math inline">\(e_S(t) = Z_C i_S(t)\)</span> and <span class="math inline">\(e_R(t) = Z_C i_R(t)\)</span> are the voltages across the equivalent network due to the currents at each respective end of the line. and <span class="math inline">\(e_{S_h}(t)\)</span> and <span class="math inline">\(e_{R_h}(t)\)</span> are the historical terms, which can be computed using convolution products, or simply using the previous values <span class="math inline">\(v_S(t-\tau)\)</span> and <span class="math inline">\(v_R(t-\tau)\)</span> provided that the integration step <span class="math inline">\(\Delta t \leq \tau\)</span>.</p>
+</section>
+</section>
+<section id="operational-principles" class="level2">
+<h2 class="anchored" data-anchor-id="operational-principles">Operational principles</h2>
+<p>For this model, the distributed parameter transmission line equations are considered dependent on the frequency of the system:</p>
+<p><span class="math display">\[
+\begin{align}
+V_S(\omega) &amp;= \cosh(\gamma (\omega) l)V_R(\omega) - Z_C(\omega) \sinh(\gamma (\omega) l)I_R(\omega) \\
+I_S(\omega) &amp;= \frac{1}{Z_C(\omega)} \sinh(\gamma (\omega) l)V_R(\omega) - \cosh(\gamma (\omega) l)I_R(\omega)
+\end{align}
+\]</span></p>
+<p>where the propagation constant <span class="math inline">\(\gamma = \sqrt{z(\omega)y(\omega)} = \alpha(\omega) + j\beta(\omega)\)</span> and the characteristic impedance <span class="math inline">\(Z_C = \sqrt{\frac{z(\omega)}{y(\omega)}}\)</span> are frequency-dependent. These equations correspond to the solution in frequency domain for the general transmission line. Transforming these equations to the time domain allows to perform transient analysis of the transmission line, but it is not trivial since the equations for wave propagations obtained in the Constant Parameter Line Model are obtained by assuming independence of the line parameters with respect to the grid frequency. To do so, the model proposed will convert the frequency-domain equations to the time-domain numerically.</p>
+<p>The developed model assumes the following equivalent circuit:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="FD_scheme.svg" class="img-fluid figure-img"></p>
+<figcaption>Equivalent circuit of the frequency dependent line</figcaption>
+</figure>
+</div>
+<div class="figure-caption">
+<p><strong>Figure 1:</strong> Equivalent circuit of the frequency dependent line.</p>
+</div>
+<p>The proposed equations for the travelling waves in this equivalent circuit are the following:</p>
+<p><span class="math display">\[
+\begin{align}
+f_S(t) &amp;= v_S(t) + e_S(t) \\
+f_R(t) &amp;= v_R(t) + e_R(t) \\
+b_S(t) &amp;= v_S(t) - e_S(t) \\
+b_R(t) &amp;= v_R(t) - e_R(t)
+\end{align}
+\]</span></p>
+<p>Where <span class="math inline">\(f_S\)</span> and <span class="math inline">\(b_S\)</span> are the forward and backward travelling waves at the source terminal, respectively, <span class="math inline">\(f_R\)</span> and <span class="math inline">\(b_R\)</span> are the forward and backward travelling waves at the receiver terminal, and <span class="math inline">\(e_S = Z_{eq}i_S\)</span> and <span class="math inline">\(e_R = Z_{eq}i_R\)</span> are the voltage across the equivalent network due to the currents at each respective end of the line. In frequency domain, the equations can be rewritten as:</p>
+<p><span class="math display">\[
+\begin{align}
+F_S(\omega) &amp;= V_S(\omega) + Z_{eq}(\omega) I_S(\omega) \\
+F_R(\omega) &amp;= V_R(\omega) + Z_{eq}(\omega) I_R(\omega) \\
+B_S(\omega) &amp;= V_S(\omega) - Z_{eq}(\omega) I_S(\omega) \\
+B_R(\omega) &amp;= V_R(\omega) - Z_{eq}(\omega) I_R(\omega)
+\end{align}
+\]</span></p>
+<p>where <span class="math inline">\(Z_{eq} = Z_C(\omega)\)</span> is the equivalent impedance of the equivalent network. The model will transform these equations to the time domain to perform transient analysis of the transmission line.</p>
+<p>These equations, alongisde the tranmission line equations, can be combined to obtain the following relationship:</p>
+<p><span class="math display">\[
+\begin{align}
+B_S(\omega) &amp;= A_1(\omega) F_R(\omega) \\
+B_R(\omega) &amp;= A_1(\omega) F_S(\omega)
+\end{align}
+\]</span></p>
+<p>where <span class="math inline">\(A_1 = e^{-\gamma(\omega) l} = \frac{1}{\cosh(\gamma(\omega)l) + \sinh(\gamma(\omega)l)}\)</span> is a constant that depends on the equivalent impedance of the equivalent network. Converting these in time-domain, the following expressions are obtained:</p>
+<p><span class="math display">\[
+\begin{align}
+b_S(t) &amp;= a_1(t) * f_R(t) \\
+b_R(t) &amp;= a_1(t) * f_S(t)
+\end{align}
+\]</span></p>
+<p>where the <span class="math inline">\(*\)</span> represents the convolution product, and <span class="math inline">\(a_1(t)\)</span> represents the weight function, which is a pulse starting at time <span class="math inline">\(\tau\)</span> when the impedance of the equivalent network matches the characteristic impedance of the line. The convolution product can be calculated as:</p>
+<p><span class="math display">\[
+\begin{align}
+b_S(t) &amp;= \int_{-\infty}^{\infty} f_R(t - u) a_1(u) du = \int_{\tau}^{\infty} f_R(t - u) a_1(u) du \\
+b_R(t) &amp;= \int_{-\infty}^{\infty} f_S(t - u) a_1(u) du = \int_{\tau}^{\infty} f_S(t - u) a_1(u) du
+\end{align}
+\]</span></p>
+<p>Where the integral prior to the time <span class="math inline">\(\tau\)</span> is zero, since the weight function is zero for negative times. This time represents the time that the fastest frequency component of the applied voltage takes to reach the other end of the line. When the time interval for the numerical computation is lower (<span class="math inline">\(\Delta t \leq \tau\)</span>), the values for <span class="math inline">\(f_R\)</span> and <span class="math inline">\(f_S\)</span> at the time <span class="math inline">\(t - u\)</span> can be obtained from previous time steps, allowing for iterative solutions for the time-domain simulation. The upper limit of the integral does not extend beyond <span class="math inline">\(\tau\)</span> for much longer times, since the weight function is a single pulse.</p>
+<p>Since the terms <span class="math inline">\(b_S\)</span> and <span class="math inline">\(b_R\)</span> are obtained from historical values of voltages, they can be modelled as two voltage sources <span class="math inline">\(e_{S_h}\)</span> and <span class="math inline">\(e_{R_h}\)</span>, obtaining the following equivalent circuit:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="FDLine_ThevEquiv.svg" class="img-fluid figure-img"></p>
+<figcaption>FD Thevenin Equivalent Circuit of a transmission line</figcaption>
+</figure>
+</div>
+<div class="figure-caption">
+<p><strong>Figure 2:</strong> Thevenin equivalent circuit of the frequency dependent line with history terms.</p>
+</div>
+<p>which has the following circuit equations:</p>
+<p><span class="math display">\[
+\begin{align}
+v_S(t) &amp;= e_S(t) + e_{S_h}(t) \\
+v_R(t) &amp;= e_R(t) + e_{R_h}(t)
+\end{align}
+\]</span></p>
+<p>It can be converted into its Norton equivalent, as shown in the following schematic:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="FDLine_NortonEquiv.svg" class="img-fluid figure-img"></p>
+<figcaption>Norton Equivalent Circuit of a transmission line</figcaption>
+</figure>
+</div>
+<div class="figure-caption">
+<p><strong>Figure 3:</strong> Norton equivalent circuit of the frequency dependent line with history terms.</p>
+</div>
+<p>where the equivalent current sources are calculated as:</p>
+<p><span class="math display">\[
+\begin{align}
+i_S(t) &amp;= \frac{v_S(t)}{Z_C} - i_{S_h}(t) \\
+i_R(t) &amp;= \frac{v_R(t)}{Z_C} - i_{R_h}(t)
+\end{align}
+\]</span></p>
+<section id="rational-approximation-of-z_c-and-a_1" class="level3">
+<h3 class="anchored" data-anchor-id="rational-approximation-of-z_c-and-a_1">Rational approximation of <span class="math inline">\(Z_C\)</span> and <span class="math inline">\(a_1\)</span></h3>
+<p>The expressions of the characteristic impedance and the weight function can be approximated by rational functions to simplify the calculations. Generally, their values are known as a point by point function of frequency (i.e., their values are tabulated, but not known as a parametrized function).</p>
+<p><strong>Characteristic impedance rational approximation</strong></p>
+<p>The general form of the rational function used to simulate the characteristic impedance is the following:</p>
+<p><span class="math display">\[Z_C(s) = H \frac{(s + z_1)(s + z_2)...(s+z_n)}{(s + \alpha_1)(s + \alpha_2)...(s + \alpha_n)}\]</span></p>
+<p>with <span class="math inline">\(s = j\omega\)</span>, <span class="math inline">\(H\)</span> being a real and positive constant, <span class="math inline">\(z_i\)</span> and <span class="math inline">\(\alpha_i\)</span> being real and negative zeros and poles of the function, respectively. The values of the zeros and poles can be obtained by fitting the characteristic impedance values at different frequencies to the rational function, which can be done using the least squares method.</p>
+<p>This rational expression can be expanded into partial functions when considering an R-C synthesis over the equivalent impedance (see <span class="citation" data-cites="karni1966network">[<a href="#ref-karni1966network" role="doc-biblioref">4</a>]</span>):</p>
+<p><span class="math display">\[Z_C(s) = k_0 + \frac{k_1}{s + \alpha_1} + ... + \frac{k_n}{s + \alpha_n}\]</span></p>
+<p>where <span class="math inline">\(k_0 = \lim\limits{s \to \infty} Z_C(S) = H\)</span> and <span class="math inline">\(k_i = (s + \alpha_i)Z_C(S)|_{s = -\alpha_i}\)</span>. The first term corresponds to a resistance, <span class="math inline">\(R_0\)</span>, and the following terms to a R-C parallel elements with <span class="math inline">\(R_i = \frac{k_i}{\alpha_i}\)</span> and <span class="math inline">\(C_i = \frac{1}{k_i}\)</span>. It can be expressed in time-domain applying inverse Fourier transformation:</p>
+<p><span class="math display">\[z_C(t) = [k_0 \delta(t) + \sum_{i=1}^{n} k_i e^{-\alpha_i t}] u(t)\]</span></p>
+<p>This form will ease introducing the frequency dependence of the characteristic impedance in the model equations.</p>
+<p><strong>Weight function rational approximation</strong></p>
+<p>Considering the convolution integral at time step <span class="math inline">\(t\)</span> as in the equations for <span class="math inline">\(b_{S}\)</span> and <span class="math inline">\(b_{R}\)</span>, the convolution can be evaluated much easily if the weight function is approximated by a sum of exponential terms, having the following general convolution form:</p>
+<p><span class="math display">\[s(t) = \int_{\tau}^{\infty} f(t - u)ke^{-\beta (u - \tau)} du\]</span></p>
+<p>With this expression, <span class="math inline">\(s(t)\)</span> can be directly computed using its previous values and the history of the function used to calculate it:</p>
+<p><span class="math display">\[s(t) = ms(t - \Delta t) + p f(t - \tau) + q f(t - \tau - \Delta t)\]</span></p>
+<p>where <span class="math inline">\(m\)</span>, <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> are constants depending on <span class="math inline">\(k\)</span> and <span class="math inline">\(\beta\)</span> and the integration step <span class="math inline">\(\Delta t\)</span>.</p>
+<p>Using similar procedure, the following equation can be used to approximate the weight function. Firstly, the weight function is displaced from <span class="math inline">\(t\)</span> to <span class="math inline">\(t-\tau\)</span> as <span class="math inline">\(A_1(\omega) = P(\omega)e^{-j \omega \tau}\)</span>. Then, <span class="math inline">\(P(\omega)\)</span> can be approximated by a rational function as follows:</p>
+<p><span class="math display">\[P(s) = H \frac{(s + z_1)(s + z_2)...(s+z_n)}{(s + \beta_1)(s + \beta_2)...(s + \beta_m)}\]</span></p>
+<p>where the number of zeros is smaller than the number of poles, since it is a passive element and its response tends to 0 for infinite frequency. Expanding this expression and transforming into time-domain, a final expression for the weight function can be obtained:</p>
+<p><span class="math display">\[a_{1a}(t) = [k_1' e^{\beta_1 t} + k_2' e^{\beta_2 t} + ... + k_m' e^{\beta_m t}]u(t-\tau)\]</span></p>
+<p>which can be used to obtain recursively the convolution terms.</p>
+</section>
+<section id="r-c-equivalent-circuit-and-historical-terms-calculation" class="level3">
+<h3 class="anchored" data-anchor-id="r-c-equivalent-circuit-and-historical-terms-calculation">R-C equivalent circuit and historical terms calculation</h3>
+<p>The final equivalent circuit is the proposed by Dommel’s work <span class="citation" data-cites="dommel1969digital">[<a href="#ref-dommel1969digital" role="doc-biblioref">1</a>]</span>, with the difference that the impedance terms model the frequency dependence of the parameters. Detailed descriptions on the difference by the model proposed by Dommel and the frequency dependent model proposed by Martí can be found in <span class="citation" data-cites="marti1981problem">[<a href="#ref-marti1981problem" role="doc-biblioref">3</a>]</span>. The equivalent circuit is shown in the following figure:</p>
+<p>In frequency domain, we have:</p>
+<p><span class="math display">\[E_S(\omega) = I_S(\omega) Z_C(\omega)\]</span></p>
+<p>which can be then expressed in time domain as the convolution product:</p>
+<p><span class="math display">\[e_S(t) = i_S(t) * Z_C(t) = \int_{-\infty}^{\infty} i_S(t - u) Z_C(u) du\]</span></p>
+<p>Since <span class="math inline">\(Z_C\)</span> has been expressed as a sum of exponential functions in time-domain, the convolution can be split in a sum of convolutions as in the previous chapter, but using <span class="math inline">\(\tau=0\)</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+e_S(t) &amp;= e_{S_1} + e_{S_2} + ... + e_{S_n} \\
+e_{S_i}(t) &amp;= i_S(t) * e^{-\alpha_i t} = \int_{-\infty}^{\infty} i_S(t - u) e^{-\alpha_i u} du \\
+e_{S_i}(t) &amp;= m_i e_{S_i}(t - \Delta t) + p_i i_S(t) + q_i i_S(t - \Delta t)
+\end{align}
+\]</span></p>
+<p>Using the R-C equivalent circuit, the coeficients of this time-domain transformation are:</p>
+<p><span class="math display">\[
+\begin{align}
+m_i &amp;= \frac{1-\frac{1}{2}(\alpha_i \Delta t)}{1+\frac{1}{2}(\alpha_i \Delta t)} \\
+p_i &amp;= q_i = k_i \frac{\frac{\Delta t}{2}}{1+\frac{1}{2}(\alpha_i \Delta t)}
+\end{align}
+\]</span></p>
+<p>And separating <span class="math inline">\(e_S(t)\)</span> in its components, the final expression for the voltage across the equivalent network at the sending end is:</p>
+<p><span class="math display">\[e_S(t) = R_S i_S(t) + e_{S_hc}(t) + e_{S_hv}(t)\]</span></p>
+<p>where <span class="math inline">\(R_S = R_0 + p\)</span> is the equivalent constant resistance of the network at the sending end, with <span class="math inline">\(p = \sum p_i\)</span>, and <span class="math inline">\(e_{S_hc}(t)\)</span> and <span class="math inline">\(e_{S_hv}(t)\)</span> are the historical terms of the current in <span class="math inline">\(Z_eq\)</span> and partial voltage in <span class="math inline">\(Z_eq\)</span>, respectively, calculated as:</p>
+<p><span class="math display">\[
+\begin{align}
+e_{S_{hc}}(t) &amp;= (\sum q_i) i_S(t - \tau) = q i_S(t - \tau) \\
+e_{S_{hv}}(t) &amp;= \sum^{n}_{1} e_{S_i}(t - \tau)
+\end{align}
+\]</span></p>
+<p>An analogy can be made for the historical term <span class="math inline">\(b_S(t)\)</span>, which can be calculated as:</p>
+<p><span class="math display">\[b_{S_i}(t) = g_i b_S(t - \Delta t) + c_i f_R(t) + d_i f_R(t - \Delta t)\]</span></p>
+<p>where the coefficients, this time using the weight function terms <span class="math inline">\(k_i'\)</span> and <span class="math inline">\(\beta_i\)</span>, are:</p>
+<p><span class="math display">\[
+\begin{align}
+g_i &amp;= \frac{1-\frac{1}{2}(\beta_i \Delta t)}{1+\frac{1}{2}(\beta_i \Delta t)} \\
+c_i &amp;= d_i = k_i' \frac{\frac{\Delta t}{2}}{1+\frac{1}{2}(\beta_i \Delta t)}
+\end{align}
+\]</span></p>
+<p>Now, the final expression for the history term of the voltage at the sending end is:</p>
+<p><span class="math display">\[b_S(t) = \sum b_{S_i}(t) = c f_R(t-\tau) + d f_R(t - \tau - \Delta t) + \sum g_i b_{S_i}(t - \Delta t)\]</span></p>
+<p>with <span class="math inline">\(c = \sum c_i\)</span> and <span class="math inline">\(d = \sum d_i\)</span>, and <span class="math inline">\(f_R(t-\tau) = 2v_R(t-\tau) + b_R(t-\tau)\)</span>, similarly for <span class="math inline">\(f_R(t - \tau - \Delta t)\)</span>.</p>
+<p>The same procedure can be followed for the historical terms of <span class="math inline">\(e_S(t)\)</span> and <span class="math inline">\(b_R(t)\)</span>.</p>
+</section>
+<section id="algorithm-of-solution" class="level3">
+<h3 class="anchored" data-anchor-id="algorithm-of-solution">Algorithm of solution</h3>
+<p>The history terms that have to be calculated at each step for one of the sides are:</p>
+<p><span class="math display">\[
+\begin{align}
+e_{S_{hc}}(t) &amp;= q i_S(t - \tau) \\
+e_{S_{hv}}(t) &amp;= \sum e_{S_i}(t - \Delta t) \\
+b_{S_h}(t) &amp;= \sum g_i b_{S_i}(t - \Delta t) \\
+b_S(t) &amp;= c f_R(t - \tau) + d f_R(t - \tau - \Delta t) + b_{S_h}(t)
+\end{align}
+\]</span></p>
+<p>Then, the history current source is calculated as:</p>
+<p><span class="math display">\[i_{S_h}(t) = \frac{e_{S_hc}(t) + e_{S_hv}(t) + b_S(t)}{R_S}\]</span></p>
+<p>The equivalent system is solved, and the history terms are updated to the new time step.</p>
+</section>
+</section>
+<section id="open-source-implementations" class="level2">
+<h2 class="anchored" data-anchor-id="open-source-implementations">Open-source implementations</h2>
+<p>No open-source implementations found.</p>
+</section>
+<section id="references" class="level2">
 
 
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-dommel1969digital" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Dommel HW (1969) Digital computer solution of electromagnetic transients in single and multiphase networks. IEEE Transactions on Power Apparatus and Systems PAS-88:388–399. <a href="https://doi.org/10.1109/TPAS.1969.292204">https://doi.org/10.1109/TPAS.1969.292204</a></div>
+</div>
+<div id="ref-marti1982accurate" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Marti JR (1982) Accurate modelling of frequency dependent transmission lines in electromagnetic transient simulations. IEEE Transactions on Power Apparatus and Systems PAS-101(1):147–157. <a href="https://doi.org/10.1109/TPAS.1982.317332">https://doi.org/10.1109/TPAS.1982.317332</a></div>
+</div>
+<div id="ref-marti1981problem" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Marti JR (1981) The problem of frequency dependence in transmission line modelling. PhD thesis, University of British Columbia</div>
+</div>
+<div id="ref-karni1966network" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Karni S (1966) Network theory: Analysis and synthesis. Allyn; Bacon, Boston</div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

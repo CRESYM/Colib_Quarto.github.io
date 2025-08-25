@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Martin Franke (Fraunhofer IEE), Luka Plavec (Fraunhofer IEE)">
 <meta name="dcterms.date" content="2025-08-12">
 
 <title>IEC Wind Turbine Type 3 (Doubly-Fed Induction Generator)</title>
@@ -945,19 +946,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/6-NetworkComponents/Line/cpLine/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CP Line</span></a>
+ <span class="menu-text">Constant parameters Line Model</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/6-NetworkComponents/Line/piLine/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Pi Line</span></a>
+ <span class="menu-text">Pi-equivalent Line Model</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/6-NetworkComponents/Line/FDLine/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">FD Line</span></a>
+ <span class="menu-text">Frequency Dependent Line Model</span></a>
   </div>
 </li>
       </ul>
@@ -974,7 +975,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/6-NetworkComponents/Transformers/CantileverTransformer/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Cantilever Transformer</span></a>
+ <span class="menu-text">Cantilever Transformer Model</span></a>
   </div>
 </li>
       </ul>
@@ -1199,7 +1200,19 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/5-RenewablesAndStorage/index.html">Renewables and storage</a></li><li class="breadcrumb-item"><a href="../../../../models/5-RenewablesAndStorage/Wind/index.html">Wind power</a></li><li class="breadcrumb-item"><a href="../../../../models/5-RenewablesAndStorage/Wind/iec_wt_type3/index.html">IEC Wind Turbine Type 3 (Doubly-Fed Induction Generator)</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">IEC Wind Turbine Type 3 (Doubly-Fed Induction Generator)</h1>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">regulations</div>
+    <div class="quarto-category">WT</div>
+    <div class="quarto-category">wind</div>
+    <div class="quarto-category">controller</div>
+    <div class="quarto-category">Opensource</div>
+    <div class="quarto-category">IEC</div>
+    <div class="quarto-category">RMS</div>
+    <div class="quarto-category">modelica</div>
+    <div class="quarto-category">dynawo</div>
+    <div class="quarto-category">#62</div>
+  </div>
+  </div>
 
 
 
@@ -2055,7 +2068,7 @@ Table&nbsp;5: Q control normal path control modes, based on <span class="citatio
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;"><span class="math display">\[M_\mathrm{qG}\]</span></th>
+<th style="text-align: left;"><span class="math inline">\(M_\mathrm{qG}\)</span></th>
 <th style="text-align: left;">Description</th>
 </tr>
 </thead>
@@ -2099,7 +2112,7 @@ Table&nbsp;6: Q control reactive current injection path control modes, based on 
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;"><span class="math display">\[M_\mathrm{qFRT}\]</span></th>
+<th style="text-align: left;"><span class="math inline">\(M_\mathrm{qFRT}\)</span></th>
 <th style="text-align: left;">During Fault</th>
 <th style="text-align: left;">Post Fault</th>
 </tr>
@@ -2158,127 +2171,127 @@ Table&nbsp;7: Parameters of WT Q control, based on <span class="citation" data-c
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[\Delta u_\mathrm{db1}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\Delta u_\mathrm{db1}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[U_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(U_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Voltage difference dead band lower limit</td>
 <td style="text-align: left;">-0.1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[\Delta u_\mathrm{db2}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\Delta u_\mathrm{db2}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[U_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(U_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Voltage differnce dead band upper limit</td>
 <td style="text-align: left;">0.1</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[i_\mathrm{qh1}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(i_\mathrm{qh1}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Maximum reactive current injection during FRT</td>
 <td style="text-align: left;">1.05</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[i_\mathrm{qmax}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(i_\mathrm{qmax}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Maximum reactive current injection</td>
 <td style="text-align: left;">1.05</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[i_\mathrm{qmin}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(i_\mathrm{qmin}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Minimum reactive current injection</td>
 <td style="text-align: left;">-1.05</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[i_\mathrm{qpost}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(i_\mathrm{qpost}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Post-fault reactive current injection</td>
 <td style="text-align: left;">0</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{Iq}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(K_\mathrm{Iq}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[U_\mathrm{base}/S_\mathrm{base}/s\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(U_\mathrm{base}/S_\mathrm{base}/s\)</span></td>
 <td style="text-align: left;">Q PI controller integral gain</td>
 <td style="text-align: left;">2</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{Iu}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(K_\mathrm{Iu}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}/U_\mathrm{base}/s\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}/U_\mathrm{base}/s\)</span></td>
 <td style="text-align: left;">U PI controller integral gain</td>
 <td style="text-align: left;">2</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{Pq}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(K_\mathrm{Pq}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[U_\mathrm{base}/S_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(U_\mathrm{base}/S_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Q PI controller proportional gain</td>
 <td style="text-align: left;">0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{Pu}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(K_\mathrm{Pu}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}/U_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}/U_\mathrm{base}\)</span></td>
 <td style="text-align: left;">U PI controller proportional gain</td>
 <td style="text-align: left;">2</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{PuFRT}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(K_\mathrm{PuFRT}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}/U_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}/U_\mathrm{base}\)</span></td>
 <td style="text-align: left;">U PI controller proportional gain during FRT</td>
 <td style="text-align: left;">0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{qv}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(K_\mathrm{qv}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}/U_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}/U_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Droop for fast reactive current injection</td>
 <td style="text-align: left;">2</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[M_\mathrm{qFRT}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(M_\mathrm{qFRT}\)</span></td>
 <td style="text-align: left;">bool</td>
 <td style="text-align: left;">-</td>
 <td style="text-align: left;">-</td>
-<td style="text-align: left;">Fast reactive current injection Q control mode (<a href="#tbl-qControlModesFast" class="quarto-xref">Table 6</a>)</td>
+<td style="text-align: left;">Fast reactive current injection Q control mode (<a href="#tbl-qControlModesFast" class="quarto-xref">Table&nbsp;6</a>)</td>
 <td style="text-align: left;">2</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[M_\mathrm{qG}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(M_\mathrm{qG}\)</span></td>
 <td style="text-align: left;">bool</td>
 <td style="text-align: left;">-</td>
 <td style="text-align: left;">-</td>
-<td style="text-align: left;">Normal path Q control mode (<a href="#tbl-qControlModesNormal" class="quarto-xref">Table 5</a>)</td>
+<td style="text-align: left;">Normal path Q control mode (<a href="#tbl-qControlModesNormal" class="quarto-xref">Table&nbsp;5</a>)</td>
 <td style="text-align: left;">1</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[r_\mathrm{drop}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(r_\mathrm{drop}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[Z_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(Z_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Voltage drop resistance</td>
 <td style="text-align: left;">0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{post}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{post}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">s</td>
 <td style="text-align: left;">-</td>
@@ -2286,7 +2299,7 @@ Table&nbsp;7: Parameters of WT Q control, based on <span class="citation" data-c
 <td style="text-align: left;">0</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{qord}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{qord}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">s</td>
 <td style="text-align: left;">-</td>
@@ -2294,7 +2307,7 @@ Table&nbsp;7: Parameters of WT Q control, based on <span class="citation" data-c
 <td style="text-align: left;">0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{uss}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{uss}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">s</td>
 <td style="text-align: left;">-</td>
@@ -2302,50 +2315,50 @@ Table&nbsp;7: Parameters of WT Q control, based on <span class="citation" data-c
 <td style="text-align: left;">30</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[u_\mathrm{max}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(u_\mathrm{max}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[U_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(U_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Upper limit in U PI controller integrator</td>
 <td style="text-align: left;">2</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[u_\mathrm{min}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(u_\mathrm{min}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[U_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(U_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Lower limit in U PI controller integrator</td>
 <td style="text-align: left;">0</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[u_\mathrm{qdip}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(u_\mathrm{qdip}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[U_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(U_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Q control: voltage threshold for UVRT detection</td>
 <td style="text-align: left;">0.9</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[u_\mathrm{qrise}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(u_\mathrm{qrise}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[U_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(U_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Q Control: Voltage threshold for OVRT detection</td>
 <td style="text-align: left;">1.1</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[u_\mathrm{ref0}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(u_\mathrm{ref0}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[U_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(U_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Voltage reference bias</td>
 <td style="text-align: left;">0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[x_\mathrm{drop}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_\mathrm{drop}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[Z_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(Z_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Voltage drop reactance</td>
 <td style="text-align: left;">0</td>
 </tr>
@@ -2381,59 +2394,59 @@ Table&nbsp;8: Inputs, based on <span class="citation" data-cites="IEC61400-27-1_
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[i_\mathrm{dfhook}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(i_\mathrm{dfhook}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">user-defined input for during-fault reactive current</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[i_\mathrm{pfhook}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(i_\mathrm{pfhook}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">user-defined input for post-fault period reactive current</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[p_\mathrm{WTCfilt}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(p_\mathrm{WTCfilt}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{base}\)</span></td>
 <td style="text-align: left;">measured active power</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[q_\mathrm{WTCfilt}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(q_\mathrm{WTCfilt}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{base}\)</span></td>
 <td style="text-align: left;">measured reactive power</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[q_\mathrm{WTmax}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(q_\mathrm{WTmax}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{base}\)</span></td>
 <td style="text-align: left;">maximum reactive power from Q limitation module (may be used to implement a capability curve)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[q_\mathrm{WTmin}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(q_\mathrm{WTmin}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{base}\)</span></td>
 <td style="text-align: left;">minimum reactive power from Q limitation module (may be used to implement a capability curve)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[u_\mathrm{WTCfilt}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(u_\mathrm{WTCfilt}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[U_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(U_\mathrm{base}\)</span></td>
 <td style="text-align: left;">measured voltage</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[x_\mathrm{WTref}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(x_\mathrm{WTref}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[Z_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(Z_\mathrm{base}\)</span></td>
 <td style="text-align: left;">voltage or reactive power reference, depending on control mode</td>
 </tr>
 </tbody>
@@ -2467,31 +2480,31 @@ Table&nbsp;9: Inputs, based on <span class="citation" data-cites="IEC61400-27-1_
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[F_\mathrm{FRT}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(F_\mathrm{FRT}\)</span></td>
 <td style="text-align: left;">integer</td>
 <td style="text-align: left;">-</td>
 <td style="text-align: left;">-</td>
 <td style="text-align: left;">Fault signal: 0=no fault, 1=fault, 2=post-fault</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[i_\mathrm{qbasehook}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(i_\mathrm{qbasehook}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Normal path component of reactive current command</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{qcmd}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{qcmd}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">-</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">reactive current command</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{qvhook}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{qvhook}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">-</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Fast reactive current injection path component of reactive current command</td>
 </tr>
 </tbody>
@@ -2552,34 +2565,34 @@ Table&nbsp;10: Parameters of Q limitation module, based on <span class="citation
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[\mathbf{q_\mathrm{maxp}}(p)\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\mathbf{q_\mathrm{maxp}}(p)\)</span></td>
 <td style="text-align: left;">lookup-table</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Maximum Q as a function of P</td>
 <td style="text-align: left;">[0,0; 0.3,0.33; 1,0.33]</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[\mathbf{q_\mathrm{maxu}}(u)\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\mathbf{q_\mathrm{maxu}}(u)\)</span></td>
 <td style="text-align: left;">lookup-table</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Maximum Q as a function of U</td>
 <td style="text-align: left;">[0,0; 0.8,0.33; 0.9,0.33]</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[\mathbf{q_\mathrm{minp}}(p)\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\mathbf{q_\mathrm{minp}}(p)\)</span></td>
 <td style="text-align: left;">lookup-table</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Minimum Q as a function of P</td>
 <td style="text-align: left;">[0,0; 0.3,-0.33; 1,-0.33]</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[\mathbf{q_\mathrm{minu}}(u)\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\mathbf{q_\mathrm{minu}}(u)\)</span></td>
 <td style="text-align: left;">lookup-table</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Minimum Q as a function of U</td>
 <td style="text-align: left;">[0,0; 0.8,-0.33; 0.9,-0.33]</td>
 </tr>
@@ -2615,24 +2628,24 @@ Table&nbsp;11: Inputs, based on <span class="citation" data-cites="IEC61400-27-1
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[F_\mathrm{FRT}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(F_\mathrm{FRT}\)</span></td>
 <td style="text-align: left;">boolean</td>
 <td style="text-align: left;">-</td>
 <td style="text-align: left;">-</td>
 <td style="text-align: left;">WT Fault Ride Through (FRT) flag signal</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[p_\mathrm{WTCfilt}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(p_\mathrm{WTCfilt}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Measured active power at the WT terminal</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[u_\mathrm{WTCfilt}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(u_\mathrm{WTCfilt}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[U_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(U_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Measured voltage of the WT terminal</td>
 </tr>
 </tbody>
@@ -2666,17 +2679,17 @@ Table&nbsp;12: Outputs, based on <span class="citation" data-cites="IEC61400-27-
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[q_\mathrm{WTmax}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(q_\mathrm{WTmax}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Maximum WT reactive power</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[q_\mathrm{WTmin}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(q_\mathrm{WTmin}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Minimum WT reactive power</td>
 </tr>
 </tbody>
@@ -2770,47 +2783,47 @@ Table&nbsp;13: Parameters of current limitation module, based on <span class="ci
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[i_\mathrm{max}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(i_\mathrm{max}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">WT terminal maximum admissible current</td>
 <td style="text-align: left;">1.3</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[i_\mathrm{maxdip}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(i_\mathrm{maxdip}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">WT terminal maximum admissible current during fault</td>
 <td style="text-align: left;">1.3</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[\mathbf{i_\mathrm{pmax}}(u_\mathrm{WT})\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\mathbf{i_\mathrm{pmax}}(u_\mathrm{WT})\)</span></td>
 <td style="text-align: left;">lookup-table</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">lookup-table for maximum active current as a function of voltage</td>
 <td style="text-align: left;">[0,0; 0.1,0; 0.15,1; 0.9,1; 0.91,1.2; 1.2,1.2]</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[\mathbf{i_\mathrm{qmax}}(u_\mathrm{WT})\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\mathbf{i_\mathrm{qmax}}(u_\mathrm{WT})\)</span></td>
 <td style="text-align: left;">lookup-table</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">lookup-table for maximum reactive current as a function of voltage</td>
 <td style="text-align: left;">[0,0.1; 0.2,0.95; 0.2,1; 0.9,1; 0.9,0.36; 1.1,0.3]</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[K_\mathrm{pqu}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(K_\mathrm{pqu}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}/U_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}/U_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Droop of reactive current limit with resepect to voltage</td>
 <td style="text-align: left;">20</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[M_\mathrm{DFSLim}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(M_\mathrm{DFSLim}\)</span></td>
 <td style="text-align: left;">boolean</td>
 <td style="text-align: left;">-</td>
 <td style="text-align: left;">-</td>
@@ -2818,7 +2831,7 @@ Table&nbsp;13: Parameters of current limitation module, based on <span class="ci
 <td style="text-align: left;">false</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[M_\mathrm{qpri}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(M_\mathrm{qpri}\)</span></td>
 <td style="text-align: left;">boolean</td>
 <td style="text-align: left;">-</td>
 <td style="text-align: left;">-</td>
@@ -2826,10 +2839,10 @@ Table&nbsp;13: Parameters of current limitation module, based on <span class="ci
 <td style="text-align: left;">true</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[u_\mathrm{pqumax}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(u_\mathrm{pqumax}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[U_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(U_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Operation point of WT voltage where where no reactive current can be delivered</td>
 <td style="text-align: left;">1.1</td>
 </tr>
@@ -2865,52 +2878,52 @@ Table&nbsp;14: Inputs, based on <span class="citation" data-cites="IEC61400-27-1
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[F_\mathrm{FRT}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(F_\mathrm{FRT}\)</span></td>
 <td style="text-align: left;">integer</td>
 <td style="text-align: left;">-</td>
 <td style="text-align: left;">-</td>
 <td style="text-align: left;">FRT signal</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[i_\mathrm{max\_hook}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(i_\mathrm{max\_hook}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">External offset value of maximum current module</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[i_\mathrm{pcmd}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(i_\mathrm{pcmd}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Active current command</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[i_\mathrm{qcmd}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(i_\mathrm{qcmd}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Reactive current command</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[i_\mathrm{qmax\_hook}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(i_\mathrm{qmax\_hook}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">External offset value of maximum reactive current</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[\omega_\mathrm{gen}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\omega_\mathrm{gen}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[\Omega_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\Omega_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Generator speed</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[u_\mathrm{WTCfilt}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(u_\mathrm{WTCfilt}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[U_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(U_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Measured voltage</td>
 </tr>
 </tbody>
@@ -2944,24 +2957,24 @@ Table&nbsp;15: Outputs, based on <span class="citation" data-cites="IEC61400-27-
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[i_\mathrm{pmax}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(i_\mathrm{pmax}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Maximum active current limit</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[i_\mathrm{qmax}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(i_\mathrm{qmax}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Maximum reactive current limit</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[i_\mathrm{qmin}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(i_\mathrm{qmin}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Minimum reactive current limit</td>
 </tr>
 </tbody>
@@ -3011,15 +3024,15 @@ Table&nbsp;16: Parameters of mechanical module, based on <span class="citation" 
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[c_\mathrm{drt}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(c_\mathrm{drt}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{base}/\Omega_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{base}/\Omega_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Damping of drive train</td>
 <td style="text-align: left;">2.344</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[H_\mathrm{gen}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(H_\mathrm{gen}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">s</td>
 <td style="text-align: left;">-</td>
@@ -3027,7 +3040,7 @@ Table&nbsp;16: Parameters of mechanical module, based on <span class="citation" 
 <td style="text-align: left;">3.395</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[H_\mathrm{WTR}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(H_\mathrm{WTR}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">s</td>
 <td style="text-align: left;">-</td>
@@ -3035,10 +3048,10 @@ Table&nbsp;16: Parameters of mechanical module, based on <span class="citation" 
 <td style="text-align: left;">0.962</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[k_\mathrm{drt}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(k_\mathrm{drt}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Stiffness of drive train</td>
 <td style="text-align: left;">1.378</td>
 </tr>
@@ -3074,17 +3087,17 @@ Table&nbsp;17: Inputs, based on <span class="citation" data-cites="IEC61400-27-1
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[p_\mathrm{aero}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(p_\mathrm{aero}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Aerodynamic power (Power transferred from wind to WT rotor</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[p_\mathrm{ag}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(p_\mathrm{ag}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Air gap power (power transferred from generator rotor to stator)</td>
 </tr>
 </tbody>
@@ -3118,17 +3131,17 @@ Table&nbsp;18: Outputs, based on <span class="citation" data-cites="IEC61400-27-
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[\omega_\mathrm{gen}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\omega_\mathrm{gen}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[\Omega_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\Omega_\mathrm{base}\)</span></td>
 <td style="text-align: left;">generator rotor speed</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[\omega_\mathrm{WTR}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\omega_\mathrm{WTR}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[\Omega_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\Omega_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Wind turbine rotor speed</td>
 </tr>
 </tbody>
@@ -4023,15 +4036,15 @@ Table&nbsp;29: Parameters, based on <span class="citation" data-cites="IEC61400-
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[\mathrm{d}\Phi_\mathrm{max}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\mathrm{d}\Phi_\mathrm{max}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[f_\mathrm{n}/\mathrm{s}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(f_\mathrm{n}/\mathrm{s}\)</span></td>
 <td style="text-align: left;">Max. rate of change of frequency, should be larger than any ROCOF protection threshold in the system.</td>
 <td style="text-align: left;">0.1 (5 Hz/s)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{ffilt}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{ffilt}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">s</td>
 <td style="text-align: left;">-</td>
@@ -4039,7 +4052,7 @@ Table&nbsp;29: Parameters, based on <span class="citation" data-cites="IEC61400-
 <td style="text-align: left;">0.005</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{ifilt}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{ifilt}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">s</td>
 <td style="text-align: left;">-</td>
@@ -4047,7 +4060,7 @@ Table&nbsp;29: Parameters, based on <span class="citation" data-cites="IEC61400-
 <td style="text-align: left;">0.005</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{pfilt}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{pfilt}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">s</td>
 <td style="text-align: left;">-</td>
@@ -4055,7 +4068,7 @@ Table&nbsp;29: Parameters, based on <span class="citation" data-cites="IEC61400-
 <td style="text-align: left;">0.005</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{qfilt}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{qfilt}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">s</td>
 <td style="text-align: left;">-</td>
@@ -4063,7 +4076,7 @@ Table&nbsp;29: Parameters, based on <span class="citation" data-cites="IEC61400-
 <td style="text-align: left;">0.005</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[T_\mathrm{ufilt}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(T_\mathrm{ufilt}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">s</td>
 <td style="text-align: left;">-</td>
@@ -4102,24 +4115,24 @@ Table&nbsp;30: Inputs, based on <span class="citation" data-cites="IEC61400-27-1
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[f_\mathrm{sys}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(f_\mathrm{sys}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[\Omega_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\Omega_\mathrm{base}\)</span></td>
 <td style="text-align: left;">grid frequency of global power system</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[\underline{i}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\underline{i}\)</span></td>
 <td style="text-align: left;">complex</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">measured current</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[\underline{u}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\underline{u}\)</span></td>
 <td style="text-align: left;">complex</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[U_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(U_\mathrm{base}\)</span></td>
 <td style="text-align: left;">measured voltage</td>
 </tr>
 </tbody>
@@ -4153,45 +4166,45 @@ Table&nbsp;31: Outputs, based on <span class="citation" data-cites="IEC61400-27-
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[f_\mathrm{filt}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(f_\mathrm{filt}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[\Omega_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(\Omega_\mathrm{base}\)</span></td>
 <td style="text-align: left;">frequency with measurement delay</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[i_\mathrm{filt}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(i_\mathrm{filt}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[I_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(I_\mathrm{base}\)</span></td>
 <td style="text-align: left;">current with measurement delay</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[p_\mathrm{filt}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(p_\mathrm{filt}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{base}\)</span></td>
 <td style="text-align: left;">active power with measurement delay</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[q_\mathrm{filt}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(q_\mathrm{filt}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{base}\)</span></td>
 <td style="text-align: left;">reactive power with measurement delay</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[u\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(u\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[U_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(U_\mathrm{base}\)</span></td>
 <td style="text-align: left;">voltage without measurement delay</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[u_\mathrm{filt}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(u_\mathrm{filt}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[U_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(U_\mathrm{base}\)</span></td>
 <td style="text-align: left;">voltage with measurement delay</td>
 </tr>
 </tbody>
@@ -4599,38 +4612,38 @@ Table&nbsp;36: Inputs, based on <span class="citation" data-cites="IEC61400-27-1
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[f_\mathrm{WPfiltCom}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(f_\mathrm{WPfiltCom}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[f_\mathrm{n}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(f_\mathrm{n}\)</span></td>
 <td style="text-align: left;">Measured frequency</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[F_\mathrm{WPfiltCom}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(F_\mathrm{WPfiltCom}\)</span></td>
 <td style="text-align: left;">boolean</td>
 <td style="text-align: left;">-</td>
 <td style="text-align: left;">-</td>
 <td style="text-align: left;">WP FRT signal</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[p_\mathrm{WPfiltCom}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(p_\mathrm{WPfiltCom}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{n}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{n}\)</span></td>
 <td style="text-align: left;">Measured active power</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math display">\[p_\mathrm{WPhook}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(p_\mathrm{WPhook}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{base}\)</span></td>
 <td style="text-align: left;">External active power reference offset</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[p_\mathrm{WPrefCom}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(p_\mathrm{WPrefCom}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Active power WP reference value</td>
 </tr>
 </tbody>
@@ -4664,10 +4677,10 @@ Table&nbsp;37: Outputs, based on <span class="citation" data-cites="IEC61400-27-
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math display">\[p_\mathrm{PDref}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(p_\mathrm{PDref}\)</span></td>
 <td style="text-align: left;">float</td>
 <td style="text-align: left;">pu</td>
-<td style="text-align: left;"><span class="math display">\[S_\mathrm{base}\]</span></td>
+<td style="text-align: left;"><span class="math inline">\(S_\mathrm{base}\)</span></td>
 <td style="text-align: left;">Power Device (PD) active power reference</td>
 </tr>
 </tbody>

@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Carlos Alegre (eRoots)">
+<meta name="dcterms.date" content="2024-09-05">
 
-<title>CP Line</title>
+<title>Constant parameters Line Model</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +22,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -68,6 +89,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../../styles/main.css">
 </head>
@@ -237,7 +287,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/index.html">Network Components</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/index.html">Lines</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/cpLine/index.html">CP Line</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/index.html">Network Components</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/index.html">Lines</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/cpLine/index.html">Constant parameters Line Model</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -861,19 +911,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/6-NetworkComponents/Line/cpLine/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">CP Line</span></a>
+ <span class="menu-text">Constant parameters Line Model</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/6-NetworkComponents/Line/piLine/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Pi Line</span></a>
+ <span class="menu-text">Pi-equivalent Line Model</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/6-NetworkComponents/Line/FDLine/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">FD Line</span></a>
+ <span class="menu-text">Frequency Dependent Line Model</span></a>
   </div>
 </li>
       </ul>
@@ -890,7 +940,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/6-NetworkComponents/Transformers/CantileverTransformer/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Cantilever Transformer</span></a>
+ <span class="menu-text">Cantilever Transformer Model</span></a>
   </div>
 </li>
       </ul>
@@ -1074,18 +1124,43 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
+  <li><a href="#model-use-assumptions-and-validity" id="toc-model-use-assumptions-and-validity" class="nav-link" data-scroll-target="#model-use-assumptions-and-validity">Model use, assumptions and validity</a></li>
+  <li><a href="#model-description" id="toc-model-description" class="nav-link" data-scroll-target="#model-description">Model description</a>
+  <ul class="collapse">
+  <li><a href="#line-parameters" id="toc-line-parameters" class="nav-link" data-scroll-target="#line-parameters">Line parameters</a></li>
+  <li><a href="#line-variables" id="toc-line-variables" class="nav-link" data-scroll-target="#line-variables">Line variables</a></li>
+  <li><a href="#equations" id="toc-equations" class="nav-link" data-scroll-target="#equations">Equations</a></li>
+  </ul></li>
+  <li><a href="#operational-principles" id="toc-operational-principles" class="nav-link" data-scroll-target="#operational-principles">Operational principles</a>
+  <ul class="collapse">
+  <li><a href="#lossless-transmission-lines" id="toc-lossless-transmission-lines" class="nav-link" data-scroll-target="#lossless-transmission-lines">Lossless transmission lines</a></li>
+  </ul></li>
+  <li><a href="#open-source-implementations" id="toc-open-source-implementations" class="nav-link" data-scroll-target="#open-source-implementations">Open-source implementations</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/index.html">Network Components</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/index.html">Lines</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/cpLine/index.html">CP Line</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/index.html">Network Components</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/index.html">Lines</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/cpLine/index.html">Constant parameters Line Model</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">CP Line</h1>
+<h1 class="title">Constant parameters Line Model</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">line</div>
-    <div class="quarto-category">cp</div>
+    <div class="quarto-category">#120</div>
+    <div class="quarto-category">pi-equivalent</div>
+    <div class="quarto-category">EMT</div>
+    <div class="quarto-category">Bergeron</div>
+    <div class="quarto-category">Constant Parameter</div>
+    <div class="quarto-category">transient</div>
+    <div class="quarto-category">transmission</div>
+    <div class="quarto-category">Dynawo</div>
   </div>
   </div>
 
@@ -1093,7 +1168,19 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Carlos Alegre (eRoots) </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 5, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -1103,10 +1190,106 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="context" class="level2">
+<h2 class="anchored" data-anchor-id="context">Context</h2>
+<p>When performing time-domain analysis of a transmission line, the physics of the waves that propagate through the line have to be considered. During the early stages of the development of the analysis techniques, the work of Dommel <span class="citation" data-cites="dommel1969digital">[<a href="#ref-dommel1969digital" role="doc-biblioref">1</a>]</span> was one of the first to describe the time response of electromagnetic transients in the transmission lines. His model is based on the method of characteristics or Bergeron model for distributed parameter lines, being useful to describe electromagnetic transients at a given grid frequency.</p>
+</section>
+<section id="model-use-assumptions-and-validity" class="level2">
+<h2 class="anchored" data-anchor-id="model-use-assumptions-and-validity">Model use, assumptions and validity</h2>
+<p>The model can be used to perform EMT studies of transmission lines considering constant grid frequency. The following assumptions are considered for the model:</p>
+<ul>
+<li><p>The frequency is constant, and thus the line parameters are constant along the line.</p></li>
+<li><p>The effects of resistance and conductance are neglected in front of the inductive and capacitive effects of the line.</p></li>
+<li><p>The relationship between the voltages and currents at the source and receiver terminals is obtained as in the <span class="math inline">\(\pi\)</span>-equivalent model for long-range lines, considering an equal distribution of the capacitance and inductance over the line.</p></li>
+<li><p>The voltage (and currents) are waves that travel through the transmission line according to the telegrapher’s equations, with a constant propagation velocity of the wave along the line.</p></li>
+<li><p>The solution of these equations considers a forward and a backward traveling wave.</p></li>
+</ul>
+<p>It is valid when dealing with constant grid frequency and when the line parameters are constant along the line. For grid frequency variations, the assumptions made over the impedance are not valid and thus more complex models are required, such as the frequency-dependent line model.</p>
+</section>
+<section id="model-description" class="level2">
+<h2 class="anchored" data-anchor-id="model-description">Model description</h2>
+<section id="line-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="line-parameters">Line parameters</h3>
+<p>|| Parameters | details | Unit | || ————–| —— | —– | || <span class="math inline">\(l\)</span> | Length of the line | <span class="math inline">\(m\)</span> | || <span class="math inline">\(L\)</span> | Inductance of the line per meter | <span class="math inline">\(H m^{-1}\)</span> | || <span class="math inline">\(C\)</span> | Capacitance of the line per meter | <span class="math inline">\(F m^{-1}\)</span> | || <span class="math inline">\(r\)</span> | Resistance of the line per meter | <span class="math inline">\(\Omega m^{-1}\)</span> | || <span class="math inline">\(x_L\)</span> | Reactance of the line per meter | <span class="math inline">\(\Omega m^{-1}\)</span> | || <span class="math inline">\(z\)</span> | Impedance of the line per meter <span class="math inline">\(z = r + jx_L\)</span> | <span class="math inline">\(\Omega m^{-1}\)</span> | || <span class="math inline">\(g\)</span> | Conductance of the line per meter | <span class="math inline">\(\Omega^{-1} m^{-1}\)</span> | || <span class="math inline">\(b\)</span> | Susceptance of the line per meter | <span class="math inline">\(\Omega^{-1} m^{-1}\)</span> | || <span class="math inline">\(y\)</span> | Equivalent admittance of the line per meter <span class="math inline">\(y = g + jb\)</span> | <span class="math inline">\(\Omega^{-1} m^{-1}\)</span> | || <span class="math inline">\(\tau\)</span> | Time delay representing the propagation delay or travel time of a wave <span class="math inline">\(\tau = l\sqrt(LC)\)</span>| <span class="math inline">\(s\)</span> | || <span class="math inline">\(Z_C\)</span> | Characteristic impedance of the transmission line <span class="math inline">\(Z_C = \sqrt(\frac{z(\omega)}{y(\omega)})\)</span> | <span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(i_{R_h}(t - \tau)\)</span>| History term for the complex current at the receiving end | <span class="math inline">\(A\)</span> | || <span class="math inline">\(i_{S_h}(t - \tau)\)</span> | History term for the complex current at the sending end | <span class="math inline">\(A\)</span> |</p>
+</section>
+<section id="line-variables" class="level3">
+<h3 class="anchored" data-anchor-id="line-variables">Line variables</h3>
+<p>|| Variable | details | Unit | || ————–| —— | —– | || Variable/Parameter | Description | Unit | || — | — | — | || <span class="math inline">\(v_S(t)\)</span> | Complex phase-to-ground voltage at the sending end at time <span class="math inline">\(t\)</span> | <span class="math inline">\(V\)</span> | || <span class="math inline">\(i_S(t)\)</span> | Complex current at the sending end at time <span class="math inline">\(t\)</span> | <span class="math inline">\(A\)</span> | || <span class="math inline">\(v_R(t)\)</span> | Complex phase-to-ground voltage at the receiving end at time <span class="math inline">\(t\)</span> | <span class="math inline">\(V\)</span> | || <span class="math inline">\(i_R(t)\)</span> | Complex current at the receiving end at time <span class="math inline">\(t\)</span> | <span class="math inline">\(A\)</span> |</p>
+</section>
+<section id="equations" class="level3">
+<h3 class="anchored" data-anchor-id="equations">Equations</h3>
+<p>The system of equations to solve at each time step is:</p>
+<p><span class="math display">\[
+\begin{align}
+v_S(t) - Z_C i_S(t) &amp;= Z_C i_{S_h}(t-\tau) \\
+v_R(t) - Z_C i_R(t) &amp;= Z_C i_{R_h}(t-\tau)
+\end{align}
+\]</span></p>
+<p>with the history terms computed as:</p>
+<p><span class="math display">\[
+\begin{align}
+i_{S_h}(t - \tau) &amp;= v_R(t - \tau) + Z_C i_R(t - \tau) \\
+i_{R_h}(t - \tau) &amp;= v_S(t - \tau) + Z_C i_S(t - \tau)
+\end{align}
+\]</span></p>
+</section>
+</section>
+<section id="operational-principles" class="level2">
+<h2 class="anchored" data-anchor-id="operational-principles">Operational principles</h2>
+<section id="lossless-transmission-lines" class="level3">
+<h3 class="anchored" data-anchor-id="lossless-transmission-lines">Lossless transmission lines</h3>
+<p>Consider a line with a given inductance (L) and capacitance (C), and assume their values are much greater than the resistance and the conductance, thus neglecting their effects. The differential equations for <span class="math inline">\(v(x,t)\)</span> and <span class="math inline">\(i(x, t)\)</span> describing the travelling wave are the following <span class="citation" data-cites="dommel1969digital">[<a href="#ref-dommel1969digital" role="doc-biblioref">1</a>]</span> <span class="citation" data-cites="kothari2011modern">[<a href="#ref-kothari2011modern" role="doc-biblioref">2</a>]</span>:</p>
+<p><span class="math display">\[
+\begin{align}
+\frac{\partial v}{\partial x} &amp;= -L \frac{\partial i}{\partial t} \\
+\frac{\partial i}{\partial x} &amp;= -C \frac{\partial v}{\partial t}
+\end{align}
+\]</span></p>
+<p>Performing derivatives with respect to <span class="math inline">\(x\)</span> for the first equation and with respect to <span class="math inline">\(t\)</span> for the second, and substituting the crossed partial derivative for the current, the following equation is obtained:</p>
+<p><span class="math display">\[\frac{\partial^2 v}{\partial x^2} = LC \frac{\partial^2 v}{\partial t^2}\]</span></p>
+<p>With the following general solution:</p>
+<p><span class="math display">\[v(x, t) = v_f(x - \mathcal{v} t) + v_b(x + \mathcal{v} t)\]</span></p>
+<p>where <span class="math inline">\(v_f = V_fe^{-\alpha x} \cos(\omega t - \beta x + \theta_f)\)</span> and <span class="math inline">\(v_b = V_be^{\alpha x} \cos(\omega t + \beta x + \theta_b)\)</span> are the forward and backward travelling waves at the grid frequency <span class="math inline">\(\omega\)</span>, respectively, <span class="math inline">\(\mathcal{v} = \frac{1}{\sqrt(LC)}\)</span> is the propagation velocity of the wave, and <span class="math inline">\(\gamma = \sqrt(zy) = \alpha + j\beta \approx j\beta\)</span> is the propagation constant, approximated by only considering the <span class="math inline">\(L\)</span> and <span class="math inline">\(C\)</span> of the line. Differentiating this solution with respect to <span class="math inline">\(x\)</span> and then using equation <span class="math inline">\(\frac{\partial v}{\partial x} = -L \frac{\partial i}{\partial t}\)</span>, the current solution is obtained:</p>
+<p><span class="math display">\[i(x,t) = \frac{v_f(x - \gamma t)}{Z_C} - \frac{v_b(x + \gamma t)}{Z_C} = i_f(x - \gamma t) + i_b(x + \gamma t)\]</span></p>
+<p>where <span class="math inline">\(Z_C = \sqrt{\frac{L}{C}}\)</span> is the characteristic impedance of the line approximated for the case were only <span class="math inline">\(L\)</span> and <span class="math inline">\(C\)</span> are considered.</p>
+<p>We can perform the following operation over the voltage and current solutions:</p>
+<p><span class="math display">\[v(x,t) + Z_C i(x,t) = v_f(x - \gamma t) + v_b(x + \gamma t) + (v_f(x - \gamma t) - v_b(x + \gamma t)) = 2v_f(x - \gamma t)\]</span></p>
+<p>which is the basic relationship of the Bergeron’s <em>Method of Characteristics</em>, Recovering the <span class="math inline">\(\pi\)</span>-equivalent model equations, the relationship between the voltages and currents at the source and receiver terminals for the distributed parameters line model can be transformed into time-domain:</p>
+<p><span class="math display">\[
+\begin{align}
+v_S(t) - Z_C i_S(t) &amp;= Z_C i_{S_h}(t-\tau) \\
+v_R(t) - Z_C i_R(t) &amp;= Z_C i_{R_h}(t-\tau)
+\end{align}
+\]</span></p>
+<p>where <span class="math inline">\(\tau = \frac{l}{\mathcal{v}} = l\sqrt{LC}\)</span> is the time delay of the wave propagation along the line. The expressions <span class="math inline">\(i_{S_h}\)</span> and <span class="math inline">\(i_{R_h}\)</span> are calculated using values from previous time steps:</p>
+<p><span class="math display">\[
+\begin{align}
+i_{S_h}(t - \tau) &amp;= v_R(t - \tau) + Z_C i_R(t - \tau) \\
+i_{R_h}(t - \tau) &amp;= v_S(t - \tau) + Z_C i_S(t - \tau)
+\end{align}
+\]</span></p>
+<p>which allows for iterative solutions for simulations with time steps sized as <span class="math inline">\(k \Delta t = \tau\)</span>, with <span class="math inline">\(k\)</span> being an integer number.</p>
+</section>
+</section>
+<section id="open-source-implementations" class="level2">
+<h2 class="anchored" data-anchor-id="open-source-implementations">Open-source implementations</h2>
+<p>No open source implementation found.</p>
+</section>
+<section id="references" class="level2">
 
 
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-dommel1969digital" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Dommel HW (1969) Digital computer solution of electromagnetic transients in single and multiphase networks. IEEE Transactions on Power Apparatus and Systems PAS-88:388–399. <a href="https://doi.org/10.1109/TPAS.1969.292204">https://doi.org/10.1109/TPAS.1969.292204</a></div>
+</div>
+<div id="ref-kothari2011modern" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Kothari DP, Nagrath IJ (2011) Modern power system analysis, 4th ed. Tata McGraw-Hill, New Delhi, India</div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

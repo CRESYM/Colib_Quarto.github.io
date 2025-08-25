@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Carlos Alegre (eRoots)">
+<meta name="dcterms.date" content="2024-09-05">
 
-<title>Pi Line</title>
+<title>Pi-equivalent Line Model</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +22,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -68,6 +89,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../../styles/main.css">
 </head>
@@ -237,7 +287,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/index.html">Network Components</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/index.html">Lines</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/piLine/index.html">Pi Line</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/index.html">Network Components</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/index.html">Lines</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/piLine/index.html">Pi-equivalent Line Model</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -861,19 +911,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/6-NetworkComponents/Line/cpLine/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CP Line</span></a>
+ <span class="menu-text">Constant parameters Line Model</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/6-NetworkComponents/Line/piLine/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Pi Line</span></a>
+ <span class="menu-text">Pi-equivalent Line Model</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/6-NetworkComponents/Line/FDLine/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">FD Line</span></a>
+ <span class="menu-text">Frequency Dependent Line Model</span></a>
   </div>
 </li>
       </ul>
@@ -890,7 +940,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../../models/6-NetworkComponents/Transformers/CantileverTransformer/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Cantilever Transformer</span></a>
+ <span class="menu-text">Cantilever Transformer Model</span></a>
   </div>
 </li>
       </ul>
@@ -1074,18 +1124,44 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#context" id="toc-context" class="nav-link active" data-scroll-target="#context">Context</a></li>
+  <li><a href="#model-use-assumptions-and-validity" id="toc-model-use-assumptions-and-validity" class="nav-link" data-scroll-target="#model-use-assumptions-and-validity">Model use, assumptions and validity</a></li>
+  <li><a href="#model-description" id="toc-model-description" class="nav-link" data-scroll-target="#model-description">Model description</a>
+  <ul class="collapse">
+  <li><a href="#line-parameters" id="toc-line-parameters" class="nav-link" data-scroll-target="#line-parameters">Line parameters</a></li>
+  <li><a href="#line-variables" id="toc-line-variables" class="nav-link" data-scroll-target="#line-variables">Line variables</a></li>
+  <li><a href="#equations" id="toc-equations" class="nav-link" data-scroll-target="#equations">Equations</a></li>
+  </ul></li>
+  <li><a href="#operational-principles" id="toc-operational-principles" class="nav-link" data-scroll-target="#operational-principles">Operational principles</a>
+  <ul class="collapse">
+  <li><a href="#line-parameters-1" id="toc-line-parameters-1" class="nav-link" data-scroll-target="#line-parameters-1">Line parameters</a></li>
+  <li><a href="#distributed-parameters-line-model" id="toc-distributed-parameters-line-model" class="nav-link" data-scroll-target="#distributed-parameters-line-model">Distributed parameters line model</a></li>
+  <li><a href="#pi-equivalent-circuit" id="toc-pi-equivalent-circuit" class="nav-link" data-scroll-target="#pi-equivalent-circuit">Pi-equivalent circuit</a></li>
+  </ul></li>
+  <li><a href="#open-source-implementations" id="toc-open-source-implementations" class="nav-link" data-scroll-target="#open-source-implementations">Open-source implementations</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/index.html">Network Components</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/index.html">Lines</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/piLine/index.html">Pi Line</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../../models/index.html">Models</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/index.html">Network Components</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/index.html">Lines</a></li><li class="breadcrumb-item"><a href="../../../../models/6-NetworkComponents/Line/piLine/index.html">Pi-equivalent Line Model</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Pi Line</h1>
+<h1 class="title">Pi-equivalent Line Model</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">line</div>
-    <div class="quarto-category">pi</div>
+    <div class="quarto-category">#120</div>
+    <div class="quarto-category">pi-equivalent</div>
+    <div class="quarto-category">transmission</div>
+    <div class="quarto-category">steady-state</div>
+    <div class="quarto-category">Dynawo</div>
+    <div class="quarto-category">OpenIPSL</div>
+    <div class="quarto-category">opensource</div>
   </div>
   </div>
 
@@ -1093,7 +1169,19 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Carlos Alegre (eRoots) </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 5, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -1103,10 +1191,250 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="context" class="level2">
+<h2 class="anchored" data-anchor-id="context">Context</h2>
+<p>Transmission lines carry the electric power from one substation of the grid to another. There are overhead lines or underground cables, and they can be classified as low-range, middle-range or long-range depending on the distance between the two ends. Modelling precisely their behavior is essential to calculate the voltage drops, the phase shifts due to inductive behavior and the losses that occur when transporting energy from one point to another.</p>
+</section>
+<section id="model-use-assumptions-and-validity" class="level2">
+<h2 class="anchored" data-anchor-id="model-use-assumptions-and-validity">Model use, assumptions and validity</h2>
+<p>The model described is intended to be used in transmission lines for any range, making appropriate assumptions depending on their length. For lower distances, more simplifications can be made without loosing precision. For longer distances, the equivalent circuit proposed can be used, but its parameters will need to be obtained considering the distribution of impedance across the whole line, instead of the grouped admittance proposed for middle range lines.</p>
+<p>The derivation of the equations has been done starting from the distributed parameter model as in references <span class="citation" data-cites="kundur1994power">[<a href="#ref-kundur1994power" role="doc-biblioref">1</a>]</span>, <span class="citation" data-cites="kothari2011modern">[<a href="#ref-kothari2011modern" role="doc-biblioref">2</a>]</span>, <span class="citation" data-cites="salam2020fundamentals">[<a href="#ref-salam2020fundamentals" role="doc-biblioref">3</a>]</span> and <span class="citation" data-cites="glover2015power">[<a href="#ref-glover2015power" role="doc-biblioref">4</a>]</span>. It then is transformed into a <span class="math inline">\(\pi\)</span>-equivalent circuit for the general case of transmission lines.</p>
+<p>The assumptions made are the following:</p>
+<ul>
+<li><p>The line is represented phase by phase with a series impedance and two parallel capacitors, distributing the total capacitance of the line in two equal blocks situated at each end of the line. The resulting circuit is named after the <span class="math inline">\(\pi\)</span>-shape it has.</p></li>
+<li><p>In the case of three-phase transmission lines, the currents are assumed to be balanced (no neutral cable), and there exists transposition of phases in order to mitigate the inductive unbalanced due to unsymmetrical disposition. This allows the description of the line as a set of three single-phase lines.</p></li>
+<li><p>The conductance effects are neglected in front of the inductive and capacitive effects of the line.</p></li>
+<li><p>Skin effect and corona effect are not considered in the model.</p></li>
+<li><p>The model does not consider the dependency on the temperature for its impedance values.</p></li>
+<li><p>The frequency of the system is considered constant.</p></li>
+</ul>
+<p>To determine the equivalent parameters of the line, the user may provide their values calculated according to the characteristics of the line. Depending on the distance of the line, some simplifications can be made. There is no consensus on the distance ranges in which each model should be used, the values provided are the ones stated in reference <span class="citation" data-cites="kundur1994power">[<a href="#ref-kundur1994power" role="doc-biblioref">1</a>]</span>.</p>
+<ul>
+<li><p>Depending on the number of phases, conductors per phase and geometry of the lines, the values for capacitance and inductance can be calculated differently. The three-phase calculations for asymmetrical disposition are developed in the model description as it is a more general case.</p></li>
+<li><p>For long range transmission lines (over 200 kilometers of length), the equivalent parameters calculated from the exact solutions should be used.</p></li>
+<li><p>For medium range transmission lines (between 80 and 200 kilometers of length), the direct calculation of the <span class="math inline">\(\pi\)</span>-equivalent values using the total series and shunt impedance and admittance can be used.</p></li>
+<li><p>For short range transmission lines (below 80 kilometers of length), the shunt admittance can be neglected, and the model assumes that all the current travels from the source to the receiver, only having heat losses.</p></li>
+</ul>
+<p>Its validity is for steady-state analysis of transmission lines in any configuration, given the appropriate values for the line parameters. It does not consider the transient behavior of the lines. For such analysis, the Constant Parameters Line Model and the Frequency Dependent Line Model should be used.</p>
+</section>
+<section id="model-description" class="level2">
+<h2 class="anchored" data-anchor-id="model-description">Model description</h2>
+<section id="line-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="line-parameters">Line parameters</h3>
+<p>|| Parameters | details | Unit | || ————–| —— | —– | ||<span class="math inline">\(l\)</span> | Length of the line | <span class="math inline">\(m\)</span> | ||<span class="math inline">\(r\)</span> | Resistance of the line per meter | <span class="math inline">\(\Omega m^{-1}\)</span> | ||<span class="math inline">\(x_L\)</span> | Reactance of the line per meter | <span class="math inline">\(\Omega m^{-1}\)</span> | ||<span class="math inline">\(z\)</span> | Impedance of the line per meter <span class="math inline">\(z = r + jx_L\)</span> | <span class="math inline">\(\Omega m^{-1}\)</span> | ||<span class="math inline">\(Z\)</span> | Total impedance of the line <span class="math inline">\(Z = zl\)</span> | <span class="math inline">\(\Omega\)</span> | ||<span class="math inline">\(Z'\)</span> | Equivalent impedance of the line | <span class="math inline">\(\Omega\)</span> | ||<span class="math inline">\(g\)</span> | Conductance of the line per meter | <span class="math inline">\(\Omega^{-1} m^{-1}\)</span> | ||<span class="math inline">\(b\)</span> | Susceptance of the line per meter | <span class="math inline">\(\Omega^{-1} m^{-1}\)</span> | ||<span class="math inline">\(y\)</span> | Equivalent admittance of the line per meter <span class="math inline">\(y = g + jb\)</span> | <span class="math inline">\(\Omega^{-1} m^{-1}\)</span> | ||<span class="math inline">\(Y\)</span> | Total admittance of the line <span class="math inline">\(Y = yl\)</span> | <span class="math inline">\(\Omega^{-1}\)</span> | ||<span class="math inline">\(Y'\)</span> | Equivalent admittance of the line | <span class="math inline">\(\Omega^{-1}\)</span> | ||<span class="math inline">\(Z_C\)</span> | Characteristic impedance of the line <span class="math inline">\(Z_C = \sqrt(\frac{z}{y})\)</span> | <span class="math inline">\(\Omega\)</span> | ||<span class="math inline">\(\gamma\)</span> | Propagation constant of the line <span class="math inline">\(Z_C = \sqrt(zy)\)</span> | <span class="math inline">\(m^{-1}\)</span> |</p>
+</section>
+<section id="line-variables" class="level3">
+<h3 class="anchored" data-anchor-id="line-variables">Line variables</h3>
+<p>|| Variable | details | Unit | || ————–| —— | —– | || <span class="math inline">\(V_{S}\)</span> | Complex phase-to-ground voltage of the source terminal | <span class="math inline">\(V\)</span> | || <span class="math inline">\(I_{S}\)</span> | Complex current injected by the source terminal into the line | <span class="math inline">\(A\)</span> | || <span class="math inline">\(V_{R}\)</span> | Complex phase-to-ground voltage of the receiver terminal | <span class="math inline">\(V\)</span> | || <span class="math inline">\(I_{R}\)</span> | Complex current injected by the receiver terminal into the line | <span class="math inline">\(A\)</span> |</p>
+</section>
+<section id="equations" class="level3">
+<h3 class="anchored" data-anchor-id="equations">Equations</h3>
+<p><span class="math display">\[
+\begin{align}
+V_S &amp;= (1 + \frac{1}{2}Y'Z')V_R - Z' I_R \\
+I_S &amp;= Y'(1 + \frac{1}{4}Y'Z')V_R - (1 + \frac{1}{2}Y'Z') I_R
+\end{align}
+\]</span></p>
+<p>where <span class="math inline">\(Z'= Z\)</span> and <span class="math inline">\(Y' = 0\)</span> for short-range lines, <span class="math inline">\(Z' = Z\)</span> and <span class="math inline">\(Y' = Y\)</span> for medium-range lines, and <span class="math inline">\(Z'= Z(\frac{\sinh(\gamma l)}{\gamma l})\)</span>, <span class="math inline">\(Y' = Y \frac{\tanh(\frac{\gamma l}{2})}{\frac{\gamma l}{2}}\)</span> for long-range lines.</p>
+</section>
+</section>
+<section id="operational-principles" class="level2">
+<h2 class="anchored" data-anchor-id="operational-principles">Operational principles</h2>
+<section id="line-parameters-1" class="level3">
+<h3 class="anchored" data-anchor-id="line-parameters-1">Line parameters</h3>
+<p>The line parameters are obtained from the per-unit length values of resistance, inductance, capacitance and conductance, as described in references <span class="citation" data-cites="kothari2011modern">[<a href="#ref-kothari2011modern" role="doc-biblioref">2</a>]</span> and <span class="citation" data-cites="glover2015power">[<a href="#ref-glover2015power" role="doc-biblioref">4</a>]</span>. The total series impedance and shunt admittance of the line are calculated as:</p>
+<p><span class="math display">\[
+\begin{align}
+Z &amp;= zl = (r + jx) l = (r + j\omega l_{ind})l \\
+Y &amp;= yl = (g + jb)l = (g + j\omega c)l
+\end{align}
+\]</span></p>
+<p>where <span class="math inline">\(r\)</span> is the resistance in <span class="math inline">\(\Omega m^{-1}\)</span>, <span class="math inline">\(x\)</span> is the reactance in <span class="math inline">\(\Omega m^{-1}\)</span>, <span class="math inline">\(z\)</span> is the impedance in <span class="math inline">\(\Omega m^{-1}\)</span>, <span class="math inline">\(g\)</span> is the conductance in <span class="math inline">\(\Omega^{-1} m^{-1}\)</span>, <span class="math inline">\(b\)</span> is the susceptance in <span class="math inline">\(\Omega^{-1} m^{-1}\)</span>, <span class="math inline">\(l_{ind}\)</span> is the inductance in <span class="math inline">\(H m^{-1}\)</span>, <span class="math inline">\(c\)</span> is the capacitance in <span class="math inline">\(F m^{-1}\)</span>, <span class="math inline">\(\omega\)</span> is the angular frequency of the system in <span class="math inline">\(rad/s\)</span> and <span class="math inline">\(l\)</span> is the length of the line in <span class="math inline">\(m\)</span>.</p>
+<p><strong>Resistance</strong></p>
+<p>Resistance is the opposition to the flow of current in the line. For transmission lines, its effects can be neglected in front of the inductive and capacitive behavior of the line, although it represents the main source of losses of the power lines, hence why it can be useful to include it in the models. Its value is calculated as the product of the resistance per unit length and the length of the line. The resistance per unit length is obtained from the resistivity of the material and the cross-sectional area of the conductor. The expression is given by:</p>
+<p><span class="math display">\[r = \frac{\rho}{A}\]</span></p>
+<p>where <span class="math inline">\(\rho\)</span> is the resistivity of the material in <span class="math inline">\(\Omega m\)</span> and <span class="math inline">\(A\)</span> is the cross-sectional area of the conductor in <span class="math inline">\(m^2\)</span>. The total resistance of the line can be obtained multiplicating by the total length of the line.</p>
+<p>Although the model developed does not take into account thermal changes, it has to be noted that the resistance of the line is temperature-dependent, and it can be calculated as:</p>
+<p><span class="math display">\[R = R_0 (1 + \alpha (T - T_0))\]</span></p>
+<p>where <span class="math inline">\(R_0\)</span> is the resistance at a reference temperature <span class="math inline">\(T_0\)</span>, <span class="math inline">\(\alpha\)</span> is the temperature coefficient of the material in <span class="math inline">\(K^{-1}\)</span> and <span class="math inline">\(T\)</span> is the temperature in <span class="math inline">\(K\)</span>.</p>
+<p>Some other possible sources of losses are due to the skin effect, which is the tendency of the current to flow on the surface of the conductor, and the corona effect, which is the ionization of the air surrounding the conductor due to the high voltage gradients.</p>
+<p><strong>Inductance</strong></p>
+<p>Inductive effects dominate the behavior of the transmission lines, and arise from the interaction between the parallel conductors (considered to be infinite for the purpose of this subsection) due to the magnetic flux linkages. The inductance of the line can be calculated using different methods depending on the geometry and configuration of the transmission lines.</p>
+<p>For a single-phase line, the inductance of one of its phases can be calculated using the expression:</p>
+<p><span class="math display">\[L_p = 2 \cdot 10^{-7} \ln \left( \frac{D_{eq}}{r_p} \right)\]</span></p>
+<p>where <span class="math inline">\(\mu\)</span> is the permeability of the medium in <span class="math inline">\(H m^{-1}\)</span>, <span class="math inline">\(D\)</span> is the distance between the conductors in <span class="math inline">\(m\)</span>, and <span class="math inline">\(r\)</span> is the radius of the conductor in <span class="math inline">\(m\)</span>. The inductance of the line is calculated as the product of the inductance per unit length and the length of the line. The total inductance can be done by adding the inductances of the phases as <span class="math inline">\(L_1 + L_2 = L\)</span>.</p>
+<p>For three-phase lines, the inductance of a phase can be calculated using the expression:</p>
+<p><span class="math display">\[L_p = 2 \cdot 10^{-7} \ln \left( \frac{D}{r_p} \right)\]</span></p>
+<p>where <span class="math inline">\(D_{eq}\)</span> is the equivalent distance between the conductors in <span class="math inline">\(m\)</span>, calculated as <span class="math inline">\(D_{eq} = (D_{12}D_{23}D_{31})^{\frac{1}{3}}\)</span> using the distances between conductors. The total inductance can be found again by adding all the inductances.</p>
+<p><strong>Conductance</strong></p>
+<p>Conductance is present in the transmission lines in the form of a shunt admittance, being result of the leakage of current over the surface of the insulators. It is negligible in comparison to the conductive effects, which are also a form of shunt admittance of the line.</p>
+<p><strong>Capacitance</strong></p>
+<p>Capacitive effects are the most relevant form of shunt admittance of transmission lines. They are a result of the electric fields between different conductors and between conductors and ground, creating a charging current that is present even when there are no loads in the line. It is specially relevant for longer lines (it starts to be important around 100 km).</p>
+<p>For three-phase unsymmetrical spaced lines, which is the more general case, and assuming uniform charge distribution in the surface of the conductors, the line to neutral capacitance can be calculated as:</p>
+<p><span class="math display">\[C = \frac{0.0242}{\log \left( \frac{D_{eq}}{r} \right)}\]</span></p>
+<p>in <span class="math inline">\(\mu F/km\)</span>, where <span class="math inline">\(D_{eq}\)</span> is the equivalent distance between the conductors in <span class="math inline">\(m\)</span> calculated as <span class="math inline">\(D_{eq} = (D_{12}D_{23}D_{31})^{\frac{1}{2}}\)</span> using the distances between conductors, and <span class="math inline">\(r\)</span> is the radius of the conductor in <span class="math inline">\(m\)</span>. The capacitance of the line is calculated as the product of the capacitance per unit length and the length of the line.</p>
+<p>Considering the conductor to earth capacitance, the expression can be expanded to:</p>
+<p><span class="math display">\[C = \frac{0.0242}{\log \left( \frac{D_{eq}}{r} \right) - \log \left( \frac{(h_{12}h_{23}h_{31})^{\frac{1}{3}}}{(h_1h_2h_3)^{\frac{1}{3}}}\right)}\]</span></p>
+<p>with <span class="math inline">\(h_{ij}\)</span> being the distance between the conductor <span class="math inline">\(i\)</span> to the image reflection with respect to the ground of conductor <span class="math inline">\(j\)</span> in <span class="math inline">\(m\)</span>, and <span class="math inline">\(h_i\)</span> being the distance of the conductor <span class="math inline">\(i\)</span> to its ground reflection.</p>
+</section>
+<section id="distributed-parameters-line-model" class="level3">
+<h3 class="anchored" data-anchor-id="distributed-parameters-line-model">Distributed parameters line model</h3>
+<p>The distributed parameters line model considers the distribution of the impedance along the line. The model is based on the transmission line equations, which are a set of partial differential equations that describe the behavior of the line. It is used to obtain the accurate values of the impedance, admittance, and other parameters of the line at any point of the line. Equivalent circuits such as the <span class="math inline">\(\pi\)</span>-equivalent are used to describe the performance as seen from the terminals.</p>
+<p>Suppose a line with its circuit parameters <span class="math inline">\(z = r + jx\)</span> and $ y = g + jb$ calculated as the shown in the previous section. An infinitesimal section of the line, of length <span class="math inline">\(dx\)</span>, can be represented by the following schematic:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="distLine.svg" class="img-fluid figure-img"></p>
+<figcaption>Schematic of the distributed parameter transmission line</figcaption>
+</figure>
+</div>
+<div class="figure-caption">
+<p><strong>Figure 1:</strong> Schematic of the distributed parameter transmission line.</p>
+</div>
+<p>Using the Kirchhoff laws, the following equations can be obtained:</p>
+<p><span class="math display">\[
+\begin{align}
+V(x+dx) &amp;= V(x) + zdxI(x) \\
+I(x+dx) &amp;= I(x) + ydxV(x)
+\end{align}
+\]</span></p>
+<p>Which can be expressed in their differential form for <span class="math inline">\(dx \rightarrow 0\)</span> as:</p>
+<p><span class="math display">\[
+\begin{align}
+\frac{dV}{dx} &amp;= zI(x) \\
+\frac{dI}{dx} &amp;= yV(x)
+\end{align}
+\]</span></p>
+<p>Performing the second derivative of the voltage expression, the expression obtained is:</p>
+<p><span class="math display">\[\frac{d^2V}{dx^2} = z\frac{dI}{dx} = zyV(x)\]</span></p>
+<p>This is a linear differential equations the solution of which can be written as:</p>
+<p><span class="math display">\[V(x) = C_1e^{\gamma x} + C_2e^{-\gamma x}\]</span></p>
+<p>with <span class="math inline">\(\gamma = \sqrt{yz}\)</span> being the propagation constant, with <span class="math inline">\(z\)</span> and <span class="math inline">\(y\)</span> being the per-length impedance and shunt admittance respectively. Deriving this general expression, the current can be obtained as:</p>
+<p><span class="math display">\[I(x) = \frac{1}{z} \frac{dV}{dx} = \frac{C_1}{Z_c} e^{\gamma x} - \frac{C_2}{Z_c}e^{-\gamma x}\]</span></p>
+<p>with <span class="math inline">\(Z_c\)</span> being the characteristic impedance of the line, defined as <span class="math inline">\(Z_c = \sqrt{\frac{z}{y}}\)</span>. To determine the values of the constants <span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span>, the values of the voltages have to be evaluated at the ends of the line, i.e., <span class="math inline">\(V(0) = V_R\)</span> and <span class="math inline">\(I(0) = - I_R\)</span>, changing the sign of the current to use the positive sign for current injected to the line from the bus. The resulting expressions are:</p>
+<p><span class="math display">\[
+\begin{align}
+V_R &amp;= C_1 + C_2 \\
+-I_R &amp;= \frac{C_1}{Z_c} - \frac{C_2}{Z_c} \\
+C_1 &amp;= \frac{V_R - Z_cI_R}{2} \\
+C_2 &amp;= \frac{V_R + Z_cI_R}{2}
+\end{align}
+\]</span></p>
+<p>Substituting this in the general expression for the voltage and current and rearranging, the resulting expressions along the line are:</p>
+<p><span class="math display">\[
+\begin{align}
+V(x) &amp;= \frac{V_R}{2} \left( e^{\gamma x} + e^{-\gamma x} \right) - \frac{Z_cI_R}{2} \left( e^{\gamma x} - e^{-\gamma x} \right) \\
+I(x) &amp;= \frac{V_R}{2Z_c} \left( e^{\gamma x} - e^{-\gamma x} \right) - \frac{I_R}{2} \left( e^{\gamma x} + e^{-\gamma x} \right)
+\end{align}
+\]</span></p>
+<p>Which can be expressed in terms of hyperbolic functions as:</p>
+<p><span class="math display">\[
+\begin{align}
+V(x) &amp;= V_R \cosh(\gamma x) - Z_cI_R \sinh(\gamma x) \\
+I(x) &amp;= \frac{V_R}{Z_c} \sinh(\gamma x) - I_R \cosh(\gamma x)
+\end{align}
+\]</span></p>
+<p>For <span class="math inline">\(x=l\)</span>, the matrix relationship between the voltage and currents of the terminals are:</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+V_S \\
+I_S
+\end{bmatrix}
+=
+\begin{bmatrix}
+\cosh(\gamma l) &amp; -Z_c \sinh(\gamma l) \\
+\frac{1}{Z_c} \sinh(\gamma l) &amp; -\cosh(\gamma l)
+\end{bmatrix}
+\begin{bmatrix}
+V_R \\
+I_R
+\end{bmatrix}
+\]</span></p>
+</section>
+<section id="pi-equivalent-circuit" class="level3">
+<h3 class="anchored" data-anchor-id="pi-equivalent-circuit">Pi-equivalent circuit</h3>
+<p>The pi-equivalent circuit corresponds to a representation of the line with the line admittance equally lumped into the ends of the line. The equivalent circuit proposed is the following:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pi_eq_scheme.svg" class="img-fluid figure-img"></p>
+<figcaption>Pi-equivalent circuit of the lumped admittance transmission line</figcaption>
+</figure>
+</div>
+<div class="figure-caption">
+<p><strong>Figure 2:</strong> Pi-equivalent circuit of the lumped admittance transmission line.</p>
+</div>
+<p>In this case, applying the Kirchhoff laws yields the following equations:</p>
+<p><span class="math display">\[
+\begin{align}
+I_S &amp;= -I_R + \frac{1}{2} V_R Y' + \frac{1}{2} V_S Y' \\
+V_S &amp;= V_R + (-I_R + \frac{1}{2} V_R Y')Z' = V_R (1 + \frac{1}{2}Y'Z') -I_R Z'
+\end{align}
+\]</span></p>
+<p>which rearranged in matrix form are:</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+V_S \\
+I_S
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 + \frac{1}{2} Y'Z' &amp; -Z' \\
+Y'(1 + \frac{1}{4}Y'Z') &amp; -(1 + \frac{1}{2} Y'Z')
+\end{bmatrix}
+\begin{bmatrix}
+V_R \\
+I_R
+\end{bmatrix}
+\]</span></p>
+<p><strong>Long-range transmission lines</strong></p>
+<p>For long-range transmission lines, the exact solution has already been derived, and it can be represented as a <span class="math inline">\(\pi\)</span>-equivalent by finding the equivalent values of its impedance and lumped admittance. To obtain the equivalence, the following relationship have to hold:</p>
+<p><span class="math display">\[
+\begin{align}
+Z' &amp;= Z_C \sinh(\gamma l) \\
+1 + \frac{1}{2}Y'Z' &amp;= \cosh(\gamma l)
+\end{align}
+\]</span></p>
+<p>Developing the first expression:</p>
+<p><span class="math display">\[Z' = Z_C \sinh(\gamma l) = \sqrt{\frac{z}{y}}  \sinh(\gamma l) = zl \frac{\sinh(\gamma l)}{\gamma l} = Z(\frac{\sinh(\gamma l)}{\gamma l})\]</span></p>
+<p>where <span class="math inline">\(Z\)</span> is the series impedance of the line, and <span class="math inline">\(\frac{sinh(\gamma l)}{\gamma l}\)</span> is the factor to obtain the <span class="math inline">\(Z'\)</span> for the <span class="math inline">\(\pi\)</span>-equivalent circuit. The second expression can be developed as:</p>
+<p><span class="math display">\[
+\begin{align}
+1 + \frac{1}{2}Y'Z_C \sinh(\gamma l) &amp;= \cosh(\gamma l) \\
+\frac{1}{2}Y' &amp;= \frac{1}{Z_C} \frac{\cosh(\gamma l) - 1}{\sinh(\gamma l)} = \sqrt{\frac{y}{z}} \tanh(\frac{\gamma l}{2}) \\
+\frac{1}{2}Y' &amp;= \frac{Y}{2} \frac{\tanh(\frac{\gamma l}{2})}{\frac{\gamma l}{2}}
+\end{align}
+\]</span></p>
+<p>where <span class="math inline">\(Y\)</span> is the shunt admittance of the line and <span class="math inline">\(\frac{\tanh(\frac{\gamma l}{2})}{\frac{\gamma l}{2}}\)</span> is the factor to obtain the <span class="math inline">\(Y'\)</span> for the <span class="math inline">\(\pi\)</span>-equivalent circuit.</p>
+<p>The expression <span class="math inline">\(Y'(1 + \frac{1}{4}Y'Z') = \frac{1}{Z_C}\sinh(\gamma l)\)</span> is consistent with the values for <span class="math inline">\(Z'\)</span> and <span class="math inline">\(Y'\)</span> obtained.</p>
+<p><strong>Medium and short range transmission lines</strong></p>
+<p>For lower values of <span class="math inline">\(l\)</span>, <span class="math inline">\(\frac{\sinh(\gamma l)}{\gamma l} \approx 1\)</span> and <span class="math inline">\(\frac{\tanh(\frac{\gamma l}{2})}{\frac{\gamma l}{2}} \approx 1\)</span>. In this case, the direct expression of the <span class="math inline">\(\pi\)</span>-equivalent circuit can be used substituting by the series and shunt values for impedance and capacitance respectively, with <span class="math inline">\(Z' = Z\)</span> and <span class="math inline">\(Y' = Y\)</span>.</p>
+</section>
+</section>
+<section id="open-source-implementations" class="level2">
+<h2 class="anchored" data-anchor-id="open-source-implementations">Open-source implementations</h2>
+<p>This model has been successfully implemented in :</p>
+<p>|| Software | URL | Language | Open-Source License | Last consulted date | Comments | || ————–| — | ——— | ——————- |——————- | ——– | || dynawo | <a href="https://github.com/dynawo/dynawo/blob/master/dynawo/sources/Models/Modelica/Dynawo/Electrical/Lines/Line.mo">Dynawo public library</a> | modelica | <a href="https://www.mozilla.org/en-US/MPL/2.0/">MPL v2.0</a> | 24/05/2024 | - | || OpenIPSL | <a href="https://github.com/OpenIPSL/OpenIPSL/blob/master/OpenIPSL/Electrical/Branches/PwLine.mo">Link</a> | modelica | <a href="https://opensource.org/licenses/BSD-3-Clause">BSD-3-Clause</a> | 24/05/2024 | - |</p>
+</section>
+<section id="references" class="level2">
 
 
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-kundur1994power" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Kundur P (1994) Power system stability and control. McGraw-Hill, New York, USA</div>
+</div>
+<div id="ref-kothari2011modern" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Kothari DP, Nagrath IJ (2011) Modern power system analysis, 4th ed. Tata McGraw-Hill, New Delhi, India</div>
+</div>
+<div id="ref-salam2020fundamentals" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Salam A (2020) <a href="https://doi.org/10.1007/978-981-15-3212-2">Fundamentals of electrical power systems analysis</a>. Springer, Singapore</div>
+</div>
+<div id="ref-glover2015power" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Glover JD, Overbye TJ, Sarma M (2015) Power system analysis and design, 6th ed. Cengage Learning, USA</div>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
