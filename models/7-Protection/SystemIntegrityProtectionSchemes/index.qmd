@@ -1,4 +1,5 @@
 ---
+layout: chapter
 title: "System integrity protection schemes"
 categories: [system integrity protection schemes]
 listing:

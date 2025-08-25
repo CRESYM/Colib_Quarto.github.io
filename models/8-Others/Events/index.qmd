@@ -1,4 +1,5 @@
 ---
+layout: chapter
 title: "Events"
 categories: []
 listing:
