@@ -1210,26 +1210,141 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="model-description">Model description</h2>
 <section id="line-parameters" class="level3">
 <h3 class="anchored" data-anchor-id="line-parameters">Line parameters</h3>
-<p>|| Parameters | details | Unit | || ————–| —— | —– | || <span class="math inline">\(l\)</span> | Length of the line | <span class="math inline">\(m\)</span> | || <span class="math inline">\(L\)</span> | Inductance of the line per meter | <span class="math inline">\(H m^{-1}\)</span> | || <span class="math inline">\(C\)</span> | Capacitance of the line per meter | <span class="math inline">\(F m^{-1}\)</span> | || <span class="math inline">\(r\)</span> | Resistance of the line per meter | <span class="math inline">\(\Omega m^{-1}\)</span> | || <span class="math inline">\(x_L\)</span> | Reactance of the line per meter | <span class="math inline">\(\Omega m^{-1}\)</span> | || <span class="math inline">\(z\)</span> | Impedance of the line per meter <span class="math inline">\(z = r + jx_L\)</span> | <span class="math inline">\(\Omega m^{-1}\)</span> | || <span class="math inline">\(g\)</span> | Conductance of the line per meter | <span class="math inline">\(\Omega^{-1} m^{-1}\)</span> | || <span class="math inline">\(b\)</span> | Susceptance of the line per meter | <span class="math inline">\(\Omega^{-1} m^{-1}\)</span> | || <span class="math inline">\(y\)</span> | Equivalent admittance of the line per meter <span class="math inline">\(y = g + jb\)</span> | <span class="math inline">\(\Omega^{-1} m^{-1}\)</span> | || <span class="math inline">\(\tau\)</span> | Time delay representing the propagation delay or travel time of a wave <span class="math inline">\(\tau = l\sqrt(LC)\)</span>| <span class="math inline">\(s\)</span> | || <span class="math inline">\(Z_C\)</span> | Characteristic impedance of the transmission line <span class="math inline">\(Z_C = \sqrt(\frac{z(\omega)}{y(\omega)})\)</span> | <span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(i_{R_h}(t - \tau)\)</span>| History term for the complex current at the receiving end | <span class="math inline">\(A\)</span> | || <span class="math inline">\(i_{S_h}(t - \tau)\)</span> | History term for the complex current at the sending end | <span class="math inline">\(A\)</span> |</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th>Details</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(l\)</span></td>
+<td>Length of the line</td>
+<td><span class="math inline">\(m\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(L\)</span></td>
+<td>Inductance of the line per meter</td>
+<td><span class="math inline">\(H m^{-1}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(C\)</span></td>
+<td>Capacitance of the line per meter</td>
+<td><span class="math inline">\(F m^{-1}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(r\)</span></td>
+<td>Resistance of the line per meter</td>
+<td><span class="math inline">\(\Omega m^{-1}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(x_L\)</span></td>
+<td>Reactance of the line per meter</td>
+<td><span class="math inline">\(\Omega m^{-1}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(z\)</span></td>
+<td>Impedance of the line per meter <span class="math inline">\(z = r + jx_L\)</span></td>
+<td><span class="math inline">\(\Omega m^{-1}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(g\)</span></td>
+<td>Conductance of the line per meter</td>
+<td><span class="math inline">\(\Omega^{-1} m^{-1}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(b\)</span></td>
+<td>Susceptance of the line per meter</td>
+<td><span class="math inline">\(\Omega^{-1} m^{-1}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(y\)</span></td>
+<td>Equivalent admittance of the line per meter <span class="math inline">\(y = g + jb\)</span></td>
+<td><span class="math inline">\(\Omega^{-1} m^{-1}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\tau\)</span></td>
+<td>Time delay representing the propagation delay or travel time of a wave <span class="math inline">\(\tau = l\sqrt(LC)\)</span></td>
+<td><span class="math inline">\(s\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(Z_C\)</span></td>
+<td>Characteristic impedance of the transmission line <span class="math inline">\(Z_C = \sqrt(\frac{z(\omega)}{y(\omega)})\)</span></td>
+<td><span class="math inline">\(\Omega\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(i_{R_h}(t - \tau)\)</span></td>
+<td>History term for the complex current at the receiving end</td>
+<td><span class="math inline">\(A\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(i_{S_h}(t - \tau)\)</span></td>
+<td>History term for the complex current at the sending end</td>
+<td><span class="math inline">\(A\)</span></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="line-variables" class="level3">
 <h3 class="anchored" data-anchor-id="line-variables">Line variables</h3>
-<p>|| Variable | details | Unit | || ————–| —— | —– | || Variable/Parameter | Description | Unit | || — | — | — | || <span class="math inline">\(v_S(t)\)</span> | Complex phase-to-ground voltage at the sending end at time <span class="math inline">\(t\)</span> | <span class="math inline">\(V\)</span> | || <span class="math inline">\(i_S(t)\)</span> | Complex current at the sending end at time <span class="math inline">\(t\)</span> | <span class="math inline">\(A\)</span> | || <span class="math inline">\(v_R(t)\)</span> | Complex phase-to-ground voltage at the receiving end at time <span class="math inline">\(t\)</span> | <span class="math inline">\(V\)</span> | || <span class="math inline">\(i_R(t)\)</span> | Complex current at the receiving end at time <span class="math inline">\(t\)</span> | <span class="math inline">\(A\)</span> |</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Details</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(v_S(t)\)</span></td>
+<td>Complex phase-to-ground voltage at the sending end at time <span class="math inline">\(t\)</span></td>
+<td><span class="math inline">\(V\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(i_S(t)\)</span></td>
+<td>Complex current at the sending end at time <span class="math inline">\(t\)</span></td>
+<td><span class="math inline">\(A\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(v_R(t)\)</span></td>
+<td>Complex phase-to-ground voltage at the receiving end at time <span class="math inline">\(t\)</span></td>
+<td><span class="math inline">\(V\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(i_R(t)\)</span></td>
+<td>Complex current at the receiving end at time <span class="math inline">\(t\)</span></td>
+<td><span class="math inline">\(A\)</span></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="equations" class="level3">
 <h3 class="anchored" data-anchor-id="equations">Equations</h3>
 <p>The system of equations to solve at each time step is:</p>
 <p><span class="math display">\[
 \begin{align}
-v_S(t) - Z_C i_S(t) &amp;= Z_C i_{S_h}(t-\tau) \\
-v_R(t) - Z_C i_R(t) &amp;= Z_C i_{R_h}(t-\tau)
+v_S(t) - Z_C i_S(t) = Z_C i_{S_h}(t-\tau) \\
+v_R(t) - Z_C i_R(t) = Z_C i_{R_h}(t-\tau)
 \end{align}
 \]</span></p>
 <p>with the history terms computed as:</p>
 <p><span class="math display">\[
 \begin{align}
-i_{S_h}(t - \tau) &amp;= v_R(t - \tau) + Z_C i_R(t - \tau) \\
-i_{R_h}(t - \tau) &amp;= v_S(t - \tau) + Z_C i_S(t - \tau)
+i_{S_h}(t - \tau) = v_R(t - \tau) + Z_C i_R(t - \tau) \\
+i_{R_h}(t - \tau) = v_S(t - \tau) + Z_C i_S(t - \tau)
 \end{align}
 \]</span></p>
 </section>
@@ -1241,8 +1356,8 @@ i_{R_h}(t - \tau) &amp;= v_S(t - \tau) + Z_C i_S(t - \tau)
 <p>Consider a line with a given inductance (L) and capacitance (C), and assume their values are much greater than the resistance and the conductance, thus neglecting their effects. The differential equations for <span class="math inline">\(v(x,t)\)</span> and <span class="math inline">\(i(x, t)\)</span> describing the travelling wave are the following <span class="citation" data-cites="dommel1969digital">[<a href="#ref-dommel1969digital" role="doc-biblioref">1</a>]</span> <span class="citation" data-cites="kothari2011modern">[<a href="#ref-kothari2011modern" role="doc-biblioref">2</a>]</span>:</p>
 <p><span class="math display">\[
 \begin{align}
-\frac{\partial v}{\partial x} &amp;= -L \frac{\partial i}{\partial t} \\
-\frac{\partial i}{\partial x} &amp;= -C \frac{\partial v}{\partial t}
+\frac{\partial v}{\partial x} = -L \frac{\partial i}{\partial t} \\
+\frac{\partial i}{\partial x} = -C \frac{\partial v}{\partial t}
 \end{align}
 \]</span></p>
 <p>Performing derivatives with respect to <span class="math inline">\(x\)</span> for the first equation and with respect to <span class="math inline">\(t\)</span> for the second, and substituting the crossed partial derivative for the current, the following equation is obtained:</p>
@@ -1257,15 +1372,15 @@ i_{R_h}(t - \tau) &amp;= v_S(t - \tau) + Z_C i_S(t - \tau)
 <p>which is the basic relationship of the Bergeron’s <em>Method of Characteristics</em>, Recovering the <span class="math inline">\(\pi\)</span>-equivalent model equations, the relationship between the voltages and currents at the source and receiver terminals for the distributed parameters line model can be transformed into time-domain:</p>
 <p><span class="math display">\[
 \begin{align}
-v_S(t) - Z_C i_S(t) &amp;= Z_C i_{S_h}(t-\tau) \\
-v_R(t) - Z_C i_R(t) &amp;= Z_C i_{R_h}(t-\tau)
+v_S(t) - Z_C i_S(t) = Z_C i_{S_h}(t-\tau) \\
+v_R(t) - Z_C i_R(t) = Z_C i_{R_h}(t-\tau)
 \end{align}
 \]</span></p>
 <p>where <span class="math inline">\(\tau = \frac{l}{\mathcal{v}} = l\sqrt{LC}\)</span> is the time delay of the wave propagation along the line. The expressions <span class="math inline">\(i_{S_h}\)</span> and <span class="math inline">\(i_{R_h}\)</span> are calculated using values from previous time steps:</p>
 <p><span class="math display">\[
 \begin{align}
-i_{S_h}(t - \tau) &amp;= v_R(t - \tau) + Z_C i_R(t - \tau) \\
-i_{R_h}(t - \tau) &amp;= v_S(t - \tau) + Z_C i_S(t - \tau)
+i_{S_h}(t - \tau) = v_R(t - \tau) + Z_C i_R(t - \tau) \\
+i_{R_h}(t - \tau) = v_S(t - \tau) + Z_C i_S(t - \tau)
 \end{align}
 \]</span></p>
 <p>which allows for iterative solutions for simulations with time steps sized as <span class="math inline">\(k \Delta t = \tau\)</span>, with <span class="math inline">\(k\)</span> being an integer number.</p>

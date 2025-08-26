@@ -1214,18 +1214,88 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="model-description">Model description</h2>
 <section id="line-parameters" class="level3">
 <h3 class="anchored" data-anchor-id="line-parameters">Line parameters</h3>
-<p>|| Parameters | details | Unit | || ————–| —— | —– | || <span class="math inline">\(Z_C\)</span> | Characteristic impedance of the grid at a given frequency |<span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(e_{R_h}(t)\)</span> | History term of the phase to ground voltage of the receiving end| <span class="math inline">\(V\)</span> | || <span class="math inline">\(e_{S_h}(t)\)</span> | History term of the phase to ground voltage of the sending end | <span class="math inline">\(V\)</span> |</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th>Details</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(Z_C\)</span></td>
+<td>Characteristic impedance of the grid at a given frequency</td>
+<td><span class="math inline">\(\Omega\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(e_{R_h}(t)\)</span></td>
+<td>History term of the phase to ground voltage of the receiving end</td>
+<td><span class="math inline">\(V\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(e_{S_h}(t)\)</span></td>
+<td>History term of the phase to ground voltage of the sending end</td>
+<td><span class="math inline">\(V\)</span></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="line-variables" class="level3">
 <h3 class="anchored" data-anchor-id="line-variables">Line variables</h3>
-<p>|| Variable | details | Unit | || — | — | — | || <span class="math inline">\(Z_C(\omega)\)</span> | Characteristic impedance of the grid at a given frequency |<span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(v_S(t)\)</span> | Phase to ground voltage at the sending end at time <span class="math inline">\(t\)</span> | <span class="math inline">\(V\)</span> | || <span class="math inline">\(e_S(t)\)</span> | Phase to ground voltage across the characteristic impedance at the sending end at time <span class="math inline">\(t\)</span> | <span class="math inline">\(V\)</span> | || <span class="math inline">\(v_R(t)\)</span> | Phase to ground voltage at the receiving end at time <span class="math inline">\(t\)</span> | <span class="math inline">\(V\)</span> | || <span class="math inline">\(e_R(t)\)</span> | Phase to ground voltage across the characteristic impedance at the receiving end at time <span class="math inline">\(t\)</span> | <span class="math inline">\(V\)</span> |</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Details</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(Z_C(\omega)\)</span></td>
+<td>Characteristic impedance of the grid at a given frequency</td>
+<td><span class="math inline">\(\Omega\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(v_S(t)\)</span></td>
+<td>Phase to ground voltage at the sending end at time <span class="math inline">\(t\)</span></td>
+<td><span class="math inline">\(V\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(e_S(t)\)</span></td>
+<td>Phase to ground voltage across the characteristic impedance at the sending end at time <span class="math inline">\(t\)</span></td>
+<td><span class="math inline">\(V\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(v_R(t)\)</span></td>
+<td>Phase to ground voltage at the receiving end at time <span class="math inline">\(t\)</span></td>
+<td><span class="math inline">\(V\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(e_R(t)\)</span></td>
+<td>Phase to ground voltage across the characteristic impedance at the receiving end at time <span class="math inline">\(t\)</span></td>
+<td><span class="math inline">\(V\)</span></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="equations" class="level3">
 <h3 class="anchored" data-anchor-id="equations">Equations</h3>
 <p><span class="math display">\[
 \begin{align}
-v_S(t) &amp;= e_S(t) + e_{S_h}(t) \\
-v_R(t) &amp;= e_R(t) + e_{R_h}(t)
+v_S(t) = e_S(t) + e_{S_h}(t) \\
+v_R(t) = e_R(t) + e_{R_h}(t)
 \end{align}
 \]</span></p>
 <p>where <span class="math inline">\(e_S(t) = Z_C i_S(t)\)</span> and <span class="math inline">\(e_R(t) = Z_C i_R(t)\)</span> are the voltages across the equivalent network due to the currents at each respective end of the line. and <span class="math inline">\(e_{S_h}(t)\)</span> and <span class="math inline">\(e_{R_h}(t)\)</span> are the historical terms, which can be computed using convolution products, or simply using the previous values <span class="math inline">\(v_S(t-\tau)\)</span> and <span class="math inline">\(v_R(t-\tau)\)</span> provided that the integration step <span class="math inline">\(\Delta t \leq \tau\)</span>.</p>
@@ -1236,94 +1306,97 @@ v_R(t) &amp;= e_R(t) + e_{R_h}(t)
 <p>For this model, the distributed parameter transmission line equations are considered dependent on the frequency of the system:</p>
 <p><span class="math display">\[
 \begin{align}
-V_S(\omega) &amp;= \cosh(\gamma (\omega) l)V_R(\omega) - Z_C(\omega) \sinh(\gamma (\omega) l)I_R(\omega) \\
-I_S(\omega) &amp;= \frac{1}{Z_C(\omega)} \sinh(\gamma (\omega) l)V_R(\omega) - \cosh(\gamma (\omega) l)I_R(\omega)
+V_S(\omega) = \cosh(\gamma (\omega) l)V_R(\omega) - Z_C(\omega) \sinh(\gamma (\omega) l)I_R(\omega) \\
+I_S(\omega) = \frac{1}{Z_C(\omega)} \sinh(\gamma (\omega) l)V_R(\omega) - \cosh(\gamma (\omega) l)I_R(\omega)
 \end{align}
 \]</span></p>
 <p>where the propagation constant <span class="math inline">\(\gamma = \sqrt{z(\omega)y(\omega)} = \alpha(\omega) + j\beta(\omega)\)</span> and the characteristic impedance <span class="math inline">\(Z_C = \sqrt{\frac{z(\omega)}{y(\omega)}}\)</span> are frequency-dependent. These equations correspond to the solution in frequency domain for the general transmission line. Transforming these equations to the time domain allows to perform transient analysis of the transmission line, but it is not trivial since the equations for wave propagations obtained in the Constant Parameter Line Model are obtained by assuming independence of the line parameters with respect to the grid frequency. To do so, the model proposed will convert the frequency-domain equations to the time-domain numerically.</p>
-<p>The developed model assumes the following equivalent circuit:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="FD_scheme.svg" class="img-fluid figure-img"></p>
-<figcaption>Equivalent circuit of the frequency dependent line</figcaption>
-</figure>
+<p>The developed model assumes the following equivalent circuit (<a href="#fig-fd-scheme" class="quarto-xref">Figure&nbsp;1</a>):</p>
+<div id="fig-fd-scheme" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fd-scheme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="FD_scheme.svg" class="img-fluid quarto-figure quarto-figure-center figure-img">
 </div>
-<div class="figure-caption">
-<p><strong>Figure 1:</strong> Equivalent circuit of the frequency dependent line.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fd-scheme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Equivalent circuit of the frequency dependent line
+</figcaption>
+</figure>
 </div>
 <p>The proposed equations for the travelling waves in this equivalent circuit are the following:</p>
 <p><span class="math display">\[
 \begin{align}
-f_S(t) &amp;= v_S(t) + e_S(t) \\
-f_R(t) &amp;= v_R(t) + e_R(t) \\
-b_S(t) &amp;= v_S(t) - e_S(t) \\
-b_R(t) &amp;= v_R(t) - e_R(t)
+f_S(t) = v_S(t) + e_S(t) \\
+f_R(t) = v_R(t) + e_R(t) \\
+b_S(t) = v_S(t) - e_S(t) \\
+b_R(t) = v_R(t) - e_R(t)
 \end{align}
 \]</span></p>
 <p>Where <span class="math inline">\(f_S\)</span> and <span class="math inline">\(b_S\)</span> are the forward and backward travelling waves at the source terminal, respectively, <span class="math inline">\(f_R\)</span> and <span class="math inline">\(b_R\)</span> are the forward and backward travelling waves at the receiver terminal, and <span class="math inline">\(e_S = Z_{eq}i_S\)</span> and <span class="math inline">\(e_R = Z_{eq}i_R\)</span> are the voltage across the equivalent network due to the currents at each respective end of the line. In frequency domain, the equations can be rewritten as:</p>
 <p><span class="math display">\[
 \begin{align}
-F_S(\omega) &amp;= V_S(\omega) + Z_{eq}(\omega) I_S(\omega) \\
-F_R(\omega) &amp;= V_R(\omega) + Z_{eq}(\omega) I_R(\omega) \\
-B_S(\omega) &amp;= V_S(\omega) - Z_{eq}(\omega) I_S(\omega) \\
-B_R(\omega) &amp;= V_R(\omega) - Z_{eq}(\omega) I_R(\omega)
+F_S(\omega) = V_S(\omega) + Z_{eq}(\omega) I_S(\omega) \\
+F_R(\omega) = V_R(\omega) + Z_{eq}(\omega) I_R(\omega) \\
+B_S(\omega) = V_S(\omega) - Z_{eq}(\omega) I_S(\omega) \\
+B_R(\omega) = V_R(\omega) - Z_{eq}(\omega) I_R(\omega)
 \end{align}
 \]</span></p>
 <p>where <span class="math inline">\(Z_{eq} = Z_C(\omega)\)</span> is the equivalent impedance of the equivalent network. The model will transform these equations to the time domain to perform transient analysis of the transmission line.</p>
 <p>These equations, alongisde the tranmission line equations, can be combined to obtain the following relationship:</p>
 <p><span class="math display">\[
 \begin{align}
-B_S(\omega) &amp;= A_1(\omega) F_R(\omega) \\
-B_R(\omega) &amp;= A_1(\omega) F_S(\omega)
+B_S(\omega) = A_1(\omega) F_R(\omega) \\
+B_R(\omega) = A_1(\omega) F_S(\omega)
 \end{align}
 \]</span></p>
 <p>where <span class="math inline">\(A_1 = e^{-\gamma(\omega) l} = \frac{1}{\cosh(\gamma(\omega)l) + \sinh(\gamma(\omega)l)}\)</span> is a constant that depends on the equivalent impedance of the equivalent network. Converting these in time-domain, the following expressions are obtained:</p>
 <p><span class="math display">\[
 \begin{align}
-b_S(t) &amp;= a_1(t) * f_R(t) \\
-b_R(t) &amp;= a_1(t) * f_S(t)
+b_S(t) = a_1(t) * f_R(t) \\
+b_R(t) = a_1(t) * f_S(t)
 \end{align}
 \]</span></p>
 <p>where the <span class="math inline">\(*\)</span> represents the convolution product, and <span class="math inline">\(a_1(t)\)</span> represents the weight function, which is a pulse starting at time <span class="math inline">\(\tau\)</span> when the impedance of the equivalent network matches the characteristic impedance of the line. The convolution product can be calculated as:</p>
 <p><span class="math display">\[
 \begin{align}
-b_S(t) &amp;= \int_{-\infty}^{\infty} f_R(t - u) a_1(u) du = \int_{\tau}^{\infty} f_R(t - u) a_1(u) du \\
-b_R(t) &amp;= \int_{-\infty}^{\infty} f_S(t - u) a_1(u) du = \int_{\tau}^{\infty} f_S(t - u) a_1(u) du
+b_S(t) = \int_{-\infty}^{\infty} f_R(t - u) a_1(u) du = \int_{\tau}^{\infty} f_R(t - u) a_1(u) du \\
+b_R(t) = \int_{-\infty}^{\infty} f_S(t - u) a_1(u) du = \int_{\tau}^{\infty} f_S(t - u) a_1(u) du
 \end{align}
 \]</span></p>
 <p>Where the integral prior to the time <span class="math inline">\(\tau\)</span> is zero, since the weight function is zero for negative times. This time represents the time that the fastest frequency component of the applied voltage takes to reach the other end of the line. When the time interval for the numerical computation is lower (<span class="math inline">\(\Delta t \leq \tau\)</span>), the values for <span class="math inline">\(f_R\)</span> and <span class="math inline">\(f_S\)</span> at the time <span class="math inline">\(t - u\)</span> can be obtained from previous time steps, allowing for iterative solutions for the time-domain simulation. The upper limit of the integral does not extend beyond <span class="math inline">\(\tau\)</span> for much longer times, since the weight function is a single pulse.</p>
 <p>Since the terms <span class="math inline">\(b_S\)</span> and <span class="math inline">\(b_R\)</span> are obtained from historical values of voltages, they can be modelled as two voltage sources <span class="math inline">\(e_{S_h}\)</span> and <span class="math inline">\(e_{R_h}\)</span>, obtaining the following equivalent circuit:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="FDLine_ThevEquiv.svg" class="img-fluid figure-img"></p>
-<figcaption>FD Thevenin Equivalent Circuit of a transmission line</figcaption>
-</figure>
+<div id="fig-fdline-thev-equiv" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fdline-thev-equiv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="FDLine_ThevEquiv.svg" class="img-fluid quarto-figure quarto-figure-center figure-img">
 </div>
-<div class="figure-caption">
-<p><strong>Figure 2:</strong> Thevenin equivalent circuit of the frequency dependent line with history terms.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fdline-thev-equiv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: FD Thevenin Equivalent Circuit of a transmission line
+</figcaption>
+</figure>
 </div>
 <p>which has the following circuit equations:</p>
 <p><span class="math display">\[
 \begin{align}
-v_S(t) &amp;= e_S(t) + e_{S_h}(t) \\
-v_R(t) &amp;= e_R(t) + e_{R_h}(t)
+v_S(t) = e_S(t) + e_{S_h}(t) \\
+v_R(t) = e_R(t) + e_{R_h}(t)
 \end{align}
 \]</span></p>
-<p>It can be converted into its Norton equivalent, as shown in the following schematic:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="FDLine_NortonEquiv.svg" class="img-fluid figure-img"></p>
-<figcaption>Norton Equivalent Circuit of a transmission line</figcaption>
-</figure>
+<p>It can be converted into its Norton equivalent, as shown in <a href="#fig-fdline-norton-equiv" class="quarto-xref">Figure&nbsp;3</a>:</p>
+<div id="fig-fdline-norton-equiv" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fdline-norton-equiv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="FDLine_NortonEquiv.svg" class="img-fluid quarto-figure quarto-figure-center figure-img">
 </div>
-<div class="figure-caption">
-<p><strong>Figure 3:</strong> Norton equivalent circuit of the frequency dependent line with history terms.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fdline-norton-equiv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Norton Equivalent Circuit of a transmission line
+</figcaption>
+</figure>
 </div>
 <p>where the equivalent current sources are calculated as:</p>
 <p><span class="math display">\[
 \begin{align}
-i_S(t) &amp;= \frac{v_S(t)}{Z_C} - i_{S_h}(t) \\
-i_R(t) &amp;= \frac{v_R(t)}{Z_C} - i_{R_h}(t)
+i_S(t) = \frac{v_S(t)}{Z_C} - i_{S_h}(t) \\
+i_R(t) = \frac{v_R(t)}{Z_C} - i_{R_h}(t)
 \end{align}
 \]</span></p>
 <section id="rational-approximation-of-z_c-and-a_1" class="level3">
@@ -1360,16 +1433,16 @@ i_R(t) &amp;= \frac{v_R(t)}{Z_C} - i_{R_h}(t)
 <p>Since <span class="math inline">\(Z_C\)</span> has been expressed as a sum of exponential functions in time-domain, the convolution can be split in a sum of convolutions as in the previous chapter, but using <span class="math inline">\(\tau=0\)</span>:</p>
 <p><span class="math display">\[
 \begin{align}
-e_S(t) &amp;= e_{S_1} + e_{S_2} + ... + e_{S_n} \\
-e_{S_i}(t) &amp;= i_S(t) * e^{-\alpha_i t} = \int_{-\infty}^{\infty} i_S(t - u) e^{-\alpha_i u} du \\
-e_{S_i}(t) &amp;= m_i e_{S_i}(t - \Delta t) + p_i i_S(t) + q_i i_S(t - \Delta t)
+e_S(t) = e_{S_1} + e_{S_2} + ... + e_{S_n} \\
+e_{S_i}(t) = i_S(t) * e^{-\alpha_i t} = \int_{-\infty}^{\infty} i_S(t - u) e^{-\alpha_i u} du \\
+e_{S_i}(t) = m_i e_{S_i}(t - \Delta t) + p_i i_S(t) + q_i i_S(t - \Delta t)
 \end{align}
 \]</span></p>
 <p>Using the R-C equivalent circuit, the coeficients of this time-domain transformation are:</p>
 <p><span class="math display">\[
 \begin{align}
-m_i &amp;= \frac{1-\frac{1}{2}(\alpha_i \Delta t)}{1+\frac{1}{2}(\alpha_i \Delta t)} \\
-p_i &amp;= q_i = k_i \frac{\frac{\Delta t}{2}}{1+\frac{1}{2}(\alpha_i \Delta t)}
+m_i = \frac{1-\frac{1}{2}(\alpha_i \Delta t)}{1+\frac{1}{2}(\alpha_i \Delta t)} \\
+p_i = q_i = k_i \frac{\frac{\Delta t}{2}}{1+\frac{1}{2}(\alpha_i \Delta t)}
 \end{align}
 \]</span></p>
 <p>And separating <span class="math inline">\(e_S(t)\)</span> in its components, the final expression for the voltage across the equivalent network at the sending end is:</p>
@@ -1377,8 +1450,8 @@ p_i &amp;= q_i = k_i \frac{\frac{\Delta t}{2}}{1+\frac{1}{2}(\alpha_i \Delta t)}
 <p>where <span class="math inline">\(R_S = R_0 + p\)</span> is the equivalent constant resistance of the network at the sending end, with <span class="math inline">\(p = \sum p_i\)</span>, and <span class="math inline">\(e_{S_hc}(t)\)</span> and <span class="math inline">\(e_{S_hv}(t)\)</span> are the historical terms of the current in <span class="math inline">\(Z_eq\)</span> and partial voltage in <span class="math inline">\(Z_eq\)</span>, respectively, calculated as:</p>
 <p><span class="math display">\[
 \begin{align}
-e_{S_{hc}}(t) &amp;= (\sum q_i) i_S(t - \tau) = q i_S(t - \tau) \\
-e_{S_{hv}}(t) &amp;= \sum^{n}_{1} e_{S_i}(t - \tau)
+e_{S_{hc}}(t) = (\sum q_i) i_S(t - \tau) = q i_S(t - \tau) \\
+e_{S_{hv}}(t) = \sum^{n}_{1} e_{S_i}(t - \tau)
 \end{align}
 \]</span></p>
 <p>An analogy can be made for the historical term <span class="math inline">\(b_S(t)\)</span>, which can be calculated as:</p>
@@ -1386,8 +1459,8 @@ e_{S_{hv}}(t) &amp;= \sum^{n}_{1} e_{S_i}(t - \tau)
 <p>where the coefficients, this time using the weight function terms <span class="math inline">\(k_i'\)</span> and <span class="math inline">\(\beta_i\)</span>, are:</p>
 <p><span class="math display">\[
 \begin{align}
-g_i &amp;= \frac{1-\frac{1}{2}(\beta_i \Delta t)}{1+\frac{1}{2}(\beta_i \Delta t)} \\
-c_i &amp;= d_i = k_i' \frac{\frac{\Delta t}{2}}{1+\frac{1}{2}(\beta_i \Delta t)}
+g_i = \frac{1-\frac{1}{2}(\beta_i \Delta t)}{1+\frac{1}{2}(\beta_i \Delta t)} \\
+c_i = d_i = k_i' \frac{\frac{\Delta t}{2}}{1+\frac{1}{2}(\beta_i \Delta t)}
 \end{align}
 \]</span></p>
 <p>Now, the final expression for the history term of the voltage at the sending end is:</p>
@@ -1400,10 +1473,10 @@ c_i &amp;= d_i = k_i' \frac{\frac{\Delta t}{2}}{1+\frac{1}{2}(\beta_i \Delta t)}
 <p>The history terms that have to be calculated at each step for one of the sides are:</p>
 <p><span class="math display">\[
 \begin{align}
-e_{S_{hc}}(t) &amp;= q i_S(t - \tau) \\
-e_{S_{hv}}(t) &amp;= \sum e_{S_i}(t - \Delta t) \\
-b_{S_h}(t) &amp;= \sum g_i b_{S_i}(t - \Delta t) \\
-b_S(t) &amp;= c f_R(t - \tau) + d f_R(t - \tau - \Delta t) + b_{S_h}(t)
+e_{S_{hc}}(t) = q i_S(t - \tau) \\
+e_{S_{hv}}(t) = \sum e_{S_i}(t - \Delta t) \\
+b_{S_h}(t) = \sum g_i b_{S_i}(t - \Delta t) \\
+b_S(t) = c f_R(t - \tau) + d f_R(t - \tau - \Delta t) + b_{S_h}(t)
 \end{align}
 \]</span></p>
 <p>Then, the history current source is calculated as:</p>

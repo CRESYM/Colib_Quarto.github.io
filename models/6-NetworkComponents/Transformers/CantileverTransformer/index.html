@@ -1212,14 +1212,15 @@ window.Quarto = {
 <section id="parts-of-the-transformers" class="level3">
 <h3 class="anchored" data-anchor-id="parts-of-the-transformers">Parts of the transformers</h3>
 <p>There are two physical parts of the transformers relevant for the model described, as seen in the following schematic representation <span class="citation" data-cites="kothari2010electric">[<a href="#ref-kothari2010electric" role="doc-biblioref">3</a>]</span>:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Trafo_scheme.svg" class="img-fluid figure-img"></p>
-<figcaption>Transformer schematic representation</figcaption>
-</figure>
+<div id="fig-trafo-scheme" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-trafo-scheme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Trafo_scheme.svg" class="img-fluid quarto-figure quarto-figure-center figure-img">
 </div>
-<div class="figure-caption">
-<p><strong>Figure 1:</strong> Transformer schematic representation</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-trafo-scheme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Transformer schematic representation
+</figcaption>
+</figure>
 </div>
 <p><strong>Windings</strong></p>
 <p>Windings are copper coil turns grouped in different bundles. Windings can be primary windings, to which the voltage is applied, or secondary windings, which have an output voltage that is product of the transformation.</p>
@@ -1230,19 +1231,204 @@ window.Quarto = {
 <section id="transformer-equations" class="level3">
 <h3 class="anchored" data-anchor-id="transformer-equations">Transformer equations</h3>
 <p><strong>Variables</strong></p>
-<p>|| Variable | details | Unit | || ————–| —— | —– | || <span class="math inline">\(v^H\)</span> | HV side terminal phase-to-ground voltage phasor | <span class="math inline">\(pu\)</span> | || <span class="math inline">\(v^L\)</span> | LV side terminal phase-to-ground voltage phasor | <span class="math inline">\(pu\)</span> | || <span class="math inline">\(i^H\)</span> | HV side current phasor | <span class="math inline">\(pu\)</span> | || <span class="math inline">\(i^L\)</span> | LV side current phasor | <span class="math inline">\(pu\)</span> | || <span class="math inline">\(P^H\)</span> | HV side active power | <span class="math inline">\(pu\)</span> | || <span class="math inline">\(P^L\)</span> | LV side active power | <span class="math inline">\(pu\)</span> | || <span class="math inline">\(Q^H\)</span> | HV side reactive power | <span class="math inline">\(pu\)</span> | || <span class="math inline">\(Q^L\)</span> | LV side reactive power | <span class="math inline">\(pu\)</span> |</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>details</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(v^H\)</span></td>
+<td>HV side terminal phase-to-ground voltage phasor</td>
+<td><span class="math inline">\(pu\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(v^L\)</span></td>
+<td>LV side terminal phase-to-ground voltage phasor</td>
+<td><span class="math inline">\(pu\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(i^H\)</span></td>
+<td>HV side current phasor</td>
+<td><span class="math inline">\(pu\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(i^L\)</span></td>
+<td>LV side current phasor</td>
+<td><span class="math inline">\(pu\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(P^H\)</span></td>
+<td>HV side active power</td>
+<td><span class="math inline">\(pu\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(P^L\)</span></td>
+<td>LV side active power</td>
+<td><span class="math inline">\(pu\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(Q^H\)</span></td>
+<td>HV side reactive power</td>
+<td><span class="math inline">\(pu\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(Q^L\)</span></td>
+<td>LV side reactive power</td>
+<td><span class="math inline">\(pu\)</span></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Parameters</strong></p>
-<p>|| Parameter | details | Unit | || ————–| —— | —– | || <span class="math inline">\(N_1\)</span> | Number of turns of the primary winding | unitless | || <span class="math inline">\(N_2\)</span> | Number of turns of the secondary winding | unitless | || <span class="math inline">\(a\)</span>| Transformation ratio <span class="math inline">\(a = \frac{N_1}{N_2}\)</span> | <span class="math inline">\(pu\)</span> | || <span class="math inline">\(S_{base}\)</span> | Transformer rated power | <span class="math inline">\(VA\)</span> | || <span class="math inline">\(V_{base, L}\)</span> | LV side rated voltage | <span class="math inline">\(V\)</span> | || <span class="math inline">\(V_{base, H}\)</span> | HV side rated voltage | <span class="math inline">\(V\)</span> | || <span class="math inline">\(I_{base, L}\)</span> | LV side base current <span class="math inline">\(I_{base} = \frac{S_{base}}{V_{base, L}}\)</span> | <span class="math inline">\(A\)</span> | || <span class="math inline">\(I_{base, H}\)</span> | HV side base current <span class="math inline">\(I_{base} = \frac{S_{base}}{V_{base, H}}\)</span> | <span class="math inline">\(A\)</span> | || <span class="math inline">\(Z_{base, L}\)</span> | LV side base impedance <span class="math inline">\(R_{base} = \frac{V_{base, L}^2}{S_{base}}\)</span> | <span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(Z_{base, H}\)</span> | HV side base impedance <span class="math inline">\(R_{base} = \frac{V_{base, H}^2}{S_{base}}\)</span> | <span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(V_{oc}\)</span> | Open-circuit voltage | <span class="math inline">\(V\)</span> | || <span class="math inline">\(P_{oc}\)</span> | Open-circuit active power | <span class="math inline">\(W\)</span> | || <span class="math inline">\(I_{oc}\)</span> | Open-circuit current | <span class="math inline">\(A\)</span> | || <span class="math inline">\(V_{sc}\)</span> | Short-circuit voltage | <span class="math inline">\(V\)</span> | || <span class="math inline">\(P_{sc}\)</span> | Short-circuit active power | <span class="math inline">\(W\)</span> | || <span class="math inline">\(I_{sc}\)</span> | Short-circuit current | <span class="math inline">\(A\)</span> | || <span class="math inline">\(R_{eq}\)</span> | Equivalent resistance <span class="math inline">\(R_{eq} = R_{sc} = \frac{P_{sc}}{I_{sc}^2}\)</span>| <span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(\|Z_{eq}\|\)</span> | Module of the equivalent impedance <span class="math inline">\(\|Z_{eq}\| = \|Z_{sc}\| = \frac{P_{sc}}{I_{sc}^2}\)</span>| <span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(X_{eq}\)</span> | Equivalent reactance <span class="math inline">\(X_{eq} = X_{sc} = \sqrt(\|Z_{sc}\|^2 - R_{sc}^2)\)</span> | <span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(R_{c}\)</span> | Magnetizing resistance <span class="math inline">\(R_{c} = \frac{V_{oc}^2}{P_{oc}}\)</span>| <span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(\|Z_{\varphi}\|\)</span> | Module of the magnetizing impedance <span class="math inline">\(\|Z_{\varphi}\| = \frac{V_{oc}}{I_{oc}}\)</span> | <span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(X_{m}\)</span> | Magnetizing reactance <span class="math inline">\(X_{m} = \frac{1}{\sqrt(\frac{1}{\|Z_{\varphi}\|^2} - \frac{1}{R_{c}^2})}\)</span> | <span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(Z_{eq}\)</span> | Equivalent impedance <span class="math inline">\(Z_{eq} = R_{eq} + jX_{eq}\)</span>| <span class="math inline">\(\Omega\)</span> | || <span class="math inline">\(Y_{\varphi}\)</span> | Magnetizing admittance <span class="math inline">\(Y_{\varphi} = \frac{1}{R_{c} + jX_{m}}\)</span>| <span class="math inline">\(\Omega^{-1}\)</span> |</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 56%">
+<col style="width: 24%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>details</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(N_1\)</span></td>
+<td>Number of turns of the primary winding</td>
+<td>unitless</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(N_2\)</span></td>
+<td>Number of turns of the secondary winding</td>
+<td>unitless</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(a\)</span></td>
+<td>Transformation ratio <span class="math inline">\(a = \frac{N_1}{N_2}\)</span></td>
+<td><span class="math inline">\(pu\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(S_{base}\)</span></td>
+<td>Transformer rated power</td>
+<td><span class="math inline">\(VA\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(V_{base, L}\)</span></td>
+<td>LV side rated voltage</td>
+<td><span class="math inline">\(V\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(V_{base, H}\)</span></td>
+<td>HV side rated voltage</td>
+<td><span class="math inline">\(V\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(I_{base, L}\)</span></td>
+<td>LV side base current <span class="math inline">\(I_{base} = \frac{S_{base}}{V_{base, L}}\)</span></td>
+<td><span class="math inline">\(A\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(I_{base, H}\)</span></td>
+<td>HV side base current <span class="math inline">\(I_{base} = \frac{S_{base}}{V_{base, H}}\)</span></td>
+<td><span class="math inline">\(A\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(Z_{base, L}\)</span></td>
+<td>LV side base impedance <span class="math inline">\(R_{base} = \frac{V_{base, L}^2}{S_{base}}\)</span></td>
+<td><span class="math inline">\(\Omega\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(Z_{base, H}\)</span></td>
+<td>HV side base impedance <span class="math inline">\(R_{base} = \frac{V_{base, H}^2}{S_{base}}\)</span></td>
+<td><span class="math inline">\(\Omega\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(V_{oc}\)</span></td>
+<td>Open-circuit voltage</td>
+<td><span class="math inline">\(V\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(P_{oc}\)</span></td>
+<td>Open-circuit active power</td>
+<td><span class="math inline">\(W\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(I_{oc}\)</span></td>
+<td>Open-circuit current</td>
+<td><span class="math inline">\(A\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(V_{sc}\)</span></td>
+<td>Short-circuit voltage</td>
+<td><span class="math inline">\(V\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(P_{sc}\)</span></td>
+<td>Short-circuit active power</td>
+<td><span class="math inline">\(W\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(I_{sc}\)</span></td>
+<td>Short-circuit current</td>
+<td><span class="math inline">\(A\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(R_{eq}\)</span></td>
+<td>Equivalent resistance <span class="math inline">\(R_{eq} = R_{sc} = \frac{P_{sc}}{I_{sc}^2}\)</span></td>
+<td><span class="math inline">\(\Omega\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\|Z_{eq}\|\)</span></td>
+<td>Module of the equivalent impedance <span class="math inline">\(\|Z_{eq}\| = \|Z_{sc}\| = \frac{P_{sc}}{I_{sc}^2}\)</span></td>
+<td><span class="math inline">\(\Omega\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(X_{eq}\)</span></td>
+<td>Equivalent reactance <span class="math inline">\(X_{eq} = X_{sc} = \sqrt(\|Z_{sc}\|^2 - R_{sc}^2)\)</span></td>
+<td><span class="math inline">\(\Omega\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(R_{c}\)</span></td>
+<td>Magnetizing resistance <span class="math inline">\(R_{c} = \frac{V_{oc}^2}{P_{oc}}\)</span></td>
+<td><span class="math inline">\(\Omega\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\|Z_{\varphi}\|\)</span></td>
+<td>Module of the magnetizing impedance <span class="math inline">\(\|Z_{\varphi}\| = \frac{V_{oc}}{I_{oc}}\)</span></td>
+<td><span class="math inline">\(\Omega\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(X_{m}\)</span></td>
+<td>Magnetizing reactance <span class="math inline">\(X_{m} = \frac{1}{\sqrt(\frac{1}{\|Z_{\varphi}\|^2} - \frac{1}{R_{c}^2})}\)</span></td>
+<td><span class="math inline">\(\Omega\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(Z_{eq}\)</span></td>
+<td>Equivalent impedance <span class="math inline">\(Z_{eq} = R_{eq} + jX_{eq}\)</span></td>
+<td><span class="math inline">\(\Omega\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(Y_{\varphi}\)</span></td>
+<td>Magnetizing admittance <span class="math inline">\(Y_{\varphi} = \frac{1}{R_{c} + jX_{m}}\)</span></td>
+<td><span class="math inline">\(\Omega^{-1}\)</span></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Systems of equations</strong></p>
 <p>The system of equations has 6 equations and 8 variables. The user must set a fixed value for two of the variables in order to have a single solution. The complete system in Per-Unit representation is:</p>
 <p><span class="math display">\[
 \begin{align}
-v^H &amp;= v^L + Z_{eq}^H i^H\\
-i^H &amp;= Y_{\varphi}^L v^L - i^L\\
-P^H &amp;= \mathbb{R}(v^H i^{H*})\\
-Q^H &amp;= \mathbb{I}(v^H i^{H*})\\
-P^L &amp;= \mathbb{R}(v^L i^{L*})\\
-Q^L &amp;= \mathbb{I}(v^L i^{L*})
+v^H = v^L + Z_{eq}^H i^H\\
+i^H = Y_{\varphi}^L v^L - i^L\\
+P^H = \mathbb{R}(v^H i^{H*})\\
+Q^H = \mathbb{I}(v^H i^{H*})\\
+P^L = \mathbb{R}(v^L i^{L*})\\
+Q^L = \mathbb{I}(v^L i^{L*})
 \end{align}
 \]</span></p>
 <p>where <span class="math inline">\(\mathbb{R}\)</span> and <span class="math inline">\(\mathbb{I}\)</span> correspond to the real and imaginary part of the complex power. The admittance can be represented in either Per-Unit system, as long as the transformation to Per-Unit is done according to the computation of their values (i.e.&nbsp;if the equivalent impedance is computed referred to the HV, the Per-Unit system used must use the HV base voltage).</p>
@@ -1263,8 +1449,8 @@ Q^L &amp;= \mathbb{I}(v^L i^{L*})
 <p>where <span class="math inline">\(\frac{N_1}{N_2}\)</span> is also called the <em>transformation ratio</em>. Focusing now on the magnetomotive forces produced, the primary circuit can be considered as a generator and the secondary as a load, yielding the following expression:</p>
 <p><span class="math display">\[
 \begin{align}
-N_1 i_1 - N_2 i_2 &amp;= 0\\
-\frac{i_1}{i_2} &amp;= \frac{N_2}{N_1}
+N_1 i_1 - N_2 i_2 = 0\\
+\frac{i_1}{i_2} = \frac{N_2}{N_1}
 \end{align}
 \]</span></p>
 <p>and substituting it in the voltage relationship:</p>
@@ -1272,21 +1458,22 @@ N_1 i_1 - N_2 i_2 &amp;= 0\\
 <p>showing that the input power equals the output power. This is a result of the several idealizations that have been assumed.</p>
 <p><strong>Equivalent-T circuit for non-ideal transformers</strong></p>
 <p>The transformer can now be described with the following equivalent circuit, normally referred to as <em>equivalent-T circuit</em>, as an ideal transformer with external impedances that model all the losses:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Tequiv_trafo.svg" class="img-fluid figure-img"></p>
-<figcaption>T-equivalent circuit of a transformer</figcaption>
-</figure>
+<div id="fig-t-equivalent" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-t-equivalent-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Tequiv_trafo.svg" class="img-fluid figure-img">
 </div>
-<div class="figure-caption">
-<p><strong>Figure 2:</strong> T-equivalent circuit of a transformer</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-t-equivalent-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: T-equivalent circuit of a transformer
+</figcaption>
+</figure>
 </div>
 <p>The transformer has been omitted, and it can be thought as if it was at the right-most or the left-most part of the equivalent circuit, depending on the reference winding chosen.</p>
 <p>Considering this non-ideal transformer, the relationship between currents and voltages for the windings can be written as follows:</p>
 <p><span class="math display">\[
 \begin{align}
-v_1 &amp;= R_1 i_1 + \frac{d\Psi_1}{dt} \\
-v_2 &amp;= R_2 i_2 + \frac{d\Psi_2}{dt}
+v_1 = R_1 i_1 + \frac{d\Psi_1}{dt} \\
+v_2 = R_2 i_2 + \frac{d\Psi_2}{dt}
 \end{align}
 \]</span></p>
 <p>where <span class="math inline">\(R_i\)</span> is the winding resistance in <span class="math inline">\(\Omega\)</span>, <span class="math inline">\(v_i\)</span> is the terminal voltage in <span class="math inline">\(V\)</span>, <span class="math inline">\(i_i\)</span> is the winding current in <span class="math inline">\(A\)</span> and <span class="math inline">\(\Psi_i\)</span> is the magnetic flux linkages in <span class="math inline">\(Wb\)</span>. The subindex <span class="math inline">\(1\)</span> refers to the primary winding of the transformer, while the subindex <span class="math inline">\(2\)</span> refers to the secondary winding.</p>
@@ -1299,21 +1486,22 @@ v_2 &amp;= R_2 i_2 + \frac{d\Psi_2}{dt}
 <p>In the equivalent circuit shown in Figure 2, the reference winding is the primary, and all the secondary quantities (those with a <span class="math inline">\('\)</span> on top) are referred from the primary. To recover the actual value of these secondary quantities, the following transformation can be applied as done with the current earlier:</p>
 <p><span class="math display">\[
 \begin{align}
-X_{l_2}' &amp;= (\frac{N_1}{N_2})^2 X_{l_2} \\
-R_{2}' &amp;= (\frac{N_1}{N_2})^2 R_{2} \\
-v_{2}' &amp;= \frac{N_1}{N_2}v_{2}
+X_{l_2}' = (\frac{N_1}{N_2})^2 X_{l_2} \\
+R_{2}' = (\frac{N_1}{N_2})^2 R_{2} \\
+v_{2}' = \frac{N_1}{N_2}v_{2}
 \end{align}
 \]</span></p>
 <p><strong>Cantilever equivalent circuit</strong></p>
 <p>The equivalent-T circuit can be simplified by moving the shunt impedance to before the primary resistance and reactance, which enables the representation of both windings’ impedance as a unified equivalent impedance. The error induced by displacing the shunt impedance is small, since it is only disregarding the voltage drop caused by the exciting current when passing through the primary impedance, and this current is much smaller than the primary current. The resulting equivalent circuit is called the <em>cantilever equivalent circuit</em>, which in this case is referred from the primary circuit, meaning that the secondary circuit quantities have to be rescaled using the transformation ratio. The following figure represents this equivalent circuit:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cantilever.svg" class="img-fluid figure-img"></p>
-<figcaption>Cantilever equivalent circuit of a transformer</figcaption>
-</figure>
+<div id="fig-cantilever" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cantilever-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="cantilever.svg" class="img-fluid figure-img">
 </div>
-<div class="figure-caption">
-<p><strong>Figure 3:</strong> Cantilever equivalent circuit of a transformer</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cantilever-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Cantilever equivalent circuit of a transformer
+</figcaption>
+</figure>
 </div>
 <p>where <span class="math inline">\(R_{eq} = R_1 + R_2'\)</span> and <span class="math inline">\(X_{eq} = X_{l_1} + X_{l_2}'\)</span>. All the parameters of this equivalent model can be obtained after performing an open-circuit and a short-circuit test.</p>
 <p><strong>Short-circuit test</strong></p>
@@ -1324,9 +1512,9 @@ v_{2}' &amp;= \frac{N_1}{N_2}v_{2}
 <p>When doing the test, the measurements that are necessary to compute the equivalent impedance are the RMS magnitude of the applied voltage <span class="math inline">\(V_{sc}\)</span>, the short-circuit current <span class="math inline">\(I_{sc}\)</span> and the power <span class="math inline">\(P_{sc}\)</span>. Using these measurements, the values for the impedance components are:</p>
 <p><span class="math display">\[
 \begin{align}
-|Z_{eq}| &amp;= |Z_{sc}| = \frac{V_{sc}}{I_{sc}} \\
-R_{eq} &amp;= R_{sc} = \frac{P_{sc}}{I_{sc}^2} \\
-X_{eq} &amp;= X_{sc} = \sqrt(|Z_{sc}|^2 - R_{sc}^2)
+|Z_{eq}| = |Z_{sc}| = \frac{V_{sc}}{I_{sc}} \\
+R_{eq} = R_{sc} = \frac{P_{sc}}{I_{sc}^2} \\
+X_{eq} = X_{sc} = \sqrt(|Z_{sc}|^2 - R_{sc}^2)
 \end{align}
 \]</span></p>
 <p><strong>Open-circuit test</strong></p>
@@ -1337,17 +1525,17 @@ X_{eq} &amp;= X_{sc} = \sqrt(|Z_{sc}|^2 - R_{sc}^2)
 <p>With the measurements of the voltage applied <span class="math inline">\(V_{oc}\)</span>, the open-circuit current <span class="math inline">\(I_{oc}\)</span> and the power <span class="math inline">\(P_{oc}\)</span>, the magnetizing impedance terms can be calculated as:</p>
 <p><span class="math display">\[
 \begin{align}
-|Z_{\varphi}| &amp;= \frac{V_{oc}}{I_{oc}} \\
-R_{c} &amp;= \frac{V_{oc}^2}{P_{oc}} \\
-X_{m} &amp;= \frac{1}{\sqrt((\frac{1}{|Z_{\varphi}|})^2 - (\frac{1}{R_c})^2)}
+|Z_{\varphi}| = \frac{V_{oc}}{I_{oc}} \\
+R_{c} = \frac{V_{oc}^2}{P_{oc}} \\
+X_{m} = \frac{1}{\sqrt((\frac{1}{|Z_{\varphi}|})^2 - (\frac{1}{R_c})^2)}
 \end{align}
 \]</span></p>
 <p><strong>Per-Unit system</strong></p>
 <p>The equivalent circuit will be expressed in Per-Unit system, converting the transformer turn ratios in 1:1. This allows the removal of the ideal transformer of the model and hence the need to express the quantities referring to the primary or the secondary. This system is determined by setting arbitrary values for two quantities, typically <span class="math inline">\(S_{base}\)</span> and <span class="math inline">\(V_{base}\)</span>, and then determining the rest of the base quantities using the relationships:</p>
 <p><span class="math display">\[
 \begin{align}
-S_{base} (P_{base}, Q_{base}) &amp;= V_{base} I_{base} \\
-Z_{base} (R_{base}, X_{base}) &amp;= \frac{V_{base}}{I_{base}}
+S_{base} (P_{base}, Q_{base}) = V_{base} I_{base} \\
+Z_{base} (R_{base}, X_{base}) = \frac{V_{base}}{I_{base}}
 \end{align}
 \]</span></p>
 <p>The <span class="math inline">\(V_{base}\)</span> value will change for each side of the transformer according to the transformation ratio.</p>
@@ -1356,7 +1544,28 @@ Z_{base} (R_{base}, X_{base}) &amp;= \frac{V_{base}}{I_{base}}
 <section id="open-source-implementations" class="level2">
 <h2 class="anchored" data-anchor-id="open-source-implementations">Open source implementations</h2>
 <p>This model has been successfully implemented in:</p>
-<p>|| Software | URL | Language | Open-Source License | Last consulted date | Comments | || Dynawo | <a href="https://github.com/dynawo/dynawo/blob/master/dynawo/sources/Models/Modelica/Dynawo/Electrical/Transformers/TransformerFixedRatio.mo">Link</a> | Modelica | <a href="https://www.mozilla.org/en-US/MPL/2.0/">MPL v2.0</a> |02/05/2024 | no comments |</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Software</th>
+<th>URL</th>
+<th>Language</th>
+<th>Open-Source License</th>
+<th>Last consulted date</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dynawo</td>
+<td><a href="https://github.com/dynawo/dynawo/blob/master/dynawo/sources/Models/Modelica/Dynawo/Electrical/Transformers/TransformerFixedRatio.mo">Link</a></td>
+<td>Modelica</td>
+<td><a href="https://www.mozilla.org/en-US/MPL/2.0/">MPL v2.0</a></td>
+<td>02/05/2024</td>
+<td>no comments</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="references" class="level2">
 
