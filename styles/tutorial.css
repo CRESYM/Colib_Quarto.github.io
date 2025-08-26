@@ -1,0 +1,278 @@
+/* Interactive Tutorial Styles */
+
+/* Tutorial step container */
+.tutorial-step {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Step counter */
+.step-counter {
+    background: #447099;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    position: absolute;
+    top: -20px;
+    left: 2rem;
+}
+
+/* Code editor styles */
+.code-editor {
+    width: 100%;
+    min-height: 120px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1rem;
+    background: #f8f9fa;
+    resize: vertical;
+    margin: 1rem 0;
+    line-height: 1.5;
+}
+
+.code-editor:focus {
+    outline: none;
+    border-color: #447099;
+    background: white;
+}
+
+/* CodeMirror editor overrides */
+.CodeMirror {
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 120px;
+}
+
+.CodeMirror:focus-within {
+    border-color: #447099;
+}
+
+.CodeMirror-focused .CodeMirror-cursor {
+    border-left: 2px solid #447099;
+}
+
+/* Check button */
+.check-button {
+    background: #447099;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 1rem 0;
+}
+
+.check-button:hover {
+    background: #305775;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.check-button:active {
+    transform: translateY(0);
+}
+
+/* Success message */
+.success-message {
+    display: none;
+    background: #d1edff;
+    border: 2px solid #0ea5e9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    color: #0369a1;
+    font-weight: 500;
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Error message */
+.error-message {
+    display: none;
+    background: #fee2e2;
+    border: 2px solid #ef4444;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    color: #dc2626;
+    font-weight: 500;
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Slide in animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tutorial progress indicator */
+.tutorial-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 2rem 0;
+    position: sticky;
+    top: 20px;
+    z-index: 10;
+}
+
+.progress-step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #e9ecef;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.progress-step.completed {
+    background: #447099;
+    color: white;
+}
+
+.progress-step.active {
+    background: #ffd700;
+    color: #333;
+    transform: scale(1.1);
+}
+
+.progress-line {
+    flex: 1;
+    height: 2px;
+    background: #e9ecef;
+    margin: 0 0.5rem;
+}
+
+.progress-line.completed {
+    background: #447099;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .tutorial-step {
+        padding: 1.5rem 1rem;
+        margin: 1rem 0;
+    }
+    
+    .step-counter {
+        position: static;
+        margin-bottom: 1rem;
+    }
+    
+    .code-editor {
+        font-size: 12px;
+        min-height: 100px;
+    }
+    
+    .CodeMirror {
+        font-size: 12px;
+        min-height: 100px;
+    }
+    
+    .tutorial-progress {
+        padding: 0.5rem;
+        position: relative;
+        top: auto;
+    }
+    
+    .progress-step {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Dark theme support for code editors */
+@media (prefers-color-scheme: dark) {
+    .code-editor {
+        background: #1e1e1e;
+        color: #d4d4d4;
+        border-color: #404040;
+    }
+    
+    .tutorial-step {
+        background: #2d2d2d;
+        border-color: #404040;
+    }
+    
+    .success-message {
+        background: #1e3a3a;
+        border-color: #16a085;
+        color: #52c3a6;
+    }
+    
+    .error-message {
+        background: #3a1e1e;
+        border-color: #e74c3c;
+        color: #ff6b6b;
+    }
+}
+
+/* Enhanced syntax highlighting for better readability */
+.code-editor::placeholder {
+    color: #6c757d;
+    opacity: 0.8;
+}
+
+/* Focus indicators for accessibility */
+.check-button:focus,
+.code-editor:focus {
+    outline: 2px solid #447099;
+    outline-offset: 2px;
+}
+
+/* Improved spacing for better readability */
+.tutorial-step p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.tutorial-step li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+/* Enhanced button states */
+.check-button:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.check-button:disabled:hover {
+    background: #6c757d;
+    transform: none;
+    box-shadow: none;
+}
