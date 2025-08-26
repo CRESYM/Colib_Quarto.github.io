@@ -41,21 +41,21 @@ It is not recommended for lower frequencies, shorter range transmission lines, o
 
 ### Line parameters
 
-|| Parameters    | details  | Unit |
-|| --------------| ------ | ----- |
-|| $Z_C$ | Characteristic impedance of the grid at a given frequency |$\Omega$ |
-|| $e_{R_h}(t)$ | History term of the phase to ground voltage of the receiving end| $V$ |
-|| $e_{S_h}(t)$ | History term of the phase to ground voltage of the sending end | $V$ |
+| Parameters | Details | Unit |
+| --- | --- | --- |
+| $Z_C$ | Characteristic impedance of the grid at a given frequency |$\Omega$ |
+| $e_{R_h}(t)$ | History term of the phase to ground voltage of the receiving end| $V$ |
+| $e_{S_h}(t)$ | History term of the phase to ground voltage of the sending end | $V$ |
 
 ### Line variables
 
-|| Variable    | details  | Unit |
-|| --- | --- | --- |
-|| $Z_C(\omega)$ | Characteristic impedance of the grid at a given frequency |$\Omega$ |
-|| $v_S(t)$ | Phase to ground voltage at the sending end at time $t$ | $V$ |
-|| $e_S(t)$ | Phase to ground voltage across the characteristic impedance at the sending end at time $t$ | $V$ |
-|| $v_R(t)$ | Phase to ground voltage at the receiving end at time $t$ | $V$ |
-|| $e_R(t)$ |  Phase to ground voltage across the characteristic impedance at the receiving end at time $t$ | $V$ |
+| Variable | Details | Unit |
+| --- | --- | --- |
+| $Z_C(\omega)$ | Characteristic impedance of the grid at a given frequency |$\Omega$ |
+| $v_S(t)$ | Phase to ground voltage at the sending end at time $t$ | $V$ |
+| $e_S(t)$ | Phase to ground voltage across the characteristic impedance at the sending end at time $t$ | $V$ |
+| $v_R(t)$ | Phase to ground voltage at the receiving end at time $t$ | $V$ |
+| $e_R(t)$ |  Phase to ground voltage across the characteristic impedance at the receiving end at time $t$ | $V$ |
 
 
 
@@ -64,8 +64,8 @@ It is not recommended for lower frequencies, shorter range transmission lines, o
 
 $$
 \begin{align}
-v_S(t) &= e_S(t) + e_{S_h}(t) \\
-v_R(t) &= e_R(t) + e_{R_h}(t)
+v_S(t) = e_S(t) + e_{S_h}(t) \\
+v_R(t) = e_R(t) + e_{R_h}(t)
 \end{align}
 $$
 
@@ -77,31 +77,27 @@ For this model, the distributed parameter transmission line equations are consid
 
 $$
 \begin{align}
-V_S(\omega) &= \cosh(\gamma (\omega) l)V_R(\omega) - Z_C(\omega) \sinh(\gamma (\omega) l)I_R(\omega) \\
-I_S(\omega) &= \frac{1}{Z_C(\omega)} \sinh(\gamma (\omega) l)V_R(\omega) - \cosh(\gamma (\omega) l)I_R(\omega)
+V_S(\omega) = \cosh(\gamma (\omega) l)V_R(\omega) - Z_C(\omega) \sinh(\gamma (\omega) l)I_R(\omega) \\
+I_S(\omega) = \frac{1}{Z_C(\omega)} \sinh(\gamma (\omega) l)V_R(\omega) - \cosh(\gamma (\omega) l)I_R(\omega)
 \end{align}
 $$
 
 where the propagation constant $\gamma = \sqrt{z(\omega)y(\omega)} = \alpha(\omega) + j\beta(\omega)$ and the characteristic impedance $Z_C = \sqrt{\frac{z(\omega)}{y(\omega)}}$ are frequency-dependent. These equations correspond to the solution in frequency domain for the general transmission line. Transforming these equations to the time domain allows to perform transient analysis of the transmission line, but it is not trivial since the equations for wave propagations obtained in the Constant Parameter Line Model are obtained by assuming independence of the line parameters with respect to the grid frequency. To do so, the model proposed will convert the frequency-domain equations to the time-domain numerically. 
 
-The developed model assumes the following equivalent circuit:
+The developed model assumes the following equivalent circuit (@fig-fd-scheme):
 
 
-![Equivalent circuit of the frequency dependent line](FD_scheme.svg){fig-align="center"}
-
-::: {.figure-caption}
-**Figure 1:** Equivalent circuit of the frequency dependent line.
-:::
+![Equivalent circuit of the frequency dependent line](FD_scheme.svg){#fig-fd-scheme fig-align="center"}
 
 
 The proposed equations for the travelling waves in this equivalent circuit are the following:
 
 $$
 \begin{align}
-f_S(t) &= v_S(t) + e_S(t) \\
-f_R(t) &= v_R(t) + e_R(t) \\
-b_S(t) &= v_S(t) - e_S(t) \\
-b_R(t) &= v_R(t) - e_R(t)
+f_S(t) = v_S(t) + e_S(t) \\
+f_R(t) = v_R(t) + e_R(t) \\
+b_S(t) = v_S(t) - e_S(t) \\
+b_R(t) = v_R(t) - e_R(t)
 \end{align}
 $$
 
@@ -109,10 +105,10 @@ Where $f_S$ and $b_S$ are the forward and backward travelling waves at the sourc
 
 $$
 \begin{align}
-F_S(\omega) &= V_S(\omega) + Z_{eq}(\omega) I_S(\omega) \\
-F_R(\omega) &= V_R(\omega) + Z_{eq}(\omega) I_R(\omega) \\
-B_S(\omega) &= V_S(\omega) - Z_{eq}(\omega) I_S(\omega) \\
-B_R(\omega) &= V_R(\omega) - Z_{eq}(\omega) I_R(\omega)
+F_S(\omega) = V_S(\omega) + Z_{eq}(\omega) I_S(\omega) \\
+F_R(\omega) = V_R(\omega) + Z_{eq}(\omega) I_R(\omega) \\
+B_S(\omega) = V_S(\omega) - Z_{eq}(\omega) I_S(\omega) \\
+B_R(\omega) = V_R(\omega) - Z_{eq}(\omega) I_R(\omega)
 \end{align}
 $$
 
@@ -122,8 +118,8 @@ These equations, alongisde the tranmission line equations, can be combined to ob
 
 $$
 \begin{align}
-B_S(\omega) &= A_1(\omega) F_R(\omega) \\
-B_R(\omega) &= A_1(\omega) F_S(\omega)
+B_S(\omega) = A_1(\omega) F_R(\omega) \\
+B_R(\omega) = A_1(\omega) F_S(\omega)
 \end{align}
 $$
 
@@ -131,8 +127,8 @@ where $A_1 = e^{-\gamma(\omega) l} = \frac{1}{\cosh(\gamma(\omega)l) + \sinh(\ga
 
 $$
 \begin{align}
-b_S(t) &= a_1(t) * f_R(t) \\
-b_R(t) &= a_1(t) * f_S(t)
+b_S(t) = a_1(t) * f_R(t) \\
+b_R(t) = a_1(t) * f_S(t)
 \end{align}
 $$
 
@@ -140,8 +136,8 @@ where the $*$ represents the convolution product, and $a_1(t)$ represents the we
 
 $$
 \begin{align}
-b_S(t) &= \int_{-\infty}^{\infty} f_R(t - u) a_1(u) du = \int_{\tau}^{\infty} f_R(t - u) a_1(u) du \\
-b_R(t) &= \int_{-\infty}^{\infty} f_S(t - u) a_1(u) du = \int_{\tau}^{\infty} f_S(t - u) a_1(u) du
+b_S(t) = \int_{-\infty}^{\infty} f_R(t - u) a_1(u) du = \int_{\tau}^{\infty} f_R(t - u) a_1(u) du \\
+b_R(t) = \int_{-\infty}^{\infty} f_S(t - u) a_1(u) du = \int_{\tau}^{\infty} f_S(t - u) a_1(u) du
 \end{align}
 $$
 
@@ -149,37 +145,29 @@ Where the integral prior to the time $\tau$ is zero, since the weight function i
 
 Since the terms $b_S$ and $b_R$ are obtained from historical values of voltages, they can be modelled as two voltage sources $e_{S_h}$ and $e_{R_h}$, obtaining the following equivalent circuit:
 
-![FD Thevenin Equivalent Circuit of a transmission line](FDLine_ThevEquiv.svg){fig-align="center"}
-
-::: {.figure-caption}
-**Figure 2:** Thevenin equivalent circuit of the frequency dependent line with history terms.
-:::
+![FD Thevenin Equivalent Circuit of a transmission line](FDLine_ThevEquiv.svg){#fig-fdline-thev-equiv fig-align="center"}
 
 
 which has the following circuit equations:
 
 $$
 \begin{align}
-v_S(t) &= e_S(t) + e_{S_h}(t) \\
-v_R(t) &= e_R(t) + e_{R_h}(t)
+v_S(t) = e_S(t) + e_{S_h}(t) \\
+v_R(t) = e_R(t) + e_{R_h}(t)
 \end{align}
 $$
 
-It can be converted into its Norton equivalent, as shown in the following schematic:
+It can be converted into its Norton equivalent, as shown in @fig-fdline-norton-equiv:
 
 
-![Norton Equivalent Circuit of a transmission line](FDLine_NortonEquiv.svg){fig-align="center"}
-
-::: {.figure-caption}
-**Figure 3:** Norton equivalent circuit of the frequency dependent line with history terms.
-:::
+![Norton Equivalent Circuit of a transmission line](FDLine_NortonEquiv.svg){#fig-fdline-norton-equiv fig-align="center"}
     
 where the equivalent current sources are calculated as:
 
 $$
 \begin{align}
-i_S(t) &= \frac{v_S(t)}{Z_C} - i_{S_h}(t) \\
-i_R(t) &= \frac{v_R(t)}{Z_C} - i_{R_h}(t)
+i_S(t) = \frac{v_S(t)}{Z_C} - i_{S_h}(t) \\
+i_R(t) = \frac{v_R(t)}{Z_C} - i_{R_h}(t)
 \end{align}
 $$
 
@@ -243,9 +231,9 @@ Since $Z_C$ has been expressed as a sum of exponential functions in time-domain,
 
 $$
 \begin{align}
-e_S(t) &= e_{S_1} + e_{S_2} + ... + e_{S_n} \\
-e_{S_i}(t) &= i_S(t) * e^{-\alpha_i t} = \int_{-\infty}^{\infty} i_S(t - u) e^{-\alpha_i u} du \\
-e_{S_i}(t) &= m_i e_{S_i}(t - \Delta t) + p_i i_S(t) + q_i i_S(t - \Delta t)
+e_S(t) = e_{S_1} + e_{S_2} + ... + e_{S_n} \\
+e_{S_i}(t) = i_S(t) * e^{-\alpha_i t} = \int_{-\infty}^{\infty} i_S(t - u) e^{-\alpha_i u} du \\
+e_{S_i}(t) = m_i e_{S_i}(t - \Delta t) + p_i i_S(t) + q_i i_S(t - \Delta t)
 \end{align}
 $$
 
@@ -253,8 +241,8 @@ Using the R-C equivalent circuit, the coeficients of this time-domain transforma
 
 $$
 \begin{align}
-m_i &= \frac{1-\frac{1}{2}(\alpha_i \Delta t)}{1+\frac{1}{2}(\alpha_i \Delta t)} \\
-p_i &= q_i = k_i \frac{\frac{\Delta t}{2}}{1+\frac{1}{2}(\alpha_i \Delta t)}
+m_i = \frac{1-\frac{1}{2}(\alpha_i \Delta t)}{1+\frac{1}{2}(\alpha_i \Delta t)} \\
+p_i = q_i = k_i \frac{\frac{\Delta t}{2}}{1+\frac{1}{2}(\alpha_i \Delta t)}
 \end{align}
 $$
 
@@ -266,8 +254,8 @@ where $R_S = R_0 + p$ is the equivalent constant resistance of the network at th
 
 $$
 \begin{align}
-e_{S_{hc}}(t) &= (\sum q_i) i_S(t - \tau) = q i_S(t - \tau) \\
-e_{S_{hv}}(t) &= \sum^{n}_{1} e_{S_i}(t - \tau)
+e_{S_{hc}}(t) = (\sum q_i) i_S(t - \tau) = q i_S(t - \tau) \\
+e_{S_{hv}}(t) = \sum^{n}_{1} e_{S_i}(t - \tau)
 \end{align}
 $$
 
@@ -279,8 +267,8 @@ where the coefficients, this time using the weight function terms $k_i'$ and $\b
 
 $$
 \begin{align}
-g_i &= \frac{1-\frac{1}{2}(\beta_i \Delta t)}{1+\frac{1}{2}(\beta_i \Delta t)} \\
-c_i &= d_i = k_i' \frac{\frac{\Delta t}{2}}{1+\frac{1}{2}(\beta_i \Delta t)}
+g_i = \frac{1-\frac{1}{2}(\beta_i \Delta t)}{1+\frac{1}{2}(\beta_i \Delta t)} \\
+c_i = d_i = k_i' \frac{\frac{\Delta t}{2}}{1+\frac{1}{2}(\beta_i \Delta t)}
 \end{align}
 $$
 
@@ -298,10 +286,10 @@ The history terms that have to be calculated at each step for one of the sides a
 
 $$
 \begin{align}
-e_{S_{hc}}(t) &= q i_S(t - \tau) \\
-e_{S_{hv}}(t) &= \sum e_{S_i}(t - \Delta t) \\
-b_{S_h}(t) &= \sum g_i b_{S_i}(t - \Delta t) \\
-b_S(t) &= c f_R(t - \tau) + d f_R(t - \tau - \Delta t) + b_{S_h}(t)
+e_{S_{hc}}(t) = q i_S(t - \tau) \\
+e_{S_{hv}}(t) = \sum e_{S_i}(t - \Delta t) \\
+b_{S_h}(t) = \sum g_i b_{S_i}(t - \Delta t) \\
+b_S(t) = c f_R(t - \tau) + d f_R(t - \tau - \Delta t) + b_{S_h}(t)
 \end{align}
 $$
 

@@ -50,38 +50,38 @@ Its validity is for steady-state analysis of transmission lines in any configura
 
 ### Line parameters
 
-|| Parameters    | details  | Unit |
-|| --------------| ------ | ----- |
-||$l$ | Length of the line | $m$ |
-||$r$ | Resistance of the line per meter | $\Omega m^{-1}$ |
-||$x_L$ | Reactance of the line per meter | $\Omega m^{-1}$ |
-||$z$ | Impedance of the line per meter $z = r + jx_L$ | $\Omega m^{-1}$ |
-||$Z$ | Total impedance of the line $Z = zl$ | $\Omega$ |
-||$Z'$ | Equivalent impedance of the line | $\Omega$ |
-||$g$ | Conductance of the line per meter | $\Omega^{-1} m^{-1}$ |
-||$b$ | Susceptance of the line per meter | $\Omega^{-1} m^{-1}$ |
-||$y$ | Equivalent admittance of the line per meter $y = g + jb$ | $\Omega^{-1} m^{-1}$ |
-||$Y$ | Total admittance of the line $Y = yl$ | $\Omega^{-1}$ |
-||$Y'$ | Equivalent admittance of the line | $\Omega^{-1}$ |
-||$Z_C$ | Characteristic impedance of the line $Z_C = \sqrt(\frac{z}{y})$ | $\Omega$ |
-||$\gamma$ | Propagation constant of the line $Z_C = \sqrt(zy)$ | $m^{-1}$ |
+| Parameters | Details  | Unit |
+| ---------- | ------ | ----- |
+|$l$ | Length of the line | $m$ |
+|$r$ | Resistance of the line per meter | $\Omega m^{-1}$ |
+|$x_L$ | Reactance of the line per meter | $\Omega m^{-1}$ |
+|$z$ | Impedance of the line per meter $z = r + jx_L$ | $\Omega m^{-1}$ |
+|$Z$ | Total impedance of the line $Z = zl$ | $\Omega$ |
+|$Z'$ | Equivalent impedance of the line | $\Omega$ |
+|$g$ | Conductance of the line per meter | $\Omega^{-1} m^{-1}$ |
+|$b$ | Susceptance of the line per meter | $\Omega^{-1} m^{-1}$ |
+|$y$ | Equivalent admittance of the line per meter $y = g + jb$ | $\Omega^{-1} m^{-1}$ |
+|$Y$ | Total admittance of the line $Y = yl$ | $\Omega^{-1}$ |
+|$Y'$ | Equivalent admittance of the line | $\Omega^{-1}$ |
+|$Z_C$ | Characteristic impedance of the line $Z_C = \sqrt(\frac{z}{y})$ | $\Omega$ |
+|$\gamma$ | Propagation constant of the line $Z_C = \sqrt(zy)$ | $m^{-1}$ |
 
 
 ### Line variables
 
-|| Variable    | details  | Unit |
-|| --------------| ------ | ----- |
-|| $V_{S}$ | Complex phase-to-ground voltage of the source terminal | $V$ |
-|| $I_{S}$ | Complex current injected by the source terminal into the line | $A$ |
-|| $V_{R}$ | Complex phase-to-ground voltage of the receiver terminal | $V$ |
-|| $I_{R}$ | Complex current injected by the receiver terminal into the line | $A$ |
+| Variable| Details| Unit |
+| --------| ------ | -----|
+| $V_{S}$ | Complex phase-to-ground voltage of the source terminal | $V$ |
+| $I_{S}$ | Complex current injected by the source terminal into the line | $A$ |
+| $V_{R}$ | Complex phase-to-ground voltage of the receiver terminal | $V$ |
+| $I_{R}$ | Complex current injected by the receiver terminal into the line | $A$ |
 
 ### Equations
 
 $$
 \begin{align}
-V_S &= (1 + \frac{1}{2}Y'Z')V_R - Z' I_R \\
-I_S &= Y'(1 + \frac{1}{4}Y'Z')V_R - (1 + \frac{1}{2}Y'Z') I_R
+V_S = (1 + \frac{1}{2}Y'Z')V_R - Z' I_R \\
+I_S = Y'(1 + \frac{1}{4}Y'Z')V_R - (1 + \frac{1}{2}Y'Z') I_R
 \end{align}
 $$
 
@@ -97,8 +97,8 @@ The line parameters are obtained from the per-unit length values of resistance, 
 
 $$
 \begin{align}
-Z &= zl = (r + jx) l = (r + j\omega l_{ind})l \\
-Y &= yl = (g + jb)l = (g + j\omega c)l
+Z = zl = (r + jx) l = (r + j\omega l_{ind})l \\
+Y = yl = (g + jb)l = (g + j\omega c)l
 \end{align}
 $$
 
@@ -163,18 +163,14 @@ The distributed parameters line model considers the distribution of the impedanc
 
 Suppose a line with its circuit parameters $z = r + jx$ and $ y = g + jb$ calculated as the shown in the previous section. An infinitesimal section of the line, of length $dx$, can be represented by the following schematic:
 
-![Schematic of the distributed parameter transmission line](distLine.svg){fig-align="center"}
-
-::: {.figure-caption}
-**Figure 1:** Schematic of the distributed parameter transmission line.
-:::
+![Schematic of the distributed parameter transmission line](distLine.svg){#fig-distLine}
 
 Using the Kirchhoff laws, the following equations can be obtained:
 
 $$
 \begin{align}
-V(x+dx) &= V(x) + zdxI(x) \\
-I(x+dx) &= I(x) + ydxV(x)
+V(x+dx) = V(x) + zdxI(x) \\
+I(x+dx) = I(x) + ydxV(x)
 \end{align}
 $$
 
@@ -182,8 +178,8 @@ Which can be expressed in their differential form for $dx \rightarrow 0$ as:
 
 $$
 \begin{align}
-\frac{dV}{dx} &= zI(x) \\
-\frac{dI}{dx} &= yV(x)
+\frac{dV}{dx} = zI(x) \\
+\frac{dI}{dx} = yV(x)
 \end{align}
 $$
 
@@ -203,10 +199,10 @@ with $Z_c$ being the characteristic impedance of the line, defined as $Z_c = \sq
 
 $$
 \begin{align}
-V_R &= C_1 + C_2 \\
--I_R &= \frac{C_1}{Z_c} - \frac{C_2}{Z_c} \\
-C_1 &= \frac{V_R - Z_cI_R}{2} \\
-C_2 &= \frac{V_R + Z_cI_R}{2}
+V_R = C_1 + C_2 \\
+-I_R = \frac{C_1}{Z_c} - \frac{C_2}{Z_c} \\
+C_1 = \frac{V_R - Z_cI_R}{2} \\
+C_2 = \frac{V_R + Z_cI_R}{2}
 \end{align}
 $$
 
@@ -214,8 +210,8 @@ Substituting this in the general expression for the voltage and current and rear
 
 $$
 \begin{align}
-V(x) &= \frac{V_R}{2} \left( e^{\gamma x} + e^{-\gamma x} \right) - \frac{Z_cI_R}{2} \left( e^{\gamma x} - e^{-\gamma x} \right) \\
-I(x) &= \frac{V_R}{2Z_c} \left( e^{\gamma x} - e^{-\gamma x} \right) - \frac{I_R}{2} \left( e^{\gamma x} + e^{-\gamma x} \right)
+V(x) = \frac{V_R}{2} \left( e^{\gamma x} + e^{-\gamma x} \right) - \frac{Z_cI_R}{2} \left( e^{\gamma x} - e^{-\gamma x} \right) \\
+I(x) = \frac{V_R}{2Z_c} \left( e^{\gamma x} - e^{-\gamma x} \right) - \frac{I_R}{2} \left( e^{\gamma x} + e^{-\gamma x} \right)
 \end{align}
 $$
 
@@ -223,8 +219,8 @@ Which can be expressed in terms of hyperbolic functions as:
 
 $$
 \begin{align}
-V(x) &= V_R \cosh(\gamma x) - Z_cI_R \sinh(\gamma x) \\
-I(x) &= \frac{V_R}{Z_c} \sinh(\gamma x) - I_R \cosh(\gamma x)
+V(x) = V_R \cosh(\gamma x) - Z_cI_R \sinh(\gamma x) \\
+I(x) = \frac{V_R}{Z_c} \sinh(\gamma x) - I_R \cosh(\gamma x)
 \end{align}
 $$
 
@@ -250,18 +246,14 @@ $$
 
 The pi-equivalent circuit corresponds to a representation of the line with the line admittance equally lumped into the ends of the line. The equivalent circuit proposed is the following:
 
-![Pi-equivalent circuit of the lumped admittance transmission line](pi_eq_scheme.svg){fig-align="center"}
-
-::: {.figure-caption}
-**Figure 2:** Pi-equivalent circuit of the lumped admittance transmission line.
-:::
+![Pi-equivalent circuit of the lumped admittance transmission line](pi_eq_scheme.svg){#fig-pi-eq-scheme}
 
 In this case, applying the Kirchhoff laws yields the following equations:
 
 $$
 \begin{align}
-I_S &= -I_R + \frac{1}{2} V_R Y' + \frac{1}{2} V_S Y' \\
-V_S &= V_R + (-I_R + \frac{1}{2} V_R Y')Z' = V_R (1 + \frac{1}{2}Y'Z') -I_R Z'
+I_S = -I_R + \frac{1}{2} V_R Y' + \frac{1}{2} V_S Y' \\
+V_S = V_R + (-I_R + \frac{1}{2} V_R Y')Z' = V_R (1 + \frac{1}{2}Y'Z') -I_R Z'
 \end{align}
 $$
  
@@ -289,8 +281,8 @@ For long-range transmission lines, the exact solution has already been derived, 
 
 $$
 \begin{align}
-Z' &= Z_C \sinh(\gamma l) \\
-1 + \frac{1}{2}Y'Z' &= \cosh(\gamma l)
+Z' = Z_C \sinh(\gamma l) \\
+1 + \frac{1}{2}Y'Z' = \cosh(\gamma l)
 \end{align}
 $$
 
@@ -302,9 +294,9 @@ where $Z$ is the series impedance of the line, and $\frac{sinh(\gamma l)}{\gamma
 
 $$
 \begin{align}
-1 + \frac{1}{2}Y'Z_C \sinh(\gamma l) &= \cosh(\gamma l) \\
-\frac{1}{2}Y' &= \frac{1}{Z_C} \frac{\cosh(\gamma l) - 1}{\sinh(\gamma l)} = \sqrt{\frac{y}{z}} \tanh(\frac{\gamma l}{2}) \\
-\frac{1}{2}Y' &= \frac{Y}{2} \frac{\tanh(\frac{\gamma l}{2})}{\frac{\gamma l}{2}}
+1 + \frac{1}{2}Y'Z_C \sinh(\gamma l) = \cosh(\gamma l) \\
+\frac{1}{2}Y' = \frac{1}{Z_C} \frac{\cosh(\gamma l) - 1}{\sinh(\gamma l)} = \sqrt{\frac{y}{z}} \tanh(\frac{\gamma l}{2}) \\
+\frac{1}{2}Y' = \frac{Y}{2} \frac{\tanh(\frac{\gamma l}{2})}{\frac{\gamma l}{2}}
 \end{align}
 $$
 
@@ -320,9 +312,9 @@ For lower values of $l$, $\frac{\sinh(\gamma l)}{\gamma l} \approx 1$ and $\frac
 
 This model has been successfully implemented in :
 
-|| Software      | URL | Language | Open-Source License | Last consulted date | Comments |
-|| --------------| --- | --------- | ------------------- |------------------- | -------- |
-|| dynawo | [Dynawo public library](https://github.com/dynawo/dynawo/blob/master/dynawo/sources/Models/Modelica/Dynawo/Electrical/Lines/Line.mo) | modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/)  | 24/05/2024 | - |
-|| OpenIPSL | [Link](https://github.com/OpenIPSL/OpenIPSL/blob/master/OpenIPSL/Electrical/Branches/PwLine.mo ) | modelica | [BSD-3-Clause](https://opensource.org/licenses/BSD-3-Clause) | 24/05/2024 | - |
+| Software      | URL | Language | Open-Source License | Last consulted date | Comments |
+| --------------| --- | --------- | ------------------- |------------------- | -------- |
+| dynawo | [Dynawo public library](https://github.com/dynawo/dynawo/blob/master/dynawo/sources/Models/Modelica/Dynawo/Electrical/Lines/Line.mo) | modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/)  | 24/05/2024 | - |
+| OpenIPSL | [Link](https://github.com/OpenIPSL/OpenIPSL/blob/master/OpenIPSL/Electrical/Branches/PwLine.mo ) | modelica | [BSD-3-Clause](https://opensource.org/licenses/BSD-3-Clause) | 24/05/2024 | - |
 
 ## References

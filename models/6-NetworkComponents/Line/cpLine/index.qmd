@@ -34,33 +34,31 @@ It is valid when dealing with constant grid frequency and when the line paramete
 
 ### Line parameters
 
-|| Parameters    | details  | Unit |
-|| --------------| ------ | ----- |
-|| $l$ | Length of the line | $m$ |
-|| $L$ | Inductance of the line per meter | $H m^{-1}$ |
-|| $C$ | Capacitance of the line per meter | $F m^{-1}$ |
-|| $r$ | Resistance of the line per meter | $\Omega m^{-1}$ |
-|| $x_L$ | Reactance of the line per meter | $\Omega m^{-1}$ |
-|| $z$ | Impedance of the line per meter $z = r + jx_L$ | $\Omega m^{-1}$ |
-|| $g$ | Conductance of the line per meter | $\Omega^{-1} m^{-1}$ |
-|| $b$ | Susceptance of the line per meter | $\Omega^{-1} m^{-1}$ |
-|| $y$ | Equivalent admittance of the line per meter $y = g + jb$ | $\Omega^{-1} m^{-1}$ |
-|| $\tau$ | Time delay representing the propagation delay or travel time of a wave $\tau = l\sqrt(LC)$| $s$ |
-|| $Z_C$ | Characteristic impedance of the transmission line $Z_C = \sqrt(\frac{z(\omega)}{y(\omega)})$ | $\Omega$ |
-|| $i_{R_h}(t - \tau)$| History term for the complex current at the receiving end | $A$ |
-|| $i_{S_h}(t - \tau)$ | History term for the complex current at the sending end | $A$ |
+| Parameters | Details | Unit |
+| --- | --- | --- |
+| $l$ | Length of the line | $m$ |
+| $L$ | Inductance of the line per meter | $H m^{-1}$ |
+| $C$ | Capacitance of the line per meter | $F m^{-1}$ |
+| $r$ | Resistance of the line per meter | $\Omega m^{-1}$ |
+| $x_L$ | Reactance of the line per meter | $\Omega m^{-1}$ |
+| $z$ | Impedance of the line per meter $z = r + jx_L$ | $\Omega m^{-1}$ |
+| $g$ | Conductance of the line per meter | $\Omega^{-1} m^{-1}$ |
+| $b$ | Susceptance of the line per meter | $\Omega^{-1} m^{-1}$ |
+| $y$ | Equivalent admittance of the line per meter $y = g + jb$ | $\Omega^{-1} m^{-1}$ |
+| $\tau$ | Time delay representing the propagation delay or travel time of a wave $\tau = l\sqrt(LC)$| $s$ |
+| $Z_C$ | Characteristic impedance of the transmission line $Z_C = \sqrt(\frac{z(\omega)}{y(\omega)})$ | $\Omega$ |
+| $i_{R_h}(t - \tau)$| History term for the complex current at the receiving end | $A$ |
+| $i_{S_h}(t - \tau)$ | History term for the complex current at the sending end | $A$ |
 
 
 ### Line variables
 
-|| Variable    | details  | Unit |
-|| --------------| ------ | ----- |
-|| Variable/Parameter | Description | Unit |
-|| --- | --- | --- |
-|| $v_S(t)$ | Complex phase-to-ground voltage at the sending end at time $t$ | $V$ |
-|| $i_S(t)$ | Complex current at the sending end at time $t$ | $A$ |
-|| $v_R(t)$ | Complex phase-to-ground voltage at the receiving end at time $t$ | $V$ |
-|| $i_R(t)$ | Complex current at the receiving end at time $t$ | $A$ |
+| Variable | Details | Unit |
+| --- | --- | --- |
+| $v_S(t)$ | Complex phase-to-ground voltage at the sending end at time $t$ | $V$ |
+| $i_S(t)$ | Complex current at the sending end at time $t$ | $A$ |
+| $v_R(t)$ | Complex phase-to-ground voltage at the receiving end at time $t$ | $V$ |
+| $i_R(t)$ | Complex current at the receiving end at time $t$ | $A$ |
 
 
 ### Equations
@@ -69,8 +67,8 @@ The system of equations to solve at each time step is:
 
 $$
 \begin{align}
-v_S(t) - Z_C i_S(t) &= Z_C i_{S_h}(t-\tau) \\
-v_R(t) - Z_C i_R(t) &= Z_C i_{R_h}(t-\tau)
+v_S(t) - Z_C i_S(t) = Z_C i_{S_h}(t-\tau) \\
+v_R(t) - Z_C i_R(t) = Z_C i_{R_h}(t-\tau)
 \end{align}
 $$
 
@@ -78,8 +76,8 @@ with the history terms computed as:
 
 $$
 \begin{align}
-i_{S_h}(t - \tau) &= v_R(t - \tau) + Z_C i_R(t - \tau) \\
-i_{R_h}(t - \tau) &= v_S(t - \tau) + Z_C i_S(t - \tau)
+i_{S_h}(t - \tau) = v_R(t - \tau) + Z_C i_R(t - \tau) \\
+i_{R_h}(t - \tau) = v_S(t - \tau) + Z_C i_S(t - \tau)
 \end{align}
 $$
 
@@ -91,8 +89,8 @@ Consider a line with a given inductance (L) and capacitance (C), and assume thei
 
 $$
 \begin{align}
-\frac{\partial v}{\partial x} &= -L \frac{\partial i}{\partial t} \\
-\frac{\partial i}{\partial x} &= -C \frac{\partial v}{\partial t}
+\frac{\partial v}{\partial x} = -L \frac{\partial i}{\partial t} \\
+\frac{\partial i}{\partial x} = -C \frac{\partial v}{\partial t}
 \end{align}
 $$
 
@@ -119,8 +117,8 @@ Recovering the $\pi$-equivalent model equations, the relationship between the vo
 
 $$
 \begin{align}
-v_S(t) - Z_C i_S(t) &= Z_C i_{S_h}(t-\tau) \\
-v_R(t) - Z_C i_R(t) &= Z_C i_{R_h}(t-\tau)
+v_S(t) - Z_C i_S(t) = Z_C i_{S_h}(t-\tau) \\
+v_R(t) - Z_C i_R(t) = Z_C i_{R_h}(t-\tau)
 \end{align}
 $$
 
@@ -128,8 +126,8 @@ where $\tau = \frac{l}{\mathcal{v}} = l\sqrt{LC}$ is the time delay of the wave 
 
 $$
 \begin{align}
-i_{S_h}(t - \tau) &= v_R(t - \tau) + Z_C i_R(t - \tau) \\
-i_{R_h}(t - \tau) &= v_S(t - \tau) + Z_C i_S(t - \tau)
+i_{S_h}(t - \tau) = v_R(t - \tau) + Z_C i_R(t - \tau) \\
+i_{R_h}(t - \tau) = v_S(t - \tau) + Z_C i_S(t - \tau)
 \end{align}
 $$
 

@@ -38,11 +38,7 @@ It cannot be used to perform transient analysis, as it does not consider the tim
 
 There are two physical parts of the transformers relevant for the model described, as seen in the following schematic representation @kothari2010electric:
 
-![Transformer schematic representation](Trafo_scheme.svg){fig-align="center"}
-
-::: {.figure-caption}
-**Figure 1:** Transformer schematic representation
-:::
+![Transformer schematic representation](Trafo_scheme.svg){#fig-trafo-scheme fig-align="center"}
 
 **Windings**
 
@@ -59,46 +55,46 @@ The core has two primary functions. The more obvious one, it acts as the support
 
 **Variables**
 
-|| Variable    | details  | Unit |
-|| --------------| ------ | ----- |
-|| $v^H$ | HV side terminal phase-to-ground voltage phasor | $pu$ |
-|| $v^L$ | LV side terminal phase-to-ground voltage phasor | $pu$ |
-|| $i^H$ | HV side current phasor | $pu$ |
-|| $i^L$ | LV side current phasor | $pu$ |
-|| $P^H$ | HV side active power | $pu$ |
-|| $P^L$ | LV side active power | $pu$ |
-|| $Q^H$ | HV side reactive power | $pu$ |
-|| $Q^L$ | LV side reactive power | $pu$ |
+| Variable    | details  | Unit |
+| --------------| ------ | ----- |
+| $v^H$ | HV side terminal phase-to-ground voltage phasor | $pu$ |
+| $v^L$ | LV side terminal phase-to-ground voltage phasor | $pu$ |
+| $i^H$ | HV side current phasor | $pu$ |
+| $i^L$ | LV side current phasor | $pu$ |
+| $P^H$ | HV side active power | $pu$ |
+| $P^L$ | LV side active power | $pu$ |
+| $Q^H$ | HV side reactive power | $pu$ |
+| $Q^L$ | LV side reactive power | $pu$ |
 
 
 **Parameters**
 
-|| Parameter    | details  | Unit |
-|| --------------| ------ | ----- |
-|| $N_1$ | Number of turns of the primary winding | unitless |
-|| $N_2$ | Number of turns of the secondary winding | unitless |
-|| $a$| Transformation ratio $a = \frac{N_1}{N_2}$ | $pu$ |
-|| $S_{base}$ | Transformer rated power | $VA$ |
-|| $V_{base, L}$ | LV side rated voltage | $V$ |
-|| $V_{base, H}$ | HV side rated voltage | $V$ |
-|| $I_{base, L}$ | LV side base current $I_{base} = \frac{S_{base}}{V_{base, L}}$ | $A$ |
-|| $I_{base, H}$ | HV side base current $I_{base} = \frac{S_{base}}{V_{base, H}}$  | $A$ |
-|| $Z_{base, L}$ | LV side base impedance $R_{base} = \frac{V_{base, L}^2}{S_{base}}$ | $\Omega$ |
-|| $Z_{base, H}$ | HV side base impedance $R_{base} = \frac{V_{base, H}^2}{S_{base}}$  | $\Omega$ |
-|| $V_{oc}$ | Open-circuit voltage | $V$ | 
-|| $P_{oc}$ | Open-circuit active power | $W$ |
-|| $I_{oc}$ | Open-circuit current | $A$ |
-|| $V_{sc}$ | Short-circuit voltage | $V$ | 
-|| $P_{sc}$ | Short-circuit active power | $W$ |
-|| $I_{sc}$ | Short-circuit current | $A$ |
-|| $R_{eq}$ | Equivalent resistance $R_{eq} = R_{sc} = \frac{P_{sc}}{I_{sc}^2}$| $\Omega$ |
-|| $\|Z_{eq}\|$ | Module of the equivalent impedance $\|Z_{eq}\| = \|Z_{sc}\| = \frac{P_{sc}}{I_{sc}^2}$| $\Omega$ |
-|| $X_{eq}$ | Equivalent reactance $X_{eq} = X_{sc} = \sqrt(\|Z_{sc}\|^2 - R_{sc}^2)$ | $\Omega$ |
-|| $R_{c}$ | Magnetizing resistance $R_{c} = \frac{V_{oc}^2}{P_{oc}}$| $\Omega$ |
-|| $\|Z_{\varphi}\|$ | Module of the magnetizing impedance $\|Z_{\varphi}\| = \frac{V_{oc}}{I_{oc}}$ | $\Omega$ |
-|| $X_{m}$ | Magnetizing reactance $X_{m} = \frac{1}{\sqrt(\frac{1}{\|Z_{\varphi}\|^2} - \frac{1}{R_{c}^2})}$ | $\Omega$ |
-|| $Z_{eq}$ | Equivalent impedance $Z_{eq} = R_{eq} + jX_{eq}$| $\Omega$ |
-|| $Y_{\varphi}$ | Magnetizing admittance $Y_{\varphi} = \frac{1}{R_{c} + jX_{m}}$| $\Omega^{-1}$ |
+| Parameter    | details  | Unit |
+| --------------| ------ | ----- |
+| $N_1$ | Number of turns of the primary winding | unitless |
+| $N_2$ | Number of turns of the secondary winding | unitless |
+| $a$| Transformation ratio $a = \frac{N_1}{N_2}$ | $pu$ |
+| $S_{base}$ | Transformer rated power | $VA$ |
+| $V_{base, L}$ | LV side rated voltage | $V$ |
+| $V_{base, H}$ | HV side rated voltage | $V$ |
+| $I_{base, L}$ | LV side base current $I_{base} = \frac{S_{base}}{V_{base, L}}$ | $A$ |
+| $I_{base, H}$ | HV side base current $I_{base} = \frac{S_{base}}{V_{base, H}}$  | $A$ |
+| $Z_{base, L}$ | LV side base impedance $R_{base} = \frac{V_{base, L}^2}{S_{base}}$ | $\Omega$ |
+| $Z_{base, H}$ | HV side base impedance $R_{base} = \frac{V_{base, H}^2}{S_{base}}$  | $\Omega$ |
+| $V_{oc}$ | Open-circuit voltage | $V$ | 
+| $P_{oc}$ | Open-circuit active power | $W$ |
+| $I_{oc}$ | Open-circuit current | $A$ |
+| $V_{sc}$ | Short-circuit voltage | $V$ | 
+| $P_{sc}$ | Short-circuit active power | $W$ |
+| $I_{sc}$ | Short-circuit current | $A$ |
+| $R_{eq}$ | Equivalent resistance $R_{eq} = R_{sc} = \frac{P_{sc}}{I_{sc}^2}$| $\Omega$ |
+| $\|Z_{eq}\|$ | Module of the equivalent impedance $\|Z_{eq}\| = \|Z_{sc}\| = \frac{P_{sc}}{I_{sc}^2}$| $\Omega$ |
+| $X_{eq}$ | Equivalent reactance $X_{eq} = X_{sc} = \sqrt(\|Z_{sc}\|^2 - R_{sc}^2)$ | $\Omega$ |
+| $R_{c}$ | Magnetizing resistance $R_{c} = \frac{V_{oc}^2}{P_{oc}}$| $\Omega$ |
+| $\|Z_{\varphi}\|$ | Module of the magnetizing impedance $\|Z_{\varphi}\| = \frac{V_{oc}}{I_{oc}}$ | $\Omega$ |
+| $X_{m}$ | Magnetizing reactance $X_{m} = \frac{1}{\sqrt(\frac{1}{\|Z_{\varphi}\|^2} - \frac{1}{R_{c}^2})}$ | $\Omega$ |
+| $Z_{eq}$ | Equivalent impedance $Z_{eq} = R_{eq} + jX_{eq}$| $\Omega$ |
+| $Y_{\varphi}$ | Magnetizing admittance $Y_{\varphi} = \frac{1}{R_{c} + jX_{m}}$| $\Omega^{-1}$ |
 
 
 **Systems of equations**
@@ -107,12 +103,12 @@ The system of equations has 6 equations and 8 variables. The user must set a fix
 
 $$
 \begin{align}
-v^H &= v^L + Z_{eq}^H i^H\\
-i^H &= Y_{\varphi}^L v^L - i^L\\
-P^H &= \mathbb{R}(v^H i^{H*})\\
-Q^H &= \mathbb{I}(v^H i^{H*})\\
-P^L &= \mathbb{R}(v^L i^{L*})\\
-Q^L &= \mathbb{I}(v^L i^{L*})
+v^H = v^L + Z_{eq}^H i^H\\
+i^H = Y_{\varphi}^L v^L - i^L\\
+P^H = \mathbb{R}(v^H i^{H*})\\
+Q^H = \mathbb{I}(v^H i^{H*})\\
+P^L = \mathbb{R}(v^L i^{L*})\\
+Q^L = \mathbb{I}(v^L i^{L*})
 \end{align}
 $$
 
@@ -146,8 +142,8 @@ where $\frac{N_1}{N_2}$ is also called the *transformation ratio*. Focusing now 
 
 $$
 \begin{align}
-N_1 i_1 - N_2 i_2 &= 0\\
-\frac{i_1}{i_2} &= \frac{N_2}{N_1}
+N_1 i_1 - N_2 i_2 = 0\\
+\frac{i_1}{i_2} = \frac{N_2}{N_1}
 \end{align}
 $$
 
@@ -161,11 +157,7 @@ showing that the input power equals the output power. This is a result of the se
 
 The transformer can now be described with the following equivalent circuit, normally referred to as *equivalent-T circuit*, as an ideal transformer with external impedances that model all the losses:
 
-![T-equivalent circuit of a transformer](Tequiv_trafo.svg){fig-align="center"}
-
-::: {.figure-caption}
-**Figure 2:** T-equivalent circuit of a transformer
-:::
+![T-equivalent circuit of a transformer](Tequiv_trafo.svg){#fig-t-equivalent}
 
 The transformer has been omitted, and it can be thought as if it was at the right-most or the left-most part of the equivalent circuit, depending on the reference winding chosen.
 
@@ -173,8 +165,8 @@ Considering this non-ideal transformer, the relationship between currents and vo
 
 $$
 \begin{align}
-v_1 &= R_1 i_1 + \frac{d\Psi_1}{dt} \\
-v_2 &= R_2 i_2 + \frac{d\Psi_2}{dt}
+v_1 = R_1 i_1 + \frac{d\Psi_1}{dt} \\
+v_2 = R_2 i_2 + \frac{d\Psi_2}{dt}
 \end{align}
 $$
 
@@ -196,9 +188,9 @@ The exciting current is split into a core-loss component $i_c$ in phase with the
 
 $$
 \begin{align}
-X_{l_2}' &= (\frac{N_1}{N_2})^2 X_{l_2} \\ 
-R_{2}' &= (\frac{N_1}{N_2})^2 R_{2} \\ 
-v_{2}' &= \frac{N_1}{N_2}v_{2}
+X_{l_2}' = (\frac{N_1}{N_2})^2 X_{l_2} \\ 
+R_{2}' = (\frac{N_1}{N_2})^2 R_{2} \\ 
+v_{2}' = \frac{N_1}{N_2}v_{2}
 \end{align}
 $$
 
@@ -206,11 +198,7 @@ $$
 
 The equivalent-T circuit can be simplified by moving the shunt impedance to before the primary resistance and reactance, which enables the representation of both windings' impedance as a unified equivalent impedance. The error induced by displacing the shunt impedance is small, since it is only disregarding the voltage drop caused by the exciting current when passing through the primary impedance, and this current is much smaller than the primary current. The resulting equivalent circuit is called the *cantilever equivalent circuit*, which in this case is referred from the primary circuit, meaning that the secondary circuit quantities have to be rescaled using the transformation ratio. The following figure represents this equivalent circuit:
 
-![Cantilever equivalent circuit of a transformer](cantilever.svg){fig-align="center"}
-
-::: {.figure-caption}
-**Figure 3:** Cantilever equivalent circuit of a transformer
-:::
+![Cantilever equivalent circuit of a transformer](cantilever.svg){#fig-cantilever}
 
 where $R_{eq} = R_1 + R_2'$ and $X_{eq} = X_{l_1} + X_{l_2}'$. All the parameters of this equivalent model can be obtained after performing an open-circuit and a short-circuit test.
 
@@ -228,9 +216,9 @@ When doing the test, the measurements that are necessary to compute the equivale
 
 $$
 \begin{align}
-|Z_{eq}| &= |Z_{sc}| = \frac{V_{sc}}{I_{sc}} \\ 
-R_{eq} &= R_{sc} = \frac{P_{sc}}{I_{sc}^2} \\ 
-X_{eq} &= X_{sc} = \sqrt(|Z_{sc}|^2 - R_{sc}^2)
+|Z_{eq}| = |Z_{sc}| = \frac{V_{sc}}{I_{sc}} \\ 
+R_{eq} = R_{sc} = \frac{P_{sc}}{I_{sc}^2} \\ 
+X_{eq} = X_{sc} = \sqrt(|Z_{sc}|^2 - R_{sc}^2)
 \end{align}
 $$
 
@@ -248,9 +236,9 @@ With the measurements of the voltage applied $V_{oc}$, the open-circuit current 
 
 $$
 \begin{align}
-|Z_{\varphi}| &= \frac{V_{oc}}{I_{oc}} \\ 
-R_{c} &= \frac{V_{oc}^2}{P_{oc}} \\ 
-X_{m} &= \frac{1}{\sqrt((\frac{1}{|Z_{\varphi}|})^2 - (\frac{1}{R_c})^2)}
+|Z_{\varphi}| = \frac{V_{oc}}{I_{oc}} \\ 
+R_{c} = \frac{V_{oc}^2}{P_{oc}} \\ 
+X_{m} = \frac{1}{\sqrt((\frac{1}{|Z_{\varphi}|})^2 - (\frac{1}{R_c})^2)}
 \end{align}
 $$
 
@@ -260,8 +248,8 @@ The equivalent circuit will be expressed in Per-Unit system, converting the tran
 
 $$
 \begin{align}
-S_{base} (P_{base}, Q_{base}) &= V_{base} I_{base} \\
-Z_{base} (R_{base}, X_{base}) &= \frac{V_{base}}{I_{base}}
+S_{base} (P_{base}, Q_{base}) = V_{base} I_{base} \\
+Z_{base} (R_{base}, X_{base}) = \frac{V_{base}}{I_{base}}
 \end{align}
 $$
 
@@ -271,7 +259,8 @@ The $V_{base}$ value will change for each side of the transformer according to t
 
 This model has been successfully implemented in:
 
-|| Software | URL | Language | Open-Source License | Last consulted date | Comments |
-|| Dynawo | [Link](https://github.com/dynawo/dynawo/blob/master/dynawo/sources/Models/Modelica/Dynawo/Electrical/Transformers/TransformerFixedRatio.mo) | Modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/) |02/05/2024 | no comments |
+| Software | URL | Language | Open-Source License | Last consulted date | Comments |
+| --------------| --- | --------- | ------------------- |------------------- | -------- |
+| Dynawo | [Link](https://github.com/dynawo/dynawo/blob/master/dynawo/sources/Models/Modelica/Dynawo/Electrical/Transformers/TransformerFixedRatio.mo) | Modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/) | 02/05/2024 | no comments |
 
 ## References
