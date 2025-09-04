@@ -9,8 +9,8 @@ listing:
   type: default
   categories: numbered
   fields: [date, title, author, categories]
-  filter-ui: true
-  sort-ui: true
+  filter-ui: [title, date, author, categories]
+  sort-ui: [date, title, author, categories]
 ---
 
 This section contains test cases that demonstrate the functionality and behavior of the models in the Collaborative Open-Source Dynamic Simulation Library. Each test case provides detailed documentation including network descriptions, model configurations, input data, and simulation results.

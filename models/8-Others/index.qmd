@@ -9,8 +9,9 @@ listing:
     - ./
   exclude:
     layout: chapter
-  type: table
-  fields: [title, author]
-  sort: [title]
-  page-size: 50
+  type: default
+  categories: numbered
+  fields: [date, title, author, categories]
+  filter-ui: [title, date, author, categories]
+  sort-ui: [date, title, author, categories]
 ---
