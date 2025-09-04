@@ -136,25 +136,31 @@ See [Quarto Basics](../quartoBasics/index.qmd)
 
 ### Basic Quarto Workflow
 
-#### 1. Create Your Contribution
+#### 1. Clone the repository
+```bash
+git clone https://github.com/CRESYM/Colib_Quarto.github.io.git
+cd colib_quarto
+```
+
+#### 2. Create Your Contribution
 1. Download the appropriate template (model or test case)
 2. Open the `index.qmd` file in your preferred editor
 
-#### 2. Edit Your Content
+#### 3. Edit Your Content
 Replace the content of the `index.qmd` file with your own, following the guidelines in the template.
 
 :::{.callout-tip}
 - See [model template](../modelTemplate/index.qmd) and [test case template](../testSystemTemplate/index.qmd) for more details.
 :::
 
-#### 3. Preview Your Work
+#### 4. Preview Your Work
 To see how your page will look, run in your terminal:
 ```bash
 quarto preview index.qmd
 ```
 This opens a live preview in your browser that updates as you edit.
 
-#### 4. Render Final Output
+#### 5. Render Final Output
 To generate the final HTML file:
 ```bash
 quarto render index.qmd
@@ -162,12 +168,14 @@ quarto render index.qmd
 
 ## Submission Process
 
-1. **Prepare your contribution** using the appropriate template
-2. **Test your QMD file** by rendering it locally
-3. **Submit via GitHub** by creating an issue to the COLIB repository and attach your QMD file ([create an issue](https://github.com/CRESYM/Colib_Quarto.github.io/issues/new?assignees=GJCRESYM%2C+matoubongrain&labels=enhancement%2Cbug%2Cevaluate+component&projects=Colib0&template=Evaluate.yml&title=%5BName%2FID+of+the+model%2F+test+case+to+be+evaluated%5D%3A+))
+1. **Open a new issue** through GitHub before starting your contribution.([create an issue](https://github.com/CRESYM/Colib_Quarto.github.io/issues/new?assignees=GJCRESYM%2C+&labels=enhancement%2Cbug%2Cevaluate+component&projects=Colib0&template=Evaluate.yml&title=%5BName%2FID+of+the+model%2F+test+case+to+be+evaluated%5D%3A+))
+2. **Prepare your contribution** using the appropriate template (model/ test case) available in the repository
+3. **Test your QMD file** by rendering it locally
+4. **Submit via GitHub** to the same issue you created
+5. **Compress your QMD file** and related resources into a .zip archive, as GitHub does not support .qmd uploads directly
 4. **Review process** - our team will review your contribution
 5. **Publication** - approved contributions are merged and published
-
+   
 :::{.callout-tip}
 ## Pro Tips for Contributors
 

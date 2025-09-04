@@ -1,7 +1,7 @@
 project:
   type: website
   post-render: 
-    - "cp javascript/quarto_listing.js _site/site_libs/quarto-listing/quarto-listing.js"
+    - "./post-render.sh"
 
 website:
   favicon: assets/img/Logo_colib.svg
