@@ -79,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-title","listing-date","listing-author","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -1134,9 +1134,9 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="JTIzMTQx">#141 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JTIzMTQz">#143 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JTIzMTQ1">#145 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JTIzMjAw">#200 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RHluYXdv">Dynawo <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RXhwb25lbnRpYWw=">Exponential <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZXhwb25lbnRpYWw=">exponential <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RnJlcXVlbmN5">Frequency <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SW5kdWN0aW9uJTIwbW90b3I=">Induction motor <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bG9hZA==">load <span class="quarto-category-count">(3)</span></div><div class="category" data-category="T3BlbnNvdXJjZQ==">Opensource <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cG9seW5vbWlhbA==">polynomial <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Uk1T">RMS <span class="quarto-category-count">(2)</span></div><div class="category" data-category="c3RlYWR5LXN0YXRl">steady-state <span class="quarto-category-count">(2)</span></div><div class="category" data-category="WklQ">ZIP <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -1163,18 +1163,27 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
       <option value="" disabled="" selected="" hidden="">Order By</option>
       <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title-sort" data-direction="asc">
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-title" data-direction="asc">
         Title
       </option>
       <option value="listing-author" data-direction="asc">
         Author
+      </option>
+      <option value="listing-categories" data-direction="asc">
+        Categories
       </option>
     </select>
   </div>
@@ -1183,74 +1192,160 @@ window.Quarto = {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="JTIzMTQzJTJDbG9hZCUyQ0V4cG9uZW50aWFsJTJDc3RlYWR5LXN0YXRlJTJDcG9seW5vbWlhbA==" data-listing-date-sort="1777939200000" data-listing-file-modified-sort="1757001863899" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="554">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../models/2-Loads/ExpLoad/index.html" class="no-external">Exponential Load Model</a>
+</h3>
+<div class="listing-categories">
 
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMTQz'); return false;">#143</div>
 
-<th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('bG9hZA=='); return false;">load</div>
 
-</tr>
-</thead>
-<tbody class="list">
+<div class="listing-category" onclick="window.quartoListingCategory('RXhwb25lbnRpYWw='); return false;">Exponential</div>
 
-<tr data-index="0" data-categories="JTIzMTQzJTJDbG9hZCUyQ0V4cG9uZW50aWFsJTJDc3RlYWR5LXN0YXRlJTJDcG9seW5vbWlhbA==" data-listing-date-sort="1777939200000" data-listing-file-modified-sort="1756999880637" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="554" data-listing-title-sort="Exponential Load Model" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../models/2-Loads/ExpLoad/index.html" class="title listing-title">Exponential Load Model</a>
-</td>
-<td>
-<span class="listing-author">Carlos Alegre (eRoots)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('c3RlYWR5LXN0YXRl'); return false;">steady-state</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('cG9seW5vbWlhbA=='); return false;">polynomial</div>
 
-<tr data-index="1" data-categories="JTIzMTQ1JTJDbG9hZCUyQ0ZyZXF1ZW5jeSUyQ3BvbHlub21pYWwlMkNaSVAlMkNleHBvbmVudGlhbA==" data-listing-date-sort="1777939200000" data-listing-file-modified-sort="1756999880637" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="511" data-listing-title-sort="Frequency Dependent Load Model" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../models/2-Loads/FDLoad/index.html" class="title listing-title">Frequency Dependent Load Model</a>
-</td>
-<td>
-<span class="listing-author">Carlos Alegre (eRoots)</span>
-</td>
+</div>
+</div>
+<div class="metadata">
+<a href="../../models/2-Loads/ExpLoad/index.html" class="no-external">
+<div class="listing-date">
+May 5, 2026
+</div>
+<div class="listing-author">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="JTIzMTQ1JTJDbG9hZCUyQ0ZyZXF1ZW5jeSUyQ3BvbHlub21pYWwlMkNaSVAlMkNleHBvbmVudGlhbA==" data-listing-date-sort="1777939200000" data-listing-file-modified-sort="1757001863899" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="511">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../models/2-Loads/FDLoad/index.html" class="no-external">Frequency Dependent Load Model</a>
+</h3>
+<div class="listing-categories">
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMTQ1'); return false;">#145</div>
 
-<tr data-index="2" data-categories="JTIzMjAwJTJDSW5kdWN0aW9uJTIwbW90b3IlMkNSTVMlMkNEeW5hd28lMkNPcGVuc291cmNl" data-listing-date-sort="1733616000000" data-listing-file-modified-sort="1756999880639" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="515" data-listing-title-sort="Induction motor model with rotor flux dynamics" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../models/2-Loads/Motor/WECC_Motor/index.html" class="title listing-title">Induction motor model with rotor flux dynamics</a>
-</td>
-<td>
-<span class="listing-author">Frédéric Sabot (ULB)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('bG9hZA=='); return false;">load</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('RnJlcXVlbmN5'); return false;">Frequency</div>
 
-<tr data-index="3" data-categories="JTIzMjAwJTJDSW5kdWN0aW9uJTIwbW90b3IlMkNSTVMlMkNEeW5hd28lMkNPcGVuc291cmNl" data-listing-date-sort="1725753600000" data-listing-file-modified-sort="1756999880638" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="476" data-listing-title-sort="Single-cage induction motor model" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../models/2-Loads/Motor/SimpleMotor/index.html" class="title listing-title">Single-cage induction motor model</a>
-</td>
-<td>
-<span class="listing-author">Frédéric Sabot (ULB)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('cG9seW5vbWlhbA=='); return false;">polynomial</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('WklQ'); return false;">ZIP</div>
 
-<tr data-index="4" data-categories="JTIzMTQxJTJDbG9hZCUyQ1pJUCUyQ3N0ZWFkeS1zdGF0ZSUyQ3BvbHlub21pYWw=" data-listing-date-sort="1775347200000" data-listing-file-modified-sort="1756999880639" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="660" data-listing-title-sort="ZIP Load Model" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../models/2-Loads/ZIPLoad/index.html" class="title listing-title">ZIP Load Model</a>
-</td>
-<td>
-<span class="listing-author">Carlos Alegre (eRoots)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('ZXhwb25lbnRpYWw='); return false;">exponential</div>
 
-</tr>
+</div>
+</div>
+<div class="metadata">
+<a href="../../models/2-Loads/FDLoad/index.html" class="no-external">
+<div class="listing-date">
+May 5, 2026
+</div>
+<div class="listing-author">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="JTIzMjAwJTJDSW5kdWN0aW9uJTIwbW90b3IlMkNSTVMlMkNEeW5hd28lMkNPcGVuc291cmNl" data-listing-date-sort="1733616000000" data-listing-file-modified-sort="1757001863901" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="515">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../models/2-Loads/Motor/WECC_Motor/index.html" class="no-external">Induction motor model with rotor flux dynamics</a>
+</h3>
+<div class="listing-categories">
 
-</tbody>
-</table>
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMjAw'); return false;">#200</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW5kdWN0aW9uJTIwbW90b3I='); return false;">Induction motor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Uk1T'); return false;">RMS</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RHluYXdv'); return false;">Dynawo</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../models/2-Loads/Motor/WECC_Motor/index.html" class="no-external">
+<div class="listing-date">
+Dec 8, 2024
+</div>
+<div class="listing-author">
+Frédéric Sabot (ULB)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="JTIzMjAwJTJDSW5kdWN0aW9uJTIwbW90b3IlMkNSTVMlMkNEeW5hd28lMkNPcGVuc291cmNl" data-listing-date-sort="1725753600000" data-listing-file-modified-sort="1757001863899" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="476">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../models/2-Loads/Motor/SimpleMotor/index.html" class="no-external">Single-cage induction motor model</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMjAw'); return false;">#200</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SW5kdWN0aW9uJTIwbW90b3I='); return false;">Induction motor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Uk1T'); return false;">RMS</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RHluYXdv'); return false;">Dynawo</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../models/2-Loads/Motor/SimpleMotor/index.html" class="no-external">
+<div class="listing-date">
+Sep 8, 2024
+</div>
+<div class="listing-author">
+Frédéric Sabot (ULB)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="JTIzMTQxJTJDbG9hZCUyQ1pJUCUyQ3N0ZWFkeS1zdGF0ZSUyQ3BvbHlub21pYWw=" data-listing-date-sort="1775347200000" data-listing-file-modified-sort="1757001863901" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="660">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../models/2-Loads/ZIPLoad/index.html" class="no-external">ZIP Load Model</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMTQx'); return false;">#141</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bG9hZA=='); return false;">load</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('WklQ'); return false;">ZIP</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3RlYWR5LXN0YXRl'); return false;">steady-state</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cG9seW5vbWlhbA=='); return false;">polynomial</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../models/2-Loads/ZIPLoad/index.html" class="no-external">
+<div class="listing-date">
+Apr 5, 2026
+</div>
+<div class="listing-author">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+</div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

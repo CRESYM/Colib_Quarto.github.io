@@ -79,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-title","listing-date","listing-author","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -1134,9 +1134,9 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(9)</span></div><div class="category" data-category="JTIzMTA2">#106 <span class="quarto-category-count">(6)</span></div><div class="category" data-category="JTIzNTM=">#53 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JTIzNTQ=">#54 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JTIzNTk=">#59 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q0lNJTIwbW9kZWw=">CIM model <span class="quarto-category-count">(5)</span></div><div class="category" data-category="Q0lNRHluYW1pYw==">CIMDynamic <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Y29udHJvbGxlcg==">controller <span class="quarto-category-count">(3)</span></div><div class="category" data-category="ZHluYXdv">dynawo <span class="quarto-category-count">(9)</span></div><div class="category" data-category="R0FTVA==">GAST <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2VuZXJpYw==">generic <span class="quarto-category-count">(6)</span></div><div class="category" data-category="R292ZXJub3I=">Governor <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Z292ZXJub3I=">governor <span class="quarto-category-count">(3)</span></div><div class="category" data-category="R292R0FTVA==">GovGAST <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R292SHlkcm9JRUVFMA==">GovHydroIEEE0 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R292U3RlYW0w">GovSteam0 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R292U3RlYW0x">GovSteam1 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R292U3RlYW1GVjM=">GovSteamFV3 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SFlHT1Y=">HYGOV <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SUVD">IEC <span class="quarto-category-count">(8)</span></div><div class="category" data-category="SUVFRUcx">IEEEG1 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SUVFRUcy">IEEEG2 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bW9kZWxpY2E=">modelica <span class="quarto-category-count">(3)</span></div><div class="category" data-category="TVJMNA==">MRL4 <span class="quarto-category-count">(5)</span></div><div class="category" data-category="T3BlbnNvdXJjZQ==">Opensource <span class="quarto-category-count">(9)</span></div><div class="category" data-category="cGhhc29y">phasor <span class="quarto-category-count">(5)</span></div><div class="category" data-category="cmVndWxhdGlvbnM=">regulations <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Uk1T">RMS <span class="quarto-category-count">(10)</span></div><div class="category" data-category="U2luZ2xlJTIwcGhhc2U=">Single phase <span class="quarto-category-count">(5)</span></div><div class="category" data-category="c3luY2hyb25vdXMlMjBtYWNoaW5l">synchronous machine <span class="quarto-category-count">(3)</span></div><div class="category" data-category="VEdPVjE=">TGOV1 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VEdPVjM=">TGOV3 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="V0VIR09W">WEHGOV <span class="quarto-category-count">(1)</span></div><div class="category" data-category="V1BJREhZ">WPIDHY <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -1163,18 +1163,27 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
       <option value="" disabled="" selected="" hidden="">Order By</option>
       <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title-sort" data-direction="asc">
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-title" data-direction="asc">
         Title
       </option>
       <option value="listing-author" data-direction="asc">
         Author
+      </option>
+      <option value="listing-categories" data-direction="asc">
+        Categories
       </option>
     </select>
   </div>
@@ -1183,114 +1192,404 @@ window.Quarto = {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="R292ZXJub3IlMkNHQVNUJTJDZ2VuZXJpYyUyQ09wZW5zb3VyY2UlMkNDSU0lMjBtb2RlbCUyQ1JNUyUyQ3BoYXNvciUyQ01STDQlMkNTaW5nbGUlMjBwaGFzZSUyQ0dvdkdBU1QlMkNJRUMlMkNkeW5hd28lMkMlMjMxMDY=" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757001863867" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="371">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/1-SynchronousMachines/Governor/GAST/index.html" class="no-external">GAST</a>
+</h3>
+<div class="listing-categories">
 
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('R292ZXJub3I='); return false;">Governor</div>
 
-<th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('R0FTVA=='); return false;">GAST</div>
 
-</tr>
-</thead>
-<tbody class="list">
+<div class="listing-category" onclick="window.quartoListingCategory('Z2VuZXJpYw=='); return false;">generic</div>
 
-<tr data-index="0" data-categories="R292ZXJub3IlMkNHQVNUJTJDZ2VuZXJpYyUyQ09wZW5zb3VyY2UlMkNDSU0lMjBtb2RlbCUyQ1JNUyUyQ3BoYXNvciUyQ01STDQlMkNTaW5nbGUlMjBwaGFzZSUyQ0dvdkdBU1QlMkNJRUMlMkNkeW5hd28lMkMlMjMxMDY=" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1756999880605" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="371" data-listing-title-sort="GAST" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/1-SynchronousMachines/Governor/GAST/index.html" class="title listing-title">GAST</a>
-</td>
-<td>
-<span class="listing-author">Erwan Guichard (DPS for RTE)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('Q0lNJTIwbW9kZWw='); return false;">CIM model</div>
 
-<tr data-index="1" data-categories="cmVndWxhdGlvbnMlMkNnb3Zlcm5vciUyQ2NvbnRyb2xsZXIlMkNzeW5jaHJvbm91cyUyMG1hY2hpbmUlMkNPcGVuc291cmNlJTJDSUVDJTJDQ0lNRHluYW1pYyUyQ1JNUyUyQ21vZGVsaWNhJTJDZHluYXdvJTJDUk1TJTJDJTIzNTM=" data-listing-date-sort="1762214400000" data-listing-file-modified-sort="1756999880608" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="48" data-listing-word-count-sort="9517" data-listing-title-sort="GovCT2 / GGOV2" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/1-SynchronousMachines/Governor/GovCT2/index.html" class="title listing-title">GovCT2 / GGOV2</a>
-</td>
-<td>
-<span class="listing-author">Martin Franke (Fraunhofer IEE)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('Uk1T'); return false;">RMS</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('cGhhc29y'); return false;">phasor</div>
 
-<tr data-index="2" data-categories="cmVndWxhdGlvbnMlMkNnb3Zlcm5vciUyQ2NvbnRyb2xsZXIlMkNzeW5jaHJvbm91cyUyMG1hY2hpbmUlMkNPcGVuc291cmNlJTJDSUVDJTJDQ0lNRHluYW1pYyUyQ1JNUyUyQ21vZGVsaWNhJTJDZHluYXdvJTJDUk1TJTJDJTIzNTQ=" data-listing-date-sort="1746748800000" data-listing-file-modified-sort="1756999880610" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="24" data-listing-word-count-sort="4624" data-listing-title-sort="GovHydro4" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/1-SynchronousMachines/Governor/GovHydro4/index.html" class="title listing-title">GovHydro4</a>
-</td>
-<td>
-<span class="listing-author">Nils Wiese, Martin Franke, Saikrishna Vallabhaneni (Fraunhofer IEE)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('TVJMNA=='); return false;">MRL4</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('U2luZ2xlJTIwcGhhc2U='); return false;">Single phase</div>
 
-<tr data-index="3" data-categories="cmVndWxhdGlvbnMlMkNnb3Zlcm5vciUyQ2NvbnRyb2xsZXIlMkNzeW5jaHJvbm91cyUyMG1hY2hpbmUlMkNPcGVuc291cmNlJTJDSUVDJTJDQ0lNRHluYW1pYyUyQ1JNUyUyQ21vZGVsaWNhJTJDZHluYXdvJTJDJTIzNTk=" data-listing-date-sort="1754438400000" data-listing-file-modified-sort="1756999880611" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="25" data-listing-word-count-sort="4859" data-listing-title-sort="GovSteamEU" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/1-SynchronousMachines/Governor/GovSteamEU/index.html" class="title listing-title">GovSteamEU</a>
-</td>
-<td>
-<span class="listing-author">Martin Franke (Fraunhofer IEE), Saikrishna Vallabhaneni (Fraunhofer IEE), Nils Wiese (IEE)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('R292R0FTVA=='); return false;">GovGAST</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('SUVD'); return false;">IEC</div>
 
-<tr data-index="4" data-categories="R292ZXJub3IlMkNIWUdPViUyQ2dlbmVyaWMlMkNPcGVuc291cmNlJTJDZHluYXdvJTJDJTIzMTA2JTJDV0VIR09WJTJDV1BJREhZ" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1756999880612" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="335" data-listing-title-sort="HYGOV" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/1-SynchronousMachines/Governor/HYGOV/index.html" class="title listing-title">HYGOV</a>
-</td>
-<td>
-<span class="listing-author">Erwan Guichard (DPS for RTE)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('ZHluYXdv'); return false;">dynawo</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMTA2'); return false;">#106</div>
 
-<tr data-index="5" data-categories="R292ZXJub3IlMkNJRUVFRzElMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDR292U3RlYW0xJTJDSUVDJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1756999880613" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="533" data-listing-title-sort="IEEEG1 / GovSteam 1" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/1-SynchronousMachines/Governor/IEEEG1/index.html" class="title listing-title">IEEEG1 / GovSteam 1</a>
-</td>
-<td>
-<span class="listing-author">Erwan Guichard (DPS for RTE)</span>
-</td>
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/1-SynchronousMachines/Governor/GAST/index.html" class="no-external">
+<div class="listing-date">
+May 4, 2024
+</div>
+<div class="listing-author">
+Erwan Guichard (DPS for RTE)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="cmVndWxhdGlvbnMlMkNnb3Zlcm5vciUyQ2NvbnRyb2xsZXIlMkNzeW5jaHJvbm91cyUyMG1hY2hpbmUlMkNPcGVuc291cmNlJTJDSUVDJTJDQ0lNRHluYW1pYyUyQ1JNUyUyQ21vZGVsaWNhJTJDZHluYXdvJTJDUk1TJTJDJTIzNTM=" data-listing-date-sort="1762214400000" data-listing-file-modified-sort="1757001863870" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="48" data-listing-word-count-sort="9517">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/1-SynchronousMachines/Governor/GovCT2/index.html" class="no-external">GovCT2 / GGOV2</a>
+</h3>
+<div class="listing-categories">
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('cmVndWxhdGlvbnM='); return false;">regulations</div>
 
-<tr data-index="6" data-categories="R292ZXJub3IlMkNJRUVFRzIlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDR292SHlkcm9JRUVFMCUyQ0lFQyUyQ2R5bmF3byUyQyUyMzEwNg==" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1756999880614" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="205" data-listing-title-sort="IEEEG2 / GovSteam 2" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/1-SynchronousMachines/Governor/IEEEG2/index.html" class="title listing-title">IEEEG2 / GovSteam 2</a>
-</td>
-<td>
-<span class="listing-author">Erwan Guichard (DPS for RTE)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('Z292ZXJub3I='); return false;">governor</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udHJvbGxlcg=='); return false;">controller</div>
 
-<tr data-index="7" data-categories="R292ZXJub3IlMkNUR09WMSUyQ2dlbmVyaWMlMkNPcGVuc291cmNlJTJDQ0lNJTIwbW9kZWwlMkNSTVMlMkNwaGFzb3IlMkNNUkw0JTJDU2luZ2xlJTIwcGhhc2UlMkNHb3ZTdGVhbTAlMkNJRUMlMkNkeW5hd28lMkMlMjMxMDY=" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1756999880614" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="193" data-listing-title-sort="TGOV1" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/1-SynchronousMachines/Governor/TGOV1/index.html" class="title listing-title">TGOV1</a>
-</td>
-<td>
-<span class="listing-author">Erwan Guichard (DPS for RTE)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('c3luY2hyb25vdXMlMjBtYWNoaW5l'); return false;">synchronous machine</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
 
-<tr data-index="8" data-categories="R292ZXJub3IlMkNUR09WMyUyQ2dlbmVyaWMlMkNPcGVuc291cmNlJTJDQ0lNJTIwbW9kZWwlMkNSTVMlMkNwaGFzb3IlMkNNUkw0JTJDU2luZ2xlJTIwcGhhc2UlMkNHb3ZTdGVhbUZWMyUyQ0lFQyUyQ2R5bmF3byUyQyUyMzEwNg==" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1756999880615" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="296" data-listing-title-sort="TGOV3" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/1-SynchronousMachines/Governor/TGOV3/index.html" class="title listing-title">TGOV3</a>
-</td>
-<td>
-<span class="listing-author">Erwan Guichard (DPS for RTE)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('SUVD'); return false;">IEC</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('Q0lNRHluYW1pYw=='); return false;">CIMDynamic</div>
 
-</tbody>
-</table>
+<div class="listing-category" onclick="window.quartoListingCategory('Uk1T'); return false;">RMS</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bW9kZWxpY2E='); return false;">modelica</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZHluYXdv'); return false;">dynawo</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Uk1T'); return false;">RMS</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzNTM='); return false;">#53</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/1-SynchronousMachines/Governor/GovCT2/index.html" class="no-external">
+<div class="listing-date">
+Nov 4, 2025
+</div>
+<div class="listing-author">
+Martin Franke (Fraunhofer IEE)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="cmVndWxhdGlvbnMlMkNnb3Zlcm5vciUyQ2NvbnRyb2xsZXIlMkNzeW5jaHJvbm91cyUyMG1hY2hpbmUlMkNPcGVuc291cmNlJTJDSUVDJTJDQ0lNRHluYW1pYyUyQ1JNUyUyQ21vZGVsaWNhJTJDZHluYXdvJTJDUk1TJTJDJTIzNTQ=" data-listing-date-sort="1746748800000" data-listing-file-modified-sort="1757001863872" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="24" data-listing-word-count-sort="4624">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/1-SynchronousMachines/Governor/GovHydro4/index.html" class="no-external">GovHydro4</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmVndWxhdGlvbnM='); return false;">regulations</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z292ZXJub3I='); return false;">governor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udHJvbGxlcg=='); return false;">controller</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3luY2hyb25vdXMlMjBtYWNoaW5l'); return false;">synchronous machine</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SUVD'); return false;">IEC</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q0lNRHluYW1pYw=='); return false;">CIMDynamic</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Uk1T'); return false;">RMS</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bW9kZWxpY2E='); return false;">modelica</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZHluYXdv'); return false;">dynawo</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Uk1T'); return false;">RMS</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzNTQ='); return false;">#54</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/1-SynchronousMachines/Governor/GovHydro4/index.html" class="no-external">
+<div class="listing-date">
+May 9, 2025
+</div>
+<div class="listing-author">
+Nils Wiese, Martin Franke, Saikrishna Vallabhaneni (Fraunhofer IEE)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="cmVndWxhdGlvbnMlMkNnb3Zlcm5vciUyQ2NvbnRyb2xsZXIlMkNzeW5jaHJvbm91cyUyMG1hY2hpbmUlMkNPcGVuc291cmNlJTJDSUVDJTJDQ0lNRHluYW1pYyUyQ1JNUyUyQ21vZGVsaWNhJTJDZHluYXdvJTJDJTIzNTk=" data-listing-date-sort="1754438400000" data-listing-file-modified-sort="1757001863873" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="25" data-listing-word-count-sort="4859">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/1-SynchronousMachines/Governor/GovSteamEU/index.html" class="no-external">GovSteamEU</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmVndWxhdGlvbnM='); return false;">regulations</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z292ZXJub3I='); return false;">governor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udHJvbGxlcg=='); return false;">controller</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3luY2hyb25vdXMlMjBtYWNoaW5l'); return false;">synchronous machine</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SUVD'); return false;">IEC</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q0lNRHluYW1pYw=='); return false;">CIMDynamic</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Uk1T'); return false;">RMS</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bW9kZWxpY2E='); return false;">modelica</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZHluYXdv'); return false;">dynawo</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzNTk='); return false;">#59</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/1-SynchronousMachines/Governor/GovSteamEU/index.html" class="no-external">
+<div class="listing-date">
+Aug 6, 2025
+</div>
+<div class="listing-author">
+Martin Franke (Fraunhofer IEE), Saikrishna Vallabhaneni (Fraunhofer IEE), Nils Wiese (IEE)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="R292ZXJub3IlMkNIWUdPViUyQ2dlbmVyaWMlMkNPcGVuc291cmNlJTJDZHluYXdvJTJDJTIzMTA2JTJDV0VIR09WJTJDV1BJREhZ" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757001863874" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="335">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/1-SynchronousMachines/Governor/HYGOV/index.html" class="no-external">HYGOV</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('R292ZXJub3I='); return false;">Governor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SFlHT1Y='); return false;">HYGOV</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2VuZXJpYw=='); return false;">generic</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZHluYXdv'); return false;">dynawo</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMTA2'); return false;">#106</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('V0VIR09W'); return false;">WEHGOV</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('V1BJREhZ'); return false;">WPIDHY</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/1-SynchronousMachines/Governor/HYGOV/index.html" class="no-external">
+<div class="listing-date">
+May 4, 2024
+</div>
+<div class="listing-author">
+Erwan Guichard (DPS for RTE)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="R292ZXJub3IlMkNJRUVFRzElMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDR292U3RlYW0xJTJDSUVDJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757001863875" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="533">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/1-SynchronousMachines/Governor/IEEEG1/index.html" class="no-external">IEEEG1 / GovSteam 1</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('R292ZXJub3I='); return false;">Governor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SUVFRUcx'); return false;">IEEEG1</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2VuZXJpYw=='); return false;">generic</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q0lNJTIwbW9kZWw='); return false;">CIM model</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Uk1T'); return false;">RMS</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGhhc29y'); return false;">phasor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TVJMNA=='); return false;">MRL4</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2luZ2xlJTIwcGhhc2U='); return false;">Single phase</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R292U3RlYW0x'); return false;">GovSteam1</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SUVD'); return false;">IEC</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZHluYXdv'); return false;">dynawo</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMTA2'); return false;">#106</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/1-SynchronousMachines/Governor/IEEEG1/index.html" class="no-external">
+<div class="listing-date">
+May 4, 2024
+</div>
+<div class="listing-author">
+Erwan Guichard (DPS for RTE)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-categories="R292ZXJub3IlMkNJRUVFRzIlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDR292SHlkcm9JRUVFMCUyQ0lFQyUyQ2R5bmF3byUyQyUyMzEwNg==" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757001863876" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="205">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/1-SynchronousMachines/Governor/IEEEG2/index.html" class="no-external">IEEEG2 / GovSteam 2</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('R292ZXJub3I='); return false;">Governor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SUVFRUcy'); return false;">IEEEG2</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2VuZXJpYw=='); return false;">generic</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q0lNJTIwbW9kZWw='); return false;">CIM model</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Uk1T'); return false;">RMS</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGhhc29y'); return false;">phasor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TVJMNA=='); return false;">MRL4</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2luZ2xlJTIwcGhhc2U='); return false;">Single phase</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R292SHlkcm9JRUVFMA=='); return false;">GovHydroIEEE0</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SUVD'); return false;">IEC</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZHluYXdv'); return false;">dynawo</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMTA2'); return false;">#106</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/1-SynchronousMachines/Governor/IEEEG2/index.html" class="no-external">
+<div class="listing-date">
+May 4, 2024
+</div>
+<div class="listing-author">
+Erwan Guichard (DPS for RTE)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-categories="R292ZXJub3IlMkNUR09WMSUyQ2dlbmVyaWMlMkNPcGVuc291cmNlJTJDQ0lNJTIwbW9kZWwlMkNSTVMlMkNwaGFzb3IlMkNNUkw0JTJDU2luZ2xlJTIwcGhhc2UlMkNHb3ZTdGVhbTAlMkNJRUMlMkNkeW5hd28lMkMlMjMxMDY=" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757001863876" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="193">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/1-SynchronousMachines/Governor/TGOV1/index.html" class="no-external">TGOV1</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('R292ZXJub3I='); return false;">Governor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VEdPVjE='); return false;">TGOV1</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2VuZXJpYw=='); return false;">generic</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q0lNJTIwbW9kZWw='); return false;">CIM model</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Uk1T'); return false;">RMS</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGhhc29y'); return false;">phasor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TVJMNA=='); return false;">MRL4</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2luZ2xlJTIwcGhhc2U='); return false;">Single phase</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R292U3RlYW0w'); return false;">GovSteam0</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SUVD'); return false;">IEC</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZHluYXdv'); return false;">dynawo</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMTA2'); return false;">#106</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/1-SynchronousMachines/Governor/TGOV1/index.html" class="no-external">
+<div class="listing-date">
+May 4, 2024
+</div>
+<div class="listing-author">
+Erwan Guichard (DPS for RTE)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-categories="R292ZXJub3IlMkNUR09WMyUyQ2dlbmVyaWMlMkNPcGVuc291cmNlJTJDQ0lNJTIwbW9kZWwlMkNSTVMlMkNwaGFzb3IlMkNNUkw0JTJDU2luZ2xlJTIwcGhhc2UlMkNHb3ZTdGVhbUZWMyUyQ0lFQyUyQ2R5bmF3byUyQyUyMzEwNg==" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757001863877" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="296">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/1-SynchronousMachines/Governor/TGOV3/index.html" class="no-external">TGOV3</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('R292ZXJub3I='); return false;">Governor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VEdPVjM='); return false;">TGOV3</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2VuZXJpYw=='); return false;">generic</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q0lNJTIwbW9kZWw='); return false;">CIM model</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Uk1T'); return false;">RMS</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGhhc29y'); return false;">phasor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TVJMNA=='); return false;">MRL4</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2luZ2xlJTIwcGhhc2U='); return false;">Single phase</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R292U3RlYW1GVjM='); return false;">GovSteamFV3</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SUVD'); return false;">IEC</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZHluYXdv'); return false;">dynawo</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMTA2'); return false;">#106</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/1-SynchronousMachines/Governor/TGOV3/index.html" class="no-external">
+<div class="listing-date">
+May 4, 2024
+</div>
+<div class="listing-author">
+Erwan Guichard (DPS for RTE)
+</div>
+</a>
+</div>
+</div>
+</div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

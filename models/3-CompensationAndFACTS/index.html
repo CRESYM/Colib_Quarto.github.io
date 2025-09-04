@@ -79,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-title","listing-date","listing-author","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -1134,9 +1134,9 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="JTIzMjIw">#220 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q2FwYWNpdG9y">Capacitor <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29tcGVuc2F0aW9u">Compensation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29udmVydGVy">converter <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZHluYXdv">dynawo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RU1U">EMT <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zm9sbG93aW5n">following <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aHZkYw==">hvdc <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T3BlbnNvdXJjZQ==">Opensource <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHY=">pv <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UmVhY3Rvcg==">Reactor <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U1RBVENPTQ==">STATCOM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dm9sdGFnZSUyMHNvdXJjZQ==">voltage source <span class="quarto-category-count">(1)</span></div><div class="category" data-category="d2luZA==">wind <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -1167,18 +1167,27 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
       <option value="" disabled="" selected="" hidden="">Order By</option>
       <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title-sort" data-direction="asc">
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-title" data-direction="asc">
         Title
       </option>
       <option value="listing-author" data-direction="asc">
         Author
+      </option>
+      <option value="listing-categories" data-direction="asc">
+        Categories
       </option>
     </select>
   </div>
@@ -1187,44 +1196,76 @@ window.Quarto = {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="T3BlbnNvdXJjZSUyQ0VNVCUyQ3ZvbHRhZ2UlMjBzb3VyY2UlMkNjb252ZXJ0ZXIlMkNTVEFUQ09NJTJDd2luZCUyQ3B2JTJDaHZkYyUyQ2ZvbGxvd2luZw==" data-listing-date-sort="1759795200000" data-listing-file-modified-sort="1757001863905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="999">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../models/3-CompensationAndFACTS/STATCOM/index.html" class="no-external">EMT STATCOM (Grid Following mode)</a>
+</h3>
+<div class="listing-categories">
 
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
 
-<th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('RU1U'); return false;">EMT</div>
 
-</tr>
-</thead>
-<tbody class="list">
+<div class="listing-category" onclick="window.quartoListingCategory('dm9sdGFnZSUyMHNvdXJjZQ=='); return false;">voltage source</div>
 
-<tr data-index="0" data-categories="T3BlbnNvdXJjZSUyQ0VNVCUyQ3ZvbHRhZ2UlMjBzb3VyY2UlMkNjb252ZXJ0ZXIlMkNTVEFUQ09NJTJDd2luZCUyQ3B2JTJDaHZkYyUyQ2ZvbGxvd2luZw==" data-listing-date-sort="1759795200000" data-listing-file-modified-sort="1756999880643" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="999" data-listing-title-sort="EMT STATCOM (Grid Following mode)" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../models/3-CompensationAndFACTS/STATCOM/index.html" class="title listing-title">EMT STATCOM (Grid Following mode)</a>
-</td>
-<td>
-<span class="listing-author">Carlos Alegre (eRoots)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udmVydGVy'); return false;">converter</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('U1RBVENPTQ=='); return false;">STATCOM</div>
 
-<tr data-index="1" data-categories="JTIzMjIwJTJDQ2FwYWNpdG9yJTJDUmVhY3RvciUyQ0NvbXBlbnNhdGlvbiUyQ2R5bmF3bw==" data-listing-date-sort="1728086400000" data-listing-file-modified-sort="1756999880643" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="917" data-listing-title-sort="Static Compensator model" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../models/3-CompensationAndFACTS/StaticCompensator/index.html" class="title listing-title">Static Compensator model</a>
-</td>
-<td>
-<span class="listing-author">Carlos Alegre (eRoots)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('d2luZA=='); return false;">wind</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('cHY='); return false;">pv</div>
 
-</tbody>
-</table>
+<div class="listing-category" onclick="window.quartoListingCategory('aHZkYw=='); return false;">hvdc</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Zm9sbG93aW5n'); return false;">following</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../models/3-CompensationAndFACTS/STATCOM/index.html" class="no-external">
+<div class="listing-date">
+Oct 7, 2025
+</div>
+<div class="listing-author">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="JTIzMjIwJTJDQ2FwYWNpdG9yJTJDUmVhY3RvciUyQ0NvbXBlbnNhdGlvbiUyQ2R5bmF3bw==" data-listing-date-sort="1728086400000" data-listing-file-modified-sort="1757001863905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="917">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../models/3-CompensationAndFACTS/StaticCompensator/index.html" class="no-external">Static Compensator model</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMjIw'); return false;">#220</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q2FwYWNpdG9y'); return false;">Capacitor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UmVhY3Rvcg=='); return false;">Reactor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q29tcGVuc2F0aW9u'); return false;">Compensation</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZHluYXdv'); return false;">dynawo</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../models/3-CompensationAndFACTS/StaticCompensator/index.html" class="no-external">
+<div class="listing-date">
+Oct 5, 2024
+</div>
+<div class="listing-author">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+</div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

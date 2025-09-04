@@ -79,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-title","listing-date","listing-author","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -1134,9 +1134,9 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(15)</span></div><div class="category" data-category="YWJz">abs <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWJzb2x1dGUlMjB2YWx1ZQ==">absolute value <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWxnZWJyYWljJTIwZXF1YXRpb24=">algebraic equation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29udHJvbCUyMGJsb2Nr">control block <span class="quarto-category-count">(15)</span></div><div class="category" data-category="ZGVhZGJhbmQ=">deadband <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGlzY3JldGU=">discrete <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aHlzdGVyZXNpcw==">hysteresis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aW50ZWdyYXRvcg==">integrator <span class="quarto-category-count">(3)</span></div><div class="category" data-category="bGltaXRlZCUyMGludGVncmF0b3I=">limited integrator <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bGltaXRlcg==">limiter <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bGltaXRlciUyMHZhcmlhYmxlJTIwYm91bmRz">limiter variable bounds <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGltaXRz">limits <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bm9uLXdpbmR1cA==">non-windup <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UEk=">PI <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UHJvcG9ydGlvbmFsJTIwSW50ZWdyYWw=">Proportional Integral <span class="quarto-category-count">(3)</span></div><div class="category" data-category="c3dpdGNo">switch <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGltZXI=">timer <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dHJhbnNmZXIlMjBmdW5jdGlvbg==">transfer function <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -1166,18 +1166,27 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
       <option value="" disabled="" selected="" hidden="">Order By</option>
       <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title-sort" data-direction="asc">
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-title" data-direction="asc">
         Title
       </option>
       <option value="listing-author" data-direction="asc">
         Author
+      </option>
+      <option value="listing-categories" data-direction="asc">
+        Categories
       </option>
     </select>
   </div>
@@ -1186,174 +1195,390 @@ window.Quarto = {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Y29udHJvbCUyMGJsb2NrJTJDZGlzY3JldGUlMkNhYnMlMkNhYnNvbHV0ZSUyMHZhbHVl" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1757001863970" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="137">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/8-Others/BasicControlBlocks/absoluteValue/index.html" class="no-external">Absolute value of input</a>
+</h3>
+<div class="listing-categories">
 
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udHJvbCUyMGJsb2Nr'); return false;">control block</div>
 
-<th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('ZGlzY3JldGU='); return false;">discrete</div>
 
-</tr>
-</thead>
-<tbody class="list">
+<div class="listing-category" onclick="window.quartoListingCategory('YWJz'); return false;">abs</div>
 
-<tr data-index="0" data-categories="Y29udHJvbCUyMGJsb2NrJTJDZGlzY3JldGUlMkNhYnMlMkNhYnNvbHV0ZSUyMHZhbHVl" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1756999880712" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="137" data-listing-title-sort="Absolute value of input" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/8-Others/BasicControlBlocks/absoluteValue/index.html" class="title listing-title">Absolute value of input</a>
-</td>
-<td>
-<span class="listing-author">Mathilde Bongrain</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('YWJzb2x1dGUlMjB2YWx1ZQ=='); return false;">absolute value</div>
 
-</tr>
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/8-Others/BasicControlBlocks/absoluteValue/index.html" class="no-external">
+<div class="listing-date">
+Apr 10, 2024
+</div>
+<div class="listing-author">
+Mathilde Bongrain
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="Y29udHJvbCUyMGJsb2NrJTJDYWxnZWJyYWljJTIwZXF1YXRpb24=" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1757001863970" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="61">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/8-Others/BasicControlBlocks/algebraicEquation/index.html" class="no-external">Algebraic equation</a>
+</h3>
+<div class="listing-categories">
 
-<tr data-index="1" data-categories="Y29udHJvbCUyMGJsb2NrJTJDYWxnZWJyYWljJTIwZXF1YXRpb24=" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1756999880713" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="61" data-listing-title-sort="Algebraic equation" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/8-Others/BasicControlBlocks/algebraicEquation/index.html" class="title listing-title">Algebraic equation</a>
-</td>
-<td>
-<span class="listing-author">Mathilde Bongrain</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udHJvbCUyMGJsb2Nr'); return false;">control block</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('YWxnZWJyYWljJTIwZXF1YXRpb24='); return false;">algebraic equation</div>
 
-<tr data-index="2" data-categories="Y29udHJvbCUyMGJsb2NrJTJDZGVhZGJhbmQ=" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1756999880713" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="308" data-listing-title-sort="Deadband control block" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/8-Others/BasicControlBlocks/deadband/index.html" class="title listing-title">Deadband control block</a>
-</td>
-<td>
-<span class="listing-author">Mathilde Bongrain</span>
-</td>
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/8-Others/BasicControlBlocks/algebraicEquation/index.html" class="no-external">
+<div class="listing-date">
+Apr 10, 2024
+</div>
+<div class="listing-author">
+Mathilde Bongrain
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="Y29udHJvbCUyMGJsb2NrJTJDZGVhZGJhbmQ=" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1757001863971" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="308">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/8-Others/BasicControlBlocks/deadband/index.html" class="no-external">Deadband control block</a>
+</h3>
+<div class="listing-categories">
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udHJvbCUyMGJsb2Nr'); return false;">control block</div>
 
-<tr data-index="3" data-categories="Y29udHJvbCUyMGJsb2NrJTJDaHlzdGVyZXNpcw==" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1756999880714" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="385" data-listing-title-sort="Hysteresis control block" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/8-Others/BasicControlBlocks/hysteresis/index.html" class="title listing-title">Hysteresis control block</a>
-</td>
-<td>
-<span class="listing-author">Mathilde Bongrain</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('ZGVhZGJhbmQ='); return false;">deadband</div>
 
-</tr>
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/8-Others/BasicControlBlocks/deadband/index.html" class="no-external">
+<div class="listing-date">
+Apr 10, 2024
+</div>
+<div class="listing-author">
+Mathilde Bongrain
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="Y29udHJvbCUyMGJsb2NrJTJDaHlzdGVyZXNpcw==" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1757001863971" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="385">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/8-Others/BasicControlBlocks/hysteresis/index.html" class="no-external">Hysteresis control block</a>
+</h3>
+<div class="listing-categories">
 
-<tr data-index="4" data-categories="Y29udHJvbCUyMGJsb2NrJTJDaW50ZWdyYXRvciUyQ2xpbWl0ZWQlMjBpbnRlZ3JhdG9y" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1756999880714" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="278" data-listing-title-sort="Integrator control block with (positive) time constant T and non-windup limits on output" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/8-Others/BasicControlBlocks/limitedIntegrator/index.html" class="title listing-title">Integrator control block with (positive) time constant T and non-windup limits on output</a>
-</td>
-<td>
-<span class="listing-author">Mathilde Bongrain</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udHJvbCUyMGJsb2Nr'); return false;">control block</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('aHlzdGVyZXNpcw=='); return false;">hysteresis</div>
 
-<tr data-index="5" data-categories="Y29udHJvbCUyMGJsb2NrJTJDaW50ZWdyYXRvciUyQ2xpbWl0ZWQlMjBpbnRlZ3JhdG9y" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1756999880714" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="265" data-listing-title-sort="Integrator control block with (positive) time constant T and non-windup variable limits on output" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/8-Others/BasicControlBlocks/integratorVariableLimits/index.html" class="title listing-title">Integrator control block with (positive) time constant T and non-windup variable limits on output</a>
-</td>
-<td>
-<span class="listing-author">Mathilde Bongrain</span>
-</td>
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/8-Others/BasicControlBlocks/hysteresis/index.html" class="no-external">
+<div class="listing-date">
+Apr 10, 2024
+</div>
+<div class="listing-author">
+Mathilde Bongrain
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="Y29udHJvbCUyMGJsb2NrJTJDaW50ZWdyYXRvciUyQ2xpbWl0ZWQlMjBpbnRlZ3JhdG9y" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1757001863972" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="278">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/8-Others/BasicControlBlocks/limitedIntegrator/index.html" class="no-external">Integrator control block with (positive) time constant T and non-windup limits on output</a>
+</h3>
+<div class="listing-categories">
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udHJvbCUyMGJsb2Nr'); return false;">control block</div>
 
-<tr data-index="6" data-categories="Y29udHJvbCUyMGJsb2NrJTJDaW50ZWdyYXRvcg==" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1756999880714" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="74" data-listing-title-sort="Integrator control block with a positive time constant T" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/8-Others/BasicControlBlocks/integrator/index.html" class="title listing-title">Integrator control block with a positive time constant T</a>
-</td>
-<td>
-<span class="listing-author">Mathilde Bongrain</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('aW50ZWdyYXRvcg=='); return false;">integrator</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('bGltaXRlZCUyMGludGVncmF0b3I='); return false;">limited integrator</div>
 
-<tr data-index="7" data-categories="Y29udHJvbCUyMGJsb2NrJTJDbGltaXRlcg==" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1756999880715" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="240" data-listing-title-sort="Limiter control block with constant bounds" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/8-Others/BasicControlBlocks/limiter/index.html" class="title listing-title">Limiter control block with constant bounds</a>
-</td>
-<td>
-<span class="listing-author">Mathilde Bongrain</span>
-</td>
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/8-Others/BasicControlBlocks/limitedIntegrator/index.html" class="no-external">
+<div class="listing-date">
+Apr 10, 2024
+</div>
+<div class="listing-author">
+Mathilde Bongrain
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="Y29udHJvbCUyMGJsb2NrJTJDaW50ZWdyYXRvciUyQ2xpbWl0ZWQlMjBpbnRlZ3JhdG9y" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1757001863971" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="265">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/8-Others/BasicControlBlocks/integratorVariableLimits/index.html" class="no-external">Integrator control block with (positive) time constant T and non-windup variable limits on output</a>
+</h3>
+<div class="listing-categories">
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udHJvbCUyMGJsb2Nr'); return false;">control block</div>
 
-<tr data-index="8" data-categories="Y29udHJvbCUyMGJsb2NrJTJDbGltaXRlciUyQ2xpbWl0ZXIlMjB2YXJpYWJsZSUyMGJvdW5kcw==" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1756999880715" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="226" data-listing-title-sort="Limiter control block with variable bounds" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html" class="title listing-title">Limiter control block with variable bounds</a>
-</td>
-<td>
-<span class="listing-author">Mathilde Bongrain</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('aW50ZWdyYXRvcg=='); return false;">integrator</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('bGltaXRlZCUyMGludGVncmF0b3I='); return false;">limited integrator</div>
 
-<tr data-index="9" data-categories="Y29udHJvbCUyMGJsb2NrJTJDUEklMkNQcm9wb3J0aW9uYWwlMjBJbnRlZ3JhbA==" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1756999880716" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="63" data-listing-title-sort="Proportional integral (PI) controller" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/8-Others/BasicControlBlocks/proportionalIntegralController/index.html" class="title listing-title">Proportional integral (PI) controller</a>
-</td>
-<td>
-<span class="listing-author">Mathilde Bongrain</span>
-</td>
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/8-Others/BasicControlBlocks/integratorVariableLimits/index.html" class="no-external">
+<div class="listing-date">
+Apr 10, 2024
+</div>
+<div class="listing-author">
+Mathilde Bongrain
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-categories="Y29udHJvbCUyMGJsb2NrJTJDaW50ZWdyYXRvcg==" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1757001863971" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="74">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/8-Others/BasicControlBlocks/integrator/index.html" class="no-external">Integrator control block with a positive time constant T</a>
+</h3>
+<div class="listing-categories">
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udHJvbCUyMGJsb2Nr'); return false;">control block</div>
 
-<tr data-index="10" data-categories="Y29udHJvbCUyMGJsb2NrJTJDUEklMkNQcm9wb3J0aW9uYWwlMjBJbnRlZ3JhbCUyQ25vbi13aW5kdXA=" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1756999880715" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="297" data-listing-title-sort="Proportional integral (PI) controller with non-windup limit on the integral term" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/8-Others/BasicControlBlocks/limitedProportionalIntegralController/index.html" class="title listing-title">Proportional integral (PI) controller with non-windup limit on the integral term</a>
-</td>
-<td>
-<span class="listing-author">Mathilde Bongrain</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('aW50ZWdyYXRvcg=='); return false;">integrator</div>
 
-</tr>
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/8-Others/BasicControlBlocks/integrator/index.html" class="no-external">
+<div class="listing-date">
+Apr 10, 2024
+</div>
+<div class="listing-author">
+Mathilde Bongrain
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-categories="Y29udHJvbCUyMGJsb2NrJTJDbGltaXRlcg==" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1757001863972" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="240">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/8-Others/BasicControlBlocks/limiter/index.html" class="no-external">Limiter control block with constant bounds</a>
+</h3>
+<div class="listing-categories">
 
-<tr data-index="11" data-categories="Y29udHJvbCUyMGJsb2NrJTJDUEklMkNQcm9wb3J0aW9uYWwlMjBJbnRlZ3JhbCUyQ25vbi13aW5kdXAlMkNsaW1pdHM=" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1756999880712" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="542" data-listing-title-sort="Proportional integral (PI) controller with non-windup limit on the integral term and limit on the proportional term" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/8-Others/BasicControlBlocks/2limitedProportionalIntegralController/index.html" class="title listing-title">Proportional integral (PI) controller with non-windup limit on the integral term and limit on the proportional term</a>
-</td>
-<td>
-<span class="listing-author">Mathilde Bongrain</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udHJvbCUyMGJsb2Nr'); return false;">control block</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('bGltaXRlcg=='); return false;">limiter</div>
 
-<tr data-index="12" data-categories="Y29udHJvbCUyMGJsb2NrJTJDc3dpdGNo" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1756999880716" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="88" data-listing-title-sort="Switch" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/8-Others/BasicControlBlocks/switch/index.html" class="title listing-title">Switch</a>
-</td>
-<td>
-<span class="listing-author">Mathilde Bongrain</span>
-</td>
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/8-Others/BasicControlBlocks/limiter/index.html" class="no-external">
+<div class="listing-date">
+Apr 10, 2024
+</div>
+<div class="listing-author">
+Mathilde Bongrain
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-categories="Y29udHJvbCUyMGJsb2NrJTJDbGltaXRlciUyQ2xpbWl0ZXIlMjB2YXJpYWJsZSUyMGJvdW5kcw==" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1757001863972" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="226">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html" class="no-external">Limiter control block with variable bounds</a>
+</h3>
+<div class="listing-categories">
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udHJvbCUyMGJsb2Nr'); return false;">control block</div>
 
-<tr data-index="13" data-categories="Y29udHJvbCUyMGJsb2NrJTJDdGltZXI=" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1756999880716" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="410" data-listing-title-sort="Timer control block" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/8-Others/BasicControlBlocks/timer/index.html" class="title listing-title">Timer control block</a>
-</td>
-<td>
-<span class="listing-author">Mathilde Bongrain</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('bGltaXRlcg=='); return false;">limiter</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('bGltaXRlciUyMHZhcmlhYmxlJTIwYm91bmRz'); return false;">limiter variable bounds</div>
 
-<tr data-index="14" data-categories="Y29udHJvbCUyMGJsb2NrJTJDdHJhbnNmZXIlMjBmdW5jdGlvbg==" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1756999880717" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="67" data-listing-title-sort="Transfer function between an input and output one time constant" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/8-Others/BasicControlBlocks/transferFunction/index.html" class="title listing-title">Transfer function between an input and output one time constant</a>
-</td>
-<td>
-<span class="listing-author">Mathilde Bongrain</span>
-</td>
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html" class="no-external">
+<div class="listing-date">
+Apr 10, 2024
+</div>
+<div class="listing-author">
+Mathilde Bongrain
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-categories="Y29udHJvbCUyMGJsb2NrJTJDUEklMkNQcm9wb3J0aW9uYWwlMjBJbnRlZ3JhbA==" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1757001863972" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="63">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/8-Others/BasicControlBlocks/proportionalIntegralController/index.html" class="no-external">Proportional integral (PI) controller</a>
+</h3>
+<div class="listing-categories">
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udHJvbCUyMGJsb2Nr'); return false;">control block</div>
 
-</tbody>
-</table>
+<div class="listing-category" onclick="window.quartoListingCategory('UEk='); return false;">PI</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UHJvcG9ydGlvbmFsJTIwSW50ZWdyYWw='); return false;">Proportional Integral</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/8-Others/BasicControlBlocks/proportionalIntegralController/index.html" class="no-external">
+<div class="listing-date">
+Apr 10, 2024
+</div>
+<div class="listing-author">
+Mathilde Bongrain
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="10" data-categories="Y29udHJvbCUyMGJsb2NrJTJDUEklMkNQcm9wb3J0aW9uYWwlMjBJbnRlZ3JhbCUyQ25vbi13aW5kdXA=" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1757001863972" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="297">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/8-Others/BasicControlBlocks/limitedProportionalIntegralController/index.html" class="no-external">Proportional integral (PI) controller with non-windup limit on the integral term</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udHJvbCUyMGJsb2Nr'); return false;">control block</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UEk='); return false;">PI</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UHJvcG9ydGlvbmFsJTIwSW50ZWdyYWw='); return false;">Proportional Integral</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bm9uLXdpbmR1cA=='); return false;">non-windup</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/8-Others/BasicControlBlocks/limitedProportionalIntegralController/index.html" class="no-external">
+<div class="listing-date">
+Apr 10, 2024
+</div>
+<div class="listing-author">
+Mathilde Bongrain
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="11" data-categories="Y29udHJvbCUyMGJsb2NrJTJDUEklMkNQcm9wb3J0aW9uYWwlMjBJbnRlZ3JhbCUyQ25vbi13aW5kdXAlMkNsaW1pdHM=" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1757001863970" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="542">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/8-Others/BasicControlBlocks/2limitedProportionalIntegralController/index.html" class="no-external">Proportional integral (PI) controller with non-windup limit on the integral term and limit on the proportional term</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udHJvbCUyMGJsb2Nr'); return false;">control block</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UEk='); return false;">PI</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UHJvcG9ydGlvbmFsJTIwSW50ZWdyYWw='); return false;">Proportional Integral</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bm9uLXdpbmR1cA=='); return false;">non-windup</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bGltaXRz'); return false;">limits</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/8-Others/BasicControlBlocks/2limitedProportionalIntegralController/index.html" class="no-external">
+<div class="listing-date">
+Apr 10, 2024
+</div>
+<div class="listing-author">
+Mathilde Bongrain
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="12" data-categories="Y29udHJvbCUyMGJsb2NrJTJDc3dpdGNo" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1757001863972" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="88">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/8-Others/BasicControlBlocks/switch/index.html" class="no-external">Switch</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udHJvbCUyMGJsb2Nr'); return false;">control block</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3dpdGNo'); return false;">switch</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/8-Others/BasicControlBlocks/switch/index.html" class="no-external">
+<div class="listing-date">
+Apr 10, 2024
+</div>
+<div class="listing-author">
+Mathilde Bongrain
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="13" data-categories="Y29udHJvbCUyMGJsb2NrJTJDdGltZXI=" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1757001863973" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="410">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/8-Others/BasicControlBlocks/timer/index.html" class="no-external">Timer control block</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udHJvbCUyMGJsb2Nr'); return false;">control block</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dGltZXI='); return false;">timer</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/8-Others/BasicControlBlocks/timer/index.html" class="no-external">
+<div class="listing-date">
+Apr 10, 2024
+</div>
+<div class="listing-author">
+Mathilde Bongrain
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="14" data-categories="Y29udHJvbCUyMGJsb2NrJTJDdHJhbnNmZXIlMjBmdW5jdGlvbg==" data-listing-date-sort="1712707200000" data-listing-file-modified-sort="1757001863973" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="67">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/8-Others/BasicControlBlocks/transferFunction/index.html" class="no-external">Transfer function between an input and output one time constant</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udHJvbCUyMGJsb2Nr'); return false;">control block</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHJhbnNmZXIlMjBmdW5jdGlvbg=='); return false;">transfer function</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/8-Others/BasicControlBlocks/transferFunction/index.html" class="no-external">
+<div class="listing-date">
+Apr 10, 2024
+</div>
+<div class="listing-author">
+Mathilde Bongrain
+</div>
+</a>
+</div>
+</div>
+</div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

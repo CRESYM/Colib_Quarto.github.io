@@ -79,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-title","listing-date","listing-author","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -1134,9 +1134,9 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(11)</span></div><div class="category" data-category="JTIzMjQ=">#24 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29udmVydGVy">converter <span class="quarto-category-count">(10)</span></div><div class="category" data-category="RFBTSU0=">DPSIM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RHJvb3AlMjBDb250cm9s">Droop Control <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RHluYXdv">Dynawo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZHluYXdv">dynawo <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RU1U">EMT <span class="quarto-category-count">(3)</span></div><div class="category" data-category="RVBSSQ==">EPRI <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zm9sbG93aW5n">following <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z2VuZXJpYw==">generic <span class="quarto-category-count">(2)</span></div><div class="category" data-category="R0ZM">GFL <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R0ZN">GFM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Z3JpZCUyMGZvcm1pbmc=">grid forming <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aGR2Yw==">hdvc <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aHZkYw==">hvdc <span class="quarto-category-count">(9)</span></div><div class="category" data-category="SFZEQw==">HVDC <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWF0bGFi">Matlab <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TVJMNA==">MRL4 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TlJFTA==">NREL <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T3BlbnNvdXJjZQ==">Opensource <span class="quarto-category-count">(10)</span></div><div class="category" data-category="b3BlbnNvdXJjZQ==">opensource <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UGhhc29y">Phasor <span class="quarto-category-count">(5)</span></div><div class="category" data-category="cGhhc29y">phasor <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cG9pbnQtdG8tcG9pbnQ=">point-to-point <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UFNDQUQ=">PSCAD <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UFNUZXNz">PSTess <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cHY=">pv <span class="quarto-category-count">(9)</span></div><div class="category" data-category="Uk1T">RMS <span class="quarto-category-count">(2)</span></div><div class="category" data-category="U2ltcGx1c0dyaWQ=">SimplusGrid <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2luZ2xlJTIwcGhhc2U=">Single phase <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U1RFUFNT">STEPSS <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VE1STDI=">TMRL2 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VmlydHVhbCUyMFN5bmNocm9ub3VzJTIwTWFjaGluZQ==">Virtual Synchronous Machine <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dm9sdGFnZSUyMHNvdXJjZQ==">voltage source <span class="quarto-category-count">(9)</span></div><div class="category" data-category="VlND">VSC <span class="quarto-category-count">(1)</span></div><div class="category" data-category="d2luZA==">wind <span class="quarto-category-count">(9)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -1167,18 +1167,27 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
       <option value="" disabled="" selected="" hidden="">Order By</option>
       <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title-sort" data-direction="asc">
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-title" data-direction="asc">
         Title
       </option>
       <option value="listing-author" data-direction="asc">
         Author
+      </option>
+      <option value="listing-categories" data-direction="asc">
+        Categories
       </option>
     </select>
   </div>
@@ -1187,134 +1196,428 @@ window.Quarto = {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="T3BlbnNvdXJjZSUyQ1JNUyUyQ0dGTSUyQ0dGTCUyQ2NvbnZlcnRlciUyQ3dpbmQlMkNnZW5lcmljJTJDcHYlMkNodmRjJTJDRVBSSSUyQ0R5bmF3bw==" data-listing-date-sort="1754956800000" data-listing-file-modified-sort="1757001863934" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3712">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/4-HVDC/VSC/GridFormingConverter/EPRI-GFM-Converter/index.html" class="no-external">EPRI Grid Forming</a>
+</h3>
+<div class="listing-categories">
 
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
 
-<th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('Uk1T'); return false;">RMS</div>
 
-</tr>
-</thead>
-<tbody class="list">
+<div class="listing-category" onclick="window.quartoListingCategory('R0ZN'); return false;">GFM</div>
 
-<tr data-index="0" data-categories="T3BlbnNvdXJjZSUyQ1JNUyUyQ0dGTSUyQ0dGTCUyQ2NvbnZlcnRlciUyQ3dpbmQlMkNnZW5lcmljJTJDcHYlMkNodmRjJTJDRVBSSSUyQ0R5bmF3bw==" data-listing-date-sort="1754956800000" data-listing-file-modified-sort="1756999880674" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19" data-listing-word-count-sort="3712" data-listing-title-sort="EPRI Grid Forming" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/4-HVDC/VSC/GridFormingConverter/EPRI-GFM-Converter/index.html" class="title listing-title">EPRI Grid Forming</a>
-</td>
-<td>
-<span class="listing-author">Nils Wiese (Fraunhofer IEE), Martin Franke (Fraunhofer IEE), Saikrishna Vallabhaneni</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('R0ZM'); return false;">GFL</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udmVydGVy'); return false;">converter</div>
 
-<tr data-index="1" data-categories="T3BlbnNvdXJjZSUyQ1BoYXNvciUyQ3ZvbHRhZ2UlMjBzb3VyY2UlMkNjb252ZXJ0ZXIlMkN3aW5kJTJDcHYlMkNodmRj" data-listing-date-sort="1770336000000" data-listing-file-modified-sort="1756999880669" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2313" data-listing-title-sort="Full-Phasor Grid Following Voltage Source Converter" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/index.html" class="title listing-title">Full-Phasor Grid Following Voltage Source Converter</a>
-</td>
-<td>
-<span class="listing-author">Carlos Alegre (eRoots)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('d2luZA=='); return false;">wind</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('Z2VuZXJpYw=='); return false;">generic</div>
 
-<tr data-index="2" data-categories="T3BlbnNvdXJjZSUyQ0VNVCUyQ3ZvbHRhZ2UlMjBzb3VyY2UlMkNjb252ZXJ0ZXIlMkN3aW5kJTJDcHYlMkNodmRjJTJDRHJvb3AlMjBDb250cm9sJTJDVmlydHVhbCUyMFN5bmNocm9ub3VzJTIwTWFjaGluZSUyQ2dyaWQlMjBmb3JtaW5nJTJDUFNUZXNz" data-listing-date-sort="1709769600000" data-listing-file-modified-sort="1756999880682" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2773" data-listing-title-sort="Generic EMT Grid Forming Voltage Source Converter" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/4-HVDC/VSC/GridFormingConverter/UPC-EMT-GFM-VSC/index.html" class="title listing-title">Generic EMT Grid Forming Voltage Source Converter</a>
-</td>
-<td>
-<span class="listing-author">Carlos Alegre (eRoots)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('cHY='); return false;">pv</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('aHZkYw=='); return false;">hvdc</div>
 
-<tr data-index="3" data-categories="T3BlbnNvdXJjZSUyQ1BoYXNvciUyQ3ZvbHRhZ2UlMjBzb3VyY2UlMkNjb252ZXJ0ZXIlMkN3aW5kJTJDcHYlMkNodmRjJTJDRHJvb3AlMjBDb250cm9sJTJDVmlydHVhbCUyMFN5bmNocm9ub3VzJTIwTWFjaGluZSUyQ2dyaWQlMjBmb3JtaW5nJTJDUFNUZXNz" data-listing-date-sort="1749254400000" data-listing-file-modified-sort="1756999880687" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2404" data-listing-title-sort="Generic Phasor Grid Forming Voltage Source Converter" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/4-HVDC/VSC/GridFormingConverter/UPC-RMS-GFM-VSC/index.html" class="title listing-title">Generic Phasor Grid Forming Voltage Source Converter</a>
-</td>
-<td>
-<span class="listing-author">Carlos Alegre (eRoots)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('RVBSSQ=='); return false;">EPRI</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('RHluYXdv'); return false;">Dynawo</div>
 
-<tr data-index="4" data-categories="T3BlbnNvdXJjZSUyQ1JNUyUyQ3BoYXNvciUyQ1RNUkwyJTJDdm9sdGFnZSUyMHNvdXJjZSUyQ2NvbnZlcnRlciUyQ3dpbmQlMkNwdiUyQ2hkdmMlMkNkeW5hd28lMkNTVEVQU1M=" data-listing-date-sort="1746403200000" data-listing-file-modified-sort="1756999880645" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1084" data-listing-title-sort="L2EP generic RMS grid following voltage source converter" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/4-HVDC/VSC/GridFollowingConverter/L2EP-RMS-GFL-VSC/index.html" class="title listing-title">L2EP generic RMS grid following voltage source converter</a>
-</td>
-<td>
-<span class="listing-author">Thierry Van Cutsem</span>
-</td>
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/4-HVDC/VSC/GridFormingConverter/EPRI-GFM-Converter/index.html" class="no-external">
+<div class="listing-date">
+Aug 12, 2025
+</div>
+<div class="listing-author">
+Nils Wiese (Fraunhofer IEE), Martin Franke (Fraunhofer IEE), Saikrishna Vallabhaneni
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="T3BlbnNvdXJjZSUyQ1BoYXNvciUyQ3ZvbHRhZ2UlMjBzb3VyY2UlMkNjb252ZXJ0ZXIlMkN3aW5kJTJDcHYlMkNodmRj" data-listing-date-sort="1770336000000" data-listing-file-modified-sort="1757001863930" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2313">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/index.html" class="no-external">Full-Phasor Grid Following Voltage Source Converter</a>
+</h3>
+<div class="listing-categories">
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
 
-<tr data-index="5" data-categories="T3BlbnNvdXJjZSUyQ1BoYXNvciUyQ3ZvbHRhZ2UlMjBzb3VyY2UlMkNjb252ZXJ0ZXIlMkN3aW5kJTJDcHYlMkNodmRj" data-listing-date-sort="1770336000000" data-listing-file-modified-sort="1756999880667" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="339" data-listing-title-sort="Phasor-I0 Grid Following Voltage Source Converter" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/PhasorIo/index.html" class="title listing-title">Phasor-I0 Grid Following Voltage Source Converter</a>
-</td>
-<td>
-<span class="listing-author">Carlos Alegre (eRoots)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('UGhhc29y'); return false;">Phasor</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('dm9sdGFnZSUyMHNvdXJjZQ=='); return false;">voltage source</div>
 
-<tr data-index="6" data-categories="T3BlbnNvdXJjZSUyQ1BoYXNvciUyQ3ZvbHRhZ2UlMjBzb3VyY2UlMkNjb252ZXJ0ZXIlMkN3aW5kJTJDcHYlMkNodmRj" data-listing-date-sort="1770336000000" data-listing-file-modified-sort="1756999880666" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="384" data-listing-title-sort="Phasor-I1 Grid Following Voltage Source Converter" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/PhasorI1/index.html" class="title listing-title">Phasor-I1 Grid Following Voltage Source Converter</a>
-</td>
-<td>
-<span class="listing-author">Carlos Alegre (eRoots)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udmVydGVy'); return false;">converter</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('d2luZA=='); return false;">wind</div>
 
-<tr data-index="7" data-categories="T3BlbnNvdXJjZSUyQ1BoYXNvciUyQ3ZvbHRhZ2UlMjBzb3VyY2UlMkNjb252ZXJ0ZXIlMkN3aW5kJTJDcHYlMkNodmRj" data-listing-date-sort="1770336000000" data-listing-file-modified-sort="1756999880667" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="431" data-listing-title-sort="Phasor-PQ1 Grid Following Voltage Source Converter" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/PhasorPQ1/index.html" class="title listing-title">Phasor-PQ1 Grid Following Voltage Source Converter</a>
-</td>
-<td>
-<span class="listing-author">Carlos Alegre (eRoots)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('cHY='); return false;">pv</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('aHZkYw=='); return false;">hvdc</div>
 
-<tr data-index="8" data-categories="JTIzMjQlMkNvcGVuc291cmNlJTJDcGhhc29yJTJDSFZEQyUyQ1ZTQyUyQ2dlbmVyaWMlMkNNUkw0JTJDU2luZ2xlJTIwcGhhc2UlMkNkeW5hd28=" data-listing-date-sort="1725580800000" data-listing-file-modified-sort="1756999880691" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1772" data-listing-title-sort="RTE Average phasor voltage source converter HVDC Model" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/4-HVDC/VSC/Point-to-Point-HVDC/RTE-RMS-Average-HVDC/index.html" class="title listing-title">RTE Average phasor voltage source converter HVDC Model</a>
-</td>
-<td>
-<span class="listing-author">Mathilde Bongrain (CRESYM)</span>
-</td>
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/index.html" class="no-external">
+<div class="listing-date">
+Feb 6, 2026
+</div>
+<div class="listing-author">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="T3BlbnNvdXJjZSUyQ0VNVCUyQ3ZvbHRhZ2UlMjBzb3VyY2UlMkNjb252ZXJ0ZXIlMkN3aW5kJTJDcHYlMkNodmRjJTJDRHJvb3AlMjBDb250cm9sJTJDVmlydHVhbCUyMFN5bmNocm9ub3VzJTIwTWFjaGluZSUyQ2dyaWQlMjBmb3JtaW5nJTJDUFNUZXNz" data-listing-date-sort="1709769600000" data-listing-file-modified-sort="1757001863942" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2773">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/4-HVDC/VSC/GridFormingConverter/UPC-EMT-GFM-VSC/index.html" class="no-external">Generic EMT Grid Forming Voltage Source Converter</a>
+</h3>
+<div class="listing-categories">
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
 
-<tr data-index="9" data-categories="T3BlbnNvdXJjZSUyQ0VNVCUyQ3ZvbHRhZ2UlMjBzb3VyY2UlMkNjb252ZXJ0ZXIlMkN3aW5kJTJDcHYlMkNodmRjJTJDZm9sbG93aW5nJTJDTlJFTCUyQ1BTQ0FEJTJDRFBTSU0lMkNTaW1wbHVzR3JpZCUyQ01hdGxhYg==" data-listing-date-sort="1714953600000" data-listing-file-modified-sort="1756999880658" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2786" data-listing-title-sort="UPC generic EMT Grid Following Voltage Source Converter" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/4-HVDC/VSC/GridFollowingConverter/UPC-EMT-GFL-VSC/index.html" class="title listing-title">UPC generic EMT Grid Following Voltage Source Converter</a>
-</td>
-<td>
-<span class="listing-author">Carlos Alegre (eRoots)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('RU1U'); return false;">EMT</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('dm9sdGFnZSUyMHNvdXJjZQ=='); return false;">voltage source</div>
 
-<tr data-index="10" data-categories="T3BlbnNvdXJjZSUyQ0VNVCUyQ3ZvbHRhZ2UlMjBzb3VyY2UlMkNjb252ZXJ0ZXIlMkNodmRjJTJDcG9pbnQtdG8tcG9pbnQ=" data-listing-date-sort="1709769600000" data-listing-file-modified-sort="1756999880692" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1474" data-listing-title-sort="UPC generic EMT Point-to-Point HVDC model" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/4-HVDC/VSC/Point-to-Point-HVDC/UPC-EMT-HVDC/index.html" class="title listing-title">UPC generic EMT Point-to-Point HVDC model</a>
-</td>
-<td>
-<span class="listing-author">Carlos Alegre (eRoots)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udmVydGVy'); return false;">converter</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('d2luZA=='); return false;">wind</div>
 
-</tbody>
-</table>
+<div class="listing-category" onclick="window.quartoListingCategory('cHY='); return false;">pv</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aHZkYw=='); return false;">hvdc</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RHJvb3AlMjBDb250cm9s'); return false;">Droop Control</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VmlydHVhbCUyMFN5bmNocm9ub3VzJTIwTWFjaGluZQ=='); return false;">Virtual Synchronous Machine</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z3JpZCUyMGZvcm1pbmc='); return false;">grid forming</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UFNUZXNz'); return false;">PSTess</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/4-HVDC/VSC/GridFormingConverter/UPC-EMT-GFM-VSC/index.html" class="no-external">
+<div class="listing-date">
+Mar 7, 2024
+</div>
+<div class="listing-author">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="T3BlbnNvdXJjZSUyQ1BoYXNvciUyQ3ZvbHRhZ2UlMjBzb3VyY2UlMkNjb252ZXJ0ZXIlMkN3aW5kJTJDcHYlMkNodmRjJTJDRHJvb3AlMjBDb250cm9sJTJDVmlydHVhbCUyMFN5bmNocm9ub3VzJTIwTWFjaGluZSUyQ2dyaWQlMjBmb3JtaW5nJTJDUFNUZXNz" data-listing-date-sort="1749254400000" data-listing-file-modified-sort="1757001863948" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2404">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/4-HVDC/VSC/GridFormingConverter/UPC-RMS-GFM-VSC/index.html" class="no-external">Generic Phasor Grid Forming Voltage Source Converter</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UGhhc29y'); return false;">Phasor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dm9sdGFnZSUyMHNvdXJjZQ=='); return false;">voltage source</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udmVydGVy'); return false;">converter</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('d2luZA=='); return false;">wind</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHY='); return false;">pv</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aHZkYw=='); return false;">hvdc</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RHJvb3AlMjBDb250cm9s'); return false;">Droop Control</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VmlydHVhbCUyMFN5bmNocm9ub3VzJTIwTWFjaGluZQ=='); return false;">Virtual Synchronous Machine</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z3JpZCUyMGZvcm1pbmc='); return false;">grid forming</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UFNUZXNz'); return false;">PSTess</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/4-HVDC/VSC/GridFormingConverter/UPC-RMS-GFM-VSC/index.html" class="no-external">
+<div class="listing-date">
+Jun 7, 2025
+</div>
+<div class="listing-author">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="T3BlbnNvdXJjZSUyQ1JNUyUyQ3BoYXNvciUyQ1RNUkwyJTJDdm9sdGFnZSUyMHNvdXJjZSUyQ2NvbnZlcnRlciUyQ3dpbmQlMkNwdiUyQ2hkdmMlMkNkeW5hd28lMkNTVEVQU1M=" data-listing-date-sort="1746403200000" data-listing-file-modified-sort="1757001863907" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1084">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/4-HVDC/VSC/GridFollowingConverter/L2EP-RMS-GFL-VSC/index.html" class="no-external">L2EP generic RMS grid following voltage source converter</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Uk1T'); return false;">RMS</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGhhc29y'); return false;">phasor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VE1STDI='); return false;">TMRL2</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dm9sdGFnZSUyMHNvdXJjZQ=='); return false;">voltage source</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udmVydGVy'); return false;">converter</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('d2luZA=='); return false;">wind</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHY='); return false;">pv</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aGR2Yw=='); return false;">hdvc</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZHluYXdv'); return false;">dynawo</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U1RFUFNT'); return false;">STEPSS</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/4-HVDC/VSC/GridFollowingConverter/L2EP-RMS-GFL-VSC/index.html" class="no-external">
+<div class="listing-date">
+May 5, 2025
+</div>
+<div class="listing-author">
+Thierry Van Cutsem
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="T3BlbnNvdXJjZSUyQ1BoYXNvciUyQ3ZvbHRhZ2UlMjBzb3VyY2UlMkNjb252ZXJ0ZXIlMkN3aW5kJTJDcHYlMkNodmRj" data-listing-date-sort="1770336000000" data-listing-file-modified-sort="1757001863928" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="339">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/PhasorIo/index.html" class="no-external">Phasor-I0 Grid Following Voltage Source Converter</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UGhhc29y'); return false;">Phasor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dm9sdGFnZSUyMHNvdXJjZQ=='); return false;">voltage source</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udmVydGVy'); return false;">converter</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('d2luZA=='); return false;">wind</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHY='); return false;">pv</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aHZkYw=='); return false;">hvdc</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/PhasorIo/index.html" class="no-external">
+<div class="listing-date">
+Feb 6, 2026
+</div>
+<div class="listing-author">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-categories="T3BlbnNvdXJjZSUyQ1BoYXNvciUyQ3ZvbHRhZ2UlMjBzb3VyY2UlMkNjb252ZXJ0ZXIlMkN3aW5kJTJDcHYlMkNodmRj" data-listing-date-sort="1770336000000" data-listing-file-modified-sort="1757001863927" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="384">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/PhasorI1/index.html" class="no-external">Phasor-I1 Grid Following Voltage Source Converter</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UGhhc29y'); return false;">Phasor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dm9sdGFnZSUyMHNvdXJjZQ=='); return false;">voltage source</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udmVydGVy'); return false;">converter</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('d2luZA=='); return false;">wind</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHY='); return false;">pv</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aHZkYw=='); return false;">hvdc</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/PhasorI1/index.html" class="no-external">
+<div class="listing-date">
+Feb 6, 2026
+</div>
+<div class="listing-author">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-categories="T3BlbnNvdXJjZSUyQ1BoYXNvciUyQ3ZvbHRhZ2UlMjBzb3VyY2UlMkNjb252ZXJ0ZXIlMkN3aW5kJTJDcHYlMkNodmRj" data-listing-date-sort="1770336000000" data-listing-file-modified-sort="1757001863928" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="431">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/PhasorPQ1/index.html" class="no-external">Phasor-PQ1 Grid Following Voltage Source Converter</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UGhhc29y'); return false;">Phasor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dm9sdGFnZSUyMHNvdXJjZQ=='); return false;">voltage source</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udmVydGVy'); return false;">converter</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('d2luZA=='); return false;">wind</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHY='); return false;">pv</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aHZkYw=='); return false;">hvdc</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/PhasorPQ1/index.html" class="no-external">
+<div class="listing-date">
+Feb 6, 2026
+</div>
+<div class="listing-author">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-categories="JTIzMjQlMkNvcGVuc291cmNlJTJDcGhhc29yJTJDSFZEQyUyQ1ZTQyUyQ2dlbmVyaWMlMkNNUkw0JTJDU2luZ2xlJTIwcGhhc2UlMkNkeW5hd28=" data-listing-date-sort="1725580800000" data-listing-file-modified-sort="1757001863951" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1772">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/4-HVDC/VSC/Point-to-Point-HVDC/RTE-RMS-Average-HVDC/index.html" class="no-external">RTE Average phasor voltage source converter HVDC Model</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMjQ='); return false;">#24</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('b3BlbnNvdXJjZQ=='); return false;">opensource</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGhhc29y'); return false;">phasor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('SFZEQw=='); return false;">HVDC</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('VlND'); return false;">VSC</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Z2VuZXJpYw=='); return false;">generic</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TVJMNA=='); return false;">MRL4</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2luZ2xlJTIwcGhhc2U='); return false;">Single phase</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZHluYXdv'); return false;">dynawo</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/4-HVDC/VSC/Point-to-Point-HVDC/RTE-RMS-Average-HVDC/index.html" class="no-external">
+<div class="listing-date">
+Sep 6, 2024
+</div>
+<div class="listing-author">
+Mathilde Bongrain (CRESYM)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-categories="T3BlbnNvdXJjZSUyQ0VNVCUyQ3ZvbHRhZ2UlMjBzb3VyY2UlMkNjb252ZXJ0ZXIlMkN3aW5kJTJDcHYlMkNodmRjJTJDZm9sbG93aW5nJTJDTlJFTCUyQ1BTQ0FEJTJDRFBTSU0lMkNTaW1wbHVzR3JpZCUyQ01hdGxhYg==" data-listing-date-sort="1714953600000" data-listing-file-modified-sort="1757001863919" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2786">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/4-HVDC/VSC/GridFollowingConverter/UPC-EMT-GFL-VSC/index.html" class="no-external">UPC generic EMT Grid Following Voltage Source Converter</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RU1U'); return false;">EMT</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dm9sdGFnZSUyMHNvdXJjZQ=='); return false;">voltage source</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udmVydGVy'); return false;">converter</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('d2luZA=='); return false;">wind</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cHY='); return false;">pv</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aHZkYw=='); return false;">hvdc</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Zm9sbG93aW5n'); return false;">following</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TlJFTA=='); return false;">NREL</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UFNDQUQ='); return false;">PSCAD</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RFBTSU0='); return false;">DPSIM</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2ltcGx1c0dyaWQ='); return false;">SimplusGrid</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWF0bGFi'); return false;">Matlab</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/4-HVDC/VSC/GridFollowingConverter/UPC-EMT-GFL-VSC/index.html" class="no-external">
+<div class="listing-date">
+May 6, 2024
+</div>
+<div class="listing-author">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="10" data-categories="T3BlbnNvdXJjZSUyQ0VNVCUyQ3ZvbHRhZ2UlMjBzb3VyY2UlMkNjb252ZXJ0ZXIlMkNodmRjJTJDcG9pbnQtdG8tcG9pbnQ=" data-listing-date-sort="1709769600000" data-listing-file-modified-sort="1757001863952" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1474">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/4-HVDC/VSC/Point-to-Point-HVDC/UPC-EMT-HVDC/index.html" class="no-external">UPC generic EMT Point-to-Point HVDC model</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RU1U'); return false;">EMT</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dm9sdGFnZSUyMHNvdXJjZQ=='); return false;">voltage source</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udmVydGVy'); return false;">converter</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aHZkYw=='); return false;">hvdc</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cG9pbnQtdG8tcG9pbnQ='); return false;">point-to-point</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/4-HVDC/VSC/Point-to-Point-HVDC/UPC-EMT-HVDC/index.html" class="no-external">
+<div class="listing-date">
+Mar 7, 2024
+</div>
+<div class="listing-author">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+</div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

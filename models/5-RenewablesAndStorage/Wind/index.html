@@ -79,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-title","listing-date","listing-author","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -1134,9 +1134,9 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JTIzNjI=">#62 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29udHJvbGxlcg==">controller <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZHluYXdv">dynawo <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SUVD">IEC <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bW9kZWxpY2E=">modelica <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T3BlbnNvdXJjZQ==">Opensource <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVndWxhdGlvbnM=">regulations <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Uk1T">RMS <span class="quarto-category-count">(1)</span></div><div class="category" data-category="d2luZA==">wind <span class="quarto-category-count">(1)</span></div><div class="category" data-category="V1Q=">WT <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -1163,18 +1163,27 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
       <option value="" disabled="" selected="" hidden="">Order By</option>
       <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title-sort" data-direction="asc">
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-title" data-direction="asc">
         Title
       </option>
       <option value="listing-author" data-direction="asc">
         Author
+      </option>
+      <option value="listing-categories" data-direction="asc">
+        Categories
       </option>
     </select>
   </div>
@@ -1183,34 +1192,48 @@ window.Quarto = {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="cmVndWxhdGlvbnMlMkNXVCUyQ3dpbmQlMkNjb250cm9sbGVyJTJDT3BlbnNvdXJjZSUyQ0lFQyUyQ1JNUyUyQ21vZGVsaWNhJTJDZHluYXdvJTJDJTIzNjI=" data-listing-date-sort="1754956800000" data-listing-file-modified-sort="1757001863963" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="106" data-listing-word-count-sort="21086">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/5-RenewablesAndStorage/Wind/iec_wt_type3/index.html" class="no-external">IEC Wind Turbine Type 3 (Doubly-Fed Induction Generator)</a>
+</h3>
+<div class="listing-categories">
 
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('cmVndWxhdGlvbnM='); return false;">regulations</div>
 
-<th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('V1Q='); return false;">WT</div>
 
-</tr>
-</thead>
-<tbody class="list">
+<div class="listing-category" onclick="window.quartoListingCategory('d2luZA=='); return false;">wind</div>
 
-<tr data-index="0" data-categories="cmVndWxhdGlvbnMlMkNXVCUyQ3dpbmQlMkNjb250cm9sbGVyJTJDT3BlbnNvdXJjZSUyQ0lFQyUyQ1JNUyUyQ21vZGVsaWNhJTJDZHluYXdvJTJDJTIzNjI=" data-listing-date-sort="1754956800000" data-listing-file-modified-sort="1756999880702" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="106" data-listing-word-count-sort="21086" data-listing-title-sort="IEC Wind Turbine Type 3 (Doubly-Fed Induction Generator)" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/5-RenewablesAndStorage/Wind/iec_wt_type3/index.html" class="title listing-title">IEC Wind Turbine Type 3 (Doubly-Fed Induction Generator)</a>
-</td>
-<td>
-<span class="listing-author">Martin Franke (Fraunhofer IEE), Luka Plavec (Fraunhofer IEE)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('Y29udHJvbGxlcg=='); return false;">controller</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
 
-</tbody>
-</table>
+<div class="listing-category" onclick="window.quartoListingCategory('SUVD'); return false;">IEC</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Uk1T'); return false;">RMS</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bW9kZWxpY2E='); return false;">modelica</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZHluYXdv'); return false;">dynawo</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzNjI='); return false;">#62</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/5-RenewablesAndStorage/Wind/iec_wt_type3/index.html" class="no-external">
+<div class="listing-date">
+Aug 12, 2025
+</div>
+<div class="listing-author">
+Martin Franke (Fraunhofer IEE), Luka Plavec (Fraunhofer IEE)
+</div>
+</a>
+</div>
+</div>
+</div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

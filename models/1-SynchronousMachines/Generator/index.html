@@ -79,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-title","listing-date","listing-author","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -1134,9 +1134,9 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="JTIzMTEw">#110 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="JTIzMTk2">#196 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JTIzMTk3">#197 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RHluYXdv">Dynawo <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RU1U">EMT <span class="quarto-category-count">(2)</span></div><div class="category" data-category="R0VOUUVD">GENQEC <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R0VOUk9V">GENROU <span class="quarto-category-count">(4)</span></div><div class="category" data-category="R0VOU0FM">GENSAL <span class="quarto-category-count">(4)</span></div><div class="category" data-category="R0VOVFBG">GENTPF <span class="quarto-category-count">(2)</span></div><div class="category" data-category="R0VOVFBK">GENTPJ <span class="quarto-category-count">(2)</span></div><div class="category" data-category="T3BlbnNvdXJjZQ==">Opensource <span class="quarto-category-count">(4)</span></div><div class="category" data-category="UGhhc29y">Phasor <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UGhhc29yaWFs">Phasorial <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UG93ZXJXb3JsZA==">PowerWorld <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Uk1T">RMS <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Um90b3I=">Rotor <span class="quarto-category-count">(4)</span></div><div class="category" data-category="U2F0dXJhdGlvbg==">Saturation <span class="quarto-category-count">(2)</span></div><div class="category" data-category="U3RhdG9y">Stator <span class="quarto-category-count">(4)</span></div><div class="category" data-category="U3luY2hyb25vdXMlMjBtYWNoaW5l">Synchronous machine <span class="quarto-category-count">(4)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -1163,18 +1163,27 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
       <option value="" disabled="" selected="" hidden="">Order By</option>
       <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title-sort" data-direction="asc">
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-title" data-direction="asc">
         Title
       </option>
       <option value="listing-author" data-direction="asc">
         Author
+      </option>
+      <option value="listing-categories" data-direction="asc">
+        Categories
       </option>
     </select>
   </div>
@@ -1183,64 +1192,178 @@ window.Quarto = {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="JTIzMTk3JTJDU3luY2hyb25vdXMlMjBtYWNoaW5lJTJDUm90b3IlMkNTdGF0b3IlMkNQb3dlcldvcmxkJTJDT3BlbnNvdXJjZSUyQ0dFTlJPVSUyQ0dFTlNBTCUyQ0dFTlRQRiUyQ0dFTlRQSiUyQ0dFTlFFQyUyQ1NhdHVyYXRpb24=" data-listing-date-sort="1723075200000" data-listing-file-modified-sort="1757001863821" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1117">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/1-SynchronousMachines/Generator/GENQEC/index.html" class="no-external">GENQEC Synchronous Machine with Saturation</a>
+</h3>
+<div class="listing-categories">
 
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMTk3'); return false;">#197</div>
 
-<th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('U3luY2hyb25vdXMlMjBtYWNoaW5l'); return false;">Synchronous machine</div>
 
-</tr>
-</thead>
-<tbody class="list">
+<div class="listing-category" onclick="window.quartoListingCategory('Um90b3I='); return false;">Rotor</div>
 
-<tr data-index="0" data-categories="JTIzMTk3JTJDU3luY2hyb25vdXMlMjBtYWNoaW5lJTJDUm90b3IlMkNTdGF0b3IlMkNQb3dlcldvcmxkJTJDT3BlbnNvdXJjZSUyQ0dFTlJPVSUyQ0dFTlNBTCUyQ0dFTlRQRiUyQ0dFTlRQSiUyQ0dFTlFFQyUyQ1NhdHVyYXRpb24=" data-listing-date-sort="1723075200000" data-listing-file-modified-sort="1756999880559" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1117" data-listing-title-sort="GENQEC Synchronous Machine with Saturation" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/1-SynchronousMachines/Generator/GENQEC/index.html" class="title listing-title">GENQEC Synchronous Machine with Saturation</a>
-</td>
-<td>
-<span class="listing-author">Carlos Alegre (eRoots)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdG9y'); return false;">Stator</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('UG93ZXJXb3JsZA=='); return false;">PowerWorld</div>
 
-<tr data-index="1" data-categories="JTIzMTEwJTJDU3luY2hyb25vdXMlMjBtYWNoaW5lJTJDUk1TJTJDRU1UJTJDUGhhc29yaWFsJTJDUm90b3IlMkNTdGF0b3IlMkNEeW5hd28lMkNPcGVuc291cmNlJTJDR0VOUk9VJTJDR0VOU0FM" data-listing-date-sort="1728000000000" data-listing-file-modified-sort="1756999880559" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1688" data-listing-title-sort="GENROU/GENSAL Salient-pole/round-rotor synchronous machine without saturation" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/1-SynchronousMachines/Generator/GENSAL/index.html" class="title listing-title">GENROU/GENSAL Salient-pole/round-rotor synchronous machine without saturation</a>
-</td>
-<td>
-<span class="listing-author">Carlos Alegre (eRoots)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('R0VOUk9V'); return false;">GENROU</div>
 
-<tr data-index="2" data-categories="JTIzMTk2JTJDU3luY2hyb25vdXMlMjBtYWNoaW5lJTJDUm90b3IlMkNTdGF0b3IlMkNQb3dlcldvcmxkJTJDT3BlbnNvdXJjZSUyQ0dFTlJPVSUyQ0dFTlNBTCUyQ0dFTlRQRiUyQ0dFTlRQSiUyQ1NhdHVyYXRpb24=" data-listing-date-sort="1715126400000" data-listing-file-modified-sort="1756999880559" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1635" data-listing-title-sort="GENTPF/GENTPJ Synchronous Machine with Saturation" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/1-SynchronousMachines/Generator/GENTPJ/index.html" class="title listing-title">GENTPF/GENTPJ Synchronous Machine with Saturation</a>
-</td>
-<td>
-<span class="listing-author">Carlos Alegre (eRoots)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('R0VOU0FM'); return false;">GENSAL</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('R0VOVFBG'); return false;">GENTPF</div>
 
-<tr data-index="3" data-categories="JTIzMTEwJTJDU3luY2hyb25vdXMlMjBtYWNoaW5lJTJDUk1TJTJDRU1UJTJDUGhhc29yJTJDUm90b3IlMkNTdGF0b3IlMkNEeW5hd28lMkNPcGVuc291cmNlJTJDR0VOUk9VJTJDR0VOU0FM" data-listing-date-sort="1728000000000" data-listing-file-modified-sort="1756999880603" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2501" data-listing-title-sort="Synchronous Machine Model (SM1)" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/1-SynchronousMachines/Generator/SM1/index.html" class="title listing-title">Synchronous Machine Model (SM1)</a>
-</td>
-<td>
-<span class="listing-author">Carlos Alegre (eRoots)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('R0VOVFBK'); return false;">GENTPJ</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('R0VOUUVD'); return false;">GENQEC</div>
 
-</tbody>
-</table>
+<div class="listing-category" onclick="window.quartoListingCategory('U2F0dXJhdGlvbg=='); return false;">Saturation</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/1-SynchronousMachines/Generator/GENQEC/index.html" class="no-external">
+<div class="listing-date">
+Aug 8, 2024
+</div>
+<div class="listing-author">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="JTIzMTEwJTJDU3luY2hyb25vdXMlMjBtYWNoaW5lJTJDUk1TJTJDRU1UJTJDUGhhc29yaWFsJTJDUm90b3IlMkNTdGF0b3IlMkNEeW5hd28lMkNPcGVuc291cmNlJTJDR0VOUk9VJTJDR0VOU0FM" data-listing-date-sort="1728000000000" data-listing-file-modified-sort="1757001863821" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1688">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/1-SynchronousMachines/Generator/GENSAL/index.html" class="no-external">GENROU/GENSAL Salient-pole/round-rotor synchronous machine without saturation</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMTEw'); return false;">#110</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3luY2hyb25vdXMlMjBtYWNoaW5l'); return false;">Synchronous machine</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Uk1T'); return false;">RMS</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RU1U'); return false;">EMT</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UGhhc29yaWFs'); return false;">Phasorial</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Um90b3I='); return false;">Rotor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdG9y'); return false;">Stator</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RHluYXdv'); return false;">Dynawo</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0VOUk9V'); return false;">GENROU</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0VOU0FM'); return false;">GENSAL</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/1-SynchronousMachines/Generator/GENSAL/index.html" class="no-external">
+<div class="listing-date">
+Oct 4, 2024
+</div>
+<div class="listing-author">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="JTIzMTk2JTJDU3luY2hyb25vdXMlMjBtYWNoaW5lJTJDUm90b3IlMkNTdGF0b3IlMkNQb3dlcldvcmxkJTJDT3BlbnNvdXJjZSUyQ0dFTlJPVSUyQ0dFTlNBTCUyQ0dFTlRQRiUyQ0dFTlRQSiUyQ1NhdHVyYXRpb24=" data-listing-date-sort="1715126400000" data-listing-file-modified-sort="1757001863822" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1635">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/1-SynchronousMachines/Generator/GENTPJ/index.html" class="no-external">GENTPF/GENTPJ Synchronous Machine with Saturation</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMTk2'); return false;">#196</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3luY2hyb25vdXMlMjBtYWNoaW5l'); return false;">Synchronous machine</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Um90b3I='); return false;">Rotor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdG9y'); return false;">Stator</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UG93ZXJXb3JsZA=='); return false;">PowerWorld</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0VOUk9V'); return false;">GENROU</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0VOU0FM'); return false;">GENSAL</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0VOVFBG'); return false;">GENTPF</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0VOVFBK'); return false;">GENTPJ</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2F0dXJhdGlvbg=='); return false;">Saturation</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/1-SynchronousMachines/Generator/GENTPJ/index.html" class="no-external">
+<div class="listing-date">
+May 8, 2024
+</div>
+<div class="listing-author">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="JTIzMTEwJTJDU3luY2hyb25vdXMlMjBtYWNoaW5lJTJDUk1TJTJDRU1UJTJDUGhhc29yJTJDUm90b3IlMkNTdGF0b3IlMkNEeW5hd28lMkNPcGVuc291cmNlJTJDR0VOUk9VJTJDR0VOU0FM" data-listing-date-sort="1728000000000" data-listing-file-modified-sort="1757001863865" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2501">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/1-SynchronousMachines/Generator/SM1/index.html" class="no-external">Synchronous Machine Model (SM1)</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMTEw'); return false;">#110</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3luY2hyb25vdXMlMjBtYWNoaW5l'); return false;">Synchronous machine</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Uk1T'); return false;">RMS</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RU1U'); return false;">EMT</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UGhhc29y'); return false;">Phasor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Um90b3I='); return false;">Rotor</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdG9y'); return false;">Stator</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RHluYXdv'); return false;">Dynawo</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbnNvdXJjZQ=='); return false;">Opensource</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0VOUk9V'); return false;">GENROU</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('R0VOU0FM'); return false;">GENSAL</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/1-SynchronousMachines/Generator/SM1/index.html" class="no-external">
+<div class="listing-date">
+Oct 4, 2024
+</div>
+<div class="listing-author">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+</div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

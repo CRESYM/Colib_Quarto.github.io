@@ -79,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-title","listing-date","listing-author","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -1134,9 +1134,9 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="JTIzMTIw">#120 <span class="quarto-category-count">(3)</span></div><div class="category" data-category="QmVyZ2Vyb24=">Bergeron <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29uc3RhbnQlMjBQYXJhbWV0ZXI=">Constant Parameter <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RHluYXdv">Dynawo <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RU1U">EMT <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RnJlcXVlbmN5JTIwRGVwZW5kZW50">Frequency Dependent <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWFydCVDMyVBRA==">Martí <span class="quarto-category-count">(1)</span></div><div class="category" data-category="T3BlbklQU0w=">OpenIPSL <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b3BlbnNvdXJjZQ==">opensource <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGktZXF1aXZhbGVudA==">pi-equivalent <span class="quarto-category-count">(3)</span></div><div class="category" data-category="c3RlYWR5LXN0YXRl">steady-state <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dHJhbnNpZW50">transient <span class="quarto-category-count">(2)</span></div><div class="category" data-category="dHJhbnNtaXNzaW9u">transmission <span class="quarto-category-count">(3)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -1166,18 +1166,27 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
       <option value="" disabled="" selected="" hidden="">Order By</option>
       <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title-sort" data-direction="asc">
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-title" data-direction="asc">
         Title
       </option>
       <option value="listing-author" data-direction="asc">
         Author
+      </option>
+      <option value="listing-categories" data-direction="asc">
+        Categories
       </option>
     </select>
   </div>
@@ -1186,54 +1195,112 @@ window.Quarto = {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="JTIzMTIwJTJDcGktZXF1aXZhbGVudCUyQ0VNVCUyQ0Jlcmdlcm9uJTJDQ29uc3RhbnQlMjBQYXJhbWV0ZXIlMkN0cmFuc2llbnQlMkN0cmFuc21pc3Npb24lMkNEeW5hd28=" data-listing-date-sort="1725494400000" data-listing-file-modified-sort="1757001863963" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1012">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/6-NetworkComponents/Line/cpLine/index.html" class="no-external">Constant parameters Line Model</a>
+</h3>
+<div class="listing-categories">
 
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMTIw'); return false;">#120</div>
 
-<th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('cGktZXF1aXZhbGVudA=='); return false;">pi-equivalent</div>
 
-</tr>
-</thead>
-<tbody class="list">
+<div class="listing-category" onclick="window.quartoListingCategory('RU1U'); return false;">EMT</div>
 
-<tr data-index="0" data-categories="JTIzMTIwJTJDcGktZXF1aXZhbGVudCUyQ0VNVCUyQ0Jlcmdlcm9uJTJDQ29uc3RhbnQlMjBQYXJhbWV0ZXIlMkN0cmFuc2llbnQlMkN0cmFuc21pc3Npb24lMkNEeW5hd28=" data-listing-date-sort="1725494400000" data-listing-file-modified-sort="1756999880703" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1012" data-listing-title-sort="Constant parameters Line Model" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/6-NetworkComponents/Line/cpLine/index.html" class="title listing-title">Constant parameters Line Model</a>
-</td>
-<td>
-<span class="listing-author">Carlos Alegre (eRoots)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('QmVyZ2Vyb24='); return false;">Bergeron</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('Q29uc3RhbnQlMjBQYXJhbWV0ZXI='); return false;">Constant Parameter</div>
 
-<tr data-index="1" data-categories="JTIzMTIwJTJDcGktZXF1aXZhbGVudCUyQ0ZyZXF1ZW5jeSUyMERlcGVuZGVudCUyQ01hcnQlQzMlQUQlMkNFTVQlMkN0cmFuc2llbnQlMkN0cmFuc21pc3Npb24=" data-listing-date-sort="1725494400000" data-listing-file-modified-sort="1756999880703" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2273" data-listing-title-sort="Frequency Dependent Line Model" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/6-NetworkComponents/Line/FDLine/index.html" class="title listing-title">Frequency Dependent Line Model</a>
-</td>
-<td>
-<span class="listing-author">Carlos Alegre (eRoots)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('dHJhbnNpZW50'); return false;">transient</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('dHJhbnNtaXNzaW9u'); return false;">transmission</div>
 
-<tr data-index="2" data-categories="JTIzMTIwJTJDcGktZXF1aXZhbGVudCUyQ3RyYW5zbWlzc2lvbiUyQ3N0ZWFkeS1zdGF0ZSUyQ0R5bmF3byUyQ09wZW5JUFNMJTJDb3BlbnNvdXJjZQ==" data-listing-date-sort="1725494400000" data-listing-file-modified-sort="1756999880704" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2491" data-listing-title-sort="Pi-equivalent Line Model" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../../models/6-NetworkComponents/Line/piLine/index.html" class="title listing-title">Pi-equivalent Line Model</a>
-</td>
-<td>
-<span class="listing-author">Carlos Alegre (eRoots)</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('RHluYXdv'); return false;">Dynawo</div>
 
-</tr>
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/6-NetworkComponents/Line/cpLine/index.html" class="no-external">
+<div class="listing-date">
+Sep 5, 2024
+</div>
+<div class="listing-author">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="JTIzMTIwJTJDcGktZXF1aXZhbGVudCUyQ0ZyZXF1ZW5jeSUyMERlcGVuZGVudCUyQ01hcnQlQzMlQUQlMkNFTVQlMkN0cmFuc2llbnQlMkN0cmFuc21pc3Npb24=" data-listing-date-sort="1725494400000" data-listing-file-modified-sort="1757001863963" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2273">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/6-NetworkComponents/Line/FDLine/index.html" class="no-external">Frequency Dependent Line Model</a>
+</h3>
+<div class="listing-categories">
 
-</tbody>
-</table>
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMTIw'); return false;">#120</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGktZXF1aXZhbGVudA=='); return false;">pi-equivalent</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RnJlcXVlbmN5JTIwRGVwZW5kZW50'); return false;">Frequency Dependent</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFydCVDMyVBRA=='); return false;">Martí</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RU1U'); return false;">EMT</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHJhbnNpZW50'); return false;">transient</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHJhbnNtaXNzaW9u'); return false;">transmission</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/6-NetworkComponents/Line/FDLine/index.html" class="no-external">
+<div class="listing-date">
+Sep 5, 2024
+</div>
+<div class="listing-author">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="JTIzMTIwJTJDcGktZXF1aXZhbGVudCUyQ3RyYW5zbWlzc2lvbiUyQ3N0ZWFkeS1zdGF0ZSUyQ0R5bmF3byUyQ09wZW5JUFNMJTJDb3BlbnNvdXJjZQ==" data-listing-date-sort="1725494400000" data-listing-file-modified-sort="1757001863964" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2491">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../../models/6-NetworkComponents/Line/piLine/index.html" class="no-external">Pi-equivalent Line Model</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMTIw'); return false;">#120</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cGktZXF1aXZhbGVudA=='); return false;">pi-equivalent</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('dHJhbnNtaXNzaW9u'); return false;">transmission</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c3RlYWR5LXN0YXRl'); return false;">steady-state</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RHluYXdv'); return false;">Dynawo</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('T3BlbklQU0w='); return false;">OpenIPSL</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('b3BlbnNvdXJjZQ=='); return false;">opensource</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../../models/6-NetworkComponents/Line/piLine/index.html" class="no-external">
+<div class="listing-date">
+Sep 5, 2024
+</div>
+<div class="listing-author">
+Carlos Alegre (eRoots)
+</div>
+</a>
+</div>
+</div>
+</div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

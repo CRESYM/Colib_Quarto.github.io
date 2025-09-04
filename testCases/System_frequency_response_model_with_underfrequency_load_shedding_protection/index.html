@@ -79,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-title","listing-date","listing-author","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -371,9 +371,9 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JTIzMTU0">#154 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2VudHJlJTIwb2YlMjBpbmVydGlh">centre of inertia <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bG93JTIwZnJlcXVlbmN5JTIwZGVtYW5kJTIwZGlzY29ubmVjdGlvbg==">low frequency demand disconnection <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWF0bGFi">Matlab <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b3BlbnNvdXJjZQ==">opensource <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2ltdWxpbms=">Simulink <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3lzdGVtJTIwZnJlcXVlbmN5JTIwcmVzcG9uc2UlMjBtb2RlbA==">System frequency response model <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dW5kZXJmcmVxdWVuY3klMjBsb2FkJTIwc2hlZGRpbmc=">underfrequency load shedding <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -400,18 +400,27 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
       <option value="" disabled="" selected="" hidden="">Order By</option>
       <option value="index" data-direction="asc">Default</option>
-      <option value="listing-title-sort" data-direction="asc">
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-title" data-direction="asc">
         Title
       </option>
       <option value="listing-author" data-direction="asc">
         Author
+      </option>
+      <option value="listing-categories" data-direction="asc">
+        Categories
       </option>
     </select>
   </div>
@@ -420,34 +429,46 @@ window.Quarto = {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="b3BlbnNvdXJjZSUyQ1N5c3RlbSUyMGZyZXF1ZW5jeSUyMHJlc3BvbnNlJTIwbW9kZWwlMkNjZW50cmUlMjBvZiUyMGluZXJ0aWElMkN1bmRlcmZyZXF1ZW5jeSUyMGxvYWQlMjBzaGVkZGluZyUyQ2xvdyUyMGZyZXF1ZW5jeSUyMGRlbWFuZCUyMGRpc2Nvbm5lY3Rpb24lMkNQeXRob24lMkNNYXRsYWIlMkNTaW11bGluayUyQyUyMzE1NA==" data-listing-date-sort="1709683200000" data-listing-file-modified-sort="1757001863978" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="643">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../../testCases/System_frequency_response_model_with_underfrequency_load_shedding_protection/SFRM_with_UFLS/index.html" class="no-external">Underfrequency load shedding protection</a>
+</h3>
+<div class="listing-categories">
 
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('b3BlbnNvdXJjZQ=='); return false;">opensource</div>
 
-<th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
-</th>
+<div class="listing-category" onclick="window.quartoListingCategory('U3lzdGVtJTIwZnJlcXVlbmN5JTIwcmVzcG9uc2UlMjBtb2RlbA=='); return false;">System frequency response model</div>
 
-</tr>
-</thead>
-<tbody class="list">
+<div class="listing-category" onclick="window.quartoListingCategory('Y2VudHJlJTIwb2YlMjBpbmVydGlh'); return false;">centre of inertia</div>
 
-<tr data-index="0" data-categories="b3BlbnNvdXJjZSUyQ1N5c3RlbSUyMGZyZXF1ZW5jeSUyMHJlc3BvbnNlJTIwbW9kZWwlMkNjZW50cmUlMjBvZiUyMGluZXJ0aWElMkN1bmRlcmZyZXF1ZW5jeSUyMGxvYWQlMjBzaGVkZGluZyUyQ2xvdyUyMGZyZXF1ZW5jeSUyMGRlbWFuZCUyMGRpc2Nvbm5lY3Rpb24lMkNQeXRob24lMkNNYXRsYWIlMkNTaW11bGluayUyQyUyMzE1NA==" data-listing-date-sort="1709683200000" data-listing-file-modified-sort="1756999880724" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="643" data-listing-title-sort="Underfrequency load shedding protection" data-listing-filename-sort="index.qmd">
-<td>
-<a href="../../testCases/System_frequency_response_model_with_underfrequency_load_shedding_protection/SFRM_with_UFLS/index.html" class="title listing-title">Underfrequency load shedding protection</a>
-</td>
-<td>
-<span class="listing-author">Urban Rudez</span>
-</td>
+<div class="listing-category" onclick="window.quartoListingCategory('dW5kZXJmcmVxdWVuY3klMjBsb2FkJTIwc2hlZGRpbmc='); return false;">underfrequency load shedding</div>
 
-</tr>
+<div class="listing-category" onclick="window.quartoListingCategory('bG93JTIwZnJlcXVlbmN5JTIwZGVtYW5kJTIwZGlzY29ubmVjdGlvbg=='); return false;">low frequency demand disconnection</div>
 
-</tbody>
-</table>
+<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWF0bGFi'); return false;">Matlab</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2ltdWxpbms='); return false;">Simulink</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('JTIzMTU0'); return false;">#154</div>
+
+</div>
+</div>
+<div class="metadata">
+<a href="../../testCases/System_frequency_response_model_with_underfrequency_load_shedding_protection/SFRM_with_UFLS/index.html" class="no-external">
+<div class="listing-date">
+Mar 6, 2024
+</div>
+<div class="listing-author">
+Urban Rudez
+</div>
+</a>
+</div>
+</div>
+</div>
 <div class="listing-no-matching d-none">No matching items</div>
 </div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
