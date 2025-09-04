@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.7.34">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -72,10 +72,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-e30c552364bddadb0a23b1c371944251.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-54f5d7367d7744bb0b9428e446a27f70.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -558,15 +558,20 @@ Note
 </section>
 <section id="basic-quarto-workflow" class="level3">
 <h3 class="anchored" data-anchor-id="basic-quarto-workflow">Basic Quarto Workflow</h3>
+<section id="clone-the-repository" class="level4">
+<h4 class="anchored" data-anchor-id="clone-the-repository">1. Clone the repository</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/CRESYM/Colib_Quarto.github.io.git</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> colib_quarto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="create-your-contribution" class="level4">
-<h4 class="anchored" data-anchor-id="create-your-contribution">1. Create Your Contribution</h4>
+<h4 class="anchored" data-anchor-id="create-your-contribution">2. Create Your Contribution</h4>
 <ol type="1">
 <li>Download the appropriate template (model or test case)</li>
 <li>Open the <code>index.qmd</code> file in your preferred editor</li>
 </ol>
 </section>
 <section id="edit-your-content" class="level4">
-<h4 class="anchored" data-anchor-id="edit-your-content">2. Edit Your Content</h4>
+<h4 class="anchored" data-anchor-id="edit-your-content">3. Edit Your Content</h4>
 <p>Replace the content of the <code>index.qmd</code> file with your own, following the guidelines in the template.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -585,24 +590,26 @@ Tip
 </div>
 </section>
 <section id="preview-your-work" class="level4">
-<h4 class="anchored" data-anchor-id="preview-your-work">3. Preview Your Work</h4>
+<h4 class="anchored" data-anchor-id="preview-your-work">4. Preview Your Work</h4>
 <p>To see how your page will look, run in your terminal:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview index.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview index.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This opens a live preview in your browser that updates as you edit.</p>
 </section>
 <section id="render-final-output" class="level4">
-<h4 class="anchored" data-anchor-id="render-final-output">4. Render Final Output</h4>
+<h4 class="anchored" data-anchor-id="render-final-output">5. Render Final Output</h4>
 <p>To generate the final HTML file:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render index.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render index.qmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 </section>
 <section id="submission-process" class="level2">
 <h2 class="anchored" data-anchor-id="submission-process">Submission Process</h2>
 <ol type="1">
-<li><strong>Prepare your contribution</strong> using the appropriate template</li>
+<li><strong>Open a new issue</strong> through GitHub before starting your contribution.(<a href="https://github.com/CRESYM/Colib_Quarto.github.io/issues/new?assignees=GJCRESYM%2C+&amp;labels=enhancement%2Cbug%2Cevaluate+component&amp;projects=Colib0&amp;template=Evaluate.yml&amp;title=%5BName%2FID+of+the+model%2F+test+case+to+be+evaluated%5D%3A+">create an issue</a>)</li>
+<li><strong>Prepare your contribution</strong> using the appropriate template (model/ test case) available in the repository</li>
 <li><strong>Test your QMD file</strong> by rendering it locally</li>
-<li><strong>Submit via GitHub</strong> by creating an issue to the COLIB repository and attach your QMD file (<a href="https://github.com/CRESYM/Colib_Quarto.github.io/issues/new?assignees=GJCRESYM%2C+matoubongrain&amp;labels=enhancement%2Cbug%2Cevaluate+component&amp;projects=Colib0&amp;template=Evaluate.yml&amp;title=%5BName%2FID+of+the+model%2F+test+case+to+be+evaluated%5D%3A+">create an issue</a>)</li>
+<li><strong>Submit via GitHub</strong> to the same issue you created</li>
+<li><strong>Compress your QMD file</strong> and related resources into a .zip archive, as GitHub does not support .qmd uploads directly</li>
 <li><strong>Review process</strong> - our team will review your contribution</li>
 <li><strong>Publication</strong> - approved contributions are merged and published</li>
 </ol>
