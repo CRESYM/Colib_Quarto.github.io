@@ -1,7 +1,7 @@
 project:
   type: website
   post-render: 
-    - "./post-render.sh"
+    - "node -e \"require('fs').copyFileSync('javascript/quarto_listing.js', '_site/site_libs/quarto-listing/quarto-listing.js')\""
 
 website:
   favicon: assets/img/Logo_colib.svg
