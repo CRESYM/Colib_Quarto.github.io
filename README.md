@@ -36,15 +36,30 @@ For each of them, the description of the object is presented on one side, and th
    # On Windows
    # Download the installer from https://quarto.org/docs/get-started/
    ```
+2. **Install Node.js**
 
-2. **Clone the repository**
+   Download and install Node.js from the [official website](https://nodejs.org/) or use your package manager:
+
+   ```bash
+   # On macOS (using Homebrew)
+   brew install node
+
+   # On Ubuntu/Debian
+   curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+   sudo apt-get install -y nodejs
+
+   # On Windows
+   # Download the installer from https://nodejs.org/
+   ```
+
+3. **Clone the repository**
    
    ```bash
    git clone https://github.com/CRESYM/Colib_Quarto.github.io.git
    cd colib_quarto
    ```
 
-3. **Build and serve the website locally**
+4. **Build and serve the website locally**
    
    ```bash
    # Preview the website (auto-reloads on changes)
@@ -54,7 +69,7 @@ For each of them, the description of the object is presented on one side, and th
    quarto render
    ```
 
-4. **View the website**
+5. **View the website**
    
    Open your browser and navigate to `http://localhost:port` (the port will be displayed in the terminal after running `quarto preview`).
 
