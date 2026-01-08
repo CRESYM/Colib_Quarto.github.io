@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -34,14 +34,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-54f5d7367d7744bb0b9428e446a27f70.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-34c23ca681d95d42860aad17c3a9a816.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -114,7 +115,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -141,7 +142,8 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../assets/img/Logo_colib.svg" alt="" class="navbar-logo">
+    <img src="../../assets/img/Logo_colib.svg" alt="" class="navbar-logo light-content">
+    <img src="../../assets/img/Logo_colib.svg" alt="" class="navbar-logo dark-content">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -339,12 +341,6 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/Generator/GENQEC/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GENQEC Synchronous Machine with Saturation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../models/1-SynchronousMachines/Generator/GENTPJ/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GENTPF/GENTPJ Synchronous Machine with Saturation</span></a>
   </div>
@@ -353,6 +349,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../models/1-SynchronousMachines/Generator/GENSAL/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GENROU/GENSAL Salient-pole/round-rotor synchronous machine without saturation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/1-SynchronousMachines/Generator/GENQEC/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GENQEC Synchronous Machine with Saturation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -374,6 +376,54 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/IEEEX2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">IEEEX2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST9C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ST9C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST7C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ST7C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC7C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AC7C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/SCRX/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SCRX</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC8C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AC8C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AcRotatingExciter/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AcRotatingExciter (submodel)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/DC1C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DC1C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST5C/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ST5C</span></a>
   </div>
@@ -386,14 +436,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/DC1C/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">DC1C</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC8C/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">AC8C</span></a>
+  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST6C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ST6C</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -404,44 +448,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC7C/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">AC7C</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC1C/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">AC1C</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST7C/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ST7C</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC6C/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">AC6C</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/IEEEX2/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">IEEEX2</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AcRotatingExciter/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">AcRotatingExciter (submodel)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST9C/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ST9C</span></a>
+  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/BBSEX1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BBSEX1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -452,20 +460,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST6C/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ST6C</span></a>
+  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC1C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AC1C</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/SCRX/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SCRX</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/BBSEX1/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">BBSEX1</span></a>
+  <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC6C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AC6C</span></a>
   </div>
 </li>
       </ul>
@@ -481,26 +483,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL2C/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">OEL2C</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL5C/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">OEL5C</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL3C/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">OEL3C</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/OverUnderExcitationLimiter/UEL2C/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">UEL2C</span></a>
+  <a href="../../models/1-SynchronousMachines/OverUnderExcitationLimiter/SCL1C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SCL1C</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -517,14 +501,32 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/OverUnderExcitationLimiter/SCL1C/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SCL1C</span></a>
+  <a href="../../models/1-SynchronousMachines/OverUnderExcitationLimiter/UEL1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UEL1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/OverUnderExcitationLimiter/UEL1/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">UEL1</span></a>
+  <a href="../../models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL3C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OEL3C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL5C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OEL5C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL2C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">OEL2C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/1-SynchronousMachines/OverUnderExcitationLimiter/UEL2C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UEL2C</span></a>
   </div>
 </li>
       </ul>
@@ -540,14 +542,38 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/Governor/GovSteamEU/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GovSteamEU</span></a>
+  <a href="../../models/1-SynchronousMachines/Governor/IEEEG2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">IEEEG2 / GovSteam 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/1-SynchronousMachines/Governor/TGOV1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TGOV1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/1-SynchronousMachines/Governor/GovHydro4/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GovHydro4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/1-SynchronousMachines/Governor/TGOV3/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TGOV3</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../models/1-SynchronousMachines/Governor/HYGOV/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">HYGOV</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/1-SynchronousMachines/Governor/GovCT2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GovCT2 / GGOV2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -564,32 +590,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/Governor/TGOV1/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TGOV1</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/Governor/IEEEG2/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">IEEEG2 / GovSteam 2</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/Governor/GovHydro4/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GovHydro4</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/Governor/GovCT2/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GovCT2 / GGOV2</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/Governor/TGOV3/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TGOV3</span></a>
+  <a href="../../models/1-SynchronousMachines/Governor/GovSteamEU/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GovSteamEU</span></a>
   </div>
 </li>
       </ul>
@@ -611,12 +613,6 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS6C/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PSS6C</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS2C/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PSS2C</span></a>
   </div>
@@ -625,6 +621,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS3C/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PSS3C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS6C/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PSS6C</span></a>
   </div>
 </li>
       </ul>
@@ -642,6 +644,12 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../models/2-Loads/ZIPLoad/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ZIP Load Model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../models/2-Loads/FDLoad/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Frequency Dependent Load Model</span></a>
   </div>
@@ -650,12 +658,6 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../models/2-Loads/ExpLoad/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exponential Load Model</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/2-Loads/ZIPLoad/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ZIP Load Model</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
@@ -700,14 +702,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/3-CompensationAndFACTS/StaticCompensator/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Static Compensator model</span></a>
+  <a href="../../models/3-CompensationAndFACTS/STATCOM/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EMT STATCOM (Grid Following mode)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/3-CompensationAndFACTS/STATCOM/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EMT STATCOM (Grid Following mode)</span></a>
+  <a href="../../models/3-CompensationAndFACTS/StaticCompensator/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Static Compensator model</span></a>
   </div>
 </li>
       </ul>
@@ -738,8 +740,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../models/4-HVDC/VSC/Point-to-Point-HVDC/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Point-to-Point HVDC</span></a>
+            <a href="../../models/4-HVDC/VSC/GridFollowingConverter/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Grid following converter (GFL)</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -747,77 +749,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth4 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/4-HVDC/VSC/Point-to-Point-HVDC/RTE-RMS-Average-HVDC/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">RTE Average phasor voltage source converter HVDC Model</span></a>
+  <a href="../../models/4-HVDC/VSC/GridFollowingConverter/L2EP-RMS-GFL-VSC/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L2EP generic RMS grid following voltage source converter</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/4-HVDC/VSC/Point-to-Point-HVDC/UPC-EMT-HVDC/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">UPC generic EMT Point-to-Point HVDC model</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../models/4-HVDC/VSC/GridFormingConverter/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Grid forming converter (GFM)</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth4 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/4-HVDC/VSC/GridFormingConverter/UPC-RMS-GFM-VSC/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Generic Phasor Grid Forming Voltage Source Converter</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/4-HVDC/VSC/GridFormingConverter/EPRI-GFM-Converter/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">EPRI Grid Forming</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/4-HVDC/VSC/GridFormingConverter/UPC-EMT-GFM-VSC/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Generic EMT Grid Forming Voltage Source Converter</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../models/4-HVDC/VSC/GridFollowingConverter/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Grid following converter (GFL)</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth4 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../models/4-HVDC/VSC/GridFollowingConverter/UPC-EMT-GFL-VSC/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">UPC generic EMT Grid Following Voltage Source Converter</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/4-HVDC/VSC/GridFollowingConverter/L2EP-RMS-GFL-VSC/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">L2EP generic RMS grid following voltage source converter</span></a>
-  </div>
-</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Full-Phasor Grid Following Voltage Source Converter</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth5 ">  
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth5 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../models/4-HVDC/VSC/GridFollowingConverter/UPC-RMS-GFL-VSC/PhasorI1/index.html" class="sidebar-item-text sidebar-link">
@@ -838,6 +788,58 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../models/4-HVDC/VSC/GridFormingConverter/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Grid forming converter (GFM)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/4-HVDC/VSC/GridFormingConverter/EPRI-GFM-Converter/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">EPRI Grid Forming</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/4-HVDC/VSC/GridFormingConverter/UPC-RMS-GFM-VSC/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Generic Phasor Grid Forming Voltage Source Converter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/4-HVDC/VSC/GridFormingConverter/UPC-EMT-GFM-VSC/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Generic EMT Grid Forming Voltage Source Converter</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../models/4-HVDC/VSC/Point-to-Point-HVDC/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Point-to-Point HVDC</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/4-HVDC/VSC/Point-to-Point-HVDC/UPC-EMT-HVDC/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">UPC generic EMT Point-to-Point HVDC model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/4-HVDC/VSC/Point-to-Point-HVDC/RTE-RMS-Average-HVDC/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RTE Average phasor voltage source converter HVDC Model</span></a>
+  </div>
+</li>
       </ul>
   </li>
       </ul>
@@ -912,13 +914,30 @@ window.Quarto = {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../models/6-NetworkComponents/Line/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lines</span></a>
+            <a href="../../models/6-NetworkComponents/Transformers/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transformers</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/6-NetworkComponents/Transformers/CantileverTransformer/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cantilever Transformer Model</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../models/6-NetworkComponents/Line/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lines</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../models/6-NetworkComponents/Line/FDLine/index.html" class="sidebar-item-text sidebar-link">
@@ -927,31 +946,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/6-NetworkComponents/Line/cpLine/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Constant parameters Line Model</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../models/6-NetworkComponents/Line/piLine/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pi-equivalent Line Model</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../../models/6-NetworkComponents/Transformers/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Transformers</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/6-NetworkComponents/Transformers/CantileverTransformer/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Cantilever Transformer Model</span></a>
+  <a href="../../models/6-NetworkComponents/Line/cpLine/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Constant parameters Line Model</span></a>
   </div>
 </li>
       </ul>
@@ -969,12 +971,6 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/7-Protection/MachineProtection/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Machine Protection</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../models/7-Protection/TransformerProtection/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Protection</span></a>
   </div>
@@ -989,6 +985,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../models/7-Protection/SystemIntegrityProtectionSchemes/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">System integrity protection schemes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/7-Protection/MachineProtection/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Machine Protection</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
@@ -1036,56 +1038,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-26" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/8-Others/BasicControlBlocks/limitedProportionalIntegralController/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Proportional integral (PI) controller with non-windup limit on the integral term</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/8-Others/BasicControlBlocks/limitedIntegrator/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Integrator control block with (positive) time constant T and non-windup limits on output</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/8-Others/BasicControlBlocks/switch/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Switch</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/8-Others/BasicControlBlocks/absoluteValue/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Absolute value of input</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Limiter control block with variable bounds</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/8-Others/BasicControlBlocks/limiter/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Limiter control block with constant bounds</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../models/8-Others/BasicControlBlocks/algebraicEquation/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Algebraic equation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/8-Others/BasicControlBlocks/integratorVariableLimits/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Integrator control block with (positive) time constant T and non-windup variable limits on output</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../models/8-Others/BasicControlBlocks/deadband/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Deadband control block</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1096,14 +1050,20 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/8-Others/BasicControlBlocks/2limitedProportionalIntegralController/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Proportional integral (PI) controller with non-windup limit on the integral term and limit on the proportional term</span></a>
+  <a href="../../models/8-Others/BasicControlBlocks/deadband/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Deadband control block</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/8-Others/BasicControlBlocks/hysteresis/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Hysteresis control block</span></a>
+  <a href="../../models/8-Others/BasicControlBlocks/limiter/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Limiter control block with constant bounds</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/8-Others/BasicControlBlocks/integratorVariableLimits/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integrator control block with (positive) time constant T and non-windup variable limits on output</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1114,14 +1074,56 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../models/8-Others/BasicControlBlocks/proportionalIntegralController/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Proportional integral (PI) controller</span></a>
+  <a href="../../models/8-Others/BasicControlBlocks/hysteresis/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hysteresis control block</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/8-Others/BasicControlBlocks/2limitedProportionalIntegralController/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Proportional integral (PI) controller with non-windup limit on the integral term and limit on the proportional term</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/8-Others/BasicControlBlocks/limitedProportionalIntegralController/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Proportional integral (PI) controller with non-windup limit on the integral term</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/8-Others/BasicControlBlocks/switch/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Switch</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/8-Others/BasicControlBlocks/limitedIntegrator/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integrator control block with (positive) time constant T and non-windup limits on output</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/8-Others/BasicControlBlocks/limiterVariableBounds/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Limiter control block with variable bounds</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../models/8-Others/BasicControlBlocks/integrator/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Integrator control block with a positive time constant T</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/8-Others/BasicControlBlocks/absoluteValue/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Absolute value of input</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../models/8-Others/BasicControlBlocks/proportionalIntegralController/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Proportional integral (PI) controller</span></a>
   </div>
 </li>
       </ul>
@@ -1194,7 +1196,7 @@ window.Quarto = {
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ0FDMUMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRUFDMUMlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996642" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="768">
+<div class="quarto-post image-right" data-index="0" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ0FDMUMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRUFDMUMlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169799" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="768">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC1C/index.html" class="no-external">AC1C</a>
@@ -1240,7 +1242,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ0FDNkMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRUFDNkMlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996650" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="713">
+<div class="quarto-post image-right" data-index="1" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ0FDNkMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRUFDNkMlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169806" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="713">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC6C/index.html" class="no-external">AC6C</a>
@@ -1286,7 +1288,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ0FDN0MlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRUFDN0MlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996651" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="852">
+<div class="quarto-post image-right" data-index="2" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ0FDN0MlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRUFDN0MlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169807" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="852">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC7C/index.html" class="no-external">AC7C</a>
@@ -1332,7 +1334,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ0FDOEMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRUFDOEMlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996652" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="829">
+<div class="quarto-post image-right" data-index="3" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ0FDOEMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRUFDOEMlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169808" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="829">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AC8C/index.html" class="no-external">AC8C</a>
@@ -1378,7 +1380,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyMHN1Ym1vZGVsJTJDQWNSb3RhdGluZ0V4Y2l0ZXIlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDSUVFRSUyQ2R5bmF3byUyQyUyMzEwNg==" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996653" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="404">
+<div class="quarto-post image-right" data-index="4" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyMHN1Ym1vZGVsJTJDQWNSb3RhdGluZ0V4Y2l0ZXIlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDSUVFRSUyQ2R5bmF3byUyQyUyMzEwNg==" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169809" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="404">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/AcRotatingExciter/index.html" class="no-external">AcRotatingExciter (submodel)</a>
@@ -1422,7 +1424,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ0JCU0VYMSUyQ2dlbmVyaWMlMkNPcGVuc291cmNlJTJDQ0lNJTIwbW9kZWwlMkNSTVMlMkNwaGFzb3IlMkNNUkw0JTJDU2luZ2xlJTIwcGhhc2UlMkNFeGNCQkMlMkNJRUMlMkNkeW5hd28lMkMlMjMxMDY=" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996654" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="307">
+<div class="quarto-post image-right" data-index="5" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ0JCU0VYMSUyQ2dlbmVyaWMlMkNPcGVuc291cmNlJTJDQ0lNJTIwbW9kZWwlMkNSTVMlMkNwaGFzb3IlMkNNUkw0JTJDU2luZ2xlJTIwcGhhc2UlMkNFeGNCQkMlMkNJRUMlMkNkeW5hd28lMkMlMjMxMDY=" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169810" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="307">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/BBSEX1/index.html" class="no-external">BBSEX1</a>
@@ -1468,7 +1470,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ0RDMUMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRURDMUMlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996654" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="654">
+<div class="quarto-post image-right" data-index="6" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ0RDMUMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRURDMUMlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169810" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="654">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/DC1C/index.html" class="no-external">DC1C</a>
@@ -1514,7 +1516,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="R292ZXJub3IlMkNHQVNUJTJDZ2VuZXJpYyUyQ09wZW5zb3VyY2UlMkNDSU0lMjBtb2RlbCUyQ1JNUyUyQ3BoYXNvciUyQ01STDQlMkNTaW5nbGUlMjBwaGFzZSUyQ0dvdkdBU1QlMkNJRUMlMkNkeW5hd28lMkMlMjMxMDY=" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996713" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="371">
+<div class="quarto-post image-right" data-index="7" data-categories="R292ZXJub3IlMkNHQVNUJTJDZ2VuZXJpYyUyQ09wZW5zb3VyY2UlMkNDSU0lMjBtb2RlbCUyQ1JNUyUyQ3BoYXNvciUyQ01STDQlMkNTaW5nbGUlMjBwaGFzZSUyQ0dvdkdBU1QlMkNJRUMlMkNkeW5hd28lMkMlMjMxMDY=" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169868" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="371">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/Governor/GAST/index.html" class="no-external">GAST</a>
@@ -1560,7 +1562,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="JTIzMTk3JTJDU3luY2hyb25vdXMlMjBtYWNoaW5lJTJDUm90b3IlMkNTdGF0b3IlMkNQb3dlcldvcmxkJTJDT3BlbnNvdXJjZSUyQ0dFTlJPVSUyQ0dFTlNBTCUyQ0dFTlRQRiUyQ0dFTlRQSiUyQ0dFTlFFQyUyQ1NhdHVyYXRpb24=" data-listing-date-sort="1723075200000" data-listing-file-modified-sort="1757490996666" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1117">
+<div class="quarto-post image-right" data-index="8" data-categories="JTIzMTk3JTJDU3luY2hyb25vdXMlMjBtYWNoaW5lJTJDUm90b3IlMkNTdGF0b3IlMkNQb3dlcldvcmxkJTJDT3BlbnNvdXJjZSUyQ0dFTlJPVSUyQ0dFTlNBTCUyQ0dFTlRQRiUyQ0dFTlRQSiUyQ0dFTlFFQyUyQ1NhdHVyYXRpb24=" data-listing-date-sort="1723075200000" data-listing-file-modified-sort="1767893169822" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1117">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/Generator/GENQEC/index.html" class="no-external">GENQEC Synchronous Machine with Saturation</a>
@@ -1604,7 +1606,7 @@ Carlos Alegre (eRoots)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="JTIzMTEwJTJDU3luY2hyb25vdXMlMjBtYWNoaW5lJTJDUk1TJTJDRU1UJTJDUGhhc29yaWFsJTJDUm90b3IlMkNTdGF0b3IlMkNEeW5hd28lMkNPcGVuc291cmNlJTJDR0VOUk9VJTJDR0VOU0FM" data-listing-date-sort="1728000000000" data-listing-file-modified-sort="1757490996666" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1688">
+<div class="quarto-post image-right" data-index="9" data-categories="JTIzMTEwJTJDU3luY2hyb25vdXMlMjBtYWNoaW5lJTJDUk1TJTJDRU1UJTJDUGhhc29yaWFsJTJDUm90b3IlMkNTdGF0b3IlMkNEeW5hd28lMkNPcGVuc291cmNlJTJDR0VOUk9VJTJDR0VOU0FM" data-listing-date-sort="1728000000000" data-listing-file-modified-sort="1767893169822" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1688">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/Generator/GENSAL/index.html" class="no-external">GENROU/GENSAL Salient-pole/round-rotor synchronous machine without saturation</a>
@@ -1646,7 +1648,7 @@ Carlos Alegre (eRoots)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="JTIzMTk2JTJDU3luY2hyb25vdXMlMjBtYWNoaW5lJTJDUm90b3IlMkNTdGF0b3IlMkNQb3dlcldvcmxkJTJDT3BlbnNvdXJjZSUyQ0dFTlJPVSUyQ0dFTlNBTCUyQ0dFTlRQRiUyQ0dFTlRQSiUyQ1NhdHVyYXRpb24=" data-listing-date-sort="1715126400000" data-listing-file-modified-sort="1757490996667" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1635">
+<div class="quarto-post image-right" data-index="10" data-categories="JTIzMTk2JTJDU3luY2hyb25vdXMlMjBtYWNoaW5lJTJDUm90b3IlMkNTdGF0b3IlMkNQb3dlcldvcmxkJTJDT3BlbnNvdXJjZSUyQ0dFTlJPVSUyQ0dFTlNBTCUyQ0dFTlRQRiUyQ0dFTlRQSiUyQ1NhdHVyYXRpb24=" data-listing-date-sort="1715126400000" data-listing-file-modified-sort="1767893169823" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1635">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/Generator/GENTPJ/index.html" class="no-external">GENTPF/GENTPJ Synchronous Machine with Saturation</a>
@@ -1688,7 +1690,7 @@ Carlos Alegre (eRoots)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="cmVndWxhdGlvbnMlMkNnb3Zlcm5vciUyQ2NvbnRyb2xsZXIlMkNzeW5jaHJvbm91cyUyMG1hY2hpbmUlMkNPcGVuc291cmNlJTJDSUVDJTJDQ0lNRHluYW1pYyUyQ1JNUyUyQ21vZGVsaWNhJTJDZHluYXdvJTJDUk1TJTJDJTIzNTM=" data-listing-date-sort="1762214400000" data-listing-file-modified-sort="1757490996716" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="48" data-listing-word-count-sort="9517">
+<div class="quarto-post image-right" data-index="11" data-categories="cmVndWxhdGlvbnMlMkNnb3Zlcm5vciUyQ2NvbnRyb2xsZXIlMkNzeW5jaHJvbm91cyUyMG1hY2hpbmUlMkNPcGVuc291cmNlJTJDSUVDJTJDQ0lNRHluYW1pYyUyQ1JNUyUyQ21vZGVsaWNhJTJDZHluYXdvJTJDUk1TJTJDJTIzNTM=" data-listing-date-sort="1762214400000" data-listing-file-modified-sort="1767893169871" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="48" data-listing-word-count-sort="9517">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/Governor/GovCT2/index.html" class="no-external">GovCT2 / GGOV2</a>
@@ -1732,7 +1734,7 @@ Martin Franke (Fraunhofer IEE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="cmVndWxhdGlvbnMlMkNnb3Zlcm5vciUyQ2NvbnRyb2xsZXIlMkNzeW5jaHJvbm91cyUyMG1hY2hpbmUlMkNPcGVuc291cmNlJTJDSUVDJTJDQ0lNRHluYW1pYyUyQ1JNUyUyQ21vZGVsaWNhJTJDZHluYXdvJTJDUk1TJTJDJTIzNTQ=" data-listing-date-sort="1746748800000" data-listing-file-modified-sort="1757490996718" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="24" data-listing-word-count-sort="4624">
+<div class="quarto-post image-right" data-index="12" data-categories="cmVndWxhdGlvbnMlMkNnb3Zlcm5vciUyQ2NvbnRyb2xsZXIlMkNzeW5jaHJvbm91cyUyMG1hY2hpbmUlMkNPcGVuc291cmNlJTJDSUVDJTJDQ0lNRHluYW1pYyUyQ1JNUyUyQ21vZGVsaWNhJTJDZHluYXdvJTJDUk1TJTJDJTIzNTQ=" data-listing-date-sort="1746748800000" data-listing-file-modified-sort="1767893169874" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="24" data-listing-word-count-sort="4624">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/Governor/GovHydro4/index.html" class="no-external">GovHydro4</a>
@@ -1776,7 +1778,7 @@ Nils Wiese, Martin Franke, Saikrishna Vallabhaneni (Fraunhofer IEE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="cmVndWxhdGlvbnMlMkNnb3Zlcm5vciUyQ2NvbnRyb2xsZXIlMkNzeW5jaHJvbm91cyUyMG1hY2hpbmUlMkNPcGVuc291cmNlJTJDSUVDJTJDQ0lNRHluYW1pYyUyQ1JNUyUyQ21vZGVsaWNhJTJDZHluYXdvJTJDJTIzNTk=" data-listing-date-sort="1754438400000" data-listing-file-modified-sort="1757490996719" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="25" data-listing-word-count-sort="4859">
+<div class="quarto-post image-right" data-index="13" data-categories="cmVndWxhdGlvbnMlMkNnb3Zlcm5vciUyQ2NvbnRyb2xsZXIlMkNzeW5jaHJvbm91cyUyMG1hY2hpbmUlMkNPcGVuc291cmNlJTJDSUVDJTJDQ0lNRHluYW1pYyUyQ1JNUyUyQ21vZGVsaWNhJTJDZHluYXdvJTJDJTIzNTk=" data-listing-date-sort="1754438400000" data-listing-file-modified-sort="1767893169874" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="25" data-listing-word-count-sort="4859">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/Governor/GovSteamEU/index.html" class="no-external">GovSteamEU</a>
@@ -1818,7 +1820,7 @@ Martin Franke (Fraunhofer IEE), Saikrishna Vallabhaneni (Fraunhofer IEE), Nils W
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="R292ZXJub3IlMkNIWUdPViUyQ2dlbmVyaWMlMkNPcGVuc291cmNlJTJDZHluYXdvJTJDJTIzMTA2JTJDV0VIR09WJTJDV1BJREhZ" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996719" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="335">
+<div class="quarto-post image-right" data-index="14" data-categories="R292ZXJub3IlMkNIWUdPViUyQ2dlbmVyaWMlMkNPcGVuc291cmNlJTJDZHluYXdvJTJDJTIzMTA2JTJDV0VIR09WJTJDV1BJREhZ" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169875" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="335">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/Governor/HYGOV/index.html" class="no-external">HYGOV</a>
@@ -1854,7 +1856,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-categories="R292ZXJub3IlMkNJRUVFRzElMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDR292U3RlYW0xJTJDSUVDJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996721" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="533">
+<div class="quarto-post image-right" data-index="15" data-categories="R292ZXJub3IlMkNJRUVFRzElMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDR292U3RlYW0xJTJDSUVDJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169877" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="533">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/Governor/IEEEG1/index.html" class="no-external">IEEEG1 / GovSteam 1</a>
@@ -1900,7 +1902,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="R292ZXJub3IlMkNJRUVFRzIlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDR292SHlkcm9JRUVFMCUyQ0lFQyUyQ2R5bmF3byUyQyUyMzEwNg==" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996721" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="205">
+<div class="quarto-post image-right" data-index="16" data-categories="R292ZXJub3IlMkNJRUVFRzIlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDR292SHlkcm9JRUVFMCUyQ0lFQyUyQ2R5bmF3byUyQyUyMzEwNg==" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169877" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="205">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/Governor/IEEEG2/index.html" class="no-external">IEEEG2 / GovSteam 2</a>
@@ -1946,7 +1948,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="17" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ0lFRUVYMiUyQ2dlbmVyaWMlMkNPcGVuc291cmNlJTJDQ0lNJTIwbW9kZWwlMkNSTVMlMkNwaGFzb3IlMkNNUkw0JTJDU2luZ2xlJTIwcGhhc2UlMkNFeGNEQzJBJTJDSUVDJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996655" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="393">
+<div class="quarto-post image-right" data-index="17" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ0lFRUVYMiUyQ2dlbmVyaWMlMkNPcGVuc291cmNlJTJDQ0lNJTIwbW9kZWwlMkNSTVMlMkNwaGFzb3IlMkNNUkw0JTJDU2luZ2xlJTIwcGhhc2UlMkNFeGNEQzJBJTJDSUVDJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169811" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="393">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/IEEEX2/index.html" class="no-external">IEEEX2</a>
@@ -1992,7 +1994,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ0lFRVgyQSUyQ2dlbmVyaWM=" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996655" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="240">
+<div class="quarto-post image-right" data-index="18" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ0lFRVgyQSUyQ2dlbmVyaWM=" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169811" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="240">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/IEEX2A/index.html" class="no-external">IEEX2A</a>
@@ -2018,7 +2020,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="19" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ09FTDJDJTJDZ2VuZXJpYyUyQ09wZW5zb3VyY2UlMkNDSU0lMjBtb2RlbCUyQ1JNUyUyQ3BoYXNvciUyQ01STDQlMkNTaW5nbGUlMjBwaGFzZSUyQ0lFRUUlMkNkeW5hd28lMkMlMjMyMzY=" data-listing-date-sort="1723248000000" data-listing-file-modified-sort="1757490996728" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1045">
+<div class="quarto-post image-right" data-index="19" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ09FTDJDJTJDZ2VuZXJpYyUyQ09wZW5zb3VyY2UlMkNDSU0lMjBtb2RlbCUyQ1JNUyUyQ3BoYXNvciUyQ01STDQlMkNTaW5nbGUlMjBwaGFzZSUyQ0lFRUUlMkNkeW5hd28lMkMlMjMyMzY=" data-listing-date-sort="1723248000000" data-listing-file-modified-sort="1767893169883" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1045">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL2C/index.html" class="no-external">OEL2C</a>
@@ -2062,7 +2064,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="20" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ09FTDNDJTJDZ2VuZXJpYyUyQ09wZW5zb3VyY2UlMkNDSU0lMjBtb2RlbCUyQ1JNUyUyQ3BoYXNvciUyQ01STDQlMkNTaW5nbGUlMjBwaGFzZSUyQ0lFRUUlMkNkeW5hd28lMkMlMjMyMzY=" data-listing-date-sort="1723248000000" data-listing-file-modified-sort="1757490996731" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="329">
+<div class="quarto-post image-right" data-index="20" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ09FTDNDJTJDZ2VuZXJpYyUyQ09wZW5zb3VyY2UlMkNDSU0lMjBtb2RlbCUyQ1JNUyUyQ3BoYXNvciUyQ01STDQlMkNTaW5nbGUlMjBwaGFzZSUyQ0lFRUUlMkNkeW5hd28lMkMlMjMyMzY=" data-listing-date-sort="1723248000000" data-listing-file-modified-sort="1767893169886" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="329">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL3C/index.html" class="no-external">OEL3C</a>
@@ -2106,7 +2108,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="21" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ09FTDRDJTJDZ2VuZXJpYyUyQ09wZW5zb3VyY2UlMkNDSU0lMjBtb2RlbCUyQ1JNUyUyQ3BoYXNvciUyQ01STDQlMkNTaW5nbGUlMjBwaGFzZSUyQ0lFRUUlMkNkeW5hd28lMkMlMjMyMzY=" data-listing-date-sort="1723248000000" data-listing-file-modified-sort="1757490996731" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="263">
+<div class="quarto-post image-right" data-index="21" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ09FTDRDJTJDZ2VuZXJpYyUyQ09wZW5zb3VyY2UlMkNDSU0lMjBtb2RlbCUyQ1JNUyUyQ3BoYXNvciUyQ01STDQlMkNTaW5nbGUlMjBwaGFzZSUyQ0lFRUUlMkNkeW5hd28lMkMlMjMyMzY=" data-listing-date-sort="1723248000000" data-listing-file-modified-sort="1767893169887" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="263">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL4C/index.html" class="no-external">OEL4C</a>
@@ -2150,7 +2152,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="22" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ09FTDVDJTJDZ2VuZXJpYyUyQ09wZW5zb3VyY2UlMkNDSU0lMjBtb2RlbCUyQ1JNUyUyQ3BoYXNvciUyQ01STDQlMkNTaW5nbGUlMjBwaGFzZSUyQ0lFRUUlMkNkeW5hd28lMkMlMjMyMzY=" data-listing-date-sort="1723248000000" data-listing-file-modified-sort="1757490996732" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="707">
+<div class="quarto-post image-right" data-index="22" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ09FTDVDJTJDZ2VuZXJpYyUyQ09wZW5zb3VyY2UlMkNDSU0lMjBtb2RlbCUyQ1JNUyUyQ3BoYXNvciUyQ01STDQlMkNTaW5nbGUlMjBwaGFzZSUyQ0lFRUUlMkNkeW5hd28lMkMlMjMyMzY=" data-listing-date-sort="1723248000000" data-listing-file-modified-sort="1767893169887" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="707">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/OverUnderExcitationLimiter/OEL5C/index.html" class="no-external">OEL5C</a>
@@ -2194,7 +2196,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="23" data-categories="UG93ZXIlMjBzeXN0ZW0lMjBzdGFiaWxpemVyJTJDUFNTMUElMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDUHNzSUVFRTFBJTJDSUVFRSUyQ2R5bmF3byUyQyUyMzEwNg==" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996740" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="234">
+<div class="quarto-post image-right" data-index="23" data-categories="UG93ZXIlMjBzeXN0ZW0lMjBzdGFiaWxpemVyJTJDUFNTMUElMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDUHNzSUVFRTFBJTJDSUVFRSUyQ2R5bmF3byUyQyUyMzEwNg==" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169896" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="234">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS1A/index.html" class="no-external">PSS1A</a>
@@ -2240,7 +2242,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="24" data-categories="UG93ZXIlMjBzeXN0ZW0lMjBzdGFiaWxpemVyJTJDUFNTMkMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDUHNzSUVFRTJDJTJDSUVFRSUyQ2R5bmF3byUyQyUyMzEwNg==" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996743" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="483">
+<div class="quarto-post image-right" data-index="24" data-categories="UG93ZXIlMjBzeXN0ZW0lMjBzdGFiaWxpemVyJTJDUFNTMkMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDUHNzSUVFRTJDJTJDSUVFRSUyQ2R5bmF3byUyQyUyMzEwNg==" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169899" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="483">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS2C/index.html" class="no-external">PSS2C</a>
@@ -2286,7 +2288,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="25" data-categories="UG93ZXIlMjBzeXN0ZW0lMjBzdGFiaWxpemVyJTJDUFNTM0MlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDUHNzSUVFRTNDJTJDSUVFRSUyQ2R5bmF3byUyQyUyMzEwNg==" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996744" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="350">
+<div class="quarto-post image-right" data-index="25" data-categories="UG93ZXIlMjBzeXN0ZW0lMjBzdGFiaWxpemVyJTJDUFNTM0MlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDUHNzSUVFRTNDJTJDSUVFRSUyQ2R5bmF3byUyQyUyMzEwNg==" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169900" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="350">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS3C/index.html" class="no-external">PSS3C</a>
@@ -2332,7 +2334,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="26" data-categories="UG93ZXIlMjBzeXN0ZW0lMjBzdGFiaWxpemVyJTJDUFNTNkMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDUHNzSUVFRTZDJTJDSUVFRSUyQ2R5bmF3byUyQyUyMzEwNg==" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996744" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="399">
+<div class="quarto-post image-right" data-index="26" data-categories="UG93ZXIlMjBzeXN0ZW0lMjBzdGFiaWxpemVyJTJDUFNTNkMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDUHNzSUVFRTZDJTJDSUVFRSUyQ2R5bmF3byUyQyUyMzEwNg==" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169900" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="399">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/PowerSystemStabilizer/PSS6C/index.html" class="no-external">PSS6C</a>
@@ -2378,7 +2380,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="27" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1NDTDFDJTJDZ2VuZXJpYyUyQ09wZW5zb3VyY2UlMkNDSU0lMjBtb2RlbCUyQ1JNUyUyQ3BoYXNvciUyQ01STDQlMkNTaW5nbGUlMjBwaGFzZSUyQ0lFRUUlMkNkeW5hd28lMkMlMjMyMzY=" data-listing-date-sort="1723248000000" data-listing-file-modified-sort="1757490996734" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="705">
+<div class="quarto-post image-right" data-index="27" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1NDTDFDJTJDZ2VuZXJpYyUyQ09wZW5zb3VyY2UlMkNDSU0lMjBtb2RlbCUyQ1JNUyUyQ3BoYXNvciUyQ01STDQlMkNTaW5nbGUlMjBwaGFzZSUyQ0lFRUUlMkNkeW5hd28lMkMlMjMyMzY=" data-listing-date-sort="1723248000000" data-listing-file-modified-sort="1767893169890" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="705">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/OverUnderExcitationLimiter/SCL1C/index.html" class="no-external">SCL1C</a>
@@ -2422,7 +2424,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="28" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1NDTDJDJTJDZ2VuZXJpYyUyQ09wZW5zb3VyY2UlMkNDSU0lMjBtb2RlbCUyQ1JNUyUyQ3BoYXNvciUyQ01STDQlMkNTaW5nbGUlMjBwaGFzZSUyQ0lFRUUlMkNkeW5hd28lMkMlMjMyMzY=" data-listing-date-sort="1723248000000" data-listing-file-modified-sort="1757490996736" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1831">
+<div class="quarto-post image-right" data-index="28" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1NDTDJDJTJDZ2VuZXJpYyUyQ09wZW5zb3VyY2UlMkNDSU0lMjBtb2RlbCUyQ1JNUyUyQ3BoYXNvciUyQ01STDQlMkNTaW5nbGUlMjBwaGFzZSUyQ0lFRUUlMkNkeW5hd28lMkMlMjMyMzY=" data-listing-date-sort="1723248000000" data-listing-file-modified-sort="1767893169891" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1831">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/OverUnderExcitationLimiter/SCL2C/index.html" class="no-external">SCL2C</a>
@@ -2466,7 +2468,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="29" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1NDUlglMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjU0NSWCUyQ0lFQyUyQ2R5bmF3byUyQyUyMzEwNg==" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996656" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="281">
+<div class="quarto-post image-right" data-index="29" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1NDUlglMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjU0NSWCUyQ0lFQyUyQ2R5bmF3byUyQyUyMzEwNg==" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169813" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="281">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/SCRX/index.html" class="no-external">SCRX</a>
@@ -2512,7 +2514,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="30" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1NUMUMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRVNUMUMlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996658" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="497">
+<div class="quarto-post image-right" data-index="30" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1NUMUMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRVNUMUMlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169814" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="497">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST1C/index.html" class="no-external">ST1C</a>
@@ -2558,7 +2560,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="31" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1NUNEMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRVNUNEMlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996659" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="642">
+<div class="quarto-post image-right" data-index="31" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1NUNEMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRVNUNEMlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169815" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="642">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST4C/index.html" class="no-external">ST4C</a>
@@ -2604,7 +2606,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="32" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1NUNUMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRVNUNUMlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996661" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="457">
+<div class="quarto-post image-right" data-index="32" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1NUNUMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRVNUNUMlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169817" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="457">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST5C/index.html" class="no-external">ST5C</a>
@@ -2650,7 +2652,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="33" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1NUNkMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRVNUNkMlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996662" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="615">
+<div class="quarto-post image-right" data-index="33" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1NUNkMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRVNUNkMlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169818" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="615">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST6C/index.html" class="no-external">ST6C</a>
@@ -2696,7 +2698,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="34" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1NUN0MlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRVNUN0MlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996663" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="413">
+<div class="quarto-post image-right" data-index="34" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1NUN0MlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRVNUN0MlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169819" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="413">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST7C/index.html" class="no-external">ST7C</a>
@@ -2742,7 +2744,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="35" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1NUOUMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRVNUOUMlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996664" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="463">
+<div class="quarto-post image-right" data-index="35" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1NUOUMlMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDRXhjSUVFRVNUOUMlMkNJRUVFJTJDZHluYXdvJTJDJTIzMTA2" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169820" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="463">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/ExciterAndVoltageRegulator/ST9C/index.html" class="no-external">ST9C</a>
@@ -2788,7 +2790,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="36" data-categories="JTIzMTEwJTJDU3luY2hyb25vdXMlMjBtYWNoaW5lJTJDUk1TJTJDRU1UJTJDUGhhc29yJTJDUm90b3IlMkNTdGF0b3IlMkNEeW5hd28lMkNPcGVuc291cmNlJTJDR0VOUk9VJTJDR0VOU0FM" data-listing-date-sort="1728000000000" data-listing-file-modified-sort="1757490996711" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2501">
+<div class="quarto-post image-right" data-index="36" data-categories="JTIzMTEwJTJDU3luY2hyb25vdXMlMjBtYWNoaW5lJTJDUk1TJTJDRU1UJTJDUGhhc29yJTJDUm90b3IlMkNTdGF0b3IlMkNEeW5hd28lMkNPcGVuc291cmNlJTJDR0VOUk9VJTJDR0VOU0FM" data-listing-date-sort="1728000000000" data-listing-file-modified-sort="1767893169866" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2501">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/Generator/SM1/index.html" class="no-external">Synchronous Machine Model (SM1)</a>
@@ -2830,7 +2832,7 @@ Carlos Alegre (eRoots)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="37" data-categories="R292ZXJub3IlMkNUR09WMSUyQ2dlbmVyaWMlMkNPcGVuc291cmNlJTJDQ0lNJTIwbW9kZWwlMkNSTVMlMkNwaGFzb3IlMkNNUkw0JTJDU2luZ2xlJTIwcGhhc2UlMkNHb3ZTdGVhbTAlMkNJRUMlMkNkeW5hd28lMkMlMjMxMDY=" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996722" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="193">
+<div class="quarto-post image-right" data-index="37" data-categories="R292ZXJub3IlMkNUR09WMSUyQ2dlbmVyaWMlMkNPcGVuc291cmNlJTJDQ0lNJTIwbW9kZWwlMkNSTVMlMkNwaGFzb3IlMkNNUkw0JTJDU2luZ2xlJTIwcGhhc2UlMkNHb3ZTdGVhbTAlMkNJRUMlMkNkeW5hd28lMkMlMjMxMDY=" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169878" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="193">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/Governor/TGOV1/index.html" class="no-external">TGOV1</a>
@@ -2876,7 +2878,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="38" data-categories="R292ZXJub3IlMkNUR09WMyUyQ2dlbmVyaWMlMkNPcGVuc291cmNlJTJDQ0lNJTIwbW9kZWwlMkNSTVMlMkNwaGFzb3IlMkNNUkw0JTJDU2luZ2xlJTIwcGhhc2UlMkNHb3ZTdGVhbUZWMyUyQ0lFQyUyQ2R5bmF3byUyQyUyMzEwNg==" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1757490996722" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="296">
+<div class="quarto-post image-right" data-index="38" data-categories="R292ZXJub3IlMkNUR09WMyUyQ2dlbmVyaWMlMkNPcGVuc291cmNlJTJDQ0lNJTIwbW9kZWwlMkNSTVMlMkNwaGFzb3IlMkNNUkw0JTJDU2luZ2xlJTIwcGhhc2UlMkNHb3ZTdGVhbUZWMyUyQ0lFQyUyQ2R5bmF3byUyQyUyMzEwNg==" data-listing-date-sort="1714780800000" data-listing-file-modified-sort="1767893169878" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="296">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/Governor/TGOV3/index.html" class="no-external">TGOV3</a>
@@ -2922,7 +2924,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="39" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1VFTDElMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDSUVFRSUyQ2R5bmF3byUyQyUyMzIzNg==" data-listing-date-sort="1723248000000" data-listing-file-modified-sort="1757490996737" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="365">
+<div class="quarto-post image-right" data-index="39" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1VFTDElMkNnZW5lcmljJTJDT3BlbnNvdXJjZSUyQ0NJTSUyMG1vZGVsJTJDUk1TJTJDcGhhc29yJTJDTVJMNCUyQ1NpbmdsZSUyMHBoYXNlJTJDSUVFRSUyQ2R5bmF3byUyQyUyMzIzNg==" data-listing-date-sort="1723248000000" data-listing-file-modified-sort="1767893169893" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="365">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/OverUnderExcitationLimiter/UEL1/index.html" class="no-external">UEL1</a>
@@ -2966,7 +2968,7 @@ Erwan Guichard (DPS for RTE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="40" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1VFTDJDJTJDZ2VuZXJpYyUyQ09wZW5zb3VyY2UlMkNDSU0lMjBtb2RlbCUyQ1JNUyUyQ3BoYXNvciUyQ01STDQlMkNTaW5nbGUlMjBwaGFzZSUyQ0lFRUUlMkNkeW5hd28lMkMlMjMyMzY=" data-listing-date-sort="1723248000000" data-listing-file-modified-sort="1757490996740" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="633">
+<div class="quarto-post image-right" data-index="40" data-categories="Vm9sdGFnZSUyMHJlZ3VsYXRvciUyQ1VFTDJDJTJDZ2VuZXJpYyUyQ09wZW5zb3VyY2UlMkNDSU0lMjBtb2RlbCUyQ1JNUyUyQ3BoYXNvciUyQ01STDQlMkNTaW5nbGUlMjBwaGFzZSUyQ0lFRUUlMkNkeW5hd28lMkMlMjMyMzY=" data-listing-date-sort="1723248000000" data-listing-file-modified-sort="1767893169895" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="633">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../../models/1-SynchronousMachines/OverUnderExcitationLimiter/UEL2C/index.html" class="no-external">UEL2C</a>
@@ -3075,13 +3077,14 @@ Erwan Guichard (DPS for RTE)
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -34,14 +34,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-54f5d7367d7744bb0b9428e446a27f70.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-34c23ca681d95d42860aad17c3a9a816.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -113,7 +114,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -140,7 +141,8 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../assets/img/Logo_colib.svg" alt="" class="navbar-logo">
+    <img src="../assets/img/Logo_colib.svg" alt="" class="navbar-logo light-content">
+    <img src="../assets/img/Logo_colib.svg" alt="" class="navbar-logo dark-content">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -332,8 +334,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../testCases/converterDrivenStability/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Converter driven stability</span></a>
+            <a href="../testCases/System_frequency_response_model_with_underfrequency_load_shedding_protection/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">System frequency response model with underfrequency load shedding protection</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -341,16 +343,16 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../testCases/converterDrivenStability/4VSCSystem/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Four VSC benchmark system</span></a>
+  <a href="../testCases/System_frequency_response_model_with_underfrequency_load_shedding_protection/SFRM_with_UFLS/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Underfrequency load shedding protection</span></a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../testCases/System_frequency_response_model_with_underfrequency_load_shedding_protection/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">System frequency response model with underfrequency load shedding protection</span></a>
+            <a href="../testCases/converterDrivenStability/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Converter driven stability</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -358,8 +360,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../testCases/System_frequency_response_model_with_underfrequency_load_shedding_protection/SFRM_with_UFLS/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Underfrequency load shedding protection</span></a>
+  <a href="../testCases/converterDrivenStability/4VSCSystem/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Four VSC benchmark system</span></a>
   </div>
 </li>
       </ul>
@@ -431,7 +433,7 @@ window.Quarto = {
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="b3BlbnNvdXJjZSUyQ3NtYWxsJTJDVENSTDIlMkNjb252ZXJ0ZXIlMjBkcml2ZW4lMjBzdGFiaWxpdHklMkNIVkRDJTJDY2FibGUlMkNXVEclMkNFTVRQJTJDU1RFUFNTJTJDZHluYXdv" data-listing-date-sort="1706745600000" data-listing-file-modified-sort="1757490996835" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1934">
+<div class="quarto-post image-right" data-index="0" data-categories="b3BlbnNvdXJjZSUyQ3NtYWxsJTJDVENSTDIlMkNjb252ZXJ0ZXIlMjBkcml2ZW4lMjBzdGFiaWxpdHklMkNIVkRDJTJDY2FibGUlMkNXVEclMkNFTVRQJTJDU1RFUFNTJTJDZHluYXdv" data-listing-date-sort="1706745600000" data-listing-file-modified-sort="1767893169992" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1934">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../testCases/converterDrivenStability/4VSCSystem/index.html" class="no-external">Four VSC benchmark system</a>
@@ -471,7 +473,7 @@ Thierry Van Cutsem
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="REMlMkNHcmlkJTIwRm9sbG93aW5nJTJDR3JpZCUyMEZvcm1pbmclMkNPcGVuU291cmNlJTJDTWF0bGFiJTJDVlNDJTJDc21hbGw=" data-listing-date-sort="1765324800000" data-listing-file-modified-sort="1757490996821" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="969">
+<div class="quarto-post image-right" data-index="1" data-categories="REMlMkNHcmlkJTIwRm9sbG93aW5nJTJDR3JpZCUyMEZvcm1pbmclMkNPcGVuU291cmNlJTJDTWF0bGFiJTJDVlNDJTJDc21hbGw=" data-listing-date-sort="1765324800000" data-listing-file-modified-sort="1767893169978" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="969">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../testCases/GridFollowing_GridForming_DClink/index.html" class="no-external">Grid Following - Grid Forming DC link</a>
@@ -505,7 +507,7 @@ Carlos Alegre (eRoots)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="T3BlbnNvdXJjZSUyQ3NtYWxsJTJDVENSTDMlMkMlMjM2MCUyQ3JtcyUyQ2R5bmF3byUyQ2ZyZXF1ZW5jeSUyQ09wZW5Nb2RlbGljYSUyQ01vZGVsaWNh" data-listing-date-sort="1738972800000" data-listing-file-modified-sort="1757490996838" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2070">
+<div class="quarto-post image-right" data-index="2" data-categories="T3BlbnNvdXJjZSUyQ3NtYWxsJTJDVENSTDMlMkMlMjM2MCUyQ3JtcyUyQ2R5bmF3byUyQ2ZyZXF1ZW5jeSUyQ09wZW5Nb2RlbGljYSUyQ01vZGVsaWNh" data-listing-date-sort="1738972800000" data-listing-file-modified-sort="1767893169995" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2070">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../testCases/kundur_two_area_system/index.html" class="no-external">Kundur two-area system</a>
@@ -543,7 +545,7 @@ Martin Franke (Fraunhofer IEE)
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="b3BlbnNvdXJjZSUyQ1N5c3RlbSUyMGZyZXF1ZW5jeSUyMHJlc3BvbnNlJTIwbW9kZWwlMkNjZW50cmUlMjBvZiUyMGluZXJ0aWElMkN1bmRlcmZyZXF1ZW5jeSUyMGxvYWQlMjBzaGVkZGluZyUyQ2xvdyUyMGZyZXF1ZW5jeSUyMGRlbWFuZCUyMGRpc2Nvbm5lY3Rpb24lMkNQeXRob24lMkNNYXRsYWIlMkNTaW11bGluayUyQyUyMzE1NA==" data-listing-date-sort="1709683200000" data-listing-file-modified-sort="1757490996824" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="643">
+<div class="quarto-post image-right" data-index="3" data-categories="b3BlbnNvdXJjZSUyQ1N5c3RlbSUyMGZyZXF1ZW5jeSUyMHJlc3BvbnNlJTIwbW9kZWwlMkNjZW50cmUlMjBvZiUyMGluZXJ0aWElMkN1bmRlcmZyZXF1ZW5jeSUyMGxvYWQlMjBzaGVkZGluZyUyQ2xvdyUyMGZyZXF1ZW5jeSUyMGRlbWFuZCUyMGRpc2Nvbm5lY3Rpb24lMkNQeXRob24lMkNNYXRsYWIlMkNTaW11bGluayUyQyUyMzE1NA==" data-listing-date-sort="1709683200000" data-listing-file-modified-sort="1767893169981" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="643">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="../testCases/System_frequency_response_model_with_underfrequency_load_shedding_protection/SFRM_with_UFLS/index.html" class="no-external">Underfrequency load shedding protection</a>
@@ -643,13 +645,14 @@ Urban Rudez
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
