@@ -22,14 +22,6 @@ They both face the need for a **collaborative shared dynamic simulation library*
 Each model or test case is formally described in a dedicated post (like a wikipedia webpage), with links to known existing implementations.
 Some of the models and test cases directly come from CRESYM projects outputs, others are originated from external royalty-free projects. 
 
-## Creative Commons Attribution 4.0 International Public License
 
-Whether you are operators, researchers, managerial staff, engineers, developers, or just a power system fan inside or outside CRESYM, you can:
- - copy, distribute and communicate the material by any means and in any format
- - remix, transform and create from the material
-
-under the following conditions : 
- - you must **credit the work, include a link to the license, and indicate if any modifications have been made to the work**. You must provide this information by all reasonable means, but do not suggest that the offeror endorses you or the way you have used their work.
-- You are **not authorized to make commercial use of this work**, all or part of the material composing it.
 
 
