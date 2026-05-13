@@ -1874,7 +1874,7 @@ P_{c,0} = P_{m,0} - \min\left(\max\left(K_{\omega,cor} \cdot 1, \omega_{min}\rig
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/CRESYM\.github\.io\/Colib_Quarto\.github\.io\/");
+        var filterRegex = new RegExp("https:\/\/colib\.net");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
