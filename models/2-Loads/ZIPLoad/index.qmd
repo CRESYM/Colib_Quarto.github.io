@@ -87,6 +87,7 @@ This model has been successfully implemented in :
 | Dynawo | [Link](https://github.com/dynawo/dynawo/blob/master/dynawo/sources/Models/Modelica/Dynawo/Electrical/Loads/LoadZIP.mo) | modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/)  | 29/05/2024 | No comment |
 | Andes | [Link](https://github.com/CURENT/andes/blob/master/andes/models/dynload/zip.py) | Python | [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)  | 29/05/2024 | No comment |
 |OpenIPSL | [Link](https://github.com/OpenIPSL/OpenIPSL/blob/master/OpenIPSL/Electrical/Loads/PSAT/ZIP.mo) | modelica | [BSD-3-clause](https://opensource.org/licenses/BSD-3-Clause)  | 29/05/2024 | No comment |
+| VeraGrid | [Link](https://github.com/SanPen/VeraGrid) | Python | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/) | 09/11/2026 | `src/VeraGridEngine/Templates/Rms/load_zip_template.py` |
 
 ## Table of references
 

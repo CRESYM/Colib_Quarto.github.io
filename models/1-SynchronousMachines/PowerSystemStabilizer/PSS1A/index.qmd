@@ -60,6 +60,7 @@ This model has been successfully implemented in :
 | Software      | URL | Language | Open-Source License | Last consulted date | Comments |
 | ------------- | --- | -------- | ------------------- | ------------------- | -------- |
 | Dynawo | [Link](https://github.com/dynawo/dynawo) | Modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/)  | 24/05/2024 |  |
+| VeraGrid | [Link](https://github.com/SanPen/VeraGrid) | Python | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/) | 09/11/2026 | `src/VeraGridEngine/Templates/Rms/international_standards/power_system_stabilizers/pss1a.py` |
 
 ## References
 ::: {#refs}
