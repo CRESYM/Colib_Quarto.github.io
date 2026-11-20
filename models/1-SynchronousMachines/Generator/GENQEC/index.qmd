@@ -182,7 +182,11 @@ The following figure shows the block diagram for this GENQEC model [[2]](#2):
 
 ## Open source implementations
 
-No open-source implementations were found.
+This model has been successfully implemented in:
+
+| Software | URL | Language | Open-Source License | Last consulted date | Comments |
+| --- | --- | --- | --- | --- | --- |
+| VeraGrid | [Link](https://github.com/SanPen/VeraGrid/blob/v6.8.4/src/VeraGridEngine/Templates/Rms/synchronous_machines/genqec_phasor_rms_template.py) | Python | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/) | 20/11/2026 | `src/VeraGridEngine/Templates/Rms/synchronous_machines/genqec_phasor_rms_template.py` |
 
 
 ## Table of references
