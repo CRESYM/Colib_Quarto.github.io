@@ -343,6 +343,6 @@ This model has been successfully implemented in :
 | Software               | URL                                        | Language | Open-Source License                                | Last consulted date | Comments                                                                                              |
 | ---------------------- | ------------------------------------------ | -------- | -------------------------------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------- |
 | Open Modelica / Dynawo | [Dynawo](https://github.com/dynawo/dynawo) | modelica | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/) | 16/07/2024          | For modeling assumptions and test results, see [Dynawo](https://github.com/dynawo/dynawo) repository. |
-| VeraGrid | [Link](https://github.com/SanPen/VeraGrid) | Python | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/) | 09/11/2026 | `src/VeraGridEngine/Templates/Rms/international_standards/governors/govsteameu.py` |
+| VeraGrid | [Link](https://github.com/SanPen/VeraGrid/blob/v6.8.4/src/VeraGridEngine/Templates/Rms/governors/govsteameu.py) | Python | [MPL v2.0](https://www.mozilla.org/en-US/MPL/2.0/) | 20/11/2026 | `src/VeraGridEngine/Templates/Rms/governors/govsteameu.py` |
 
 ## References 
